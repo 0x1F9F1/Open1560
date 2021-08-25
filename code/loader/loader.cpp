@@ -24,8 +24,6 @@
 #include "memory/allocator.h"
 #include "memory/valloc.h"
 
-#include "midtown.h"
-
 #include "symbols.h"
 
 #include <dinput.h>
@@ -165,9 +163,7 @@ static std::size_t InitExportHooks(HMODULE instance)
     return symbols.size();
 }
 
-#ifndef CI_BUILD_STRING
-#    define CI_BUILD_STRING "Dev"
-#endif
+extern const char* VERSION_STRING;
 
 BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 {
@@ -208,8 +204,6 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
         InitBaseSymbols();
 
         LogToFile("Open1560.log");
-
-        VERSION_STRING = const_cast<char*>("Open1560: " CI_BUILD_STRING " / " __DATE__ " " __TIME__);
 
         Displayf("Build: %s", VERSION_STRING);
         Displayf("Download updates at https://0x1f9f1.github.io/Open1560");

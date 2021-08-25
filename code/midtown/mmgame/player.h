@@ -65,6 +65,7 @@
 #include "arts7/node.h"
 
 #include "hud.h"
+#include "hudmap.h"
 #include "mmcar/car.h"
 
 class mmGame;
@@ -171,9 +172,14 @@ public:
         return GetCar().Model;
     }
 
-    mmHUD& GetHUD()
+    mmHUD& GetHud()
     {
         return mem::field<mmHUD>(this, 0x2348);
+    }
+
+    mmHudMap& GetHudMap()
+    {
+        return mem::field<mmHudMap>(this, 0x31DC);
     }
 
     u8 gap20[0x4A78];

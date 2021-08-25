@@ -50,7 +50,7 @@ void mmStatePack::SetDefaults()
     CurrentColor = 0;
     arts_strcpy(NetName, "loaf");
     TimeLimit = 0.0f;
-    GameState = 0;
+    GameState = mmGameState::Menus;
     DisableDamage = false;
     DisableAI = false;
     SuperCops = false;
@@ -109,7 +109,7 @@ bool mmStatePack::ParseStateArgs(i32 argc, char** argv)
             NoUI = true;
             no_ui = true;
             arts_strcpy(CarName, veh_name);
-            GameState = 1;
+            GameState = mmGameState::Drive;
         }
         else if (ARG("-keyboard"))
         {

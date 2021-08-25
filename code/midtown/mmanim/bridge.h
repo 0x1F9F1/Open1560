@@ -67,48 +67,6 @@
 class AudSound;
 class mmInstance;
 
-class mmBridgeMgr final : public asNode
-{
-public:
-    // ??0mmBridgeMgr@@QAE@XZ
-    ARTS_IMPORT mmBridgeMgr();
-
-    // ??_EmmBridgeMgr@@UAEPAXI@Z
-    // ??1mmBridgeMgr@@UAE@XZ
-    ARTS_IMPORT ~mmBridgeMgr() override;
-
-#ifdef ARTS_DEV_BUILD
-    // ?AddWidgets@mmBridgeMgr@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
-#endif
-
-    // ?Cull@mmBridgeMgr@@UAEXXZ
-    ARTS_IMPORT void Cull() override;
-
-    // ?GetClass@mmBridgeMgr@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT MetaClass* GetClass() override;
-
-    // ?Init@mmBridgeMgr@@QAEXPADPAVmmInstance@@PAPAV2@H@Z
-    ARTS_IMPORT void Init(char* arg1, mmInstance* arg2, mmInstance** arg3, i32 arg4);
-
-    // ?Save@mmBridgeMgr@@UAEXXZ
-    ARTS_IMPORT void Save() override;
-
-    // ?ToggleDrawLabels@mmBridgeMgr@@QAEXXZ
-    ARTS_IMPORT void ToggleDrawLabels();
-
-    // ?DeclareFields@mmBridgeMgr@@SAXXZ
-    ARTS_IMPORT static void DeclareFields();
-
-protected:
-    // ?Instance@mmBridgeMgr@@1PAV1@A
-    ARTS_IMPORT static mmBridgeMgr* Instance;
-
-    u8 gap20[0x2654];
-};
-
-check_size(mmBridgeMgr, 0x2674);
-
 class mmBridgeSet final : public asNode
 {
 public:
@@ -157,6 +115,8 @@ public:
     // ?DeclareFields@mmBridgeSet@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
+    offset_field(0x48, f32, TriggerTimeout);
+
 private:
     // ?CalculateAudioPanning@mmBridgeSet@@AAEXXZ
     ARTS_IMPORT void CalculateAudioPanning();
@@ -189,3 +149,67 @@ private:
 };
 
 check_size(mmBridgeSet, 0x438);
+
+class mmBridgeMgr final : public asNode
+{
+public:
+    // ??0mmBridgeMgr@@QAE@XZ
+    ARTS_IMPORT mmBridgeMgr();
+
+    // ??_EmmBridgeMgr@@UAEPAXI@Z
+    // ??1mmBridgeMgr@@UAE@XZ
+    ARTS_IMPORT ~mmBridgeMgr() override;
+
+#ifdef ARTS_DEV_BUILD
+    // ?AddWidgets@mmBridgeMgr@@UAEXPAVBank@@@Z
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
+#endif
+
+    // ?Cull@mmBridgeMgr@@UAEXXZ
+    ARTS_IMPORT void Cull() override;
+
+    // ?GetClass@mmBridgeMgr@@UAEPAVMetaClass@@XZ
+    ARTS_IMPORT MetaClass* GetClass() override;
+
+    // ?Init@mmBridgeMgr@@QAEXPADPAVmmInstance@@PAPAV2@H@Z
+    ARTS_IMPORT void Init(char* arg1, mmInstance* arg2, mmInstance** arg3, i32 arg4);
+
+    // ?Save@mmBridgeMgr@@UAEXXZ
+    ARTS_IMPORT void Save() override;
+
+    // ?ToggleDrawLabels@mmBridgeMgr@@QAEXXZ
+    ARTS_IMPORT void ToggleDrawLabels();
+
+    // ?DeclareFields@mmBridgeMgr@@SAXXZ
+    ARTS_IMPORT static void DeclareFields();
+
+    i32 DrawBridges;
+    i32 NumBridges;
+    mmBridgeSet Bridges[9];
+    f32 BridgeDelta;
+    f32 BridgeOffGoal;
+    f32 BridgeOnGoal;
+    f32 BridgeOnDelay;
+    f32 BridgeOffDelay;
+    f32 GateDelta;
+    f32 GateOffGoal;
+    f32 GateOnGoal;
+    f32 GateOnDelay;
+    f32 GateOffDelay;
+    mmInstance* Inst;
+    i32 field_264C[9];
+    i32 NumTrackedObjects;
+
+protected:
+    friend mmBridgeMgr* BridgeManager();
+
+    // ?Instance@mmBridgeMgr@@1PAV1@A
+    ARTS_IMPORT static mmBridgeMgr* Instance;
+};
+
+check_size(mmBridgeMgr, 0x2674);
+
+inline mmBridgeMgr* BridgeManager()
+{
+    return mmBridgeMgr::Instance;
+}

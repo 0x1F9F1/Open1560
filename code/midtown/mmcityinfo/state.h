@@ -80,6 +80,14 @@ enum class mmCRLimitMode : i32
     Points = 2,
 };
 
+// TODO: Pick a better name
+enum class mmGameState : i32
+{
+    Running = -1,
+    Menus = 0,
+    Drive = 1,
+};
+
 struct mmStatePack
 {
     i32 CurrentCar;
@@ -127,10 +135,7 @@ struct mmStatePack
     char NetName[80];
     f32 TimeLimit;
 
-    // -1 | Loading
-    //  0 | Menus
-    //  1 | Race
-    i32 GameState;
+    mmGameState GameState;
     b32 DisableDamage;
     b32 DisableAI;
     b32 SuperCops;

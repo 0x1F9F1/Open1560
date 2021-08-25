@@ -192,3 +192,6 @@ ARTS_IMPORT extern asCullManager* CULLMGR;
 
 // ?Update3D@@3MA
 ARTS_IMPORT extern f32 Update3D;
+
+// ?VERSION_STRING@@3PADA
+ARTS_IMPORT extern const char* VERSION_STRING;

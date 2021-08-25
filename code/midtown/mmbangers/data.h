@@ -56,6 +56,7 @@
 #include "arts7/node.h"
 
 #include "mmeffects/birth.h"
+#include "mmeffects/ptx.h"
 
 class mmBangerData final : public asNode
 {
@@ -140,7 +141,7 @@ public:
     ARTS_IMPORT ~mmBangerDataManager() override;
 
     // ?AddBangerDataEntry@mmBangerDataManager@@QAEHPAD0@Z
-    ARTS_IMPORT i32 AddBangerDataEntry(char* arg1, char* arg2);
+    ARTS_IMPORT i32 AddBangerDataEntry(char* banger, char* part);
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmBangerDataManager@@UAEXPAVBank@@@Z
@@ -153,6 +154,16 @@ public:
     // ?Save@mmBangerDataManager@@UAEXXZ
     ARTS_IMPORT void Save() override;
 
+    mmBangerData* GetBangerData(i32 index)
+    {
+        return (index != -1) ? &Bangers[index] : nullptr;
+    }
+
+    mmBangerData* GetBangerData(const char* banger, const char* part)
+    {
+        return GetBangerData(AddBangerDataEntry(const_cast<char*>(banger), const_cast<char*>(part)));
+    }
+
     // ?DeclareFields@mmBangerDataManager@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
@@ -163,13 +174,25 @@ public:
     ARTS_IMPORT static i32 SignalClock;
 
 protected:
+    friend mmBangerDataManager* BangerDataManager();
+
     // ?Instance@mmBangerDataManager@@1PAV1@A
     ARTS_IMPORT static mmBangerDataManager* Instance;
 
-    u8 gap20[0x268B0];
+    i32 NumEntries;
+    mmBangerData Bangers[512];
+    asParticles Particles;
+    agiTexDef* ParticleTextures[10];
+    Vector3 LaunchVelocity;
+    Vector3 LaunchAngularVelocity;
 };
 
 check_size(mmBangerDataManager, 0x268D0);
+
+inline mmBangerDataManager* BangerDataManager()
+{
+    return mmBangerDataManager::Instance;
+}
 
 // ?RefTo@@YAPAUMetaType@@PAU1@HPAF@Z | inline
 // ARTS_IMPORT MetaType* RefTo(MetaType* arg1, i32 arg2, i16* arg3);

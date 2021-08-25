@@ -189,6 +189,8 @@ public:
     // ?GetInstance@mmCullCity@@SAPAV1@XZ | inline
     ARTS_IMPORT static mmCullCity* GetInstance();
 
+    offset_field(0x34B30, f32, WeatherFriction);
+
     offset_field(0x34B48, agiTexDef*, ShadowMap);
     offset_field(0x34B50, Matrix34, EnvMatrix);
 

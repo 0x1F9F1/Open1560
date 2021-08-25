@@ -193,6 +193,11 @@ public:
         Gravity = gravity;
     }
 
+    f32 GetGravity() const
+    {
+        return Gravity;
+    }
+
 protected:
     // ?ClosestNeighboringCullRoom@mmPhysicsMGR@@IAEHH@Z
     ARTS_IMPORT i32 ClosestNeighboringCullRoom(i32 arg1);

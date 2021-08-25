@@ -126,7 +126,7 @@ public:
     ARTS_IMPORT virtual void DropThruCityHandler();
 
     // ?SendChatMessage@mmGame@@UAEXPAD@Z
-    ARTS_IMPORT virtual void SendChatMessage(char* arg1);
+    ARTS_EXPORT virtual void SendChatMessage(char* msg);
 
     virtual mmWaypoints* GetWaypoints() = 0;
 

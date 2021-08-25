@@ -148,6 +148,11 @@ public:
     // ?Update@mmHudMap@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
+    void ToggleShowAllCops()
+    {
+        ShowAllCops ^= true;
+    }
+
     // ?DeclareFields@mmHudMap@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
@@ -259,7 +264,7 @@ private:
         agiBitmap* Icon_Pink;
 
     asCamera* Camera;
-    i32 ShowAllCops;
+    b32 ShowAllCops;
     f32 dword2A4;
     f32 dword2A8;
     Callback* CullCallback;

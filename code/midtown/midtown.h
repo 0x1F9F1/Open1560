@@ -138,9 +138,6 @@ ARTS_IMPORT extern i32 SampleStats;
 // ?SystemStatsRecord@@3PAVmmGameRecord@@A
 ARTS_IMPORT extern mmGameRecord* SystemStatsRecord;
 
-// ?VERSION_STRING@@3PADA
-ARTS_IMPORT extern char* VERSION_STRING;
-
 extern const char* DEFAULT_CITY;
 
 // ?__VtPauseSampling@@3P6AHXZA

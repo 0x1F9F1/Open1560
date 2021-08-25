@@ -32,11 +32,14 @@ define_dummy_symbol(mmgame_game);
 #include "mmanim/AnimMgr.h"
 #include "mmaudio/manager.h"
 #include "mmaudio/mmvoicecommentary.h"
+#include "mmbangers/data.h"
+#include "mmcar/carsimcheap.h"
 #include "mmcity/cullcity.h"
 #include "mmcity/position.h"
 #include "mmcityinfo/state.h"
 #include "mminput/input.h"
 #include "mmnetwork/network.h"
+#include "mmphysics/phys.h"
 
 #include "gameman.h"
 #include "player.h"
@@ -82,25 +85,25 @@ void mmGame::UpdateDebugInput()
             switch (event.Key)
             {
                 case EQ_VK_1: {
-                    Player->GetHUD().SetMessage(GameInputPtr->ToggleFFEnabled(0) ? LOC_TEXT("ffFriction Enabled")
+                    Player->GetHud().SetMessage(GameInputPtr->ToggleFFEnabled(0) ? LOC_TEXT("ffFriction Enabled")
                                                                                  : LOC_TEXT("ffFriction Disabled"),
                         3.0f);
                     break;
                 }
                 case EQ_VK_2: {
-                    Player->GetHUD().SetMessage(GameInputPtr->ToggleFFEnabled(1) ? LOC_TEXT("ffCollide Enabled")
+                    Player->GetHud().SetMessage(GameInputPtr->ToggleFFEnabled(1) ? LOC_TEXT("ffCollide Enabled")
                                                                                  : LOC_TEXT("ffCollide Disabled"),
                         3.0f);
                     break;
                 }
                 case EQ_VK_3: {
-                    Player->GetHUD().SetMessage(
+                    Player->GetHud().SetMessage(
                         GameInputPtr->ToggleFFEnabled(2) ? LOC_TEXT("ffShake Enabled") : LOC_TEXT("ffShake Disabled"),
                         3.0f);
                     break;
                 }
                 case EQ_VK_4: {
-                    Player->GetHUD().SetMessage(
+                    Player->GetHud().SetMessage(
                         GameInputPtr->ToggleFFEnabled(3) ? LOC_TEXT("ffSpring Enabled") : LOC_TEXT("ffSpring Disabled"),
                         3.0f);
                     break;
@@ -174,7 +177,7 @@ void mmGame::UpdateDebugInput()
                 case EQ_VK_F: {
                     GameInputPtr->UseForceFeedback = !GameInputPtr->UseForceFeedback;
 
-                    Player->GetHUD().SetMessage(
+                    Player->GetHud().SetMessage(
                         GameInputPtr->UseForceFeedback ? LOC_TEXT("FF Enabled") : LOC_TEXT("FF Disabled"), 3.0f);
                     break;
                 }
@@ -213,7 +216,7 @@ void mmGame::UpdateDebugInput()
                         if (aiVehicleOpponent* opp = AIMAP.Opponent(target_opp))
                             Player->SetCamInterest(&opp->Car.Sim.ICS);
 
-                        Player->GetHUD().SetMessage(LOC_TEXT(arts_formatf<64>("Opponent #%d", target_opp)), 5.0f);
+                        Player->GetHud().SetMessage(LOC_TEXT(arts_formatf<64>("Opponent #%d", target_opp)), 5.0f);
 
                         MMSTATE.ChaseOpponents = false;
                         ++target_opp;
@@ -227,7 +230,7 @@ void mmGame::UpdateDebugInput()
                 case EQ_VK_Q: {
                     masscycle = (masscycle + 1) % 3;
                     Player->GetCarSim().ICS.Mass = defmass - masscycle * -500.0f;
-                    Player->GetHUD().SetMessage(
+                    Player->GetHud().SetMessage(
                         LOC_TEXT(arts_formatf<64>("Mass=%f", Player->GetCarSim().ICS.Mass)), 3.0f);
                     break;
                 }
@@ -274,7 +277,7 @@ void mmGame::UpdateDebugInput()
         }
         else
 #endif
-        if (!(event.Modifiers & EQ_KMOD_SHIFT))
+            if (!(event.Modifiers & EQ_KMOD_SHIFT))
         {
             switch (event.Key)
             {
@@ -287,7 +290,7 @@ void mmGame::UpdateDebugInput()
                 }
 #ifdef ARTS_DEV_BUILD
                 case EQ_VK_P: {
-                    Player->GetHUD().TogglePositionDisplay(-1);
+                    Player->GetHud().TogglePositionDisplay(-1);
                     break;
                 }
 #endif
@@ -365,6 +368,111 @@ void mmGame::UpdatePaused()
 b32 mmGame::IsPopupEnabled()
 {
     return Popup->IsEnabled();
+}
+
+void mmGame::SendChatMessage(char* msg)
+{
+    if (*msg != '/')
+        return;
+
+#define X(NAME) !std::strncmp(msg + 1, NAME, std::strlen(NAME))
+
+    if (X("big"))
+    {
+        BoneScale = 5.0f;
+    }
+    else if (X("tiny"))
+    {
+        BoneScale = 0.2f;
+    }
+    else if (X("swap"))
+    {
+        AnimMgr->AirlinerSwap();
+    }
+    else if (X("ufo"))
+    {
+        AnimMgr->UFOSwap();
+    }
+    else if (X("posta" /*l*/))
+    {
+        CHEATING = true;
+
+        // FIXME: Reset this during mmGame destructor
+        BangerProjectile = BangerDataManager()->GetBangerData(const_cast<char*>("tpmail"), nullptr);
+        ProjectileV = Vector3(0.0f, 5.0f, -30.0f);
+    }
+    else if (X("slid" /*"e"*/))
+    {
+        CHEATING = true;
+
+        EggFriction = (EggFriction == 0.0f) ? 1.0f : 0.0f;
+    }
+    else if (X("grav" /*ity*/))
+    {
+        CHEATING = true;
+
+        PHYS.SetGravity((PHYS.GetGravity() == -19.8f) ? -9.8f : -19.8f);
+    }
+    else if (X("bridg" /*e*/))
+    {
+        CHEATING = true;
+
+        if (mmBridgeMgr* manager = BridgeManager())
+        {
+            manager->BridgeDelta = 2.0f;
+            manager->BridgeOnGoal = ARTS_PI / 4;
+
+            for (i32 i = 0; i < manager->NumBridges; ++i)
+                manager->Bridges[i].TriggerTimeout = 20.0f;
+        }
+    }
+    else if (X("puck"))
+    {
+        CHEATING = true;
+
+        CullCity()->WeatherFriction = 0.0f;
+    }
+    else if (X("noda" /*mage*/))
+    {
+        CHEATING = true;
+
+        Player->GetCarSim().EnableDamage = false;
+    }
+    else if (X("dama" /*ge*/))
+    {
+        Player->GetCarSim().EnableDamage = true;
+    }
+    else if (X("ver" /*sion*/))
+    {
+        Player->GetHud().PostChatMessage(const_cast<char*>(VERSION_STRING));
+    }
+    else if (X("talkfast"))
+    {
+        if (mmVoiceCommentary* commentary = AUDMGRPTR->GetVoiceCommentaryPtr())
+            commentary->SetFrequency(1.5f);
+    }
+    else if (X("talkslow"))
+    {
+        if (mmVoiceCommentary* commentary = AUDMGRPTR->GetVoiceCommentaryPtr())
+            commentary->SetFrequency(0.75f);
+    }
+    else if (X("fuzz"))
+    {
+        CHEATING = true;
+
+        Player->GetHudMap().ToggleShowAllCops();
+    }
+    else if (X("gridlock"))
+    {
+        CHEATING = true;
+
+        MMSTATE.AmbientCount = 2000;
+        MMSTATE.AmbientDensity = 3.0f;
+        MMSTATE.PedDensity = 2.0f;
+        MMSTATE.GameState = mmGameState::Drive;
+    }
+
+#undef X
 }
 
 run_once([] {

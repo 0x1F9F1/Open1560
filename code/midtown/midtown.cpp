@@ -76,12 +76,17 @@ define_dummy_symbol(midtown);
 #    include "agigl/glpipe.h"
 #endif
 
+#ifndef CI_BUILD_STRING
+#    define CI_BUILD_STRING "Dev"
+#endif
+
+const char* VERSION_STRING = "Open1560: " CI_BUILD_STRING " / " __DATE__ " " __TIME__;
 const char* DEFAULT_CITY = "chicago";
 
 // ?GameCloseCallback@@YAXXZ
 ARTS_EXPORT /*static*/ void GameCloseCallback()
 {
-    MMSTATE.GameState = 0;
+    MMSTATE.GameState = mmGameState::Menus;
     MMSTATE.Shutdown = true;
 }
 
@@ -267,11 +272,11 @@ static void MainPhase(i32 argc, char** argv)
             ShutdownPipeline();
             DeallocateEventQueue();
 
-            if (!MMSTATE.GameState)
+            if (MMSTATE.GameState == mmGameState::Menus)
                 Quitf("Can't start UI, this should never happen.");
 
             MessageBoxA(NULL, LOC_STR(MM_IDS_LOW_VRAM), APPTITLE, MB_ICONERROR);
-            MMSTATE.GameState = 0;
+            MMSTATE.GameState = mmGameState::Menus;
             return;
         }
     }
@@ -317,7 +322,7 @@ static void MainPhase(i32 argc, char** argv)
 
         if (page_override == -1)
         {
-            if (MMSTATE.GameState)
+            if (MMSTATE.GameState != mmGameState::Menus)
                 EnablePaging = MMSTATE.EnablePaging ? (ARTS_PAGE_TEXTURES | ARTS_PAGE_GEOMETRY) : 0;
             else
                 EnablePaging = ARTS_PAGE_TEXTURES;
@@ -343,7 +348,7 @@ static void MainPhase(i32 argc, char** argv)
 
         switch (MMSTATE.GameState)
         {
-            case 0: {
+            case mmGameState::Menus: {
                 loader.Init(const_cast<char*>("title_screen"), 0.0f, 0.0f);
 
                 if (GraphicsChange)
@@ -368,7 +373,7 @@ static void MainPhase(i32 argc, char** argv)
                 break;
             }
 
-            case 1: {
+            case mmGameState::Drive: {
                 if (GenerateLoadScreenName())
                     loader.Init(LoadScreen, 366.0f / 640.0f, 414.0f / 480.0f);
                 else
@@ -413,7 +418,7 @@ static void MainPhase(i32 argc, char** argv)
         loader.EndTask(0.0f);
     }
 
-    MMSTATE.GameState = -1;
+    MMSTATE.GameState = mmGameState::Running;
     MMSTATE.Shutdown = false;
 
     ALLOCATOR.SanityCheck();
@@ -684,7 +689,7 @@ Owner<agiPipeline> CreatePipeline(i32 argc, char** argv)
     {
         dxiShutdown();
 
-        if (MMSTATE.GameState)
+        if (MMSTATE.GameState != mmGameState::Menus)
         {
             dxiFlags = (dxiFlags & ~DXI_FLAG_SYSTEM_MEMORY) | DXI_FLAG_FULL_SCREEN | DXI_FLAG_DOUBLE_BUFFER;
             InitialCursorState = -1;
@@ -707,7 +712,7 @@ Owner<agiPipeline> CreatePipeline(i32 argc, char** argv)
 
     Ptr<agiPipeline> pipe;
 
-    if (MMSTATE.GameState)
+    if (MMSTATE.GameState != mmGameState::Menus)
     {
         i32 res_choice = info.ResChoice;
         bRenderToSystem = RenderToSystemMemory;
@@ -1035,7 +1040,7 @@ void GameLoop(mmInterface* mm_interface, mmGameManager* game_manager, char* repl
         // if (lock_alloc)
         //     ++ ALLOCATOR.LockCount;
 
-        while (MMSTATE.GameState == -1)
+        while (MMSTATE.GameState == mmGameState::Running)
         {
 #ifdef ARTS_DEV_BUILD
             if (CycleTest && ARTSPTR->GetElapsed() > CycleTime)
@@ -1055,14 +1060,14 @@ void GameLoop(mmInterface* mm_interface, mmGameManager* game_manager, char* repl
                     }
 
                     mm_interface->BeDone();
-                    MMSTATE.GameState = 1;
+                    MMSTATE.GameState = mmGameState::Drive;
                 }
                 else if (CycleState == 2)
                 {
                     static i32 CycleCount = 0;
 
                     game_manager->BeDone();
-                    MMSTATE.GameState = 0;
+                    MMSTATE.GameState = mmGameState::Menus;
                     Displayf(">>>>>>>>>>>>>>>>>>>CYCLETEST: CYCLE # %d", ++CycleCount);
                 }
             }
@@ -1070,7 +1075,7 @@ void GameLoop(mmInterface* mm_interface, mmGameManager* game_manager, char* repl
             if (SampleStats == 1 && game_manager)
             {
                 Vector4 pos;
-                game_manager->Game()->Player->GetHUD().GetPosHdg(pos);
+                game_manager->Game()->Player->GetHud().GetPosHdg(pos);
                 SystemStatsRecord->DoScan(pos);
             }
             else
