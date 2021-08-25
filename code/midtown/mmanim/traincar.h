@@ -38,7 +38,7 @@ class mmAnimTrainCar final : public mmMatrixInstance
 {
 public:
     // ??0mmAnimTrainCar@@QAE@XZ
-    ARTS_IMPORT mmAnimTrainCar();
+    ARTS_EXPORT mmAnimTrainCar();
 
     // ??_EmmAnimTrainCar@@UAEPAXI@Z
     // ??_GmmAnimTrainCar@@UAEPAXI@Z | unused

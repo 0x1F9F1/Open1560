@@ -19,3 +19,8 @@
 define_dummy_symbol(mmanim_traincar);
 
 #include "traincar.h"
+
+mmAnimTrainCar::mmAnimTrainCar()
+{
+    Flags &= ~INST_FLAG_COLLIDER;
+}
