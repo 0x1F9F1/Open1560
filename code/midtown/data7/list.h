@@ -53,11 +53,11 @@ public:
 private:
     struct Entry;
 
-    i32 size_ {0};
-    Entry* first_ {nullptr};
+    i32 size_ {};
+    Entry* first_ {};
 
     // See aiVehicle::Update
-    Entry* iter_current_ {nullptr};
+    Entry* iter_current_ {};
 };
 
 check_size(List, 0xC);

@@ -54,10 +54,10 @@ public:
     ARTS_IMPORT void Load(char* arg1);
 
     u32 Colors[256] {};
-    i32 field_400 {0}; // StartIndex ?
-    i32 field_404 {0}; // EndIndex ?
-    i32 ColorCount {0};
-    i32 ChangeCount {0};
+    i32 field_400 {}; // StartIndex ?
+    i32 field_404 {}; // EndIndex ?
+    i32 ColorCount {};
+    i32 ChangeCount {};
 };
 
 check_size(agiPalette, 0x410);

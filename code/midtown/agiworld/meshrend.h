@@ -173,10 +173,10 @@ public:
     // ?Init@agiMeshCardInfo@@QAEXHPAUagiMeshCardVertex@@HHH@Z
     ARTS_IMPORT void Init(i32 arg1, agiMeshCardVertex* arg2, i32 arg3, i32 arg4, i32 arg5);
 
-    u32 VertCount {0};
-    u32 PointCount {0};
-    Vector2* Vertices {nullptr};
-    Vector2* TexCoords {nullptr};
+    u32 VertCount {};
+    u32 PointCount {};
+    Vector2* Vertices {};
+    Vector2* TexCoords {};
 };
 
 check_size(agiMeshCardInfo, 0x10);

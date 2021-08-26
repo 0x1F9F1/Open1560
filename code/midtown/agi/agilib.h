@@ -165,5 +165,5 @@ private:
     Param* params_[agiLibMax] {};
     Def* defs_[agiLibMax] {};
     HashTable lookup_;
-    i32 count_ {0};
+    i32 count_ {};
 };

@@ -239,7 +239,7 @@ public:
     }
 
 private:
-    T* ptr_ {nullptr};
+    T* ptr_ {};
 };
 
 template <typename T, typename... Args>

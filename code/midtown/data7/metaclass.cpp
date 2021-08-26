@@ -30,10 +30,10 @@ define_dummy_symbol(data7_metaclass);
 #include <unordered_map>
 
 MetaClass* MetaClass::ClassIndex[MAX_CLASSES] {};
-i32 MetaClass::NextSerial {0};
+i32 MetaClass::NextSerial {};
 
-MetaClass* MetaClass::Current {nullptr};
-MetaField** MetaClass::ppField {nullptr};
+MetaClass* MetaClass::Current {};
+MetaField** MetaClass::ppField {};
 
 MetaClass MetaClass::RootMetaClass {"Root", 0, nullptr, nullptr, nullptr, nullptr};
 

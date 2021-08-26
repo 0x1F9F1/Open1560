@@ -65,7 +65,7 @@ public:
 private:
     f32 SampleStep {1.0f / 25.0f};
     i32 MaxSamples {20};
-    i32 NumSamples {0};
+    i32 NumSamples {};
     i32 field_2C {1};
 };
 

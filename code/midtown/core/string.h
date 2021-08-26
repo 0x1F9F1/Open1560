@@ -151,7 +151,7 @@ public:
     }
 
 private:
-    char* data_ {nullptr};
+    char* data_ {};
 };
 
 static_assert(sizeof(ConstString) == sizeof(char*));
@@ -285,9 +285,9 @@ public:
     }
 
 private:
-    char* buffer_ {nullptr};
-    usize capacity_ {0};
-    usize written_ {0};
+    char* buffer_ {};
+    usize capacity_ {};
+    usize written_ {};
 };
 
 inline bool IsSpace(i32 value)

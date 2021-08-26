@@ -255,7 +255,7 @@ public:
     struct MeshSetTableEntry
     {
         agiMeshSet* Meshes[4] {};
-        mmBoundTemplate* Bound {nullptr};
+        mmBoundTemplate* Bound {};
     };
 
     // ?MeshSetTable@mmInstance@@2PAUMeshSetTableEntry@1@A
@@ -316,10 +316,14 @@ public:
 #define INST_FLAG_COLLIDER 0x4
 #define INST_FLAG_MOVER 0x8
 #define INST_FLAG_ACTIVE 0x20
-#define INST_FLAG_BANGER 0x40 // Instance is a mmBangerInstance
+
+    // Checked in aiPedestrian::DetectBanger[Collision/Obstacle], aiVehicleActive::Detach, aiGoalCollision::Update, mmCullCity::Reset
+    // Flag 0x40 is used to imply an instance is a banger (aiPedestrian::DetectBangerCollision), yet aiVehicleActive::Detach sets it?
+#define INST_FLAG_BANGER 0x40 // Instance is a mmBangerInstance?
+
 #define INST_FLAG_80 0x80
 #define INST_FLAG_100 0x100   // Vehicle?
-#define INST_FLAG_UNHIT 0x200 // Instance is a mmUnhitBangerInstance
+#define INST_FLAG_UNHIT 0x200 // Instance is a mmUnhitBangerInstance?
 #define INST_FLAG_GLOW 0x400
 #define INST_FLAG_800 0x800   // Terrain? Passed from mmPhysicsMGR::Update to mmPhysicsMGR::GatherCollidables
 #define INST_FLAG_1000 0x1000 // mmBangerInstance::Draw - Increment lod
@@ -329,7 +333,7 @@ public:
     // INST_FLAG_*
     u16 Flags {INST_FLAG_ACTIVE};
 
-    u16 MeshIndex {0};
+    u16 MeshIndex {};
     i16 ChainId {-1};
 
     /*
@@ -347,11 +351,11 @@ public:
         mmShard:
             mmShardManager::Instances[SubType] ; mmShardManager::GetInstance
     */
-    u8 SubType {0};
-    u8 Owner {0};
+    u8 SubType {};
+    u8 Owner {};
 
-    mmInstance* PrevChain {nullptr};
-    mmInstance* NextChain {nullptr};
+    mmInstance* PrevChain {};
+    mmInstance* NextChain {};
 };
 
 check_size(mmInstance, 0x14);

@@ -100,9 +100,9 @@ protected:
     i32 GetError(char* buf, isize buf_len) override;
 
 private:
-    void* file_handle_ {nullptr};
-    void* pager_handle_ {nullptr};
-    void* file_mapping_ {nullptr};
+    void* file_handle_ {};
+    void* pager_handle_ {};
+    void* file_mapping_ {};
 };
 
 // check_size(FileStream, 0x28);

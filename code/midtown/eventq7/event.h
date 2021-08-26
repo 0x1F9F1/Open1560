@@ -94,24 +94,24 @@ public:
 protected:
     friend class eqEventMonitor;
 
-    b32 debug_ {false};
-    u32 tracked_events_ {0};
+    b32 debug_ {};
+    u32 tracked_events_ {};
     i32 channels_ {-1};
     eqEventMonitor* monitors_[8] {};
     u32 wants_motion_ {1};
-    i32 mouse_x_ {0};
-    i32 mouse_y_ {0};
-    u32 buttons_ {0};
-    i32 tracking_x_ {0};
-    i32 tracking_y_ {0};
-    u32 prev_buttons_ {0};
+    i32 mouse_x_ {};
+    i32 mouse_y_ {};
+    u32 buttons_ {};
+    i32 tracking_x_ {};
+    i32 tracking_y_ {};
+    u32 prev_buttons_ {};
     u8 key_states_[256] {};
-    f32 center_x_ {0.0f};
-    f32 center_y_ {0.0f};
-    f32 scale_x_ {0.0f};
-    f32 scale_y_ {0.0f};
-    i32 mouse_virtual_x_ {0};
-    i32 mouse_virtual_y_ {0};
+    f32 center_x_ {};
+    f32 center_y_ {};
+    f32 scale_x_ {};
+    f32 scale_y_ {};
+    i32 mouse_virtual_x_ {};
+    i32 mouse_virtual_y_ {};
 };
 
 check_size(eqEventHandler, 0x164);
@@ -152,10 +152,10 @@ public:
     // private:
     friend class eqEventHandler;
 
-    eqEventHandler* handler_ {nullptr};
-    u32 field_8 {0};
-    i32 handler_index_ {0};
-    u32 channels_ {0};
+    eqEventHandler* handler_ {};
+    u32 field_8 {};
+    i32 handler_index_ {};
+    u32 channels_ {};
 };
 
 check_size(eqEventMonitor, 0x14);
@@ -181,22 +181,22 @@ public:
     // ?QueueMouse@eqEventReplayChannelClass@@QAEXHHHHHHH@Z
     ARTS_EXPORT void QueueMouse(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7);
 
-    u32 MouseX {0};
-    u32 MouseY {0};
-    u32 Flags {0};
+    u32 MouseX {};
+    u32 MouseY {};
+    u32 Flags {};
     u8 KeyStates[256] {};
-    u32 MouseRawX {0};
-    u32 MouseRawY {0};
+    u32 MouseRawX {};
+    u32 MouseRawY {};
 
     u32 Events[256] {};
-    i32 EventCount {0};
+    i32 EventCount {};
 
-    u32 PrevMouseX {0};
-    u32 PrevMouseY {0};
-    u32 PrevFlags {0};
+    u32 PrevMouseX {};
+    u32 PrevMouseY {};
+    u32 PrevFlags {};
     u8 PrevKeyStates[256] {};
-    u32 PrevMouseRawX {0};
-    u32 PrevMouseRawY {0};
+    u32 PrevMouseRawX {};
+    u32 PrevMouseRawY {};
 };
 
 check_size(eqEventReplayChannelClass, 0x638);

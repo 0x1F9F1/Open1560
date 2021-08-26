@@ -83,17 +83,17 @@ public:
         return refs;
     }
 
-    u32 PixelSize {0};
+    u32 PixelSize {};
 
-    u32 BitCountR {0};
-    u32 BitCountG {0};
-    u32 BitCountB {0};
-    u32 BitCountA {0};
+    u32 BitCountR {};
+    u32 BitCountG {};
+    u32 BitCountB {};
+    u32 BitCountA {};
 
-    u32 ShiftR {0};
-    u32 ShiftG {0};
-    u32 ShiftB {0};
-    u32 ShiftA {0};
+    u32 ShiftR {};
+    u32 ShiftG {};
+    u32 ShiftB {};
+    u32 ShiftA {};
 
     u32 GetMaskR() const
     {

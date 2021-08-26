@@ -29,8 +29,8 @@ define_dummy_symbol(memory_stack);
 
 struct MapSymbol
 {
-    char* Name {nullptr};
-    usize Address {0};
+    char* Name {};
+    usize Address {};
 };
 
 static bool MapSymbolsLoaded = false;
@@ -364,7 +364,7 @@ static const char* GetExceptionCodeString(DWORD code)
     return nullptr;
 }
 
-thread_local bool InException {false};
+thread_local bool InException {};
 
 i32 ExceptionFilter(_EXCEPTION_POINTERS* exception)
 {

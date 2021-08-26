@@ -89,24 +89,24 @@ private:
     // ?Current@mmLoader@@0PAV1@A
     ARTS_IMPORT static mmLoader* Current;
 
-    i32 task_percent_ {0};
-    i32 field_8_ {0};
-    i32 bar_x_ {0};
-    i32 bar_y_ {0};
-    i32 field_14_ {0};
-    i32 field_18_ {0};
+    i32 task_percent_ {};
+    i32 field_8_ {};
+    i32 bar_x_ {};
+    i32 bar_y_ {};
+    i32 field_14_ {};
+    i32 field_18_ {};
     asCamera camera_ {};
     Timer timer_ {};
     mmTextNode task_text_ {};
     mmTextNode intro_text_ {};
     mmTextNode text_node3_ {};
-    agiBitmap* bar_active_ {nullptr};
-    agiBitmap* bar_inactive_ {nullptr};
-    i32 field_2b0_ {0};
-    f32 task_start_percent_ {0.0f};
-    i32 field_2b8_ {0};
-    f32 current_task_percent_ {0.0f};
-    f32 task_start_time_ {0.0f};
+    agiBitmap* bar_active_ {};
+    agiBitmap* bar_inactive_ {};
+    i32 field_2b0_ {};
+    f32 task_start_percent_ {};
+    i32 field_2b8_ {};
+    f32 current_task_percent_ {};
+    f32 task_start_time_ {};
 };
 
 check_size(mmLoader, 0x2C4);

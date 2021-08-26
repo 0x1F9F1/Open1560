@@ -125,8 +125,8 @@ void ipcYield()
 
 struct ipcMessage
 {
-    void (*Function)(void*) {nullptr};
-    void* Param {nullptr};
+    void (*Function)(void*) {};
+    void* Param {};
 };
 
 ipcMessageQueue::ipcMessageQueue() = default;

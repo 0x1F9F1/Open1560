@@ -146,33 +146,33 @@ private:
     u32 color_green_ {0xFF00FF00};
     u32 color_blue_ {0xFF0000FF};
 
-    b32 debug_ {0};
+    b32 debug_ {};
 
-    i32 num_cameras_ {0};
+    i32 num_cameras_ {};
     asCamera* cameras_[16] {};
-    asCamera* current_camera_ {nullptr};
+    asCamera* current_camera_ {};
 
-    i32 num_cullables_ {0};
-    i32 max_cullables_ {0};
+    i32 num_cullables_ {};
+    i32 max_cullables_ {};
 
-    i32 num_cullables_2D_ {0};
-    i32 max_cullables_2D_ {0};
+    i32 num_cullables_2D_ {};
+    i32 max_cullables_2D_ {};
 
     Ptr<asCullable*[]> cullables_;
     Ptr<asCullable*[]> cullables_2D_;
     Ptr<Matrix34*[]> transforms_;
 
-    f32 current_frame_time_ {0.0f};
-    f32 average_frame_time_ {0.0f};
+    f32 current_frame_time_ {};
+    f32 average_frame_time_ {};
 
     Timer frame_timer_ {};
     Timer stats_timer_ {};
 
-    u32 stats_counter_ {0};
+    u32 stats_counter_ {};
 
 #ifdef ARTS_DEV_BUILD
-    u32 current_page_ {0};
-    u32 num_pages_ {0};
+    u32 current_page_ {};
+    u32 num_pages_ {};
 
     Callback page_callbacks_[16] {};
 #endif

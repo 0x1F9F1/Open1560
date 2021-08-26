@@ -86,30 +86,30 @@ private:
     void InitVersioning();
     void InitState();
 
-    SDL_Window* window_ {nullptr};
-    SDL_GLContext gl_context_ {nullptr};
+    SDL_Window* window_ {};
+    SDL_GLContext gl_context_ {};
 
     HashTable extensions_ {128, "Extensions"};
 
-    i32 gl_version_ {0};
-    i32 context_flags_ {0};
-    i32 profile_mask_ {0};
+    i32 gl_version_ {};
+    i32 context_flags_ {};
+    i32 profile_mask_ {};
 
-    i32 shader_version_ {0};
-    i32 debug_level_ {0};
-    i32 error_count_ {0};
+    i32 shader_version_ {};
+    i32 debug_level_ {};
+    i32 error_count_ {};
 
-    bool direct_state_access_ {false};
-    i32 max_anisotropy_ {0};
+    bool direct_state_access_ {};
+    i32 max_anisotropy_ {};
 
-    u32 active_texture_unit_ {0};
+    u32 active_texture_unit_ {};
     bool capabilities_[7] {};
     bool depth_mask_ {};
-    u32 polygon_mode_ {0};
-    u32 depth_func_ {0};
-    u32 front_face_ {0};
-    u32 blend_func_s_ {0};
-    u32 blend_func_d_ {0};
+    u32 polygon_mode_ {};
+    u32 depth_func_ {};
+    u32 front_face_ {};
+    u32 blend_func_s_ {};
+    u32 blend_func_d_ {};
 };
 
-inline thread_local agiGLContext* agiGL {nullptr};
+inline thread_local agiGLContext* agiGL {};

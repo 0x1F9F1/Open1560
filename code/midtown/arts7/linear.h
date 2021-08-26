@@ -69,8 +69,8 @@ public:
 
     Matrix34 Matrix {};
     Matrix34 World {};
-    i32 Global {false};
-    asLinearCS* Inherit {nullptr};
+    i32 Global {};
+    asLinearCS* Inherit {};
 };
 
 check_size(asLinearCS, 0x88);

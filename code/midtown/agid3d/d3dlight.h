@@ -61,7 +61,7 @@ public:
     }
 
 private:
-    IDirect3DLight* d_light_ {nullptr};
+    IDirect3DLight* d_light_ {};
 };
 
 check_size(agiD3DLight, 0x8C);

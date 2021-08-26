@@ -72,12 +72,12 @@ public:
     f32 field_34 {1.0f};
     Vector4 Position {0.0f, 0.0f, 1.0f, 1.0f};
     Vector3 Direction {0.0f, 0.0f, -1.0f};
-    f32 SpotExp {0.0f};
+    f32 SpotExp {};
     f32 SpotAngle {180.0f};
     f32 ConstantAtten {1.0f};
-    f32 LinearAtten {0.0f};
-    f32 QuadraticAtten {0.0f};
-    f32 SpecularExp {0.0f};
+    f32 LinearAtten {};
+    f32 QuadraticAtten {};
+    f32 SpecularExp {};
     u32 field_6C {0xFFFFFFFF};
 };
 

@@ -47,8 +47,8 @@ public:
     }
 
 private:
-    std::atomic<usize> next_ticket_ {0};
-    std::atomic<usize> now_serving_ {0};
+    std::atomic<usize> next_ticket_ {};
+    std::atomic<usize> now_serving_ {};
 };
 
 template <typename T>
@@ -78,7 +78,7 @@ public:
 private:
     T lock_ {};
     std::atomic<ThreadId> lock_owner_ {InvalidThreadId()};
-    usize lock_count_ {0};
+    usize lock_count_ {};
 };
 
 using RecursiveTicketLock = RecursiveLock<TicketLock>;

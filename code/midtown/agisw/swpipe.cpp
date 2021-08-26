@@ -79,7 +79,7 @@ public:
     }
 
 private:
-    u32 clear_color_ {0};
+    u32 clear_color_ {};
 };
 
 check_size(agiSWViewport, 0x14C);
@@ -207,7 +207,7 @@ public:
     }
 
 private:
-    IDirectDrawSurface4* d_surf_ {nullptr};
+    IDirectDrawSurface4* d_surf_ {};
 };
 
 check_size(agiSWBitmap, 0x40);

@@ -162,23 +162,23 @@ public:
     }
 
 protected:
-    IDirect3D3* d3d_ {nullptr};
-    IDirect3DDevice3* d3d_device_ {nullptr};
-    IDirect3DViewport3* d3d_view_ {nullptr};
-    IDirectDrawSurface4* d_zbuffer_ {nullptr};
+    IDirect3D3* d3d_ {};
+    IDirect3DDevice3* d3d_device_ {};
+    IDirect3DViewport3* d3d_view_ {};
+    IDirectDrawSurface4* d_zbuffer_ {};
     DDPIXELFORMAT opaque_dd_format_ {};
     DDPIXELFORMAT alpha_dd_format_ {};
-    b32 is_hardware_ {0};
+    b32 is_hardware_ {};
 
     // D3DPTFILTERCAPS
-    i32 filter_caps_ {0};
+    i32 filter_caps_ {};
 
     // 0x1 | POINT
     // 0x2 | TRILINEAR
-    i32 texture_filter_ {0};
+    i32 texture_filter_ {};
     CLSID d3d_guid_ {};
     D3DDEVICEDESC device_desc_ {};
-    char* device_name_ {nullptr};
+    char* device_name_ {};
     Rc<agiRasterizer> rasterizer_;
 };
 

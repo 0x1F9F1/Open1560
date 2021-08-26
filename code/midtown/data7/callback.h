@@ -88,7 +88,7 @@ public:
 
 private:
     i32 type_ {CB_TYPE_NONE};
-    Base* this_ptr_ {nullptr};
+    Base* this_ptr_ {};
 
     union
     {
@@ -101,10 +101,10 @@ private:
         Member0 member0;
         Member1 member1;
         Member2 member2;
-    } func_ {nullptr};
+    } func_ {};
 
-    void* param_1_ {nullptr};
-    void* param_2_ {nullptr};
+    void* param_1_ {};
+    void* param_2_ {};
 };
 
 class CallbackArray
@@ -117,9 +117,9 @@ public:
     void Invoke(bool clear_after, void* param = nullptr);
 
 private:
-    Callback* callbacks_ {nullptr};
-    u16 size_ {0};
-    u16 capacity_ {0};
+    Callback* callbacks_ {};
+    u16 size_ {};
+    u16 capacity_ {};
 };
 
 #define CFA(FUNC) Callback(static_cast<Callback::Static0>(FUNC))

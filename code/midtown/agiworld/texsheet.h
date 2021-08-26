@@ -44,13 +44,13 @@ ARTS_IMPORT extern agiTexSheet TEXSHEET;
 
 struct agiTexProp
 {
-    char* Name {nullptr};
+    char* Name {};
     char Palette[4] {};
 
     // PackShift Levels
-    u8 High {0};   // agiRQ.TextureQuality  > 1
-    u8 Medium {0}; // agiRQ.TextureQuality == 1
-    u8 Low {0};    // agiRQ.TextureQuality == 0
+    u8 High {};   // agiRQ.TextureQuality  > 1
+    u8 Medium {}; // agiRQ.TextureQuality == 1
+    u8 Low {};    // agiRQ.TextureQuality == 0
 
     enum : u32
     {
@@ -74,13 +74,13 @@ struct agiTexProp
         ClampModeMask = ClampUOrBoth | ClampVOrBoth | ClampBoth | ClampUOrNeither | ClampVOrNeither,
     };
 
-    u32 Flags {0};
+    u32 Flags {};
 
-    char* AlternateName {nullptr};
-    char* Sibling {nullptr};
-    u16 Width {0};
-    u16 Height {0};
-    u32 Color {0};
+    char* AlternateName {};
+    char* Sibling {};
+    u16 Width {};
+    u16 Height {};
+    u32 Color {};
 };
 
 check_size(agiTexProp, 0x20);
@@ -118,9 +118,9 @@ public:
     }
 
 private:
-    agiTexProp* props_ {nullptr};
-    i32 prop_count_ {0};
-    b32 allow_remapping_ {false}; // UseAlternate
+    agiTexProp* props_ {};
+    i32 prop_count_ {};
+    b32 allow_remapping_ {}; // UseAlternate
 };
 
 check_size(agiTexSheet, 0xC);

@@ -65,11 +65,11 @@ public:
     ARTS_IMPORT static agiTexDef* SphMapTex;
 
 private:
-    agiMeshSet* vehicle_mesh_ {nullptr};
-    agiMeshSet* shadow_mesh_ {nullptr};
-    u32 draw_color_ {0};
-    i32* color_pointer {nullptr};
-    i32 color_index_ {0};
+    agiMeshSet* vehicle_mesh_ {};
+    agiMeshSet* shadow_mesh_ {};
+    u32 draw_color_ {};
+    i32* color_pointer {};
+    i32 color_index_ {};
     mmDamage damage_ {};
 };
 

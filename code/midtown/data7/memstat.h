@@ -42,7 +42,7 @@ ARTS_IMPORT extern i32 beginStackCount;
 
 struct MemStat
 {
-    const char* Name {nullptr};
+    const char* Name {};
 
     MemStat(const char* name)
     {

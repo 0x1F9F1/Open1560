@@ -134,12 +134,12 @@ private:
     void PutString(const char* str);
 
     char buffer_[256] {};
-    i32 error_count_ {0};
+    i32 error_count_ {};
     ConstString name_;
     i32 current_char_ {' '};
-    i32 indentation_ {0};
+    i32 indentation_ {};
     i32 current_line_ {1};
-    i32 put_back_ {0};
+    i32 put_back_ {};
 };
 
 check_size(MiniParser, 0x11C);

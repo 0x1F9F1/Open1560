@@ -110,8 +110,8 @@ private:
     // ?AddSurface@agiSurfRenderer@@CAHPAUagiPatch@@HHHH@Z
     ARTS_IMPORT static i32 AddSurface(agiPatch* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
 
-    agiRasterizer* rasterizer_ {nullptr};
-    agiLighter* lighter_ {nullptr};
+    agiRasterizer* rasterizer_ {};
+    agiLighter* lighter_ {};
 };
 
 check_size(agiSurfRenderer, 0x14);

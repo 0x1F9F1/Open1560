@@ -75,21 +75,21 @@ private:
     // ?WindowProc@CDMan@@EAEJPAUHWND__@@IIJ@Z
     ARTS_EXPORT LRESULT WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) override;
 
-    u16 word4 {0};
-    i16 track_count_ {0};
-    b16 is_playing_ {0};
-    b16 is_opened_ {0};
-    HWND window_ {NULL};
+    u16 word4 {};
+    i16 track_count_ {};
+    b16 is_playing_ {};
+    b16 is_opened_ {};
+    HWND window_ {};
     u8 current_track_ {1};
-    u8 current_minute_ {0};
-    u8 current_second_ {0};
-    u8 current_frame_ {0};
+    u8 current_minute_ {};
+    u8 current_second_ {};
+    u8 current_frame_ {};
 
     // 0 - Repeat
     // 1 - Regular
-    u8 play_mode_ {0};
+    u8 play_mode_ {};
 
-    MCIDEVICEID device_id_ {0};
+    MCIDEVICEID device_id_ {};
     MCI_OPEN_PARMSA open_params_ {};
 };
 

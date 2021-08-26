@@ -22,10 +22,10 @@
 
 struct agiRgba
 {
-    u8 R {0};
-    u8 G {0};
-    u8 B {0};
-    u8 A {0};
+    u8 R {};
+    u8 G {};
+    u8 B {};
+    u8 A {};
 
     ARTS_FORCEINLINE u32 ToABGR() const
     {

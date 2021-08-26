@@ -42,7 +42,7 @@ public:
     }
 
 private:
-    SDL_mutex* handle_ {nullptr};
+    SDL_mutex* handle_ {};
 };
 
 template <typename T>
@@ -63,7 +63,7 @@ public:
     ARTS_NON_COPYABLE(LockGuard);
 
 private:
-    T* const mutex_ {nullptr};
+    T* const mutex_ {};
 };
 
 template <typename T>
@@ -112,8 +112,8 @@ public:
     }
 
 private:
-    T* const mutex_ {nullptr};
-    bool locked_ {false};
+    T* const mutex_ {};
+    bool locked_ {};
 };
 
 template <typename T>
@@ -137,5 +137,5 @@ public:
     void wait(UniqueLock<Mutex>& mutex);
 
 private:
-    SDL_cond* handle_ {nullptr};
+    SDL_cond* handle_ {};
 };

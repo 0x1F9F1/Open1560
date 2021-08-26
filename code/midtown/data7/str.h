@@ -183,8 +183,8 @@ public:
     }
 
 private:
-    char* data_ {nullptr};
-    i32 capacity_ {0};
+    char* data_ {};
+    i32 capacity_ {};
 };
 
 check_size(string, 0x8);

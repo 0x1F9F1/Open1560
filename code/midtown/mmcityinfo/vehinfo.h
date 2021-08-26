@@ -59,17 +59,17 @@ public:
     char field_54[40] {};
     char Colors[80] {};
 
-    i32 Flags {0};
-    i32 Order {0};
-    b32 Valid {false};
-    i32 UnlockScore {0};
-    i32 UnlockFlags {0};
-    b32 IsLocked {false};
-    i32 Horsepower {0};
-    i32 TopSpeed {0};
-    i32 Durability {0};
-    i32 Mass {0};
-    f32 ScoringBias {0.0f};
+    i32 Flags {};
+    i32 Order {};
+    b32 Valid {};
+    i32 UnlockScore {};
+    i32 UnlockFlags {};
+    b32 IsLocked {};
+    i32 Horsepower {};
+    i32 TopSpeed {};
+    i32 Durability {};
+    i32 Mass {};
+    f32 ScoringBias {};
 };
 
 check_size(mmVehInfo, 0xF8);

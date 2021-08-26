@@ -268,23 +268,23 @@ protected:
     // ?GetError@Stream@@MAEHPADH@Z
     ARTS_EXPORT virtual i32 GetError(char* buf, isize buf_len);
 
-    u8* buffer_ {nullptr};
+    u8* buffer_ {};
 
     // TODO: Use u64
-    u32 position_ {0};
+    u32 position_ {};
 
-    u32 buffer_head_ {0};
-    u32 buffer_read_ {0};
-    u32 buffer_capacity_ {0};
+    u32 buffer_head_ {};
+    u32 buffer_read_ {};
+    u32 buffer_capacity_ {};
 
-    FileSystem* file_system_ {nullptr};
+    FileSystem* file_system_ {};
 
     // ARTS_STREAM_*
-    u8 flags_ {0};
+    u8 flags_ {};
 
-    u8 swap_endian_ {false};
-    u8 little_endian_ {false};
-    u8 initialized_ {false};
+    u8 swap_endian_ {};
+    u8 little_endian_ {};
+    u8 initialized_ {};
 
 private:
     // ?SwapLongs@Stream@@CAXPAKH@Z

@@ -96,7 +96,7 @@ public:
 
 private:
     u8 byte0 {1};
-    u8 byte1 {0};
+    u8 byte1 {};
 };
 
 check_size(mmText, 0x2);
@@ -113,8 +113,8 @@ check_size(mmText, 0x2);
 
 struct mmTextData
 {
-    u32 X {0};
-    u32 Y {0};
+    u32 X {};
+    u32 Y {};
 
     // 0x1 | Vertical Centered
     // 0x2 | Horizontal Centered
@@ -123,8 +123,8 @@ struct mmTextData
     // 0x20 | Word Break
     // 0x40 | Always Draw
     // 0x80 | Highlight text
-    u32 Effects {0};
-    void* Font {nullptr};
+    u32 Effects {};
+    void* Font {};
     char Text[256] {};
 };
 
@@ -189,19 +189,19 @@ public:
     }
 
 private:
-    f32 x_ {0.0f};
-    f32 y_ {0.0f};
-    i32 line_count_ {0};
-    i32 max_lines_ {0};
+    f32 x_ {};
+    f32 y_ {};
+    i32 line_count_ {};
+    i32 max_lines_ {};
     u32 enabled_lines_ {0xFFFFFFFF};
     mmText int30_ {};
     Ptr<mmTextData[]> lines_;
     Rc<agiBitmap> text_bitmap_;
     u32 touched_ {1};
-    u32 empty_ {0};
-    u32 format_ {0};
+    u32 empty_ {};
+    u32 format_ {};
     u32 fg_color_ {0xFFFFFF};
-    u32 bg_color_ {0};
+    u32 bg_color_ {};
 };
 
 check_size(mmTextNode, 0x54);

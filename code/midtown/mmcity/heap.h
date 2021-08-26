@@ -31,10 +31,10 @@ template <typename T>
 class mmHeap
 {
 private:
-    u8* HeapBase {nullptr};
-    u8* HeapEnd {nullptr};
-    u8* HeapHead {nullptr};
-    u8* HeapTop {nullptr};
+    u8* HeapBase {};
+    u8* HeapEnd {};
+    u8* HeapHead {};
+    u8* HeapTop {};
 
 public:
     void* Allocate(usize size)

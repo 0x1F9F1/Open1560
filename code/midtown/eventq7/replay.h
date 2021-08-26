@@ -75,8 +75,8 @@ private:
     // ?First@eqReplayChannel@@0PAV1@A
     ARTS_IMPORT static eqReplayChannel* First;
 
-    u32 magic_ {0};
-    eqReplayChannel* next_ {nullptr};
+    u32 magic_ {};
+    eqReplayChannel* next_ {};
 
     friend class eqReplay;
 };

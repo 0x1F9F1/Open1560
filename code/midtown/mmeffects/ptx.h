@@ -89,19 +89,19 @@ public:
     VIRTUAL_META_DECLARE;
 
 private:
-    i32 SparkCapacity {0};
-    i32 SparkCount {0};
+    i32 SparkCapacity {};
+    i32 SparkCount {};
     Ptr<asSparkInfo[]> Sparks;
     Ptr<asSparkPos[]> SparkPositions;
     Rc<agiTexDef> Texture;
     agiMeshCardInfo MeshCard {};
-    Matrix34* Matrix {nullptr};
-    f32 Elapsed {0.0f};
-    f32 SpewRate {0.0f};
-    f32 SpewFraction {0.0f};
-    asBirthRule* BirthRule {nullptr};
+    Matrix34* Matrix {};
+    f32 Elapsed {};
+    f32 SpewRate {};
+    f32 SpewFraction {};
+    asBirthRule* BirthRule {};
     Vector3 Wind {0.0f, 0.0f, 0.0f};
-    f32 WindDensity {0.0f};
+    f32 WindDensity {};
     f32 Gravity {-9.8f};
 };
 

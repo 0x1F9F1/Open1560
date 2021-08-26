@@ -150,11 +150,11 @@ private:
     ARTS_EXPORT void Queue(eqEvent& event);
 
     Ptr<eqEvent[]> events_;
-    u32 enabled_events_ {0};
-    u32 max_events_ {0};
-    u32 write_head_ {0};
-    u32 read_head_ {0};
-    b32 registered_ {0};
+    u32 enabled_events_ {};
+    u32 max_events_ {};
+    u32 write_head_ {};
+    u32 read_head_ {};
+    b32 registered_ {};
 };
 
 check_size(eqEventQ, 0x2C);

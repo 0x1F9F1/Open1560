@@ -47,21 +47,21 @@ constexpr usize DefaultNewAlignment = __STDCPP_DEFAULT_NEW_ALIGNMENT__;
 
 struct asMemStats
 {
-    usize nTotalBlocks {0};
-    usize nFreeBlocks {0};
-    usize nUsedBlocks {0};
+    usize nTotalBlocks {};
+    usize nFreeBlocks {};
+    usize nUsedBlocks {};
 
-    usize cbOverhead {0};
-    usize cbFree {0};
-    usize cbUsed {0};
+    usize cbOverhead {};
+    usize cbFree {};
+    usize cbUsed {};
 };
 
 struct asMemSource
 {
-    usize uSource {0};
-    usize cbUsed {0};
-    usize cbOverhead {0};
-    usize nBlocks {0};
+    usize uSource {};
+    usize cbUsed {};
+    usize cbOverhead {};
+    usize nBlocks {};
 };
 
 check_size(asMemStats, 0x18);
@@ -164,24 +164,24 @@ private:
 
     bool DoSanityCheck() const;
 
-    b32 initialized_ {false};
-    b32 debug_ {false};
-    void* heap_ {nullptr};
-    usize heap_size_ {0};
-    std::atomic<usize> heap_used_ {0};
-    usize lock_count_ {0};
-    b32 use_nodes_ {false};
+    b32 initialized_ {};
+    b32 debug_ {};
+    void* heap_ {};
+    usize heap_size_ {};
+    std::atomic<usize> heap_used_ {};
+    usize lock_count_ {};
+    b32 use_nodes_ {};
     FreeNode* buckets_[32] {};
 
 #ifndef ARTS_STANDALONE
-    Node* last_ {nullptr};
+    Node* last_ {};
 #endif
 
     // New Fields
     mutable RecursiveTicketLock lock_ {};
 
 #ifndef ARTS_FINAL
-    std::atomic<usize> alloc_id_ {0};
+    std::atomic<usize> alloc_id_ {};
     usize last_allocs_[16] {};
 #endif
 };

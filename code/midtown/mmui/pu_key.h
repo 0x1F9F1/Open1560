@@ -53,8 +53,8 @@ private:
     ARTS_EXPORT void PostSetup() override;
 
     Ptr<mmTextNode> text_node_;
-    i32 key_count_ {0};
-    f32 title_pos_ {0.0f};
+    i32 key_count_ {};
+    f32 title_pos_ {};
 };
 
 check_size(PUKey, 0xCC);

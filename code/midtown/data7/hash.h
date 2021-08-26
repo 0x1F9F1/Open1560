@@ -41,8 +41,8 @@
 struct HashEntry
 {
     ConstString Key;
-    void* Value {nullptr};
-    HashEntry* Next {nullptr};
+    void* Value {};
+    HashEntry* Next {};
 };
 
 check_size(HashEntry, 0xC);
@@ -116,10 +116,10 @@ private:
     // ?First@HashTable@@0PAV1@A
     ARTS_EXPORT static HashTable* First;
 
-    i32 bucket_count_ {0};
-    i32 value_count_ {0};
+    i32 bucket_count_ {};
+    i32 value_count_ {};
     Ptr<HashEntry*[]> buckets_;
-    HashTable* next_table_ {nullptr};
+    HashTable* next_table_ {};
 
     friend struct HashIterator;
 };
@@ -144,9 +144,9 @@ public:
         return Current;
     }
 
-    HashTable* Table {nullptr};
-    i32 Index {0};
-    HashEntry* Current {nullptr};
+    HashTable* Table {};
+    i32 Index {};
+    HashEntry* Current {};
 };
 
 check_size(HashIterator, 0xC);

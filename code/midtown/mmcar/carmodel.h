@@ -160,16 +160,16 @@ public:
     // ?DeclareFields@mmCarModel@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    mmCarSim* CarSim {nullptr};
-    mmCar* Entity {nullptr};
+    mmCarSim* CarSim {};
+    mmCar* Entity {};
 
 #define CAR_MODEL_FLAG_40 0x40
 #define CAR_MODEL_FLAG_TRAILER 0x80
 
-    u32 CarFlags {0};
+    u32 CarFlags {};
     Matrix34 field_20 {IDENTITY};
-    i32 field_50 {0};
-    i32 PaintJobIndex {0};
+    i32 field_50 {};
+    i32 PaintJobIndex {};
     mmDamage DamageHigh {};
     mmDamage DamageMedium {};
     asLineSparks Sparks {};

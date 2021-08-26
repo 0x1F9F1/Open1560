@@ -226,16 +226,16 @@ public:
     void Init(i32 verts, i32 indices);
     void Kill();
 
-    u16* Indices {nullptr};
-    agiScreenVtx* Verts {nullptr};
-    agiScreenVtx2* Verts2 {nullptr};
+    u16* Indices {};
+    agiScreenVtx* Verts {};
+    agiScreenVtx2* Verts2 {};
     agiTexDef* Textures[2] {};
-    i32 VertCount {0};
-    i32 IndexCount {0};
-    i32 BaseIndex {0};
-    i32 MaxVerts {0};
-    i32 MaxIndices {0};
-    i32 MultiTex {0};
+    i32 VertCount {};
+    i32 IndexCount {};
+    i32 BaseIndex {};
+    i32 MaxVerts {};
+    i32 MaxIndices {};
+    i32 MultiTex {};
 
     // ?TriCount@agiPolySet@@2HA
     ARTS_IMPORT static i32 TriCount;

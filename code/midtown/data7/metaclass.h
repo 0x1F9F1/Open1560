@@ -45,19 +45,19 @@ class MiniParser;
 
 struct MetaField
 {
-    MetaField* Next {nullptr};
-    const char* Name {nullptr};
-    usize Offset {0};
-    MetaType* Type {nullptr};
+    MetaField* Next {};
+    const char* Name {};
+    usize Offset {};
+    MetaType* Type {};
 };
 
 check_size(MetaField, 0x10);
 
 struct StaticMetaField
 {
-    const char* Name {nullptr};
-    usize Offset {0};
-    const MetaType* (*Getter)() {nullptr};
+    const char* Name {};
+    usize Offset {};
+    const MetaType* (*Getter)() {};
 };
 
 constexpr usize MAX_CLASSES = 512;
@@ -147,16 +147,16 @@ public:
     static MetaField** ppField;
 
 private:
-    const char* name_ {nullptr};
-    usize size_ {0};
-    void* (*allocate_)(isize) {nullptr};
-    void (*free_)(void*, isize) {nullptr};
-    void (*declare_)() {nullptr};
-    MetaClass* parent_ {nullptr};
+    const char* name_ {};
+    usize size_ {};
+    void* (*allocate_)(isize) {};
+    void (*free_)(void*, isize) {};
+    void (*declare_)() {};
+    MetaClass* parent_ {};
 
-    MetaClass* children_ {nullptr};
-    MetaClass* next_child_ {nullptr};
-    MetaField* fields_ {nullptr};
+    MetaClass* children_ {};
+    MetaClass* next_child_ {};
+    MetaField* fields_ {};
 
     i32 index_ {-1};
 

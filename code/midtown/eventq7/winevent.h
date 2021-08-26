@@ -92,7 +92,7 @@ private:
     // 0 = GetKeyboardState
     // 1 = geinputGetKeyboard
     // 3 = geinputGetMouse
-    u32 input_method_ {0};
+    u32 input_method_ {};
 };
 
 check_size(WINEventHandler, 0x16C);

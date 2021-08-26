@@ -105,14 +105,14 @@ public:
 protected:
     Ptr<agiSurfaceDesc> TakeScreenShot() override;
 
-    IDirectDraw4* d_draw_ {nullptr};
-    IDirectDrawClipper* d_clip_ {nullptr};
-    IDirectDrawSurface4* d_front_ {nullptr};
-    IDirectDrawSurface4* d_back_ {nullptr};
-    IDirectDrawSurface4* d_rend_ {nullptr};
-    IDirectDrawPalette* d_pal_ {nullptr};
+    IDirectDraw4* d_draw_ {};
+    IDirectDrawClipper* d_clip_ {};
+    IDirectDrawSurface4* d_front_ {};
+    IDirectDrawSurface4* d_back_ {};
+    IDirectDrawSurface4* d_rend_ {};
+    IDirectDrawPalette* d_pal_ {};
     DDPIXELFORMAT d_pix_format_ {};
-    bool set_rend_palette_ {false};
+    bool set_rend_palette_ {};
 };
 
 check_size(agiDDPipeline, 0x32C);

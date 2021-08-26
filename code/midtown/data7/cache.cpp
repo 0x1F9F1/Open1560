@@ -30,21 +30,21 @@ ARTS_EXPORT DataCache CACHE;
 
 struct DataCacheObject
 {
-    u32 nAge {0};
+    u32 nAge {};
 
-    u8* pBase {nullptr};
+    u8* pBase {};
 
     // Handle must be stored directly after a PagerInfo_t
-    i32* pHandle {nullptr};
+    i32* pHandle {};
 
-    bool bUsed {0};
-    u8 nLockCount {0};
+    bool bUsed {};
+    u8 nLockCount {};
 
-    u32 nTotalSize {0};
-    u32 nMaxSize {0};
+    u32 nTotalSize {};
+    u32 nMaxSize {};
 
-    DataCacheCallback Relocate {nullptr};
-    void* Context {nullptr};
+    DataCacheCallback Relocate {};
+    void* Context {};
 
     const char* GetName()
     {

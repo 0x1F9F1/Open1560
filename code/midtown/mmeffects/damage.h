@@ -49,8 +49,8 @@ public:
     ARTS_IMPORT void Reset(i32 arg1);
 
 private:
-    agiMeshSet* mesh_ {nullptr};
-    u8* surfaces_ {nullptr}; // agiMeshSet::TextureIndices
+    agiMeshSet* mesh_ {};
+    u8* surfaces_ {}; // agiMeshSet::TextureIndices
     i8 remap_[24];
 };
 

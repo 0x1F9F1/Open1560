@@ -145,19 +145,19 @@ protected:
     ARTS_IMPORT static i32 NumInstances;
 
 private:
-    mmCarSim* CarSim {nullptr};
+    mmCarSim* CarSim {};
     Ptr<mmShard[]> Shards;
-    i32 ShardCount {0};
-    i32 ShardHead {0};
+    i32 ShardCount {};
+    i32 ShardHead {};
     f32 ImpThresh {3500.0f};
-    f32 ImpPerShard {0.0f};
+    f32 ImpPerShard {};
     f32 VelXCoeff {0.3f};
     f32 VelYCoeff {0.3f};
     f32 VelZCoeff {0.2f};
     f32 AngVelCoeff {1.8f};
     f32 SpeedThresh {5.0f};
-    i32 Index {0};
-    agiTexDef* TexDef {nullptr};
+    i32 Index {};
+    agiTexDef* TexDef {};
 };
 
 check_size(mmShardManager, 0x54);

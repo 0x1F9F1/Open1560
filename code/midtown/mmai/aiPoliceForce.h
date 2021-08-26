@@ -67,11 +67,11 @@ private:
     static constexpr usize MaxCops = 16;
 
     Timer last_register_;
-    u16 num_perps_ {0};
+    u16 num_perps_ {};
     u16 num_cops_[MaxPerps] {};
     mmCar* perps_[MaxPerps] {};
     mmCar* cops_[MaxPerps][MaxCops] {};
-    u16 max_cops_ {0};
+    u16 max_cops_ {};
 
     i32 FindPerp(mmCar* perp);
     i32 FindCop(i32 index, mmCar* cop);

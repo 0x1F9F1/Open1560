@@ -87,16 +87,16 @@ private:
     // ?ValidatePtr@agiRefreshable@@AAEXPAD@Z
     ARTS_EXPORT void ValidatePtr(const char* reason);
 
-    agiRefreshable* prev_ {nullptr};
-    agiRefreshable* next_ {nullptr};
+    agiRefreshable* prev_ {};
+    agiRefreshable* next_ {};
 
 protected:
-    agiPipeline* pipe_ {nullptr};
+    agiPipeline* pipe_ {};
 
     // 0 | Not Started
     // 1 | Started 1
     // 2 | Started 2 (Set in agiGLTexDef::BeginGfx from am.exe)
-    u32 state_ {0};
+    u32 state_ {};
 
     u32 ref_count_ {1};
 

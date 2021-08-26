@@ -22,8 +22,8 @@ define_dummy_symbol(data7_list);
 
 struct List::Entry
 {
-    void* Value {nullptr};
-    Entry* Next {nullptr};
+    void* Value {};
+    Entry* Next {};
 };
 
 List::~List()

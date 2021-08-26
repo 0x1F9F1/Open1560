@@ -73,8 +73,8 @@ public:
     void SetDefaultVehicle(const char* name);
 
     Ptr<mmVehInfo*[]> Vehicles;
-    i32 NumVehicles {0};
-    mmVehInfo* DefaultVehicle {nullptr};
+    i32 NumVehicles {};
+    mmVehInfo* DefaultVehicle {};
 };
 
 // check_size(mmVehList, 0xC);

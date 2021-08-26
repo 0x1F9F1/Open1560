@@ -57,11 +57,11 @@ protected:
     ARTS_EXPORT void Deactivate();
 
 private:
-    u8* current_heap_ {nullptr};
-    u8* heap_ {nullptr};
-    u32 heap_index_ {0};
-    usize heap_size_ {0};
-    b32 multi_heap_ {false};
+    u8* current_heap_ {};
+    u8* heap_ {};
+    u32 heap_index_ {};
+    usize heap_size_ {};
+    b32 multi_heap_ {};
 };
 
 check_size(asSafeHeap, 0x14);

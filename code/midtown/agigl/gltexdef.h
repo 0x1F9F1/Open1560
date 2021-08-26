@@ -52,12 +52,12 @@ public:
 private:
     bool CheckFence();
 
-    u32 texture_ {0};
-    void* fence_ {0};
+    u32 texture_ {};
+    void* fence_ {};
 
-    u32 min_filter_ {0};
-    u32 mag_filter_ {0};
+    u32 min_filter_ {};
+    u32 mag_filter_ {};
 
     Ptr<agiSurfaceDesc> temp_surface_;
-    bool touched_ {false};
+    bool touched_ {};
 };

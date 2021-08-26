@@ -101,13 +101,13 @@ protected:
     Ptr<agiSurfaceDesc> surface_;
 
     // BITMAP_*
-    u32 flags_ {0};
-    i32 width_ {0};
-    i32 height_ {0};
-    f32 width_scale_ {0.0f};
-    f32 height_scale_ {0.0f};
+    u32 flags_ {};
+    i32 width_ {};
+    i32 height_ {};
+    f32 width_scale_ {};
+    f32 height_scale_ {};
 
-    b32 is_3D_ {0};
+    b32 is_3D_ {};
     u32 field_38 {1}; // Always 1 ?
 };
 

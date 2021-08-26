@@ -39,15 +39,15 @@ public:
 
     char Name[32] {};
 
-    f32 Friction {0.0f};
-    f32 Elasticity {0.0f};
-    f32 Drag {0.0f};
+    f32 Friction {};
+    f32 Elasticity {};
+    f32 Drag {};
 
-    f32 BumpHeight {0.0f};
-    f32 BumpWidth {0.0f};
-    f32 BumpDepth {0.0f};
+    f32 BumpHeight {};
+    f32 BumpWidth {};
+    f32 BumpDepth {};
 
-    f32 SinkDepth {0.0f};
+    f32 SinkDepth {};
 
     u32 Type {};
     u32 Sound {};

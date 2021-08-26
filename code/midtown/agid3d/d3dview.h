@@ -71,7 +71,7 @@ public:
     }
 
 private:
-    u32 clear_color_ {0};
+    u32 clear_color_ {};
 };
 
 check_size(agiD3DViewport, 0x14C);

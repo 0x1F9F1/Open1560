@@ -53,10 +53,10 @@ struct FileInfo
 {
     char Path[(ARTS_TARGET_BUILD > 1560) ? ARTS_MAX_PATH : 256] {};
 
-    b32 IsDirectory {false};
+    b32 IsDirectory {};
 
     // TODO: Use inheritance instead of Context pointer
-    void* Context {nullptr};
+    void* Context {};
 };
 
 check_size(FileInfo, 0x108);
@@ -131,7 +131,7 @@ protected:
     virtual void NotifyDelete();
 
 private:
-    i32 fs_index_ {0};
+    i32 fs_index_ {};
 };
 
 check_size(FileSystem, 0x8);

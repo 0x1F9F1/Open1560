@@ -51,9 +51,9 @@ public:
     ARTS_EXPORT void MatchToken(const char* value);
 
 private:
-    const char* name_ {nullptr};
+    const char* name_ {};
     i32 current_line_ {1};
-    Stream* input_ {nullptr};
+    Stream* input_ {};
     i32 current_char_ {' '};
 };
 

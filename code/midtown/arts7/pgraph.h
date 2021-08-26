@@ -56,19 +56,19 @@ public:
 private:
     static constexpr i32 MaxComponents = 8;
 
-    i32 num_components_ {0};
-    i32 main_component_ {0};
+    i32 num_components_ {};
+    i32 main_component_ {};
     f32* component_history_[MaxComponents] {};
     const char* component_name_[MaxComponents] {};
     f32* component_value_[MaxComponents] {};
     agiRgba component_color_[MaxComponents] {};
     f32 graph_scale_ {1.0f};
-    i32 write_index_ {0};
-    i32 read_index_ {0};
+    i32 write_index_ {};
+    i32 read_index_ {};
 
     f32 auto_scale_ {10.0f};
-    i32 num_samples_ {0};
-    i32 mode_ {0};
+    i32 num_samples_ {};
+    i32 mode_ {};
 };
 
 // check_size(asPerfGraph, 0x94);

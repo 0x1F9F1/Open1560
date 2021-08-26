@@ -98,11 +98,11 @@ public:
     }
 
 private:
-    i32 probed_ {0};
-    IDirect3DTexture2* mem_tex_ {nullptr};
-    IDirectDrawSurface4* mem_tex_surf_ {nullptr};
-    i32 stage_ {0};
-    IUnknown* pal_ {0};
+    i32 probed_ {};
+    IDirect3DTexture2* mem_tex_ {};
+    IDirectDrawSurface4* mem_tex_surf_ {};
+    i32 stage_ {};
+    IUnknown* pal_ {};
 };
 
 check_size(agiD3DTexDef, 0x88);
@@ -126,7 +126,7 @@ public:
     ARTS_IMPORT void EndGfx() override;
 
 private:
-    IDirectDrawPalette* pal_ {nullptr};
+    IDirectDrawPalette* pal_ {};
 };
 
 check_size(agiD3DTexLut, 0x420);

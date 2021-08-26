@@ -128,16 +128,16 @@ private:
     // ?Proc@ipcMessageQueue@@CGKPAX@Z
     ARTS_EXPORT static ulong ARTS_STDCALL Proc(void* param);
 
-    std::atomic<b32> initialized_ {false};
-    u32 send_index_ {0};
-    u32 read_index_ {0};
-    u32 max_messages_ {0};
-    b32 blocking_ {false};
+    std::atomic<b32> initialized_ {};
+    u32 send_index_ {};
+    u32 read_index_ {};
+    u32 max_messages_ {};
+    b32 blocking_ {};
     Ptr<ipcMessage[]> messages_;
     Condvar send_event_ {};
     Condvar done_event_ {};
     Mutex mutex_ {};
-    usize proc_thread_ {0};
+    usize proc_thread_ {};
 };
 
 check_size(ipcMessageQueue, 0x28);

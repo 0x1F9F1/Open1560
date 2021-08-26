@@ -131,7 +131,7 @@ public:
     }
 
 private:
-    u32 clear_color_ {0};
+    u32 clear_color_ {};
 };
 
 static u32 GetSDLPixelFormat(const agiPixelFormat& format)
@@ -249,7 +249,7 @@ public:
     }
 
 private:
-    SDL_Surface* sdl_surface_ {nullptr};
+    SDL_Surface* sdl_surface_ {};
 };
 
 agiSDLSWPipeline::agiSDLSWPipeline() = default;

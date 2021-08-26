@@ -165,18 +165,18 @@ private:
     // ?Regen@asCamera@@AAEXXZ
     ARTS_IMPORT void Regen();
 
-    agiViewport* viewport_ {nullptr};
-    agiLightModel* light_model_ {nullptr};
-    agiLightModelParameters* light_params_ {nullptr};
+    agiViewport* viewport_ {};
+    agiLightModel* light_model_ {};
+    agiLightModelParameters* light_params_ {};
 
-    agiBitmap* underlay_bitmap_ {nullptr};
-    Callback* underlay_callback_ {nullptr};
+    agiBitmap* underlay_bitmap_ {};
+    Callback* underlay_callback_ {};
 
-    f32 x_origin_ {0.0f};
-    f32 y_origin_ {0.0f};
+    f32 x_origin_ {};
+    f32 y_origin_ {};
 
-    f32 x_size_ {0.0f};
-    f32 y_size_ {0.0f};
+    f32 x_size_ {};
+    f32 y_size_ {};
 
     Vector3 bg_color_ {};
     Vector4 shadow_color_ {};
@@ -184,38 +184,38 @@ private:
     u32 field_5C;
     u32 field_60;
     u32 field_64;
-    i32 clear_flags_ {0};
+    i32 clear_flags_ {};
 
-    f32 fov_ {0.0f};
-    f32 fov_radians_ {0.0f};
-    f32 aspect_ {0.0f};
-    f32 near_clip_ {0.0f};
-    f32 far_clip_ {0.0f};
+    f32 fov_ {};
+    f32 fov_radians_ {};
+    f32 aspect_ {};
+    f32 near_clip_ {};
+    f32 far_clip_ {};
     f32 float_80;
     f32 float_84;
 
-    f32 left_clip_scale_ {0.0f};
-    f32 right_clip_scale_ {0.0f};
-    f32 bottom_clip_scale_ {0.0f};
-    f32 top_clip_scale_ {0.0f};
+    f32 left_clip_scale_ {};
+    f32 right_clip_scale_ {};
+    f32 bottom_clip_scale_ {};
+    f32 top_clip_scale_ {};
 
     Vector2 left_clip_ {};
     Vector2 right_clip_ {};
     Vector2 bottom_clip_ {};
     Vector2 top_clip_ {};
 
-    b32 auto_aspect_ {false};
-    i32 draw_mode_ {0};
+    b32 auto_aspect_ {};
+    i32 draw_mode_ {};
     i32 field_C0;
     f32 float_C4;
     i32 field_C8;
     i32 field_CC;
 
     Vector3 fog_color_ {};
-    f32 fog_density_ {0.0f};
+    f32 fog_density_ {};
     f32 float_E0;
-    f32 fog_start_ {0.0f};
-    f32 fog_end_ {0.0f};
+    f32 fog_start_ {};
+    f32 fog_end_ {};
 
     Matrix34 camera_ {};
     Matrix34 view_ {};
@@ -226,13 +226,13 @@ private:
     i32 field_158;
     i32 field_15C;
 
-    i32 pause_fade_ {0};
-    f32 fade_amount_ {0.0f};
-    f32 fade_speed_ {0.0f};
-    f32 max_fade_ {0.0f};
+    i32 pause_fade_ {};
+    f32 fade_amount_ {};
+    f32 fade_speed_ {};
+    f32 max_fade_ {};
     Vector3 fade_color_ {};
     f32 float_17C;
-    i32 fade_ticks_ {0};
+    i32 fade_ticks_ {};
     i32 field_184;
 };
 

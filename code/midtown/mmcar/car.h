@@ -162,9 +162,9 @@ public:
     mmSkidManager BLSkid {};
     mmSkidManager BRSkid {};
     mmShardManager Shards {};
-    b32 TrailerJoined {false};
-    Joint3Dof* TrailerJoint {nullptr};
-    mmTrailer* Trailer {nullptr};
+    b32 TrailerJoined {};
+    Joint3Dof* TrailerJoint {};
+    mmTrailer* Trailer {};
 };
 
 check_size(mmCar, 0x230C);

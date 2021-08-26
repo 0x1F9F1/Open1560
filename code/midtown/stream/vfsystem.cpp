@@ -55,8 +55,8 @@ Owner<Stream> VirtualFileSystem::CreateOn(const char*, void*, isize)
 
 struct VirtualFileEntry
 {
-    VirtualFileInode* Nodes {nullptr};
-    u32 NodeCount {0};
+    VirtualFileInode* Nodes {};
+    u32 NodeCount {};
 
     inline void FillInfo(VirtualFileSystem* fs, FileInfo& info)
     {

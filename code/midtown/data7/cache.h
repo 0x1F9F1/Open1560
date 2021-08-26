@@ -123,32 +123,32 @@ private:
 
     DataCacheObject& GetObject(i32 handle);
 
-    u32 evicted_objects_ {0};
-    u32 evicted_bytes_ {0};
+    u32 evicted_objects_ {};
+    u32 evicted_bytes_ {};
 
     // Must always be indexed by > 0
-    DataCacheObject* objects_ {nullptr}; // pObjects
+    DataCacheObject* objects_ {}; // pObjects
 
-    u32 max_objects_ {0};
-    u32 cur_objects_ {0}; // nMaxHandles
+    u32 max_objects_ {};
+    u32 cur_objects_ {}; // nMaxHandles
 
-    u32 cur_waste_ {0};
-    u32 max_waste_ {0};
+    u32 cur_waste_ {};
+    u32 max_waste_ {};
 
-    b32 fragmented_ {false};
+    b32 fragmented_ {};
 
-    u8* heap_ {nullptr}; // pHeap
-    u32 heap_size_ {0};
-    u32 heap_used_ {0}; // nTotalAllocated
+    u8* heap_ {}; // pHeap
+    u32 heap_size_ {};
+    u32 heap_used_ {}; // nTotalAllocated
 
-    u32 age_ {0};
+    u32 age_ {};
 
-    u32 object_locks_ {0};
+    u32 object_locks_ {};
 
     Mutex cache_lock_ {};
     Mutex object_lock_ {};
 
-    const char* name_ {nullptr};
+    const char* name_ {};
 };
 
 check_size(DataCache, 0x40);

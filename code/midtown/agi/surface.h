@@ -47,8 +47,8 @@ typedef struct _DDSURFACEDESC2 DDSURFACEDESC2;
 
 struct agiColorKey // DDCOLORKEY
 {
-    u32 Low {0};
-    u32 High {0};
+    u32 Low {};
+    u32 High {};
 };
 
 #define AGIPF_ALPHAPIXELS 0x00000001l
@@ -61,14 +61,14 @@ struct agiColorKey // DDCOLORKEY
 
 struct agiPixelFormat // DDPIXELFORMAT
 {
-    u32 Size {0};
-    u32 Flags {0};
-    u32 FourCC {0};
-    u32 RGBBitCount {0};
-    u32 RBitMask {0};
-    u32 GBitMask {0};
-    u32 BBitMask {0};
-    u32 RGBAlphaBitMask {0};
+    u32 Size {};
+    u32 Flags {};
+    u32 FourCC {};
+    u32 RGBBitCount {};
+    u32 RBitMask {};
+    u32 GBitMask {};
+    u32 BBitMask {};
+    u32 RGBAlphaBitMask {};
 
     DDPIXELFORMAT ToDD();
     static agiPixelFormat FromDD(const DDPIXELFORMAT& sd);
@@ -90,10 +90,10 @@ extern const agiPixelFormat PixelFormat_B8G8R8;
 
 struct agiDDSCAPS2 // DDSCAPS2
 {
-    u32 Caps {0};
-    u32 Caps2 {0};
-    u32 Caps3 {0};
-    u32 Caps4 {0};
+    u32 Caps {};
+    u32 Caps2 {};
+    u32 Caps3 {};
+    u32 Caps4 {};
 };
 
 #define AGISD_HEIGHT 0x00000002l
@@ -151,30 +151,30 @@ public:
         return (PixelFormat.RGBBitCount + 7) / 8;
     }
 
-    u32 Size {0};
-    u32 Flags {0};
-    u32 Height {0};
-    u32 Width {0};
-    i32 Pitch {0};
-    u32 BackBufferCount {0};
-    u32 MipMapCount {0};
-    u32 AlphaBitDepth {0};
+    u32 Size {};
+    u32 Flags {};
+    u32 Height {};
+    u32 Width {};
+    i32 Pitch {};
+    u32 BackBufferCount {};
+    u32 MipMapCount {};
+    u32 AlphaBitDepth {};
 
     union
     {
         // NOTE: 64-bit incompatible
-        agiTexLut* lpLut {0};
+        agiTexLut* lpLut {};
         char szLut[4];
     };
 
-    void* Surface {nullptr};
+    void* Surface {};
     agiColorKey DestOverlay {};
     agiColorKey DestBlt {};
     agiColorKey SrcOverlay {};
     agiColorKey SrcBlt {};
     agiPixelFormat PixelFormat {};
     agiDDSCAPS2 SCaps {};
-    u32 TextureStage {0};
+    u32 TextureStage {};
 };
 
 check_size(agiSurfaceDesc, 0x7C);

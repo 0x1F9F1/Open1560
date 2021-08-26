@@ -84,18 +84,18 @@ public:
     i32 AddText(mmTextNode* node, void* font, LocString* text, i32 effects, f32 x, f32 y);
 
 protected:
-    i32 field_90 {0};
+    i32 field_90 {};
     Rc<agiBitmap> bg_bitmap_;
-    UIButton* exit_button_ {nullptr};
-    i32 bg_x_ {0};
-    i32 bg_y_ {0};
-    i32 widget_font_size_ {0};
-    f32 widget_height_ {0.0f};
-    f32 field_AC {0.0f};
-    f32 field_B0 {0.0f};
-    f32 field_B4 {0.0f};
-    f32 field_B8 {0.0f};
-    f32 field_BC {0.0f};
+    UIButton* exit_button_ {};
+    i32 bg_x_ {};
+    i32 bg_y_ {};
+    i32 widget_font_size_ {};
+    f32 widget_height_ {};
+    f32 field_AC {};
+    f32 field_B0 {};
+    f32 field_B4 {};
+    f32 field_B8 {};
+    f32 field_BC {};
 };
 
 check_size(PUMenuBase, 0xC0);

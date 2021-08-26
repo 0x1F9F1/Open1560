@@ -60,9 +60,9 @@ public:
     }
 
 private:
-    SDL_Renderer* sdl_renderer_ {nullptr};
-    SDL_Texture* render_texture_ {nullptr};
-    SDL_Surface* render_surface_ {nullptr};
+    SDL_Renderer* sdl_renderer_ {};
+    SDL_Texture* render_texture_ {};
+    SDL_Surface* render_surface_ {};
 };
 
 Ptr<u8[]> sdlScreenShot(i32& width, i32& height);

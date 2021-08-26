@@ -96,9 +96,9 @@ public:
     Ptr<mmTextNode> Names;
     Ptr<mmTextNode> Message;
 
-    UIButton* RosterButton;
-    UIButton* NextButton;
-    UIButton* RestartButton;
+    UIButton* RosterButton {};
+    UIButton* NextButton {};
+    UIButton* RestartButton {};
 
     ConstString RestartRace;
     ConstString NextRace;

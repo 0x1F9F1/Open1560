@@ -44,9 +44,9 @@ public:
     // ?Init@asSparkLut@@QAEXPAD@Z
     ARTS_IMPORT void Init(char* path);
 
-    u32* Colors {nullptr};
-    i32 RowShift {0};
-    i32 Height {0};
+    u32* Colors {};
+    i32 RowShift {};
+    i32 Height {};
 
 private:
     // ?BuiltinClut@asSparkLut@@0PAIA
@@ -81,8 +81,8 @@ public:
     // ?Update@asLineSparks@@QAEXM@Z
     ARTS_EXPORT void Update(f32 delta);
 
-    i32 field_0 {0};
-    asSparkLut* Lut {nullptr};
+    i32 field_0 {};
+    asSparkLut* Lut {};
     Ptr<Vector3[]> SparkStarts;
     Ptr<Vector3[]> SparkEnds;
     Ptr<Vector3[]> SparkVelocities;
@@ -90,18 +90,18 @@ public:
     Ptr<u8[]> SparkRows;
     Ptr<u8[]> SparkColumns;
     Ptr<u32[]> SparkColors;
-    i32 NumSparks {0};
-    i32 NumActive {0};
-    f32 GroundY {0.0f};
-    f32 Gravity {0.0f};
-    f32 VelXZMin {0.0f};
-    f32 VelXZMax {0.0f};
-    f32 VelYMin {0.0f};
-    f32 VelYMax {0.0f};
-    f32 TrailLength {0.0f};
-    f32 FadeFraction {0.0f};
-    f32 SampleRate {0.0f};
-    f32 FadeRate {0.0f};
+    i32 NumSparks {};
+    i32 NumActive {};
+    f32 GroundY {};
+    f32 Gravity {};
+    f32 VelXZMin {};
+    f32 VelXZMax {};
+    f32 VelYMin {};
+    f32 VelYMax {};
+    f32 TrailLength {};
+    f32 FadeFraction {};
+    f32 SampleRate {};
+    f32 FadeRate {};
 };
 
 check_size(asLineSparks, 0x5C);

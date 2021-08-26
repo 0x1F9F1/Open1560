@@ -24,10 +24,10 @@ define_dummy_symbol(pcwindis_pcwindis);
 
 struct MapEntry
 {
-    const char* Name;
-    u32* Msgs;
-    i32 NumMsgs;
-    Dispatchable* Handler;
+    const char* Name {};
+    u32* Msgs {};
+    i32 NumMsgs {};
+    Dispatchable* Handler {};
 };
 
 static constexpr usize MAX_MAP_ENTRIES = 16;

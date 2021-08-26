@@ -238,12 +238,12 @@ public:
 
 private:
 #ifdef ARTS_DEV_BUILD
-    float update_time_ {0.0f};
+    f32 update_time_ {};
 #endif
 
-    asNode* next_node_ {nullptr};
-    asNode* child_node_ {nullptr};
-    asNode* parent_node_ {nullptr};
+    asNode* next_node_ {};
+    asNode* child_node_ {};
+    asNode* parent_node_ {};
 
     ConstString node_name_;
 
@@ -254,7 +254,7 @@ private:
     i32 node_flags_ {NODE_FLAG_ACTIVE | NODE_FLAG_2};
 
 #ifdef ARTS_DEV_BUILD
-    Bank* current_bank_ {nullptr};
+    Bank* current_bank_ {};
 #endif
 };
 

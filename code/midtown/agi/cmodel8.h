@@ -63,7 +63,7 @@ public:
     // ?SetPixel@agiColorModel8@@UAEXPAVagiSurfaceDesc@@HHI@Z
     ARTS_EXPORT void SetPixel(agiSurfaceDesc* surface, i32 x, i32 y, u32 color) override;
 
-    agiPalette* Palette {nullptr};
+    agiPalette* Palette {};
 };
 
 check_size(agiColorModel8, 0x30);

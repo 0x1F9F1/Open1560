@@ -174,15 +174,15 @@ public:
     // ?Reset@agiRendStateStruct@@QAEXXZ
     ARTS_EXPORT void Reset();
 
-    agiMtlDef* Mtl {nullptr};
-    agiTexDef* Texture {nullptr};
-    agiTexDef* Texture2 {nullptr};
+    agiMtlDef* Mtl {};
+    agiTexDef* Texture {};
+    agiTexDef* Texture2 {};
 
     agiBlendSet BlendSet {};
 
     // false: Flat (Provoking Vertex)
     // true : Interpolate
-    bool SmoothShading {false};
+    bool SmoothShading {};
 
     agiDrawMode DrawMode {};
 
@@ -195,30 +195,30 @@ public:
     agiCmpFunc ZFunc {};
 
     agiFogMode FogMode {};
-    bool TexturePerspective {false};
-    bool AlphaEnable {false};
+    bool TexturePerspective {};
+    bool AlphaEnable {};
 
     bool WrapU {};
     bool WrapV {};
 
-    bool ZEnable {false};
-    bool ZWrite {false};
+    bool ZEnable {};
+    bool ZWrite {};
 
-    u32 FogColor {0};
-    f32 FogStart {0.0f};
-    f32 FogEnd {0.0f};
-    f32 FogDensity {0.0f};
+    u32 FogColor {};
+    f32 FogStart {};
+    f32 FogEnd {};
+    f32 FogDensity {};
 
-    bool Dither {false};
-    u8 byte2D {0};
-    bool SoftwareRendering {0};
-    bool SpecularEnable {0};
-    u8 byte30 {0};
-    i8 MaxTextures {0};
-    bool StippledAlpha {0};
-    u8 AlphaRef {0};
-    f32 LodBias {0.0f};
-    u32 Specular {0};
+    bool Dither {};
+    u8 byte2D {};
+    bool SoftwareRendering {};
+    bool SpecularEnable {};
+    u8 byte30 {};
+    i8 MaxTextures {};
+    bool StippledAlpha {};
+    u8 AlphaRef {};
+    f32 LodBias {};
+    u32 Specular {};
 };
 
 check_size(agiRendStateStruct, 0x3C);
@@ -226,7 +226,7 @@ check_size(agiRendStateStruct, 0x3C);
 class agiRendState
 {
 private:
-    b32 touched_ {false};
+    b32 touched_ {};
     agiRendStateStruct state_ {};
 
 public:

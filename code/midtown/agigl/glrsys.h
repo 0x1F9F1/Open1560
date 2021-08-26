@@ -61,21 +61,21 @@ private:
 
     void DrawMesh(u32 draw_mode, agiVtx* vertices, i32 vertex_count, u16* indices, i32 index_count);
 
-    u32 current_texture_ {0};
+    u32 current_texture_ {};
 
-    bool flip_winding_ {false};
-    bool reversed_z_ {false};
+    bool flip_winding_ {};
+    bool reversed_z_ {};
 
     Ptr<agiGLStreamBuffer> vbo_;
 
-    u32 vao_ {0};
-    u32 shader_ {0};
+    u32 vao_ {};
+    u32 shader_ {};
 
     i32 uniform_alpha_ref_ {-1};
-    f32 alpha_ref_ {0.0f};
+    f32 alpha_ref_ {};
 
     i32 uniform_tex_env_ {-1};
-    agiTexEnv tex_env_ {0};
+    agiTexEnv tex_env_ {};
 
     i32 uniform_fog_mode_ {-1};
     Vector4 fog_mode_ {};
@@ -83,6 +83,6 @@ private:
     i32 uniform_fog_color_ {-1};
     Vector3 fog_color_ {};
 
-    bool draw_base_vertex_ {false};
-    const void* last_vtx_offset_ {nullptr};
+    bool draw_base_vertex_ {};
+    const void* last_vtx_offset_ {};
 };

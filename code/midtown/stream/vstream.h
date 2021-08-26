@@ -74,9 +74,9 @@ public:
     ARTS_EXPORT isize RawWrite(const void* ptr, isize size) override;
 
 private:
-    Stream* base_stream_ {nullptr};
-    u32 data_offset_ {0};
-    u32 data_size_ {0};
+    Stream* base_stream_ {};
+    u32 data_offset_ {};
+    u32 data_size_ {};
     Mutex lock_ {};
 };
 

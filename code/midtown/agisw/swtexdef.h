@@ -82,10 +82,10 @@ public:
     ARTS_EXPORT void Unlock(agiTexLock& arg1) override;
 
 private:
-    i32 field_74 {0};
-    i32 width_mips_ {0};
-    i32 height_mips_ {0};
-    Ptr<u8[]> surfaces_[7] {};
+    i32 field_74 {};
+    i32 width_mips_ {};
+    i32 height_mips_ {};
+    Ptr<u8[]> surfaces_[7];
 };
 
 check_size(agiSWTexDef, 0x9C);
@@ -107,7 +107,7 @@ public:
     // ?EndGfx@agiSWTexLut@@UAEXXZ
     ARTS_EXPORT void EndGfx() override;
 
-    u32 fog_color_ {0};
+    u32 fog_color_ {};
     u16 intensities_[8][256];
 };
 

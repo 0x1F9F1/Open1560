@@ -48,8 +48,8 @@ struct scoped_utimer
         *total_ += utimer() - start_;
     }
 
-    utimer_t start_ {0};
-    utimer_t* const total_ {nullptr};
+    utimer_t start_ {};
+    utimer_t* const total_ {};
 };
 
 #    define ARTS_UTIMED(VAR)                        \

@@ -73,7 +73,7 @@ public:
     }
 
 private:
-    IDirectDrawSurface4* d_surf_ {nullptr};
+    IDirectDrawSurface4* d_surf_ {};
 };
 
 check_size(agiDDBitmap, 0x40);

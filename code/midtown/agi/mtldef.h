@@ -60,7 +60,7 @@ public:
     Vector4 Diffuse {0.8f, 0.8f, 0.8f, 1.0f};
     Vector4 Specular {0.0f, 0.0f, 0.0f, 1.0f};
 
-    f32 Power {0.0f};
+    f32 Power {};
 
     u16 Touched {true};
 };

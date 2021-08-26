@@ -397,8 +397,8 @@ private:
     }
 
 public:
-    Vector3* Vertices {nullptr};
-    u8* Normals {nullptr};
+    Vector3* Vertices {};
+    u8* Normals {};
 
     // Vector3[8]
     // min.x, min.y, min.z
@@ -409,39 +409,39 @@ public:
     // max.x, max.y, min.z
     // max.x, max.y, max.z
     // min.x, max.y, max.z
-    Vector3* BoundingBox {nullptr};
+    Vector3* BoundingBox {};
 
-    Vector2* TexCoords {nullptr};
-    u32* Colors {nullptr};
-    Vector4* Planes {nullptr};
+    Vector2* TexCoords {};
+    u32* Colors {};
+    Vector4* Planes {};
 
     // CacheHandle must be stored directly after Pager
     PagerInfo_t Pager {};
-    i32 CacheHandle {0};
+    i32 CacheHandle {};
 
-    u16* VertexIndices {nullptr};
-    u16* SurfaceIndices {nullptr};
-    u8* TextureIndices {nullptr};
-    f32 Magnitude {0.0f};
-    f32 MagnitudeSqr {0.0f};
-    f32 BoundingBoxMagnitude {0.0f};
-    u32 VertexCount {0};
-    u32 AdjunctCount {0};
-    u32 SurfaceCount {0};
-    u32 IndicesCount {0};
-    u8 TextureCount {0};
-    u8 VariationCount {0};
+    u16* VertexIndices {};
+    u16* SurfaceIndices {};
+    u8* TextureIndices {};
+    f32 Magnitude {};
+    f32 MagnitudeSqr {};
+    f32 BoundingBoxMagnitude {};
+    u32 VertexCount {};
+    u32 AdjunctCount {};
+    u32 SurfaceCount {};
+    u32 IndicesCount {};
+    u8 TextureCount {};
+    u8 VariationCount {};
 
     // MESH_SET_*
-    u8 Flags {0};
+    u8 Flags {};
 
     // 0 | Unloaded
     // 1 | Requested
     // 2 | Loaded
-    std::atomic<u8> Resident {0};
+    std::atomic<u8> Resident {};
 
-    u32 Variant {0};
-    agiTexDef*** Textures {nullptr};
+    u32 Variant {};
+    agiTexDef*** Textures {};
 
 private:
     u32 ref_count_ {1};

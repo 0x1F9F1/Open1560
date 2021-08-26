@@ -31,8 +31,8 @@ public:
 protected:
     void InitScaling();
 
-    i32 blit_x_ {0};
-    i32 blit_y_ {0};
-    i32 blit_width_ {0};
-    i32 blit_height_ {0};
+    i32 blit_x_ {};
+    i32 blit_y_ {};
+    i32 blit_width_ {};
+    i32 blit_height_ {};
 };

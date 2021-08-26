@@ -358,11 +358,11 @@ protected:
     static void SaveScreenShot(Ptr<agiSurfaceDesc> surface);
 
     ConstString name_;
-    i32 x_ {0};
-    i32 y_ {0};
-    i32 width_ {0};
-    i32 height_ {0};
-    i32 bit_depth_ {0};
+    i32 x_ {};
+    i32 y_ {};
+    i32 width_ {};
+    i32 height_ {};
+    i32 bit_depth_ {};
 
     // 0x1 | Enable VSync ?
     // 0x2 | Use Video Ram (-vram, -system)
@@ -375,13 +375,13 @@ protected:
     // 0x800 | RGB Emulation (-rgb, -debug)
     // 0x1000 | Direct3D HAL (-hal)
     // 0x2000 | MMX Emulation (-mmx)
-    i32 device_flags_1_ {0}; // Main Flags
-    i32 device_flags_2_ {0};
-    i32 device_flags_3_ {0}; // UI Flags
+    i32 device_flags_1_ {}; // Main Flags
+    i32 device_flags_2_ {};
+    i32 device_flags_3_ {}; // UI Flags
 
-    SDL_Window* window_ {nullptr};
-    i32 horz_res_ {0};
-    i32 vert_res_ {0};
+    SDL_Window* window_ {};
+    i32 horz_res_ {};
+    i32 vert_res_ {};
     f32 scale_ {1.0f};
     u32 field_38 {2}; // ViewIndex ?
     u32 light_mask_ {0xFFFFFFFF};
@@ -390,7 +390,7 @@ protected:
     // 0x1 | 16-bit
     // 0x2 | 24-bit
     // 0x4 | 32-bit
-    i32 valid_bit_depths_ {0};
+    i32 valid_bit_depths_ {};
 
     agiSurfaceDesc screen_format_ {};
     agiSurfaceDesc opaque_format_ {};
@@ -403,19 +403,19 @@ protected:
 
     Rc<agiRenderer> renderer_;
 
-    b32 is_software_ {0};
-    i32 max_tex_width_ {0};
-    i32 max_tex_height_ {0};
-    agiRefreshable* objects_ {nullptr};
-    b32 gfx_started_ {false};
+    b32 is_software_ {};
+    i32 max_tex_width_ {};
+    i32 max_tex_height_ {};
+    agiRefreshable* objects_ {};
+    b32 gfx_started_ {};
 
     // 0x1 | Z Buffer
     // 0x4 | Hardware
     // 0x10 | Supports Alpha
     // 0x20 | Square Textures
-    u32 flags_ {0};
-    b32 in_scene_ {false};
-    i32 scene_index_ {0};
+    u32 flags_ {};
+    b32 in_scene_ {};
+    i32 scene_index_ {};
 };
 
 check_size(agiPipeline, 0x2F0);

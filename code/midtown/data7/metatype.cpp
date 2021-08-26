@@ -32,7 +32,7 @@ struct PtrToType final : MetaType
         : TargetType(target)
     {}
 
-    MetaType* TargetType {nullptr};
+    MetaType* TargetType {};
 
     // ?Delete@PtrToType@@UAEXPAXH@Z
     ARTS_EXPORT void Delete(void*, isize) override
@@ -76,7 +76,7 @@ struct StructType final : MetaType
         : TargetClass(target)
     {}
 
-    MetaClass* TargetClass {nullptr};
+    MetaClass* TargetClass {};
 
     // ?Delete@StructType@@UAEXPAXH@Z
     ARTS_EXPORT void Delete(void* ptr, isize count) override

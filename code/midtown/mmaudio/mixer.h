@@ -135,13 +135,13 @@ private:
     f32 field_18 {1.0f};
     f32 field_1C {1.0f};
 
-    void* window_ {nullptr};
-    i32 field_24 {0};
+    void* window_ {};
+    i32 field_24 {};
     i32 field_28 {1};
-    u32 device_id_ {0};
+    u32 device_id_ {};
 
-    f32 wave_balance_ {0.0f};
-    f32 cd_balance_ {0.0f};
+    f32 wave_balance_ {};
+    f32 cd_balance_ {};
 };
 
 check_size(MixerCTL, 0x38);

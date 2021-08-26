@@ -84,15 +84,15 @@ private:
     Ptr<agiGLContext> gl_context_;
     Rc<agiGLRasterizer> rasterizer_;
 
-    u32 fbo_ {0};
-    u32 rbo_[2] {0};
+    u32 fbo_ {};
+    u32 rbo_[2] {};
 
-    i32 render_x_ {0};
-    i32 render_y_ {0};
-    i32 render_width_ {0};
-    i32 render_height_ {0};
+    i32 render_x_ {};
+    i32 render_y_ {};
+    i32 render_width_ {};
+    i32 render_height_ {};
 
-    u32 blit_filter_ {0};
+    u32 blit_filter_ {};
 };
 
 Ptr<u8[]> glScreenShot(i32& width, i32& height);

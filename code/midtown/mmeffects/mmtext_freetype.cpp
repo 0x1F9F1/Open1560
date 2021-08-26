@@ -39,16 +39,16 @@
 
 struct mmSize
 {
-    i32 cx {0};
-    i32 cy {0};
+    i32 cx {};
+    i32 cy {};
 };
 
 struct mmRect
 {
-    i32 left {0};
-    i32 top {0};
-    i32 right {0};
-    i32 bottom {0};
+    i32 left {};
+    i32 top {};
+    i32 right {};
+    i32 bottom {};
 };
 
 static HashTable FontHash {64, "FontHash"};
@@ -63,18 +63,18 @@ private:
         FontHash.Insert(name, this);
     }
 
-    FT_Face face_ {nullptr};
-    i32 height_ {0};
+    FT_Face face_ {};
+    i32 height_ {};
 
     struct mmGlyph
     {
-        i32 Top {0};
-        i32 Left {0};
-        i32 AdvanceX {0};
+        i32 Top {};
+        i32 Left {};
+        i32 AdvanceX {};
 
-        u32 Rows {0};
-        u32 Width {0};
-        i32 Pitch {0};
+        u32 Rows {};
+        u32 Width {};
+        i32 Pitch {};
         Ptr<u8[]> Buffer;
     };
 
@@ -100,9 +100,9 @@ public:
 
     struct mmLineInfo
     {
-        const char* Start {nullptr};
-        const char* End {nullptr};
-        i32 Width {0};
+        const char* Start {};
+        const char* End {};
+        i32 Width {};
     };
 
     std::vector<mmLineInfo> GetLines(const char* text, i32 max_width);

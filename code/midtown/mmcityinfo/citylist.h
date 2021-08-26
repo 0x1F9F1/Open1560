@@ -83,8 +83,8 @@ public:
     ARTS_EXPORT void SetCurrentCity(i32 index);
 
     Ptr<mmCityInfo*[]> Cities;
-    i32 NumCities {0};
-    i32 CurrentCity {0};
+    i32 NumCities {};
+    i32 CurrentCity {};
 };
 
 check_size(mmCityList, 0x10);

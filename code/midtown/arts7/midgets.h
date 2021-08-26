@@ -242,19 +242,19 @@ private:
 
     void SetCurrentIndex(i32 index);
 
-    i32 visible_lines_ {0};
-    asNode* current_node_ {nullptr};
-    i32 midget_count_ {0};
-    i32 start_index_ {0};
-    i32 current_index_ {0};
-    b32 open_ {false};
+    i32 visible_lines_ {};
+    asNode* current_node_ {};
+    i32 midget_count_ {};
+    i32 start_index_ {};
+    i32 current_index_ {};
+    b32 open_ {};
     MI* midgets_[512] {};
 
     i32 parent_midget_index_ {};
     i32 child_midget_index_[9] {};
 
     i32 sections_[8] {};
-    i32 section_count_ {0};
+    i32 section_count_ {};
     eqEventQ event_queue_;
 };
 

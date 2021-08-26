@@ -80,8 +80,8 @@ public:
     VIRTUAL_META_DECLARE;
 
 private:
-    f32 x_ {0.0f};
-    f32 y_ {0.0f};
+    f32 x_ {};
+    f32 y_ {};
     mmNumberFont* font_;
 
 #if ARTS_TARGET_BUILD < 1588
@@ -113,10 +113,10 @@ public:
 private:
     friend class mmNumber;
 
-    void* Font {nullptr};
-    const char* Chars {nullptr};
-    usize Count {0};
-    agiBitmap** Bitmaps {nullptr};
+    void* Font {};
+    const char* Chars {};
+    usize Count {};
+    agiBitmap** Bitmaps {};
 
 #if ARTS_TARGET_BUILD < 1588
     char gap10[0x14]; // TODO: Remove this

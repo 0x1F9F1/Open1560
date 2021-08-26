@@ -101,17 +101,17 @@ public:
         Second = 0x80,
     };
 
-    u8 Flags {0};
+    u8 Flags {};
 
     // Probably not actually LOD, seems to always be 0
-    u8 LOD {0};
-    u8 MaxLOD {0};
+    u8 LOD {};
+    u8 MaxLOD {};
 
     // Mirrors agiTexProp::Flags
-    u32 Props {0};
+    u32 Props {};
 
-    f32 field_28 {0.0f}; // Snowable ? 4.0f : 2.0f
-    u32 Color {0};
+    f32 field_28 {}; // Snowable ? 4.0f : 2.0f
+    u32 Color {};
 
     bool HasAlpha() const
     {
@@ -143,11 +143,11 @@ check_size(agiTexParameters, 0x30);
 
 struct agiTexLock
 {
-    agiColorModel* ColorModel {nullptr};
-    u32 Width {0};
-    u32 Height {0};
-    i32 Pitch {0};
-    void* Surface {nullptr};
+    agiColorModel* ColorModel {};
+    u32 Width {};
+    u32 Height {};
+    i32 Pitch {};
+    void* Surface {};
 };
 
 check_size(agiTexLock, 0x14);
@@ -219,10 +219,10 @@ public:
 
     Ptr<agiSurfaceDesc> Surface;
     agiTexParameters Tex {};
-    agiPolySet* PolySet {nullptr};
-    i32 SceneIndex {0};
-    u32 SurfaceSize {0};
-    i32 PackShift {0};
+    agiPolySet* PolySet {};
+    i32 SceneIndex {};
+    u32 SurfaceSize {};
+    i32 PackShift {};
 
 protected:
     // ??0agiTexDef@@IAE@PAVagiPipeline@@@Z
@@ -235,12 +235,12 @@ protected:
 
     // CacheHandle must be stored directly after Pager
     PagerInfo_t pager_ {};
-    i32 cache_handle_ {0};
+    i32 cache_handle_ {};
 
     // 0 | Paged Out
     // 1 | Paging In
     // 2 | Paged In
-    std::atomic<i32> page_state_ {0};
+    std::atomic<i32> page_state_ {};
 };
 
 check_size(agiTexDef, 0x74);

@@ -38,8 +38,8 @@ public:
     // ?Print@asArg@@QAEXPAD@Z
     ARTS_EXPORT void Print(const char* name);
 
-    b32 Found {false};
-    char Flag {0};
+    b32 Found {};
+    char Flag {};
     char* Usage {};
     int iValues[5] {};
     float fValues[5] {};
@@ -65,8 +65,8 @@ public:
     asArg* operator[](char flag);
 
     asArg* Args[128] {};
-    void* UsageText {nullptr};
-    char* Path {nullptr};
+    void* UsageText {};
+    char* Path {};
 };
 
 check_size(ArgSet, 0x208);

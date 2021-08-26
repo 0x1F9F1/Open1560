@@ -146,20 +146,20 @@ private:
     // ??1DLPTemplate@@AAE@XZ
     ARTS_EXPORT ~DLPTemplate();
 
-    i32 NumGroups {0};
+    i32 NumGroups {};
     Ptr<DLPGroup[]> Groups;
 
-    i32 NumPatches {0};
+    i32 NumPatches {};
     Ptr<DLPPatch[]> Patches;
 
-    i32 NumVertices {0};
+    i32 NumVertices {};
     Ptr<Vector3[]> Vertices;
 
     ConstString Name;
 
-    i32 MtlCount {0};
-    i32 TexCount {0};
-    i32 PhysCount {0};
+    i32 MtlCount {};
+    i32 TexCount {};
+    i32 PhysCount {};
 
     Ptr<i16[]> MtlIds;
     Ptr<i16[]> TexIds;
@@ -167,7 +167,7 @@ private:
 
     u32 RefCount {1};
 
-    DLPGroup* RestrictGroup {nullptr};
+    DLPGroup* RestrictGroup {};
 };
 
 check_size(DLPTemplate, 0x3C);
@@ -194,8 +194,8 @@ public:
     // ?Save@DLPPatch@@QAEXPAVStream@@@Z
     ARTS_IMPORT void Save(Stream* arg1);
 
-    i16 SRes {0};
-    i16 TRes {0};
+    i16 SRes {};
+    i16 TRes {};
 
     enum : u16
     {
@@ -203,7 +203,7 @@ public:
         Flags_Flag8 = 0x8,
     };
 
-    u16 Flags {0};
+    u16 Flags {};
 
     enum : u16
     {
@@ -220,12 +220,12 @@ public:
         ROpts_Interpenetrate = 0x400,
     };
 
-    u16 ROpts {0};
+    u16 ROpts {};
 
-    i16 MtlIdx {0};
-    i16 TexIdx {0};
-    i16 NumVertices {0};
-    i16 PhysIdx {0};
+    i16 MtlIdx {};
+    i16 TexIdx {};
+    i16 NumVertices {};
+    i16 PhysIdx {};
 
     Ptr<DLPVertex[]> Vertices;
     ConstString Name;
@@ -260,10 +260,10 @@ public:
 
     char Name[32] {};
 
-    i32 NumVertices {0};
+    i32 NumVertices {};
     Ptr<u16[]> VertexIndices;
 
-    i32 NumPatches {0};
+    i32 NumPatches {};
     Ptr<u16[]> PatchIndices;
 };
 
@@ -293,7 +293,7 @@ public:
     // ?Save@DLPVertex@@QAEXPAVStream@@@Z
     ARTS_IMPORT void Save(Stream* arg1);
 
-    u32 Id {0};
+    u32 Id {};
     Vector2 UV {};
     Vector4 Color {};
     Vector3 Position {};

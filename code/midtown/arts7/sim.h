@@ -282,9 +282,9 @@ private:
 
 #ifdef ARTS_DEV_BUILD
     i32 vector_count_ {};
-    Ptr<Vector3[]> vector_starts_ {};
-    Ptr<Vector3[]> vector_ends_ {};
-    Ptr<Vector3[]> vector_colors_ {};
+    Ptr<Vector3[]> vector_starts_;
+    Ptr<Vector3[]> vector_ends_;
+    Ptr<Vector3[]> vector_colors_;
 #endif
 
     eqEventQ keys_queue_;

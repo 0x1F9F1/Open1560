@@ -21,7 +21,7 @@
 class agiGLStreamBuffer
 {
 public:
-    u32 Buffer {0};
+    u32 Buffer {};
 
     agiGLStreamBuffer();
     virtual ~agiGLStreamBuffer();
@@ -43,8 +43,8 @@ public:
 class agiGLMappedStreamBuffer : public agiGLStreamBuffer
 {
 public:
-    usize Capacity {0};
-    usize Offset {0};
+    usize Capacity {};
+    usize Offset {};
 
     agiGLMappedStreamBuffer(usize capacity);
 
@@ -69,7 +69,7 @@ public:
     // More fences could reduce the chance of waiting, at the cost of checking them more often.
     static constexpr usize NumFences = 4;
 
-    void* Mapping {nullptr};
+    void* Mapping {};
     void* Fences[NumFences] {};
 
     agiGLMappedRingStreamBuffer(usize capacity);
@@ -95,7 +95,7 @@ public:
 class agiGLPersistentStreamBuffer final : public agiGLMappedRingStreamBuffer
 {
 public:
-    bool Coherent {false};
+    bool Coherent {};
 
     agiGLPersistentStreamBuffer(usize capacity, bool coherent);
     ~agiGLPersistentStreamBuffer() override;

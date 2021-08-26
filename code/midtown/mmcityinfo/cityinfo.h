@@ -49,12 +49,12 @@ public:
     ConstString BlitzNames;
     ConstString RaceNames;
     ConstString CircuitNames;
-    b32 Loaded {false};
-    i32 BlitzCount {0};
-    i32 CheckpointCount {0};
-    i32 CircuitCount {0};
-    i32 field_98 {0};
-    i32 field_9C {0};
+    b32 Loaded {};
+    i32 BlitzCount {};
+    i32 CheckpointCount {};
+    i32 CircuitCount {};
+    i32 field_98 {};
+    i32 field_9C {};
 };
 
 check_size(mmCityInfo, 0xA0);

@@ -609,8 +609,8 @@ public:
         return Start;
     }
 
-    i32 End {0};
-    i32 Start {0};
+    i32 End {};
+    i32 Start {};
 };
 
 check_size(SBMI, 0x50);

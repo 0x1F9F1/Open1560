@@ -29,12 +29,12 @@ class ipcMessageQueue;
 
 struct PagerInfo_t
 {
-    usize Handle {0};
-    u32 Offset {0};
-    u32 Size {0};
+    usize Handle {};
+    u32 Offset {};
+    u32 Size {};
 
 #ifdef ARTS_DEV_BUILD
-    ConstString Path {};
+    ConstString Path;
 #endif
 
     const char* GetPath()
