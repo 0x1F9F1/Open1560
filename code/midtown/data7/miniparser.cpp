@@ -45,7 +45,7 @@ void MiniParser::Errorf(ARTS_FORMAT_STRING const char* format, ...)
         {
             std::va_list va;
             va_start(va, format);
-            ::Errorf("Parser(%s,%d): %s", name_.get(), current_line_, arts_vformatf<1024>(format, va));
+            ::Errorf("Parser(%s,%d): %s", name_.get(), current_line_, arts_vformatf<1024>(format, va).get());
             va_end(va);
         }
         else if (error_count_ == 10)
@@ -145,7 +145,7 @@ i32 MiniParser::NextToken()
 
     if (v == '"')
     {
-        i32 len = 0;
+        usize len = 0;
 
         while ((v = GetCh()) != '"')
         {
@@ -164,7 +164,7 @@ i32 MiniParser::NextToken()
                 break;
             }
 
-            if (len < 255)
+            if (len + 1 < ARTS_SIZE(buffer_))
                 buffer_[len++] = static_cast<char>(v);
         }
 

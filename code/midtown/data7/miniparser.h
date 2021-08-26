@@ -122,7 +122,7 @@ public:
         return buffer_;
     }
 
-    i32 GetErrorCount()
+    i32 GetErrorCount() const
     {
         return error_count_;
     }
