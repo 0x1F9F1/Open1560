@@ -591,6 +591,9 @@ void agiD3DPipeline::DumpStatus(agiMemStatus& status)
 
 void agiD3DPipeline::EndFrame()
 {
+    if (ScreenShotRequested())
+        SaveScreenShot(dxiScreenShot());
+
     ARTS_UTIMED(agiEndFrame);
 
     RECT r {};

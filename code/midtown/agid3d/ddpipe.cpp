@@ -292,8 +292,3 @@ i32 agiDDPipeline::Validate()
 {
     return AGI_ERROR_SUCCESS;
 }
-
-Ptr<agiSurfaceDesc> agiDDPipeline::TakeScreenShot()
-{
-    return dxiScreenShot();
-}

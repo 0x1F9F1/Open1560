@@ -352,8 +352,6 @@ protected:
     // ??0agiPipeline@@IAE@XZ
     ARTS_EXPORT agiPipeline();
 
-    virtual Ptr<agiSurfaceDesc> TakeScreenShot();
-
     static bool ScreenShotRequested();
     static void SaveScreenShot(Ptr<agiSurfaceDesc> surface);
 

@@ -79,7 +79,7 @@ public:
     }
 
 private:
-    Ptr<agiSurfaceDesc> TakeScreenShot() override;
+    Ptr<agiSurfaceDesc> CaptureScreen();
 
     Ptr<agiGLContext> gl_context_;
     Rc<agiGLRasterizer> rasterizer_;
@@ -94,7 +94,5 @@ private:
 
     u32 blit_filter_ {};
 };
-
-Ptr<u8[]> glScreenShot(i32& width, i32& height);
 
 Owner<agiPipeline> glCreatePipeline(i32 argc, char** argv);

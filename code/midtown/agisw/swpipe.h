@@ -143,8 +143,6 @@ public:
 
     b32 PrintIs3D() override;
 
-    Ptr<agiSurfaceDesc> TakeScreenShot() override;
-
     IDirectDraw4* GetDirectDraw() const
     {
         return lpDD4;

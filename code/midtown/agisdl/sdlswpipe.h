@@ -52,19 +52,17 @@ public:
     void EndScene() override;
     i32 Validate() override;
 
-    Ptr<agiSurfaceDesc> TakeScreenShot() override;
-
     SDL_Surface* GetSurface()
     {
         return render_surface_;
     }
 
 private:
+    Ptr<agiSurfaceDesc> CaptureScreen();
+
     SDL_Renderer* sdl_renderer_ {};
     SDL_Texture* render_texture_ {};
     SDL_Surface* render_surface_ {};
 };
-
-Ptr<u8[]> sdlScreenShot(i32& width, i32& height);
 
 Owner<agiPipeline> sdlCreatePipeline(i32 argc, char** argv);

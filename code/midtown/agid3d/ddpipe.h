@@ -103,8 +103,6 @@ public:
     }
 
 protected:
-    Ptr<agiSurfaceDesc> TakeScreenShot() override;
-
     IDirectDraw4* d_draw_ {};
     IDirectDrawClipper* d_clip_ {};
     IDirectDrawSurface4* d_front_ {};

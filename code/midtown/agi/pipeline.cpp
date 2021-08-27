@@ -58,10 +58,7 @@ void agiPipeline::EndScene()
 {}
 
 void agiPipeline::EndFrame()
-{
-    if (ScreenShotRequested())
-        SaveScreenShot(TakeScreenShot());
-}
+{}
 
 RcOwner<agiMtlDef> agiPipeline::CreateMtlDef()
 {
@@ -426,11 +423,6 @@ void agiPipeline::ValidateObject(agiRefreshable* ptr)
         if (i == nullptr)
             Quitf("PIPE::ValidateObject: Not in my list.");
     }
-}
-
-Ptr<agiSurfaceDesc> agiPipeline::TakeScreenShot()
-{
-    return nullptr;
 }
 
 static mem::cmd_param PARAM_agiverbose {"agiverbose"};

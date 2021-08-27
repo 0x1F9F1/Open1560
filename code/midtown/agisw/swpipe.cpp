@@ -415,10 +415,10 @@ RcOwner<agiViewport> agiSWPipeline::CreateViewport()
 
 void agiSWPipeline::EndFrame()
 {
-    swFbEndFrame();
-
     if (ScreenShotRequested())
         SaveScreenShot(dxiScreenShot());
+
+    swFbEndFrame();
 
     agiPipeline::EndFrame();
 }
@@ -445,11 +445,6 @@ i32 agiSWPipeline::Validate()
 b32 agiSWPipeline::PrintIs3D()
 {
     return true;
-}
-
-Ptr<agiSurfaceDesc> agiSWPipeline::TakeScreenShot()
-{
-    return dxiScreenShot();
 }
 
 // ?zmemset@@YAXPAGI@Z

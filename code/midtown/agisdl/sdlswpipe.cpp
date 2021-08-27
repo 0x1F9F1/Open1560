@@ -483,6 +483,9 @@ void agiSDLSWPipeline::EndFrame()
 {
     ARTS_UTIMED(agiEndFrame);
 
+    if (ScreenShotRequested())
+        SaveScreenShot(CaptureScreen());
+
     SDL_UpdateTexture(render_texture_, NULL, render_surface_->pixels, render_surface_->pitch);
 
     SDL_Rect dest {blit_x_, blit_y_, blit_width_, blit_height_};
@@ -531,7 +534,7 @@ i32 agiSDLSWPipeline::Validate()
     return AGI_ERROR_SUCCESS;
 }
 
-Ptr<agiSurfaceDesc> agiSDLSWPipeline::TakeScreenShot()
+Ptr<agiSurfaceDesc> agiSDLSWPipeline::CaptureScreen()
 {
     i32 width = render_surface_->w;
     i32 height = render_surface_->h;

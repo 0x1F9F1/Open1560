@@ -314,6 +314,9 @@ void agiGLPipeline::EndFrame()
             blit_x_ + blit_width_, blit_y_ + blit_height_, GL_COLOR_BUFFER_BIT, blit_filter_);
     }
 
+    if (ScreenShotRequested())
+        SaveScreenShot(CaptureScreen());
+
     SDL_GL_SwapWindow(window_);
 
     if (!dxiDoubleBuffer())
@@ -493,7 +496,7 @@ void agiGLPipeline::Init()
     AnnotateTextures = PARAM_annotate.get_or(false);
 }
 
-Ptr<agiSurfaceDesc> agiGLPipeline::TakeScreenShot()
+Ptr<agiSurfaceDesc> agiGLPipeline::CaptureScreen()
 {
     i32 x = render_x_;
     i32 y = render_y_;
@@ -503,11 +506,10 @@ Ptr<agiSurfaceDesc> agiGLPipeline::TakeScreenShot()
 
     if (rbo_[0])
     {
-        glBindRenderbuffer(GL_RENDERBUFFER, rbo_[0]);
-
         GLint samples = -1;
-        glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_SAMPLES, &samples);
 
+        glBindRenderbuffer(GL_RENDERBUFFER, rbo_[0]);
+        glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_SAMPLES, &samples);
         glBindRenderbuffer(GL_RENDERBUFFER, 0);
 
         if (samples == 0)
