@@ -149,10 +149,10 @@ public:
     // ?Transpose@Matrix44@@QBE?AV1@XZ
     ARTS_IMPORT Matrix44 Transpose() const;
 
-    Vector4 m0;
-    Vector4 m1;
-    Vector4 m2;
-    Vector4 m3;
+    Vector4 m0; // Left
+    Vector4 m1; // Up
+    Vector4 m2; // Forward
+    Vector4 m3; // Translation
 };
 
 check_size(Matrix44, 0x40);

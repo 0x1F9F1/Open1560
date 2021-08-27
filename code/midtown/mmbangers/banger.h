@@ -91,7 +91,7 @@ public:
     ARTS_IMPORT void ARTS_FASTCALL DrawShadow() override;
 
     // ?GetData@mmBangerInstance@@QAEPAVmmBangerData@@XZ
-    ARTS_IMPORT mmBangerData* GetData();
+    ARTS_EXPORT mmBangerData* GetData();
 
     // ?GetEntity@mmBangerInstance@@UAEPAVmmPhysEntity@@XZ
     ARTS_IMPORT mmPhysEntity* GetEntity() override;
@@ -99,7 +99,9 @@ public:
     // ?GetVelocity@mmBangerInstance@@UAE?AVVector3@@XZ
     ARTS_IMPORT Vector3 GetVelocity() override;
 
-    u8 gap14[0x8];
+    i16 BangerIndex;
+    u8 NormalIndex;
+    f32 Normal;
 };
 
 check_size(mmBangerInstance, 0x1C);

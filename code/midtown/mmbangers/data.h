@@ -156,7 +156,9 @@ public:
 
     mmBangerData* GetBangerData(i32 index)
     {
-        return (index != -1) ? &Bangers[index] : nullptr;
+        ArAssert(index >= -1 && index < NumEntries, "Invalid Banger");
+
+        return (index >= 0 && index < NumEntries) ? &Bangers[index] : nullptr;
     }
 
     mmBangerData* GetBangerData(const char* banger, const char* part)

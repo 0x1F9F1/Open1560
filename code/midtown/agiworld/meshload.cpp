@@ -38,9 +38,9 @@ void agiMeshSet::BinaryLoad(Stream* stream)
     stream->Read(&AdjunctCount, sizeof(AdjunctCount));
     stream->Read(&SurfaceCount, sizeof(SurfaceCount));
     stream->Read(&IndicesCount, sizeof(IndicesCount));
-    stream->Read(&Magnitude, sizeof(Magnitude));
-    stream->Read(&MagnitudeSqr, sizeof(MagnitudeSqr));
-    stream->Read(&BoundingBoxMagnitude, sizeof(BoundingBoxMagnitude));
+    stream->Read(&Radius, sizeof(Radius));
+    stream->Read(&RadiusSqr, sizeof(RadiusSqr));
+    stream->Read(&BoundingBoxRadius, sizeof(BoundingBoxRadius));
     stream->Read(&TextureCount, sizeof(TextureCount));
     stream->Read(&Flags, sizeof(Flags));
 
@@ -136,9 +136,9 @@ void agiMeshSet::DoPageIn()
     X(AdjunctCount);
     X(SurfaceCount);
     X(IndicesCount);
-    X(Magnitude);
-    X(MagnitudeSqr);
-    X(BoundingBoxMagnitude);
+    X(Radius);
+    X(RadiusSqr);
+    X(BoundingBoxRadius);
     X(TextureCount);
     X(Flags);
 

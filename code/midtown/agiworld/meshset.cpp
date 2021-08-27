@@ -84,15 +84,15 @@ void agiMeshSet::ComputePlaneEquations()
         BoundingBox[7] = Vector3(min.x, max.y, max.z);
     }
 
-    f32 mag_sqr = 0.0f;
+    f32 radius_sqr = 0.0f;
 
     for (u32 i = 0; i < VertexCount; ++i)
-        mag_sqr = std::max(mag_sqr, Vertices[i].Mag2());
+        radius_sqr = std::max(radius_sqr, Vertices[i].Mag2());
 
-    MagnitudeSqr = mag_sqr;
-    Magnitude = std::sqrt(mag_sqr);
+    RadiusSqr = radius_sqr;
+    Radius = std::sqrt(radius_sqr);
 
-    GetBoundInfo(VertexCount, Vertices, nullptr, nullptr, nullptr, &BoundingBoxMagnitude);
+    GetBoundInfo(VertexCount, Vertices, nullptr, nullptr, nullptr, &BoundingBoxRadius);
 }
 
 void agiMeshSet::Offset(Vector3 offset)

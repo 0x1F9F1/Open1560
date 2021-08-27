@@ -20,5 +20,7 @@ define_dummy_symbol(mmcar_trailer);
 
 #include "trailer.h"
 
+#ifdef ARTS_DEV_BUILD
 void mmTrailerInstance::AddWidgets(Bank* /*arg1*/)
 {}
+#endif

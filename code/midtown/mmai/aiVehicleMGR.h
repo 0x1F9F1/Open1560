@@ -92,12 +92,20 @@
 */
 
 #include "arts7/node.h"
+
+#include "mmcar/carsimcheap.h"
 #include "mmcity/inst.h"
+#include "mmeffects/birth.h"
+#include "mmeffects/ptx.h"
+#include "mmphysics/bound.h"
 #include "mmphysics/entity.h"
+#include "mmphysics/inertia.h"
+#include "mmphysics/osample.h"
 
 class aiVehicleActive;
 class aiVehicleData;
 class mmIntersection;
+class aiVehicleSpline;
 
 // ?AMBIENTCB@@YAXPAVaiVehicleActive@@PAVasBound@@PAVmmIntersection@@PAVVector3@@M@Z
 ARTS_IMPORT void AMBIENTCB(aiVehicleActive* arg1, asBound* arg2, mmIntersection* arg3, Vector3* arg4, f32 arg5);
@@ -125,7 +133,7 @@ public:
     ARTS_IMPORT mmPhysEntity* AttachEntity() override;
 
     // ?Detach@aiVehicleInstance@@UAEXXZ
-    ARTS_IMPORT void Detach() override;
+    ARTS_EXPORT void Detach() override;
 
     // ?Draw@aiVehicleInstance@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
@@ -160,7 +168,12 @@ public:
     // ?DeclareFields@aiVehicleInstance@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap14[0x10];
+    aiVehicleSpline* Spline;
+    u32** Variants;
+    i16 Random;
+    i16 Indicators;
+    i16 field_20;
+    i16 field_22;
 };
 
 check_size(aiVehicleInstance, 0x24);
@@ -177,13 +190,13 @@ public:
     ARTS_IMPORT ~aiVehicleActive() override;
 
     // ?Attach@aiVehicleActive@@QAEXPAVaiVehicleInstance@@@Z
-    ARTS_IMPORT void Attach(aiVehicleInstance* arg1);
+    ARTS_EXPORT void Attach(aiVehicleInstance* inst);
 
     // ?Detach@aiVehicleActive@@QAEXXZ
-    ARTS_IMPORT void Detach();
+    ARTS_EXPORT void Detach();
 
     // ?DetachMe@aiVehicleActive@@UAEXXZ
-    ARTS_IMPORT void DetachMe() override;
+    ARTS_EXPORT void DetachMe() override;
 
     // ?GetBound@aiVehicleActive@@UAEPAVasBound@@XZ | inline
     ARTS_IMPORT asBound* GetBound() override;
@@ -203,7 +216,21 @@ public:
     // ?UpdateDamage@aiVehicleActive@@QAEXXZ
     ARTS_IMPORT void UpdateDamage();
 
-    u8 gap20[0xA4C];
+    asParticles Ptx;
+    asParticles ExplosionPtx;
+    asBirthRule PtxRule;
+    asBirthRule ExplosionRule;
+    f32 Damage;
+    f32 MaxDamage;
+    i32 VehicleIndex;
+    aiVehicleInstance* Inst;
+    asInertialCS ICS;
+    asBound Bound;
+    asOverSample OverSample;
+    mmWheelCheap WheelFL;
+    mmWheelCheap WheelFR;
+    mmWheelCheap WheelBL;
+    mmWheelCheap WheelBR;
 };
 
 check_size(aiVehicleActive, 0xA6C);
@@ -257,6 +284,11 @@ public:
     u8 gap20[0x16608];
 };
 
+inline aiVehicleManager* AiVehicleManager()
+{
+    return aiVehicleManager::Instance;
+}
+
 check_size(aiVehicleManager, 0x16628);
 
 class aiVehicleData final : public asNode
@@ -283,7 +315,30 @@ public:
     // ?DeclareFields@aiVehicleData@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap20[0xA0];
+    Vector3 Size;
+    Vector3 MaxAngClamp;
+    Vector3 BodyOff;
+    Vector3 FLOff;
+    Vector3 FROff;
+    Vector3 BLOff;
+    Vector3 BROff;
+    Vector3 BBLOff;
+    Vector3 BBROff;
+    f32 Mass;
+    f32 Friction;
+    f32 Elasticity;
+    f32 MaxDamage;
+    f32 PtxThresh;
+    f32 Spring;
+    f32 Damping;
+    f32 RubberSpring;
+    f32 RubberDamp;
+    f32 SuspensionLimit;
+    f32 TireRadius;
+    i32 SoundId;
+    i32 ManagerIdx;
 };
 
 check_size(aiVehicleData, 0xC0);
+
+extern f32 EggMass;

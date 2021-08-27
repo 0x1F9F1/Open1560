@@ -20,8 +20,10 @@ define_dummy_symbol(mmcamcs_viewcs);
 
 #include "viewcs.h"
 
+#ifdef ARTS_DEV_BUILD
 void mmViewCS::AddWidgets(Bank* /*arg1*/)
 {}
+#endif
 
 void mmViewCS::Init()
 {}

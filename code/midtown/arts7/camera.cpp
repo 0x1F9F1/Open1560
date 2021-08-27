@@ -117,11 +117,7 @@ void asCamera::DrawBegin()
 
     i32 clear_flags = clear_flags_;
 
-    if (draw_mode < agiDrawSolid
-#ifdef ARTS_DEV_BUILD
-        || ARTSPTR->IsDebugDrawEnabled()
-#endif
-    )
+    if (draw_mode < agiDrawSolid || ARTSPTR->IsDebugDrawEnabled())
     {
         clear_flags |= AGI_VIEW_CLEAR_TARGET;
     }

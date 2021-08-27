@@ -46,7 +46,7 @@ void mmBangerActiveManager::Update()
         }
         else
         {
-            i32 mover_type = (banger_type == BANGER_COLLISION_TYPE_6) ? MOVER_TYPE_1 : MOVER_TYPE_2;
+            i32 mover_type = (banger_type == BANGER_COLLISION_TYPE_6) ? MOVER_TYPE_PERM : MOVER_TYPE_TEMP;
             i32 mover_flags = MOVER_FLAG_ACTIVE;
 
             if (banger_type != BANGER_COLLISION_TYPE_2)

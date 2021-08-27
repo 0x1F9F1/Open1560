@@ -241,8 +241,10 @@ public:
     // ?LodTableIndex@mmInstance@@2HA
     ARTS_IMPORT static i32 LodTableIndex;
 
+    static constexpr i32 MaxMeshSetSets = 4096;
+
     // ?MeshSetNames@mmInstance@@2PAPADA
-    ARTS_IMPORT static char* MeshSetNames[4096];
+    ARTS_IMPORT static char* MeshSetNames[MaxMeshSetSets];
 
     // ?MeshSetSetCount@mmInstance@@2HA
     ARTS_IMPORT static i32 MeshSetSetCount;
@@ -259,7 +261,7 @@ public:
     };
 
     // ?MeshSetTable@mmInstance@@2PAUMeshSetTableEntry@1@A
-    ARTS_IMPORT static MeshSetTableEntry MeshSetTable[4096];
+    ARTS_IMPORT static MeshSetTableEntry MeshSetTable[MaxMeshSetSets];
 
     // ?ShowLights@mmInstance@@2HA
     ARTS_IMPORT static i32 ShowLights;
@@ -294,8 +296,9 @@ public:
                 mmHitBangerInstance
                 mmUnhitBangerInstance |= 0x200
                     aiTrafficLightInstance
-                    mmDofBangerInstance
+                    mmDofBangerInstance |= 0x2 (if MeshIndex), 0x400
                         mmDrawbridgeInstance &= ~(0x2 | 0x20), |= 0x800
+                    tp_trailer |= 0x800
 
             mmMatrixInstance |= 0x4
                 mmAnimPlane
@@ -312,18 +315,18 @@ public:
                     mmWaypointInstance
     */
 #define INST_FLAG_1 0x1
-#define INST_FLAG_SHADOW 0x2
+#define INST_FLAG_2 0x2
+
 #define INST_FLAG_COLLIDER 0x4
 #define INST_FLAG_MOVER 0x8
 #define INST_FLAG_ACTIVE 0x20
 
     // Checked in aiPedestrian::DetectBanger[Collision/Obstacle], aiVehicleActive::Detach, aiGoalCollision::Update, mmCullCity::Reset
-    // Flag 0x40 is used to imply an instance is a banger (aiPedestrian::DetectBangerCollision), yet aiVehicleActive::Detach sets it?
-#define INST_FLAG_BANGER 0x40 // Instance is a mmBangerInstance?
+#define INST_FLAG_40 0x40 // Is a obstacle?
 
 #define INST_FLAG_80 0x80
-#define INST_FLAG_100 0x100   // Vehicle?
-#define INST_FLAG_UNHIT 0x200 // Instance is a mmUnhitBangerInstance?
+#define INST_FLAG_100 0x100 // Vehicle?
+#define INST_FLAG_200 0x200 // Breakable? Is Banger/Has Banger Data?
 #define INST_FLAG_GLOW 0x400
 #define INST_FLAG_800 0x800   // Terrain? Passed from mmPhysicsMGR::Update to mmPhysicsMGR::GatherCollidables
 #define INST_FLAG_1000 0x1000 // mmBangerInstance::Draw - Increment lod

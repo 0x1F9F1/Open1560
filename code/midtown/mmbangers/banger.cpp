@@ -20,5 +20,14 @@ define_dummy_symbol(mmbangers_banger);
 
 #include "banger.h"
 
+#include "data.h"
+
+mmBangerData* mmBangerInstance::GetData()
+{
+    return BangerDataManager()->GetBangerData(BangerIndex);
+}
+
+#ifdef ARTS_DEV_BUILD
 void mmBangerInstance::AddWidgets(Bank* /*arg1*/)
 {}
+#endif

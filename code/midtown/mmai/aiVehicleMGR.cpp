@@ -20,5 +20,91 @@ define_dummy_symbol(mmai_aiVehicleMGR);
 
 #include "aiVehicleMGR.h"
 
+#include "aiVehicleSpline.h"
+#include "mmcity/cullcity.h"
+#include "mmdyna/isect.h"
+#include "mmphysics/phys.h"
+
+f32 EggMass = 1.0f;
+
+void aiVehicleInstance::Detach()
+{
+    if (mmPhysEntity* entity = GetEntity())
+        entity->DetachMe();
+
+    if (ChainId != -1)
+        CullCity()->ObjectsChain.Unparent(this);
+}
+
+void aiVehicleActive::Attach(aiVehicleInstance* inst)
+{
+    aiVehicleData* data = inst->GetData();
+
+    inst->Flags &= ~INST_FLAG_COLLIDER;
+    inst->Owner = static_cast<u8>(VehicleIndex + 1);
+
+    ICS.Zero();
+    ICS.Matrix = inst->ToMatrix(ICS.Matrix);
+    ICS.World = inst->ToMatrix(ICS.World);
+    ICS.SleepState = 1;
+    Inst = inst;
+
+    ICS.SetMass(data->Size.x, data->Size.y, data->Size.z, data->Mass * EggMass);
+    ICS.Friction = data->Friction;
+    ICS.Elasticity = data->Elasticity;
+
+    MaxDamage = data->MaxDamage;
+    ICS.SleepState = 1;
+    Bound.AudioId = data->SoundId;
+
+    ICS.LinearVelocity = inst->Spline->Matrix->m2 * -inst->Spline->CurSpeed;
+    ICS.LinearMomentum = ICS.LinearVelocity * ICS.Mass;
+
+    WheelFL.Init(&data->FLOff, data, &ICS);
+    WheelFR.Init(&data->FROff, data, &ICS);
+    WheelBL.Init(&data->BLOff, data, &ICS);
+    WheelBR.Init(&data->BROff, data, &ICS);
+
+    ICS.Update();
+}
+
+void aiVehicleActive::Detach()
+{
+    if (Inst == nullptr)
+        return;
+
+    bool return_to_rail = Damage <= MaxDamage;
+
+    mmIntersection isect;
+    isect.InitSegment(ICS.Matrix.m3 + ICS.Matrix.m1 * 0.5f, ICS.Matrix.m3 - ICS.Matrix.m1 * 3.0f, nullptr, 2, 0);
+
+    if (!PHYS.Collide(&isect, PHYS_COLLIDE_ROOM) || (ICS.Matrix.m1 ^ isect.Normal) < 0.9f)
+        return_to_rail = false;
+
+    if (Inst->Flags & INST_FLAG_40)
+        return_to_rail = false;
+
+    if (return_to_rail)
+        Inst->Spline->Impact(0);
+    else
+        Inst->Flags |= INST_FLAG_40;
+
+    Inst->Flags |= INST_FLAG_COLLIDER;
+    Inst->Owner = 0;
+
+    PHYS.IgnoreMover(Inst);
+
+    Inst = nullptr;
+    Damage = 0.0f;
+}
+
+void aiVehicleActive::DetachMe()
+{
+    Detach();
+    AiVehicleManager()->Detach(this);
+}
+
+#ifdef ARTS_DEV_BUILD
 void aiVehicleInstance::AddWidgets(Bank* /*arg1*/)
 {}
+#endif

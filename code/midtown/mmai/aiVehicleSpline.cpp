@@ -37,5 +37,7 @@ void aiVehicleSpline::ImpactAudioReaction(f32 /*arg1*/)
 void aiVehicleSpline::StopVoice()
 {}
 
+#ifdef ARTS_DEV_BUILD
 void aiVehicleSpline::AddWidgets(Bank* /*arg1*/)
 {}
+#endif

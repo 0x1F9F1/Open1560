@@ -27,6 +27,7 @@ define_dummy_symbol(mmgame_game);
 #include "eventq7/keys.h"
 #include "localize//localize.h"
 #include "mmai/aiMap.h"
+#include "mmai/aiVehicleMGR.h"
 #include "mmai/aiVehicleOpponent.h"
 #include "mmai/aiVehiclePolice.h"
 #include "mmanim/AnimMgr.h"
@@ -342,6 +343,9 @@ void mmGame::UpdatePaused()
         if (event.Modifiers & EQ_KMOD_DOWN)
             continue;
 
+        if (event.Modifiers & EQ_KMOD_SHIFT)
+            continue;
+
         switch (event.Key)
         {
             case EQ_VK_C: {
@@ -470,6 +474,12 @@ void mmGame::SendChatMessage(char* msg)
         MMSTATE.AmbientDensity = 3.0f;
         MMSTATE.PedDensity = 2.0f;
         MMSTATE.GameState = mmGameState::Drive;
+    }
+    else if (X("feather"))
+    {
+        CHEATING = true;
+
+        EggMass = (EggMass == 1.0f) ? 0.02f : 1.0f;
     }
 
 #undef X

@@ -110,6 +110,7 @@
 #include "vector7/matrix34.h"
 
 #include "inst.h"
+#include "instchn.h"
 
 class agiTexDef;
 class asCamera;
@@ -188,6 +189,10 @@ public:
 
     // ?GetInstance@mmCullCity@@SAPAV1@XZ | inline
     ARTS_IMPORT static mmCullCity* GetInstance();
+
+    offset_field(0x34ACC, mmInstChain, BuildingChain);
+    offset_field(0x34AD8, mmInstChain, ObjectsChain);
+    offset_field(0x34AE4, mmInstChain, ShadowChain);
 
     offset_field(0x34B30, f32, WeatherFriction);
 

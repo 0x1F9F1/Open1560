@@ -20,5 +20,7 @@ define_dummy_symbol(mmgame_gauge);
 
 #include "gauge.h"
 
+#ifdef ARTS_DEV_BUILD
 void RadialGauge::AddWidgets(Bank* /*arg1*/)
 {}
+#endif

@@ -71,7 +71,7 @@ public:
         f32 arg1, f32 arg2, const Vector4& arg3, const Vector4& arg4, const Vector4& arg5, const Vector4& arg6);
 
     // ?CalculatePlane@Vector4@@QAEXABVVector3@@00@Z
-    ARTS_IMPORT void CalculatePlane(const Vector3& arg1, const Vector3& arg2, const Vector3& arg3);
+    ARTS_EXPORT void CalculatePlane(const Vector3& arg1, const Vector3& arg2, const Vector3& arg3);
 
     // ?GetLookAt@Vector4@@QBEXABVVector3@@PAV2@1@Z | unused
     ARTS_IMPORT void GetLookAt(const Vector3& arg1, Vector3* arg2, Vector3* arg3) const;
@@ -83,7 +83,13 @@ public:
     ARTS_IMPORT f32 Mag() const;
 
     // ?Set@Vector4@@QAEXMMMM@Z | inline
-    ARTS_IMPORT void Set(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
+    ARTS_EXPORT void Set(f32 x_, f32 y_, f32 z_, f32 w_)
+    {
+        x = x_;
+        y = y_;
+        z = z_;
+        w = w_;
+    }
 
     constexpr inline bool operator==(const Vector4& other) const noexcept
     {

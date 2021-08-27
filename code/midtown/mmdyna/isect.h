@@ -35,7 +35,10 @@
     0x51A720 | public: void __thiscall mmEdgeBodyIsect::Draw(void) | ?Draw@mmEdgeBodyIsect@@QAEXXZ
 */
 
+#include "vector7/vector3.h"
+
 class mmBoundTemplate;
+class mmPolygon;
 
 class mmIntersection
 {
@@ -67,7 +70,32 @@ public:
     // ?Transform@mmIntersection@@QAEXPBVMatrix34@@@Z
     ARTS_IMPORT void Transform(const Matrix34* arg1);
 
-    u8 gap0[0xB0];
+    i32 Type;
+    i32 field_4;
+    mmBoundTemplate* BoundTemplate;
+    Vector3 AlsoCenter;
+    Vector3 Center;
+    f32 Radius;
+    f32 RadiusSqr;
+    Vector3 field_2C;
+    Vector3 field_38;
+    Vector3 Start;
+    Vector3 End;
+    Vector3 Direction;
+    f32 MagnitudeSqr;
+    f32 field_6C;
+    i32 field_70;
+    f32 field_74;
+    f32 field_78;
+    f32 field_7C;
+    Vector3 Position;
+    Vector3 Normal;
+    i32 field_98;
+    i32 field_9C;
+    i32 field_A0;
+    mmPolygon* HitPoly;
+    i32 field_A8;
+    u8* field_AC;
 };
 
 check_size(mmIntersection, 0xB0);

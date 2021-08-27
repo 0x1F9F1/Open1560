@@ -26,3 +26,10 @@ Vector3::operator Vector4() const
 {
     return Vector4(x, y, z, 0.0f);
 }
+
+void Vector4::CalculatePlane(const Vector3& v0, const Vector3& v1, const Vector3& v2)
+{
+    Vector3 plane = ~((v2 - v1) % (v0 - v1));
+
+    Set(plane.x, plane.y, plane.z, -(plane ^ v1));
+}

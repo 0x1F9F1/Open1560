@@ -422,9 +422,9 @@ public:
     u16* VertexIndices {};
     u16* SurfaceIndices {};
     u8* TextureIndices {};
-    f32 Magnitude {};
-    f32 MagnitudeSqr {};
-    f32 BoundingBoxMagnitude {};
+    f32 Radius {};
+    f32 RadiusSqr {};
+    f32 BoundingBoxRadius {};
     u32 VertexCount {};
     u32 AdjunctCount {};
     u32 SurfaceCount {};

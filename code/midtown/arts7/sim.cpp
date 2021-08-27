@@ -634,6 +634,7 @@ void asSimulation::UpdatePaused(asNode* node)
     }
 }
 
+#ifdef ARTS_DEV_BUILD
 void asSimulation::Cull()
 {
     if (vector_count_ == 0)
@@ -660,6 +661,7 @@ void asSimulation::DeclareVector(const Vector3* start, const Vector3* end, const
         vector_colors_[vector_count_] = *color;
     }
 }
+#endif
 
 void asSimulation::Device()
 {

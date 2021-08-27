@@ -115,15 +115,18 @@ public:
 
 check_size(mmPhysExec, 0x24);
 
-#define MOVER_TYPE_1 1   // Vehicles, plus a few broken bits
-#define MOVER_TYPE_2 2   // Props
-#define MOVER_TYPE_10 10 // mmNetObject mmTrailerInstance
+#define MOVER_TYPE_PERM 1 // Vehicles, plus a few broken bits
+#define MOVER_TYPE_TEMP 2 // Props, Disappears if not inside an active room
+#define MOVER_TYPE_10 10  // mmNetObject mmTrailerInstance
 
 #define MOVER_FLAG_ACTIVE 0x1          // Do Update/PostUpdate
 #define MOVER_FLAG_COLLIDE_TERRAIN 0x2 // Collide with terrain
 #define MOVER_FLAG_COLLIDE_MOVERS 0x8  // Collide with other movers
-#define MOVER_FLAG_20 0x20             // Collide with INST_FLAG_800
+#define MOVER_FLAG_20 0x20             // Collide with INST_FLAG_800, implies MOVER_FLAG_COLLIDE_MOVERS
 #define MOVER_FLAG_PLAYER 0x40         // Is attached to player
+
+#define PHYS_COLLIDE_ROOM 1
+#define PHYS_COLLIDE_HITID 2
 
 class mmPhysicsMGR final : public asNode
 {
@@ -141,7 +144,8 @@ public:
 #endif
 
     // ?Collide@mmPhysicsMGR@@QAEHPAVmmIntersection@@HFF@Z
-    ARTS_IMPORT i32 Collide(mmIntersection* arg1, i32 arg2, i16 arg3, i16 arg4);
+    // type = PHYS_COLLIDE_*
+    ARTS_IMPORT i32 Collide(mmIntersection* isect, i32 type, i16 room_id = 0, i16 arg4 = 0);
 
     // ?CollideLOS@mmPhysicsMGR@@QAEHPAVmmIntersection@@HFF@Z
     ARTS_IMPORT i32 CollideLOS(mmIntersection* arg1, i32 arg2, i16 arg3, i16 arg4);
@@ -156,7 +160,7 @@ public:
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?IgnoreMover@mmPhysicsMGR@@QAEXPAVmmInstance@@@Z
-    ARTS_IMPORT void IgnoreMover(mmInstance* arg1);
+    ARTS_EXPORT void IgnoreMover(mmInstance* inst);
 
     // ?Init@mmPhysicsMGR@@QAEXPAVasInertialCS@@PAVmmViewCS@@@Z
     ARTS_IMPORT void Init(asInertialCS* arg1, mmViewCS* arg2);
@@ -232,23 +236,28 @@ protected:
     ARTS_IMPORT static mmPhysicsMGR* Instance;
 
 private:
-    i32 dword20;
+    i32 field_20;
     asInertialCS* PlayerICS;
     mmInstance* PlayerInst;
     i32 ReduceOversampling;
     f32 Gravity;
-    i32 dword34;
+    i32 field_34;
+
+    // DeclareBound
     i32 NumBounds;
     mmBoundTemplate* Bounds[64];
+
     i32 CylinderCollisions;
     mmPhysExec PhysExec;
-    asOverSample Sample;
+    asOverSample OverSample;
     mmViewCS* PlayerVCS;
-    i16 Movers[64];
-    i16 NumMovers;
+
+    i16 ActiveRooms[64];
+    i16 NumActiveRooms;
+
     i16 field_21A;
-    mmBoundTemplate* BoundTemplate;
-    mmInstChain* PropsChain;
+    mmBoundTemplate* HitIdBound;
+    mmInstChain* ObjectsChain;
 };
 
 check_size(mmPhysicsMGR, 0x224);

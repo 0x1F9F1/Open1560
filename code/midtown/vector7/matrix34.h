@@ -257,10 +257,10 @@ public:
     // ?Transpose@Matrix34@@QAEXABV1@@Z
     ARTS_IMPORT void Transpose(const Matrix34& arg1);
 
-    Vector3 m0;
-    Vector3 m1;
-    Vector3 m2;
-    Vector3 m3;
+    Vector3 m0; // Left
+    Vector3 m1; // Up
+    Vector3 m2; // Forward
+    Vector3 m3; // Translation
 
     STATIC_META_DECLARE;
 

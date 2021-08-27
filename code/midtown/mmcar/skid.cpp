@@ -20,8 +20,10 @@ define_dummy_symbol(mmcar_skid);
 
 #include "skid.h"
 
+#ifdef ARTS_DEV_BUILD
 void mmSkid::AddWidgets(Bank* /*arg1*/)
 {}
+#endif
 
 void ARTS_FASTCALL mmSkid::DrawShadow()
 {}

@@ -20,8 +20,10 @@ define_dummy_symbol(mmgame_wphud);
 
 #include "wphud.h"
 
+#ifdef ARTS_DEV_BUILD
 void mmWPHUD::AddWidgets(Bank* /*arg1*/)
 {}
+#endif
 
 void mmWPHUD::Cull()
 {}

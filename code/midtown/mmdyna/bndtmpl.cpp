@@ -20,8 +20,10 @@ define_dummy_symbol(mmdyna_bndtmpl);
 
 #include "bndtmpl.h"
 
+#ifdef ARTS_DEV_BUILD
 void mmBoundTemplate::DrawGraph()
 {}
+#endif
 
 i32 mmBoundTemplate::LineSphere(mmIntersection* /*arg1*/)
 {

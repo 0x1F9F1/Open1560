@@ -19,3 +19,39 @@
 define_dummy_symbol(mmphysics_phys);
 
 #include "phys.h"
+
+#include "entity.h"
+#include "mmcity/inst.h"
+
+static constexpr i32 MAX_MOVERS = 128;
+static constexpr i32 MAX_COLLIDABLES_PER_ENTRY = 32;
+static constexpr i32 MAX_MOVERS_PER_ENTRY = 32;
+
+struct mmPhysMover
+{
+    mmInstance* Instance;
+    mmPhysEntity* Entity;
+    i32 NumColliders;
+    i32 NumMovers;
+    b32 DisabledColliders[MAX_COLLIDABLES_PER_ENTRY];
+    mmInstance* Colliders[MAX_COLLIDABLES_PER_ENTRY];
+    mmPhysMover* Movers[MAX_MOVERS_PER_ENTRY];
+    i32 Flags;
+};
+
+check_size(mmPhysMover, 0x194);
+
+ARTS_IMPORT i32 MoverCount;
+ARTS_IMPORT mmPhysMover Movers[MAX_MOVERS];
+
+void mmPhysicsMGR::IgnoreMover(mmInstance* inst)
+{
+    for (i32 i = 0; i < MoverCount; ++i)
+    {
+        if (mmPhysMover* mover = &Movers[i]; mover->Instance == inst)
+        {
+            // TODO: Set mover->[Instance/Entity] = nullptr;
+            mover->Flags = 0;
+        }
+    }
+}

@@ -1032,7 +1032,8 @@ i32 GameFilter(_EXCEPTION_POINTERS* exception)
     return ExceptionFilter(exception);
 }
 
-void GameLoop(mmInterface* mm_interface, mmGameManager* game_manager, char* replay_name)
+void GameLoop([[maybe_unused]] mmInterface* mm_interface, [[maybe_unused]] mmGameManager* game_manager,
+    [[maybe_unused]] char* replay_name)
 {
     ARTS_EXCEPTION_BEGIN
     {

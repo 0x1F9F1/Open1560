@@ -20,5 +20,12 @@ define_dummy_symbol(mmai_aiPedestrian);
 
 #include "aiPedestrian.h"
 
+#ifdef ARTS_DEV_BUILD
 void aiPedestrianInstance::AddWidgets(Bank* /*arg1*/)
 {}
+#endif
+
+run_once([] {
+    create_patch("aiPedestrian::DetectBangerCollision", "Banger Check", 0x44B6F2,
+        "\xF6\x46\x05\x02\x74\x20\xE8\x63\xED\x07\x00\x85\xC0\x0F\x84\xD6\x00\x00\x00", 0x13);
+});

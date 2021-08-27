@@ -39,9 +39,9 @@ void agiMeshSet::BinarySave(Stream* stream)
     stream->Write(&AdjunctCount, sizeof(AdjunctCount));
     stream->Write(&SurfaceCount, sizeof(SurfaceCount));
     stream->Write(&IndicesCount, sizeof(IndicesCount));
-    stream->Write(&Magnitude, sizeof(Magnitude));
-    stream->Write(&MagnitudeSqr, sizeof(MagnitudeSqr));
-    stream->Write(&BoundingBoxMagnitude, sizeof(BoundingBoxMagnitude));
+    stream->Write(&Radius, sizeof(Radius));
+    stream->Write(&RadiusSqr, sizeof(RadiusSqr));
+    stream->Write(&BoundingBoxRadius, sizeof(BoundingBoxRadius));
     stream->Write(&TextureCount, sizeof(TextureCount));
     stream->Write(&Flags, sizeof(Flags));
 

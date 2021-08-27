@@ -273,7 +273,12 @@ public:
     ARTS_IMPORT void Scale(const Vector3& arg1, f32 arg2);
 
     // ?Set@Vector3@@QAEXMMM@Z | inline
-    ARTS_IMPORT void Set(f32 arg1, f32 arg2, f32 arg3);
+    ARTS_EXPORT void Set(f32 x_, f32 y_, f32 z_)
+    {
+        x = x_;
+        y = y_;
+        z = z_;
+    }
 
     // ?Slerp@Vector3@@QAEXMABV1@0@Z | unused
     ARTS_IMPORT void Slerp(f32 arg1, const Vector3& arg2, const Vector3& arg3);

@@ -198,12 +198,14 @@ public:
         no_debug_ = !debug;
     }
 
-#ifdef ARTS_DEV_BUILD
     bool IsDebugDrawEnabled() const
     {
+#ifdef ARTS_DEV_BUILD
         return physics_bank_open_;
-    }
+#else
+        return false;
 #endif
+    }
 
     bool IsPaused() const
     {

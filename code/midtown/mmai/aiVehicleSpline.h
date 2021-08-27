@@ -61,7 +61,11 @@
 
 #include "aiVehicle.h"
 
+#include "aiRailSet.h"
+
 class mmOpponentImpactAudio;
+class DLPTemplate;
+class aiVehicleInstance;
 
 class aiVehicleSpline : public aiVehicle
 {
@@ -159,7 +163,21 @@ public:
     // ?DeclareFields@aiVehicleSpline@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap14[0xC4];
+    aiRailSet RailSet;
+    aiVehicleSpline* Next[4];
+    aiVehicleSpline* Prev[4];
+    aiVehicleInstance* Inst;
+    Matrix34* Matrix;
+    DLPTemplate* Dlp;
+    i16 Tries;
+    i16 State;
+    i16 LastState;
+    i16 TotReactTicks;
+    i16 CurReactTicks;
+    i16 field_CA;
+    f32 CurSpeed;
+    f32 OOTurnDist;
+    f32 TireRotation;
 };
 
 check_size(aiVehicleSpline, 0xD8);
