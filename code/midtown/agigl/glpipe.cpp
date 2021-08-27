@@ -92,9 +92,6 @@ i32 agiGLPipeline::BeginGfx()
 
     SDL_GL_GetDrawableSize(window_, &horz_res_, &vert_res_);
 
-    dxiWidth = horz_res_;
-    dxiHeight = vert_res_;
-
     Displayf("Window Resolution: %u x %u", horz_res_, vert_res_);
 
     if (device_flags_1_ & 0x1)
@@ -130,54 +127,47 @@ i32 agiGLPipeline::BeginGfx()
 
     InitScaling();
 
-    bool builtin_fb = !gl_context_->HasExtension(300, "GL_ARB_framebuffer_object");
-
+    bool native_res = PARAM_native_res.get_or(true);
     i32 msaa_level = 0;
 
-    if (!builtin_fb && gl_context_->HasExtension(320, "GL_ARB_texture_multisample"))
+    if (gl_context_->HasExtension(300, "GL_ARB_framebuffer_object"))
     {
         GLint max_samples = 0;
         glGetIntegerv(GL_MAX_SAMPLES, &max_samples);
         msaa_level = std::clamp(PARAM_msaa.get_or<i32>(0), 0, max_samples);
-    }
 
-    bool native_res = builtin_fb || PARAM_native_res.get_or(true);
+        if (msaa_level != 0 && !native_res && !gl_context_->HasExtension("GL_EXT_framebuffer_multisample_blit_scaled"))
+        {
+            Errorf("Multisample scaling not supported");
 
-    if (msaa_level != 0 && !gl_context_->HasExtension("GL_EXT_framebuffer_multisample_blit_scaled"))
-    {
-        Errorf("Multisample scaling not supported");
-
-        native_res = true;
-    }
-
-    if (native_res)
-    {
-        render_width_ = blit_width_;
-        render_height_ = blit_height_;
+            native_res = true;
+        }
     }
     else
     {
-        render_width_ = width_;
-        render_height_ = height_;
+        native_res = true;
     }
 
-    // Don't bother using a custom framebuffer if there would be no difference
-    if (render_width_ == blit_width_ && render_height_ == blit_height_ && msaa_level == 0)
-        builtin_fb = true;
+    render_width_ = native_res ? blit_width_ : width_;
+    render_height_ = native_res ? blit_height_ : height_;
 
-    render_x_ = 0;
-    render_y_ = 0;
+    // Don't bother using a custom framebuffer if there would be no difference
+    bool custom_fbo = (render_width_ != blit_width_) || (render_height_ != blit_height_) || (msaa_level != 0);
 
     gl_context_->CheckErrors();
 
-    Displayf("Using %s framebuffer (msaa=%i)", builtin_fb ? "builtin" : "custom", msaa_level);
+    Displayf("Using %s framebuffer: render=%ix%i, blit=%ix%i, msaa=%i", custom_fbo ? "custom" : "builtin",
+        render_width_, render_height_, blit_width_, blit_height_, msaa_level);
 
     // Clear the builtin frame buffer (avoid ugly remains/ghost image)
     // glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
     // SDL_GL_SwapWindow(window_);
 
-    if (!builtin_fb)
+    if (custom_fbo)
     {
+        render_x_ = 0;
+        render_y_ = 0;
+
         glGenFramebuffers(1, &fbo_);
         glBindFramebuffer(GL_FRAMEBUFFER, fbo_);
         glGenRenderbuffers(2, rbo_);
@@ -217,8 +207,8 @@ i32 agiGLPipeline::BeginGfx()
     }
     else
     {
-        std::swap(render_x_, blit_x_);
-        std::swap(render_y_, blit_y_);
+        render_x_ = blit_x_;
+        render_y_ = blit_y_;
     }
 
     gl_context_->CheckErrors();

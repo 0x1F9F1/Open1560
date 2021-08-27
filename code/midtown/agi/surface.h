@@ -123,8 +123,6 @@ public:
     // ?Unload@agiSurfaceDesc@@QAEXXZ
     ARTS_EXPORT void Unload();
 
-    void Init(i32 width, i32 height);
-
     // ?Init@agiSurfaceDesc@@SAPAV1@HHAAV1@@Z
     [[nodiscard]] ARTS_EXPORT static Owner<agiSurfaceDesc> Init(i32 width, i32 height, const agiSurfaceDesc& desc);
 

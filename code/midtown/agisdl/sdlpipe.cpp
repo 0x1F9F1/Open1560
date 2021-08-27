@@ -70,15 +70,16 @@ void agiSDLPipeline::InitScaling()
 
             if (scaling_mode == 0)
             {
-                f32 game_aspect = static_cast<f32>(width_) / static_cast<f32>(height_);
-                f32 draw_aspect = static_cast<f32>(blit_width_) / static_cast<f32>(blit_height_);
+                i32 w_factor = width_ * blit_height_;
+                i32 h_factor = height_ * blit_width_;
 
-                if (std::abs(game_aspect - draw_aspect) > 0.01f)
+                // Avoid stretching when there is only a small difference
+                if (std::abs(w_factor - h_factor) > (height_ * blit_height_) / 100)
                 {
-                    if (draw_aspect > game_aspect)
-                        blit_width_ = static_cast<i32>(std::round(blit_width_ * (game_aspect / draw_aspect)));
-                    else if (draw_aspect < game_aspect)
-                        blit_height_ = static_cast<i32>(std::round(blit_height_ * (draw_aspect / game_aspect)));
+                    if (w_factor < h_factor)
+                        blit_width_ = w_factor / height_;
+                    else
+                        blit_height_ = h_factor / width_;
                 }
             }
 

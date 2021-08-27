@@ -353,26 +353,20 @@ void agiSurfaceDesc::Unload()
     }
 }
 
-void agiSurfaceDesc::Init(i32 width, i32 height)
-{
-    Flags = AGISD_WIDTH | AGISD_HEIGHT | AGISD_PITCH | AGISD_PIXELFORMAT;
-    Width = width;
-    Height = height;
-    Pitch = (width * GetPixelSize() + 3) & ~3;
-    Surface = nullptr;
-    MipMapCount = 0;
-    SCaps.Caps = 0;
-
-    Load();
-
-    // TODO: Avoid clearing when not necessary
-    Clear();
-}
-
 [[nodiscard]] Owner<agiSurfaceDesc> agiSurfaceDesc::Init(i32 width, i32 height, const agiSurfaceDesc& desc)
 {
     Ptr<agiSurfaceDesc> result = MakeUnique<agiSurfaceDesc>(desc);
-    result->Init(width, height);
+
+    result->Flags = AGISD_WIDTH | AGISD_HEIGHT | AGISD_PITCH | AGISD_PIXELFORMAT;
+    result->Width = width;
+    result->Height = height;
+    result->Pitch = (width * result->GetPixelSize() + 3) & ~3;
+    result->Surface = nullptr;
+    result->MipMapCount = 0;
+    result->SCaps.Caps = 0;
+
+    result->Load();
+
     return AsOwner(result);
 }
 

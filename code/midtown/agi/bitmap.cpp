@@ -83,6 +83,7 @@ i32 agiBitmap::Init(const char* name, f32 sx, f32 sy, i32 flags)
         height_ = static_cast<i32>(sy);
 
         surface_ = AsPtr(agiSurfaceDesc::Init(width_, height_, Pipe()->GetScreenFormat()));
+        surface_->Clear();
     }
 
     return SafeBeginGfx();

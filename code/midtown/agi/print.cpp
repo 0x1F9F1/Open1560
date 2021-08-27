@@ -59,6 +59,7 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
         alpha = PARAM_alphafont.get_or(false);
 
         surface = AsPtr(agiSurfaceDesc::Init(256, 64, Pipe()->GetAlphaFormat()));
+        surface->Clear();
 
         Rc<agiColorModel> cmodel = AsRc(agiColorModel::FindMatch(surface.get()));
 

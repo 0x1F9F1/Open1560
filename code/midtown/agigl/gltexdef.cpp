@@ -152,13 +152,13 @@ i32 agiGLTexDef::BeginGfx()
             break;
 
         case 0xFF:
-            format = surface->PixelFormat.RGBAlphaBitMask ? GL_RGBA : GL_RGB;
+            format = GL_RGBA;
             type = GL_UNSIGNED_INT_8_8_8_8_REV;
             internal = (Tex.Flags & agiTexParameters::Alpha) ? GL_RGBA8 : GL_RGB8;
             break;
 
         case 0xFF0000:
-            format = surface->PixelFormat.RGBAlphaBitMask ? GL_BGRA : GL_BGR;
+            format = GL_BGRA;
             type = GL_UNSIGNED_INT_8_8_8_8_REV;
             internal = (Tex.Flags & agiTexParameters::Alpha) ? GL_RGBA8 : GL_RGB8;
             break;
