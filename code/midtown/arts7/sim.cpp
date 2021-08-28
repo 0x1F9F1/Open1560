@@ -659,6 +659,8 @@ void asSimulation::DeclareVector(const Vector3* start, const Vector3* end, const
         vector_starts_[vector_count_] = *start;
         vector_ends_[vector_count_] = *end;
         vector_colors_[vector_count_] = *color;
+
+        ++vector_count_;
     }
 }
 #endif
