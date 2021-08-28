@@ -479,7 +479,7 @@ void mmGame::SendChatMessage(char* msg)
     {
         CHEATING = true;
 
-        EggMass = (EggMass == 1.0f) ? 0.02f : 1.0f;
+        EggMass = (EggMass == 1.0f) ? 0.01f : 1.0f;
     }
 
 #undef X

@@ -19,3 +19,29 @@
 define_dummy_symbol(mmcar_carsimcheap);
 
 #include "carsimcheap.h"
+
+#include "mmai/aiVehicleMGR.h"
+#include "mmphysics/inertia.h"
+#include "mmphysics/phys.h"
+
+void mmWheelCheap::Init(Vector3* offset, aiVehicleData* data, asInertialCS* ics)
+{
+    VehicleICS = ics;
+    WheelOffset = *offset;
+
+    Radius = data->TireRadius;
+    SuspensionLimit = data->SuspensionLimit;
+
+    // Scaled handling based on expected vs actual mass
+    f32 scale = ics->Mass / data->Mass;
+
+    Spring = data->Spring * scale;
+    Damping = data->Damping * scale;
+    RubberSpring = data->RubberSpring * scale;
+    RubberDamp = data->RubberDamp * scale;
+
+    Load = ics->Mass * -PHYS.GetGravity() / 4.0f;
+
+    Matrix.Identity();
+    Matrix.m3 += WheelOffset;
+}

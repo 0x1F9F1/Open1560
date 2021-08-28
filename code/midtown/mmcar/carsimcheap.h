@@ -33,8 +33,11 @@
 
 #include "arts7/linear.h"
 
+#include "mmdyna/isect.h"
+
 class aiVehicleData;
 class asInertialCS;
+class agiPhysParameters;
 
 class mmWheelCheap final : public asLinearCS
 {
@@ -48,7 +51,7 @@ public:
     ARTS_IMPORT ~mmWheelCheap() override = default;
 
     // ?Init@mmWheelCheap@@QAEXPAVVector3@@PAVaiVehicleData@@PAVasInertialCS@@@Z
-    ARTS_IMPORT void Init(Vector3* arg1, aiVehicleData* arg2, asInertialCS* arg3);
+    ARTS_EXPORT void Init(Vector3* offset, aiVehicleData* data, asInertialCS* ics);
 
     // ?Reset@mmWheelCheap@@UAEXXZ
     ARTS_IMPORT void Reset() override;
@@ -56,7 +59,22 @@ public:
     // ?Update@mmWheelCheap@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    u8 gap88[0xF4];
+    asInertialCS* VehicleICS;
+    f32 Spring;
+    f32 Damping;
+    mmIntersection ISect;
+    i32 OnGround;
+    Vector3 WheelOffset;
+    f32 Radius;
+    f32 Load;
+    f32 SuspensionY;
+    f32 SuspensionX;
+    f32 SuspensionZ;
+    f32 RubberSpring;
+    f32 RubberDamp;
+    f32 SuspensionLimit;
+    mmPolygon* LastHitPoly;
+    agiPhysParameters* Phys;
 };
 
 check_size(mmWheelCheap, 0x17C);
