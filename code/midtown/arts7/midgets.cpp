@@ -635,7 +635,16 @@ void asMidgets::PopSection()
     }
 
     i32 start = sections_[--section_count_];
+
     SBMI* section = static_cast<SBMI*>(midgets_[start]);
+
+    if (start + 1 == midget_count_)
+    {
+        delete section;
+        midgets_[--midget_count_] = nullptr;
+        return;
+    }
+
     section->Start = section->End = midget_count_ - start - 1;
 }
 
