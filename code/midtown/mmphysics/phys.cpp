@@ -55,3 +55,5 @@ void mmPhysicsMGR::IgnoreMover(mmInstance* inst)
         }
     }
 }
+
+run_once([] { patch_jmp("mmPhysicsMGR::Cull", "Always Reset MoverCount", 0x4D54F5, jump_type::never); });
