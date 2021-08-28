@@ -30,6 +30,6 @@
 #include "mtldef.h"
 
 // ?agiMtlLib@@3V?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@A
-ARTS_EXPORT extern class agiLib<class agiMtlParameters, class agiMtlDef> agiMtlLib;
+ARTS_EXPORT extern agiLib<agiMtlParameters, agiMtlDef> agiMtlLib;
 
 check_size(agiMtlLib, 0x4014);

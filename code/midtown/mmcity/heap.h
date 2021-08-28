@@ -50,10 +50,6 @@ public:
         return result;
     }
 
-    void Free(void* ptr)
-    {
-        // TODO: Validate Free
-
-        HeapHead = static_cast<u8*>(ptr);
-    }
+    void Free([[maybe_unused]] void* ptr)
+    {}
 };

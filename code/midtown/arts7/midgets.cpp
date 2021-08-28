@@ -119,7 +119,7 @@ void asMidgets::AddColor(const char* arg1, Vector4* arg2, Callback arg3)
 
 void asMidgets::AddFileButton(const char* arg1, [[maybe_unused]] Callback arg2)
 {
-    AddButton(arg1, NullCallback);
+    AddButton(arg1, nullptr);
 }
 
 class TMI final : public MI
@@ -377,18 +377,18 @@ bkSlider* asMidgets::AddSlider(const char* arg1, u8* arg2, u8 arg3, u8 arg4, f32
 
 bkButton* asMidgets::AddText([[maybe_unused]] Callback arg1)
 {
-    return AddButton("Text Edit", NullCallback);
+    return AddButton("Text Edit", nullptr);
 }
 
 bkButton* asMidgets::AddText([[maybe_unused]] const char* arg1, [[maybe_unused]] Callback arg2)
 {
-    return AddButton("Labelled text edit", NullCallback);
+    return AddButton("Labelled text edit", nullptr);
 }
 
 bkSlider* asMidgets::AddTextSlider(const char* arg1, [[maybe_unused]] const char* arg2, [[maybe_unused]] i32* arg3,
     [[maybe_unused]] f32 arg4, [[maybe_unused]] Callback arg5)
 {
-    AddButton(arg1, NullCallback);
+    AddButton(arg1, nullptr);
 
     return nullptr;
 }

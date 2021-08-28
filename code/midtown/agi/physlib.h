@@ -31,6 +31,6 @@
 #include "physdef.h"
 
 // ?agiPhysLib@@3V?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@A
-ARTS_EXPORT extern class agiLib<class agiPhysParameters, class agiPhysDef> agiPhysLib;
+ARTS_EXPORT extern agiLib<agiPhysParameters, agiPhysDef> agiPhysLib;
 
 check_size(agiPhysLib, 0x4014);

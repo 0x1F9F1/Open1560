@@ -60,6 +60,8 @@ public:
     // ??0Callback@@QAE@XZ
     ARTS_EXPORT constexpr Callback() noexcept = default;
 
+    constexpr Callback(std::nullptr_t) noexcept;
+
     // ??0Callback@@QAE@P6AXXZ@Z
     ARTS_EXPORT constexpr Callback(Static0 func) noexcept;
 
@@ -135,7 +137,11 @@ check_size(Callback, 0x14);
 
 // ?NullCallback@@3VCallback@@A
 // ARTS_IMPORT extern Callback NullCallback;
-inline constexpr const Callback NullCallback {};
+[[deprecated]] ARTS_EXPORT extern Callback NullCallback;
+
+inline constexpr Callback::Callback(std::nullptr_t) noexcept
+    : Callback()
+{}
 
 inline constexpr Callback::Callback(Static0 func) noexcept
     : type_(CB_TYPE_CFA)

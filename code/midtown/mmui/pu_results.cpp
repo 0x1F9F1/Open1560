@@ -86,7 +86,7 @@ void PUResults::Init640()
     }
 
 #define X(IDC, LABEL, X, Y, W) \
-    AddButton(IDC, LOC_TEXT(LABEL.get()), X, Y, W, widget_height_, widget_font_size_, 0, NullCallback)
+    AddButton(IDC, LOC_TEXT(LABEL.get()), X, Y, W, widget_height_, widget_font_size_, 0, nullptr)
 
     RestartButton = X(IDC_PU_RESULTS_RESTART, RestartRace, SX(268), SY(240), SX(135));
     NextButton = X(IDC_PU_RESULTS_NEXT, NextRace, SX(407), SY(240), SX(135));

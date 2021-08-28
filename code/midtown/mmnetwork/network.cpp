@@ -156,8 +156,8 @@ void asNetwork::Logout()
     in_session_ = false;
     in_lobby_ = false;
     is_host_ = false;
-    sys_message_cb_ = NullCallback;
-    app_message_cb_ = NullCallback;
+    sys_message_cb_ = nullptr;
+    app_message_cb_ = nullptr;
     caps_ = 0;
 }
 

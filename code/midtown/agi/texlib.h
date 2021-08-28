@@ -31,6 +31,6 @@
 #include "texdef.h"
 
 // ?agiTexLib@@3V?$agiLib@VagiTexParameters@@VagiTexDef@@@@A
-ARTS_EXPORT extern class agiLib<class agiTexParameters, class agiTexDef> agiTexLib;
+ARTS_EXPORT extern agiLib<agiTexParameters, agiTexDef> agiTexLib;
 
 check_size(agiTexLib, 0x4014);

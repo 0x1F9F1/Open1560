@@ -140,6 +140,9 @@ class agiMeshSet;
 class mmBoundTemplate;
 class mmPhysEntity;
 
+// ?mmInstanceHeap@@3V?$mmHeap@H@@A
+ARTS_IMPORT extern mmHeap<i32> mmInstanceHeap;
+
 class mmInstance : public Base
 {
 public:
@@ -485,9 +488,6 @@ ARTS_IMPORT char* formatf(const char* arg1, ...);
 // ?EnableFacadeSideClipping@@3HA
 ARTS_IMPORT extern i32 EnableFacadeSideClipping;
 #endif
-
-// ?mmInstanceHeap@@3V?$mmHeap@H@@A
-ARTS_IMPORT extern class mmHeap<i32> mmInstanceHeap;
 
 class mmYInstance : public mmInstance
 {

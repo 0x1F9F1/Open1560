@@ -20,6 +20,8 @@ define_dummy_symbol(data7_callback);
 
 #include "callback.h"
 
+Callback NullCallback {};
+
 void Callback::Call(void* param)
 {
     if (type_ == CB_TYPE_NONE)
