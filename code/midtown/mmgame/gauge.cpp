@@ -20,6 +20,16 @@ define_dummy_symbol(mmgame_gauge);
 
 #include "gauge.h"
 
+#include "agi/viewport.h"
+#include "agiworld/meshset.h"
+
+void RadialGauge::Cull()
+{
+    Viewport()->SetWorld(LCS.World);
+
+    NeedleMesh->Draw(MESH_DRAW_CLIP);
+}
+
 #ifdef ARTS_DEV_BUILD
 void RadialGauge::AddWidgets(Bank* /*arg1*/)
 {}

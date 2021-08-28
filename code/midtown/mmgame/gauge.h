@@ -44,9 +44,13 @@
 
 #include "arts7/node.h"
 
+#include "arts7/linear.h"
+#include "vector7/vector3.h"
+
 class mmCarSim;
 class mmExternalView;
 class mmPlayer;
+class agiMeshSet;
 
 class RadialGauge final : public asNode
 {
@@ -65,7 +69,7 @@ public:
 #endif
 
     // ?Cull@RadialGauge@@UAEXXZ
-    ARTS_IMPORT void Cull() override;
+    ARTS_EXPORT void Cull() override;
 
     // ?Init@RadialGauge@@QAEXPAD0PAM1M@Z
     ARTS_IMPORT void Init(char* arg1, char* arg2, f32* arg3, f32* arg4, f32 arg5);
@@ -73,7 +77,14 @@ public:
     // ?Update@RadialGauge@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    u8 gap20[0xAC];
+    asLinearCS LCS;
+    f32* CurrentValue;
+    f32* MaxValue;
+    f32 RotMin;
+    f32 RotMax;
+    f32 MinValue;
+    Vector3 Pos;
+    agiMeshSet* NeedleMesh;
 };
 
 check_size(RadialGauge, 0xCC);
