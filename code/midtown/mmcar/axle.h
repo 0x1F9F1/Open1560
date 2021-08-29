@@ -40,30 +40,28 @@ class mmAxle final : public asLinearCS
 {
 public:
     // ??0mmAxle@@QAE@XZ
-    ARTS_IMPORT mmAxle();
+    ARTS_EXPORT mmAxle() = default;
 
     // ??_EmmAxle@@UAEPAXI@Z
     // ??1mmAxle@@UAE@XZ | inline
-    ARTS_IMPORT ~mmAxle() override = default;
+    ARTS_EXPORT ~mmAxle() override = default;
+
+    // ?Init@mmAxle@@QAEXPAD0PAVmmWheel@@1@Z
+    ARTS_EXPORT void Init(char* veh_name, char* axle_name, mmWheel* left_wheel, mmWheel* right_wheel);
+
+    // ?Update@mmAxle@@UAEXXZ
+    ARTS_EXPORT void Update() override;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmAxle@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
+    ARTS_EXPORT void AddWidgets(Bank* bank) override;
 #endif
 
-    // ?GetClass@mmAxle@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT MetaClass* GetClass() override;
+    VIRTUAL_META_DECLARE;
 
-    // ?Init@mmAxle@@QAEXPAD0PAVmmWheel@@1@Z
-    ARTS_IMPORT void Init(char* arg1, char* arg2, mmWheel* arg3, mmWheel* arg4);
-
-    // ?Update@mmAxle@@UAEXXZ
-    ARTS_IMPORT void Update() override;
-
-    // ?DeclareFields@mmAxle@@SAXXZ
-    ARTS_IMPORT static void DeclareFields();
-
-    u8 gap88[0x14];
+    Vector3 Center {};
+    mmWheel* WheelL {};
+    mmWheel* WheelR {};
 };
 
 check_size(mmAxle, 0x9C);
