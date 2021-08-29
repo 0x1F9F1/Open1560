@@ -188,7 +188,7 @@ b32 HierFileSystem::QueryOn(const char* path)
         Warningf("Allowing access to real file: '%s'", path);
     }
 
-    return GetFileAttributesA(path) != INVALID_FILE_ATTRIBUTES;
+    return GetFileAttributesA(FQN(path)) != INVALID_FILE_ATTRIBUTES;
 }
 
 b32 HierFileSystem::ValidPath(const char*)
