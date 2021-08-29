@@ -78,8 +78,8 @@ void agiMeshSet::BinarySave(Stream* stream)
     {
         agiTexParameters params {};
 
-        if (Textures[i])
-            params = Textures[0][i]->Tex;
+        if (agiTexDef* texture = Textures[0][i])
+            params = texture->Tex;
 
         stream->Write(&params, sizeof(params));
     }
