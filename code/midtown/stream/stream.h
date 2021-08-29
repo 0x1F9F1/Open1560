@@ -205,16 +205,15 @@ public:
     // ?PutCh@Stream@@QAEHE@Z
     ARTS_EXPORT i32 PutCh(u8 value)
     {
-        if ((buffer_head_ == 0) && (buffer_read_ < buffer_capacity_))
+        if ((buffer_read_ == 0) && (buffer_head_ < buffer_capacity_))
         {
-            buffer_[buffer_read_++] = value;
+            buffer_[buffer_head_++] = value;
+
             return value;
         }
 
         if (Write(&value, 1) == 1)
-        {
             return value;
-        }
 
         return -1;
     }
