@@ -89,7 +89,7 @@ class mmGame : public asNode
 {
 public:
     // ??0mmGame@@QAE@XZ
-    ARTS_IMPORT mmGame();
+    ARTS_EXPORT mmGame();
 
     // ??_GmmGame@@UAEPAXI@Z
     // ??_EmmGame@@UAEPAXI@Z
@@ -177,44 +177,44 @@ public:
     // ?DeclareFields@mmGame@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    mmPlayer* Player;
-    mmPositions* ResetPositions;
-    mmIcons Icons;
-    string OpponentNames;
-    string FinishMessages;
-    f32 AutoRevLevel;
-    f32 AutoRevSpeed;
-    Vector3 ResetPosition;
-    b32 ShowResults;
-    mmCullCity* pCullCity;
-    i32 field_B0;
-    i32 field_B4;
-    asLamp* Lamp;
-    asLinearCS* LampCS;
-    i32 field_C0;
-    AudSound* StartSounds;
-    mmVoiceCommentary* VoiceCommentary;
-    mmAmbientAudio* AmbientAudio;
-    mmPopup* Popup;
-    mmAnimMgr* AnimMgr;
-    mmRaceData* RaceData;
-    mmMiscData MiscData;
-    b32 MiscDataLoaded;
-    b32 IsChicago;
-    i32 GameState;
-    i16 PlayingHorn;
-    bool HasAIMap;
-    bool EnableAI;
-    char MapName[40];
-    char RaceDir[40];
-    OppIconInfo OppIcons[8];
-    eqEventQ* EventQueue;
-    eqEvent CurrentEvent;
-    f32 GameStateWait;
-    mmPlayerConfig Config;
-    b32 EnableSave;
-    i32 NextHudMode;
-    Random RNG;
+    mmPlayer* Player {};
+    mmPositions* ResetPositions {};
+    mmIcons Icons {};
+    string OpponentNames {};
+    string FinishMessages {};
+    f32 AutoRevLevel {0.8f};
+    f32 AutoRevSpeed {5.0f};
+    Vector3 ResetPosition {};
+    b32 ShowResults {};
+    mmCullCity* pCullCity {};
+    i32 field_B0 {};
+    i32 field_B4 {};
+    asLamp* Lamp {};
+    asLinearCS* LampCS {};
+    i32 field_C0 {};
+    AudSound* StartSounds {};
+    mmVoiceCommentary* VoiceCommentary {};
+    mmAmbientAudio* AmbientAudio {};
+    mmPopup* Popup {};
+    mmAnimMgr* AnimMgr {};
+    mmRaceData* RaceData {};
+    mmMiscData MiscData {};
+    b32 MiscDataLoaded {};
+    b32 IsChicago {};
+    i32 GameState {};
+    i16 PlayingHorn {};
+    bool HasAIMap {};
+    bool EnableAI {true};
+    char MapName[40] {};
+    char RaceDir[40] {};
+    OppIconInfo OppIcons[8] {};
+    eqEventQ* EventQueue {};
+    eqEvent CurrentEvent {};
+    f32 GameStateWait {};
+    mmPlayerConfig Config {};
+    b32 EnableSave {};
+    i32 NextHudMode {-1};
+    Random RNG {};
 
 protected:
     // ?CalculateRaceScore@mmGame@@IAEHHH@Z

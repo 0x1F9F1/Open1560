@@ -38,7 +38,7 @@
 #define MM_IDS_18 18
 #define MM_IDS_19 19
 #define MM_IDS_20 20
-#define MM_IDS_21 21
+#define MM_IDS_PLAYER_NAME 21
 #define MM_IDS_22 22
 #define MM_IDS_23 23
 #define MM_IDS_24 24

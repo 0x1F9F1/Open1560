@@ -58,6 +58,21 @@ u32 IconColor[8] {
     0xFFFF0390, // Pink
 };
 
+mmGame::mmGame()
+{
+    for (i32 i = 0; i < 8; ++i)
+    {
+        OppIconInfo* icon = &OppIcons[i];
+        icon->Color = IconColor[i];
+        icon->Enabled = false;
+        icon->Position = nullptr;
+    }
+
+    arts_strcpy(LocPlayerName, LOC_STR(MM_IDS_PLAYER_NAME));
+
+    BangerProjectile = nullptr;
+}
+
 void mmGame::UpdateDebugInput()
 {
     while (EventQueue->Pop(&CurrentEvent))
@@ -401,9 +416,23 @@ void mmGame::SendChatMessage(char* msg)
     {
         CHEATING = true;
 
-        // FIXME: Reset this during mmGame destructor
         BangerProjectile = BangerDataManager()->GetBangerData(const_cast<char*>("tpmail"), nullptr);
         ProjectileV = Vector3(0.0f, 5.0f, -30.0f);
+    }
+    else if (X("banger "))
+    {
+        CHEATING = true;
+
+        const char* banger_name = msg + 8;
+
+        BangerProjectile = BangerDataManager()->GetBangerData(const_cast<char*>(banger_name), nullptr);
+        ProjectileV = Vector3(0.0f, 5.0f, -30.0f);
+
+        if (BangerProjectile && !BangerProjectile->MeshIndex)
+            BangerProjectile = nullptr;
+
+        if (BangerProjectile == nullptr)
+            Player->GetHud().PostChatMessage(arts_formatf<128>("Invalid/Missing banger '%s'", banger_name));
     }
     else if (X("slid" /*"e"*/))
     {
