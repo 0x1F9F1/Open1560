@@ -22,9 +22,24 @@ define_dummy_symbol(mmcar_car);
 
 #include "data7/timer.h"
 #include "mmcity/cullcity.h"
+#include "mmcityinfo/vehinfo.h"
 #include "mmphysics/joint3dof.h"
 
 #include "trailer.h"
+
+void mmCar::TranslateFlags(i32 info_flags)
+{
+    u32 flags = CAR_FLAG_ACTIVE;
+
+    flags |= (info_flags & VEH_INFO_FLAG_6_WHEELS) ? CAR_FLAG_6_WHEELS : 0;
+    flags |= (info_flags & VEH_INFO_FLAG_TRAILER) ? CAR_FLAG_TRAILER : 0;
+    flags |= (info_flags & VEH_INFO_FLAG_FENDERS) ? CAR_FLAG_FENDERS : 0;
+    flags |= (info_flags & VEH_INFO_FLAG_SIREN) ? CAR_FLAG_SIREN : 0;
+    flags |= (info_flags & VEH_INFO_FLAG_LARGE) ? CAR_FLAG_LARGE : 0;
+    flags |= (info_flags & VEH_INFO_FLAG_AXLES) ? CAR_FLAG_AXLES : 0;
+
+    Model.CarFlags = flags;
+}
 
 void mmCar::PostUpdate()
 {
@@ -32,7 +47,7 @@ void mmCar::PostUpdate()
     Timer t;
 #endif
 
-    if (Model.CarFlags & CAR_MODEL_FLAG_TRAILER)
+    if (Model.HasTrailer())
     {
         Trailer->PostUpdate();
 
@@ -67,7 +82,7 @@ void mmCar::PostUpdate()
 
 void mmCar::ReleaseTrailer()
 {
-    if (Model.CarFlags & CAR_MODEL_FLAG_TRAILER)
+    if (Model.HasTrailer())
     {
         TrailerJoint->BreakJoint();
         Trailer->SetHackedImpactParams();
@@ -80,7 +95,7 @@ void mmCar::EnableDriving(b32 enabled)
     {
         Sim.ICS.Constraints &= ~INERTIAL_CONSTRAIN_ALL;
 
-        if (Model.CarFlags & CAR_MODEL_FLAG_TRAILER)
+        if (Model.HasTrailer())
             Trailer->ICS.Constraints &= ~INERTIAL_CONSTRAIN_ALL;
     }
     else
@@ -88,7 +103,7 @@ void mmCar::EnableDriving(b32 enabled)
         Sim.ICS.Constraints |= INERTIAL_CONSTRAIN_TX | INERTIAL_CONSTRAIN_TZ | INERTIAL_CONSTRAIN_RY;
 
         // TODO: Should this be TX|TZ|RY as well?
-        if (Model.CarFlags & CAR_MODEL_FLAG_TRAILER)
+        if (Model.HasTrailer())
             Trailer->ICS.Constraints |= INERTIAL_CONSTRAIN_ALL;
     }
 }

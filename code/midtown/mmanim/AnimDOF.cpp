@@ -30,8 +30,8 @@ void mmDrawbridgeInstance::Draw(i32 lod)
 {
     enum
     {
-        BRIDGE = 0,
-        RAIL = 1,
+        MESH_BRIDGE = 0,
+        MESH_RAIL = 1,
     };
 
     Matrix34 world;
@@ -44,13 +44,13 @@ void mmDrawbridgeInstance::Draw(i32 lod)
 
     if (asRenderWeb::PassMask & RENDER_PASS_TERRAIN)
     {
-        if (agiMeshSet* mesh = GetResidentMeshSet(lod, BRIDGE))
+        if (agiMeshSet* mesh = GetResidentMeshSet(lod, MESH_BRIDGE))
             mesh->DrawLitEnv(DynamicLighter, CullCity()->ShadowMap, CullCity()->EnvMatrix, MESH_DRAW_CLIP);
     }
 
     if (asRenderWeb::PassMask & RENDER_PASS_OBJECTS)
     {
-        if (agiMeshSet* mesh = GetResidentMeshSet(lod, RAIL))
+        if (agiMeshSet* mesh = GetResidentMeshSet(lod, MESH_RAIL))
             mesh->DrawLit(DynamicLighter, MESH_DRAW_CLIP, nullptr);
     }
 

@@ -129,7 +129,7 @@ public:
     ARTS_IMPORT void ToggleSiren();
 
     // ?TranslateFlags@mmCar@@QAEXH@Z
-    ARTS_IMPORT void TranslateFlags(i32 arg1);
+    ARTS_EXPORT void TranslateFlags(i32 info_flags);
 
     // ?Update@mmCar@@UAEXXZ
     ARTS_IMPORT void Update() override;

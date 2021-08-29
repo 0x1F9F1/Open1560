@@ -31,6 +31,13 @@
     0x61F948 | const mmVehInfo::`vftable' | ??_7mmVehInfo@@6B@
 */
 
+#define VEH_INFO_FLAG_6_WHEELS 0x1 // Has 6 wheels
+#define VEH_INFO_FLAG_TRAILER 0x2  // Has a trailer
+#define VEH_INFO_FLAG_FENDERS 0x4  // Has fenders
+#define VEH_INFO_FLAG_SIREN 0x8    // Has a siren
+#define VEH_INFO_FLAG_LARGE 0x10   // Disable mmStuck, use ind cam indoors
+#define VEH_INFO_FLAG_AXLES 0x20   // Has axles (new)
+
 class mmVehInfo final
 {
 public:

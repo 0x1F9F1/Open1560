@@ -67,6 +67,26 @@ class mmCarSim;
 class mmHitBangerInstance;
 class mmWheel;
 
+#define CAR_FLAG_AXLES 0x1         // Has axles
+#define CAR_FLAG_SIREN 0x2         // Has a siren
+#define CAR_FLAG_SIREN_ON 0x4      // Siren on
+#define CAR_FLAG_UNIMPL_DAMAGE 0x8 // This kind of damage is no longer implemented (probably deformation)
+#define CAR_FLAG_FENDERS 0x10      // Has fenders
+#define CAR_FLAG_6_WHEELS 0x20     // Has 6 wheels
+#define CAR_FLAG_ACTIVE 0x40       // Activated (visible)
+#define CAR_FLAG_TRAILER 0x80      // Has a trailer
+#define CAR_FLAG_LARGE 0x100       // Disable mmStuck, use ind cam indoors
+
+// Visible parts (zero if ejected)
+#define CAR_FLAG_FL_WHEEL 0x200  // Front Left Wheel
+#define CAR_FLAG_FR_WHEEL 0x400  // Front Right Wheel
+#define CAR_FLAG_BL_WHEEL 0x800  // Back Left Wheel
+#define CAR_FLAG_BR_WHEEL 0x1000 // Back Right Wheel
+#define CAR_FLAG_L_FENDER 0x2000 // Left Fender
+#define CAR_FLAG_R_FENDER 0x4000 // Right Fender (FIXME: 0x2000 checked when in DashView)
+
+#define CAR_FLAG_HIGH_QUALITY 0x8000 // Increase LOD
+
 class mmCarModel final : public mmInstance
 {
 public:
@@ -160,13 +180,14 @@ public:
     // ?DeclareFields@mmCarModel@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
+    bool HasTrailer() const
+    {
+        return CarFlags & CAR_FLAG_TRAILER;
+    }
+
     mmCarSim* CarSim {};
     mmCar* Entity {};
-
-#define CAR_MODEL_FLAG_40 0x40
-#define CAR_MODEL_FLAG_TRAILER 0x80
-
-    u32 CarFlags {};
+    u32 CarFlags {}; // CAR_FLAG_*
     Matrix34 field_20 {IDENTITY};
     i32 field_50 {};
     i32 PaintJobIndex {};
