@@ -1252,6 +1252,7 @@ void InitPatches()
     create_patch("DriverMenu::DisplayDriverInfo", "Fix score alignment", 0x6410E0, "%d", 3);
 
     patch_jmp("mmCullCity::Init", "DevelopmentMode", 0x48C851, jump_type::always);
+    patch_jmp("mmCullCity::Init", "DevelopmentMode", 0x4908DC, jump_type::always);
 
     patch_jmp("GetMeshSet", "Pager address check", 0x512AD5, jump_type::always);
     patch_jmp("mmBoundTemplate::LockIfResident", "Pager address check", 0x519329, jump_type::always);
