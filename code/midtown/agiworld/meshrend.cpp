@@ -23,9 +23,11 @@ define_dummy_symbol(agiworld_meshrend);
 #include "agi/pipeline.h"
 #include "agi/rsys.h"
 #include "agi/viewport.h"
+#include "agiworld/packnorm.h"
 #include "agiworld/quality.h"
 #include "data7/b2f.h"
 #include "data7/utimer.h"
+#include "dyna7/gfx.h"
 #include "memory/alloca.h"
 #include "pcwindis/setupdata.h"
 #include "vector7/matrix34.h"
@@ -623,6 +625,37 @@ void agiMeshSet::DrawLitEnv(agiMeshLighter lighter, agiTexDef* env_map, Matrix34
         else if (DrawLit(lighter, flags, nullptr) && env_map)
         {
             EnvMap(transform, env_map, 0xFFFFFFFF);
+        }
+
+        Unlock();
+    }
+    else
+    {
+        PageIn();
+    }
+}
+
+void agiMeshSet::DrawNormals(Vector3& color)
+{
+    // FIXME: Avoid this check
+    if (agiMeshSet* volatile this_ptr = this; !this_ptr)
+        return;
+
+    if (LockIfResident())
+    {
+        if (Normals)
+        {
+            DrawBegin(const_cast<Matrix34&>(ViewParams().World));
+            ::DrawColor(color);
+
+            for (u32 i = 0; i < AdjunctCount; ++i)
+            {
+                Vector3 start = Vertices[VertexIndices[i]];
+                Vector3 end = start + UnpackNormal[Normals[i]];
+                DrawLine(start, end);
+            }
+
+            DrawEnd();
         }
 
         Unlock();

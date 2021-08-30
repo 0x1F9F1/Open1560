@@ -119,7 +119,7 @@ public:
     ARTS_IMPORT void DrawLitSph(agiMeshLighter lighter, agiTexDef* sph_map, u32 flags);
 
     // ?DrawNormals@agiMeshSet@@QAEXAAVVector3@@@Z | agiworld:meshrend
-    ARTS_IMPORT void DrawNormals(Vector3& arg1);
+    ARTS_EXPORT void DrawNormals(Vector3& color);
 
     // ?DrawShadow@agiMeshSet@@QAEXIABVVector4@@ABVVector3@@@Z | agiworld:meshrend
     ARTS_EXPORT void DrawShadow(u32 flags, const Vector4& plane, const Vector3& light_dir);
