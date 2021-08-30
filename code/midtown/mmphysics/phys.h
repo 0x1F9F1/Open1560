@@ -210,7 +210,7 @@ protected:
     ARTS_IMPORT i32 CollideInstances(mmInstance* arg1, mmInstance* arg2, i32 arg3, i32 arg4);
 
     // ?CollideProbe@mmPhysicsMGR@@IAEHFPAVmmIntersection@@H@Z
-    ARTS_IMPORT i32 CollideProbe(i16 arg1, mmIntersection* arg2, i32 arg3);
+    ARTS_EXPORT b32 CollideProbe(i16 room, mmIntersection* isect, i32 flags);
 
     // ?CollideTerrain@mmPhysicsMGR@@IAEXPAVmmInstance@@@Z
     ARTS_IMPORT void CollideTerrain(mmInstance* arg1);

@@ -75,7 +75,9 @@ public:
     // ?Unparent@mmInstChain@@QAEXPAVmmInstance@@@Z
     ARTS_IMPORT void Unparent(mmInstance* arg1);
 
-    u8 gap0[0xC];
+    mmInstance** Chains {};
+    i16* ChainCounts {};
+    i32 NumChain {};
 };
 
 check_size(mmInstChain, 0xC);

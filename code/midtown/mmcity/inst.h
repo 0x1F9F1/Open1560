@@ -284,6 +284,11 @@ public:
         return MeshIndex ? MeshSetTable[MeshIndex - 1 + index].Meshes[lod] : nullptr;
     }
 
+    mmBoundTemplate* GetBound()
+    {
+        return MeshIndex ? MeshSetTable[MeshIndex - 1].Bound : nullptr;
+    }
+
     /*
         mmInstance |= 0x20
             aiPedestrianInstance |= 0x2 | 0x2000
@@ -360,8 +365,8 @@ public:
     u8 SubType {};
     u8 Owner {};
 
-    mmInstance* PrevChain {};
-    mmInstance* NextChain {};
+    mmInstance* ChainPrev {};
+    mmInstance* ChainNext {};
 };
 
 check_size(mmInstance, 0x14);

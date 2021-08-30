@@ -137,6 +137,13 @@ public:
     // ?FastInverse@Matrix34@@QAEXABV1@@Z
     ARTS_IMPORT void FastInverse(const Matrix34& arg1);
 
+    Matrix34 FastInverse() const
+    {
+        Matrix34 result;
+        result.FastInverse(*this);
+        return result;
+    }
+
     // ?FastInverseFull@Matrix34@@QAEXABV1@@Z | unused
     ARTS_IMPORT void FastInverseFull(const Matrix34& arg1);
 

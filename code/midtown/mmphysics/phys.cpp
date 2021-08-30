@@ -21,7 +21,11 @@ define_dummy_symbol(mmphysics_phys);
 #include "phys.h"
 
 #include "entity.h"
+#include "memory/alloca.h"
 #include "mmcity/inst.h"
+#include "mmcity/instchn.h"
+#include "mmdyna/bndtmpl.h"
+#include "mmdyna/isect.h"
 
 static constexpr i32 MAX_MOVERS = 128;
 static constexpr i32 MAX_COLLIDABLES_PER_ENTRY = 32;
@@ -54,6 +58,36 @@ void mmPhysicsMGR::IgnoreMover(mmInstance* inst)
             mover->Flags = 0;
         }
     }
+}
+
+b32 mmPhysicsMGR::CollideProbe(i16 room, mmIntersection* isect, i32 flags)
+{
+    for (mmInstance* inst = ObjectsChain->Chains[room]; inst; inst = inst->ChainNext)
+    {
+        if (!(inst->Flags & flags))
+            continue;
+
+        mmBoundTemplate* bound = inst->GetBound();
+
+        if (bound == nullptr)
+        {
+            Errorf("Attemptimg to collide probe against instance with no bound template");
+            continue;
+        }
+
+        Matrix34 world = inst->ToMatrix(world);
+        Matrix34 inv_world = world.FastInverse();
+        isect->Transform(&inv_world);
+
+        if (bound->Collide(isect))
+        {
+            isect->Position.Dot(isect->Position, world);
+            isect->Normal.Dot3x3(isect->Normal, world);
+            return true;
+        }
+    }
+
+    return false;
 }
 
 run_once([] { patch_jmp("mmPhysicsMGR::Cull", "Always Reset MoverCount", 0x4D54F5, jump_type::never); });
