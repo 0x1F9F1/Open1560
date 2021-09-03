@@ -31,7 +31,7 @@ PUMenuBase::PUMenuBase(
 {
     if (background)
     {
-        if (MenuManager::Instance->Is3D())
+        if (Menus()->Is3D())
         {
             bg_bitmap_ = AsRc(Pipe()->GetBitmap(background, 1.0f, 1.0f, 0));
         }
@@ -73,7 +73,7 @@ PUMenuBase::PUMenuBase(
     field_68 = 1;
     field_BC = 0.1f;
     field_B4 = 0.9f;
-    widget_font_size_ = MenuManager::Instance->GetFieldD0() ? 24 : 32;
+    widget_font_size_ = Menus()->GetFieldD0() ? 24 : 32;
     field_B0 = 0.5f;
     field_B8 = 0.5f;
 }
@@ -87,7 +87,7 @@ void PUMenuBase::Cull()
 
     Pipe()->CopyBitmap(x, y, bg_bitmap_.get(), 0, 0, width, height);
 
-    if (MenuManager::Instance->Is3D())
+    if (Menus()->Is3D())
         Pipe()->ClearBorder(x, y, width, height, 0);
 }
 

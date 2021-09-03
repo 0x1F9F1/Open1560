@@ -53,21 +53,20 @@ void PUResults::Init640()
 #define SY(VALUE) ((VALUE) / 480.0f)
 
     RaceType = CreateTextNode(SX(124), SY(121), SX(160), SY(20), 1, BITMAP_TRANSPARENT);
-    AddText(RaceType.get(), MenuManager::Instance->GetFont(20), LOC_TEXT("Checkpoint"), MM_TEXT_CENTER, 0, 0);
+    AddText(RaceType.get(), Menus()->GetFont(20), LOC_TEXT("Checkpoint"), MM_TEXT_CENTER, 0, 0);
 
     RaceName = CreateTextNode(SX(124), SY(141), SX(160), SY(20), 1, BITMAP_TRANSPARENT);
-    AddText(
-        RaceName.get(), MenuManager::Instance->GetFont(20), LOC_TEXT("Tough Turns & a Tunnel"), MM_TEXT_CENTER, 0, 0);
+    AddText(RaceName.get(), Menus()->GetFont(20), LOC_TEXT("Tough Turns & a Tunnel"), MM_TEXT_CENTER, 0, 0);
 
     Message = CreateTextNode(SX(124), SY(161), SX(160), SY(60), 1, BITMAP_TRANSPARENT);
-    AddText(Message.get(), MenuManager::Instance->GetFont(20),
+    AddText(Message.get(), Menus()->GetFont(20),
         LOC_TEXT("Congratulations!\nYou have just unlocked the next level of races"), MM_TEXT_WORDBREAK, 0, 0);
 
     Names = CreateTextNode(SX(300), SY(63), SX(300), SY(163), 30, BITMAP_TRANSPARENT);
 
     f32 text_w = 0.0f;
     f32 text_h = 0.0f;
-    Names->GetTextDimensions(MenuManager::Instance->GetFont(16), LOC_TEXT("Just the Height"), text_w, text_h);
+    Names->GetTextDimensions(Menus()->GetFont(16), LOC_TEXT("Just the Height"), text_w, text_h);
 
     AddChild(RaceType.get());
     AddChild(RaceName.get());
@@ -80,9 +79,9 @@ void PUResults::Init640()
         arts_strcpy(buffer, " ");
         i32 y = i * 16;
 
-        AddText(Names.get(), MenuManager::Instance->GetFont(20), LOC_TEXT(buffer), 0, SX(0), SY(y));
-        AddText(Names.get(), MenuManager::Instance->GetFont(20), LOC_TEXT(buffer), 0, SX(21), SY(y));
-        AddText(Names.get(), MenuManager::Instance->GetFont(20), LOC_TEXT(buffer), 0, SX(203), SY(y));
+        AddText(Names.get(), Menus()->GetFont(20), LOC_TEXT(buffer), 0, SX(0), SY(y));
+        AddText(Names.get(), Menus()->GetFont(20), LOC_TEXT(buffer), 0, SX(21), SY(y));
+        AddText(Names.get(), Menus()->GetFont(20), LOC_TEXT(buffer), 0, SX(203), SY(y));
     }
 
 #define X(IDC, LABEL, X, Y, W) \

@@ -81,12 +81,12 @@ void PUKey::PreSetup()
             bool right = total % 2;
 
             arts_sprintf(text, "%-23s", io->Name);
-            AddText(text_node_.get(), MenuManager::Instance->GetFont(16), LOC_TEXT(text), 0,
+            AddText(text_node_.get(), Menus()->GetFont(16), LOC_TEXT(text), 0,
                 right ? right_column_name_x : left_column_name_x, y);
 
             io->GetDescription(desc);
             arts_sprintf(text, "%.23s", desc);
-            AddText(text_node_.get(), MenuManager::Instance->GetFont(16), LOC_TEXT(text), 0,
+            AddText(text_node_.get(), Menus()->GetFont(16), LOC_TEXT(text), 0,
                 right ? right_column_desc_x : left_column_desc_x, y);
 
             if (right)

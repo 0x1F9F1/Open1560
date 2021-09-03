@@ -371,5 +371,10 @@ private:
 
 check_size(MenuManager, 0x140);
 
+inline MenuManager* Menus()
+{
+    return MenuManager::Instance;
+}
+
 // ?DELAYTTIME@@3MA
 ARTS_IMPORT extern f32 DELAYTTIME;
