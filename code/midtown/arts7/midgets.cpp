@@ -480,7 +480,9 @@ void asMidgets::Cull()
 
     while (max_lines > 0 && index < midget_count_)
     {
-        if (index == current_index_)
+        bool selected = index == current_index_;
+
+        if (selected)
             agiPrint(agiFontWidth, text_y, CULLMGR->GetTextColor(), ">");
 
         MI* midget = midgets_[index];
@@ -489,7 +491,7 @@ void asMidgets::Cull()
 
         // if (IsVisible(index))
         {
-            agiPrint(agiFontWidth * 2, text_y, CULLMGR->GetTextColor(), midget->Text);
+            agiPrint(agiFontWidth * 2, text_y, selected ? 0xFF20F0F0 : CULLMGR->GetTextColor(), midget->Text);
             text_y += agiFontHeight;
             --max_lines;
         }
@@ -678,16 +680,16 @@ void asMidgets::UpdateKey(i32 key, i32 mods)
 {
     switch (key)
     {
-        case '1':
-        case '2':
-        case '3':
-        case '4':
-        case '5':
-        case '6':
-        case '7':
-        case '8':
-        case '9': {
-            if (i32 index = child_midget_index_[key - '1']; index != -1)
+        case EQ_VK_1:
+        case EQ_VK_2:
+        case EQ_VK_3:
+        case EQ_VK_4:
+        case EQ_VK_5:
+        case EQ_VK_6:
+        case EQ_VK_7:
+        case EQ_VK_8:
+        case EQ_VK_9: {
+            if (i32 index = child_midget_index_[key - EQ_VK_1]; index != -1)
             {
                 if (mods & EQ_KMOD_CTRL)
                 {

@@ -323,7 +323,7 @@ public:
                     mmWaypointInstance
     */
 #define INST_FLAG_1 0x1
-#define INST_FLAG_2 0x2
+#define INST_FLAG_2 0x2 // Parented?
 
 #define INST_FLAG_COLLIDER 0x4
 #define INST_FLAG_MOVER 0x8
