@@ -1205,6 +1205,7 @@ void InitAudioManager()
 }
 
 static mem::cmd_param PARAM_speedycops {"speedycops"};
+static mem::cmd_param PARAM_rv3 {"rv3"};
 
 void InitPatches()
 {
@@ -1427,6 +1428,44 @@ void InitPatches()
         "\x8D\xB3\x34\x20\x00\x00\x6A\x0B\x6A\x01\x56\xB9\x98\x86\x71\x00\xE8\x95\x84\x0A\x00\xF6\x83\x50\x20\x00\x00"
         "\x80\x74\x18\x8B\x8B\x40\x23\x00\x00\x6A\x0A\x83\xC1\x24\x6A\x01\x51\xB9\x98\x86\x71\x00\xE8\x74\x84\x0A\x00",
         0x36);
+
+    if (PARAM_rv3)
+    {
+        create_patch("mmCullCity::InitTimeOfDayAndWeather", "Don't change mmSky::Color", 0x48DE0B,
+            "\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90", 10);
+
+        create_patch("mmSky::Draw", "Disable Sky Rotation", 0x4956E4, "\xD9\xEE\x90\x90\x90\x90", 6);
+
+        create_packed_patch<f32>("mmSky::Draw", "Sky Offset", 0x61D1D4, 0.005f);
+        create_packed_patch<f32>("SkyScale", "Sky Scale", 0x63FC54, 0.0045f);
+
+        struct EnvSetup // t_mmEnvSetup
+        {
+            const char* Sky;
+            const char* SphereMap;
+            const char* ShadowMap;
+            f32 EnvVel;
+            f32 SkyHeight;
+            f32 FogEnd;
+            u32 SkyColor;
+            f32 field_1C;
+            f32 field_20;
+            f32 field_24;
+        };
+
+        auto& env_setup = mem::pointer(0x63E260).as<EnvSetup[4][4]>();
+
+        env_setup[0][1].ShadowMap = "shadmap_cld";
+        env_setup[0][3].SphereMap = "refl_ms";
+
+        env_setup[1][1].ShadowMap = "shadmap_cld";
+        env_setup[1][3].SphereMap = "refl_ns";
+
+        env_setup[2][1].ShadowMap = "shadmap_cld";
+        env_setup[2][3].SphereMap = "refl_ss";
+
+        env_setup[2][3].SphereMap = "refl_ds";
+    }
 
 #ifndef ARTS_FINAL
     patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA2D, jump_type::never);
