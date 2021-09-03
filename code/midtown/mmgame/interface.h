@@ -107,8 +107,40 @@
 
 #include "arts7/node.h"
 
+#include "agiworld/texsort.h"
+#include "mmcityinfo/miscdata.h"
+#include "mmcityinfo/playercfg.h"
+#include "mmcityinfo/playerdir.h"
+
 struct mmPlayerInfo;
 struct NETSESSION_DESC;
+
+class AboutMenu;
+class AudioOptions;
+class ControlSetup;
+class CRSettings;
+class Dialog_City;
+class Dialog_ControlAssign;
+class Dialog_DriverRec;
+class Dialog_HallOfFame;
+class Dialog_Message;
+class Dialog_NewPlayer;
+class Dialog_Password;
+class Dialog_RaceEnvironment;
+class Dialog_Serial;
+class Dialog_TCPIP;
+class DriverMenu;
+class GraphicsOptions;
+class HostRaceMenu;
+class MainMenu;
+class NetArena;
+class NetSelectMenu;
+class OptionsMenu;
+class RaceMenu;
+class Vehicle;
+class VehShowcase;
+
+enum class mmGameMode : i32;
 
 // ?ReportTimeAlloc@@YAXM@Z
 ARTS_EXPORT void ReportTimeAlloc(f32 time);
@@ -119,8 +151,6 @@ ARTS_IMPORT extern char defcarname[80];
 // ?szSearchPath@@3PADA
 ARTS_IMPORT extern char szSearchPath[128];
 
-enum class mmGameMode : i32;
-
 class mmInterface final : public asNode
 {
 public:
@@ -129,7 +159,7 @@ public:
 
     // ??_EmmInterface@@UAEPAXI@Z
     // ??1mmInterface@@UAE@XZ
-    ARTS_IMPORT ~mmInterface() override;
+    ARTS_EXPORT ~mmInterface() override;
 
     // ?BeDone@mmInterface@@QAEXXZ
     ARTS_IMPORT void BeDone();
@@ -175,6 +205,60 @@ public:
 
     // ?DeclareFields@mmInterface@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    MainMenu* MenuMain;
+    DriverMenu* MenuDriver;
+    RaceMenu* MenuRace;
+    Dialog_City* DlgCity;
+    Vehicle* MenuVehicle;
+    VehShowcase* MenuVehShowcase;
+    NetSelectMenu* MenuNetSelect;
+    AboutMenu* MenuAbout;
+    OptionsMenu* MenuOptions;
+    GraphicsOptions* MenuGraphicsOptions;
+    AudioOptions* MenuAudioOptions;
+    ControlSetup* MenuControlSetup;
+    HostRaceMenu* MenuHostRace;
+    NetArena* MenuNetArena;
+    CRSettings* MenuCRSettings;
+    u32 PlayerIDs[8];
+    i32 LobbyStatus;
+    Dialog_TCPIP* DlgTCPIP;
+    Dialog_ControlAssign* DlgControlAssign;
+    Dialog_Serial* DlgSerial;
+    Dialog_NewPlayer* DlgNewPlayer;
+    Dialog_DriverRec* DlgDriverRec;
+    Dialog_HallOfFame* DlgHallOfFame;
+    Dialog_RaceEnvironment* DlgRaceEnvironment;
+    Dialog_Password* DlgPassword;
+    Dialog_Message* DlgLocked;
+    Dialog_Message* DlgBadPass;
+    Dialog_Message* DlgQuit;
+    Dialog_Message* DlgDelete;
+    Dialog_Message* DlgRetreive;
+    Dialog_Message* DlgAlreadyExists;
+    Dialog_Message* DlgLastPlayer;
+    Dialog_Message* DlgOriginalSettings;
+    Dialog_Message* DlgZone;
+    Dialog_Message* DlgCannotAssign;
+    Dialog_Message* DlgPlayerLimit;
+    mmPlayerDirectory PlayerDir;
+    mmPlayerConfig PlayerCfg;
+    mmMiscData AmateurData;
+    mmMiscData ProData;
+    i32 CheckpointScore;
+    i32 CircuitScore;
+    i32 BlitzScore;
+    i32 CheckpointsWon;
+    i32 CircuitsWon;
+    i32 BlitzWon;
+    i32 field_35788;
+    i32 field_3578C;
+    u8 gap35790[4];
+    i32 NeedsRefresh;
+    u8 gap35798[16];
+    agiTexSorter TexSorter;
+    char JoinOrHostGame[128];
 
 private:
     // ?ChangePlayerData@mmInterface@@AAEXXZ
@@ -344,8 +428,6 @@ private:
 
     // ?ShowSessions@mmInterface@@AAEXXZ
     ARTS_IMPORT void ShowSessions();
-
-    u8 gap20[0x35810];
 };
 
 check_size(mmInterface, 0x35830);

@@ -124,6 +124,12 @@ ARTS_IMPORT extern Vector3 PlayerPos;
 // ?WeatherFriction@@3MA
 ARTS_IMPORT extern f32 WeatherFriction;
 
+// ?EnableSmoke@@3HA
+extern b32 EnableSmoke;
+
+// ?ForceSmoke@@3HA
+extern b32 ForceSmoke;
+
 class mmCarSim final : public asNode
 {
 public:

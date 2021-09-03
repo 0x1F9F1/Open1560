@@ -20,5 +20,15 @@ define_dummy_symbol(mmcar_carsim);
 
 #include "carsim.h"
 
+b32 EnableSmoke = true;
+b32 ForceSmoke = false;
+
 void mmCarSim::SetGlobalTuning(f32 /*arg1*/, f32 /*arg2*/)
 {}
+
+run_once([] {
+    create_packed_patch<u8, u8, b32*, u8, u8, u8>(
+        "mmCarSim::UpdateDamage", "Use EnableSmoke", 0x46E3F4, 0x8B, 0x0D, &EnableSmoke, 0x85, 0xC9, 0x74);
+    create_packed_patch<u8, b32*, u8, u8, u8, u8>(
+        "mmWheel::Update", "Use EnableSmoke", 0x47EFC9, 0xA1, &EnableSmoke, 0x85, 0xC0, 0x0F, 0x84);
+});

@@ -48,8 +48,7 @@ struct agiWorldRenderQuality
 
     f32 field_20;
 
-    // agiTexFilter
-    i32 TexFilter;
+    b32 TexFilter;
 };
 
 check_size(agiWorldRenderQuality, 0x28);

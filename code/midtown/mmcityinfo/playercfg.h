@@ -127,7 +127,7 @@ public:
     // ?DeclareFields@mmPlayerConfig@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap88[0x6DA8];
+    alignas(8) u8 gap88[0x6DA8];
 };
 
 check_size(mmPlayerConfig, 0x6E30);

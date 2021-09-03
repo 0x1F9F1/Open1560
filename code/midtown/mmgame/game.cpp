@@ -495,6 +495,16 @@ void mmGame::SendChatMessage(char* msg)
 
         Player->GetHudMap().ToggleShowAllCops();
     }
+    else if (X("smok" /*e*/))
+    {
+        ForceSmoke = true;
+        EnableSmoke = true;
+    }
+    else if (X("nosm" /*oke*/))
+    {
+        ForceSmoke = false;
+        EnableSmoke = false;
+    }
     else if (X("gridlock"))
     {
         CHEATING = true;
