@@ -981,8 +981,8 @@ void asSimulation::AddWidgets(Bank* bank)
 
     bank->PushSection("Memory Debug", 0);
     bank->AddToggle("Sim", &DebugMemory, ARTS_DEBUG_SIM, nullptr);
-    bank->AddToggle("Update Mem", &DebugMemory, ARTS_DEBUG_UPDATEMEM, nullptr);
     bank->AddToggle("Update", &DebugMemory, ARTS_DEBUG_UPDATE, nullptr);
+    bank->AddToggle("Update Mem", &DebugMemory, ARTS_DEBUG_UPDATEMEM, nullptr);
     bank->PopSection();
 
     bank->PushSection("Node Timing", 0);

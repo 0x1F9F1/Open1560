@@ -29,8 +29,6 @@ define_dummy_symbol(arts7_node);
 #include "stream/sparser.h"
 #include "stream/stream.h"
 
-// TODO: Optimize node methods
-
 asNode::~asNode()
 {
     if (parent_node_)
@@ -197,7 +195,7 @@ asNode* asNode::GetLastChild()
 {
     if (!parent_node_)
     {
-        Errorf("GetLastChild() - Need ParentNode set.");
+        Errorf("asNode::GetLastChild() - Need ParentNode set.");
 
         return nullptr;
     }
@@ -242,29 +240,25 @@ b32 asNode::InsertChild(i32 index, asNode* child)
 {
     if (!child)
     {
-        Errorf("asNode::InsertChild()- N==0");
+        Errorf("asNode::InsertChild() - N==0");
         return false;
     }
 
-    if (index < 1 || index > NumChildren() + 1)
-    {
-        Errorf("asNode::InsertChild()- %d is out of range", index);
-        return false;
-    }
+    asNode** n = &child_node_;
 
-    if (index == 1)
+    for (i32 i = 1; i != index; ++i)
     {
-        child->next_node_ = child_node_;
-        child_node_ = child;
-    }
-    else
-    {
-        asNode* n = GetChild(index - 1);
-        child->next_node_ = n->next_node_;
-        n->next_node_ = child;
+        if (*n == nullptr)
+        {
+            Errorf("asNode::InsertChild() - %d is out of range", index);
+            return false;
+        }
+
+        n = &(*n)->next_node_;
     }
 
     child->parent_node_ = this;
+    child->next_node_ = std::exchange(*n, child);
 
     return true;
 }
@@ -279,7 +273,7 @@ b32 asNode::Load(const char* path)
         return false;
     }
 
-    StreamMiniParser parser(path, AsOwner(input));
+    StreamMiniParser parser {path, AsOwner(input)};
 
     GetClass()->Load(&parser, this);
 
@@ -326,45 +320,51 @@ void asNode::PerfReport(Stream* output, i32 indent)
 
 void asNode::RemoveAllChildren()
 {
-    while (child_node_)
-        RemoveChild(1);
+    for (asNode* n = std::exchange(child_node_, nullptr); n; n = std::exchange(n->next_node_, nullptr))
+        n->parent_node_ = nullptr;
 }
 
 b32 asNode::RemoveChild(asNode* child)
 {
-    i32 i = 1;
-    for (asNode* n = child_node_; n; n = n->next_node_, ++i)
+    for (asNode** n = &child_node_; *n; n = &(*n)->next_node_)
     {
-        if (n == child)
-            return RemoveChild(i);
+        if (*n == child)
+        {
+            *n = child->next_node_;
+            child->next_node_ = nullptr;
+            child->parent_node_ = nullptr;
+            return true;
+        }
     }
 
     return false;
 }
 
-b32 asNode::RemoveChild(i32 idx)
+b32 asNode::RemoveChild(i32 index)
 {
     if (!child_node_)
     {
-        Errorf("asNode::RemoveChild()- No children!");
+        Errorf("asNode::RemoveChild() - No children!");
         return false;
     }
 
-    if (idx < 1 || idx > NumChildren())
+    asNode** n = &child_node_;
+
+    for (i32 i = 1; i != index; ++i)
     {
-        Errorf("asNode::RemoveChild()- Bad child num");
-        return false;
+        if (*n == nullptr)
+        {
+            Errorf("asNode::RemoveChild() - %d is out of range", index);
+            return false;
+        }
+
+        n = &(*n)->next_node_;
     }
 
-    asNode* n = GetChild(idx);
+    asNode* child = *n;
 
-    if (idx == 1)
-        child_node_ = n->next_node_;
-    else
-        GetChild(idx - 1)->next_node_ = n->next_node_;
-
-    n->next_node_ = nullptr;
-    n->parent_node_ = nullptr;
+    child->parent_node_ = nullptr;
+    *n = std::exchange(child->next_node_, nullptr);
 
     return true;
 }
@@ -389,7 +389,7 @@ b32 asNode::Save(const char* path)
         return false;
     }
 
-    StreamMiniParser parser(path, AsOwner(output));
+    StreamMiniParser parser {path, AsOwner(output)};
 
     GetClass()->Save(&parser, this);
 

@@ -825,7 +825,11 @@ static char** GetCommandFileUTF8(int* pNumArgs)
     LPCH file_data = (LPCH) arts_malloc(file_size);
 
     if (!ReadFile(handle, file_data, file_size, &file_size, NULL))
+    {
+        arts_free(file_data);
+        CloseHandle(handle);
         return nullptr;
+    }
 
     CloseHandle(handle);
 

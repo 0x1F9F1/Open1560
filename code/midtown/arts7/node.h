@@ -155,7 +155,7 @@ public:
     ARTS_EXPORT b32 RemoveChild(asNode* child);
 
     // ?RemoveChild@asNode@@QAEHH@Z
-    ARTS_EXPORT b32 RemoveChild(i32 idx);
+    [[deprecated]] ARTS_EXPORT b32 RemoveChild(i32 index);
 
 #ifdef ARTS_DEV_BUILD
     // ?ResetTime@asNode@@QAEXXZ
@@ -169,7 +169,7 @@ public:
     ARTS_EXPORT void SetName(const char* name);
 
     // ?SwitchTo@asNode@@QAEXH@Z | unused
-    ARTS_EXPORT void SwitchTo(i32 idx);
+    ARTS_EXPORT void SwitchTo(i32 index);
 
     // ?VerifyTree@asNode@@QAEPADXZ | arts7:sim
     ARTS_EXPORT const char* VerifyTree();
