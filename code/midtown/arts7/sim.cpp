@@ -39,6 +39,7 @@ define_dummy_symbol(arts7_sim);
 #include "dyna7/dyna.h"
 #include "dyna7/gfx.h"
 #include "eventq7/keys.h"
+#include "memory/allocator.h"
 #include "midgets.h"
 #include "midtown.h"
 #include "pcwindis/dxinit.h"
@@ -485,7 +486,7 @@ void asSimulation::Simulate()
 
     if (DebugMemory & ARTS_DEBUG_SIM)
     {
-        ArAssert(_CrtCheckMemory(), "Memory Corrupt");
+        ALLOCATOR.SanityCheck();
 
         if (const char* error = VerifyTree())
             Quitf("Node Tree Corrupt: %s", error);
