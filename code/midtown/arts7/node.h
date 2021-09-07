@@ -176,17 +176,17 @@ public:
 
     bool IsActive() const
     {
-        return node_flags_ & 0x1;
+        return node_flags_ & NODE_FLAG_ACTIVE;
     }
 
     void Activate()
     {
-        node_flags_ |= 0x1;
+        node_flags_ |= NODE_FLAG_ACTIVE;
     }
 
     void Deactivate()
     {
-        node_flags_ &= ~0x1;
+        node_flags_ &= ~NODE_FLAG_ACTIVE;
     }
 
     void SetNodeFlag(i32 flag)

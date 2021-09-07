@@ -130,7 +130,7 @@ void asNode::AddWidgets(Bank* bank)
 {
     current_bank_ = bank;
 
-    bank->AddToggle("Active", &node_flags_, 0x1, nullptr);
+    bank->AddToggle("Active", &node_flags_, NODE_FLAG_ACTIVE, nullptr);
 
     bank->AddButton("Save", MFA(asNode::Save, this));
     bank->AddButton("Load", MFA(asNode::Load, this));
@@ -285,14 +285,12 @@ b32 asNode::Load(const char* path)
 
     if (parser.GetErrorCount() != 0)
     {
-        node_flags_ |= 0x4;
+        SetNodeFlag(NODE_FLAG_LOAD_ERROR);
         return false;
     }
-    else
-    {
-        node_flags_ &= ~0x4;
-        return true;
-    }
+
+    ClearNodeFlag(NODE_FLAG_LOAD_ERROR);
+    return true;
 }
 
 i32 asNode::NumChildren()
@@ -411,9 +409,9 @@ void asNode::SwitchTo(i32 idx)
     for (asNode* n = child_node_; n; n = n->next_node_, ++i)
     {
         if (idx == -1 || idx == i)
-            n->node_flags_ |= 0x1;
+            n->Activate();
         else
-            n->node_flags_ &= ~0x1;
+            n->Deactivate();
     }
 }
 
