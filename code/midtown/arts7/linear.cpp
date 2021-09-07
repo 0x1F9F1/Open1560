@@ -41,17 +41,17 @@ void asLinearCS::AddWidgets(Bank* bank)
 
     bank->AddTitle("Matrix");
 
-    bank->PushSection("Rotation", 0);
-    bank->AddVector("A Axis:", &Matrix.m0, -5000.0f, 5000.0f, 0.1f, nullptr);
-    bank->AddVector("B Axis:", &Matrix.m1, -5000.0f, 5000.0f, 0.1f, nullptr);
-    bank->AddVector("C Axis:", &Matrix.m2, -5000.0f, 5000.0f, 0.1f, nullptr);
+    bank->PushSection("Rotation", false);
+    bank->AddVector("A Axis:", &Matrix.m0, -5000.0f, 5000.0f, 0.1f);
+    bank->AddVector("B Axis:", &Matrix.m1, -5000.0f, 5000.0f, 0.1f);
+    bank->AddVector("C Axis:", &Matrix.m2, -5000.0f, 5000.0f, 0.1f);
     bank->PopSection();
 
-    bank->PushSection("Translation", 1);
-    bank->AddVector("Position:", &Matrix.m3, -5000.0f, 5000.0f, 0.1f, nullptr);
+    bank->PushSection("Translation", true);
+    bank->AddVector("Position:", &Matrix.m3, -5000.0f, 5000.0f, 0.1f);
     bank->PopSection();
 
-    bank->AddToggle("Global", &Global, 0, nullptr);
+    bank->AddToggle("Global", &Global, 0);
 
     asNode::AddWidgets(bank);
 }

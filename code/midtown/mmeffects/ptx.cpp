@@ -86,10 +86,10 @@ void asParticles::AddWidgets(Bank* bank)
 {
     asNode::AddWidgets(bank);
 
-    bank->AddSlider("Spew Rate", &SpewRate, 0.0f, 10000.0f, 1.0f, nullptr);
-    bank->AddVector("Wind", &Wind, -10000.0f, 10000.0f, 0.1f, nullptr);
-    bank->AddSlider("Wind Density", &WindDensity, 0.0f, 10000.0f, 0.1f, nullptr);
-    bank->AddSlider("Gravity", &Gravity, -100000.0f, 10000.0f, 0.1f, nullptr);
+    bank->AddSlider("Spew Rate", &SpewRate, 0.0f, 10000.0f, 1.0f);
+    bank->AddVector("Wind", &Wind, -10000.0f, 10000.0f, 0.1f);
+    bank->AddSlider("Wind Density", &WindDensity, 0.0f, 10000.0f, 0.1f);
+    bank->AddSlider("Gravity", &Gravity, -100000.0f, 10000.0f, 0.1f);
 }
 #endif
 

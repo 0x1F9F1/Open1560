@@ -94,8 +94,8 @@ agiTexSorter::~agiTexSorter()
 #ifdef ARTS_DEV_BUILD
 void agiTexSorter::AddWidgets(Bank* bank)
 {
-    bank->AddSlider("MaxVertsPerSet", &MaxVertsPerSet, 8, VtxSize, 4.0f, nullptr);
-    bank->AddSlider("MaxIndicesPerSet", &MaxIndicesPerSet, 8, IdxSize, 4.0f, nullptr);
+    bank->AddSlider("MaxVertsPerSet", &MaxVertsPerSet, 8, VtxSize, 4.0f);
+    bank->AddSlider("MaxIndicesPerSet", &MaxIndicesPerSet, 8, IdxSize, 4.0f);
 }
 #endif
 

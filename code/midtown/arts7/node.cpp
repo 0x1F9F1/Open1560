@@ -128,7 +128,7 @@ void asNode::AddWidgets(Bank* bank)
 {
     current_bank_ = bank;
 
-    bank->AddToggle("Active", &node_flags_, NODE_FLAG_ACTIVE, nullptr);
+    bank->AddToggle("Active", &node_flags_, NODE_FLAG_ACTIVE);
 
     bank->AddButton("Save", MFA(asNode::Save, this));
     bank->AddButton("Load", MFA(asNode::Load, this));

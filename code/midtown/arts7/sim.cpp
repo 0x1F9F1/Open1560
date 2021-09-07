@@ -963,31 +963,31 @@ void asSimulation::AddWidgets(Bank* bank)
 
     bank->AddButton("Reset Simulation", MFA(asSimulation::Reset, this));
 
-    bank->PushSection("Physics Draw Mode", 0);
-    bank->AddToggle("Matrix", &DynaDrawMode, DYNA_DRAW_MATRIX, nullptr);
-    bank->AddToggle("Cull Spheres", &DynaDrawMode, DYNA_DRAW_CULL_SPHERES, nullptr);
-    bank->AddToggle("Geometry", &DynaDrawMode, DYNA_DRAW_GEOMETRY, nullptr);
-    bank->AddToggle("Status", &DynaDrawMode, DYNA_DRAW_STATUS, nullptr);
-    bank->AddToggle("Bounds", &DynaDrawMode, DYNA_DRAW_BOUNDS, nullptr);
-    bank->AddToggle("Tables", &DynaDrawMode, DYNA_DRAW_TABLES, nullptr);
-    bank->AddToggle("Intersect", &DynaDrawMode, DYNA_DRAW_INTERSECT, nullptr);
-    bank->AddToggle("Applied Forces", &DynaDrawMode, DYNA_DRAW_APPLIED_FORCES, nullptr);
-    bank->AddToggle("Applied Pushes", &DynaDrawMode, DYNA_DRAW_APPLIED_PUSHES, nullptr);
-    bank->AddToggle("Result Forces", &DynaDrawMode, DYNA_DRAW_RESULT_FORCES, nullptr);
-    bank->AddToggle("Volume Samples", &DynaDrawMode, DYNA_DRAW_VOLUME_SAMPLES, nullptr);
-    bank->AddToggle("Fluid Samples", &DynaDrawMode, DYNA_DRAW_FLUID_SAMPLES, nullptr);
-    bank->AddToggle("Springs", &DynaDrawMode, DYNA_DRAW_SPRINGS, nullptr);
+    bank->PushSection("Physics Draw Mode", false);
+    bank->AddToggle("Matrix", &DynaDrawMode, DYNA_DRAW_MATRIX);
+    bank->AddToggle("Cull Spheres", &DynaDrawMode, DYNA_DRAW_CULL_SPHERES);
+    bank->AddToggle("Geometry", &DynaDrawMode, DYNA_DRAW_GEOMETRY);
+    bank->AddToggle("Status", &DynaDrawMode, DYNA_DRAW_STATUS);
+    bank->AddToggle("Bounds", &DynaDrawMode, DYNA_DRAW_BOUNDS);
+    bank->AddToggle("Tables", &DynaDrawMode, DYNA_DRAW_TABLES);
+    bank->AddToggle("Intersect", &DynaDrawMode, DYNA_DRAW_INTERSECT);
+    bank->AddToggle("Applied Forces", &DynaDrawMode, DYNA_DRAW_APPLIED_FORCES);
+    bank->AddToggle("Applied Pushes", &DynaDrawMode, DYNA_DRAW_APPLIED_PUSHES);
+    bank->AddToggle("Result Forces", &DynaDrawMode, DYNA_DRAW_RESULT_FORCES);
+    bank->AddToggle("Volume Samples", &DynaDrawMode, DYNA_DRAW_VOLUME_SAMPLES);
+    bank->AddToggle("Fluid Samples", &DynaDrawMode, DYNA_DRAW_FLUID_SAMPLES);
+    bank->AddToggle("Springs", &DynaDrawMode, DYNA_DRAW_SPRINGS);
     bank->PopSection();
 
-    bank->PushSection("Memory Debug", 0);
-    bank->AddToggle("Sim", &DebugMemory, ARTS_DEBUG_SIM, nullptr);
-    bank->AddToggle("Update", &DebugMemory, ARTS_DEBUG_UPDATE, nullptr);
-    bank->AddToggle("Update Mem", &DebugMemory, ARTS_DEBUG_UPDATEMEM, nullptr);
+    bank->PushSection("Memory Debug", false);
+    bank->AddToggle("Sim", &DebugMemory, ARTS_DEBUG_SIM);
+    bank->AddToggle("Update", &DebugMemory, ARTS_DEBUG_UPDATE);
+    bank->AddToggle("Update Mem", &DebugMemory, ARTS_DEBUG_UPDATEMEM);
     bank->PopSection();
 
-    bank->PushSection("Node Timing", 0);
-    bank->AddSlider("Current", &asNode::TimingCount, 0, INT_MAX, 0, nullptr);
-    bank->AddSlider("Additional", &NodeTimingCount, 1, 1000, 1, nullptr);
+    bank->PushSection("Node Timing", false);
+    bank->AddSlider("Current", &asNode::TimingCount, 0, INT_MAX, 0);
+    bank->AddSlider("Additional", &NodeTimingCount, 1, 1000, 1);
     bank->AddButton("Begin", CFA(BeginNodeTiming));
     bank->AddButton("Reset", CFA(ResetNodeTiming));
     bank->PopSection();
