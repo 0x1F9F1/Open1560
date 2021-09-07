@@ -50,7 +50,7 @@ void mmDashView::Cull()
 
     u32 color = 0xFFFFFFFF;
 
-    if (CullCity()->GetRoomFlags(Player->GetCarModel().ChainId) & (ROOM_FLAG_2 | ROOM_FLAG_8))
+    if (CullCity()->GetRoomFlags(Player->Car.Model.ChainId) & (ROOM_FLAG_2 | ROOM_FLAG_8))
     {
         Vector3& pos = DashLCS.GetPosition();
         i32 scale = static_cast<i32>((pos.x + pos.z) * DashColorScale) & 31;
@@ -62,7 +62,7 @@ void mmDashView::Cull()
     vp->SetWorld(DashLCS.World);
     DashMesh->DrawColor(color, 1u);
 
-    mmTransmission& trans = Player->GetCarSim().Trans;
+    mmTransmission& trans = Player->Car.Sim.Trans;
 
     i32 gear = trans.GetCurrentGear();
 

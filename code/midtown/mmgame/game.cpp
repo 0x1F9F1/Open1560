@@ -101,25 +101,25 @@ void mmGame::UpdateDebugInput()
             switch (event.Key)
             {
                 case EQ_VK_1: {
-                    Player->GetHud().SetMessage(GameInputPtr->ToggleFFEnabled(0) ? LOC_TEXT("ffFriction Enabled")
-                                                                                 : LOC_TEXT("ffFriction Disabled"),
+                    Player->Hud.SetMessage(GameInputPtr->ToggleFFEnabled(0) ? LOC_TEXT("ffFriction Enabled")
+                                                                            : LOC_TEXT("ffFriction Disabled"),
                         3.0f);
                     break;
                 }
                 case EQ_VK_2: {
-                    Player->GetHud().SetMessage(GameInputPtr->ToggleFFEnabled(1) ? LOC_TEXT("ffCollide Enabled")
-                                                                                 : LOC_TEXT("ffCollide Disabled"),
+                    Player->Hud.SetMessage(GameInputPtr->ToggleFFEnabled(1) ? LOC_TEXT("ffCollide Enabled")
+                                                                            : LOC_TEXT("ffCollide Disabled"),
                         3.0f);
                     break;
                 }
                 case EQ_VK_3: {
-                    Player->GetHud().SetMessage(
+                    Player->Hud.SetMessage(
                         GameInputPtr->ToggleFFEnabled(2) ? LOC_TEXT("ffShake Enabled") : LOC_TEXT("ffShake Disabled"),
                         3.0f);
                     break;
                 }
                 case EQ_VK_4: {
-                    Player->GetHud().SetMessage(
+                    Player->Hud.SetMessage(
                         GameInputPtr->ToggleFFEnabled(3) ? LOC_TEXT("ffSpring Enabled") : LOC_TEXT("ffSpring Disabled"),
                         3.0f);
                     break;
@@ -143,7 +143,7 @@ void mmGame::UpdateDebugInput()
                     break;
                 }
                 case EQ_VK_9: {
-                    Player->GetCarSim().Explode();
+                    Player->Car.Sim.Explode();
                     break;
                 }
                 case EQ_VK_A: {
@@ -193,7 +193,7 @@ void mmGame::UpdateDebugInput()
                 case EQ_VK_F: {
                     GameInputPtr->UseForceFeedback = !GameInputPtr->UseForceFeedback;
 
-                    Player->GetHud().SetMessage(
+                    Player->Hud.SetMessage(
                         GameInputPtr->UseForceFeedback ? LOC_TEXT("FF Enabled") : LOC_TEXT("FF Disabled"), 3.0f);
                     break;
                 }
@@ -232,7 +232,7 @@ void mmGame::UpdateDebugInput()
                         if (aiVehicleOpponent* opp = AIMAP.Opponent(target_opp))
                             Player->SetCamInterest(&opp->Car.Sim.ICS);
 
-                        Player->GetHud().SetMessage(LOC_TEXT(arts_formatf<64>("Opponent #%d", target_opp)), 5.0f);
+                        Player->Hud.SetMessage(LOC_TEXT(arts_formatf<64>("Opponent #%d", target_opp)), 5.0f);
 
                         MMSTATE.ChaseOpponents = false;
                         ++target_opp;
@@ -245,9 +245,8 @@ void mmGame::UpdateDebugInput()
                 }
                 case EQ_VK_Q: {
                     masscycle = (masscycle + 1) % 3;
-                    Player->GetCarSim().ICS.Mass = defmass - masscycle * -500.0f;
-                    Player->GetHud().SetMessage(
-                        LOC_TEXT(arts_formatf<64>("Mass=%f", Player->GetCarSim().ICS.Mass)), 3.0f);
+                    Player->Car.Sim.ICS.Mass = defmass - masscycle * -500.0f;
+                    Player->Hud.SetMessage(LOC_TEXT(arts_formatf<64>("Mass=%f", Player->Car.Sim.ICS.Mass)), 3.0f);
                     break;
                 }
                 case EQ_VK_R: {
@@ -259,9 +258,9 @@ void mmGame::UpdateDebugInput()
 
                     if (ResetPositions->Recall(next_pos, &matrix, 0, 0))
                     {
-                        Player->GetCarSim().SetResetPos(matrix.m3);
+                        Player->Car.Sim.SetResetPos(matrix.m3);
 
-                        Player->GetCarSim().ResetRotation =
+                        Player->Car.Sim.ResetRotation =
                             ResetPositions->Positions[next_pos]->Position.w * -ARTS_DEG_TO_RAD;
                         Reset();
                     }
@@ -306,7 +305,7 @@ void mmGame::UpdateDebugInput()
                 }
 #ifdef ARTS_DEV_BUILD
                 case EQ_VK_P: {
-                    Player->GetHud().TogglePositionDisplay(-1);
+                    Player->Hud.TogglePositionDisplay(-1);
                     break;
                 }
 #endif
@@ -325,7 +324,7 @@ void mmGame::UpdateDebugInput()
                 }
                 case EQ_VK_F5: {
                     if (MMSTATE.NetworkStatus == 0)
-                        Player->GetCar().ReleaseTrailer();
+                        Player->Car.ReleaseTrailer();
                     break;
                 }
                 case EQ_VK_F6: {
@@ -432,7 +431,7 @@ void mmGame::SendChatMessage(char* msg)
             BangerProjectile = nullptr;
 
         if (BangerProjectile == nullptr)
-            Player->GetHud().PostChatMessage(arts_formatf<128>("Invalid/Missing banger '%s'", banger_name));
+            Player->Hud.PostChatMessage(arts_formatf<128>("Invalid/Missing banger '%s'", banger_name));
     }
     else if (X("slid" /*"e"*/))
     {
@@ -469,15 +468,15 @@ void mmGame::SendChatMessage(char* msg)
     {
         CHEATING = true;
 
-        Player->GetCarSim().EnableDamage = false;
+        Player->Car.Sim.EnableDamage = false;
     }
     else if (X("dama" /*ge*/))
     {
-        Player->GetCarSim().EnableDamage = true;
+        Player->Car.Sim.EnableDamage = true;
     }
     else if (X("ver" /*sion*/))
     {
-        Player->GetHud().PostChatMessage(const_cast<char*>(VERSION_STRING));
+        Player->Hud.PostChatMessage(const_cast<char*>(VERSION_STRING));
     }
     else if (X("talkfast"))
     {
@@ -493,7 +492,7 @@ void mmGame::SendChatMessage(char* msg)
     {
         CHEATING = true;
 
-        Player->GetHudMap().ToggleShowAllCops();
+        Player->HudMap.ToggleShowAllCops();
     }
     else if (X("smok" /*e*/))
     {

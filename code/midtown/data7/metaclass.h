@@ -53,13 +53,6 @@ struct MetaField
 
 check_size(MetaField, 0x10);
 
-struct StaticMetaField
-{
-    const char* Name {};
-    usize Offset {};
-    const MetaType* (*Getter)() {};
-};
-
 constexpr usize MAX_CLASSES = 512;
 
 class MetaClass
@@ -122,8 +115,6 @@ public:
 
     // ?DeclareNamedTypedField@MetaClass@@SAXPADIPAUMetaType@@@Z
     ARTS_EXPORT static void DeclareNamedTypedField(const char* name, u32 offset, MetaType* type);
-
-    static void ARTS_FASTCALL DeclareStaticFields(const std::initializer_list<const StaticMetaField>& fields);
 
     // ?FindByName@MetaClass@@SAPAV1@PADPAV1@@Z
     ARTS_EXPORT static MetaClass* FindByName(const char* name, MetaClass* root);

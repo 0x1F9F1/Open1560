@@ -1076,7 +1076,7 @@ void GameLoop([[maybe_unused]] mmInterface* mm_interface, [[maybe_unused]] mmGam
             if (SampleStats == 1 && game_manager)
             {
                 Vector4 pos;
-                game_manager->Game()->Player->GetHud().GetPosHdg(pos);
+                game_manager->Game()->Player->Hud.GetPosHdg(pos);
                 SystemStatsRecord->DoScan(pos);
             }
             else
@@ -1466,6 +1466,8 @@ void InitPatches()
 
         env_setup[2][3].SphereMap = "refl_ds";
     }
+
+    // create_patch("mmPopup::Update", "Don't Reset GameManager on F4", 0x427741, "\x90\x90\x90", 3);
 
 #ifndef ARTS_FINAL
     patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA2D, jump_type::never);

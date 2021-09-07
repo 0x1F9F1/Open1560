@@ -64,11 +64,21 @@
 
 #include "arts7/node.h"
 
+#include "arts7/camera.h"
 #include "hud.h"
 #include "hudmap.h"
+#include "mmcamcs/aicamcs.h"
+#include "mmcamcs/pointcamcs.h"
+#include "mmcamcs/polarcamcs.h"
+#include "mmcamcs/postcamcs.h"
+#include "mmcamcs/povcamcs.h"
+#include "mmcamcs/precamcs.h"
+#include "mmcamcs/trackcamcs.h"
 #include "mmcar/car.h"
 
 class mmGame;
+class mmRainAudio;
+class mmViewCS;
 
 class mmPlayer final : public asNode
 {
@@ -157,32 +167,101 @@ public:
     // ?DeclareFields@mmPlayer@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    mmCar& GetCar()
-    {
-        return mem::field<mmCar>(this, 0x38);
-    }
-
-    mmCarSim& GetCarSim()
-    {
-        return GetCar().Sim;
-    }
-
-    mmCarModel& GetCarModel()
-    {
-        return GetCar().Model;
-    }
-
-    mmHUD& GetHud()
-    {
-        return mem::field<mmHUD>(this, 0x2348);
-    }
-
-    mmHudMap& GetHudMap()
-    {
-        return mem::field<mmHudMap>(this, 0x31DC);
-    }
-
-    u8 gap20[0x4A78];
+    b32 WideFov;
+    f32 HogTimer;
+    f32 HogTimerLimit;
+    f32 HogSpeedLimit;
+    i32 field_30;
+    i32 CameraMode;
+    mmCar Car;
+    [[deprecated("Use Car.Sim")]] mmCarSim* CarSim;
+    mmHUD Hud;
+    mmHudMap HudMap;
+    mmViewCS* ViewCS;
+    CarCamCS* CarCams[6];
+    i8 CamIndex;
+    i8 XCamIndex;
+    i8 XCamStart;
+    i8 XCamCount;
+    i8 WantPreRaceCam;
+    i8 InAutoCam;
+    i8 InPreRaceCam;
+    f32 Speed;
+    TrackCamCS NearCam;
+    TrackCamCS FarCam;
+    TrackCamCS IndCam;
+    PovCamCS PovCam;
+    PovCamCS DashCam;
+    PolarCamCS PolarCam1;
+    PolarCamCS PolarCam2;
+    AICamCS AiCam;
+    PointCamCS PointCam;
+    i32 InWater;
+    i32 DontResetDamage;
+    f32 CamPan;
+    PreCamCS PreCam;
+    PostCamCS PostCam;
+    asCamera Camera;
+    i32 Score;
+    i32 ForceStop;
+    mmRainAudio* RainAudio;
+    i32 RegenEnabled;
+    Matrix34 MirrorMatrix;
+    f32 ScoreWeight;
+    f32 Steering;
+    f32 PeggedTimer;
+    f32 PeggedTheshold;
+    f32 field_49C8;
+    u8 gap49CC[12];
+    f32 field_49D8;
+    f32 field_49DC;
+    f32 field_49E0;
+    i16 field_49E4;
+    i16 field_49E6;
+    i32 field_49E8;
+    i32 field_49EC;
+    i32 SpeedSensitive;
+    f32 SpeedBaseLow;
+    f32 SpeedBaseHi;
+    f32 DiscreteSteeringDeltaInHi;
+    f32 DiscreteSteeringDeltaOutHi;
+    f32 DiscreteSteeringFilterHi;
+    f32 DiscreteSteeringDeltaInLo;
+    f32 DiscreteSteeringDeltaOutLo;
+    f32 DiscreteSteeringFilterLo;
+    f32 MouseSensitivityLow;
+    f32 MouseSteerFilterLow;
+    f32 MouseSensitivityHi;
+    f32 MouseSteerFilterHi;
+    f32 MouseSteerFilterLow2;
+    i16 SteerApp;
+    f32 JoySteerApproachOutHi;
+    f32 JoySteerApproachInHi;
+    f32 JoySteerAppApp;
+    f32 field_4A38;
+    f32 JoySteerApproachOutLo;
+    f32 JoySteerApproachInLo;
+    f32 field_4A44;
+    f32 JoySteerFilterLow;
+    f32 JoySensitivityLow;
+    f32 JoySteerFilterHi;
+    f32 JoySensitivityHi;
+    f32 field_4A58;
+    f32 field_4A5C;
+    i16 field_4A60;
+    f32 WheelSteerApproachOutHi;
+    f32 WheelSteerApproachInHi;
+    f32 WheelSteerAppApp;
+    f32 field_4A70;
+    f32 WheelSteerApproachOutLo;
+    f32 WheelSteerApproachInLo;
+    f32 field_4A7C;
+    f32 WheelSteerFilterLow;
+    f32 WheelSensitivityLow;
+    f32 WheelSteerFilterHi;
+    f32 WheelSensitivityHi;
+    f32 field_4A90;
+    f32 field_4A94;
 };
 
 check_size(mmPlayer, 0x4A98);

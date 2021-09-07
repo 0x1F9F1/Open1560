@@ -135,10 +135,7 @@ public:
     // ?DeclareFields@mmGameManager@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    mmGame* Game()
-    {
-        return CurrentGame;
-    }
+    mmGame* Current;
 
 private:
     friend mmGameManager* GameManager();
@@ -146,7 +143,6 @@ private:
     // ?Instance@mmGameManager@@0PAV1@A
     ARTS_IMPORT static mmGameManager* Instance;
 
-    mmGame* CurrentGame;
     mmGameSingle* GameSingle;
     mmSingleCircuit* SingleCircuit;
     mmSingleBlitz* SingleBlitz;

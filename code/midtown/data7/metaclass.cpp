@@ -354,15 +354,6 @@ ARTS_NOINLINE void MetaClass::DeclareNamedTypedField(const char* name, u32 offse
     ppField = &field->Next;
 }
 
-ARTS_NOINLINE void ARTS_FASTCALL MetaClass::DeclareStaticFields(
-    const std::initializer_list<const StaticMetaField>& fields)
-{
-    for (const StaticMetaField& field : fields)
-    {
-        DeclareNamedTypedField(field.Name, static_cast<u32>(field.Offset), const_cast<MetaType*>(field.Getter()));
-    }
-}
-
 MetaClass* MetaClass::FindByName(const char* name, MetaClass* root)
 {
     for (MetaClass* cls = root; cls; cls = cls->next_child_)

@@ -486,6 +486,7 @@ void asSimulation::Simulate()
         if (const char* error = VerifyTree())
             Quitf("Node Tree Corrupt: %s", error);
     }
+
     Device();
     Widgets();
     Update();
