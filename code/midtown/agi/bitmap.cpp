@@ -32,7 +32,7 @@ agiBitmap::agiBitmap(agiPipeline* pipe)
 void agiBitmap::UpdateFlags()
 {}
 
-/*const*/ char* agiBitmap::GetName()
+aconst char* agiBitmap::GetName()
 {
     static char buffer[64]; // FIXME: Static buffer
     arts_sprintf(buffer, "Bitmap '%s'", name_.get());
@@ -49,8 +49,8 @@ i32 agiBitmap::Init(const char* name, f32 sx, f32 sy, i32 flags)
     if (name && name[0] != '*')
     {
         // NOTE: Orignial used agiPipeline::CurrentPipe for Width and Height
-        surface_ = AsPtr(agiSurfaceDesc::Load(const_cast<char*>(name), BitmapSearchPath, 0, 0,
-            (sx == 1.0f) ? UI_Width : 0, (sy == 1.0f) ? UI_Height : 0));
+        surface_ = AsPtr(agiSurfaceDesc::Load(
+            xconst(name), BitmapSearchPath, 0, 0, (sx == 1.0f) ? UI_Width : 0, (sy == 1.0f) ? UI_Height : 0));
 
         if (surface_ == nullptr)
             return AGI_ERROR_FILE_NOT_FOUND;

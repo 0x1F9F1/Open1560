@@ -37,7 +37,7 @@ mmCityList::~mmCityList()
     CityListPtr = nullptr;
 }
 
-i32 mmCityList::GetCityID(char* name)
+i32 mmCityList::GetCityID(aconst char* name)
 {
     for (i32 i = 0; i < NumCities; ++i)
     {
@@ -48,7 +48,7 @@ i32 mmCityList::GetCityID(char* name)
     return -1;
 }
 
-mmCityInfo* mmCityList::GetCityInfo(char* name)
+mmCityInfo* mmCityList::GetCityInfo(aconst char* name)
 {
     for (i32 i = 0; i < NumCities; ++i)
     {
@@ -79,7 +79,7 @@ void mmCityList::Init(i32 /*arg1*/)
     NumCities = 0;
 }
 
-void mmCityList::Load(char* name)
+void mmCityList::Load(aconst char* name)
 {
     Ptr<mmCityInfo> info = MakeUnique<mmCityInfo>();
 
@@ -100,7 +100,7 @@ void mmCityList::LoadAll()
 {
     InitTexSheet();
 
-    Load(const_cast<char*>("Chicago.cinfo")); // Load Chicago first
+    Load(xconst("Chicago.cinfo")); // Load Chicago first
 
     for (i32 i = 0; i < FileSystem::FSCount; ++i)
     {
@@ -120,7 +120,7 @@ void mmCityList::Print()
         Displayf("******City # %d: %s", i + 1, Cities[i]->RaceDir);
 }
 
-void mmCityList::SetCurrentCity(char* name)
+void mmCityList::SetCurrentCity(aconst char* name)
 {
     CurrentCity = GetCityID(name);
 }

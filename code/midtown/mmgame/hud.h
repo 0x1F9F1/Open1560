@@ -235,10 +235,10 @@ public:
     ARTS_IMPORT void PlayNetAlert();
 
     // ?PostChatMessage@mmHUD@@QAEXPAD@Z
-    ARTS_IMPORT void PostChatMessage(char* arg1);
+    ARTS_IMPORT void PostChatMessage(aconst char* arg1);
 
     // ?RecordPosition@mmHUD@@QAEXPAD@Z
-    ARTS_IMPORT void RecordPosition(char* arg1);
+    ARTS_IMPORT void RecordPosition(aconst char* arg1);
 
     // ?RemovePlayer@mmHUD@@QAEXK@Z
     ARTS_IMPORT void RemovePlayer(ulong arg1);

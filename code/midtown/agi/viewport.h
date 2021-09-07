@@ -74,7 +74,7 @@ public:
     // ?SphereVisible@agiViewParameters@@QAEHAAVVector3@@M@Z
     ARTS_IMPORT i32 SphereVisible(Vector3& arg1, f32 arg2);
 
-    void SetWorld(Matrix34& world);
+    void SetWorld(const Matrix34& world);
 
     // ?MtxSerial@agiViewParameters@@2IA
     ARTS_IMPORT static u32 MtxSerial;
@@ -132,18 +132,18 @@ class agiViewport : public agiRefreshable
 public:
     virtual void Activate() = 0;
 
-    virtual void SetBackground(Vector3& color) = 0;
+    virtual void SetBackground(aconst Vector3& color) = 0;
 
     virtual void Clear(i32 flags) = 0;
 
     // ?SetWorld@agiViewport@@UAEXAAVMatrix34@@@Z
-    ARTS_EXPORT virtual void SetWorld(Matrix34& world);
+    ARTS_EXPORT virtual void SetWorld(aconst Matrix34& world);
 
     // ?Aspect@agiViewport@@QAEMXZ | unused
     ARTS_EXPORT f32 Aspect();
 
     // ?GetName@agiViewport@@UAEPADXZ
-    ARTS_EXPORT char* GetName() override;
+    ARTS_EXPORT aconst char* GetName() override;
 
     const agiViewParameters& GetParams()
     {

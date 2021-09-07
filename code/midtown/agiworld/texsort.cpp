@@ -301,7 +301,7 @@ void agiPolySet::Kill()
     Indices = nullptr;
 }
 
-RcOwner<agiTexDef> GetPackedTexture(char* name, i32 variation)
+RcOwner<agiTexDef> GetPackedTexture(aconst char* name, i32 variation)
 {
     static i32 mutex = 0;
     ArAssert(++mutex == 1, "Wow, what a great mutex");

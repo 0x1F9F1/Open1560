@@ -54,7 +54,7 @@ private:
 };
 
 // ?GetSparkLut@@YAPAVasSparkLut@@PAD@Z
-ARTS_IMPORT asSparkLut* GetSparkLut(char* path);
+ARTS_IMPORT asSparkLut* GetSparkLut(aconst char* path);
 
 check_size(asSparkLut, 0xC);
 

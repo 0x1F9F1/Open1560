@@ -118,13 +118,13 @@ public:
     ARTS_IMPORT f32 GetThrottle();
 
     // ?LoadReplay@mmGameManager@@QAEXPAD@Z
-    ARTS_IMPORT void LoadReplay(char* arg1);
+    ARTS_IMPORT void LoadReplay(aconst char* arg1);
 
     // ?Reset@mmGameManager@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
     // ?SaveReplay@mmGameManager@@QAEXPAD@Z
-    ARTS_IMPORT void SaveReplay(char* arg1);
+    ARTS_IMPORT void SaveReplay(aconst char* arg1);
 
     // ?StartReplay@mmGameManager@@QAEXXZ
     ARTS_IMPORT void StartReplay();

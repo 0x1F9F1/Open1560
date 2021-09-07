@@ -73,7 +73,7 @@ public:
     {}
 
     // ?SetBackground@agiSWViewport@@UAEXAAVVector3@@@Z | inline
-    ARTS_EXPORT void SetBackground(Vector3& color) override
+    ARTS_EXPORT void SetBackground(aconst Vector3& color) override
     {
         clear_color_ = Pipe()->GetScreenColorModel()->GetColor(color);
     }
@@ -302,7 +302,7 @@ i32 agiSWPipeline::BeginGfx()
     opaque_color_model_ = MakeRc<agiColorModel8>(&agiPal);
     alpha_color_model_ = opaque_color_model_;
 
-    TexSearchPath = const_cast<char*>("texp\0");
+    TexSearchPath = xconst("texp\0");
 
     agiCurState.SetTexturePerspective(true);
     valid_bit_depths_ = 0x1;

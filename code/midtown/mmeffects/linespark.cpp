@@ -27,7 +27,7 @@ define_dummy_symbol(mmeffects_linespark);
 
 void asLineSparks::Draw()
 {
-    Viewport()->SetWorld(const_cast<Matrix34&>(IDENTITY));
+    Viewport()->SetWorld(xconst(IDENTITY));
     agiMeshSet::Init(false);
 
     auto alpha = agiCurState.SetAlphaEnable(true);

@@ -199,7 +199,7 @@ asSimulation::~asSimulation()
     }
 }
 
-void asSimulation::Init(char* proj_path, i32 argc, char** argv)
+void asSimulation::Init(aconst char* proj_path, i32 argc, char** argv)
 {
     seconds_ = 4321.0f;
 

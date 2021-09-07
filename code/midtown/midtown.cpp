@@ -285,7 +285,7 @@ static void MainPhase(i32 argc, char** argv)
         ARTS_MEM_STAT("ARTS Init");
 
         /*ARTSPTR = */ new asSimulation();
-        ARTSPTR->Init(const_cast<char*>("."), argc, argv);
+        ARTSPTR->Init(xconst("."), argc, argv);
 
         if (!VFS)
         {
@@ -349,7 +349,7 @@ static void MainPhase(i32 argc, char** argv)
         switch (MMSTATE.GameState)
         {
             case mmGameState::Menus: {
-                loader.Init(const_cast<char*>("title_screen"), 0.0f, 0.0f);
+                loader.Init(xconst("title_screen"), 0.0f, 0.0f);
 
                 if (GraphicsChange)
                 {
@@ -442,7 +442,7 @@ static void MainPhase(i32 argc, char** argv)
         }
 
         if (!replay_name)
-            game_manager->SaveReplay(const_cast<char*>("last.rpl"));
+            game_manager->SaveReplay(xconst("last.rpl"));
     }
 #endif
 
@@ -506,9 +506,9 @@ void ApplicationHelper(i32 argc, char** argv)
             /*static char test_ar_path[128];
             arts_sprintf(test_ar_path, "c:\\mm\\shop\\build\\test%s.ar", arg + 5);
 
-            argv[argc++] = const_cast<char*>("-path");
-            argv[argc++] = const_cast<char*>(".");
-            argv[argc++] = const_cast<char*>("-archive");
+            argv[argc++] = xconst("-path");
+            argv[argc++] = xconst(".");
+            argv[argc++] = xconst("-archive");
             argv[argc++] = test_ar_path;*/
         }
         else if (ARG("-sw"))
@@ -624,11 +624,11 @@ void ApplicationHelper(i32 argc, char** argv)
             break;
 
         case 1: // Only allow access to save data (default)
-            HierAllowPath = const_cast<char*>("players\0");
+            HierAllowPath = xconst("players\0");
             break;
 
         case 2: // Allow access to tuning data (fasttune)
-            HierAllowPath = const_cast<char*>("players\0race\0tune\0");
+            HierAllowPath = xconst("players\0race\0tune\0");
             break;
     }
 
@@ -1076,7 +1076,7 @@ void GameLoop([[maybe_unused]] mmInterface* mm_interface, [[maybe_unused]] mmGam
             if (SampleStats == 1 && game_manager)
             {
                 Vector4 pos;
-                game_manager->Game()->Player->Hud.GetPosHdg(pos);
+                game_manager->Current->Player->Hud.GetPosHdg(pos);
                 SystemStatsRecord->DoScan(pos);
             }
             else
@@ -1123,7 +1123,7 @@ void GameLoop([[maybe_unused]] mmInterface* mm_interface, [[maybe_unused]] mmGam
 #ifdef ARTS_DEV_BUILD
         if (game_manager && !replay_name)
         {
-            game_manager->SaveReplay(const_cast<char*>("crash.rpl"));
+            game_manager->SaveReplay(xconst("crash.rpl"));
 
             Abortf("Exception caught during simulate loop, saving replay.");
         }
@@ -1194,7 +1194,7 @@ void InitAudioManager()
         AUDMGRPTR->SetEAXPreset(EAX_ENVIRONMENT_CITY, 0.114329f, 1.865f, 0.221129f);
     }
 
-    MMSTATE.HasMidtownCD = AUDMGRPTR->CheckCDFile(const_cast<char*>("cdid.txt"));
+    MMSTATE.HasMidtownCD = AUDMGRPTR->CheckCDFile(xconst("cdid.txt"));
 
     if (!MMSTATE.HasMidtownCD)
         AUDMGRPTR->SetCDPlayMode(1);

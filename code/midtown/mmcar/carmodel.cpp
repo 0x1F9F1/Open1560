@@ -51,7 +51,7 @@ mmCarModel::mmCarModel()
     Flags |= INST_FLAG_2 | INST_FLAG_MOVER | INST_FLAG_100 | INST_FLAG_GLOW | INST_FLAG_2000;
     CarFlags |= CAR_FLAG_ACTIVE;
 
-    Sparks.Init(256, GetSparkLut(const_cast<char*>("tune/spark.tga")));
+    Sparks.Init(256, GetSparkLut(xconst("tune/spark.tga")));
 }
 
 i32 mmCarModel::GetCarFlags(char* /*arg1*/)

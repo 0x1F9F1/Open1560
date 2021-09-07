@@ -98,7 +98,7 @@ void agiD3DViewport::EndGfx()
     state_ = 0;
 }
 
-void agiD3DViewport::SetBackground(Vector3& color)
+void agiD3DViewport::SetBackground(aconst Vector3& color)
 {
     clear_color_ = (static_cast<u8>(color.x * 255.0f) << 16) | (static_cast<u8>(color.y * 255.0f) << 8) |
         static_cast<u8>(color.z * 255.0f);

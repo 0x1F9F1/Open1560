@@ -152,7 +152,7 @@ void agiTexDef::DoPageIn()
     TEXCACHE.EndObject(cache_handle_);
 }
 
-char* agiTexDef::GetName()
+aconst char* agiTexDef::GetName()
 {
     static char buffer[64]; // FIXME: Static buffer
     arts_sprintf(buffer, "Texture '%s' %d/%d", Tex.Name, Tex.LOD, Tex.MaxLOD);
@@ -329,7 +329,7 @@ void UpdateLutQueue()
     }
 }
 
-char* agiTexLut::GetName()
+aconst char* agiTexLut::GetName()
 {
     static char buffer[64]; // FIXME: Static buffer
     arts_sprintf(buffer, "texlut '%s'", name_.get());

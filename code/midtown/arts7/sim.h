@@ -90,7 +90,7 @@ public:
     ARTS_EXPORT ~asSimulation() override;
 
     // ?Init@asSimulation@@QAEXPADHPAPAD@Z
-    ARTS_EXPORT void Init(char* proj_path, i32 argc, char** argv);
+    ARTS_EXPORT void Init(aconst char* proj_path, i32 argc, char** argv);
 
 #ifdef ARTS_DEV_BUILD
     // ?OpenPhysicsBank@asSimulation@@QAEXXZ | unused

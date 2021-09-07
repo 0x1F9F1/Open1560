@@ -32,9 +32,9 @@ agiRefreshable::agiRefreshable(agiPipeline* pipe)
 void agiRefreshable::Restore()
 {}
 
-/*const*/ char* agiRefreshable::GetName()
+aconst char* agiRefreshable::GetName()
 {
-    return const_cast<char*>("generic refreshable");
+    return xconst("generic refreshable");
 }
 
 agiRefreshable::~agiRefreshable()

@@ -645,7 +645,7 @@ void agiMeshSet::DrawNormals(Vector3& color)
     {
         if (Normals)
         {
-            DrawBegin(const_cast<Matrix34&>(ViewParams().World));
+            DrawBegin(xconst(ViewParams().World));
             ::DrawColor(color);
 
             for (u32 i = 0; i < AdjunctCount; ++i)

@@ -52,7 +52,7 @@ public:
     ARTS_EXPORT virtual void UpdateFlags();
 
     // ?GetName@agiBitmap@@UAEPADXZ
-    ARTS_EXPORT /*const*/ char* GetName() override;
+    ARTS_EXPORT aconst char* GetName() override;
 
     // ?Init@agiBitmap@@QAEHPADMMH@Z
     ARTS_EXPORT i32 Init(const char* name, f32 sx, f32 sy, i32 flags);

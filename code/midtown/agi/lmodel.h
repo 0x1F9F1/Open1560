@@ -71,7 +71,7 @@ public:
     virtual i32 Activate() = 0;
 
     // ?GetName@agiLightModel@@UAEPADXZ
-    ARTS_IMPORT char* GetName() override;
+    ARTS_IMPORT aconst char* GetName() override;
 
     // ?Init@agiLightModel@@QAEHABVagiLightModelParameters@@@Z
     ARTS_IMPORT i32 Init(const agiLightModelParameters& arg1);

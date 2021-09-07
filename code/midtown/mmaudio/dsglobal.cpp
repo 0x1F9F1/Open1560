@@ -114,7 +114,7 @@ const char* DSGlobal::GetDeviceName(u32 index)
 
 static mem::cmd_param PARAM_cdid {"cdid"};
 
-u8 DSGlobal::CheckCDFile(char* file_name)
+u8 DSGlobal::CheckCDFile(aconst char* file_name)
 {
     if (!std::strcmp(file_name, "cdid.txt"))
     {

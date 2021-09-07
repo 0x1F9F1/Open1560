@@ -88,10 +88,10 @@ ARTS_EXPORT const char* FQN(const char* path);
 ARTS_EXPORT extern HierFileSystem HFS;
 
 // ?HierAllowPath@@3PADA
-ARTS_EXPORT extern char* HierAllowPath; // Null Separated
+ARTS_EXPORT extern aconst char* HierAllowPath; // Null Separated
 
 // ?HierPrefix@@3PADA
-ARTS_EXPORT extern char* HierPrefix;
+ARTS_EXPORT extern aconst char* HierPrefix;
 
 // ?LogOpenOn@@3HA
 ARTS_EXPORT extern b32 LogOpenOn;

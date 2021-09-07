@@ -42,7 +42,7 @@ mmVehicleForm::mmVehicleForm()
         {
             t_mmEnvSetup* env = &mmEnvSetup[1][0];
 
-            SphMapTex = AsRaw(GetPackedTexture(const_cast<char*>(env->SphereMap), 0));
+            SphMapTex = AsRaw(GetPackedTexture(xconst(env->SphereMap), 0));
 
             if (SphMapTex)
                 SphMapTex->Tex.Props |= agiTexProp::AlphaGlow;

@@ -118,7 +118,7 @@ public:
     void CopyFrom(agiSurfaceDesc* src, i32 src_lod, agiTexParameters* params);
 
     // ?Reload@agiSurfaceDesc@@QAEXPAD0HHPAVStream@@HH@Z
-    ARTS_IMPORT void Reload(char* arg1, char* arg2, i32 arg3, i32 arg4, Stream* arg5, i32 arg6, i32 arg7);
+    ARTS_IMPORT void Reload(aconst char* arg1, aconst char* arg2, i32 arg3, i32 arg4, Stream* arg5, i32 arg6, i32 arg7);
 
     // ?Unload@agiSurfaceDesc@@QAEXXZ
     ARTS_EXPORT void Unload();
@@ -130,7 +130,7 @@ public:
 
     // ?Load@agiSurfaceDesc@@SAPAV1@PAD0HHHH@Z
     [[nodiscard]] ARTS_IMPORT static Owner<agiSurfaceDesc> Load(
-        char* name, char* path, i32 index, i32 pack, i32 width, i32 height);
+        aconst char* name, aconst char* path, i32 index, i32 pack, i32 width, i32 height);
 
     void Clear();
     void Clear(i32 x, i32 y, i32 width, i32 height);

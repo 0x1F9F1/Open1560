@@ -137,18 +137,52 @@ inline void* alloc_proxy(std::size_t /*size*/)
     }                                                                                     \
     __declspec(property(get = Get##NAME, put = Set##NAME)) TYPE NAME
 
+template <typename T>
+struct unconst
+{
+    typedef T type;
+};
+
+template <typename T>
+struct unconst<const T>
+{
+    typedef T type;
+};
+
+template <typename T>
+struct unconst<T*>
+{
+    typedef typename unconst<T>::type* type;
+};
+
+template <typename T>
+struct unconst<T&>
+{
+    typedef typename unconst<T>::type& type;
+};
+
+template <typename T>
+struct unconst<T&&>
+{
+    typedef typename unconst<T>::type&& type;
+};
+
 #ifdef ARTS_STANDALONE
 #    define check_size(TYPE, SIZE)
 #    define define_dummy_symbol mem_define_dummy_symbol
 #    define include_dummy_symbol mem_include_dummy_symbol
 #    define run_once(...)
 #    define offset_field(OFFSET, TYPE, NAME) TYPE NAME
+#    define xconst(VALUE) (VALUE)
+#    define aconst const
 #else
 #    define check_size mem_check_size
 #    define define_dummy_symbol mem_define_dummy_symbol
 #    define include_dummy_symbol mem_include_dummy_symbol
 #    define run_once mem_run_once
 #    define offset_field mem_offset_field
+#    define xconst(VALUE) const_cast<typename unconst<decltype((VALUE))>::type>((VALUE))
+#    define aconst
 #endif
 
 extern mem::init_function* INIT_early;

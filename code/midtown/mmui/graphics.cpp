@@ -88,5 +88,5 @@ void AutoDetect(i32 renderer, i32 resolution)
 
     MMSTATE.DisablePeds = false;
 
-    agiRQ.TexFilter = 2; // Trilinear
+    agiRQ.TexFilter = true; // Trilinear
 }

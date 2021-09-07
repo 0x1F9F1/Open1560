@@ -68,7 +68,7 @@ public:
     ARTS_IMPORT void EndTask(f32 arg1);
 
     // ?Init@mmLoader@@QAEXPADMM@Z
-    ARTS_EXPORT void Init(char* underlay_name, f32 bar_x, f32 bar_y);
+    ARTS_EXPORT void Init(aconst char* underlay_name, f32 bar_x, f32 bar_y);
 
     // ?Percent@mmLoader@@QAEXH@Z | unused
     ARTS_IMPORT void Percent(i32 arg1);

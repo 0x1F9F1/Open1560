@@ -217,19 +217,19 @@ public:
     ARTS_EXPORT RcOwner<agiBitmap> GetBitmap(const char* name, f32 sx, f32 sy, i32 flags);
 
     // ?GetDLP@agiPipeline@@QAEPAVDLP@@PAD0PAVVector3@@HH@Z
-    ARTS_IMPORT RcOwner<DLP> GetDLP(char* arg1, char* arg2, Vector3* arg3, i32 arg4, i32 arg5);
+    ARTS_IMPORT RcOwner<DLP> GetDLP(aconst char* arg1, aconst char* arg2, Vector3* arg3, i32 arg4, i32 arg5);
 
     // ?GetMaterial@agiPipeline@@QAEPAVagiMtlDef@@PAD@Z | unused
-    ARTS_IMPORT RcOwner<agiMtlDef> GetMaterial(char* arg1);
+    ARTS_IMPORT RcOwner<agiMtlDef> GetMaterial(aconst char* arg1);
 
     // ?GetMaterial@agiPipeline@@QAEPAVagiMtlDef@@H@Z
     ARTS_IMPORT RcOwner<agiMtlDef> GetMaterial(i32 arg1);
 
     // ?GetTexLut@agiPipeline@@QAEPAVagiTexLut@@PAD@Z
-    ARTS_IMPORT RcOwner<agiTexLut> GetTexLut(char* arg1);
+    ARTS_IMPORT RcOwner<agiTexLut> GetTexLut(aconst char* arg1);
 
     // ?GetTexture@agiPipeline@@QAEPAVagiTexDef@@PADH@Z
-    ARTS_EXPORT RcOwner<agiTexDef> GetTexture(char* name, i32 pack_shift);
+    ARTS_EXPORT RcOwner<agiTexDef> GetTexture(aconst char* name, i32 pack_shift);
 
     // ?GetTexture@agiPipeline@@QAEPAVagiTexDef@@HH@Z
     ARTS_EXPORT RcOwner<agiTexDef> GetTexture(i32 index, i32 pack_shift);

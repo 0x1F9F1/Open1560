@@ -156,7 +156,7 @@ inline agiTexSorter* TexSorter()
 }
 
 // ?GetPackedTexture@@YAPAVagiTexDef@@PADH@Z
-ARTS_EXPORT RcOwner<agiTexDef> GetPackedTexture(char* name, i32 variation);
+ARTS_EXPORT RcOwner<agiTexDef> GetPackedTexture(aconst char* name, i32 variation);
 
 // ?DisableFogOnAlphaGlow@@3HA
 ARTS_IMPORT extern i32 DisableFogOnAlphaGlow;

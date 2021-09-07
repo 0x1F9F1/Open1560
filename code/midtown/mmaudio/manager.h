@@ -187,7 +187,7 @@ public:
     ARTS_IMPORT i16 CDIsPlaying();
 
     // ?CheckCDFile@AudManager@@QAEEPAD@Z
-    ARTS_IMPORT u8 CheckCDFile(char* arg1);
+    ARTS_IMPORT u8 CheckCDFile(aconst char* arg1);
 
     // ?CheckPriority@AudManager@@QAEHHHH@Z
     ARTS_IMPORT i32 CheckPriority(i32 arg1, i32 arg2, i32 arg3);

@@ -24,7 +24,7 @@ define_dummy_symbol(mmcity_loader);
 #include "agi/pipeline.h"
 #include "localize/localize.h"
 
-void mmLoader::Init(char* underlay_name, f32 bar_x, f32 bar_y)
+void mmLoader::Init(aconst char* underlay_name, f32 bar_x, f32 bar_y)
 {
     bar_x_ = UI_XPos + static_cast<i32>(UI_Width * bar_x);
     bar_y_ = UI_YPos + static_cast<i32>(UI_Height * bar_y);

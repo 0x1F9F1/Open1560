@@ -138,7 +138,7 @@ public:
     ARTS_IMPORT void SetMonochrome(i32 arg1);
 
     // ?SetUnderlay@asCamera@@QAEXPAD@Z
-    ARTS_IMPORT void SetUnderlay(char* arg1);
+    ARTS_IMPORT void SetUnderlay(aconst char* arg1);
 
     // ?SetUnderlayCB@asCamera@@QAEXPAVagiBitmap@@PAVCallback@@@Z
     ARTS_IMPORT void SetUnderlayCB(agiBitmap* arg1, Callback* arg2);

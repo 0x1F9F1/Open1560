@@ -49,7 +49,7 @@ public:
     ARTS_EXPORT virtual void Restore();
 
     // ?GetName@agiRefreshable@@UAEPADXZ
-    ARTS_EXPORT virtual /*const*/ char* GetName();
+    ARTS_EXPORT virtual aconst char* GetName();
 
 protected:
     // ??_EagiRefreshable@@MAEPAXI@Z

@@ -23,7 +23,7 @@ define_dummy_symbol(agi_light);
 void agiLight::Remove()
 {}
 
-char* agiLight::GetName()
+aconst char* agiLight::GetName()
 {
     static char buffer[64]; // FIXME: Static buffer
     arts_sprintf(buffer, "Light '%p'", this);

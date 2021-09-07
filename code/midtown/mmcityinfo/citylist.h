@@ -53,10 +53,10 @@ public:
     ARTS_EXPORT virtual ~mmCityList();
 
     // ?GetCityID@mmCityList@@QAEHPAD@Z
-    ARTS_EXPORT i32 GetCityID(char* name);
+    ARTS_EXPORT i32 GetCityID(aconst char* name);
 
     // ?GetCityInfo@mmCityList@@QAEPAVmmCityInfo@@PAD@Z
-    ARTS_EXPORT mmCityInfo* GetCityInfo(char* name);
+    ARTS_EXPORT mmCityInfo* GetCityInfo(aconst char* name);
 
     // ?GetCityInfo@mmCityList@@QAEPAVmmCityInfo@@H@Z
     ARTS_EXPORT mmCityInfo* GetCityInfo(i32 index);
@@ -68,7 +68,7 @@ public:
     ARTS_EXPORT void Init(i32 arg1);
 
     // ?Load@mmCityList@@QAEXPAD@Z
-    ARTS_EXPORT void Load(char* name);
+    ARTS_EXPORT void Load(aconst char* name);
 
     // ?LoadAll@mmCityList@@QAEXXZ
     ARTS_EXPORT void LoadAll();
@@ -77,7 +77,7 @@ public:
     ARTS_EXPORT void Print();
 
     // ?SetCurrentCity@mmCityList@@QAEXPAD@Z
-    ARTS_EXPORT void SetCurrentCity(char* name);
+    ARTS_EXPORT void SetCurrentCity(aconst char* name);
 
     // ?SetCurrentCity@mmCityList@@QAEXH@Z
     ARTS_EXPORT void SetCurrentCity(i32 index);

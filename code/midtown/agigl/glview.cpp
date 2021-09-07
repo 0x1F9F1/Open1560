@@ -60,7 +60,7 @@ void agiGLViewport::Activate()
     agiViewport::Active = this;
 }
 
-void agiGLViewport::SetBackground(Vector3& color)
+void agiGLViewport::SetBackground(aconst Vector3& color)
 {
     clear_color_ = color;
 }

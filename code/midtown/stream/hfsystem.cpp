@@ -26,8 +26,8 @@ define_dummy_symbol(stream_hfsystem);
 
 HierFileSystem HFS {};
 
-char* HierAllowPath = nullptr;
-char* HierPrefix = nullptr;
+aconst char* HierAllowPath = nullptr;
+aconst char* HierPrefix = nullptr;
 b32 LogOpenOn = false;
 
 HierFileSystem::HierFileSystem() = default;

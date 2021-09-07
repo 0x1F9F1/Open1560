@@ -415,7 +415,7 @@ void mmGame::SendChatMessage(char* msg)
     {
         CHEATING = true;
 
-        BangerProjectile = BangerDataManager()->GetBangerData(const_cast<char*>("tpmail"), nullptr);
+        BangerProjectile = BangerDataManager()->GetBangerData(xconst("tpmail"), nullptr);
         ProjectileV = Vector3(0.0f, 5.0f, -30.0f);
     }
     else if (X("banger "))
@@ -424,7 +424,7 @@ void mmGame::SendChatMessage(char* msg)
 
         const char* banger_name = msg + 8;
 
-        BangerProjectile = BangerDataManager()->GetBangerData(const_cast<char*>(banger_name), nullptr);
+        BangerProjectile = BangerDataManager()->GetBangerData(xconst(banger_name), nullptr);
         ProjectileV = Vector3(0.0f, 5.0f, -30.0f);
 
         if (BangerProjectile && !BangerProjectile->MeshIndex)
@@ -476,7 +476,7 @@ void mmGame::SendChatMessage(char* msg)
     }
     else if (X("ver" /*sion*/))
     {
-        Player->Hud.PostChatMessage(const_cast<char*>(VERSION_STRING));
+        Player->Hud.PostChatMessage(xconst(VERSION_STRING));
     }
     else if (X("talkfast"))
     {

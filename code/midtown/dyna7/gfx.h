@@ -63,25 +63,25 @@
 
 #ifdef ARTS_DEV_BUILD
 // ?DrawBegin@@YAXAAVMatrix34@@@Z
-ARTS_IMPORT void DrawBegin(Matrix34& arg1);
+ARTS_IMPORT void DrawBegin(aconst Matrix34& arg1);
 
 // ?DrawColor@@YAXAAVVector3@@@Z
-ARTS_IMPORT void DrawColor(Vector3& arg1);
+ARTS_IMPORT void DrawColor(aconst Vector3& arg1);
 
 // ?DrawColor@@YAXAAVVector4@@@Z
-ARTS_IMPORT void DrawColor(Vector4& arg1);
+ARTS_IMPORT void DrawColor(aconst Vector4& arg1);
 
 // ?DrawColor2@@YAXAAVVector3@@@Z | unused
-ARTS_IMPORT void DrawColor2(Vector3& arg1);
+ARTS_IMPORT void DrawColor2(aconst Vector3& arg1);
 
 // ?DrawColor2@@YAXAAVVector4@@@Z | unused
-ARTS_IMPORT void DrawColor2(Vector4& arg1);
+ARTS_IMPORT void DrawColor2(aconst Vector4& arg1);
 
 // ?DrawEnd@@YAXXZ
 ARTS_IMPORT void DrawEnd();
 
 // ?DrawLabelf@@YAXAAVVector3@@PADZZ
-ARTS_IMPORT void DrawLabelf(Vector3& arg1, char* arg2, ...);
+ARTS_IMPORT void DrawLabelf(Vector3& arg1, aconst char* arg2, ...);
 
 // ?DrawLine@@YAXAAVVector3@@0@Z
 ARTS_IMPORT void DrawLine(Vector3& arg1, Vector3& arg2);

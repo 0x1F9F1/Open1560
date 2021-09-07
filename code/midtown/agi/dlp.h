@@ -75,7 +75,7 @@ public:
     ARTS_EXPORT void EndGfx() override;
 
     // ?GetName@DLP@@UAEPADXZ
-    ARTS_IMPORT char* GetName() override;
+    ARTS_IMPORT aconst char* GetName() override;
 
     // ?Init@DLP@@QAEHPAD0PAVVector3@@@Z
     ARTS_IMPORT i32 Init(char* arg1, char* arg2, Vector3* arg3);

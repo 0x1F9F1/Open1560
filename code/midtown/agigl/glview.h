@@ -32,7 +32,7 @@ public:
     void EndGfx() override;
     i32 BeginGfx() override;
     void Activate() override;
-    void SetBackground(Vector3& arg1) override;
+    void SetBackground(aconst Vector3& color) override;
     void Clear(i32 arg1) override;
 
     agiGLPipeline* Pipe() const

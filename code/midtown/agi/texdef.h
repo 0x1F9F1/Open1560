@@ -176,7 +176,7 @@ public:
     ARTS_EXPORT void DoPageIn();
 
     // ?GetName@agiTexDef@@UAEPADXZ
-    ARTS_EXPORT char* GetName() override;
+    ARTS_EXPORT aconst char* GetName() override;
 
     // ?Init@agiTexDef@@QAEHABVagiTexParameters@@@Z
     ARTS_EXPORT i32 Init(const agiTexParameters& params);
@@ -267,7 +267,7 @@ ARTS_IMPORT extern i32 TexBytesPaged;
 ARTS_IMPORT extern HashTable TexLutHash;
 
 // ?TexSearchPath@@3PADA
-ARTS_IMPORT extern char* TexSearchPath; // Null Separated
+ARTS_IMPORT extern aconst char* TexSearchPath; // Null Separated
 
 // ?TexsPaged@@3HA
 ARTS_IMPORT extern i32 TexsPaged;
@@ -279,7 +279,7 @@ class agiTexLut : public agiRefreshable
 {
 public:
     // ?GetName@agiTexLut@@UAEPADXZ
-    ARTS_EXPORT char* GetName() override;
+    ARTS_EXPORT aconst char* GetName() override;
 
     // ?Init@agiTexLut@@QAEHPAD@Z
     ARTS_EXPORT i32 Init(const char* name);

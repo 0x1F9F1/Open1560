@@ -71,7 +71,7 @@ class agiMtlDef : public agiRefreshable
 {
 public:
     // ?GetName@agiMtlDef@@UAEPADXZ
-    ARTS_IMPORT char* GetName() override;
+    ARTS_IMPORT aconst char* GetName() override;
 
     // ?Init@agiMtlDef@@QAEHABVagiMtlParameters@@@Z
     ARTS_IMPORT i32 Init(const agiMtlParameters& arg1);

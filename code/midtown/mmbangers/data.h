@@ -141,7 +141,7 @@ public:
     ARTS_IMPORT ~mmBangerDataManager() override;
 
     // ?AddBangerDataEntry@mmBangerDataManager@@QAEHPAD0@Z
-    ARTS_IMPORT i32 AddBangerDataEntry(char* banger, char* part);
+    ARTS_IMPORT i32 AddBangerDataEntry(aconst char* banger, aconst char* part);
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmBangerDataManager@@UAEXPAVBank@@@Z
@@ -163,7 +163,7 @@ public:
 
     mmBangerData* GetBangerData(const char* banger, const char* part)
     {
-        return GetBangerData(AddBangerDataEntry(const_cast<char*>(banger), const_cast<char*>(part)));
+        return GetBangerData(AddBangerDataEntry(xconst(banger), xconst(part)));
     }
 
     // ?DeclareFields@mmBangerDataManager@@SAXXZ

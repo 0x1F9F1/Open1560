@@ -128,4 +128,4 @@ private:
 check_size(mmNumberFont, 0x24);
 
 // ?NUMBERSTRING@@3PADA
-ARTS_EXPORT extern char* NUMBERSTRING;
+ARTS_EXPORT extern aconst char* NUMBERSTRING;

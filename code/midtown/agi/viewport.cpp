@@ -23,7 +23,7 @@ define_dummy_symbol(agi_viewport);
 #include "pipeline.h"
 #include "vector7/matrix34.h"
 
-void agiViewParameters::SetWorld(Matrix34& world)
+void agiViewParameters::SetWorld(const Matrix34& world)
 {
     World = world;
     ModelView.Dot(World, View);
@@ -41,7 +41,7 @@ agiViewport::~agiViewport()
         Active = nullptr;
 }
 
-void agiViewport::SetWorld(Matrix34& world)
+void agiViewport::SetWorld(aconst Matrix34& world)
 {
     params_.SetWorld(world);
 }
@@ -58,7 +58,7 @@ f32 agiViewport::Aspect()
     return params_.Width / params_.Height;
 }
 
-char* agiViewport::GetName()
+aconst char* agiViewport::GetName()
 {
     static char buffer[128]; // FIXME: Static buffer
     arts_sprintf(buffer, "Viewport '%p'", this);

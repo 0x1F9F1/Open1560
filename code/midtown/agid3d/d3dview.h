@@ -63,7 +63,7 @@ public:
     ARTS_EXPORT void EndGfx() override;
 
     // ?SetBackground@agiD3DViewport@@UAEXAAVVector3@@@Z
-    ARTS_EXPORT void SetBackground(Vector3& color) override;
+    ARTS_EXPORT void SetBackground(aconst Vector3& color) override;
 
     agiD3DPipeline* Pipe() const
     {

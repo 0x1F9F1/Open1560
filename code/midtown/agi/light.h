@@ -102,7 +102,7 @@ public:
     ARTS_EXPORT virtual void Remove();
 
     // ?GetName@agiLight@@UAEPADXZ
-    ARTS_EXPORT char* GetName() override;
+    ARTS_EXPORT aconst char* GetName() override;
 
     // ?Init@agiLight@@QAEHABVagiLightParameters@@@Z
     ARTS_EXPORT i32 Init(const agiLightParameters& params);
