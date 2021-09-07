@@ -200,14 +200,7 @@ void DefaultPrinter(i32 level, const char* format, std::va_list args)
             ArDebugBreak();
         }
 
-        if (level == 3)
-        {
-            _exit(1);
-        }
-        else
-        {
-            TerminateProcess(GetCurrentProcess(), 1);
-        }
+        std::terminate();
     }
 }
 
