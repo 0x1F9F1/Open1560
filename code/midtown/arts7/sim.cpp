@@ -134,10 +134,14 @@ static void TogglePipelineWindow()
 #endif
 
 // ?IsValidPointer@@YAHPAXIH@Z
-ARTS_IMPORT /*static*/ i32 IsValidPointer(void* arg1, u32 arg2, i32 arg3);
+ARTS_IMPORT /*static*/ i32 IsValidPointer(void* address, usize size, i32 access);
 
 // ?QuietPrinter@@YAXHPBDPAD@Z
-ARTS_IMPORT /*static*/ void QuietPrinter(i32 arg1, const char* arg2, char* arg3);
+ARTS_EXPORT /*static*/ void QuietPrinter(i32 level, const char* format, std::va_list args)
+{
+    if (level >= 3)
+        DefaultPrinter(level, format, args);
+}
 
 asSimulation::asSimulation()
     : keys_queue_(0xB, EQ_EVENT_MASK(eqEventType::Keyboard) | EQ_EVENT_MASK(eqEventType::Activate), 32)
@@ -910,10 +914,10 @@ const char* asNode::VerifyTree()
     if (!IsValidPointer(this, sizeof(*this), true))
         return "Bad 'this'";
 
-    if (!IsValidPointer(*reinterpret_cast<void**>(this), 8 * sizeof(void*), false))
+    if (!IsValidPointer(*reinterpret_cast<void**>(this), sizeof(void* [8]), false))
         return "Bad virtual table";
 
-    if (!IsValidPointer(parent_node_, sizeof(*this), 1) && (this != parent_node_))
+    if (parent_node_ && !IsValidPointer(parent_node_, sizeof(*this), true))
         return "Bad parent";
 
     const char* msg = nullptr;
@@ -972,6 +976,12 @@ void asSimulation::AddWidgets(Bank* bank)
     bank->AddToggle("Volume Samples", &DynaDrawMode, DYNA_DRAW_VOLUME_SAMPLES, nullptr);
     bank->AddToggle("Fluid Samples", &DynaDrawMode, DYNA_DRAW_FLUID_SAMPLES, nullptr);
     bank->AddToggle("Springs", &DynaDrawMode, DYNA_DRAW_SPRINGS, nullptr);
+    bank->PopSection();
+
+    bank->PushSection("Memory Debug", 0);
+    bank->AddToggle("Sim", &DebugMemory, ARTS_DEBUG_SIM, nullptr);
+    bank->AddToggle("Update Mem", &DebugMemory, ARTS_DEBUG_UPDATEMEM, nullptr);
+    bank->AddToggle("Update", &DebugMemory, ARTS_DEBUG_UPDATE, nullptr);
     bank->PopSection();
 
     bank->PushSection("Node Timing", 0);
