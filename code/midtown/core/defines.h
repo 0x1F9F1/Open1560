@@ -67,7 +67,7 @@
 #    include <sal.h>
 #    define ARTS_FORMAT_STRING _In_z_ _Printf_format_string_
 #else
-#    define ARTS_FORMAT_STRING NAME
+#    define ARTS_FORMAT_STRING
 #endif /* _MSC_VER */
 
 #define ARTS_DIAGNOSTIC_PUSH HEDLEY_DIAGNOSTIC_PUSH
