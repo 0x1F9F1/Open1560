@@ -35,17 +35,6 @@
 
 #include "base.h"
 
-#define CB_TYPE_NONE 0
-
-#define CB_TYPE_CFA 1
-#define CB_TYPE_CFA1 2
-#define CB_TYPE_CFA2 3
-
-#define CB_TYPE_MFA 4
-#define CB_TYPE_MFA1 5
-#define CB_TYPE_MFA2 6
-#define CB_TYPE_MFA3 7
-
 class Callback
 {
 public:
@@ -58,30 +47,33 @@ public:
     using Member2 = void (Base::*)(void*, void*);
 
     // ??0Callback@@QAE@XZ
-    ARTS_EXPORT constexpr Callback() noexcept = default;
+    ARTS_EXPORT Callback() noexcept = default;
 
-    constexpr Callback(std::nullptr_t) noexcept;
+    Callback(std::nullptr_t) noexcept;
+
+    template <typename Func>
+    Callback(Func func) noexcept;
 
     // ??0Callback@@QAE@P6AXXZ@Z
-    ARTS_EXPORT constexpr Callback(Static0 func) noexcept;
+    ARTS_EXPORT explicit Callback(Static0 func) noexcept;
 
     // ??0Callback@@QAE@P6AXPAX@Z0@Z
-    ARTS_EXPORT constexpr Callback(Static1 func, void* param) noexcept;
+    ARTS_EXPORT explicit Callback(Static1 func, void* param) noexcept;
 
     // ??0Callback@@QAE@P6AXPAX0@Z0@Z
-    ARTS_EXPORT constexpr Callback(Static2 func, void* param) noexcept;
+    ARTS_EXPORT explicit Callback(Static2 func, void* param) noexcept;
 
     // ??0Callback@@QAE@P8Base@@AEXXZPAV1@@Z
-    ARTS_EXPORT constexpr Callback(Member0 func, Base* this_ptr) noexcept;
+    ARTS_EXPORT explicit Callback(Member0 func, Base* this_ptr) noexcept;
 
     // ??0Callback@@QAE@P8Base@@AEXPAX@ZPAV1@0@Z
-    ARTS_EXPORT constexpr Callback(Member1 func, Base* this_ptr, void* param) noexcept;
+    ARTS_EXPORT explicit Callback(Member1 func, Base* this_ptr, void* param) noexcept;
 
     // ??0Callback@@QAE@P8Base@@AEXPAX0@ZPAV1@0@Z
-    ARTS_EXPORT constexpr Callback(Member2 func, Base* this_ptr, void* param) noexcept;
+    ARTS_EXPORT explicit Callback(Member2 func, Base* this_ptr, void* param) noexcept;
 
     // ??0Callback@@QAE@P8Base@@AEXPAX0@ZPAV1@00@Z
-    ARTS_EXPORT constexpr Callback(Member2 func, Base* this_ptr, void* param1, void* param2) noexcept;
+    ARTS_EXPORT explicit Callback(Member2 func, Base* this_ptr, void* param1, void* param2) noexcept;
 
     // ?Call@Callback@@QAEXPAX@Z
     ARTS_EXPORT void Call(void* param = nullptr);
@@ -89,25 +81,11 @@ public:
     bool operator==(const Callback& other) const;
 
 private:
-    i32 type_ {CB_TYPE_NONE};
-    Base* this_ptr_ {};
-
-    union
-    {
-        void* address;
-
-        Static0 static0;
-        Static1 static1;
-        Static2 static2;
-
-        Member0 member0;
-        Member1 member1;
-        Member2 member2;
-    } func_ {};
-
-    void* param_1_ {};
-    void* param_2_ {};
+    void(ARTS_FASTCALL* invoke_)(void* context, void* param) {};
+    u8 data_[16];
 };
+
+check_size(Callback, 0x14);
 
 class CallbackArray
 {
@@ -133,78 +111,85 @@ private:
 #define MFA2(FUNC, THIS, PARAM) Callback(static_cast<Callback::Member2>(&FUNC), THIS, PARAM)
 #define MFA3(FUNC, THIS, PARAM1, PARAM2) Callback(static_cast<Callback::Member2>(&FUNC), THIS, PARAM1, PARAM2)
 
-check_size(Callback, 0x14);
-
 // ?NullCallback@@3VCallback@@A
 // ARTS_IMPORT extern Callback NullCallback;
 [[deprecated]] ARTS_EXPORT extern Callback NullCallback;
 
-inline constexpr Callback::Callback(std::nullptr_t) noexcept
+inline Callback::Callback(std::nullptr_t) noexcept
     : Callback()
 {}
 
-inline constexpr Callback::Callback(Static0 func) noexcept
-    : type_(CB_TYPE_CFA)
+template <typename Func, typename = void>
+struct CallbackInvoker
 {
-    func_.static0 = func;
+    static void ARTS_FASTCALL Invoke(void* context, [[maybe_unused]] void* param)
+    {
+        (*static_cast<Func*>(context))();
+    }
+};
+
+template <typename Func>
+struct CallbackInvoker<Func, decltype(void(std::declval<Func>()(std::declval<void*>())))>
+{
+    static void ARTS_FASTCALL Invoke(void* context, void* param)
+    {
+        (*static_cast<Func*>(context))(param);
+    }
+};
+
+template <typename Func>
+inline Callback::Callback(Func func) noexcept
+    : invoke_(CallbackInvoker<Func>::Invoke)
+{
+    new (data_) Func(func);
+    static_assert(sizeof(func) <= sizeof(data_));
+    static_assert(std::is_trivially_copyable_v<Func>);
 }
 
-inline constexpr Callback::Callback(Static1 func, void* param) noexcept
-    : type_(CB_TYPE_CFA1)
-    , param_1_(param)
-{
-    func_.static1 = func;
-}
+inline Callback::Callback(Static0 func) noexcept
+    : Callback([func] { func(); })
+{}
 
-inline constexpr Callback::Callback(Static2 func, void* param) noexcept
-    : type_(CB_TYPE_CFA2)
-    , param_1_(param)
-{
-    func_.static2 = func;
-}
+inline Callback::Callback(Static1 func, void* param) noexcept
+    : Callback([func, param] { func(param); })
+{}
 
-inline constexpr Callback::Callback(Member0 func, Base* this_ptr) noexcept
-    : type_(CB_TYPE_MFA)
-    , this_ptr_(this_ptr)
-{
-    func_.member0 = func;
+inline Callback::Callback(Static2 func, void* param) noexcept
+    : Callback([func, param](void* arg) { func(param, arg); })
+{}
 
+inline Callback::Callback(Member0 func, Base* this_ptr) noexcept
+    : Callback([func, this_ptr] { (this_ptr->*func)(); })
+{
     if (!this_ptr)
         Quitf("Can't have callback to member function with nil 'this'");
 }
 
-inline constexpr Callback::Callback(Member1 func, Base* this_ptr, void* param) noexcept
-    : type_(CB_TYPE_MFA1)
-    , this_ptr_(this_ptr)
-    , param_1_(param)
+inline Callback::Callback(Member1 func, Base* this_ptr, void* param) noexcept
+    : Callback([func, this_ptr, param] { (this_ptr->*func)(param); })
 {
-    func_.member1 = func;
-
     if (!this_ptr)
         Quitf("Can't have callback to member function with nil 'this'");
 }
 
-inline constexpr Callback::Callback(Member2 func, Base* this_ptr, void* param) noexcept
-    : type_(CB_TYPE_MFA2)
-    , this_ptr_(this_ptr)
-    , param_1_(param)
+inline Callback::Callback(Member2 func, Base* this_ptr, void* param) noexcept
+    : Callback([func, this_ptr, param](void* arg) { (this_ptr->*func)(param, arg); })
 {
-    func_.member2 = func;
-
     if (!this_ptr)
         Quitf("Can't have callback to member function with nil 'this'");
 }
 
-inline constexpr Callback::Callback(Member2 func, Base* this_ptr, void* param1, void* param2) noexcept
-    : type_(CB_TYPE_MFA3)
-    , this_ptr_(this_ptr)
-    , param_1_(param1)
-    , param_2_(param2)
+inline Callback::Callback(Member2 func, Base* this_ptr, void* param1, void* param2) noexcept
+    : Callback([func, this_ptr, param1, param2] { (this_ptr->*func)(param1, param2); })
 {
-    func_.member2 = func;
-
     if (!this_ptr)
         Quitf("Can't have callback to member function with nil 'this'");
+}
+
+inline void Callback::Call(void* param)
+{
+    if (invoke_)
+        invoke_(data_, param);
 }
 
 inline bool Callback::operator==(const Callback& other) const

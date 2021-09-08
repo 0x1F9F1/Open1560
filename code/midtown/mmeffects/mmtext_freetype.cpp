@@ -419,7 +419,7 @@ mmFont* mmFont::Create(const char* font_name, i32 height, i32 weight)
 
         FT_Add_Default_Modules(mmFont_Library);
 
-        OnGameReset.Append(CFA(mmFont_Shutdown));
+        OnGameReset.Append(mmFont_Shutdown);
     }
 
     const auto name = arts_formatf<256>("%s, %i, %i", font_name, height, weight);

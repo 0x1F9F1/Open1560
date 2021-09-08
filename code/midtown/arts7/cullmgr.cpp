@@ -38,11 +38,6 @@ ARTS_IMPORT extern f32 UpdateTime3D;
 ARTS_IMPORT extern i32 StatsTextOffset;
 
 #ifdef ARTS_DEV_BUILD
-static void PrintPerfGraph()
-{
-    PGRAPH->Cull();
-}
-
 ARTS_IMPORT void PrintRenderPerf();
 
 static void PrintMessages()
@@ -98,12 +93,12 @@ asCullManager::asCullManager(i32 max_cullables, i32 max_cullables_2D)
     SetNodeFlag(NODE_FLAG_UPDATE_PAUSED);
 
 #ifdef ARTS_DEV_BUILD
-    AddPage(MFA(asCullManager::PrintMiniStats, this));
-    AddPage(MFA(asCullManager::PrintStats, this));
-    AddPage(CFA(PrintPerfGraph));
-    AddPage(CFA(PrintRenderPerf));
-    AddPage(CFA(PrintMessages));
-    AddPage(CFA(PrintMemoryUsage));
+    AddPage([this] { PrintMiniStats(); });
+    AddPage([this] { PrintStats(); });
+    AddPage([] { PGRAPH->Cull(); });
+    AddPage(PrintRenderPerf);
+    AddPage(PrintMessages);
+    AddPage(PrintMemoryUsage);
 
     ArAssert(!PGRAPH, "Already have a PGRAPH");
     PGRAPH = new asPerfGraph();

@@ -519,11 +519,6 @@ void asMidgets::Off()
     open_ = false;
 }
 
-static void OpenNodeMidgets(void* param)
-{
-    MIDGETSPTR->Open(static_cast<asNode*>(param));
-}
-
 void asMidgets::Open(asNode* node)
 {
     Off();
@@ -555,7 +550,7 @@ void asMidgets::Open(asNode* node)
 
         parent_midget_index_ = midget_count_;
 
-        AddButton(buffer, CFA1(OpenNodeMidgets, parent));
+        AddButton(buffer, [this, parent] { Open(parent); });
     }
     else
     {
@@ -582,7 +577,7 @@ void asMidgets::Open(asNode* node)
             arts_strcat(buffer, child_name);
         }
 
-        AddButton(buffer, CFA1(OpenNodeMidgets, child));
+        AddButton(buffer, [this, child] { Open(child); });
     }
 
     open_ = midget_count_ > 0;

@@ -22,36 +22,6 @@ define_dummy_symbol(data7_callback);
 
 Callback NullCallback {};
 
-void Callback::Call(void* param)
-{
-    if (type_ == CB_TYPE_NONE)
-        return;
-
-    if (this_ptr_)
-    {
-        switch (type_)
-        {
-            case CB_TYPE_MFA: return (this_ptr_->*func_.member0)();
-            case CB_TYPE_MFA1: return (this_ptr_->*func_.member1)(param_1_);
-            case CB_TYPE_MFA2: return (this_ptr_->*func_.member2)(param_1_, param);
-            case CB_TYPE_MFA3: return (this_ptr_->*func_.member2)(param_1_, param_2_);
-
-            default: Quitf("Invalid Callback");
-        }
-    }
-    else
-    {
-        switch (type_)
-        {
-            case CB_TYPE_CFA: return func_.static0();
-            case CB_TYPE_CFA1: return func_.static1(param_1_);
-            case CB_TYPE_CFA2: return func_.static2(param_1_, param);
-
-            default: Quitf("Invalid Callback");
-        }
-    }
-}
-
 CallbackArray::CallbackArray(Callback* callbacks, usize capacity)
     : callbacks_(callbacks)
     , capacity_(static_cast<u16>(capacity))

@@ -96,8 +96,8 @@ void mmInterface::InitLobby()
     {
         if (NETMGR.JoinLobbySession())
         {
-            NETMGR.SetSysCallback(MFA2(mmInterface::MessageCallback, this, nullptr));
-            NETMGR.SetAppCallback(MFA2(mmInterface::MessageCallback2, this, nullptr));
+            NETMGR.SetSysCallback([this](void* param) { MessageCallback(nullptr, param); });
+            NETMGR.SetAppCallback([this](void* param) { MessageCallback2(nullptr, param); });
         }
         else
         {

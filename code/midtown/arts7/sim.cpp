@@ -944,24 +944,11 @@ void asSimulation::OpenPhysicsBank()
     physics_bank_open_ ^= true;
 }
 
-static i32 NodeTimingCount = 100;
-
-static void BeginNodeTiming()
-{
-    asNode::TimingCount += NodeTimingCount;
-}
-
-static void ResetNodeTiming()
-{
-    asNode::TimingCount = 0;
-    ARTSPTR->ResetTime();
-}
-
 void asSimulation::AddWidgets(Bank* bank)
 {
     asNode::AddWidgets(bank);
 
-    bank->AddButton("Reset Simulation", MFA(asSimulation::Reset, this));
+    bank->AddButton("Reset Simulation", [this] { Reset(); });
 
     bank->PushSection("Physics Draw Mode", false);
     bank->AddToggle("Matrix", &DynaDrawMode, DYNA_DRAW_MATRIX);
@@ -986,10 +973,17 @@ void asSimulation::AddWidgets(Bank* bank)
     bank->PopSection();
 
     bank->PushSection("Node Timing", false);
-    bank->AddSlider("Current", &asNode::TimingCount, 0, INT_MAX, 0);
-    bank->AddSlider("Additional", &NodeTimingCount, 1, 1000, 1);
-    bank->AddButton("Begin", CFA(BeginNodeTiming));
-    bank->AddButton("Reset", CFA(ResetNodeTiming));
+    bank->AddSlider("Current", &TimingCount, 0, INT_MAX, 0);
+
+    static i32 additional_timing = 100;
+
+    bank->AddSlider("Additional", &additional_timing, 1, 1000, 1);
+    bank->AddButton("Begin", [] { TimingCount += additional_timing; });
+    bank->AddButton("Reset", [this] {
+        TimingCount = 0;
+        ResetTime();
+    });
+
     bank->PopSection();
 }
 
