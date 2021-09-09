@@ -35,6 +35,9 @@
 
 #include "base.h"
 
+#define CALLBACK_DATA_SIZE sizeof(void*[4])
+#define CALLBACK_DATA_ALIGN alignof(void*)
+
 class Callback
 {
 public:
@@ -72,7 +75,7 @@ public:
     // ??0Callback@@QAE@P8Base@@AEXPAX0@ZPAV1@0@Z
     ARTS_EXPORT explicit Callback(Member2 func, Base* this_ptr, void* param) noexcept;
 
-    // ??0Callback@@QAE@P8Base@@AEXPAX0@ZPAV1@00@Z
+    // ??0Callback@@QAE@P8Base@@AEXPAX0@ZPAV1@00@Z | unused
     ARTS_EXPORT explicit Callback(Member2 func, Base* this_ptr, void* param1, void* param2) noexcept;
 
     // ?Call@Callback@@QAEXPAX@Z
@@ -81,8 +84,8 @@ public:
     bool operator==(const Callback& other) const;
 
 private:
+    alignas(CALLBACK_DATA_ALIGN) u8 data_[CALLBACK_DATA_SIZE];
     void(ARTS_FASTCALL* invoke_)(void* context, void* param) {};
-    u8 data_[16];
 };
 
 check_size(Callback, 0x14);
@@ -141,9 +144,11 @@ template <typename Func>
 inline Callback::Callback(Func func) noexcept
     : invoke_(CallbackInvoker<Func>::Invoke)
 {
+    static_assert(sizeof(Func) <= CALLBACK_DATA_SIZE, "Function is too large");
+    static_assert(alignof(Func) <= CALLBACK_DATA_ALIGN, "Function is over-aligned");
+    static_assert(std::is_trivially_copyable_v<Func>, "Function is not trivially copyable");
+
     new (data_) Func(func);
-    static_assert(sizeof(func) <= sizeof(data_));
-    static_assert(std::is_trivially_copyable_v<Func>);
 }
 
 inline Callback::Callback(Static0 func) noexcept

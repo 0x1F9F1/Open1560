@@ -46,7 +46,7 @@ void aiVehicleActive::Attach(aiVehicleInstance* inst)
     ICS.Zero();
     ICS.Matrix = inst->ToMatrix(ICS.Matrix);
     ICS.World = inst->ToMatrix(ICS.World);
-    ICS.SleepState = 1;
+    ICS.State = ICS_STATE_AWAKE;
     Inst = inst;
 
     ICS.SetMass(data->Size.x, data->Size.y, data->Size.z, data->Mass * EggMass);
@@ -54,7 +54,7 @@ void aiVehicleActive::Attach(aiVehicleInstance* inst)
     ICS.Elasticity = data->Elasticity;
 
     MaxDamage = data->MaxDamage;
-    ICS.SleepState = 1;
+    ICS.State = ICS_STATE_AWAKE;
     Bound.AudioId = data->SoundId;
 
     ICS.LinearVelocity = inst->Spline->Matrix->m2 * -inst->Spline->CurSpeed;

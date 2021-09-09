@@ -67,20 +67,24 @@
 class JointedStruct;
 
 // Translation
-#define INERTIAL_CONSTRAIN_TX 0x1
-#define INERTIAL_CONSTRAIN_TY 0x2
-#define INERTIAL_CONSTRAIN_TZ 0x4
+#define ICS_CONSTRAIN_TX 0x1
+#define ICS_CONSTRAIN_TY 0x2
+#define ICS_CONSTRAIN_TZ 0x4
 
 // Rotation
-#define INERTIAL_CONSTRAIN_RX 0x8
-#define INERTIAL_CONSTRAIN_RY 0x10
-#define INERTIAL_CONSTRAIN_RZ 0x20
+#define ICS_CONSTRAIN_RX 0x8
+#define ICS_CONSTRAIN_RY 0x10
+#define ICS_CONSTRAIN_RZ 0x20
 
-#define INERTIAL_CONSTRAIN_ALL 0x3F
+#define ICS_CONSTRAIN_ALL 0x3F
 
-#define INERTIAL_CONSTRAIN_LINK 0x40
-#define INERTIAL_CONSTRAIN_80 0x80
-#define INERTIAL_CONSTRAIN_ZERODOF 0x400
+#define ICS_CONSTRAIN_LINK 0x40
+#define ICS_CONSTRAIN_80 0x80
+#define ICS_CONSTRAIN_ZERODOF 0x400
+
+#define ICS_STATE_OFF 0
+#define ICS_STATE_AWAKE 1
+#define ICS_STATE_ASLEEP 2
 
 class asInertialCS final : public asLinearCS
 {
@@ -204,7 +208,7 @@ public:
     Vector3 field_16C {};
     i32 Constraints {};
     i32 field_17C {-1};
-    i32 SleepState {};
+    i32 State {};
     f32 Vel2 {0.1f};
     f32 AngVel2 {0.1f};
     f32 Time {1.0f};

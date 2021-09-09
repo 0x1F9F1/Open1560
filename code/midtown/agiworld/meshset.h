@@ -61,9 +61,12 @@ class agiViewParameters;
 #define MESH_SET_NO_BOUND 0x40
 #define MESH_SET_BREAKABLE 0x80 // strcat(bnd_name, "_break")
 
-// if (!(flags & 0x100) && (EnablePaging & 2) && FileSystem::PagerInfoAny(bms_path, &pager))
-#define MESH_SET_KEEP_LOADED 0x100 // FIXME: Overlaps with MESH_SET_VARIANT_MASK
+// Maybe these were supposed to mark which variants should be pre-loaded?
 
+// if (!(flags & 0x100) && (EnablePaging & 2) && FileSystem::PagerInfoAny(bms_path, &pager))
+#define MESH_SET_KEEP_LOADED 0x100
+
+// NOTE: Unused, mmCarModel::Init passes 0x100 << paint_job
 // if (flags & 0xF00) mesh->Variant = flags >> 8
 #define MESH_SET_VARIANT_MASK 0xF00
 #define MESH_SET_VARIANT_SHIFT 8

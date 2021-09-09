@@ -93,18 +93,18 @@ void mmCar::EnableDriving(b32 enabled)
 {
     if (enabled)
     {
-        Sim.ICS.Constraints &= ~INERTIAL_CONSTRAIN_ALL;
+        Sim.ICS.Constraints &= ~ICS_CONSTRAIN_ALL;
 
         if (Model.HasTrailer())
-            Trailer->ICS.Constraints &= ~INERTIAL_CONSTRAIN_ALL;
+            Trailer->ICS.Constraints &= ~ICS_CONSTRAIN_ALL;
     }
     else
     {
-        Sim.ICS.Constraints |= INERTIAL_CONSTRAIN_TX | INERTIAL_CONSTRAIN_TZ | INERTIAL_CONSTRAIN_RY;
+        Sim.ICS.Constraints |= ICS_CONSTRAIN_TX | ICS_CONSTRAIN_TZ | ICS_CONSTRAIN_RY;
 
         // TODO: Should this be TX|TZ|RY as well?
         if (Model.HasTrailer())
-            Trailer->ICS.Constraints |= INERTIAL_CONSTRAIN_ALL;
+            Trailer->ICS.Constraints |= ICS_CONSTRAIN_ALL;
     }
 }
 
