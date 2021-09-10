@@ -35,7 +35,7 @@
 
 #include "base.h"
 
-#define CALLBACK_DATA_SIZE sizeof(void*[4])
+#define CALLBACK_DATA_SIZE sizeof(void* [4])
 #define CALLBACK_DATA_ALIGN alignof(void*)
 
 class Callback

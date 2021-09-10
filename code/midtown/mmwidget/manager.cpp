@@ -21,6 +21,12 @@ define_dummy_symbol(mmwidget_manager);
 #include "manager.h"
 
 #include "agi/pipeline.h"
+#include "arts7/camera.h"
+#include "arts7/lamp.h"
+#include "arts7/linear.h"
+#include "arts7/view.h"
+#include "eventq7/eventq.h"
+#include "mmaudio/sound.h"
 
 #include "menu.h"
 #include "pointer.h"
@@ -191,6 +197,19 @@ void MenuManager::Disable(i32 id)
 
     if (i32 index = FindMenu(id); index >= 0)
         menus_[index]->Disable();
+}
+
+void MenuManager::Kill()
+{
+    event_q_ = nullptr;
+    menu_cs_ = nullptr;
+    lamps_ = nullptr;
+    lcss_ = nullptr;
+
+    move_selector_sound_ = nullptr;
+    selection_made_sound_ = nullptr;
+    switch_sound_ = nullptr;
+    menu_camera_ = nullptr;
 }
 
 i32 MenuManager::MenuState(i32 menu)

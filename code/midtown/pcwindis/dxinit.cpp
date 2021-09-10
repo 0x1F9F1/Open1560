@@ -169,13 +169,13 @@ void dxiInit(char* title, i32 argc, char** argv)
         bool use_gpu = !PARAM_integrated.get_or(false);
         HINSTANCE hInstance = GetModuleHandle(NULL);
 
-        if (void* AmdPowerXpressRequestHighPerformance =
+        if (auto AmdPowerXpressRequestHighPerformance =
                 GetProcAddress(hInstance, "AmdPowerXpressRequestHighPerformance"))
-            *static_cast<DWORD*>(AmdPowerXpressRequestHighPerformance) = use_gpu;
+            *reinterpret_cast<DWORD*>(AmdPowerXpressRequestHighPerformance) = use_gpu;
 
         // NOTE: NVIDIA seems to only care about NvOptimusEnablement being present, not the value, despite what their documentation says
-        if (void* NvOptimusEnablement = GetProcAddress(hInstance, "NvOptimusEnablement"))
-            *static_cast<DWORD*>(NvOptimusEnablement) = use_gpu;
+        if (auto NvOptimusEnablement = GetProcAddress(hInstance, "NvOptimusEnablement"))
+            *reinterpret_cast<DWORD*>(NvOptimusEnablement) = use_gpu;
     }
 
     dxiRendererType type = GetRendererInfo().Type;

@@ -54,7 +54,6 @@ void aiVehicleActive::Attach(aiVehicleInstance* inst)
     ICS.Elasticity = data->Elasticity;
 
     MaxDamage = data->MaxDamage;
-    ICS.State = ICS_STATE_AWAKE;
     Bound.AudioId = data->SoundId;
 
     ICS.LinearVelocity = inst->Spline->Matrix->m2 * -inst->Spline->CurSpeed;

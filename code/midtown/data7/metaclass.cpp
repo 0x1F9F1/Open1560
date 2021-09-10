@@ -20,6 +20,7 @@ define_dummy_symbol(data7_metaclass);
 
 #include "metaclass.h"
 
+#include "base.h"
 #include "metadefine.h"
 #include "miniparser.h"
 

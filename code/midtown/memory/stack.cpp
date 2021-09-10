@@ -447,7 +447,7 @@ void DebugLog(i32 tag, void* data, i32 size)
         DebugLogStream->Read(&fsize, sizeof(fsize));
 
         u8 fbuffer[256];
-        ArAssert(fsize <= sizeof(fbuffer), "Invalid Input Size");
+        ArAssert(fsize <= ARTS_SSIZE32(fbuffer), "Invalid Input Size");
         DebugLogStream->Read(fbuffer, fsize);
 
         isize faddrs[8] {};

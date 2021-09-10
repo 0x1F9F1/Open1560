@@ -41,6 +41,9 @@
 
 class MiniParser;
 
+class agiLight;
+class agiLightParameters;
+
 class asLamp final : public asNode
 {
 public:
@@ -49,7 +52,7 @@ public:
 
     // ??_EasLamp@@UAEPAXI@Z
     // ??1asLamp@@UAE@XZ
-    ARTS_IMPORT ~asLamp() override;
+    ARTS_EXPORT ~asLamp() override;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@asLamp@@UAEXPAVBank@@@Z
@@ -84,7 +87,10 @@ private:
     // ?Regen@asLamp@@AAEXXZ
     ARTS_IMPORT void Regen();
 
-    u8 gap20[0x10];
+    Rc<agiLight> Light;
+    Ptr<agiLightParameters> Params;
+    b32 Global {true};
+    i32 CullCount {};
 };
 
 check_size(asLamp, 0x30);

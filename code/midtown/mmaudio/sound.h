@@ -254,6 +254,9 @@ public:
     // ?Update3DSettings@AudSound@@QAEXXZ
     ARTS_IMPORT void Update3DSettings();
 
+    ARTS_DIAGNOSTIC_PUSH;
+    ARTS_CLANG_DIAGNOSTIC_IGNORED("-Wignored-qualifiers");
+
     // ?Get2DFlags@AudSound@@SA?BKXZ
     ARTS_IMPORT static const ulong Get2DFlags();
 
@@ -290,6 +293,8 @@ private:
 
     // ?s_DWSoftFreqChange2DCtrlFlags@AudSound@@0KB
     ARTS_IMPORT static const ulong s_DWSoftFreqChange2DCtrlFlags;
+
+    ARTS_DIAGNOSTIC_POP;
 
     u8 gap20[0x98];
 };

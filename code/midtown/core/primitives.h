@@ -93,10 +93,12 @@ _ARTS_LITERAL(_usize, unsigned long long int, usize);
 #undef _ARTS_LITERAL
 
 // Common forward declarations
+class Bank;
+class Base;
 class Callback;
 class HashTable;
-struct LocString;
 class string;
+struct LocString;
 
 class Matrix34;
 class Matrix44;

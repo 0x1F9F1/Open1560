@@ -102,6 +102,7 @@
 #include "cullable.h"
 #include "eventq7/eventq.h"
 
+class asNode;
 class MI;
 
 class asMidgets final

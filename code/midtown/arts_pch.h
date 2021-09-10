@@ -66,8 +66,7 @@
 
 #include "data7/metadeclare.h"
 
-#include "arts7/node.h"
-
 ARTS_CLANG_DIAGNOSTIC_IGNORED("-Wmissing-field-initializers");
 ARTS_CLANG_DIAGNOSTIC_IGNORED("-Wunused-private-field");
 ARTS_CLANG_DIAGNOSTIC_IGNORED("-Woverloaded-virtual");
+ARTS_CLANG_DIAGNOSTIC_IGNORED("-Wswitch");

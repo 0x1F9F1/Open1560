@@ -909,6 +909,7 @@ void agiGLRasterizer::FlushState()
             {
                 switch (tex_env)
                 {
+                    case agiTexEnv::Disable: break;
                     case agiTexEnv::Replace: glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE); break;
                     case agiTexEnv::Modulate: glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE); break;
                 }
@@ -1033,6 +1034,7 @@ static void DrawMeshImm(u32 draw_mode, agiVtx* vertices, u16* indices, i32 index
 
         switch (agiLastState.FogMode)
         {
+            case agiFogMode::None: break;
             case agiFogMode::Pixel: glFogCoordf(vert.z); break;
             case agiFogMode::Vertex: glFogCoordf(static_cast<f32>(vert.specular >> 24)); break;
         }

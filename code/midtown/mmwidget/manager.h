@@ -223,7 +223,7 @@ public:
     ARTS_IMPORT void InitGlobalStrings();
 
     // ?Kill@MenuManager@@QAEXXZ
-    ARTS_IMPORT void Kill();
+    ARTS_EXPORT void Kill();
 
     // ?LoadRaceNames@MenuManager@@QAEXXZ
     ARTS_IMPORT void LoadRaceNames();
@@ -287,7 +287,7 @@ public:
 
     eqEventQ* GetEventQ()
     {
-        return event_q_;
+        return event_q_.get();
     }
 
     bool Is3D() const
@@ -306,12 +306,12 @@ private:
 
     void SwitchNow(i32 id);
 
-    eqEventQ* event_q_;
-    asCamera* menu_camera_;
-    asViewCS* menu_cs_;
-    asLamp* lamps_;
-    asLinearCS* lcss_;
-    uiNavBar* nav_bar_;
+    Ptr<eqEventQ> event_q_;
+    Ptr<asCamera> menu_camera_;
+    Ptr<asViewCS> menu_cs_;
+    Ptr<asLamp[]> lamps_;
+    Ptr<asLinearCS[]> lcss_;
+    Ptr<uiNavBar> nav_bar_;
     i32 field_38;
     i32 has_active_widget_;
     b32 is_3D_;
@@ -319,8 +319,8 @@ private:
     uiWidget* focused_widget_;
     uiWidget* active_widget_;
     i32 field_50;
-    WArray* widget_array_;
-    MArray* menu_array_;
+    Ptr<WArray> widget_array_;
+    Ptr<MArray> menu_array_;
     string controller_names_;
     string string64;
     string string6C;
@@ -336,7 +336,7 @@ private:
     f32 start_y_;
     f32 scale_x_;
     f32 scale_y_;
-    sfPointer* pointer_;
+    Ptr<sfPointer> pointer_;
     i32 field_C8;
     i32 field_CC;
     b32 field_D0;
@@ -345,10 +345,10 @@ private:
     UIMenu* dialog_menu_;
     UIMenu* underlay_menu_;
     asNode* last_drawn_;
-    UIMenu** menus_;
+    Ptr<UIMenu*[]> menus_;
     UIMenu* active_menu_;
-    Card2D* popup_;
-    mmTextNode* dwordF4;
+    Ptr<Card2D> popup_;
+    Ptr<mmTextNode> debug_text_;
     i32 max_menus_;
     i32 num_menus_;
     i32 field_100;
@@ -362,10 +362,10 @@ private:
     void* font_size_64_;
     void* font_size_14_;
     i32 active_menu_id_;
-    AudSound* move_selector_sound_;
-    AudSound* selection_made_sound_;
-    AudSound* switch_sound_;
-    AudSound* ui_sounds_;
+    Ptr<AudSound> move_selector_sound_;
+    Ptr<AudSound> selection_made_sound_;
+    Ptr<AudSound> switch_sound_;
+    Ptr<AudSound> ui_sounds_;
     char* default_background_;
 };
 

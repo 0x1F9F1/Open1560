@@ -20,5 +20,9 @@ define_dummy_symbol(arts7_lamp);
 
 #include "lamp.h"
 
+#include "agi/light.h"
+
+asLamp::~asLamp() = default;
+
 void asLamp::FileIO(MiniParser* /*arg1*/)
 {}

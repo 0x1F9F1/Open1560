@@ -67,6 +67,9 @@
 
 #include "vector7/matrix34.h"
 
+#define JOINT_FLAG_BROKEN 0x1
+#define JOINT_FLAG_LIMIT 0x2 // DoJoint[Torque/Limits]
+
 class Joint3Dof final : public JointedStruct
 {
 public:
@@ -160,16 +163,12 @@ public:
     // ?DeclareFields@Joint3Dof@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    asInertialCS* CarICS;
-    asInertialCS* TrailerICS;
-    Vector3 CarOffset;
-    Vector3 TrailerOffset;
+    asInertialCS* ICS1;
+    asInertialCS* ICS2;
+    Vector3 Offset1;
+    Vector3 Offset2;
     Vector3 Position;
     f32 ForceLimit;
-
-#define JOINT_FLAG_BROKEN 0x1
-#define JOINT_FLAG_LIMIT 0x2 // DoJoint[Torque/Limits]
-
     i32 JointFlags;
     Matrix34 Orientation1;
     Matrix34 Orientation2;

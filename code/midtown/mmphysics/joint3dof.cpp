@@ -28,10 +28,10 @@ void Joint3Dof::MoveICS()
     // It is already applied in Joint3Dof::Update.
     // if (!(JointFlags & JOINT_FLAG_BROKEN))
     // {
-    //     CarICS->ApplyPush(TrailerICS->LinearPush);
-    //     TrailerICS->LinearPush = CarICS->LinearPush;
+    //     ICS1->ApplyPush(ICS2->LinearPush);
+    //     ICS2->LinearPush = ICS1->LinearPush;
     // }
 
-    CarICS->MoveICS();
-    TrailerICS->MoveICS();
+    ICS1->MoveICS();
+    ICS2->MoveICS();
 }

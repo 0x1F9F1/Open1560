@@ -147,6 +147,9 @@ public:
     // ?Update@AudStream@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
+    ARTS_DIAGNOSTIC_PUSH;
+    ARTS_CLANG_DIAGNOSTIC_IGNORED("-Wignored-qualifiers");
+
     // ?Get2DFlags@AudStream@@SA?BKXZ | unused
     ARTS_IMPORT static const ulong Get2DFlags();
 
@@ -159,6 +162,8 @@ private:
 
     // ?s_DWFreqChange2DCtrlFlags@AudStream@@0KB
     ARTS_IMPORT static const ulong s_DWFreqChange2DCtrlFlags;
+
+    ARTS_DIAGNOSTIC_POP;
 
     u8 gap20[0x34];
 };

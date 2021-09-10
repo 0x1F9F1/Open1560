@@ -58,6 +58,7 @@ public:
 
 check_size(mmDofBangerInstance, 0x34);
 
+#if 0
 class mmFacadeBangerInstance final : public mmBangerInstance
 {
 public:
@@ -80,3 +81,4 @@ private:
 };
 
 check_size(mmGlassBangerInstance, 0x1C);
+#endif
