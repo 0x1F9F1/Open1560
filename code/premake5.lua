@@ -32,7 +32,7 @@ function arts_component(name)
     useARTSPCH()
     includeARTS()
 
-    filter "configurations:Final"
+    filter { "configurations:Final", "toolset:not msc-ClangCL" }
         flags "FatalWarnings"
     filter {}
 end

@@ -1473,6 +1473,59 @@ void InitPatches()
 
     // create_patch("mmPopup::Update", "Don't Reset GameManager on F4", 0x427741, "\x90\x90\x90", 3);
 
+#ifdef __clang__
+    // Hacky workaround for clang's lack of vector deleting destructor support
+    // https://bugs.llvm.org/show_bug.cgi?id=19398
+
+    struct VecDelDtor
+    {
+        virtual ~VecDelDtor() = 0;
+
+        void Destruct()
+        {
+            // Assumes the class:
+            // * Is 4-byte aligned
+            // * Has the virtual destructor at the start of the vtable
+            // * msize returns the exact size
+
+            void* base = reinterpret_cast<usize*>(this) - 1;
+            usize i = *static_cast<usize*>(base);
+            usize stride = (arts_msize(base) - sizeof(usize)) / i;
+
+            while (i--)
+            {
+                reinterpret_cast<VecDelDtor*>(reinterpret_cast<u8*>(this) + (i * stride))->~VecDelDtor();
+            }
+
+            operator delete(base);
+        }
+    };
+
+    // Addresses of known vecdeldtor calls, ignoring MetaClass delete_* functions.
+    for (usize addr : {
+             0x4248F3,
+             0x424903,
+             0x425316,
+             0x425326,
+             0x425399,
+             0x477BA3,
+             0x478893,
+             0x49B806,
+             0x49B816,
+             0x4B0C9D,
+             0x4B0CAD,
+             0x4B8933,
+             0x4C08A3,
+             0x4C0A67,
+             0x4E09B5,
+             0x4FE75D,
+         })
+    {
+        create_patch("", "", addr, "\x90\x90\x90\x90\x90\x90", 6);
+        create_hook("", "", addr, &VecDelDtor::Destruct, hook_type::call);
+    }
+#endif
+
 #ifndef ARTS_FINAL
     patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA2D, jump_type::never);
     patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA4B, jump_type::never);
