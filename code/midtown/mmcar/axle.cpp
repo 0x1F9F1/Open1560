@@ -49,10 +49,12 @@ void mmAxle::Update()
     asLinearCS::Update();
 }
 
+#ifdef ARTS_DEV_BUILD
 void mmAxle::AddWidgets(Bank* bank)
 {
     asNode::AddWidgets(bank);
 }
+#endif
 
 META_DEFINE_CHILD("mmAxle", mmAxle, asLinearCS)
 {}
