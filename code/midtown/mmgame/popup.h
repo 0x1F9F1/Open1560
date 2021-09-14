@@ -47,6 +47,18 @@
 #include "arts7/node.h"
 
 class mmGame;
+class PUMain;
+class PUQuit;
+class PUExit;
+class PUChat;
+class PUAudioOptions;
+class PUOptions;
+class PUDebug;
+class PUControl;
+class PUGraphics;
+class PUResults;
+class PURoster;
+class PUKey;
 
 enum
 {
@@ -86,13 +98,13 @@ public:
     // ??_GmmPopup@@UAEPAXI@Z
     // ??_EmmPopup@@UAEPAXI@Z
     // ??1mmPopup@@UAE@XZ
-    ARTS_IMPORT ~mmPopup() override = default;
+    ARTS_EXPORT ~mmPopup() override;
 
     // ?ChatCB@mmPopup@@QAEXXZ
     ARTS_IMPORT void ChatCB();
 
     // ?DisablePU@mmPopup@@QAEXH@Z
-    ARTS_IMPORT void DisablePU(i32 arg1);
+    ARTS_EXPORT void DisablePU(b32 resume_cd);
 
     // ?ForceRoster@mmPopup@@QAEXXZ
     ARTS_IMPORT void ForceRoster();
@@ -101,10 +113,10 @@ public:
     ARTS_IMPORT char* GetComment();
 
     // ?IsEnabled@mmPopup@@QAEHXZ
-    ARTS_IMPORT i32 IsEnabled();
+    ARTS_EXPORT b32 IsEnabled();
 
     // ?Lock@mmPopup@@QAEXXZ
-    ARTS_IMPORT void Lock();
+    ARTS_EXPORT void Lock();
 
     // ?ProcessChat@mmPopup@@QAEXXZ
     ARTS_IMPORT void ProcessChat();
@@ -136,7 +148,25 @@ public:
     // ?Update@mmPopup@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    u8 gap20[0x40];
+private:
+    mmGame* game_ {};
+
+    Ptr<PUMain> pu_main_;
+    Ptr<PUQuit> pu_quit_;
+    Ptr<PUExit> pu_exit_;
+    Ptr<PUChat> pu_chat_;
+    Ptr<PUAudioOptions> pu_audio_;
+    Ptr<PUOptions> pu_options_;
+    Ptr<PUDebug> pu_debug_;
+    Ptr<PUControl> pu_controls_;
+    Ptr<PUGraphics> pu_graphics_;
+    Ptr<PUResults> pu_results_;
+    Ptr<PURoster> pu_roster_;
+    Ptr<PUKey> pu_keys_;
+
+    b32 wants_flush_ {};
+    b32 was_paused_ {};
+    b32 locked_ {};
 };
 
 check_size(mmPopup, 0x60);
