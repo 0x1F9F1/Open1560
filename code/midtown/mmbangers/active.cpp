@@ -71,7 +71,6 @@ void mmBangerActive::Attach(mmBangerInstance* inst)
 
     if (banger->TexNumber)
     {
-        // TODO: Check
         Particles.SetTexture(BangerDataMgr()->GetParticleTexture(banger->TexNumber - 1));
 
         Vector3 old_velocity = banger->BirthRule.Velocity;

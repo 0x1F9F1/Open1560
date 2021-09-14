@@ -200,7 +200,7 @@ public:
     ARTS_EXPORT void PushColumn(i32 arg1) override;
 
     // ?PushSection@asMidgets@@UAEXPADH@Z
-    ARTS_EXPORT void PushSection(const char* arg1, i32 arg2) override;
+    ARTS_EXPORT void PushSection(const char* arg1, b32 open) override;
 
     // ?SetLabel@asMidgets@@UAEXPAD@Z
     ARTS_EXPORT void SetLabel(const char* title) override;
