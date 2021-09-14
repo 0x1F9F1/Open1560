@@ -24,7 +24,7 @@ define_dummy_symbol(mmbangers_banger);
 
 mmBangerData* mmBangerInstance::GetData()
 {
-    return BangerDataManager()->GetBangerData(BangerIndex);
+    return BangerDataMgr()->GetBangerData(BangerIndex);
 }
 
 #ifdef ARTS_DEV_BUILD

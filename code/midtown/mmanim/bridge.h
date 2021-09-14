@@ -201,7 +201,7 @@ public:
     i32 NumTrackedObjects;
 
 protected:
-    friend mmBridgeMgr* BridgeManager();
+    friend mmBridgeMgr* BridgeMgr();
 
     // ?Instance@mmBridgeMgr@@1PAV1@A
     ARTS_IMPORT static mmBridgeMgr* Instance;
@@ -209,7 +209,7 @@ protected:
 
 check_size(mmBridgeMgr, 0x2674);
 
-inline mmBridgeMgr* BridgeManager()
+inline mmBridgeMgr* BridgeMgr()
 {
     return mmBridgeMgr::Instance;
 }

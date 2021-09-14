@@ -133,7 +133,7 @@ public:
     ARTS_IMPORT void ARTS_FASTCALL DrawShadow() override;
 
     // ?EjectPart@mmCarModel@@QAEXPAVmmWheel@@FFH@Z
-    ARTS_IMPORT void EjectPart(mmWheel* arg1, i16 arg2, i16 arg3, i32 arg4);
+    ARTS_IMPORT void EjectPart(mmWheel* wheel, i16 banger, i16 mesh, i32 part);
 
     // ?EjectWheels@mmCarModel@@QAEXH@Z
     ARTS_IMPORT void EjectWheels(i32 arg1);

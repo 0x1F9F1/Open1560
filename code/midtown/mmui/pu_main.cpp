@@ -45,7 +45,7 @@ PUMain::PUMain(i32 menu_id, f32 x, f32 y, f32 width, f32 height, char* backgroun
 
 void PUMain::PreSetup()
 {
-    bool debug = ARTSPTR->IsDebug();
+    bool debug = Sim()->IsDebug();
     FindWidget(IDC_PU_MAIN_HELP)->SetEnabled(!debug);
     FindWidget(IDC_PU_MAIN_DEBUG)->SetEnabled(debug);
 }

@@ -100,7 +100,7 @@ void aiVehicleActive::Detach()
 void aiVehicleActive::DetachMe()
 {
     Detach();
-    AiVehicleManager()->Detach(this);
+    AiVehicleMgr()->Detach(this);
 }
 
 #ifdef ARTS_DEV_BUILD

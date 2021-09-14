@@ -304,7 +304,7 @@ public:
     ARTS_IMPORT i32 PlayCDTrack(i32 track, b32 restart);
 
     // ?PlayCDTrack@AudManager@@QAEHHEEEH@Z
-    ARTS_IMPORT i32 PlayCDTrack(i32 arg1, u8 arg2, u8 arg3, u8 arg4, i32 arg5);
+    ARTS_IMPORT i32 PlayCDTrack(i32 track, u8 minute, u8 second, u8 frame, b32 restart);
 
     // ?ReallocateDSound@AudManager@@QAEXPADFF@Z
     ARTS_IMPORT void ReallocateDSound(char* arg1, i16 arg2, i16 arg3);
@@ -478,3 +478,8 @@ ARTS_IMPORT void RestoreApplication();
 
 // ?AUDMGRPTR@@3PAVAudManager@@A
 ARTS_IMPORT extern AudManager* AUDMGRPTR;
+
+inline AudManager* AudMgr()
+{
+    return AUDMGRPTR;
+}

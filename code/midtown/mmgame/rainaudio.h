@@ -29,7 +29,7 @@
     0x4335B0 | public: void __thiscall mmRainAudio::Update(void) | ?Update@mmRainAudio@@QAEXXZ
 */
 
-struct mmRainAudio
+class mmRainAudio
 {
 public:
     // ??0mmRainAudio@@QAE@XZ

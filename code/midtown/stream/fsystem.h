@@ -45,6 +45,10 @@
 
 #include "data7/base.h"
 
+#ifndef MAX_FILESYSTEMS
+#    define MAX_FILESYSTEMS 128
+#endif
+
 #define ARTS_MAX_PATH 1024
 
 struct PagerInfo_t;
@@ -103,8 +107,6 @@ public:
     // ?SearchAll@FileSystem@@SAPAV1@PAD00H0@Z
     ARTS_EXPORT static FileSystem* SearchAll(
         const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, isize buffer_len);
-
-    static constexpr i32 MAX_FILESYSTEMS = 128;
 
     // ?FS@FileSystem@@2PAPAV1@A
     ARTS_EXPORT static FileSystem* FS[MAX_FILESYSTEMS];

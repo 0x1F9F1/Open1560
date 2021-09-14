@@ -76,7 +76,7 @@ void asCamera::SetView(f32 horz_fov, f32 aspect, f32 near_clip, f32 far_clip)
 
 void asCamera::DrawBegin()
 {
-    i32 draw_mode = ARTSPTR->GetDrawMode();
+    i32 draw_mode = Sim()->GetDrawMode();
 
     if (draw_mode == agiDrawTextured)
         draw_mode = draw_mode_;
@@ -117,7 +117,7 @@ void asCamera::DrawBegin()
 
     i32 clear_flags = clear_flags_;
 
-    if (draw_mode < agiDrawSolid || ARTSPTR->IsDebugDrawEnabled())
+    if (draw_mode < agiDrawSolid || Sim()->IsDebugDrawEnabled())
     {
         clear_flags |= AGI_VIEW_CLEAR_TARGET;
     }

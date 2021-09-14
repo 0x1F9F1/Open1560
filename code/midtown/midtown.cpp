@@ -285,7 +285,7 @@ static void MainPhase(i32 argc, char** argv)
         ARTS_MEM_STAT("ARTS Init");
 
         /*ARTSPTR = */ new asSimulation();
-        ARTSPTR->Init(xconst("."), argc, argv);
+        Sim()->Init(xconst("."), argc, argv);
 
         if (!VFS)
         {
@@ -295,7 +295,7 @@ static void MainPhase(i32 argc, char** argv)
     }
 
     if (!GBArgs['f'])
-        ARTSPTR->SetDebug(false);
+        Sim()->SetDebug(false);
 
     {
         ARTS_MEM_STAT("Audio manager");
@@ -303,15 +303,15 @@ static void MainPhase(i32 argc, char** argv)
         InitAudioManager();
 
         if (no_audio)
-            AUDMGRPTR->Disable(-1, -1);
+            AudMgr()->Disable(-1, -1);
     }
 
     {
         ARTS_MEM_STAT("GameInput");
 
         /*GameInputPtr = */ new mmInput();
-        GameInputPtr->AttachToPipe();
-        GameInputPtr->Init(static_cast<i32>(MMSTATE.InputType));
+        GameInput()->AttachToPipe();
+        GameInput()->Init(static_cast<i32>(MMSTATE.InputType));
     }
 
     mmGameManager* game_manager = nullptr;
@@ -358,13 +358,13 @@ static void MainPhase(i32 argc, char** argv)
                 else
                 {
                     if (MMSTATE.HasMidtownCD)
-                        AUDMGRPTR->PlayCDTrack(3, true);
+                        AudMgr()->PlayCDTrack(3, true);
 
                     loader.BeginTask(LOC_STRING(MM_IDS_LOADING_INTERFACE), 0.0f);
                 }
 
                 mm_interface = new mmInterface();
-                ARTSPTR->AddChild(mm_interface);
+                Sim()->AddChild(mm_interface);
 
                 mm_interface->Reset();
                 mm_interface->ShowMain(CycleState);
@@ -383,14 +383,14 @@ static void MainPhase(i32 argc, char** argv)
 
                 loader.BeginTask(LOC_STRING(MM_IDS_LOADING_RACE), 0.0f);
 
-                AUDMGRPTR->AssignWaveVolume(MMSTATE.WaveVolume);
-                AUDMGRPTR->AssignCDVolume(MMSTATE.CDVolume);
+                AudMgr()->AssignWaveVolume(MMSTATE.WaveVolume);
+                AudMgr()->AssignCDVolume(MMSTATE.CDVolume);
 
                 if (MMSTATE.HasMidtownCD)
-                    AUDMGRPTR->PlayCDTrack(2, true);
+                    AudMgr()->PlayCDTrack(2, true);
 
                 game_manager = /*mmGameManager::Instance = */ new mmGameManager();
-                ARTSPTR->AddChild(game_manager);
+                Sim()->AddChild(game_manager);
 
                 game_manager->Reset();
 
@@ -413,7 +413,7 @@ static void MainPhase(i32 argc, char** argv)
             default: Quitf("Invalid GameState %i", MMSTATE.GameState);
         }
 
-        ARTSPTR->ResChange(Pipe()->GetWidth(), Pipe()->GetHeight());
+        Sim()->ResChange(Pipe()->GetWidth(), Pipe()->GetHeight());
 
         loader.EndTask(0.0f);
     }
@@ -447,7 +447,7 @@ static void MainPhase(i32 argc, char** argv)
 #endif
 
     PAGER.Shutdown();
-    AUDMGRPTR->Disable(-1, -1);
+    AudMgr()->Disable(-1, -1);
     ALLOCATOR.SanityCheck();
 
     delete mm_interface;
@@ -1048,9 +1048,9 @@ void GameLoop([[maybe_unused]] mmInterface* mm_interface, [[maybe_unused]] mmGam
         while (MMSTATE.GameState == mmGameState::Running)
         {
 #ifdef ARTS_DEV_BUILD
-            if (CycleTest && ARTSPTR->GetElapsed() > CycleTime)
+            if (CycleTest && Sim()->GetElapsed() > CycleTime)
             {
-                ARTSPTR->SetElapsed(0.0f);
+                Sim()->SetElapsed(0.0f);
 
                 if (CycleState == 1)
                 {
@@ -1105,7 +1105,7 @@ void GameLoop([[maybe_unused]] mmInterface* mm_interface, [[maybe_unused]] mmGam
                     TEXCACHE.Age();
                 }
 
-                ARTSPTR->Simulate();
+                Sim()->Simulate();
 
                 if (sampling)
                 {
@@ -1182,30 +1182,30 @@ void InitAudioManager()
 {
     /*AUDMGRPTR = */ new AudManager();
 
-    AUDMGRPTR->SteroOn = (MMSTATE.AudFlags & AudManager::GetStereoOnMask()) != 0;
+    AudMgr()->SteroOn = (MMSTATE.AudFlags & AudManager::GetStereoOnMask()) != 0;
 
-    AUDMGRPTR->Init(150, MMSTATE.AudFlags & (AudManager::GetDSound3DMask() | AudManager::GetUsingEAXMask()),
+    AudMgr()->Init(150, MMSTATE.AudFlags & (AudManager::GetDSound3DMask() | AudManager::GetUsingEAXMask()),
         MMSTATE.AudDeviceName, // FIXME: This is empty the first time
         (MMSTATE.AudFlags & AudManager::GetSoundFXOnMask()) != 0,
         (MMSTATE.AudFlags & AudManager::GetCDMusicOnMask()) != 0);
 
-    AUDMGRPTR->NotDsound3D = !(AudManager::GetDSound3DMask() & MMSTATE.AudFlags);
+    AudMgr()->NotDsound3D = !(AudManager::GetDSound3DMask() & MMSTATE.AudFlags);
 
-    if (AUDMGRPTR->EAXEnabled() && (MMSTATE.AudFlags & AudManager::GetUsingEAXMask()) &&
+    if (AudMgr()->EAXEnabled() && (MMSTATE.AudFlags & AudManager::GetUsingEAXMask()) &&
         (MMSTATE.AudFlags & AudManager::GetDSound3DMask()))
     {
-        AUDMGRPTR->AlwaysEAX(true);
-        AUDMGRPTR->SetEAXPreset(EAX_ENVIRONMENT_CITY, 0.114329f, 1.865f, 0.221129f);
+        AudMgr()->AlwaysEAX(true);
+        AudMgr()->SetEAXPreset(EAX_ENVIRONMENT_CITY, 0.114329f, 1.865f, 0.221129f);
     }
 
-    MMSTATE.HasMidtownCD = AUDMGRPTR->CheckCDFile(xconst("cdid.txt"));
+    MMSTATE.HasMidtownCD = AudMgr()->CheckCDFile(xconst("cdid.txt"));
 
     if (!MMSTATE.HasMidtownCD)
-        AUDMGRPTR->SetCDPlayMode(1);
+        AudMgr()->SetCDPlayMode(1);
 
-    AUDMGRPTR->AssignWaveVolume(0.0f);
-    AUDMGRPTR->AssignCDVolume(0.0f);
-    AUDMGRPTR->SetNumChannels(MMSTATE.AudNumChannels);
+    AudMgr()->AssignWaveVolume(0.0f);
+    AudMgr()->AssignCDVolume(0.0f);
+    AudMgr()->SetNumChannels(MMSTATE.AudNumChannels);
 }
 
 static mem::cmd_param PARAM_speedycops {"speedycops"};

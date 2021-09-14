@@ -85,21 +85,21 @@ void asLinearCS::Update()
     }
     else
     {
-        World.Dot(Matrix, Inherit ? Inherit->World : *ARTSPTR->GetCurrentMatrix());
+        World.Dot(Matrix, Inherit ? Inherit->World : *Sim()->GetCurrentMatrix());
     }
 
-    ARTSPTR->GetStats().LCSUpdates++;
+    Sim()->GetStats().LCSUpdates++;
 
-    ARTSPTR->PushFrame(this);
+    Sim()->PushFrame(this);
 
     asNode::Update();
 
 #ifdef ARTS_DEV_BUILD
-    if (ARTSPTR->IsDebugDrawEnabled() && (DynaDrawMode & DYNA_DRAW_MATRIX))
-        CULLMGR->DeclareCullable(this);
+    if (Sim()->IsDebugDrawEnabled() && (DynaDrawMode & DYNA_DRAW_MATRIX))
+        CullMgr()->DeclareCullable(this);
 #endif
 
-    ARTSPTR->PopFrame();
+    Sim()->PopFrame();
 }
 
 META_DEFINE_CHILD("asLinearCS", asLinearCS, asNode)

@@ -84,7 +84,7 @@ void mmNumber::SetString(char* text)
 
 void mmNumber::Update()
 {
-    CULLMGR->DeclareBitmap(this, font_->Bitmaps[0]);
+    CullMgr()->DeclareBitmap(this, font_->Bitmaps[0]);
 }
 
 META_DEFINE_CHILD("mmNumber", mmNumber, asNode)

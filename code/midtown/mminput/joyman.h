@@ -55,7 +55,7 @@ class mmEffectFF;
 // ?inputEnumDeviceProc@@YGHPAUDIDEVICEINSTANCEA@@PAX@Z
 ARTS_IMPORT i32 ARTS_STDCALL inputEnumDeviceProc(DIDEVICEINSTANCEA* arg1, void* arg2);
 
-struct mmJoyMan
+class mmJoyMan
 {
 public:
     // ??0mmJoyMan@@QAE@XZ

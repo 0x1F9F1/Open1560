@@ -25,7 +25,7 @@ define_dummy_symbol(mmwidget_cwarray);
 void UICWArray::DefaultCFG()
 {
     for (i32 i = 0; i < 5; ++i)
-        GameInputPtr->SetDefaultConfig(i);
+        GameInput()->SetDefaultConfig(i);
 
     Redraw();
 }

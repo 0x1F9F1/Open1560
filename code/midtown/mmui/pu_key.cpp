@@ -42,9 +42,9 @@ void PUKey::PreSetup()
 {
     key_count_ = 0;
 
-    for (i32 i = 0; i < GameInputPtr->NumControls; ++i)
+    for (i32 i = 0; i < GameInput()->NumControls; ++i)
     {
-        if (GameInputPtr->IO[i].Enabled)
+        if (GameInput()->IO[i].Enabled)
             ++key_count_;
     }
 
@@ -72,21 +72,21 @@ void PUKey::PreSetup()
         y_step = 0.05f;
     }
 
-    for (i32 i = 0, total = 0; i < GameInputPtr->NumControls; ++i)
+    for (i32 i = 0, total = 0; i < GameInput()->NumControls; ++i)
     {
-        if (mmIO* io = &GameInputPtr->IO[i]; io->Enabled)
+        if (mmIO* io = &GameInput()->IO[i]; io->Enabled)
         {
             char text[40];
             char desc[40];
             bool right = total % 2;
 
             arts_sprintf(text, "%-23s", io->Name);
-            AddText(text_node_.get(), Menus()->GetFont(16), LOC_TEXT(text), 0,
+            AddText(text_node_.get(), MenuMgr()->GetFont(16), LOC_TEXT(text), 0,
                 right ? right_column_name_x : left_column_name_x, y);
 
             io->GetDescription(desc);
             arts_sprintf(text, "%.23s", desc);
-            AddText(text_node_.get(), Menus()->GetFont(16), LOC_TEXT(text), 0,
+            AddText(text_node_.get(), MenuMgr()->GetFont(16), LOC_TEXT(text), 0,
                 right ? right_column_desc_x : left_column_desc_x, y);
 
             if (right)
@@ -99,7 +99,7 @@ void PUKey::PreSetup()
 
 void PUKey::PostSetup()
 {
-    CULLMGR->Reset();
+    CullMgr()->Reset();
 
     if (text_node_)
     {

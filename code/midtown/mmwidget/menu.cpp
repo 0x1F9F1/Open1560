@@ -33,13 +33,13 @@ void UIMenu::CheckInput()
     // Ignore any events while midgets are open
     if (MIDGETSPTR->IsOpen())
     {
-        Menus()->GetEventQ()->Clear();
+        MenuMgr()->GetEventQ()->Clear();
         return;
     }
 
     eqEvent event;
 
-    while (Menus()->GetEventQ()->Pop(&event))
+    while (MenuMgr()->GetEventQ()->Pop(&event))
     {
         if (event.Common.Type != eqEventType::Keyboard)
             continue;
@@ -81,7 +81,7 @@ b32 UIMenu::ScanInput(eqEvent* event)
         return false;
 
     // TODO: return result of ScanGlobalKeys?
-    Menus()->ScanGlobalKeys(event->Key.Key);
+    MenuMgr()->ScanGlobalKeys(event->Key.Key);
 
     return true;
 }

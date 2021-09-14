@@ -190,6 +190,11 @@ ARTS_EXPORT void Statsf(ARTS_FORMAT_STRING const char* format, ...);
 // ?CULLMGR@@3PAVasCullManager@@A
 ARTS_IMPORT extern asCullManager* CULLMGR;
 
+inline asCullManager* CullMgr()
+{
+    return CULLMGR;
+}
+
 // ?Update3D@@3MA
 ARTS_IMPORT extern f32 Update3D;
 

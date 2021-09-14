@@ -284,7 +284,7 @@ public:
     u8 gap20[0x16608];
 };
 
-inline aiVehicleManager* AiVehicleManager()
+inline aiVehicleManager* AiVehicleMgr()
 {
     return aiVehicleManager::Instance;
 }

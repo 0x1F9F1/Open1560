@@ -135,7 +135,7 @@ void mmBuildingInstance::Draw(i32 lod)
         MESH_GRND = 1,
     };
 
-    if (ARTSPTR->IsDebugDrawEnabled())
+    if (Sim()->IsDebugDrawEnabled())
         return;
 
     Matrix34 world;

@@ -174,7 +174,8 @@ public:
     // ?ToMatrix@mmHitBangerInstance@@UAIAAVMatrix34@@AAV2@@Z
     ARTS_IMPORT Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& arg1) override;
 
-    u8 gap1C[0x34];
+    i32 MeshVariant;
+    Matrix34 Matrix;
 };
 
 check_size(mmHitBangerInstance, 0x50);
@@ -196,6 +197,8 @@ public:
     // ?Reset@mmBangerManager@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
+    friend mmBangerManager* BangerMgr();
+
 protected:
     // ?Instance@mmBangerManager@@1PAV1@A
     ARTS_IMPORT static mmBangerManager* Instance;
@@ -204,6 +207,11 @@ protected:
 };
 
 check_size(mmBangerManager, 0x2C);
+
+inline mmBangerManager* BangerMgr()
+{
+    return mmBangerManager::Instance;
+}
 
 // ?ExpensiveShadows@@3HA
 ARTS_IMPORT extern i32 ExpensiveShadows;

@@ -96,31 +96,31 @@ void mmGame::UpdateDebugInput()
         }
 
 #ifdef ARTS_DEV_BUILD
-        if ((event.Modifiers & EQ_KMOD_SHIFT) && ARTSPTR->IsDebug())
+        if ((event.Modifiers & EQ_KMOD_SHIFT) && Sim()->IsDebug())
         {
             switch (event.Key)
             {
                 case EQ_VK_1: {
-                    Player->Hud.SetMessage(GameInputPtr->ToggleFFEnabled(0) ? LOC_TEXT("ffFriction Enabled")
-                                                                            : LOC_TEXT("ffFriction Disabled"),
+                    Player->Hud.SetMessage(GameInput()->ToggleFFEnabled(0) ? LOC_TEXT("ffFriction Enabled")
+                                                                           : LOC_TEXT("ffFriction Disabled"),
                         3.0f);
                     break;
                 }
                 case EQ_VK_2: {
-                    Player->Hud.SetMessage(GameInputPtr->ToggleFFEnabled(1) ? LOC_TEXT("ffCollide Enabled")
-                                                                            : LOC_TEXT("ffCollide Disabled"),
+                    Player->Hud.SetMessage(GameInput()->ToggleFFEnabled(1) ? LOC_TEXT("ffCollide Enabled")
+                                                                           : LOC_TEXT("ffCollide Disabled"),
                         3.0f);
                     break;
                 }
                 case EQ_VK_3: {
                     Player->Hud.SetMessage(
-                        GameInputPtr->ToggleFFEnabled(2) ? LOC_TEXT("ffShake Enabled") : LOC_TEXT("ffShake Disabled"),
+                        GameInput()->ToggleFFEnabled(2) ? LOC_TEXT("ffShake Enabled") : LOC_TEXT("ffShake Disabled"),
                         3.0f);
                     break;
                 }
                 case EQ_VK_4: {
                     Player->Hud.SetMessage(
-                        GameInputPtr->ToggleFFEnabled(3) ? LOC_TEXT("ffSpring Enabled") : LOC_TEXT("ffSpring Disabled"),
+                        GameInput()->ToggleFFEnabled(3) ? LOC_TEXT("ffSpring Enabled") : LOC_TEXT("ffSpring Disabled"),
                         3.0f);
                     break;
                 }
@@ -150,23 +150,23 @@ void mmGame::UpdateDebugInput()
                     bool want_sfx = MMSTATE.AudFlags & AudManager::GetSoundFXOnMask();
                     bool want_cd = MMSTATE.AudFlags & AudManager::GetCDMusicOnMask();
 
-                    bool sfx_on = want_sfx && AUDMGRPTR->SfxOn;
-                    bool cd_on = want_cd && AUDMGRPTR->CdMusicOn;
+                    bool sfx_on = want_sfx && AudMgr()->SfxOn;
+                    bool cd_on = want_cd && AudMgr()->CdMusicOn;
 
                     if (sfx_on || cd_on)
-                        AUDMGRPTR->Disable(sfx_on ? 1 : 0, cd_on ? 1 : 0);
+                        AudMgr()->Disable(sfx_on ? 1 : 0, cd_on ? 1 : 0);
                     else
-                        AUDMGRPTR->Enable(MMSTATE.AudDeviceName, want_sfx, want_cd);
+                        AudMgr()->Enable(MMSTATE.AudDeviceName, want_sfx, want_cd);
 
                     break;
                 }
                 case EQ_VK_B: {
-                    if (ARTSPTR->IsDebug())
+                    if (Sim()->IsDebug())
                         AIMAP.DrawAppRoads();
                     break;
                 }
                 case EQ_VK_C: {
-                    if (ARTSPTR->IsDebug())
+                    if (Sim()->IsDebug())
                     {
                         static i32 target_cop = 0;
 
@@ -182,19 +182,19 @@ void mmGame::UpdateDebugInput()
                     break;
                 }
                 case EQ_VK_D: {
-                    if (ARTSPTR->IsDebug())
+                    if (Sim()->IsDebug())
                         AIMAP.DrawBBoxes = !AIMAP.DrawBBoxes;
                     break;
                 }
                 case EQ_VK_E: {
-                    GameManager()->StartReplay();
+                    GameMgr()->StartReplay();
                     break;
                 }
                 case EQ_VK_F: {
-                    GameInputPtr->UseForceFeedback = !GameInputPtr->UseForceFeedback;
+                    GameInput()->UseForceFeedback = !GameInput()->UseForceFeedback;
 
                     Player->Hud.SetMessage(
-                        GameInputPtr->UseForceFeedback ? LOC_TEXT("FF Enabled") : LOC_TEXT("FF Disabled"), 3.0f);
+                        GameInput()->UseForceFeedback ? LOC_TEXT("FF Enabled") : LOC_TEXT("FF Disabled"), 3.0f);
                     break;
                 }
                 case EQ_VK_G: {
@@ -202,27 +202,27 @@ void mmGame::UpdateDebugInput()
                     break;
                 }
                 case EQ_VK_I: {
-                    if (ARTSPTR->IsDebug())
+                    if (Sim()->IsDebug())
                         AIMAP.DrawIntersectionIds = !AIMAP.DrawIntersectionIds;
                     break;
                 }
                 case EQ_VK_L: {
-                    if (ARTSPTR->IsDebug())
+                    if (Sim()->IsDebug())
                         AIMAP.DrawPathIds = !AIMAP.DrawPathIds;
                     break;
                 }
                 case EQ_VK_M: {
-                    if (ARTSPTR->IsDebug())
+                    if (Sim()->IsDebug())
                         AIMAP.DrawIntersections = !AIMAP.DrawIntersections;
                     break;
                 }
                 case EQ_VK_N: {
-                    if (ARTSPTR->IsDebug())
+                    if (Sim()->IsDebug())
                         AIMAP.DrawNextVisibleAmbient();
                     break;
                 }
                 case EQ_VK_O: {
-                    if (ARTSPTR->IsDebug())
+                    if (Sim()->IsDebug())
                     {
                         static i32 target_opp = 0;
 
@@ -273,7 +273,7 @@ void mmGame::UpdateDebugInput()
                     break;
                 }
                 case EQ_VK_T: {
-                    if (ARTSPTR->IsDebug())
+                    if (Sim()->IsDebug())
                         AIMAP.DrawAmbientPts = !AIMAP.DrawAmbientPts;
                     break;
                 }
@@ -283,7 +283,7 @@ void mmGame::UpdateDebugInput()
                     break;
                 }
                 case EQ_VK_W: {
-                    if (ARTSPTR->IsDebug())
+                    if (Sim()->IsDebug())
                         AIMAP.DrawAmbientIds = !AIMAP.DrawAmbientIds;
                     break;
                 }
@@ -315,11 +315,11 @@ void mmGame::UpdateDebugInput()
                 }
                 case EQ_VK_F2: {
                     if (!NETMGR.InSession() && !IsPopupEnabled())
-                        ARTSPTR->TogglePause();
+                        Sim()->TogglePause();
                     break;
                 }
                 case EQ_VK_F4: {
-                    GameManager()->Reset();
+                    GameMgr()->Reset();
                     break;
                 }
                 case EQ_VK_F5: {
@@ -376,7 +376,7 @@ void mmGame::UpdatePaused()
             }
             case EQ_VK_F2: {
                 if (!NETMGR.InSession() && !IsPopupEnabled())
-                    ARTSPTR->TogglePause();
+                    Sim()->TogglePause();
                 break;
             }
         }
@@ -415,7 +415,7 @@ void mmGame::SendChatMessage(char* msg)
     {
         CHEATING = true;
 
-        BangerProjectile = BangerDataManager()->GetBangerData(xconst("tpmail"), nullptr);
+        BangerProjectile = BangerDataMgr()->GetBangerData(xconst("tpmail"), nullptr);
         ProjectileV = Vector3(0.0f, 5.0f, -30.0f);
     }
     else if (X("banger "))
@@ -424,7 +424,7 @@ void mmGame::SendChatMessage(char* msg)
 
         const char* banger_name = msg + 8;
 
-        BangerProjectile = BangerDataManager()->GetBangerData(xconst(banger_name), nullptr);
+        BangerProjectile = BangerDataMgr()->GetBangerData(xconst(banger_name), nullptr);
         ProjectileV = Vector3(0.0f, 5.0f, -30.0f);
 
         if (BangerProjectile && !BangerProjectile->MeshIndex)
@@ -449,7 +449,7 @@ void mmGame::SendChatMessage(char* msg)
     {
         CHEATING = true;
 
-        if (mmBridgeMgr* manager = BridgeManager())
+        if (mmBridgeMgr* manager = BridgeMgr())
         {
             manager->BridgeDelta = 2.0f;
             manager->BridgeOnGoal = ARTS_PI / 4;
@@ -480,12 +480,12 @@ void mmGame::SendChatMessage(char* msg)
     }
     else if (X("talkfast"))
     {
-        if (mmVoiceCommentary* commentary = AUDMGRPTR->GetVoiceCommentaryPtr())
+        if (mmVoiceCommentary* commentary = AudMgr()->GetVoiceCommentaryPtr())
             commentary->SetFrequency(1.5f);
     }
     else if (X("talkslow"))
     {
-        if (mmVoiceCommentary* commentary = AUDMGRPTR->GetVoiceCommentaryPtr())
+        if (mmVoiceCommentary* commentary = AudMgr()->GetVoiceCommentaryPtr())
             commentary->SetFrequency(0.75f);
     }
     else if (X("fuzz"))

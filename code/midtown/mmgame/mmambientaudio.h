@@ -28,7 +28,7 @@
 
 class mmPlayer;
 
-struct mmAmbientAudio
+class mmAmbientAudio
 {
 public:
     // ??0mmAmbientAudio@@QAE@PAVmmPlayer@@@Z

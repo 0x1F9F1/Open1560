@@ -163,7 +163,7 @@ static const f32 PtxFrameRate = 60.0f;
 
 void asParticles::Update()
 {
-    f32 delta = ARTSPTR->GetUpdateDelta();
+    f32 delta = Sim()->GetUpdateDelta();
     f32 frames_delta = delta * PtxFrameRate;
 
     i32 old_frames = static_cast<i32>(Elapsed * PtxFrameRate);

@@ -467,7 +467,7 @@ void asMidgets::Cull()
             arts_strcat(title, node_name);
         }
 
-        agiPrintf(0, text_y - (agiFontHeight * 2), CULLMGR->GetTextColor(), "%s %p | %i/%i", title, current_node_,
+        agiPrintf(0, text_y - (agiFontHeight * 2), CullMgr()->GetTextColor(), "%s %p | %i/%i", title, current_node_,
             current_index_ + 1, midget_count_);
     }
 
@@ -476,14 +476,14 @@ void asMidgets::Cull()
     i32 index = start_index_;
 
     if (index != 0)
-        agiPrint(0, text_y, CULLMGR->GetTextColor(), "^");
+        agiPrint(0, text_y, CullMgr()->GetTextColor(), "^");
 
     while (max_lines > 0 && index < midget_count_)
     {
         bool selected = index == current_index_;
 
         if (selected)
-            agiPrint(agiFontWidth, text_y, CULLMGR->GetTextColor(), ">");
+            agiPrint(agiFontWidth, text_y, CullMgr()->GetTextColor(), ">");
 
         MI* midget = midgets_[index];
 
@@ -491,7 +491,7 @@ void asMidgets::Cull()
 
         // if (IsVisible(index))
         {
-            agiPrint(agiFontWidth * 2, text_y, selected ? 0xFF20F0F0 : CULLMGR->GetTextColor(), midget->Text);
+            agiPrint(agiFontWidth * 2, text_y, selected ? 0xFF20F0F0 : CullMgr()->GetTextColor(), midget->Text);
             text_y += agiFontHeight;
             --max_lines;
         }
@@ -500,7 +500,7 @@ void asMidgets::Cull()
     }
 
     if (index != midget_count_)
-        agiPrint(0, text_y - agiFontHeight, CULLMGR->GetTextColor(), "v");
+        agiPrint(0, text_y - agiFontHeight, CullMgr()->GetTextColor(), "v");
 }
 
 void asMidgets::Off()
@@ -668,7 +668,7 @@ void asMidgets::Update()
             UpdateKey(ev.Key.Key, ev.Key.Modifiers);
     }
 
-    CULLMGR->DeclarePrint(this);
+    CullMgr()->DeclarePrint(this);
 }
 
 void asMidgets::UpdateKey(i32 key, i32 mods)

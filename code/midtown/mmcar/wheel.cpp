@@ -26,7 +26,7 @@ define_dummy_symbol(mmcar_wheel);
 // TODO: This also needs to factor in the wheel rotation delta
 void mmWheel::GenerateSkidParticles()
 {
-    ParticleCount += ParticleMultiplier * PtxMaxSkidCount * ARTSPTR->GetUpdateDelta();
+    ParticleCount += ParticleMultiplier * PtxMaxSkidCount * Sim()->GetUpdateDelta();
 }
 
 static const f32 PtxFrameRate = 60.0f;

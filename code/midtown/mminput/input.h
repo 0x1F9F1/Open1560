@@ -115,14 +115,10 @@
 #include "eventq7/eventq.h"
 
 struct IDirectInputA;
-class mmInput;
 class mmIODev;
 
 // ?testsuperq@@YAXXZ | unused
 ARTS_IMPORT void testsuperq();
-
-// ?GameInputPtr@@3PAVmmInput@@A
-ARTS_IMPORT extern mmInput* GameInputPtr;
 
 // mmIO Flags
 #define IO_FLAG_EVENT 0x1
@@ -555,3 +551,11 @@ private:
 };
 
 check_size(mmInput, 0x248);
+
+// ?GameInputPtr@@3PAVmmInput@@A
+ARTS_IMPORT extern mmInput* GameInputPtr;
+
+inline mmInput* GameInput()
+{
+    return GameInputPtr;
+}

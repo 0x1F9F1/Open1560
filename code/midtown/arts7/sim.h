@@ -342,6 +342,11 @@ ARTS_IMPORT f64 invert(f64 arg1);
 // ?ARTSPTR@@3PAVasSimulation@@A
 ARTS_IMPORT extern asSimulation* ARTSPTR;
 
+inline asSimulation* Sim()
+{
+    return ARTSPTR;
+}
+
 // ?Argc@@3HA
 ARTS_IMPORT extern i32 Argc;
 

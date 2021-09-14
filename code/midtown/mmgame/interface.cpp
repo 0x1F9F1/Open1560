@@ -51,7 +51,7 @@ mmInterface::~mmInterface()
     {
         ARTS_MEM_STAT("mmInterface Destructor");
 
-        AUDMGRPTR->DeallocateUIADF();
+        AudMgr()->DeallocateUIADF();
         NETMGR.Deallocate();
 
         if (MenuManager::Instance)

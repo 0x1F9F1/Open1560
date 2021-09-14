@@ -496,7 +496,7 @@ void asSimulation::Simulate()
     Widgets();
     Update();
 
-    CULLMGR->Update();
+    CullMgr()->Update();
 
     if (eqReplay::Recording)
         eqReplay::DoRecord();
@@ -605,7 +605,7 @@ void asSimulation::Update()
             SunLight->Update();
         }
 
-        CULLMGR->DeclareCullable(this);
+        CullMgr()->DeclareCullable(this);
     }
 #endif
 
@@ -702,7 +702,7 @@ void asSimulation::Device()
             Pause();
 
         if (vkey == EQ_VK_V && (mods & EQ_KMOD_CTRL) && CULLMGR)
-            CULLMGR->ToggleDebug();
+            CullMgr()->ToggleDebug();
 
 #ifdef ARTS_DEV_BUILD
         if (no_debug_)
@@ -710,10 +710,10 @@ void asSimulation::Device()
             switch (vkey)
             {
                 case EQ_VK_F1: {
-                    if (CULLMGR->CurrentPage())
-                        CULLMGR->HidePage();
+                    if (CullMgr()->CurrentPage())
+                        CullMgr()->HidePage();
                     else
-                        CULLMGR->NextPage();
+                        CullMgr()->NextPage();
 
                     break;
                 }
@@ -757,9 +757,9 @@ void asSimulation::Device()
         else if (vkey == EQ_VK_F1)
         {
             if (mods & EQ_KMOD_CTRL)
-                CULLMGR->PrevPage();
+                CullMgr()->PrevPage();
             else
-                CULLMGR->NextPage();
+                CullMgr()->NextPage();
         }
         else if ((vkey >= EQ_VK_F1) && (vkey <= EQ_VK_F12) && (mods & EQ_KMOD_CTRL))
         {

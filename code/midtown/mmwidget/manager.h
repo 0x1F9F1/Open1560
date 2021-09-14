@@ -295,6 +295,11 @@ public:
         return is_3D_;
     }
 
+    bool IsPopupOpen() const
+    {
+        return is_popup_open_;
+    }
+
     bool GetFieldD0() const
     {
         return field_D0;
@@ -315,7 +320,7 @@ private:
     i32 field_38;
     i32 has_active_widget_;
     b32 is_3D_;
-    b32 is_popup_;
+    b32 is_popup_open_;
     uiWidget* focused_widget_;
     uiWidget* active_widget_;
     i32 field_50;
@@ -371,7 +376,7 @@ private:
 
 check_size(MenuManager, 0x140);
 
-inline MenuManager* Menus()
+inline MenuManager* MenuMgr()
 {
     return MenuManager::Instance;
 }

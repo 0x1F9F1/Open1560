@@ -217,7 +217,7 @@ public:
     f32 ImpulseLimit2 {};
     JointedStruct* Joint {};
     f32 MaxAngVelocity {ARTS_PI * 10.0f};
-    i32 field_1A4 {};
+    b32 LimitAngVelocity {};
 
 private:
     // ?DrawForce@asInertialCS@@AAEXABVVector3@@0@Z

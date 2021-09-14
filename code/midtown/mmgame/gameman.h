@@ -138,7 +138,7 @@ public:
     mmGame* Current;
 
 private:
-    friend mmGameManager* GameManager();
+    friend mmGameManager* GameMgr();
 
     // ?Instance@mmGameManager@@0PAV1@A
     ARTS_IMPORT static mmGameManager* Instance;
@@ -161,7 +161,7 @@ private:
 
 check_size(mmGameManager, 0x5C);
 
-inline mmGameManager* GameManager()
+inline mmGameManager* GameMgr()
 {
     return mmGameManager::Instance;
 }

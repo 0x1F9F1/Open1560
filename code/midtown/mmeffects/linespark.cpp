@@ -77,7 +77,7 @@ void asLineSparks::Init(i32 num_sparks, asSparkLut* lut)
 
 void asLineSparks::Update()
 {
-    Update(ARTSPTR->GetUpdateDelta());
+    Update(Sim()->GetUpdateDelta());
 }
 
 void asLineSparks::Update(f32 delta)

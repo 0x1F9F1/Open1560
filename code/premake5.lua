@@ -11,7 +11,7 @@ function includeARTS()
 end
 
 function useARTSPCH()
-    files { path.join(ARTS_DIR, "arts_pch.cpp") }
+    files { path.join(ARTS_DIR, "arts_pch.cpp"), path.join(ARTS_DIR, "arts_pch.h") }
     includedirs { ARTS_DIR }
     forceincludes { "arts_pch.h" }
 

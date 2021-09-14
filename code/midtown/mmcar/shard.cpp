@@ -27,7 +27,7 @@ define_dummy_symbol(mmcar_shard);
 
 void mmShard::Draw(i32 lod)
 {
-    if (ARTSPTR->IsDebugDrawEnabled())
+    if (Sim()->IsDebugDrawEnabled())
         return;
 
     Matrix34 world;

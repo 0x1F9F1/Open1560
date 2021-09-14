@@ -134,7 +134,7 @@ void asCullManager::DeclareCullable(asCullable* cullable)
 
     LockGuard lock(mutex_);
 
-    if (ARTSPTR->IsFullUpdate())
+    if (Sim()->IsFullUpdate())
     {
         if (num_cullables_ >= max_cullables_)
         {
@@ -143,7 +143,7 @@ void asCullManager::DeclareCullable(asCullable* cullable)
         else
         {
             cullables_[num_cullables_] = cullable;
-            transforms_[num_cullables_] = ARTSPTR->GetCurrentMatrix();
+            transforms_[num_cullables_] = Sim()->GetCurrentMatrix();
             ++num_cullables_;
         }
     }
@@ -155,7 +155,7 @@ void asCullManager::DeclareCullable2D(asCullable* cullable)
 
     LockGuard lock(mutex_);
 
-    if (ARTSPTR->IsFullUpdate())
+    if (Sim()->IsFullUpdate())
     {
         if (num_cullables_2D_ >= max_cullables_2D_)
         {
@@ -236,7 +236,7 @@ void asCullManager::PrintStats()
 
     agiStats stats = STATS;
 
-    Statsf("Sim Delta:%5.2f", ARTSPTR->GetUpdateDelta() * 1000.0f);
+    Statsf("Sim Delta:%5.2f", Sim()->GetUpdateDelta() * 1000.0f);
     Statsf("CULLMGR 3D:%4.1f/2D:%4.1f/Updt:%4.1fms", UpdateTime3D * 1000.0f, (UpdateTime2D - UpdateTime3D) * 1000.0f,
         (CurrentFrameTime - UpdateTime2D) * 1000.0f);
     Statsf("DLPs Drawn:%-3dClipped:%-3d", stats.DlpDrawn, stats.DlpClipped);
@@ -266,7 +266,7 @@ void Statsf(ARTS_FORMAT_STRING const char* format, ...)
     arts_vsprintf(buffer, format, va);
     va_end(va);
 
-    u32 color = CULLMGR->GetTextColor();
+    u32 color = CullMgr()->GetTextColor();
     const char* text = buffer;
 
     for (i32 i = 4; i > 0; --i)
