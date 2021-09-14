@@ -88,6 +88,26 @@ public:
 
     VIRTUAL_META_DECLARE;
 
+    i32 GetNumActive() const
+    {
+        return SparkCount;
+    }
+
+    asBirthRule* GetBirthRule() const
+    {
+        return BirthRule;
+    }
+
+    void SetBirthRule(asBirthRule* rule)
+    {
+        BirthRule = rule;
+    }
+
+    void SetMatrix(Matrix34* matrix)
+    {
+        Matrix = matrix;
+    }
+
 private:
     i32 SparkCapacity {};
     i32 SparkCount {};

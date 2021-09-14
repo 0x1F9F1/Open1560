@@ -202,6 +202,11 @@ public:
         return Gravity;
     }
 
+    asInertialCS* GetPlayerICS()
+    {
+        return PlayerICS;
+    }
+
 protected:
     // ?ClosestNeighboringCullRoom@mmPhysicsMGR@@IAEHH@Z
     ARTS_IMPORT i32 ClosestNeighboringCullRoom(i32 arg1);

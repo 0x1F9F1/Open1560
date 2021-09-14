@@ -58,6 +58,10 @@
 #include "mmeffects/birth.h"
 #include "mmeffects/ptx.h"
 
+#ifndef NUM_BANGER_TYPES
+#    define NUM_BANGER_TYPES 512
+#endif
+
 class mmBangerData final : public asNode
 {
 public:
@@ -156,14 +160,19 @@ public:
 
     mmBangerData* GetBangerData(i32 index)
     {
-        ArAssert(index >= -1 && index < NumEntries, "Invalid Banger");
+        ArAssert(index >= -1 && index < NumEntries, "Invalid Banger Type");
 
-        return (index >= 0 && index < NumEntries) ? &Bangers[index] : nullptr;
+        return (index >= 0 && index < NumEntries) ? &Types[index] : nullptr;
     }
 
     mmBangerData* GetBangerData(const char* banger, const char* part)
     {
         return GetBangerData(AddBangerDataEntry(xconst(banger), xconst(part)));
+    }
+
+    agiTexDef* GetParticleTexture(i32 index)
+    {
+        return ParticleTextures[std::clamp(index, 0, ARTS_SSIZE32(ParticleTextures) - 1)];
     }
 
     // ?DeclareFields@mmBangerDataManager@@SAXXZ
@@ -176,22 +185,24 @@ public:
     ARTS_IMPORT static i32 SignalClock;
 
 protected:
-    friend mmBangerDataManager* BangerDataManager();
+    friend mmBangerDataManager* BangerDataMgr();
 
     // ?Instance@mmBangerDataManager@@1PAV1@A
     ARTS_IMPORT static mmBangerDataManager* Instance;
 
     i32 NumEntries;
-    mmBangerData Bangers[512];
+    mmBangerData Types[NUM_BANGER_TYPES];
+
     asParticles Particles;
     agiTexDef* ParticleTextures[10];
+
     Vector3 LaunchVelocity;
     Vector3 LaunchAngularVelocity;
 };
 
 check_size(mmBangerDataManager, 0x268D0);
 
-inline mmBangerDataManager* BangerDataManager()
+inline mmBangerDataManager* BangerDataMgr()
 {
     return mmBangerDataManager::Instance;
 }

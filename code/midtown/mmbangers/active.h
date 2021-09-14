@@ -53,46 +53,56 @@
 #include "mmphysics/entity.h"
 #include "mmphysics/inertia.h"
 
+#ifndef MAX_ACTIVE_BANGERS
+#    define MAX_ACTIVE_BANGERS 32
+#endif
+
 class mmBangerInstance;
 
 class mmBangerActive final : public mmPhysEntity
 {
 public:
     // ??0mmBangerActive@@QAE@XZ
-    ARTS_IMPORT mmBangerActive();
+    ARTS_EXPORT mmBangerActive();
 
     // ??_EmmBangerActive@@UAEPAXI@Z
     // ??_GmmBangerActive@@UAEPAXI@Z
     // ??1mmBangerActive@@UAE@XZ
-    ARTS_IMPORT ~mmBangerActive() override;
+    ARTS_EXPORT ~mmBangerActive() override;
 
     // ?Attach@mmBangerActive@@QAEXPAVmmBangerInstance@@@Z
-    ARTS_IMPORT void Attach(mmBangerInstance* arg1);
+    ARTS_EXPORT void Attach(mmBangerInstance* inst);
 
     // ?Detach@mmBangerActive@@QAEXXZ
-    ARTS_IMPORT void Detach();
+    ARTS_EXPORT void Detach();
 
     // ?DetachMe@mmBangerActive@@UAEXXZ
-    ARTS_IMPORT void DetachMe() override;
+    ARTS_EXPORT void DetachMe() override;
 
     // ?GetBound@mmBangerActive@@UAEPAVasBound@@XZ | inline
-    ARTS_IMPORT asBound* GetBound() override;
+    ARTS_EXPORT asBound* GetBound() override
+    {
+        return &Bound;
+    }
 
     // ?GetICS@mmBangerActive@@UAEPAVasInertialCS@@XZ | inline
-    ARTS_IMPORT asInertialCS* GetICS() override;
+    ARTS_EXPORT asInertialCS* GetICS() override
+    {
+        return &ICS;
+    }
 
     // ?PostUpdate@mmBangerActive@@UAEXXZ
-    ARTS_IMPORT void PostUpdate() override;
+    ARTS_EXPORT void PostUpdate() override;
 
     // ?Update@mmBangerActive@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
-    i32 Index;
-    asInertialCS ICS;
-    asBound Bound;
-    mmBangerInstance* Target;
-    asParticles Particles;
-    i32 field_278;
+    i32 Index {-1};
+    asInertialCS ICS {};
+    asBound Bound {};
+    mmBangerInstance* Target {};
+    asParticles Particles {};
+    f32 Age {}; // Unused in MM1
 };
 
 check_size(mmBangerActive, 0x27C);
@@ -101,38 +111,45 @@ class mmBangerActiveManager final : public asNode
 {
 public:
     // ??0mmBangerActiveManager@@QAE@XZ
-    ARTS_IMPORT mmBangerActiveManager();
+    ARTS_EXPORT mmBangerActiveManager();
 
     // ??_GmmBangerActiveManager@@UAEPAXI@Z
     // ??_EmmBangerActiveManager@@UAEPAXI@Z
     // ??1mmBangerActiveManager@@UAE@XZ
-    ARTS_IMPORT ~mmBangerActiveManager() override;
+    ARTS_EXPORT ~mmBangerActiveManager() override;
 
     // ?Attach@mmBangerActiveManager@@QAEPAVmmBangerActive@@PAVmmBangerInstance@@@Z
-    ARTS_IMPORT mmBangerActive* Attach(mmBangerInstance* arg1);
+    ARTS_EXPORT mmBangerActive* Attach(mmBangerInstance* inst);
 
     // ?Detach@mmBangerActiveManager@@QAEXPAVmmBangerActive@@@Z
-    ARTS_IMPORT void Detach(mmBangerActive* arg1);
+    ARTS_EXPORT void Detach(mmBangerActive* active);
 
     // ?GetActive@mmBangerActiveManager@@QAEPAVmmBangerActive@@PAVmmBangerInstance@@@Z
-    ARTS_IMPORT mmBangerActive* GetActive(mmBangerInstance* arg1);
+    ARTS_EXPORT mmBangerActive* GetActive(mmBangerInstance* inst);
 
     // ?Reset@mmBangerActiveManager@@UAEXXZ
-    ARTS_IMPORT void Reset() override;
+    ARTS_EXPORT void Reset() override;
 
     // ?Update@mmBangerActiveManager@@UAEXXZ
     ARTS_EXPORT void Update() override;
 
+    friend mmBangerActiveManager* BangerActiveMgr();
+
 protected:
     // ?Instance@mmBangerActiveManager@@1PAV1@A
-    ARTS_IMPORT static mmBangerActiveManager* Instance;
+    ARTS_EXPORT static mmBangerActiveManager* Instance;
 
-    mmBangerActive* Active[32];
-    mmBangerActive Bangers[32];
-    i32 NumActive;
+    mmBangerActive* Active[MAX_ACTIVE_BANGERS] {};
+    mmBangerActive Bangers[MAX_ACTIVE_BANGERS] {};
+    i32 NumActive {};
 };
 
 check_size(mmBangerActiveManager, 0x5024);
+
+inline mmBangerActiveManager* BangerActiveMgr()
+{
+    return mmBangerActiveManager::Instance;
+}
 
 // ?ParticleMultiplier@@3MA
 ARTS_IMPORT extern f32 ParticleMultiplier;
