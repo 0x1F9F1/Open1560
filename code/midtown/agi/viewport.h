@@ -90,15 +90,16 @@ public:
     f32 Aspect;
     f32 Near;
     f32 Far;
-    f32 Inv_BottomOverTop;
+    f32 DepthScale;
+
     f32 ProjX;
     f32 ProjY;
     f32 ProjZZ;
     f32 ProjZW;
     f32 ProjXZ;
     f32 ProjYZ;
-    f32 Left;
-    f32 Right;
+    f32 ProjRight;
+    f32 ProjBottom;
 
     // Position/Orientation of the camera in world space
     Matrix34 Camera;
@@ -114,10 +115,11 @@ public:
     // Equal to `View * Model`
     Matrix34 ModelView;
 
-    Vector2 field_104;
-    Vector2 field_10C;
-    Vector2 field_114;
-    Vector2 field_11C;
+    Vector2 LeftPlane;
+    Vector2 RightPlane;
+    Vector2 BottomPlane;
+    Vector2 TopPlane;
+
     f32 field_124;
     b32 Orthographic;
 };

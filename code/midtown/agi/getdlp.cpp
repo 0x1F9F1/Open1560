@@ -25,16 +25,16 @@ define_dummy_symbol(agi_getdlp);
 // ?LibOutOfDate@@YAHPAD0@Z
 ARTS_IMPORT /*static*/ i32 LibOutOfDate(char* arg1, char* arg2);
 
-b32 OutOfDate(char* lhs, char* rhs)
+b32 OutOfDate(char* dst_file, char* src_file)
 {
-    struct stat lhs_stat;
-    struct stat rhs_stat;
+    struct stat dst_stat;
+    struct stat src_stat;
 
-    if (stat(FQN(rhs), &rhs_stat))
+    if (stat(FQN(src_file), &src_stat))
         return false;
 
-    if (stat(FQN(lhs), &lhs_stat))
+    if (stat(FQN(dst_file), &dst_stat))
         return true;
 
-    return lhs_stat.st_mtime < rhs_stat.st_mtime;
+    return dst_stat.st_mtime < src_stat.st_mtime;
 }

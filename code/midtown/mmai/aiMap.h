@@ -294,13 +294,10 @@ public:
     aiRaceData* RaceData;
     aiIntersection** Intersections;
     i16 NumIntersections;
-    i16 field_2E;
     aiPath** Paths;
     i16 NumPaths;
-    i16 field_36;
     aiVehicleAmbient* Ambients;
     i16 NumAmbients;
-    i16 field_3E;
     aiVehicleSpline* pFirstAmbient;
     aiPoliceForce* PoliceForce;
     aiVehiclePolice* PoliceVehicles;
@@ -311,10 +308,8 @@ public:
     u32 field_54;
     aiVehicleOpponent* Opponents;
     i16 NumOpponents;
-    u16 field_62;
     aiPedestrian* Pedestrians;
     i16 NumPedestrians;
-    i16 field_6A;
     aiPedestrian* field_6C;
     i16 UpdateGroup;
     i16 UpdateCount;
@@ -323,8 +318,7 @@ public:
     Vector3 zAxis;
     f32 InvCarSpeed;
     f32 SpeedRacerCheat;
-    i16 RoadCount;
-    i16 field_9A;
+    i16 PlayerRoom;
     CArrayList* AmbientRoads;
     CArrayList* PedRoads;
     i16 DrawIntersections;

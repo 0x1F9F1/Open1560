@@ -56,6 +56,30 @@ struct asPortalCell;
 struct asPortalEdge;
 class asPortalRenderable;
 class mmPolygon;
+class agiTexDef;
+
+struct asPortalView
+{
+    f32 X;
+    f32 Y;
+    f32 Width;
+    f32 Height;
+    f32 ProjX;
+    f32 ProjY;
+    f32 ProjXZ;
+    f32 ProjYZ;
+    f32 ProjLeft;
+    f32 ProjTop;
+    f32 ProjRight;
+    f32 ProjBottom;
+    f32 ProjWidth;
+    f32 ProjHeight;
+
+    asPortalCell* Cell;
+    asPortalEdge* Edge;
+    agiTexDef* Texture;
+    i32 RenderDepth;
+};
 
 class asPortalWeb : public asNode
 {
@@ -123,7 +147,17 @@ public:
     // ?VisitTag@asPortalWeb@@2GA
     ARTS_IMPORT static u16 VisitTag;
 
-    u8 gap20[0x902C];
+    b32 DisableTextures;
+    i32 MaxRenderDepth;
+    asPortalCell* Cells;
+    asPortalCell* StartCell;
+    asPortalEdge* Edges;
+    b32 Debug;
+    b32 SubClip;
+    b32 NoPortals;
+    u32 CurrentGroup;
+    i32 NumSubPortals[2];
+    asPortalView Portals[2][256];
 };
 
 check_size(asPortalWeb, 0x904C);
