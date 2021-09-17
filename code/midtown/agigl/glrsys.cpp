@@ -252,6 +252,7 @@ i32 agiGLRasterizer::BeginGfx()
     // https://nlguillemot.wordpress.com/2016/12/07/reversed-z-in-opengl/
     reversed_z_ = false;
 
+#if 0
     if (agiGL->HasExtension(/*450,*/ "GL_ARB_clip_control"))
     {
         flip_winding_ = true;
@@ -272,6 +273,7 @@ i32 agiGLRasterizer::BeginGfx()
     {
         glDepthRangedNV(-1.0, 1.0);
     }
+#endif
 
     if (reversed_z_)
     {
