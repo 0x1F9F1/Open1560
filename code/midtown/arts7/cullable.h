@@ -32,7 +32,7 @@
 
 #include "data7/base.h"
 
-class Bank;
+#include "bank.h"
 
 class asCullable : public Base
 {

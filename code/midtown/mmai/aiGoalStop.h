@@ -43,7 +43,7 @@ public:
     ARTS_IMPORT ~aiGoalStop() = default;
 
     // ?Context@aiGoalStop@@UAEHXZ
-    ARTS_IMPORT i32 Context() override;
+    ARTS_IMPORT b32 Context() override;
 
     // ?Init@aiGoalStop@@UAEXXZ
     ARTS_IMPORT void Init() override;

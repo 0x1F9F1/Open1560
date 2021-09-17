@@ -213,7 +213,7 @@ void mmGame::UpdateDebugInput()
                 }
                 case EQ_VK_M: {
                     if (Sim()->IsDebug())
-                        AIMAP.DrawIntersections = !AIMAP.DrawIntersections;
+                        AIMAP.DrawAllPaths = !AIMAP.DrawAllPaths;
                     break;
                 }
                 case EQ_VK_N: {
@@ -274,7 +274,7 @@ void mmGame::UpdateDebugInput()
                 }
                 case EQ_VK_T: {
                     if (Sim()->IsDebug())
-                        AIMAP.DrawAmbientPts = !AIMAP.DrawAmbientPts;
+                        AIMAP.DrawTargetPoints = !AIMAP.DrawTargetPoints;
                     break;
                 }
                 case EQ_VK_U: {

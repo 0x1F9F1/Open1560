@@ -32,20 +32,23 @@ class aiGoal
 {
 public:
     // ??1aiGoal@@QAE@XZ | inline
-    ARTS_IMPORT ~aiGoal() = default;
+    ARTS_EXPORT ~aiGoal() = default;
 
     virtual void Init() = 0;
 
     virtual void Reset() = 0;
 
-    virtual i32 Context() = 0;
+    virtual b32 Context() = 0;
 
     virtual i32 Priority() = 0;
 
     // ?Update@aiGoal@@UAEXXZ | inline
-    ARTS_IMPORT virtual void Update();
+    ARTS_EXPORT virtual void Update()
+    {
+        ++UpdateCount;
+    }
 
-    u8 gap4[0x4];
+    i32 UpdateCount {0};
 };
 
 check_size(aiGoal, 0x8);

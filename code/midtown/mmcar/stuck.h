@@ -36,7 +36,10 @@
 
 #include "arts7/node.h"
 
+#include "vector7/vector3.h"
+
 class mmCarSim;
+class asInertialCS;
 
 class mmStuck final : public asNode
 {
@@ -69,7 +72,18 @@ public:
     // ?Update@mmStuck@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    u8 gap20[0x38];
+    i32 State;
+    b32 Impacted;
+    f32 StuckTime;
+    Vector3 LastPosition;
+    f32 TimeThresh;
+    f32 PosThresh;
+    f32 MoveThresh;
+    f32 PosThreshSqr;
+    f32 MoveThreshSqr;
+    f32 RotAmount;
+    asInertialCS* ICS;
+    mmCarSim* CarSim;
 };
 
 check_size(mmStuck, 0x58);

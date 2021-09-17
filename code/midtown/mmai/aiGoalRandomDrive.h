@@ -55,7 +55,7 @@ public:
     ARTS_IMPORT ~aiGoalRandomDrive() = default;
 
     // ?Context@aiGoalRandomDrive@@UAEHXZ
-    ARTS_IMPORT i32 Context() override;
+    ARTS_IMPORT b32 Context() override;
 
     // ?Dump@aiGoalRandomDrive@@QAEXXZ
     ARTS_IMPORT void Dump();

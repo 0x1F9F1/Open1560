@@ -20,7 +20,6 @@ define_dummy_symbol(arts7_node);
 
 #include "node.h"
 
-#include "bank.h"
 #include "data7/callback.h"
 #include "data7/metadefine.h"
 #include "data7/str.h"

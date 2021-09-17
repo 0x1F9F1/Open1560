@@ -71,7 +71,7 @@ public:
     ARTS_IMPORT ~aiGoalChase();
 
     // ?Context@aiGoalChase@@UAEHXZ
-    ARTS_IMPORT i32 Context() override;
+    ARTS_IMPORT b32 Context() override;
 
     // ?Dump@aiGoalChase@@QAEXXZ
     ARTS_IMPORT void Dump();

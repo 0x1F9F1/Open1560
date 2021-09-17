@@ -38,31 +38,33 @@ class aiGoalBackup final : public aiGoal
 {
 public:
     // ??0aiGoalBackup@@QAE@PAVaiRailSet@@PAVmmCar@@PAF@Z
-    ARTS_IMPORT aiGoalBackup(aiRailSet* arg1, mmCar* arg2, i16* arg3);
+    ARTS_EXPORT aiGoalBackup(aiRailSet* rail, mmCar* car, b16* backing_up);
 
     // ??1aiGoalBackup@@QAE@XZ
-    ARTS_IMPORT ~aiGoalBackup() = default;
+    ARTS_EXPORT ~aiGoalBackup() = default;
 
     // ?Context@aiGoalBackup@@UAEHXZ
-    ARTS_IMPORT i32 Context() override;
+    ARTS_EXPORT b32 Context() override;
 
     // ?Init@aiGoalBackup@@UAEXXZ
-    ARTS_IMPORT void Init() override;
+    ARTS_EXPORT void Init() override;
 
     // ?Priority@aiGoalBackup@@UAEHXZ
-    ARTS_IMPORT i32 Priority() override;
+    ARTS_EXPORT i32 Priority() override;
 
     // ?Reset@aiGoalBackup@@UAEXXZ
-    ARTS_IMPORT void Reset() override;
+    ARTS_EXPORT void Reset() override;
 
     // ?Update@aiGoalBackup@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
 private:
     // ?FinishedBackingUp@aiGoalBackup@@AAEXXZ
-    ARTS_IMPORT void FinishedBackingUp();
+    ARTS_EXPORT void FinishedBackingUp();
 
-    u8 gap8[0xC];
+    aiRailSet* Rail {};
+    mmCar* Car {};
+    b16* BackingUp {};
 };
 
 check_size(aiGoalBackup, 0x14);

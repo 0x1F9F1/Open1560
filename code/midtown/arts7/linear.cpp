@@ -20,7 +20,6 @@ define_dummy_symbol(arts7_linear);
 
 #include "linear.h"
 
-#include "bank.h"
 #include "cullmgr.h"
 #include "data7/metadefine.h"
 #include "dyna7/dyna.h"

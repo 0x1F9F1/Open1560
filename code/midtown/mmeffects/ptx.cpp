@@ -24,7 +24,6 @@ define_dummy_symbol(mmeffects_ptx);
 #include "agi/texdef.h"
 #include "agi/viewport.h"
 #include "agiworld/texsort.h"
-#include "arts7/bank.h"
 #include "arts7/sim.h"
 #include "birth.h"
 #include "data7/metadefine.h"

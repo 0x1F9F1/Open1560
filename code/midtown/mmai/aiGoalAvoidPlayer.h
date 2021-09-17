@@ -47,7 +47,7 @@ public:
     ARTS_IMPORT ~aiGoalAvoidPlayer() = default;
 
     // ?Context@aiGoalAvoidPlayer@@UAEHXZ
-    ARTS_IMPORT i32 Context() override;
+    ARTS_IMPORT b32 Context() override;
 
     // ?Dump@aiGoalAvoidPlayer@@QAEXXZ
     ARTS_IMPORT void Dump();

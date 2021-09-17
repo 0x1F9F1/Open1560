@@ -152,7 +152,7 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@aiMap@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
+    ARTS_EXPORT void AddWidgets(Bank* bank) override;
 #endif
 
     // ?AllwaysGreen@aiMap@@QAEXXZ | unused
@@ -303,9 +303,7 @@ public:
     aiVehiclePolice* PoliceVehicles;
     i16 NumPolice;
     i16 CopCount;
-    u32 CopRoads;
-    u32 field_50;
-    u32 field_54;
+    i16 CopPaths[6];
     aiVehicleOpponent* Opponents;
     i16 NumOpponents;
     aiPedestrian* Pedestrians;
@@ -321,15 +319,24 @@ public:
     i16 PlayerRoom;
     CArrayList* AmbientRoads;
     CArrayList* PedRoads;
-    i16 DrawIntersections;
+
+    i16 DrawAllPaths;
+
     i16 DrawIntersectionIds;
     i16 DrawPathIds;
     i16 DrawAmbientIds;
+
     i16 AlwaysGreen;
     i16 AlwaysRed;
+
     i16 DrawPathNormals;
-    i16 DrawAmbientPts;
-    i16 DrawPaths;
+    i16 DrawTargetPoints;
+
+    // 0: Off
+    // 1: Ambients
+    // 2: Peds
+    i16 DrawActivePaths;
+
     i16 DrawBBoxes;
     u16 nAmbientCount;
     u16 BackwardsCheat;

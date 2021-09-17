@@ -76,7 +76,7 @@ public:
 #endif
 
     // ?Context@aiGoalFollowWayPts@@UAEHXZ
-    ARTS_IMPORT i32 Context() override;
+    ARTS_IMPORT b32 Context() override;
 
     // ?Dump@aiGoalFollowWayPts@@QAEXXZ
     ARTS_IMPORT void Dump();

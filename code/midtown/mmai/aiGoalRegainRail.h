@@ -44,7 +44,7 @@ public:
     ARTS_IMPORT ~aiGoalRegainRail() = default;
 
     // ?Context@aiGoalRegainRail@@UAEHXZ
-    ARTS_IMPORT i32 Context() override;
+    ARTS_IMPORT b32 Context() override;
 
     // ?Dump@aiGoalRegainRail@@QAEXXZ
     ARTS_IMPORT void Dump();

@@ -151,7 +151,9 @@ class MiniParser:
             self.print(']')
         elif isinstance(value, str):
             self.print('"{}"'.format(value.replace('\\', '\\\\').replace('"', '\\"')))
-        elif isinstance(value, int) or isinstance(value, float):
+        elif isinstance(value, int):
+            self.print(str(value))
+        elif isinstance(value, float):
             self.print(repr(numpy.float32(value)))
         elif isinstance(value, Vector3):
             self.value(value.x)

@@ -46,6 +46,8 @@
     0x459E90 | public: class Vector3 * __thiscall aiPath::LBoundary(int) | ?LBoundary@aiPath@@QAEPAVVector3@@H@Z
 */
 
+#include "vector7/vector4.h"
+
 class aiPath;
 
 class aiRailSet
@@ -112,7 +114,37 @@ public:
     // ?SolveXZPosition@aiRailSet@@QAEXAAVVector3@@M@Z | unused
     ARTS_IMPORT void SolveXZPosition(Vector3& arg1, f32 arg2);
 
-    u8 gap0[0x80];
+    f32 BackBumperDist;
+    f32 FrontBumperDist;
+    f32 LSideDist;
+    f32 RSideDist;
+    i16 EnterInt;
+    f32 RoadDist;
+    f32 ResumeDist;
+    f32 SubSectionDist;
+    f32 TurnDist;
+    f32 LaneRandomness;
+    i16 WaitCount;
+    i16 SSIdx;
+    i16 CurLane;
+    i16 NextLane;
+    i16 TargetLane;
+    i32 RailType;
+    aiPath* NextLink;
+    aiPath* CurLink;
+    f32 TurnCenterPtOffset;
+    f32 CurAccelFactor;
+    f32 ExheedLimit;
+    f32 TargetVelocity;
+    f32 CarReactDist;
+    f32 VehicleAccelFactor;
+    f32 SeparationDist;
+    f32 IntersectionReactDist;
+    f32 field_60;
+    f32 field_64;
+    f32 field_68;
+    f32 field_6C;
+    Vector4 field_70;
 };
 
 check_size(aiRailSet, 0x80);

@@ -101,6 +101,21 @@ public:
     // ?DeclareFields@mmTransmission@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
+    bool IsReverse() const
+    {
+        return CurrentGear == 0;
+    }
+
+    bool IsNeutral() const
+    {
+        return CurrentGear == 1;
+    }
+
+    bool IsForward() const
+    {
+        return CurrentGear >= 2;
+    }
+
     mmCarSim* CarSim;
     b32 IsAutomatic;
     f32 Clutch;

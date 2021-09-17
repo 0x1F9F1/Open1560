@@ -44,6 +44,7 @@
 #include "arts7/node.h"
 
 class mmCarSim;
+class mmTransmission;
 
 class mmEngine final : public asNode
 {
@@ -96,7 +97,29 @@ public:
     // ?DeclareFields@mmEngine@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap20[0x5C];
+    f32 MaxHorsePower;
+    f32 OptRPM;
+    f32 MaxRPM;
+    f32 GCL;
+    f32 HPScale;
+    f32 EngineMass;
+    f32 MaxRotationSpeed;
+    f32 OptRotationSpeed;
+    f32 TorqueDropoff;
+    f32 MaxTorque;
+    f32 PullUpModifier;
+    f32 BreakDownModifier;
+    f32 PrevGearRPM;
+    f32 GearChangeTime;
+    i32 ChangingGear;
+    f32 Throttle;
+    f32 field_60;
+    f32 RotationSpeed;
+    f32 RPM;
+    f32 Horsepower;
+    f32 Torque;
+    mmCarSim* CarSim;
+    mmTransmission* Trans;
 };
 
 check_size(mmEngine, 0x7C);

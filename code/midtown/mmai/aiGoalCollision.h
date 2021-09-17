@@ -43,7 +43,7 @@ public:
     ARTS_IMPORT ~aiGoalCollision() = default;
 
     // ?Context@aiGoalCollision@@UAEHXZ
-    ARTS_IMPORT i32 Context() override;
+    ARTS_IMPORT b32 Context() override;
 
     // ?Init@aiGoalCollision@@UAEXXZ
     ARTS_IMPORT void Init() override;
