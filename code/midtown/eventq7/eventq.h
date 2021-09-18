@@ -40,12 +40,12 @@
 
 enum class eqEventType : u32
 {
-    Redraw = 0x0,
-    Refocus = 0x1,
-    Mouse = 0x2,
-    Keyboard = 0x3,
-    Destroy = 0x5,
-    Activate = 0x6,
+    Redraw = 0,
+    Refocus = 1,
+    Mouse = 2,
+    Keyboard = 3,
+    Destroy = 5,
+    Activate = 6,
 };
 
 #define EQ_EVENT_MASK(EVENT) (1 << static_cast<u32>(EVENT))
