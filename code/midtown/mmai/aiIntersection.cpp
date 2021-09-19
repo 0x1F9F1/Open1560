@@ -19,3 +19,18 @@
 define_dummy_symbol(mmai_aiIntersection);
 
 #include "aiIntersection.h"
+
+#include "aiPath.h"
+
+void aiIntersection::Dump()
+{
+    Displayf("Intersection %d, Position = %.2f, %.2f, %.2f", Id, Pos.x, Pos.y, Pos.z);
+
+    Displayf("\tNumSinks = %d", NumSinkPaths);
+    for (i32 i = 0; i < NumSinkPaths; ++i)
+        Displayf("\t\tPath %d", SinkPaths[i]->PathId);
+
+    Displayf("\tNum Sources = %d", NumSourcePaths);
+    for (i32 i = 0; i < NumSourcePaths; ++i)
+        Displayf("\t\tPath %d", SourcePaths[i]->PathId);
+}

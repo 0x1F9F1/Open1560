@@ -20,7 +20,11 @@ define_dummy_symbol(mmai_aiMap);
 
 #include "aiMap.h"
 
+#include "aiIntersection.h"
+#include "aiPath.h"
+#include "aiVehicleAmbient.h"
 #include "aiVehicleOpponent.h"
+#include "aiVehiclePolice.h"
 
 void aiMap::UpdatePaused()
 {}
@@ -54,6 +58,10 @@ void aiMap::AddWidgets(Bank* bank)
 
     bank->AddSlider("Vehicle Speed", &SpeedRacerCheat, 0.1f, 100.0f, 0.1f);
 
+    bank->AddButton("Dump AI", [this] { Dump(); });
+    bank->AddButton("Dump Paths", [this] { DumpPaths(); });
+    bank->AddButton("Dump Intersections", [this] { DumpIntersections(); });
+
     bank->PushSection("Opponents", false);
 
     for (i32 i = 0; i < NumOpponents; ++i)
@@ -64,4 +72,42 @@ void aiMap::AddWidgets(Bank* bank)
     }
 
     bank->PopSection();
+}
+
+void aiMap::Dump()
+{
+    Displayf("AI MAP");
+
+    Displayf("Num Paths = %d", NumPaths);
+    Displayf("Num Intersections = %d", NumIntersections);
+    Displayf("Num Opponents = %d", NumOpponents);
+
+    for (i32 i = 0; i < NumOpponents; ++i)
+        Opponents[i].Dump();
+
+    Displayf("Num Cops = %d", NumPolice);
+
+    for (i32 i = 0; i < NumPolice; ++i)
+        PoliceVehicles[i].Dump();
+
+    Displayf("Num Ambients = %d", NumAmbients);
+
+    for (i32 i = 0; i < NumPolice; ++i)
+        Ambients[i].Dump();
+}
+
+void aiMap::DumpPaths()
+{
+    Displayf("Num Paths = %i", NumPaths);
+
+    for (i32 i = 0; i < NumPaths; ++i)
+        Paths[i]->Dump();
+}
+
+void aiMap::DumpIntersections()
+{
+    Displayf("Num NumIntersections = %i", NumIntersections);
+
+    for (i32 i = 0; i < NumIntersections; ++i)
+        Intersections[i]->Dump();
 }

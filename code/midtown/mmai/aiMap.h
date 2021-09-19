@@ -214,7 +214,11 @@ public:
     ARTS_IMPORT void DrawNextVisibleAmbient();
 
     // ?Dump@aiMap@@QAEXXZ
-    ARTS_IMPORT void Dump();
+    ARTS_EXPORT void Dump();
+
+    void DumpPaths();
+
+    void DumpIntersections();
 
     // ?FindAmbAppRoad@aiMap@@QAEHH@Z
     ARTS_IMPORT i32 FindAmbAppRoad(i32 arg1);

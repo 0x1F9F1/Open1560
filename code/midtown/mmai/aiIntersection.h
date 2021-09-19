@@ -36,7 +36,10 @@
     0x447C50 | public: class aiPath * __thiscall aiIntersection::Path(int) | ?Path@aiIntersection@@QAEPAVaiPath@@H@Z
 */
 
+#include "vector7/vector3.h"
+
 class aiPath;
+class aiTrafficLightSet;
 
 class aiIntersection
 {
@@ -65,7 +68,7 @@ public:
 #endif
 
     // ?Dump@aiIntersection@@QAEXXZ | unused
-    ARTS_IMPORT void Dump();
+    ARTS_EXPORT void Dump();
 
     // ?Init@aiIntersection@@QAEXXZ
     ARTS_IMPORT void Init();
@@ -82,7 +85,16 @@ public:
     // ?SaveBinary@aiIntersection@@QAEXPAVStream@@@Z
     ARTS_IMPORT void SaveBinary(Stream* arg1);
 
-    u8 gap0[0x2C];
+    aiPath** SinkPaths;
+    i16 NumSinkPaths;
+    aiPath** SourcePaths;
+    i16 NumSourcePaths;
+    i16 field_E;
+    i32* PathIds;
+    f32* RoadDirections;
+    i16 Id;
+    aiTrafficLightSet* TrafficLights;
+    Vector3 Pos;
 };
 
 check_size(aiIntersection, 0x2C);

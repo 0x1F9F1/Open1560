@@ -73,6 +73,9 @@
     0x440020 | public: class Vector3 * __thiscall aiPath::CenterVertice(int) | ?CenterVertice@aiPath@@QAEPAVVector3@@H@Z
 */
 
+#include "vector7/vector3.h"
+
+class aiIntersection;
 class aiPedestrian;
 class aiVehicleSpline;
 class mmRoadSect;
@@ -146,7 +149,7 @@ public:
 #endif
 
     // ?Dump@aiPath@@QAEXXZ | unused
-    ARTS_IMPORT void Dump();
+    ARTS_EXPORT void Dump();
 
     // ?GetHeading@aiPath@@QAEMMH@Z
     ARTS_IMPORT f32 GetHeading(f32 arg1, i32 arg2);
@@ -232,7 +235,46 @@ public:
     // ?VertZDir@aiPath@@QAEPAVVector3@@H@Z | inline
     ARTS_IMPORT Vector3* VertZDir(i32 arg1);
 
-    u8 gap0[0x104];
+    aiPath* OncomingPath;
+    i32 EdgeIndex;
+    i32 PathIndex;
+    i16 VertexCount;
+    i16 PathId;
+    i16 NumLanes;
+    i16 NumSidewalks;
+    i16 IntersectionType;
+    i16 IsBlocked;
+    i16 IsAlwaysBlocked;
+    i16 IsPedBlocked;
+    i16 IsDivided;
+    i16 IsFlat;
+    i16 IsAlley;
+    i16 HasBridge;
+    i16 StopLightIndex;
+    i16 field_26;
+    f32 RoadLength;
+    f32 SpeedLimit;
+    f32* SubSectionOffsets;
+    f32* CenterOffsets;
+    char StopLightName[32];
+    aiIntersection* Intersections[2];
+    Vector3* LaneVertices;
+    Vector3* CenterVerts;
+    Vector3* VertXDirs;
+    Vector3* Normals;
+    Vector3* VertZDirs;
+    Vector3* SubSectionDirs;
+    Vector3* Boundaries;
+    Vector3* LBoundaries;
+    Vector3 StopLightPos[2];
+    i16 NumVehicles[4];
+    aiVehicleSpline* Splines[4];
+    aiVehicleSpline* Vehicles[4];
+    aiPedestrian* Peds;
+    f32 LaneWidths[5];
+    f32 LaneLengths[10];
+    b16 AlwaysGo;
+    b16 AlwaysStop;
 };
 
 check_size(aiPath, 0x104);

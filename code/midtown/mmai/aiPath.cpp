@@ -19,3 +19,29 @@
 define_dummy_symbol(mmai_aiPath);
 
 #include "aiPath.h"
+
+#include "aiIntersection.h"
+
+void aiPath::Dump()
+{
+    Displayf("Path %d, Vertex Count = %d, Num Lanes = %d", PathId, VertexCount, NumLanes);
+
+    Displayf(
+        "\tOncoming Path = %d, Intersections = %d %d", OncomingPath->PathId, Intersections[0]->Id, Intersections[1]->Id);
+
+    Displayf("\tBlocked = %d, PedBlocked = %d, HasBridge = %d", IsBlocked, IsPedBlocked, HasBridge);
+    Displayf("\tDivided = %d, Flat       = %d, Alley     = %d", IsDivided, IsFlat, IsAlley);
+
+    for (i32 i = 0; i < NumLanes; ++i)
+    {
+        Displayf("\tLane: %d", i);
+
+        i32 vertex_per_lane = VertexCount;
+
+        Vector3& start = LaneVertices[i * vertex_per_lane + 1];
+        Vector3& end = LaneVertices[i * vertex_per_lane + VertexCount - 2];
+
+        Displayf("\t\tStart = %.2f, %.2f, %.2f", start.x, start.y, start.z);
+        Displayf("\t\tEnd   = %.2f, %.2f, %.2f", end.x, end.y, end.z);
+    }
+}
