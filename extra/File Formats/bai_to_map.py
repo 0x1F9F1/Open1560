@@ -54,7 +54,7 @@ class aiPath:
         self.RoadLength,\
         self.SpeedLimit,\
         self.StopLightName,\
-        self.OppositeID,\
+        self.OncomingPath,\
         self.EdgeIndex,\
         self.PathIndex = read_unpack(file, '<HHHHHHHHHHHHff32sIII')
         self.SubSectionOffsets = read_unpack(file, '<{}f'.format(self.NumVertexs * (self.NumLanes + self.NumSidewalks)))
@@ -98,12 +98,16 @@ class aiIntersection:
         result.load(file)
         return result
 
+def read_array_list(file):
+    num_items, = read_unpack(file, '<I')
+    return read_unpack(file, '<{}I'.format(num_items))
+
 class aiMap:
     def __init__(self):
-        self.paths = []
-        self.isects = []
-        self.amb_roads = []
-        self.ped_roads = []
+        self.Paths = []
+        self.Intersections = []
+        self.AmbientRoads = []
+        self.PedRoads = []
 
     def load(self, file):
         num_isects, num_paths = read_unpack(file, '<2H')
@@ -111,10 +115,18 @@ class aiMap:
         print('{} roads, {} isects'.format(num_paths, num_isects))
 
         for _ in range(num_paths):
-            self.paths.append(aiPath.read(file))
+            self.Paths.append(aiPath.read(file))
 
         for _ in range(num_isects):
-            self.isects.append(aiIntersection.read(file))
+            self.Intersections.append(aiIntersection.read(file))
+
+        num_cells, = read_unpack(file, '<I')
+
+        for _ in range(num_cells):
+            self.AmbientRoads.append(read_array_list(file))
+
+        for _ in range(num_cells):
+            self.PedRoads.append(read_array_list(file))
 
     def read(file):
         result = aiMap()
@@ -174,39 +186,56 @@ class MiniParser:
         self.indent -= 1
         self.print('}\n')
 
-ai_map = aiMap()
-
-game_dir = open('../../GameDirectory.txt', 'r').read().strip()
 
 city_name = 'CHICAGO'
 # city_name = 'RACETRACK2'
 
-output_dir = r'{}dev/CITY/{}/'.format(game_dir, city_name)
+game_dir = open('../../GameDirectory.txt', 'r').read().strip()
+city_dir = r'{}dev/CITY/{}/'.format(game_dir, city_name)
 
-with open(city_name + '.BAI', 'rb') as f:
+ai_map = aiMap()
+
+with open('{}{}.bai'.format(city_dir, city_name), 'rb') as f:
     ai_map.load(f)
+
+    here = f.tell()
+    f.seek(0, 2)
+    assert here == f.tell()
 
 streets = []
 
-for i, path in enumerate(ai_map.paths):
+for i, path in enumerate(ai_map.Paths):
     # ID matches path index
     assert i == path.ID
 
-    # A path should not be its own opposite.
-    assert path.ID != path.OppositeID
+    # A path should not be its own oncoming.
+    assert path.ID != path.OncomingPath
 
-    # A path should be properly linked with its opposite
-    assert ai_map.paths[path.OppositeID].OppositeID == path.ID
+    # A path should be properly linked with its oncoming
+    assert ai_map.Paths[path.OncomingPath].OncomingPath == path.ID
 
     # No more than 1 sidewalk per road-side
     assert path.NumSidewalks in [0, 1]
 
-    if path.ID < path.OppositeID:
-        streets.append(('street_{}'.format(len(streets)), (path, ai_map.paths[path.OppositeID])))
+    isect_id = path.IntersectionIds[0]
+    isect = ai_map.Intersections[isect_id]
 
-assert len(streets) * 2 == len(ai_map.paths)
+    has_sink = False
+    for isect_path in isect.Paths:
+        if isect_path != path.ID:
+            isect_path = ai_map.Paths[isect_path]
+            if isect_path.IntersectionIds[0] != isect_id and isect_path.OncomingPath != path.ID:
+                has_sink = True
+                break
+    if not has_sink:
+        print('No eligible roads identified to turn onto from road: {}.'.format(path.ID))
 
-with open('{}{}.map'.format(output_dir, city_name), 'w') as f:
+    if path.ID < path.OncomingPath:
+        streets.append(('Street{}'.format(len(streets)), (path, ai_map.Paths[path.OncomingPath])))
+
+assert len(streets) * 2 == len(ai_map.Paths)
+
+with open('{}{}.map'.format(city_dir, city_name), 'w') as f:
     parser = MiniParser(f)
 
     parser.begin_class('mmMapData')
@@ -222,7 +251,7 @@ for street_name, paths in streets:
     assert paths[0].Alley == paths[1].Alley
     assert paths[0].Normals == list(reversed(paths[1].Normals))
 
-    with open('{}{}.road'.format(output_dir, street_name), 'w') as f:
+    with open('{}{}.road'.format(city_dir, street_name), 'w') as f:
         parser = MiniParser(f)
 
         parser.begin_class('mmRoadSect')
