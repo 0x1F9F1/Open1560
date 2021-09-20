@@ -48,7 +48,7 @@ public:
         ++UpdateCount;
     }
 
-    i32 UpdateCount {0};
+    i32 UpdateCount {};
 };
 
 check_size(aiGoal, 0x8);

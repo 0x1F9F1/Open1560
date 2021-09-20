@@ -58,7 +58,11 @@ void aiGoalBackup::Update()
 
     mmCarSim& sim = Car->Sim;
     Matrix34& matrix = sim.ICS.Matrix;
+
     aiPath* path = Rail->NextLink;
+
+    if (path == nullptr)
+        path = Rail->CurLink;
 
     i32 vert_index = path->Index(matrix.m3);
     Vector3 vert_center = *path->CenterVertice(vert_index);
@@ -67,15 +71,14 @@ void aiGoalBackup::Update()
     Vector3 target_offset = vert_center + vert_xdir * (vert_xdir ^ (matrix.m3 - vert_center)) - matrix.m3;
 
     f32 target_angle = std::atan2(target_offset ^ matrix.m0, target_offset ^ -matrix.m2);
+    sim.Steering = std::clamp(target_angle * -(20.0f / 7.0f), -1.0f, 1.0f);
 
     if (target_angle < -0.1f || target_angle > 0.1f)
     {
-        sim.Steering = std::clamp(target_angle * -(20.0f / 7.0f), -1.0f, 1.0f);
-
         // TODO: Improve the decision of when to stop backing up
-        if ((sim.Trans.TimeInGear < 3.0f) || !Car->Sim.Stuck.Impacted)
+        if ((sim.Trans.TimeInGear < 3.0f) || (sim.Speed > 2.0f))
         {
-            sim.Engine.Throttle = 0.85f;
+            sim.Engine.Throttle = std::clamp(std::abs(target_angle), 0.1f, 0.85f);
             sim.Brakes = 0.0f;
         }
         else
@@ -85,7 +88,6 @@ void aiGoalBackup::Update()
     }
     else
     {
-        sim.Steering = 0.0f;
         // matrix.Rotate(matrix.m1, target_angle);
         FinishedBackingUp();
     }
@@ -93,14 +95,16 @@ void aiGoalBackup::Update()
 
 void aiGoalBackup::FinishedBackingUp()
 {
-    *BackingUp = false;
-    UpdateCount = 0;
-
-    Car->Sim.Stuck.Impacted = false;
-
     // Car->Sim.ICS.LinearMomentum *= 0.25f;
     // Car->Sim.ICS.AngularMomentum *= 0.25f;
 
     Car->Sim.Engine.Throttle = 0.0f;
     Car->Sim.Brakes = 1.0f;
+
+    if (Car->Sim.Speed < 2.0f)
+    {
+        *BackingUp = false;
+        UpdateCount = 0;
+        Car->Sim.Stuck.Impacted = false;
+    }
 }
