@@ -75,8 +75,7 @@ void aiGoalBackup::Update()
 
     if (target_angle < -0.1f || target_angle > 0.1f)
     {
-        // TODO: Improve the decision of when to stop backing up
-        if ((sim.Trans.TimeInGear < 3.0f) || (sim.Speed > 2.0f))
+        if (sim.Trans.TimeInGear < ((sim.Speed > 2.0f) ? 5.0f : 3.0f))
         {
             sim.Engine.Throttle = std::clamp(std::abs(target_angle), 0.1f, 0.85f);
             sim.Brakes = 0.0f;
@@ -88,16 +87,12 @@ void aiGoalBackup::Update()
     }
     else
     {
-        // matrix.Rotate(matrix.m1, target_angle);
         FinishedBackingUp();
     }
 }
 
 void aiGoalBackup::FinishedBackingUp()
 {
-    // Car->Sim.ICS.LinearMomentum *= 0.25f;
-    // Car->Sim.ICS.AngularMomentum *= 0.25f;
-
     Car->Sim.Engine.Throttle = 0.0f;
     Car->Sim.Brakes = 1.0f;
 
