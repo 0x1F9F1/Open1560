@@ -40,6 +40,7 @@ import_symbol(0x719808, "?BigPolySet@@3VagiPolySet@@A");
 import_symbol(0x719840, "?CurrentMeshSetVariant@@3HA");
 import_symbol(0x719848, "?ClippedTextures@@3PAPAUCT@@A");
 import_symbol(0x71DE98, "?ClippedTris@@3PAUCT@@A");
+import_symbol(0x720EA0, "?CurrentMeshCard@@3UagiMeshCardInfo@@A");
 import_symbol(0x7210E8, "?ShadowMatrix@@3VMatrix44@@A");
 import_symbol(0x725134, "?DynTexFlag@@3HA");
 import_symbol(0x72D390, "?ClippedVerts@@3PAUCV@@A");

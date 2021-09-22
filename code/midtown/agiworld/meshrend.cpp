@@ -23,8 +23,10 @@ define_dummy_symbol(agiworld_meshrend);
 #include "agi/pipeline.h"
 #include "agi/rsys.h"
 #include "agi/viewport.h"
+#include "agisw/swrend.h"
 #include "agiworld/packnorm.h"
 #include "agiworld/quality.h"
+#include "agiworld/texsort.h"
 #include "data7/b2f.h"
 #include "data7/utimer.h"
 #include "dyna7/gfx.h"
@@ -76,10 +78,27 @@ alignas(64) i16 agiMeshSet::vertCounts[256];
 
 struct CV
 {
-    Vector4 Pos;
-    Vector3 UV;
-    u8 Fog;
-    u8 Indices[3];
+    f32 x, y, z, w; // screen position
+    f32 map[3];     // source vertex interpolation
+    u8 fog;         // vertex fog
+    u8 idx[3];      // source vertex indices
+
+    CV(const Vector4& pos, f32 map_0, f32 map_1, f32 map_2)
+        : x(pos.x)
+        , y(pos.y)
+        , z(pos.z)
+        , w(pos.w)
+        , map {map_0, map_1, map_2}
+    {}
+
+    CV(const Vector2& pos, f32 z, f32 w, f32 map_0, f32 map_1, f32 map_2, i32 idx_0, i32 idx_1, i32 idx_2)
+        : x(pos.x)
+        , y(pos.y)
+        , z(z)
+        , w(w)
+        , map {map_0, map_1, map_2}
+        , idx {static_cast<u8>(idx_0), static_cast<u8>(idx_1), static_cast<u8>(idx_2)}
+    {}
 };
 
 check_size(CV, 0x20);
@@ -384,12 +403,12 @@ struct PodArray
 
     alignas(T) unsigned char Data[N][sizeof(T)];
 
-    operator T*()
+    ARTS_FORCEINLINE operator T*()
     {
         return reinterpret_cast<T*>(Data);
     }
 
-    operator const T*() const
+    ARTS_FORCEINLINE operator const T*() const
     {
         return reinterpret_cast<const T*>(Data);
     }
@@ -403,33 +422,32 @@ void agiMeshSet::ClipTri(i32 i1, i32 i2, i32 i3, i32 texture)
     if ((ClippedVertCount + 16) > ARTS_SIZE(ClippedVerts) || ClippedTriCount == ARTS_SIZE(ClippedTris))
         Quitf("ClipTri: clip buffer overflow");
 
-    PodArray<CV, 16> verts;
+    PodArray<CV, 16> cv_in;
+    cv_in[0] = {out[VertexIndices[i1]], 1.0f, 0.0f, 0.0f};
+    cv_in[1] = {out[VertexIndices[i2]], 0.0f, 1.0f, 0.0f};
+    cv_in[2] = {out[VertexIndices[i3]], 0.0f, 0.0f, 1.0f};
 
-    verts[0] = {out[VertexIndices[i1]], {1.0f, 0.0f, 0.0f}};
-    verts[1] = {out[VertexIndices[i2]], {0.0f, 1.0f, 0.0f}};
-    verts[2] = {out[VertexIndices[i3]], {0.0f, 0.0f, 1.0f}};
-
-    u32 count = OnlyZClip ? ZClipOnly(&ClippedVerts[ClippedVertCount], verts, 3)
-                          : FullClip(&ClippedVerts[ClippedVertCount], verts, 3);
+    u32 count = OnlyZClip ? ZClipOnly(&ClippedVerts[ClippedVertCount], cv_in, 3)
+                          : FullClip(&ClippedVerts[ClippedVertCount], cv_in, 3);
 
     if (count)
     {
         for (u32 i = 0; i < count; ++i)
         {
-            CV* vert = &ClippedVerts[ClippedVertCount + i];
+            CV& vert = ClippedVerts[ClippedVertCount + i];
 
-            f32 inv_w = 1.0f / vert->Pos.w;
-            f32 x = vert->Pos.x * inv_w * HalfWidth + OffsX;
-            f32 y = vert->Pos.y * inv_w * HalfHeight + OffsY;
-            f32 z = vert->Pos.z * inv_w * DepthScale + DepthOffset;
+            f32 inv_w = 1.0f / vert.w;
+            f32 x = vert.x * inv_w * HalfWidth + OffsX;
+            f32 y = vert.y * inv_w * HalfHeight + OffsY;
+            f32 z = vert.z * inv_w * DepthScale + DepthOffset;
 
-            vert->Fog = CalculateFog(vert->Pos.w, FogValue);
-            vert->Pos.x = x;
-            vert->Pos.y = y;
-            vert->Pos.z = z;
-            vert->Pos.w = inv_w;
+            vert.fog = CalculateFog(vert.w, FogValue);
+            vert.x = x;
+            vert.y = y;
+            vert.z = z;
+            vert.w = inv_w;
 
-            ClampToScreen(vert->Pos);
+            ClampToScreen(vert);
         }
 
         ClippedTris[ClippedTriCount] = {ClippedVertCount, count,
@@ -1055,6 +1073,157 @@ i32 agiMeshSet::ShadowGeometry(u32 flags, Vector3* verts, const Vector4& plane, 
     ToScreen(codes, out, VertexCount);
 
     return clip_mask;
+}
+
+ARTS_IMPORT extern agiMeshCardInfo CurrentMeshCard;
+
+void agiMeshSet::DrawCard(Vector3& position, f32 scale, u32 rotation, u32 color, u32 frame)
+{
+    const agiViewParameters& view_params = ViewParams();
+    const Matrix34& matrix = view_params.ModelView;
+
+    f32 w = -(matrix.m0.z * position.x + matrix.m1.z * position.y + matrix.m2.z * position.z + matrix.m3.z);
+    f32 z = w * ProjZZ + ProjZW;
+
+    if (-w > z || z > w)
+        return;
+
+    f32 x = matrix.m0.x * position.x + matrix.m1.x * position.y + matrix.m2.x * position.z + matrix.m3.x;
+    f32 y = matrix.m0.y * position.x + matrix.m1.y * position.y + matrix.m2.y * position.z + matrix.m3.y;
+
+    u8 clip_any = 0;
+    u8 clip_all = 0xFF;
+    PodArray<Vector2, 4> positions;
+
+    Vector2* rotations = &CurrentMeshCard.Rotations[4 * ((CurrentMeshCard.PointCount - 1) & rotation)];
+    i32 vert_count = CurrentMeshCard.VertCount;
+
+    for (i32 i = 0; i < vert_count; ++i)
+    {
+        f32 vert_x = (scale * rotations[i].x + x) * view_params.ProjX + z * view_params.ProjXZ;
+        f32 vert_y = (scale * rotations[i].y + y) * view_params.ProjY + z * view_params.ProjYZ;
+
+        i32 clip = 0;
+        clip |= (-w > vert_x) ? MESH_CLIP_PX : (vert_x > w) ? MESH_CLIP_NX : 0;
+        clip |= (-w > vert_y) ? MESH_CLIP_PY : (vert_y > w) ? MESH_CLIP_NY : 0;
+
+        clip_any |= clip;
+        clip_all &= clip;
+        positions[i].x = vert_x;
+        positions[i].y = vert_y;
+    }
+
+    if (clip_all)
+        return;
+
+    if (agiCurState.GetDrawMode() == agiDrawDepth)
+        color = 0xFF202020;
+
+    u32 fog = CalculateFog(w, FogValue) << 24;
+    f32 inv_w = 1.0f / w;
+
+    if (f32 size = scale * inv_w; size < MinCardSize || size > MaxCardSize)
+        return;
+
+    f32 vert_z = z * inv_w * DepthScale + DepthOffset;
+    Vector2* tex_coords = &CurrentMeshCard.Frames[4 * frame];
+
+    if (clip_any & ClipMask)
+    {
+        for (i32 i = 0; i < vert_count - 2; ++i)
+        {
+            PodArray<CV, 16> cv_in;
+            PodArray<CV, 16> cv_out;
+            PodArray<agiScreenVtx, 16> verts;
+
+            cv_in[0] = CV(positions[0], z, w, 1.0f, 0.0f, 0.0f, 0, i + 1, i + 2);
+            cv_in[1] = CV(positions[i + 1], z, w, 0.0f, 1.0f, 0.0f, 0, i + 1, i + 2);
+            cv_in[2] = CV(positions[i + 2], z, w, 0.0f, 0.0f, 1.0f, 0, i + 1, i + 2);
+
+            if (i32 clipped = FullClip(cv_out, cv_in, 3))
+            {
+                agiPolySet* poly = nullptr;
+
+                if (!agiCurState.GetSoftwareRendering())
+                    poly = agiTexSorter::BeginVerts(agiCurState.GetTexture(), clipped, 3 * (clipped - 2));
+
+                for (i32 j = 0; j < clipped; ++j)
+                {
+                    agiScreenVtx& vert = !agiCurState.GetSoftwareRendering() ? poly->Vert() : verts[clipped - j - 1];
+
+                    vert.x = cv_out[j].x * inv_w * HalfWidth + OffsX;
+                    vert.y = cv_out[j].y * inv_w * HalfHeight + OffsY;
+                    vert.z = vert_z;
+                    vert.w = inv_w;
+
+                    vert.tu = cv_out[j].map[0] * tex_coords[cv_out[j].idx[0]].x +
+                        cv_out[j].map[1] * tex_coords[cv_out[j].idx[1]].x +
+                        cv_out[j].map[2] * tex_coords[cv_out[j].idx[2]].x;
+
+                    vert.tv = cv_out[j].map[0] * tex_coords[cv_out[j].idx[0]].y +
+                        cv_out[j].map[1] * tex_coords[cv_out[j].idx[1]].y +
+                        cv_out[j].map[2] * tex_coords[cv_out[j].idx[2]].y;
+
+                    vert.color = color;
+                    vert.specular = fog;
+
+                    ClampToScreen(vert);
+                }
+
+                if (agiCurState.GetSoftwareRendering())
+                {
+                    swPoly(verts, clipped);
+                }
+                else
+                {
+                    for (i32 j = 2; j < clipped; ++j)
+                        poly->Triangle(0, j, j - 1);
+
+                    agiTexSorter::EndVerts();
+                }
+            }
+        }
+    }
+    else
+    {
+        PodArray<agiScreenVtx, 4> verts;
+
+        for (i32 i = 0; i < vert_count; ++i)
+        {
+            verts[i].x = positions[i].x * inv_w * HalfWidth + OffsX;
+            verts[i].y = positions[i].y * inv_w * HalfHeight + OffsY;
+            verts[i].z = vert_z;
+            verts[i].w = inv_w;
+            verts[i].tu = tex_coords[i].x;
+            verts[i].tv = tex_coords[i].y;
+            verts[i].color = color;
+            verts[i].specular = fog;
+
+            ClampToScreen(verts[i]);
+        }
+
+        if (agiCurState.GetSoftwareRendering())
+        {
+            if (vert_count == 3)
+                swTri(&verts[2], &verts[1], &verts[0]);
+            else
+                swQuad(&verts[3], &verts[2], &verts[1], &verts[0]);
+        }
+        else
+        {
+            agiPolySet* poly = agiTexSorter::BeginVerts(agiCurState.GetTexture(), vert_count, 3 * (vert_count - 2));
+
+            for (i32 i = 0; i < vert_count; ++i)
+                poly->Vert() = verts[i];
+
+            if (CurrentMeshCard.VertCount == 4)
+                poly->Quad(3, 2, 1, 0);
+            else
+                poly->Triangle(2, 1, 0);
+
+            agiTexSorter::EndVerts();
+        }
+    }
 }
 
 void agiMeshSet::DrawLines(Vector3* starts, Vector3* ends, u32* colors, i32 count)

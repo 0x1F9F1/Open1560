@@ -203,24 +203,24 @@ public:
         Triangle(i1, i3, i4);
     }
 
-    agiScreenVtx* Vert()
+    agiScreenVtx& Vert()
     {
         ArAssert(!MultiTex, "PolySet is MultiTex");
 
         if (VertCount == MaxVerts)
             Quitf("Vertex pool overrun.");
 
-        return &Verts[VertCount++];
+        return Verts[VertCount++];
     }
 
-    agiScreenVtx2* Vert2()
+    agiScreenVtx2& Vert2()
     {
         ArAssert(MultiTex, "PolySet is not MultiTex");
 
         if (VertCount == MaxVerts)
             Quitf("Vertex pool overrun.");
 
-        return &Verts2[VertCount++];
+        return Verts2[VertCount++];
     }
 
     void Init(i32 verts, i32 indices);

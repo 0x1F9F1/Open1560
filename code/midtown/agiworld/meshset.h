@@ -215,7 +215,7 @@ public:
     ARTS_EXPORT void UnlockAndFree();
 
     // ?DrawCard@agiMeshSet@@SAXAAVVector3@@MIII@Z | agiworld:meshrend
-    ARTS_IMPORT static void DrawCard(Vector3& arg1, f32 arg2, u32 arg3, u32 arg4, u32 arg5);
+    ARTS_EXPORT static void DrawCard(Vector3& position, f32 scale, u32 rotation, u32 color, u32 frame);
 
     // ?DrawLines@agiMeshSet@@SAXPAVVector3@@0PAIH@Z | agiworld:meshrend
     ARTS_EXPORT static void DrawLines(Vector3* starts, Vector3* ends, u32* colors, i32 count);
