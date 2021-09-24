@@ -1,5 +1,6 @@
 import struct
 import numpy
+import math
 
 def read_unpack(file, fmt):
     return struct.unpack(fmt, file.read(struct.calcsize(fmt)))
@@ -28,14 +29,35 @@ class Vector3:
     def __mul__(self, other):
         return Vector3(self.x * other, self.y * other, self.z * other)
 
+    def __truediv__(self, other):
+        return Vector3(self.x / other, self.y / other, self.z / other)
+
     def __eq__(self, other):
         return (self.x, self.y, self.z) == (other.x, other.y, other.z)
+
+    def Cross(self, rhs):
+        return Vector3(self.y * rhs.z - self.z * rhs.y, self.z * rhs.x - self.x * rhs.z, self.x * rhs.y - self.y * rhs.x)
+
+    def Dot(self, rhs):
+        return (self.x * rhs.x) + (self.y * rhs.y) + (self.z * rhs.z)
 
     def Mag2(self):
         return (self.x * self.x) + (self.y * self.y) + (self.z * self.z)
 
+    def Normalize(self):
+        return self * (self.Mag2() ** -0.5)
+
     def Dist2(self, other):
         return (other - self).Mag2()
+
+    def Angle(self, rhs):
+        return math.acos(self.Dot(rhs) * ((self.Mag2() * rhs.Mag2()) ** -0.5))
+
+def calc_normal(a, b, c):
+    try:
+        return (c - b).Cross(a - b).Normalize()
+    except:
+        return Vector3(0, 1, 0)
 
 class aiPath:
     def load(self, file):
@@ -217,6 +239,11 @@ for i, path in enumerate(ai_map.Paths):
     # No more than 1 sidewalk per road-side
     assert path.NumSidewalks in [0, 1]
 
+    # Only custom paths should have no sidewalks
+    if path.NumSidewalks == 0:
+        # If there are no sidewalks, all normals are straight up
+        assert all(v == Vector3(0, 1, 0) for v in path.Normals)
+
     isect_id = path.IntersectionIds[0]
     isect = ai_map.Intersections[isect_id]
 
@@ -250,6 +277,22 @@ for street_name, paths in streets:
     assert paths[0].Divided == paths[1].Divided
     assert paths[0].Alley == paths[1].Alley
     assert paths[0].Normals == list(reversed(paths[1].Normals))
+    assert paths[0].Normals[0] == Vector3(0, 1, 0)
+    assert paths[0].Normals[-1] == Vector3(0, 1, 0)
+
+    if paths[0].NumSidewalks != 0:
+        for n in range(1, len(paths[0].Normals) - 1):
+            target = paths[0].Normals[n]
+
+            a = paths[0].LaneVertices[n]
+            b = paths[0].Boundaries[paths[0].NumVertexs + n - 1]
+            c = paths[0].Boundaries[paths[0].NumVertexs + n]
+
+            normal = calc_normal(a, b, c)
+            angle = math.degrees(target.Angle(normal))
+
+            if angle > 0.01:
+                print('Road {} has suspicious normal {}: Expected {}, Calculated {} ({:.2} degrees error)'.format(paths[0].ID, n, target, normal, angle))
 
     with open('{}{}.road'.format(city_dir, street_name), 'w') as f:
         parser = MiniParser(f)
