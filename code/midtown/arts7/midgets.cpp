@@ -662,7 +662,7 @@ void asMidgets::Update()
 
     while (event_queue_.Pop(&ev))
     {
-        if ((ev.Common.Type == eqEventType::Keyboard) && (ev.Key.Modifiers & EQ_KMOD_DOWN))
+        if ((ev.Type == eqEventType::Keyboard) && (ev.Key.Modifiers & EQ_KMOD_DOWN))
             UpdateKey(ev.Key.Key, ev.Key.Modifiers);
     }
 

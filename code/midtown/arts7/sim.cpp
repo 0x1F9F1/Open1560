@@ -404,7 +404,7 @@ void asSimulation::Pause()
 
         while (events.Pop(&event))
         {
-            if ((event.Common.Type == eqEventType::Keyboard) && (event.Key.Modifiers & EQ_KMOD_DOWN))
+            if ((event.Type == eqEventType::Keyboard) && (event.Key.Modifiers & EQ_KMOD_DOWN))
             {
                 frame_step_ = 0;
                 done = true;
@@ -685,7 +685,7 @@ void asSimulation::Device()
 
     for (eqEvent event; keys_queue_.Pop(&event);)
     {
-        if ((event.Common.Type != eqEventType::Keyboard) || !(event.Key.Modifiers & EQ_KMOD_DOWN))
+        if ((event.Type != eqEventType::Keyboard) || !(event.Key.Modifiers & EQ_KMOD_DOWN))
             continue;
 
         i32 vkey = event.Key.Key;
@@ -875,7 +875,7 @@ void asSimulation::Widgets()
 #ifdef ARTS_DEV_BUILD
     for (eqEvent event; widgets_queue_.Pop(&event);)
     {
-        if ((event.Common.Type == eqEventType::Keyboard) && (event.Key.Modifiers == (EQ_KMOD_DOWN | EQ_KMOD_CTRL)) &&
+        if ((event.Type == eqEventType::Keyboard) && (event.Key.Modifiers == (EQ_KMOD_DOWN | EQ_KMOD_CTRL)) &&
             (event.Key.Key == EQ_VK_M) && !no_debug_)
         {
             if (MIDGETSPTR->IsOpen() && MIDGETSPTR->GetVisibleLines() == 5)

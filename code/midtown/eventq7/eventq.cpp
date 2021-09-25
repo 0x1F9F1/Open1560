@@ -135,7 +135,7 @@ void eqEventQ::Clear()
 
 void eqEventQ::Queue(eqEvent& event)
 {
-    if (!(enabled_events_ & EQ_EVENT_MASK(event.Common.Type)))
+    if (!(enabled_events_ & EQ_EVENT_MASK(event.Type)))
         return;
 
     u32 head = (write_head_ + 1) & (max_events_ - 1);

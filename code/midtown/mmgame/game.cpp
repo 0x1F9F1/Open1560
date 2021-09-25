@@ -80,7 +80,7 @@ void mmGame::UpdateDebugInput()
 {
     while (EventQueue->Pop(&CurrentEvent))
     {
-        if ((CurrentEvent.Common.Type != eqEventType::Keyboard) || (CurrentEvent.Key.Key == 0))
+        if ((CurrentEvent.Type != eqEventType::Keyboard) || (CurrentEvent.Key.Key == 0))
             continue;
 
         eqKeyboardEvent& event = CurrentEvent.Key;
@@ -502,7 +502,7 @@ void mmGame::UpdatePaused()
 
     while (EventQueue->Pop(&CurrentEvent))
     {
-        if ((CurrentEvent.Common.Type != eqEventType::Keyboard) || (CurrentEvent.Key.Key == 0))
+        if ((CurrentEvent.Type != eqEventType::Keyboard) || (CurrentEvent.Key.Key == 0))
             continue;
 
         eqKeyboardEvent& event = CurrentEvent.Key;

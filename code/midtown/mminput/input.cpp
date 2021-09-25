@@ -64,7 +64,7 @@ void mmInput::ProcessKeyboardEvents()
     {
         bool scan = false;
 
-        if (event.Common.Type == eqEventType::Keyboard)
+        if (event.Type == eqEventType::Keyboard)
         {
             if (event.Key.Char == 0) // Ignore WM_CHAR/SDL_TEXTINPUT
             {
@@ -77,7 +77,7 @@ void mmInput::ProcessKeyboardEvents()
                     !(event.Key.Modifiers & EQ_KMOD_REPEAT);
             }
         }
-        else if (event.Common.Type == eqEventType::Mouse)
+        else if (event.Type == eqEventType::Mouse)
         {
             scan = event.Mouse.Buttons;
         }

@@ -53,6 +53,8 @@ enum class eqEventType : u32
 struct eqCommonEvent
 {
     void* Window;
+
+    // TODO: Move before Window
     eqEventType Type;
 };
 
@@ -96,9 +98,16 @@ struct eqActivateEvent : eqCommonEvent
     b32 Active;
 };
 
+ARTS_DIAGNOSTIC_PUSH;
+ARTS_MSVC_DIAGNOSTIC_IGNORED(4201); // nonstandard extension used: nameless struct/union
+
 union eqEvent
 {
-    eqCommonEvent Common;
+    struct
+    {
+        void* Window;
+        eqEventType Type;
+    };
 
     eqRedrawEvent Redraw;
     eqRefocusEvent Refocus;
@@ -109,6 +118,8 @@ union eqEvent
 };
 
 check_size(eqEvent, 0x24);
+
+ARTS_DIAGNOSTIC_POP;
 
 class eqEventQ final : public eqEventMonitor
 {
