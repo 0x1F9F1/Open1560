@@ -200,6 +200,8 @@ private:
     f32 MaxRPM;
     f32 MinSpeed;
     u16 InTransition;
+
+public:
     i16 Active;
 };
 

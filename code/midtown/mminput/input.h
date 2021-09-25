@@ -448,6 +448,11 @@ public:
 
     ARTS_ZEROED;
 
+    bool IsInputPressed(i32 ioid) const
+    {
+        return (CurrentState & (1_i64 << ioid)) != 0;
+    }
+
     mmJoyMan* Joy;
     mmIO* IO;
     i32 NumControls;

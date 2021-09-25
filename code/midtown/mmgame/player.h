@@ -141,7 +141,7 @@ public:
     ARTS_IMPORT void SetSteering(f32 arg1);
 
     // ?SetWideFOV@mmPlayer@@QAEXH@Z
-    ARTS_IMPORT void SetWideFOV(i32 arg1);
+    ARTS_IMPORT void SetWideFOV(b32 arg1);
 
     // ?ToggleCam@mmPlayer@@QAEXXZ
     ARTS_IMPORT void ToggleCam();

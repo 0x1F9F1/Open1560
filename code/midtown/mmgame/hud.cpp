@@ -20,6 +20,18 @@ define_dummy_symbol(mmgame_hud);
 
 #include "hud.h"
 
+#include "mmcity/cullcity.h"
+#include "mmcityinfo/state.h"
+
+#include "gameman.h"
+
+void mmHUD::ToggleMirror()
+{
+    ScreenClearCount = 3;
+    CullCity()->RenderWeb.EnableMirror ^= true;
+    MMSTATE.EnableMirror = CullCity()->RenderWeb.EnableMirror;
+}
+
 void mmHUD::TogglePositionDisplay(i32 mode)
 {
     // FIXME: Move to constructor
@@ -37,9 +49,9 @@ void mmHUD::TogglePositionDisplay(i32 mode)
     ShowPosition = (mode != -1) ? (mode != 0) : !ShowPosition;
 
     if (ShowPosition)
-        PositionText.Activate();
+        PositionText.ActivateNode();
     else
-        PositionText.Deactivate();
+        PositionText.DeactivateNode();
 }
 
 void mmHUD::UpdatePaused()

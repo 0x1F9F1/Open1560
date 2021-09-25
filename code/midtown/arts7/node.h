@@ -174,17 +174,17 @@ public:
     // ?VerifyTree@asNode@@QAEPADXZ | arts7:sim
     ARTS_EXPORT const char* VerifyTree();
 
-    bool IsActive() const
+    bool IsNodeActive() const
     {
         return node_flags_ & NODE_FLAG_ACTIVE;
     }
 
-    void Activate()
+    void ActivateNode()
     {
         node_flags_ |= NODE_FLAG_ACTIVE;
     }
 
-    void Deactivate()
+    void DeactivateNode()
     {
         node_flags_ &= ~NODE_FLAG_ACTIVE;
     }

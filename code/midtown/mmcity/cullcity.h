@@ -111,6 +111,7 @@
 
 #include "inst.h"
 #include "instchn.h"
+#include "renderweb.h"
 
 class agiTexDef;
 class asCamera;
@@ -189,6 +190,8 @@ public:
 
     // ?GetInstance@mmCullCity@@SAPAV1@XZ | inline
     ARTS_IMPORT static mmCullCity* GetInstance();
+
+    offset_field(0x2B950, asRenderWeb, RenderWeb);
 
     offset_field(0x34ACC, mmInstChain, BuildingChain);
     offset_field(0x34AD8, mmInstChain, ObjectsChain);

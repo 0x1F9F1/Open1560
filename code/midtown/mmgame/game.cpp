@@ -70,6 +70,9 @@ mmGame::mmGame()
 
     arts_strcpy(LocPlayerName, LOC_STR(MM_IDS_PLAYER_NAME));
 
+    // TODO: Move to mmInput constructor
+    GameInput()->SetNodeFlag(NODE_FLAG_UPDATE_PAUSED);
+
     BangerProjectile = nullptr;
 }
 
@@ -345,8 +348,158 @@ void mmGame::UpdateDebugInput()
     }
 }
 
+void mmGame::UpdateGameInput()
+{
+    if (bool horn = GameInput()->IsInputPressed(IOID_HORN); static_cast<b16>(horn) != HornPressed)
+    {
+        HornPressed = horn;
+
+        if (horn)
+        {
+            if (BangerProjectile)
+                BangerProjectile->LaunchInstance(ProjectileY, &ProjectileV);
+
+            if (Player->Car.Model.HasSiren())
+                Player->Car.ToggleSiren();
+            else
+                Player->Car.Sim.PlayHorn();
+        }
+        else
+        {
+            if (!Player->Car.Model.HasSiren())
+                Player->Car.Sim.StopHorn();
+        }
+    }
+
+    for (i32 event = -1; GameInput()->PopEvent(&event);)
+    {
+        switch (event)
+        {
+            case IOID_MAP: {
+                Player->HudMap.Cycle();
+
+                if (!Player->HudMap.IsNodeActive() && Player->IsPOV() && Player->WideFov)
+                    Player->SetWideFOV(true);
+
+                break;
+            }
+            case IOID_FMAP: Player->HudMap.ToggleFullScreen(); break;
+            case IOID_MAPRES: Player->HudMap.ToggleMapRes(); break;
+            case IOID_HUD: Player->Hud.ToggleExternalView(); break;
+            case IOID_CAM: Player->ToggleCam(); break;
+            case IOID_XVIEW: Player->ToggleExternalView(); break;
+
+            case IOID_WFOV: {
+                if (Player->HudMap.GetMode() < HUD_MAP_MODE_2)
+                {
+                    Player->ToggleWideFOV();
+
+                    if (Player->Hud.IsDashActive() && Player->WideFov)
+                    {
+                        Player->Hud.DeactivateDash();
+
+                        // FIXME: Find a better way to track if the dash was active
+                        Player->Hud.DashView.Active = true;
+                        Player->Car.Model.Deactivate();
+                    }
+                }
+
+                if (!Player->WideFov && Player->Hud.DashView.Active && Player->CameraMode == 0)
+                    Player->Hud.ActivateDash();
+
+                break;
+            }
+
+            case IOID_DASH: Player->ToggleDash(); break;
+
+            case IOID_TRANS: {
+                if (mmTransmission& trans = Player->Car.Sim.Trans; trans.IsAutomatic)
+                {
+                    GameInput()->SwapThrottle = false;
+                    trans.Automatic(false);
+                }
+                else
+                {
+                    trans.Automatic(true);
+                }
+
+                break;
+            }
+
+            case IOID_UPSH: {
+                if (mmTransmission& trans = Player->Car.Sim.Trans; trans.IsAutomatic)
+                    trans.SetDrive();
+                else
+                    trans.Upshift();
+
+                break;
+            }
+
+            case IOID_DWNS: {
+                if (mmTransmission& trans = Player->Car.Sim.Trans; trans.IsAutomatic)
+                    trans.SetReverse();
+                else
+                    trans.Downshift();
+
+                break;
+            }
+
+            case IOID_REV: {
+                GameInput()->SwapThrottle = false;
+
+                if (mmTransmission& trans = Player->Car.Sim.Trans; trans.IsReverse())
+                    trans.SetDrive();
+                else
+                    trans.SetReverse();
+
+                break;
+            }
+
+            case IOID_CDSHOW: Player->Hud.CDPlayer.Toggle(); break;
+            case IOID_CDPLAY: Player->Hud.CDPlayer.PlayStop(); break;
+            case IOID_CDPRIOR: Player->Hud.CDPlayer.PrevTrack(); break;
+            case IOID_CDNEXT: Player->Hud.CDPlayer.NextTrack(); break;
+
+            case IOID_MIRROR: Player->Hud.ToggleMirror(); break;
+
+            case IOID_OPPPOS: {
+                MMSTATE.ShowPositions ^= true;
+                SetIconsState();
+                break;
+            }
+
+            case IOID_CHAT: {
+                if (NETMGR.InSession())
+                    Popup->ProcessChat();
+                break;
+            }
+
+            default: UpdateGameInput(event); break;
+        }
+    }
+
+    Player->CamPan = GameInput()->GetCamPan();
+
+    if (Player->IsPOV())
+    {
+        if (Player->CamPan == 0.0f)
+            Player->Hud.ActivateNode();
+        else
+            Player->Hud.DeactivateNode();
+    }
+}
+
 void mmGame::UpdatePaused()
 {
+    for (i32 event = -1; GameInput()->PopEvent(&event);)
+    {
+        switch (event)
+        {
+            case IOID_CAM: Player->ToggleCam(); break;
+            case IOID_XVIEW: Player->ToggleExternalView(); break;
+        }
+    }
+
     while (EventQueue->Pop(&CurrentEvent))
     {
         if ((CurrentEvent.Common.Type != eqEventType::Keyboard) || (CurrentEvent.Key.Key == 0))
@@ -362,14 +515,6 @@ void mmGame::UpdatePaused()
 
         switch (event.Key)
         {
-            case EQ_VK_C: {
-                Player->ToggleCam();
-                break;
-            }
-            case EQ_VK_V: {
-                Player->ToggleExternalView();
-                break;
-            }
             case EQ_VK_F1: {
                 Popup->ProcessKeymap(!NETMGR.InSession());
                 break;

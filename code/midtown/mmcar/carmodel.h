@@ -180,6 +180,11 @@ public:
     // ?DeclareFields@mmCarModel@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
+    bool HasSiren() const
+    {
+        return CarFlags & CAR_FLAG_SIREN;
+    }
+
     bool HasTrailer() const
     {
         return CarFlags & CAR_FLAG_TRAILER;

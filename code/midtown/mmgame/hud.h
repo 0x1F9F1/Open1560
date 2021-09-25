@@ -292,7 +292,7 @@ public:
     ARTS_IMPORT void ToggleExternalView();
 
     // ?ToggleMirror@mmHUD@@QAEXXZ
-    ARTS_IMPORT void ToggleMirror();
+    ARTS_EXPORT void ToggleMirror();
 
     // ?TogglePositionDisplay@mmHUD@@QAEXH@Z
     ARTS_EXPORT void TogglePositionDisplay(i32 mode);

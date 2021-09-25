@@ -625,7 +625,7 @@ void asSimulation::UpdatePaused(asNode* node)
 {
     for (i32 i = 0; i < node->NumChildren(); ++i)
     {
-        if (asNode* child = node->GetChild(i + 1); child->IsActive())
+        if (asNode* child = node->GetChild(i + 1); child->IsNodeActive())
         {
             if (child->TestNodeFlag(NODE_FLAG_UPDATE_PAUSED))
             {

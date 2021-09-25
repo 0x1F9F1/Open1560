@@ -52,7 +52,7 @@ void mmCar::PostUpdate()
         Trailer->PostUpdate();
 
         // FIXME: If the trailer isn't active, the car won't move either
-        if (TrailerJoint->IsActive())
+        if (TrailerJoint->IsNodeActive())
             TrailerJoint->MoveICS();
     }
     else

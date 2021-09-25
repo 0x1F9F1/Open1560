@@ -64,6 +64,10 @@
 
 #include "portal.h"
 
+class agiViewport;
+class asParticles;
+class mmBoundTemplate;
+
 #define RENDER_PASS_TERRAIN 0x1   // Roads, Grass, Water, Bridges
 #define RENDER_PASS_SHADOWS 0x2   // Shadows, Skids
 #define RENDER_PASS_BUILDINGS 0x4 // Buildings
@@ -124,7 +128,18 @@ public:
     // RENDER_PASS_*
     ARTS_IMPORT static i32 PassMask;
 
-    u8 gap904C[0x12C];
+    asPortalCell** Cells;
+    mmBoundTemplate* HitIdBound;
+    mmBoundTemplate** Bounds;
+    i32 HasHitIdBound;
+    i32 MaxCells;
+    i32 HitID;
+    asParticles* Particles[64];
+    i32 PtxCount;
+    b32 EnableMirror;
+    agiViewport* Viewport;
+    Matrix34* CarCamera;
+    Matrix34* MirrorMatrix;
 };
 
 check_size(asRenderWeb, 0x9178);

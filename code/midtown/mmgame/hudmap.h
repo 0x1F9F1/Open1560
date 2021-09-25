@@ -85,6 +85,11 @@ struct OppIconInfo
 
 check_size(OppIconInfo, 0x24);
 
+#define HUD_MAP_MODE_0 0
+#define HUD_MAP_MODE_1 1
+#define HUD_MAP_MODE_2 2
+#define HUD_MAP_MODE_3 3
+
 class mmHudMap final : public asNode
 {
 public:
@@ -151,6 +156,11 @@ public:
     void ToggleShowAllCops()
     {
         ShowAllCops ^= true;
+    }
+
+    i32 GetMode()
+    {
+        return Mode;
     }
 
     // ?DeclareFields@mmHudMap@@SAXXZ

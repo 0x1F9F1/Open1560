@@ -166,7 +166,7 @@ public:
     ARTS_IMPORT void Update() override;
 
     // ?UpdateGameInput@mmGame@@QAEXXZ
-    ARTS_IMPORT void UpdateGameInput();
+    ARTS_EXPORT void UpdateGameInput();
 
     // ?UpdatePaused@mmGame@@UAEXXZ
     ARTS_EXPORT void UpdatePaused() override;
@@ -202,7 +202,7 @@ public:
     b32 MiscDataLoaded {};
     b32 IsChicago {};
     i32 GameState {};
-    i16 PlayingHorn {};
+    b16 HornPressed {};
     bool HasAIMap {};
     bool EnableAI {true};
     char MapName[40] {};

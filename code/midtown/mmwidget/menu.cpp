@@ -77,7 +77,7 @@ void UIMenu::ClearAction()
 
 b32 UIMenu::ScanInput(eqEvent* event)
 {
-    if (!IsActive() || (event->Common.Type != eqEventType::Keyboard) || !(event->Key.Modifiers & EQ_KMOD_DOWN))
+    if (!IsNodeActive() || (event->Common.Type != eqEventType::Keyboard) || !(event->Key.Modifiers & EQ_KMOD_DOWN))
         return false;
 
     // TODO: return result of ScanGlobalKeys?

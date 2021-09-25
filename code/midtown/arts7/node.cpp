@@ -52,7 +52,7 @@ void asNode::Update()
     {
         for (asNode* n = child_node_; n; n = n->next_node_)
         {
-            if (n->IsActive())
+            if (n->IsNodeActive())
             {
                 Timer t;
                 n->Update();
@@ -65,7 +65,7 @@ void asNode::Update()
     {
         for (asNode* n = child_node_; n; n = n->next_node_)
         {
-            if (n->IsActive())
+            if (n->IsNodeActive())
                 n->Update();
         }
     }
@@ -408,9 +408,9 @@ void asNode::SwitchTo(i32 idx)
     for (asNode* n = child_node_; n; n = n->next_node_, ++i)
     {
         if (idx == -1 || idx == i)
-            n->Activate();
+            n->ActivateNode();
         else
-            n->Deactivate();
+            n->DeactivateNode();
     }
 }
 

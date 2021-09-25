@@ -38,7 +38,7 @@ void mmAxle::Init(char* veh_name, [[maybe_unused]] char* axle_name, mmWheel* lef
     }
     else
     {
-        Deactivate();
+        DeactivateNode();
     }
 }
 

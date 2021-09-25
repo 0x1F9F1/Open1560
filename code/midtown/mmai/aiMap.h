@@ -126,10 +126,10 @@ class aiVehicleManager;
 class aiVehicleOpponent;
 class aiVehiclePolice;
 class aiVehicleSpline;
-class asPortalCell;
 class CArrayList;
 class mmCar;
 class mmRoadSect;
+struct asPortalCell;
 
 class aiMap final : public asNode
 {
