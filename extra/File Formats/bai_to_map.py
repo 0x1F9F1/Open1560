@@ -239,6 +239,17 @@ for i, path in enumerate(ai_map.Paths):
     # No more than 1 sidewalk per road-side
     assert path.NumSidewalks in [0, 1]
 
+    # 0: Stop
+    # 1: Traffic Lights
+    # 2: Yield (Unused)
+    # 3: Continue
+    assert path.IntersectionType in [0, 1, 3]
+
+    if path.IntersectionType == 0:
+        assert path.StopLightName == "tpsstop"
+    else:
+        assert path.StopLightName in ["tplttrafc", "tplttrafcdual"]
+
     # Only custom paths should have no sidewalks
     if path.NumSidewalks == 0:
         # If there are no sidewalks, all normals are straight up

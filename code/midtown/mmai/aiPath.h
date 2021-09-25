@@ -80,6 +80,11 @@ class aiPedestrian;
 class aiVehicleSpline;
 class mmRoadSect;
 
+#define AI_INTERSECTION_STOP 0
+#define AI_INTERSECTION_TRAFFIC_LIGHT 1
+#define AI_INTERSECTION_YIELD 2 // Unused
+#define AI_INTERSECTION_CONTINUE 3
+
 class aiPath
 {
 public:
