@@ -94,7 +94,7 @@ public:
     // ??_GmmGame@@UAEPAXI@Z
     // ??_EmmGame@@UAEPAXI@Z
     // ??1mmGame@@UAE@XZ
-    ARTS_IMPORT ~mmGame() override;
+    ARTS_EXPORT ~mmGame() override;
 
     // ?InitGameStrings@mmGame@@UAEXXZ
     ARTS_IMPORT virtual void InitGameStrings();
@@ -177,8 +177,8 @@ public:
     // ?DeclareFields@mmGame@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    mmPlayer* Player {};
-    mmPositions* ResetPositions {};
+    Ptr<mmPlayer> Player;
+    Ptr<mmPositions> ResetPositions;
     mmIcons Icons {};
     string OpponentNames {};
     string FinishMessages {};
@@ -186,18 +186,18 @@ public:
     f32 AutoRevSpeed {5.0f};
     Vector3 ResetPosition {};
     b32 ShowResults {};
-    mmCullCity* pCullCity {};
+    Ptr<mmCullCity> pCullCity;
     i32 field_B0 {};
     i32 field_B4 {};
-    asLamp* Lamp {};
-    asLinearCS* LampCS {};
+    Ptr<asLamp> Lamp;
+    Ptr<asLinearCS> LampCS;
     i32 field_C0 {};
-    AudSound* StartSounds {};
-    mmVoiceCommentary* VoiceCommentary {};
-    mmAmbientAudio* AmbientAudio {};
-    mmPopup* Popup {};
-    mmAnimMgr* AnimMgr {};
-    mmRaceData* RaceData {};
+    Ptr<AudSound> StartSounds;
+    Ptr<mmVoiceCommentary> VoiceCommentary;
+    Ptr<mmAmbientAudio> AmbientAudio;
+    Ptr<mmPopup> Popup;
+    Ptr<mmAnimMgr> AnimMgr;
+    Ptr<mmRaceData> RaceData;
     mmMiscData MiscData {};
     b32 MiscDataLoaded {};
     b32 IsChicago {};
@@ -208,7 +208,7 @@ public:
     char MapName[40] {};
     char RaceDir[40] {};
     OppIconInfo OppIcons[8] {};
-    eqEventQ* EventQueue {};
+    Ptr<eqEventQ> EventQueue;
     eqEvent CurrentEvent {};
     f32 GameStateWait {};
     mmPlayerConfig Config {};

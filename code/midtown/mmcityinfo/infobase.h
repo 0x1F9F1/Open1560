@@ -54,7 +54,7 @@ public:
     ARTS_IMPORT i32 Save(char* arg1);
 
     // ?SetIOPath@mmInfoBase@@QAEXPAD@Z
-    ARTS_IMPORT void SetIOPath(char* arg1);
+    ARTS_IMPORT void SetIOPath(aconst char* arg1);
 
     // ?DeclareFields@mmInfoBase@@SAXXZ
     ARTS_IMPORT static void DeclareFields();

@@ -33,7 +33,7 @@
 */
 
 // ?DumpPositions@@YAXPAD@Z
-ARTS_IMPORT void DumpPositions(char* arg1);
+ARTS_IMPORT void DumpPositions(aconst char* arg1);
 
 // ?GetPositionCount@@YAHXZ
 ARTS_IMPORT i32 GetPositionCount();
@@ -54,7 +54,7 @@ ARTS_IMPORT i32 RecallPosition(i32 arg1, Matrix34* arg2, i32* arg3, char* arg4);
 ARTS_IMPORT i32 RegisterPosition(Vector4& arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, char* arg6);
 
 // ?DontClearPositions@@3HA
-ARTS_IMPORT extern i32 DontClearPositions;
+ARTS_IMPORT extern b32 DontClearPositions;
 
 struct position_t
 {

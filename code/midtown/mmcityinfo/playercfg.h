@@ -104,7 +104,7 @@ public:
     ARTS_IMPORT void Reset();
 
     // ?Save@mmPlayerConfig@@QAEHPADH@Z
-    ARTS_IMPORT i32 Save(char* arg1, i32 arg2);
+    ARTS_IMPORT b32 Save(char* path, b32 binary);
 
     // ?SaveBinary@mmPlayerConfig@@QAEHPAD@Z
     ARTS_IMPORT i32 SaveBinary(char* arg1);

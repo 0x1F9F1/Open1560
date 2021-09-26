@@ -22,7 +22,9 @@ define_dummy_symbol(mmgame_game);
 
 #include "agi/pipeline.h"
 #include "arts7/cullmgr.h"
+#include "arts7/lamp.h"
 #include "arts7/sim.h"
+#include "data7/memstat.h"
 #include "eventq7/eventq.h"
 #include "eventq7/keys.h"
 #include "localize//localize.h"
@@ -33,16 +35,22 @@ define_dummy_symbol(mmgame_game);
 #include "mmanim/AnimMgr.h"
 #include "mmaudio/manager.h"
 #include "mmaudio/mmvoicecommentary.h"
+#include "mmaudio/sound.h"
 #include "mmbangers/data.h"
 #include "mmcar/carsimcheap.h"
 #include "mmcity/cullcity.h"
 #include "mmcity/position.h"
+#include "mmcity/positions.h"
+#include "mmcityinfo/playerdata.h"
+#include "mmcityinfo/racedata.h"
 #include "mmcityinfo/state.h"
 #include "mminput/input.h"
 #include "mmnetwork/network.h"
 #include "mmphysics/phys.h"
+#include "stream/hfsystem.h"
 
 #include "gameman.h"
+#include "mmambientaudio.h"
 #include "player.h"
 #include "popup.h"
 #include "waypoints.h"
@@ -74,6 +82,68 @@ mmGame::mmGame()
     GameInput()->SetNodeFlag(NODE_FLAG_UPDATE_PAUSED);
 
     BangerProjectile = nullptr;
+}
+
+mmGame::~mmGame()
+{
+    if (MMCURRPLAYER.Loaded && EnableSave)
+    {
+        Config.SetIOPath(xconst("players"));
+        Config.GetControls();
+        Config.GetAudio();
+        Config.GetGraphics();
+
+        if (NextHudMode != -1)
+            Player->HudMap.SetMode(NextHudMode);
+
+        Config.GetViewSettings();
+
+        Config.Save(MMCURRPLAYER.GetFileName(), true);
+    }
+
+    if (!LogOpenOn)
+    {
+        DontClearPositions = true;
+        DumpPositions(xconst("positions.csv"));
+
+        i32 max_posi = 0;
+        WIN32_FIND_DATAA find_data;
+
+        if (HANDLE find_handle = FindFirstFileA("posi*.csv", &find_data); find_handle != INVALID_HANDLE_VALUE)
+        {
+            do
+            {
+                max_posi = (std::max) (max_posi, std::atoi(&find_data.cFileName[4]));
+            } while (FindNextFileA(find_handle, &find_data));
+
+            FindClose(find_handle);
+        }
+
+        DontClearPositions = false;
+        DumpPositions(arts_formatf<64>("posi%04d.csv", max_posi + 1));
+    }
+
+    {
+        ARTS_MEM_STAT("mmGame Destructor");
+
+        pCullCity = nullptr;
+        Player = nullptr;
+        Lamp = nullptr;
+        LampCS = nullptr;
+        EventQueue = nullptr;
+        Popup = nullptr;
+        AnimMgr = nullptr;
+
+        PHYS.Shutdown();
+
+        if (HasAIMap)
+            AIMAP.Clean();
+
+        AmbientAudio = nullptr;
+
+        // FIXME: Freed by some child classes, but not zeroed
+        StartSounds.release();
+    }
 }
 
 void mmGame::UpdateDebugInput()

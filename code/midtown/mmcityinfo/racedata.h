@@ -40,7 +40,7 @@
 
 enum class mmSkillLevel : i32;
 
-struct mmRaceData
+class mmRaceData
 {
 public:
     // ??0mmRaceData@@QAE@XZ

@@ -198,7 +198,19 @@ public:
     // ?DeclareFields@mmPlayerData@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap88[0x20F0];
+    char PlayerName[40];
+    char NetName[40];
+    char FileName[40];
+    i8 Difficulty;
+    i32 Progress;
+    mmPlayerRecord CheckpointRecords[12];
+    mmPlayerRecord CircuitRecords[12];
+    mmPlayerRecord BlitzRecords[12];
+    char LastCarPicked[80];
+    i32 LastCarColor;
+    i32 LastGamePicked;
+    i32 LastRacePicked;
+    bool Loaded;
 };
 
 check_size(mmPlayerData, 0x2178);
