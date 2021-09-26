@@ -244,7 +244,7 @@ public:
     i32 EdgeIndex;
     i32 PathIndex;
     i16 VertexCount;
-    i16 PathId;
+    i16 Id;
     i16 NumLanes;
     i16 NumSidewalks;
     i16 IntersectionType;
@@ -262,7 +262,8 @@ public:
     f32* SubSectionOffsets;
     f32* CenterOffsets;
     char StopLightName[32];
-    aiIntersection* Intersections[2];
+    aiIntersection* Sink;
+    aiIntersection* Source;
     Vector3* LaneVertices;
     Vector3* CenterVerts;
     Vector3* VertXDirs;

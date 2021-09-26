@@ -28,9 +28,9 @@ void aiIntersection::Dump()
 
     Displayf("\tNumSinks = %d", NumSinkPaths);
     for (i32 i = 0; i < NumSinkPaths; ++i)
-        Displayf("\t\tPath %d", SinkPaths[i]->PathId);
+        Displayf("\t\tPath %d", SinkPaths[i]->Id);
 
     Displayf("\tNum Sources = %d", NumSourcePaths);
     for (i32 i = 0; i < NumSourcePaths; ++i)
-        Displayf("\t\tPath %d", SourcePaths[i]->PathId);
+        Displayf("\t\tPath %d", SourcePaths[i]->Id);
 }

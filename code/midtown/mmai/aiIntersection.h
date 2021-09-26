@@ -99,7 +99,6 @@ public:
     i16 NumSinkPaths;
     aiPath** SourcePaths;
     i16 NumSourcePaths;
-    i16 field_E;
     i32* PathIds;
     f32* RoadDirections;
     i16 Id;

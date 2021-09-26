@@ -807,21 +807,24 @@ b32 mmGame::Init()
         {
             aiIntersection* isect = AIMAP.Intersection(i);
             i32 num_sinks = 0;
-            aiPath* last_sink = nullptr;
 
             for (i32 j = 0; j < isect->NumSinkPaths; ++j)
             {
-                if (aiPath* sink = isect->SinkPath(j); !sink->IsBlocked && !sink->HasBridge)
-                {
+                // FIXME: aiMap::ChooseNextLaneLink does not support roads with the same sink and source intersection
+                if (aiPath* sink = isect->SinkPath(j); !sink->IsBlocked && !sink->HasBridge && (sink->Sink != isect))
                     ++num_sinks;
-                    last_sink = sink;
-                }
             }
 
             if (num_sinks == 1)
             {
-                last_sink->Blocked(true);
-                last_sink->OncomingPath->Blocked(true);
+                Warningf("Blocked dead-end intersection %i", isect->Id);
+
+                for (i32 j = 0; j < isect->NumSinkPaths; ++j)
+                    isect->SinkPath(j)->Blocked(true);
+
+                for (i32 j = 0; j < isect->NumSourcePaths; ++j)
+                    isect->SourcePath(j)->Blocked(true);
+
                 changed = true;
             }
         }
