@@ -99,3 +99,12 @@ i32 agiGLBitmap::BeginGfx()
 
     return AGI_ERROR_SUCCESS;
 }
+
+void agiGLBitmap::UpdateFlags()
+{
+    // NOTE: agiGLTexDef requires that the bitmap was transparent at creation
+    if (IsTransparent())
+        tex_def_->Tex.Flags |= agiTexParameters::Chromakey;
+    else
+        tex_def_->Tex.Flags &= ~agiTexParameters::Chromakey;
+}

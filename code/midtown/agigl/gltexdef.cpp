@@ -55,23 +55,24 @@ static inline void color_key_to_alpha(u32* pixels, u32 len)
     if (len >= 4)
     {
         const __m128i color_mask = _mm_set1_epi32(0x00FFFFFF);
-        const __m128i alpha_mask = _mm_set1_epi32(0xFF000000);
-        const __m128i color_key = _mm_setzero_si128();
 
         do
         {
             len -= 4;
 
-            const __m128i colors16 = _mm_loadu_si128((const __m128i*) (pixels));
-            const __m128i mask = _mm_cmpeq_epi32(_mm_and_si128(colors16, color_mask), color_key);
-            _mm_storeu_si128((__m128i*) pixels, _mm_or_si128(colors16, _mm_andnot_si128(mask, alpha_mask)));
+            _mm_storeu_si128((__m128i*) pixels,
+                _mm_sub_epi32(_mm_setzero_si128(),
+                    _mm_and_si128(
+                        _mm_sub_epi32(_mm_setzero_si128(), _mm_loadu_si128((const __m128i*) (pixels))), color_mask)));
 
             pixels += 4;
         } while (len >= 4);
     }
 
     for (u32 i = 0; i < len; ++i)
-        pixels[i] |= (pixels[i] & 0xFFFFFF) ? 0xFF000000 : 0;
+    {
+        pixels[i] = -(-static_cast<i32>(pixels[i]) & 0xFFFFFF);
+    }
 }
 
 i32 agiGLTexDef::BeginGfx()
@@ -124,9 +125,6 @@ i32 agiGLTexDef::BeginGfx()
                     reinterpret_cast<u32*>(static_cast<u8*>(temp_surface->Surface) + (y * temp_surface->Pitch)),
                     temp_surface->Width);
             }
-
-            Tex.Flags &= ~agiTexParameters::Chromakey;
-            Tex.Flags |= agiTexParameters::Alpha;
         }
 
         surface = temp_surface.release();
@@ -136,6 +134,7 @@ i32 agiGLTexDef::BeginGfx()
     GLenum format = 0;
     GLenum type = 0;
     GLenum internal = 0;
+    bool alpha = Tex.Flags & (agiTexParameters::Alpha | agiTexParameters::Chromakey);
 
     switch (surface->PixelFormat.RBitMask)
     {
@@ -154,13 +153,13 @@ i32 agiGLTexDef::BeginGfx()
         case 0xFF:
             format = GL_RGBA;
             type = GL_UNSIGNED_INT_8_8_8_8_REV;
-            internal = (Tex.Flags & agiTexParameters::Alpha) ? GL_RGBA8 : GL_RGB8;
+            internal = alpha ? GL_RGBA8 : GL_RGB8;
             break;
 
         case 0xFF0000:
             format = GL_BGRA;
             type = GL_UNSIGNED_INT_8_8_8_8_REV;
-            internal = (Tex.Flags & agiTexParameters::Alpha) ? GL_RGBA8 : GL_RGB8;
+            internal = alpha ? GL_RGBA8 : GL_RGB8;
             break;
 
         default: Quitf("Invalid Format");

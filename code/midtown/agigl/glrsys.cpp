@@ -792,8 +792,10 @@ void agiGLRasterizer::FlushState()
         ++STATS.StateChangeCalls;
     }
 
-    bool alpha_enable =
-        agiCurState.GetAlphaEnable() || GetRendererInfo().AdditiveBlending || (texture && texture->Tex.HasAlpha());
+    bool alpha_enable = agiCurState.GetAlphaEnable();
+
+    if (texture)
+        alpha_enable |= texture->Tex.HasAlpha() || texture->Tex.UseChromakey();
 
     u8 alpha_ref = agiCurState.GetAlphaRef();
 
@@ -807,7 +809,7 @@ void agiGLRasterizer::FlushState()
 
         if (shader_)
         {
-            f32 falpha_ref = alpha_enable ? (alpha_ref / 255.0f) : 0.0f;
+            f32 falpha_ref = alpha_enable ? (alpha_ref / 255.0f) : -1.0f;
 
             if (alpha_ref_ != falpha_ref)
             {

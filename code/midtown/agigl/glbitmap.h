@@ -34,6 +34,7 @@ public:
 
     void EndGfx() override;
     i32 BeginGfx() override;
+    void UpdateFlags() override;
 
     agiTexDef* GetHandle() const
     {
