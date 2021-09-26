@@ -26,8 +26,8 @@ void aiPath::Dump()
 {
     Displayf("Path %d, Vertex Count = %d, Num Lanes = %d", PathId, VertexCount, NumLanes);
 
-    Displayf(
-        "\tOncoming Path = %d, Intersections = %d %d", OncomingPath->PathId, Intersections[0]->Id, Intersections[1]->Id);
+    Displayf("\tOncoming Path = %d, Intersections = %d %d", OncomingPath->PathId, Intersections[0]->Id,
+        Intersections[1]->Id);
 
     Displayf("\tBlocked = %d, PedBlocked = %d, HasBridge = %d", IsBlocked, IsPedBlocked, HasBridge);
     Displayf("\tDivided = %d, Flat       = %d, Alley     = %d", IsDivided, IsFlat, IsAlley);

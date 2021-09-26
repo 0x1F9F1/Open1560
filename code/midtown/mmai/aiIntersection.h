@@ -85,6 +85,16 @@ public:
     // ?SaveBinary@aiIntersection@@QAEXPAVStream@@@Z
     ARTS_IMPORT void SaveBinary(Stream* arg1);
 
+    aiPath* SinkPath(i32 index)
+    {
+        return (index >= 0 && index < NumSinkPaths) ? SinkPaths[index] : nullptr;
+    }
+
+    aiPath* SourcePath(i32 index)
+    {
+        return (index >= 0 && index < NumSourcePaths) ? SourcePaths[index] : nullptr;
+    }
+
     aiPath** SinkPaths;
     i16 NumSinkPaths;
     aiPath** SourcePaths;

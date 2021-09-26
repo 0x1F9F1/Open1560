@@ -328,7 +328,7 @@ public:
     ARTS_IMPORT i32 ResumeCDPlay();
 
     // ?SetBitDepthAndSampleRate@AudManager@@QAEXHK@Z
-    ARTS_IMPORT void SetBitDepthAndSampleRate(i32 arg1, u32 arg2);
+    ARTS_IMPORT void SetBitDepthAndSampleRate(i32 arg1, ulong arg2);
 
     // ?SetCDPlayMode@AudManager@@QAEXE@Z
     ARTS_IMPORT void SetCDPlayMode(u8 arg1);

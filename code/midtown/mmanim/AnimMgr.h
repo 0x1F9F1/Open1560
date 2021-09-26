@@ -75,6 +75,8 @@ public:
     // ?DeclareFields@mmAnimMgr@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
+    ARTS_ZEROED;
+
     mmAnimExcel AnimExcel;
     i32 field_30;
     mmAnimSpline* Splines;

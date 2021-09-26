@@ -161,6 +161,11 @@ public:
     // ?DeclareFields@asCamera@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
+    Matrix34* GetCameraMatrix()
+    {
+        return &camera_;
+    }
+
 private:
     // ?Regen@asCamera@@AAEXXZ
     ARTS_IMPORT void Regen();

@@ -148,25 +148,24 @@ public:
     // ?Update@mmPopup@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-private:
-    mmGame* game_ {};
+    mmGame* Game {};
 
-    Ptr<PUMain> pu_main_;
-    Ptr<PUQuit> pu_quit_;
-    Ptr<PUExit> pu_exit_;
-    Ptr<PUChat> pu_chat_;
-    Ptr<PUAudioOptions> pu_audio_;
-    Ptr<PUOptions> pu_options_;
-    Ptr<PUDebug> pu_debug_;
-    Ptr<PUControl> pu_controls_;
-    Ptr<PUGraphics> pu_graphics_;
-    Ptr<PUResults> pu_results_;
-    Ptr<PURoster> pu_roster_;
-    Ptr<PUKey> pu_keys_;
+    Ptr<PUMain> Main;
+    Ptr<PUQuit> Quit;
+    Ptr<PUExit> Exit;
+    Ptr<PUChat> Chat;
+    Ptr<PUAudioOptions> Audio;
+    Ptr<PUOptions> Options;
+    Ptr<PUDebug> Debug;
+    Ptr<PUControl> Controls;
+    Ptr<PUGraphics> Graphics;
+    Ptr<PUResults> Results;
+    Ptr<PURoster> Roster;
+    Ptr<PUKey> Keys;
 
-    b32 wants_flush_ {};
-    b32 was_paused_ {};
-    b32 locked_ {};
+    b32 WantsFlush {};
+    b32 WasPaused {};
+    b32 Locked {};
 };
 
 check_size(mmPopup, 0x60);

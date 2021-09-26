@@ -88,6 +88,22 @@ enum class mmGameState : i32
     Drive = 1,
 };
 
+enum class mmWeather : i32
+{
+    Sun = 0,
+    Fog = 1,
+    Rain = 2,
+    Snow = 3,
+};
+
+enum class mmTimeOfDay : i32
+{
+    Morning = 0,
+    Noon = 1,
+    Sunset = 2,
+    Night = 3,
+};
+
 struct mmStatePack
 {
     i32 CurrentCar;
@@ -119,17 +135,9 @@ struct mmStatePack
     i32 EnableFF;
     i32 UnlockAllRaces;
 
-    // 0 | Sun
-    // 1 | Fog
-    // 2 | Rain
-    // 3 | Snow
-    i32 Weather;
+    mmWeather Weather;
+    mmTimeOfDay TimeOfDay;
 
-    // 0 | Morning
-    // 1 | Noon
-    // 2 | Sunset
-    // 3 | Night
-    i32 TimeOfDay;
     char CarName[80];
     i32 CurrentColor;
     char NetName[80];

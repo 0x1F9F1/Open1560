@@ -203,7 +203,7 @@ private:
     // ?WorldToBitmap@mmHudMap@@AAE?AUPoint@@PAVVector3@@@Z
     ARTS_IMPORT Point WorldToBitmap(Vector3* arg1);
 
-    aiMap* AiMap;
+    [[deprecated("Use AIMAP")]] aiMap* AiMap;
     mmWaypoints* Waypoints;
     i32 dword28;
     Vector3* MiscPositions[100];

@@ -45,7 +45,7 @@ ARTS_IMPORT Vector4& GetPositionVector4(i32 arg1);
 ARTS_IMPORT void InitPositions();
 
 // ?LoadPositions@@YAXPAD@Z
-ARTS_IMPORT void LoadPositions(char* arg1);
+ARTS_IMPORT void LoadPositions(aconst char* arg1);
 
 // ?RecallPosition@@YAHHPAVMatrix34@@PAHPAD@Z
 ARTS_IMPORT i32 RecallPosition(i32 arg1, Matrix34* arg2, i32* arg3, char* arg4);

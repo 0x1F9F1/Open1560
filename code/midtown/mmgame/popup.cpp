@@ -56,14 +56,14 @@ void mmPopup::DisablePU(b32 resume_cd)
         MenuMgr()->Switch(1);
         MenuMgr()->DisablePU();
 
-        if (Sim()->IsPaused() && !was_paused_)
+        if (Sim()->IsPaused() && !WasPaused)
             Sim()->SetPause(false);
 
         GameInput()->Flush();
         GameInput()->Update();
 
-        game_->Player->Hud.Enable();
-        game_->Player->HudMap.Activate();
+        Game->Player->Hud.Enable();
+        Game->Player->HudMap.Activate();
 
         PopupEnabled = false;
     }
@@ -81,7 +81,7 @@ b32 mmPopup::IsEnabled()
 
 void mmPopup::Lock()
 {
-    locked_ = true;
+    Locked = true;
 
-    pu_main_->DisableExit();
+    Main->DisableExit();
 }

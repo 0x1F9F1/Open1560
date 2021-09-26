@@ -188,6 +188,8 @@ public:
     // ?Update@aiAudioManager@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
+    offset_field(0x118, f32*, PlayerSpeed);
+
 private:
     // ?CatName@aiAudioManager@@AAEPADPADHH@Z
     ARTS_IMPORT char* CatName(char* arg1, i32 arg2, i32 arg3);
@@ -199,3 +201,8 @@ check_size(aiAudioManager, 0x204);
 
 // ?AIAUDMGRPTR@@3PAVaiAudioManager@@A
 ARTS_IMPORT extern aiAudioManager* AIAUDMGRPTR;
+
+inline aiAudioManager* AiAudMgr()
+{
+    return AIAUDMGRPTR;
+}

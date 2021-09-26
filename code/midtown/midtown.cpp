@@ -353,14 +353,14 @@ static void MainPhase(i32 argc, char** argv)
 
                 if (GraphicsChange)
                 {
-                    loader.BeginTask(LOC_STRING(MM_IDS_LOADING_GRAPHICS), 0.0f);
+                    loader.BeginTask(LOC_STRING(MM_IDS_LOADING_GRAPHICS));
                 }
                 else
                 {
                     if (MMSTATE.HasMidtownCD)
                         AudMgr()->PlayCDTrack(3, true);
 
-                    loader.BeginTask(LOC_STRING(MM_IDS_LOADING_INTERFACE), 0.0f);
+                    loader.BeginTask(LOC_STRING(MM_IDS_LOADING_INTERFACE));
                 }
 
                 mm_interface = new mmInterface();
@@ -381,7 +381,7 @@ static void MainPhase(i32 argc, char** argv)
 
                 ARTS_MEM_STAT("GameManager");
 
-                loader.BeginTask(LOC_STRING(MM_IDS_LOADING_RACE), 0.0f);
+                loader.BeginTask(LOC_STRING(MM_IDS_LOADING_RACE));
 
                 AudMgr()->AssignWaveVolume(MMSTATE.WaveVolume);
                 AudMgr()->AssignCDVolume(MMSTATE.CDVolume);
@@ -415,7 +415,7 @@ static void MainPhase(i32 argc, char** argv)
 
         Sim()->ResChange(Pipe()->GetWidth(), Pipe()->GetHeight());
 
-        loader.EndTask(0.0f);
+        loader.EndTask();
     }
 
     MMSTATE.GameState = mmGameState::Running;
@@ -1264,12 +1264,6 @@ void InitPatches()
 
     // create_patch("AudManager::Disable", "Actually disable sfx/music", 0x4E9098 + 1, "\x00\x00\x00\x00", 4);
 
-    create_patch("mmGame::Init", "Use MapName", 0x40EEDF,
-        "\x89\x5D\xFC\x89\x87\xBC\x00\x00\x00\x8D\xB7\xB4\x74\x01\x00\x89\x75\xC8\x8B\x0D\xE4\x84\x70\x00\xE8\x24"
-        "\xCF\x0B\x00\x83\xC0\x2C\x50\x56\xE8\x3A\x66\x18\x00\x83\xC4\x08\x0F\xB6\x00\x24\xDF\x3C\x43\x0F\x94\xD0"
-        "\xA3\xE0\x84\x70\x00\x90\x90\x90\x90\x90\x90\x90\x90",
-        0x41);
-
     create_patch("mmWheel::Update", "Wheel Speed", 0x47F179, "\xDD\xD8\x90\x90\x90\x90", 6);
 
     create_packed_patch<f32>("SkidRotationThresh", "Fix skids", 0x63C014, 0.5f);
@@ -1333,7 +1327,6 @@ void InitPatches()
     }
 
     create_packed_patch<u32>("mmMultiCR::OppStealGold", "Icon Number", 0x41D93C + 6, 10);
-    create_packed_patch<u32>("mmGame::Init", "Icon Number", 0x40F21E + 1, 11);
 
     patch_jmp("mmPlayer::Init", "Enable FreeCam when not in DevelopmentMode", 0x42A8E8, jump_type::never);
 

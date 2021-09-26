@@ -142,7 +142,7 @@ check_size(FileSystem, 0x8);
 [[deprecated]] ARTS_EXPORT FileSystem* FindFile(
     const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer);
 
-FileSystem* FindFile(const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, isize buffer_len);
+FileSystem* FindFile(const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, usize buffer_len);
 
 // ?OpenFile@@YAPAVStream@@PAD00H00@Z
 [[deprecated]] ARTS_EXPORT Owner<Stream> OpenFile(

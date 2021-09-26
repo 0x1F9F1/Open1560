@@ -91,3 +91,8 @@ check_size(mmCityList, 0x10);
 
 // ?CityListPtr@@3PAVmmCityList@@A
 ARTS_IMPORT extern mmCityList* CityListPtr;
+
+inline mmCityList* CityList()
+{
+    return CityListPtr;
+}

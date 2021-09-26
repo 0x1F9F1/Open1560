@@ -21,6 +21,7 @@ define_dummy_symbol(mmgame_game);
 #include "game.h"
 
 #include "agi/pipeline.h"
+#include "agiworld/texsort.h"
 #include "arts7/cullmgr.h"
 #include "arts7/lamp.h"
 #include "arts7/sim.h"
@@ -28,25 +29,36 @@ define_dummy_symbol(mmgame_game);
 #include "eventq7/eventq.h"
 #include "eventq7/keys.h"
 #include "localize//localize.h"
+#include "mmai/aiIntersection.h"
 #include "mmai/aiMap.h"
+#include "mmai/aiPath.h"
+#include "mmai/aiTrafficLight.h"
 #include "mmai/aiVehicleMGR.h"
 #include "mmai/aiVehicleOpponent.h"
 #include "mmai/aiVehiclePolice.h"
+#include "mmai/aiaudiomanager.h"
 #include "mmanim/AnimMgr.h"
+#include "mmaudio/head.h"
 #include "mmaudio/manager.h"
 #include "mmaudio/mmvoicecommentary.h"
 #include "mmaudio/sound.h"
 #include "mmbangers/data.h"
+#include "mmcamcs/viewcs.h"
 #include "mmcar/carsimcheap.h"
+#include "mmcar/surfaceaudioinfo.h"
 #include "mmcity/cullcity.h"
+#include "mmcity/loader.h"
 #include "mmcity/position.h"
 #include "mmcity/positions.h"
+#include "mmcityinfo/cityinfo.h"
+#include "mmcityinfo/citylist.h"
 #include "mmcityinfo/playerdata.h"
 #include "mmcityinfo/racedata.h"
 #include "mmcityinfo/state.h"
 #include "mminput/input.h"
 #include "mmnetwork/network.h"
 #include "mmphysics/phys.h"
+#include "mmui/pu_results.h"
 #include "stream/hfsystem.h"
 
 #include "gameman.h"
@@ -598,6 +610,287 @@ void mmGame::UpdatePaused()
     }
 }
 
+b32 mmGame::Init()
+{
+    ResetPositions = MakeUnique<mmPositions>();
+    ResetPositions->Init(100);
+
+    Displayf("DIFFICULTY: %s", (MMSTATE.Difficulty == mmSkillLevel::Professional) ? "Professional" : "Amateur");
+    Displayf("%splayer game", MMSTATE.NetworkStatus ? "Multi" : "Single");
+
+    switch (MMSTATE.GameMode)
+    {
+        case mmGameMode::Cruise: Displayf("GAMETYPE: Roam mode."); break;
+        case mmGameMode::Checkpoint: Displayf("GAMETYPE: Checkpoint %d", MMSTATE.EventId); break;
+        case mmGameMode::CnR: Displayf("GAMETYPE: C&R"); break;
+        case mmGameMode::Circuit: Displayf("GAMETYPE: Circuit %d", MMSTATE.EventId); break;
+        case mmGameMode::Blitz: Displayf("GAMETYPE: Blitz %d", MMSTATE.EventId); break;
+    }
+
+    InitGameStrings();
+    HornPressed = false;
+
+    if (!LogOpenOn)
+    {
+        LoadPositions(xconst("positions.csv"));
+        ResetPositions->Load(xconst("resetpositions.csv"));
+    }
+
+    if (ResetPositions->GetCount() == 0)
+    {
+        // FIXME: Pass position as const reference
+        Vector4 pos;
+
+        ResetPositions->Register(pos = {-458.0f, 4.0f, -1429.0f, 67.0f});
+        ResetPositions->Register(pos = {973.0f, 4.0f, -1003.0f, -121.0f});
+        ResetPositions->Register(pos = {-137.0f, 7.0f, -954.0f, 175.0f});
+        ResetPositions->Register(pos = {-714.0f, 2.0f, -620.0f, 49.0f});
+        ResetPositions->Register(pos = {-135.0f, 2.0f, -221.0f, 89.0f});
+        ResetPositions->Register(pos = {421.0f, 2.0f, 220.0f, -158.0f});
+        ResetPositions->Register(pos = {-901.0f, 6.0f, 360.0f, -90.0f});
+        ResetPositions->Register(pos = {-177.0f, 2.0f, 409.0f, -1.0f});
+        ResetPositions->Register(pos = {2.0f, 12.0f, 1359.0f, 109.0f});
+        ResetPositions->Register(pos = {949.0f, 2.0f, 1210.0f, -5.0f});
+        ResetPositions->Register(pos = {0.0f, 0.0f, 0.0f, 0.0f});
+    }
+
+    MemStat game_init {"mmGame"};
+
+    PlayerSetState();
+
+    switch (MMSTATE.Weather)
+    {
+        case mmWeather::Rain: TextureSuffix = xconst("_fall"); break;
+        case mmWeather::Snow: TextureSuffix = xconst("_win"); break;
+        default: TextureSuffix = nullptr; break;
+    }
+
+    {
+        Loader()->BeginTask(LOC_STRING(MM_IDS_LOADING_AUDIO));
+
+        AudMgr()->SetBitDepthAndSampleRate(MMSTATE.AudFlags & AudManager::GetHiSampleSizeMask(),
+            (MMSTATE.AudFlags & AudManager::GetHiResMask()) ? 22050 : 11025);
+
+        switch (MMSTATE.Weather)
+        {
+            case mmWeather::Rain: SetRainSurfaceAudioInfos(); break;
+            case mmWeather::Snow: SetSnowSurfaceAudioInfos(); break;
+            default: SetClearSurfaceAudioInfos(); break;
+        }
+
+        Loader()->EndTask();
+    }
+
+    {
+        ARTS_MEM_STAT("mmRace constructors");
+        Loader()->SetIntroText(LOC_TEXT(MMSTATE.IntroText));
+        Loader()->BeginTask(LOC_STRING(MM_IDS_LOADING_CITY));
+
+        pCullCity = MakeUnique<mmCullCity>();
+
+        Lamp = MakeUnique<asLamp>();
+        LampCS = MakeUnique<asLinearCS>();
+
+        mmCityInfo* city_info = CityList()->GetCurrentCity();
+        arts_strcpy(MapName, city_info->MapName);
+        arts_strcpy(RaceDir, city_info->RaceDir);
+        CHICAGO = arts_strnicmp(MapName, "chicago", 7);
+
+        Displayf("%s maps to %s (CHICAGO=%d)", MapName, RaceDir, CHICAGO);
+
+        if (MMSTATE.AudFlags & AudManager::GetCommentaryOnMask())
+        {
+            VoiceCommentary = MakeUnique<mmVoiceCommentary>();
+            VoiceCommentary->ValidateCity(RaceDir);
+        }
+        else
+        {
+            VoiceCommentary = nullptr;
+        }
+
+        AudMgr()->SetVoiceCommentaryPtr(VoiceCommentary.get());
+
+        Loader()->EndTask();
+    }
+
+    {
+        Loader()->BeginTask(LOC_STRING(MM_IDS_LOADING_PLAYER));
+
+        InitMyPlayer();
+        Player->Car.Sim.Trans.Automatic(MMSTATE.AutoTransmission);
+
+        Loader()->EndTask();
+    }
+
+    {
+        ARTS_MEM_STAT("City and PHYS init");
+
+        pCullCity->Init(MapName, &Player->Camera);
+        PHYS.Init(&Player->Car.Sim.ICS, Player->ViewCS);
+        Player->Init(MMSTATE.CarName, MapName, this);
+        Icons.Init(&Player->ViewCS->World, 2500.0f, 90000.0f);
+
+        if (MMSTATE.AudFlags & AudManager::GetDSound3DMask())
+        {
+            Ptr<AudHead> aud_head = MakeUnique<AudHead>(CullCity()->Camera->GetCameraMatrix());
+
+            aud_head->Init();
+            aud_head->SetRolloff(0.0f);
+            aud_head->SetDoppler(0.0f);
+
+            AddChild(aud_head.get());
+
+            // FIXME: Memory leak
+            aud_head.release();
+        }
+    }
+
+    InitGameObjects();
+
+    {
+        ARTS_MEM_STAT("AI");
+        Loader()->BeginTask(LOC_STRING(MM_IDS_LOADING_AI));
+
+        char city_folder[128];
+        arts_sprintf(city_folder, "city/%s", MapName);
+
+        char aimap_file[128];
+        HasAIMap = false;
+
+        if (EnableAI && !MMSTATE.DisableAI &&
+            (FindFile(MapName, city_folder, ".map", 0, aimap_file, ARTS_SIZE(aimap_file)) ||
+                FindFile(MapName, city_folder, ".bai", 0, aimap_file, ARTS_SIZE(aimap_file))))
+        {
+            // aiTrafficLightSet::ObjCount = 0;
+
+            AIMAP.Init(RaceDir, aimap_file, city_folder, &Player->Car);
+            HasAIMap = true;
+
+            // TODO: Handle more than 8 opponents
+            ArAssert(AIMAP.NumOpponents <= ARTS_SSIZE32(OppIcons), "Too Many AI");
+
+            for (i32 i = 0; i < AIMAP.NumOpponents; ++i)
+            {
+                OppIconInfo& icon = OppIcons[i];
+                icon.Position = &AIMAP.Opponent(i)->Car.GetICS()->Matrix;
+                icon.Enabled = true;
+                icon.Place = 11;
+                arts_sprintf(icon.Name, LOC_STR(MM_IDS_OPP_NAME), i + 1);
+            }
+
+            Player->HudMap.RegisterOpponents(OppIcons, AIMAP.NumOpponents);
+            Icons.RegisterOpponents(OppIcons, AIMAP.NumOpponents, nullptr);
+            // Player->HudMap.AiMap = &AIMAP;
+
+            if (!MMSTATE.NetworkStatus && AiAudMgr())
+                AiAudMgr()->PlayerSpeed = &Player->Car.Sim.Speed;
+        }
+
+        Loader()->EndTask();
+    }
+
+    InitOtherPlayers();
+    InitHUD();
+
+    if (HasAIMap)
+    {
+        AnimMgr = MakeUnique<mmAnimMgr>();
+        AnimMgr->Init(MapName, Player->Car.Sim.Model, nullptr, 0);
+        AddChild(AnimMgr.get());
+    }
+
+    for (bool changed = true; changed;)
+    {
+        changed = false;
+
+        for (i32 i = 0; i < AIMAP.NumIntersections; ++i)
+        {
+            aiIntersection* isect = AIMAP.Intersection(i);
+            i32 num_sinks = 0;
+            aiPath* last_sink = nullptr;
+
+            for (i32 j = 0; j < isect->NumSinkPaths; ++j)
+            {
+                if (aiPath* sink = isect->SinkPath(j); !sink->IsBlocked && !sink->HasBridge)
+                {
+                    ++num_sinks;
+                    last_sink = sink;
+                }
+            }
+
+            if (num_sinks == 1)
+            {
+                last_sink->Blocked(true);
+                last_sink->OncomingPath->Blocked(true);
+                changed = true;
+            }
+        }
+    }
+
+    {
+        Loader()->BeginTask(LOC_STRING(MM_IDS_LOADING_MORE_AUDIO));
+
+        if (MMSTATE.Weather == mmWeather::Sun && !MMSTATE.NetworkStatus && AIMAP.NumAmbients > 0)
+            AmbientAudio = MakeUnique<mmAmbientAudio>(Player.get());
+        else
+            AmbientAudio = nullptr;
+
+        Loader()->EndTask();
+    }
+
+    LampCS->Matrix.m3 = {10.0f, 1000.0f, 10.0f};
+    LampCS->SetName("Lamp");
+    Lamp->SetDistant();
+
+    EventQueue = MakeUnique<eqEventQ>(1, -1, 32);
+    Popup = MakeUnique<mmPopup>(this, 0.2f, 0.1f, 0.6f, 0.8f);
+    Popup->Reset();
+
+    game_init.End();
+
+    switch (MMSTATE.GameMode)
+    {
+        case mmGameMode::Checkpoint: {
+            string event_names = CityList()->GetCurrentCity()->CheckpointNames.get();
+            string event_name = event_names.SubString(MMSTATE.EventId + 1);
+            Popup->Results->AddTitle(LOC_STRING(MM_IDS_CHECKPOINT_RACE), event_name.get_loc());
+            break;
+        }
+
+        case mmGameMode::CnR: {
+            LocString* event_name = nullptr;
+
+            switch (MMSTATE.CRGameClass)
+            {
+                case mmCRGameClass::FreeForAll: event_name = LOC_STRING(MM_IDS_CNR_FREE_FOR_ALL); break;
+                case mmCRGameClass::CopsRobbers: event_name = LOC_STRING(MM_IDS_CNR_COPS_N_ROBBERS); break;
+                case mmCRGameClass::RobberTeams: event_name = LOC_STRING(MM_IDS_CNR_ROBBERS_TEAMS); break;
+                default: event_name = LOC_TEXT(""); break;
+            }
+
+            Popup->Results->AddTitle(LOC_STRING(MM_IDS_COPS_N_ROBBERS), event_name);
+            break;
+        }
+
+        case mmGameMode::Circuit: {
+            string event_names = CityList()->GetCurrentCity()->CircuitNames.get();
+            string event_name = event_names.SubString(MMSTATE.EventId + 1);
+            Popup->Results->AddTitle(LOC_STRING(MM_IDS_CIRCUIT_RACE), event_name.get_loc());
+            break;
+        }
+
+        case mmGameMode::Blitz: {
+            string event_names = CityList()->GetCurrentCity()->BlitzNames.get();
+            string event_name = event_names.SubString(MMSTATE.EventId + 1);
+            Popup->Results->AddTitle(LOC_STRING(MM_IDS_BLITZ_RACE), event_name.get_loc());
+            break;
+        }
+        default: break;
+    }
+
+    return true;
+}
+
 b32 mmGame::IsPopupEnabled()
 {
     return Popup->IsEnabled();
@@ -737,7 +1030,3 @@ void mmGame::SendChatMessage(char* msg)
 
 #undef X
 }
-
-run_once([] {
-    create_hook("IconColor", "Add Player 8 Icon", 0x40E9AC, IconColor + ARTS_SIZE(IconColor), hook_type::pointer);
-});

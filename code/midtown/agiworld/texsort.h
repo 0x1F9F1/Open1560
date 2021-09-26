@@ -168,7 +168,7 @@ ARTS_IMPORT extern i32 EnableTexSorting;
 ARTS_IMPORT extern i32 EnvMapFlushes;
 
 // ?TextureSuffix@@3PADA
-ARTS_IMPORT extern char* TextureSuffix;
+ARTS_IMPORT extern aconst char* TextureSuffix;
 
 class agiPolySet
 {

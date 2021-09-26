@@ -47,7 +47,7 @@ public:
     char MapName[40];
     char RaceDir[40];
     ConstString BlitzNames;
-    ConstString RaceNames;
+    ConstString CheckpointNames;
     ConstString CircuitNames;
     b32 Loaded {};
     i32 BlitzCount {};

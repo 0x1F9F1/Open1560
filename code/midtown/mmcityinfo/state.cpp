@@ -44,8 +44,8 @@ void mmStatePack::SetDefaults()
     PhysicsRealism = 0.75f;
     EnableFF = true;
     UnlockAllRaces = false;
-    Weather = 0;
-    TimeOfDay = 1;
+    Weather = mmWeather::Sun;
+    TimeOfDay = mmTimeOfDay::Noon;
     arts_strcpy(CarName, "vpbug");
     CurrentColor = 0;
     arts_strcpy(NetName, "loaf");

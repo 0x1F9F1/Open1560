@@ -191,6 +191,8 @@ public:
     // ?GetInstance@mmCullCity@@SAPAV1@XZ | inline
     ARTS_IMPORT static mmCullCity* GetInstance();
 
+    offset_field(0x20, asCamera*, Camera);
+
     offset_field(0x2B950, asRenderWeb, RenderWeb);
 
     offset_field(0x34ACC, mmInstChain, BuildingChain);
@@ -206,6 +208,8 @@ public:
     offset_field(0x34D58, b32, UseFogEnd2);
     offset_field(0x34D5C, f32, FogEnd);
     offset_field(0x34D60, f32, FogEnd2);
+
+    ARTS_ZEROED;
 
 private:
     // ?AddInstance@mmCullCity@@AAEXHPAD0HPAVVector3@@11M@Z

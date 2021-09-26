@@ -59,13 +59,13 @@ public:
     ARTS_IMPORT ~mmLoader() override;
 
     // ?BeginTask@mmLoader@@QAEXPAULocString@@M@Z
-    ARTS_IMPORT void BeginTask(LocString* arg1, f32 arg2);
+    ARTS_IMPORT void BeginTask(LocString* arg1, f32 arg2 = 0.0f);
 
     // ?Cull@mmLoader@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
     // ?EndTask@mmLoader@@QAEXM@Z
-    ARTS_IMPORT void EndTask(f32 arg1);
+    ARTS_IMPORT void EndTask(f32 arg1 = 0.0f);
 
     // ?Init@mmLoader@@QAEXPADMM@Z
     ARTS_EXPORT void Init(aconst char* underlay_name, f32 bar_x, f32 bar_y);
@@ -84,6 +84,8 @@ public:
 
     // ?Update@mmLoader@@QAEXXZ
     ARTS_IMPORT void Update();
+
+    friend mmLoader* Loader();
 
 private:
     // ?Current@mmLoader@@0PAV1@A
@@ -110,6 +112,11 @@ private:
 };
 
 check_size(mmLoader, 0x2C4);
+
+inline mmLoader* Loader()
+{
+    return mmLoader::Current;
+}
 
 // ?IntroFont@@3PAXA
 ARTS_IMPORT extern void* IntroFont;

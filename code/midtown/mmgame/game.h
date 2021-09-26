@@ -145,7 +145,7 @@ public:
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@mmGame@@QAEHXZ
-    ARTS_IMPORT i32 Init();
+    ARTS_EXPORT b32 Init();
 
     // ?IsPopupEnabled@mmGame@@QAEHXZ
     ARTS_EXPORT b32 IsPopupEnabled();

@@ -260,11 +260,11 @@ FileSystem* FileSystem::SearchAll(
 void FileSystem::NotifyDelete()
 {}
 
-FileSystem* FindFile(const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, isize buffer_len)
+FileSystem* FindFile(const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, usize buffer_len)
 {
     // NOTE: Incompatible
 
-    return FileSystem::SearchAll(file, folder, ext, ext_id, buffer, buffer_len);
+    return FileSystem::SearchAll(file, folder, ext, ext_id, buffer, static_cast<usize>(buffer_len));
 }
 
 FileSystem* FindFile(const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer)
