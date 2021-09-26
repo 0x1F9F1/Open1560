@@ -1223,10 +1223,6 @@ void InitPatches()
         create_patch("mmCullCity::UpdateSnowTextures", "32-bit snow", 0x48D47E, "\x8B\x00\x89\x04\x93\x90\x90", 7);
     }
 
-    // Hack, avoids attempting to access freed memory (https://github.com/0x1F9F1/Open1560/issues/15)
-    // Luckily the aiVehicleSpline destructor doesn't do actually do anything anyway (apart from set mmInstanceHeap.HeapHead, which we want to avoid anyway)
-    patch_jmp("aiVehicleSpline::~aiVehicleSpline", "Avoid freeing aiVehicleInstance", 0x459F84, jump_type::always);
-
     // create_patch("sfPointer::ResChange", "Use Old Cursor", 0x641F2C, "pointer", 8);
 
     // create_patch("DoScan", "Stop Touching Memory", 0x4046D0, "\xC3", 1);

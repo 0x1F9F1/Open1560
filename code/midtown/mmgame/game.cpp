@@ -138,6 +138,9 @@ mmGame::~mmGame()
     {
         ARTS_MEM_STAT("mmGame Destructor");
 
+        if (HasAIMap)
+            AIMAP.Clean();
+
         pCullCity = nullptr;
         Player = nullptr;
         Lamp = nullptr;
@@ -147,9 +150,6 @@ mmGame::~mmGame()
         AnimMgr = nullptr;
 
         PHYS.Shutdown();
-
-        if (HasAIMap)
-            AIMAP.Clean();
 
         AmbientAudio = nullptr;
 
