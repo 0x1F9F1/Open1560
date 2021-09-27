@@ -131,6 +131,8 @@ class mmCar;
 class mmRoadSect;
 struct asPortalCell;
 
+// https://web.archive.org/web/20120511074218/http://www.gamasutra.com/view/feature/131515/ai_madness_using_ai_to_bring_.php?print=1
+
 class aiMap final : public asNode
 {
 public:

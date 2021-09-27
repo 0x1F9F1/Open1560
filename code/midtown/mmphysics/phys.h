@@ -128,6 +128,8 @@ check_size(mmPhysExec, 0x24);
 #define PHYS_COLLIDE_ROOM 1
 #define PHYS_COLLIDE_HITID 2
 
+// https://web.archive.org/web/20131114044954/http://www.gamasutra.com/view/feature/131315/what_a_designers_should_know_about_.php?print=1
+
 class mmPhysicsMGR final : public asNode
 {
 public:

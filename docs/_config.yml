@@ -1,1 +1,5 @@
 theme: jekyll-theme-cayman
+title: Open1560
+description: A mod for Midtown Madness 1
+github:
+  is_project_page: false
