@@ -1,3 +1,7 @@
+---
+title: Open1560
+---
+
 # Installation
 
 1. Download and install the [**Visual C++ 2019 Redistributable**](https://aka.ms/vs/16/release/vc_redist.x86.exe).
