@@ -31,6 +31,8 @@
     0x90B100 | class MetaClass BaseMetaClass | ?BaseMetaClass@@3VMetaClass@@A
 */
 
+#include "metadeclare.h"
+
 class Base
 {
 public:

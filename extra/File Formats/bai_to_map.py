@@ -50,6 +50,9 @@ class Vector3:
     def Dist2(self, other):
         return (other - self).Mag2()
 
+    def Dist(self, other):
+        return self.Dist2(other) ** 0.5
+
     def Angle(self, rhs):
         return math.acos(self.Dot(rhs) * ((self.Mag2() * rhs.Mag2()) ** -0.5))
 
@@ -83,12 +86,18 @@ class aiPath:
         self.CenterOffsets = read_unpack(file, '<{}f'.format(self.NumVertexs))
         self.IntersectionIds = read_unpack(file, '<2I')
         self.LaneVertices = Vector3.readn(file, self.NumVertexs * (self.NumLanes + self.NumSidewalks))
+
+        # Center/Dividing line between the two sides of the road
         self.CenterVertices = Vector3.readn(file, self.NumVertexs)
         self.VertXDirs = Vector3.readn(file, self.NumVertexs)
         self.Normals = Vector3.readn(file, self.NumVertexs)
         self.VertZDirs = Vector3.readn(file, self.NumVertexs)
         self.SubSectionDirs = Vector3.readn(file, self.NumVertexs)
+
+        # Outer Edges, Inner Edges (Curb)
         self.Boundaries = Vector3.readn(file, self.NumVertexs * 2)
+
+        # Inner Edges on opposite side of road
         self.LBoundaries = Vector3.readn(file, self.NumVertexs)
         self.StopLightPos = Vector3.readn(file, 2)
         self.LaneWidths = read_unpack(file, '<5f')
@@ -217,7 +226,7 @@ city_dir = r'{}dev/CITY/{}/'.format(game_dir, city_name)
 
 ai_map = aiMap()
 
-with open('{}{}.bai'.format(city_dir, city_name), 'rb') as f:
+with open('{}{}_ORIG.bai'.format(city_dir, city_name), 'rb') as f:
     ai_map.load(f)
 
     here = f.tell()
@@ -249,6 +258,14 @@ for i, path in enumerate(ai_map.Paths):
         assert path.StopLightName == "tpsstop"
     else:
         assert path.StopLightName in ["tplttrafc", "tplttrafcdual"]
+
+    sink_isect = path.LaneVertices[0]
+    source_isect = path.LaneVertices[path.NumVertexs - 1]
+
+    for lane in range(1, path.NumLanes):
+        here = lane * path.NumVertexs
+        assert path.LaneVertices[here] == sink_isect
+        assert path.LaneVertices[here + path.NumVertexs - 1] == source_isect
 
     # Only custom paths should have no sidewalks
     if path.NumSidewalks == 0:
@@ -285,11 +302,13 @@ with open('{}{}.map'.format(city_dir, city_name), 'w') as f:
 
 for street_name, paths in streets:
     assert paths[0].NumVertexs == paths[1].NumVertexs
+    assert paths[0].NumSidewalks == paths[1].NumSidewalks
     assert paths[0].Divided == paths[1].Divided
     assert paths[0].Alley == paths[1].Alley
     assert paths[0].Normals == list(reversed(paths[1].Normals))
     assert paths[0].Normals[0] == Vector3(0, 1, 0)
     assert paths[0].Normals[-1] == Vector3(0, 1, 0)
+    assert paths[0].CenterVertices == list(reversed(paths[1].CenterVertices))
 
     if paths[0].NumSidewalks != 0:
         for n in range(1, len(paths[0].Normals) - 1):
@@ -304,6 +323,16 @@ for street_name, paths in streets:
 
             if angle > 0.01:
                 print('Road {} has suspicious normal {}: Expected {}, Calculated {} ({:.2} degrees error)'.format(paths[0].ID, n, target, normal, angle))
+
+        for road in range(2):
+            path = paths[road]
+
+            assert path.Boundaries[path.NumVertexs:] == list(reversed(paths[road ^ 1].LBoundaries))
+
+            for i in range(path.NumVertexs):
+                a = path.LaneVertices[i + (path.NumLanes * path.NumVertexs)]
+                b = (path.Boundaries[i] + path.Boundaries[i + path.NumVertexs]) * 0.5
+                assert a.Dist2(b) < 0.00001
 
     with open('{}{}.road'.format(city_dir, street_name), 'w') as f:
         parser = MiniParser(f)
@@ -328,14 +357,6 @@ for street_name, paths in streets:
         if path.NumSidewalks:
             for road in range(2):
                 path = paths[road]
-
-                assert path.Boundaries[path.NumVertexs:] == list(reversed(paths[road ^ 1].LBoundaries))
-
-                for i in range(path.NumVertexs):
-                    a = path.LaneVertices[i + (path.NumLanes * path.NumVertexs)]
-                    b = (path.Boundaries[i] + path.Boundaries[i + path.NumVertexs]) * 0.5
-                    assert a.Dist2(b) < 0.00001
-
                 all_vertexs += path.Boundaries
 
         expected_count = paths[0].NumVertexs * (paths[0].NumLanes + paths[1].NumLanes + (paths[0].NumSidewalks + paths[1].NumSidewalks) * 2)

@@ -41,12 +41,12 @@ struct BND
     Vector3 Max;
     long NumVerts;
     long NumPolys;
-    long unk5;
+    long NumHotVerts;
     long numVerticesUnk;
     long EdgeCount;
     float ScaledDistX;
     float ZDist;
-    long numIndices;
+    long NumIndexs;
     float HeightScale;
     long unk12;
 

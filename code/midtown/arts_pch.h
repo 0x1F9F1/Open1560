@@ -43,28 +43,20 @@
 #include <algorithm>
 
 #include "core/defines.h"
-
-#include "core/hooking.h"
 #include "core/primitives.h"
 
-#include "core/pointer.h"
-
-#include "core/refcount.h"
-
 #include "core/assert.h"
-
+#include "core/container.h"
+#include "core/noncopyable.h"
+#include "core/pointer.h"
+#include "core/refcount.h"
 #include "core/string.h"
 
-#include "core/noncopyable.h"
-
-#include "core/container.h"
+#include "core/hooking.h"
 
 #include "data7/global.h"
-
 #include "data7/printer.h"
 #include "data7/quitf.h"
-
-#include "data7/metadeclare.h"
 
 ARTS_CLANG_DIAGNOSTIC_IGNORED("-Wmissing-field-initializers");
 ARTS_CLANG_DIAGNOSTIC_IGNORED("-Wunused-private-field");

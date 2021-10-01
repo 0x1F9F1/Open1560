@@ -2,21 +2,18 @@ ARTS_DIR = path.join(os.getcwd(), "midtown")
 
 function includeARTS()
     includedirs { ARTS_DIR }
+    forceincludes { "arts_pch.h" }
 
     includeHedley()
     includeMem()
-
-    -- includeLua()
-    -- includeSol()
 end
 
 function useARTSPCH()
-    files { path.join(ARTS_DIR, "arts_pch.cpp"), path.join(ARTS_DIR, "arts_pch.h") }
     includedirs { ARTS_DIR }
-    forceincludes { "arts_pch.h" }
-
-    pchsource(path.join(ARTS_DIR, "arts_pch.cpp"))
     pchheader("arts_pch.h")
+
+    files { path.join(ARTS_DIR, "arts_pch.cpp"), path.join(ARTS_DIR, "arts_pch.h") }
+    pchsource(path.join(ARTS_DIR, "arts_pch.cpp"))
 end
 
 function arts_component(name)

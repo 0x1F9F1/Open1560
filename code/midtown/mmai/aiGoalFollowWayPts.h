@@ -51,6 +51,8 @@
 
 #include "aiGoal.h"
 
+#include "data7/metadeclare.h"
+
 class aiVehicleOpponent;
 
 class aiGoalFollowWayPts final : public aiGoal

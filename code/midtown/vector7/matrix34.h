@@ -83,6 +83,8 @@
     0x9094C0 | class MetaClass Matrix34MetaClass | ?Matrix34MetaClass@@3VMetaClass@@A
 */
 
+#include "data7/metadeclare.h"
+
 #include "vector3.h"
 
 class Matrix34

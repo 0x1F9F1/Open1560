@@ -114,6 +114,8 @@
     0x90B498 | struct SignedInt64Type SignedInt64Inst | ?SignedInt64Inst@@3USignedInt64Type@@A
 */
 
+#include "metadeclare.h"
+
 class MiniParser;
 
 struct MetaType

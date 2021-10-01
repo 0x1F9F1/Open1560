@@ -33,6 +33,7 @@
 #include "data7/miniparser.h"
 
 class Stream;
+class MetaClass;
 
 class StreamMiniParser final : public MiniParser
 {
