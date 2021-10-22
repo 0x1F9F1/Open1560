@@ -1322,7 +1322,13 @@ void InitPatches()
         create_patch("LocPlayerName", "lea don't mov", addr, "\x8D", 1);
     }
 
+    // OppIconInfo Place:
+    // 0:   Invalid
+    // 1-9: Number 1-9
+    // 10:  CnR Gold $
     create_packed_patch<u32>("mmMultiCR::OppStealGold", "Icon Number", 0x41D93C + 6, 10);
+    create_packed_patch<u8>("mmIcons::Cull", "Icon Number", 0x426646 + 2, 10);
+    create_packed_patch<u8>("mmIcons::Cull", "Icon Number", 0x426731 + 4, 11);
 
     patch_jmp("mmPlayer::Init", "Enable FreeCam when not in DevelopmentMode", 0x42A8E8, jump_type::never);
 
