@@ -225,3 +225,9 @@ private:
 
 // ?ddGDIFlip@@YAXXZ | unused
 ARTS_IMPORT void ddGDIFlip();
+
+// RGBA <-> BGRA
+inline u32 TwiddleColor(u32 color)
+{
+    return ((color >> 16) & 0xFF) | (color & 0xFF00) | ((color & 0xFF) << 16);
+}

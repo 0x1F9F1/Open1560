@@ -131,6 +131,6 @@ void mmNumberFont::Init(u32 color)
     for (usize i = 0; i < Count; ++i)
     {
         char letter[2] {Chars[i], '\0'};
-        Bitmaps[i] = AsRaw(mmText::CreateFitBitmap(letter, Font, color, -1));
+        Bitmaps[i] = AsRaw(mmText::CreateFitBitmap(letter, Font, TwiddleColor(color), -1));
     }
 }

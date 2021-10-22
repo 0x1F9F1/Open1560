@@ -29,11 +29,6 @@
 #    undef CreateFont
 #endif
 
-static u32 TwiddleColor(u32 color)
-{
-    return ((color >> 16) & 0xFF) | (color & 0xFF00) | ((color & 0xFF) << 16);
-}
-
 void mmText::Draw(agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font)
 {
     surface->Load();
