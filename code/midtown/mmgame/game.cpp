@@ -792,7 +792,8 @@ b32 mmGame::Init()
     InitOtherPlayers();
     InitHUD();
 
-    if (HasAIMap)
+    // TODO: Fix crash in mmBridgeSet::Init when the AI map is missing
+    if (!MMSTATE.DisableAI)
     {
         AnimMgr = MakeUnique<mmAnimMgr>();
         AnimMgr->Init(MapName, Player->Car.Sim.Model, nullptr, 0);
