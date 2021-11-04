@@ -305,8 +305,8 @@ void agiPipeline::Print(i32 x, i32 y, i32 color, const char* text)
 
         indices[0] = base + 0;
         indices[1] = base + 1;
-        indices[2] = base + 2;
-        indices[3] = base + 0;
+        indices[2] = base + 3;
+        indices[3] = base + 1;
         indices[4] = base + 2;
         indices[5] = base + 3;
 

@@ -387,7 +387,7 @@ void agiGLPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, 
 
     agiScreenVtx blank {0.0f, 0.0f, 0.0f, 1.0f, debug_draw ? 0xFF000044 : 0xFFFFFFFF, 0xFFFFFFFF, 0.0f, 0.0f};
     agiScreenVtx verts[4] {blank, blank, blank, blank};
-    u16 indices[6] {0, 1, 2, 0, 2, 3};
+    u16 indices[6] {0, 1, 3, 1, 2, 3};
 
     f32 const inv_tex_w = 1.0f / src->GetWidth();
     f32 const inv_tex_h = 1.0f / src->GetHeight();
@@ -438,7 +438,7 @@ void agiGLPipeline::ClearRect(i32 x, i32 y, i32 width, i32 height, u32 color)
 
     agiScreenVtx blank {0.0f, 0.0f, 0.0f, 1.0f, color | 0xFF000000, 0xFFFFFFFF, 0.0f, 0.0f};
     agiScreenVtx verts[4] {blank, blank, blank, blank};
-    u16 indices[6] {0, 1, 2, 0, 2, 3};
+    u16 indices[6] {0, 1, 3, 1, 2, 3};
 
     verts[3].x = verts[0].x = static_cast<f32>(x);
     verts[1].y = verts[0].y = static_cast<f32>(y);
