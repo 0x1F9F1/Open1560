@@ -374,10 +374,16 @@ static void MainPhase(i32 argc, char** argv)
             }
 
             case mmGameState::Drive: {
-                if (GenerateLoadScreenName())
+                if (Rc<agiBitmap> image =
+                        GenerateLoadScreenName() ? AsRc(Pipe()->GetBitmap(LoadScreen, 1.0f, 1.0f, 0)) : nullptr)
+                {
                     loader.Init(LoadScreen, 366.0f / 640.0f, 414.0f / 480.0f);
+                }
                 else
+                {
+                    arts_strcpy(LoadScreen, "title_screen");
                     loader.Init(LoadScreen, 15.0f / 640.0f, 456.0f / 480.0f);
+                }
 
                 ARTS_MEM_STAT("GameManager");
 
@@ -1141,41 +1147,16 @@ void GameLoop([[maybe_unused]] mmInterface* mm_interface, [[maybe_unused]] mmGam
 
 b32 GenerateLoadScreenName()
 {
-    arts_strcpy(LoadScreen, "title_screen");
-
-    // TODO: Handle other cities
-    // TODO: Use mmCityInfo.MapName
-    if (std::strcmp(CityName, "chicago"))
-        return false;
-
-    char name[40];
-    arts_strcpy(name, CityName);
-
     switch (MMSTATE.GameMode)
     {
-        case mmGameMode::Cruise:
-            arts_strcat(name, "ro");
-            arts_sprintf(LoadScreen, "%s", name);
-            return true;
-        case mmGameMode::Checkpoint:
-            arts_strcat(name, "ch");
-            arts_sprintf(LoadScreen, "%s%d", name, MMSTATE.EventId + 1);
-            return true;
-        case mmGameMode::CnR:
-            arts_strcat(name, "cr");
-            arts_sprintf(LoadScreen, "%s", name);
-            return true;
-        case mmGameMode::Circuit:
-            arts_strcat(name, "ci");
-            arts_sprintf(LoadScreen, "%s%d", name, MMSTATE.EventId + 1);
-            return true;
-        case mmGameMode::Blitz:
-            arts_strcat(name, "bl");
-            arts_sprintf(LoadScreen, "%s%d", name, MMSTATE.EventId + 1);
-            return true;
-
-        default: return false;
+        case mmGameMode::Cruise: arts_sprintf(LoadScreen, "%sro", CityName); return true;
+        case mmGameMode::Checkpoint: arts_sprintf(LoadScreen, "%sro%d", CityName, MMSTATE.EventId + 1); return true;
+        case mmGameMode::CnR: arts_sprintf(LoadScreen, "%scr", CityName); return true;
+        case mmGameMode::Circuit: arts_sprintf(LoadScreen, "%sci%d", CityName, MMSTATE.EventId + 1); return true;
+        case mmGameMode::Blitz: arts_sprintf(LoadScreen, "%sbl%d", CityName, MMSTATE.EventId + 1); return true;
     }
+
+    return false;
 }
 
 void InitAudioManager()
