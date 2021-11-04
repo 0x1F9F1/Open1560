@@ -442,11 +442,22 @@ uniform vec4 u_Transform[2];
 uniform vec4 u_FogMode;
 uniform vec3 u_FogColor;
 uniform bvec2 u_TexEnv;
+uniform vec2 u_RenderScale;
+
+#if __VERSION__ < 130
+#define round(x) floor((x) + 0.5)
+#endif
 
 void main()
 {
-    gl_Position = in_Position * u_Transform[0] + u_Transform[1];
-    gl_Position /= in_Position.w;
+    vec4 pos = in_Position;
+
+    // If the vertex has no perspective, assume it is 2D and align its position to the nearest output pixel
+    if (pos.w == 1.0)
+        pos.xy = round(pos.xy * u_RenderScale) / u_RenderScale;
+
+    gl_Position = pos * u_Transform[0] + u_Transform[1];
+    gl_Position /= pos.w;
     frag_Color = u_TexEnv[0] ? in_Color.bgra : vec4(1.0);
 
     frag_Fog = vec4(0.0);
@@ -563,6 +574,10 @@ void main()
     uniform_fog_color_ = glGetUniformLocation(shader_, "u_FogColor");
     fog_color_ = {0.0f, 0.0f, 0.0f};
     glUniform3f(uniform_fog_color_, fog_color_.x, fog_color_.y, fog_color_.z);
+
+    glUniform2f(glGetUniformLocation(shader_, "u_RenderScale"),
+        static_cast<f32>(Pipe()->GetRenderWidth()) / Pipe()->GetWidth(),
+        static_cast<f32>(Pipe()->GetRenderHeight()) / Pipe()->GetHeight());
 
     agiGL->CheckErrors();
 }
