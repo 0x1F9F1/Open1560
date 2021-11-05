@@ -1150,7 +1150,7 @@ b32 GenerateLoadScreenName()
     switch (MMSTATE.GameMode)
     {
         case mmGameMode::Cruise: arts_sprintf(LoadScreen, "%sro", CityName); return true;
-        case mmGameMode::Checkpoint: arts_sprintf(LoadScreen, "%sro%d", CityName, MMSTATE.EventId + 1); return true;
+        case mmGameMode::Checkpoint: arts_sprintf(LoadScreen, "%sch%d", CityName, MMSTATE.EventId + 1); return true;
         case mmGameMode::CnR: arts_sprintf(LoadScreen, "%scr", CityName); return true;
         case mmGameMode::Circuit: arts_sprintf(LoadScreen, "%sci%d", CityName, MMSTATE.EventId + 1); return true;
         case mmGameMode::Blitz: arts_sprintf(LoadScreen, "%sbl%d", CityName, MMSTATE.EventId + 1); return true;
