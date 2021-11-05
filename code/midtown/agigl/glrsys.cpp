@@ -452,9 +452,17 @@ void main()
 {
     vec4 pos = in_Position;
 
-    // If the vertex has no perspective, assume it is 2D and align its position to the nearest output pixel
-    if (pos.w == 1.0)
-        pos.xy = round(pos.xy * u_RenderScale) / u_RenderScale;
+    // If the vertex has no perspective, assume it is 2D and tweak the resolution scaling
+    if (pos.w == 1.0) {
+        // Instead of allowing the position to be scaled linearly from virtual
+        // to physical screen coordinates, find the group of physical pixels
+        // which can can contain the virtual pixel, and then interpolate
+        // between them. This ensures integral positions do not become
+        // fractional, which would cause minor rendering issues.
+        vec2 a = floor(pos.xy);
+        vec2 b = a * u_RenderScale;
+        pos.xy = mix(round(b), round(b + u_RenderScale), pos.xy - a) / u_RenderScale;
+    }
 
     gl_Position = pos * u_Transform[0] + u_Transform[1];
     gl_Position /= pos.w;
@@ -539,16 +547,16 @@ void main()
     {
         GLint buffer_size = 0;
         glGetProgramiv(shader_, GL_PROGRAM_BINARY_LENGTH, &buffer_size);
-        u8* buffer = new u8[buffer_size];
+        Ptr<u8[]> buffer = MakeUniqueUninit<u8[]>(buffer_size);
 
         GLsizei length = 0;
         GLenum binary_format = 0;
-        glGetProgramBinary(shader_, buffer_size, &length, &binary_format, buffer);
+        glGetProgramBinary(shader_, buffer_size, &length, &binary_format, buffer.get());
 
         if (Ptr<Stream> output {arts_fopen("shader.bin", "w")})
         {
             output->Write(&binary_format, sizeof(binary_format));
-            output->Write(buffer, buffer_size);
+            output->Write(buffer.get(), buffer_size);
         }
     }
 #endif
