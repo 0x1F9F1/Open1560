@@ -694,7 +694,9 @@ b32 mmGame::Init()
         mmCityInfo* city_info = CityList()->GetCurrentCity();
         arts_strcpy(MapName, city_info->MapName);
         arts_strcpy(RaceDir, city_info->RaceDir);
-        CHICAGO = !arts_strnicmp(MapName, "chicago", 7);
+
+        // FIXME: Some custom chicago locales happen to start with c but not chicago, i.e customrace.
+        CHICAGO = MapName[0] == 'c' || MapName[0] == 'C'; // !arts_strnicmp(MapName, "chicago", 7);
 
         Displayf("%s maps to %s (CHICAGO=%d)", MapName, RaceDir, CHICAGO);
 
