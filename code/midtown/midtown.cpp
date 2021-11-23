@@ -314,8 +314,8 @@ static void MainPhase(i32 argc, char** argv)
         GameInput()->Init(static_cast<i32>(MMSTATE.InputType));
     }
 
-    mmGameManager* game_manager = nullptr;
-    mmInterface* mm_interface = nullptr;
+    Ptr<mmGameManager> game_manager;
+    Ptr<mmInterface> mm_interface;
 
     {
         mmLoader loader;
@@ -363,8 +363,8 @@ static void MainPhase(i32 argc, char** argv)
                     loader.BeginTask(LOC_STRING(MM_IDS_LOADING_INTERFACE));
                 }
 
-                mm_interface = new mmInterface();
-                Sim()->AddChild(mm_interface);
+                mm_interface = MakeUnique<mmInterface>();
+                Sim()->AddChild(mm_interface.get());
 
                 mm_interface->Reset();
                 mm_interface->ShowMain(CycleState);
@@ -395,8 +395,8 @@ static void MainPhase(i32 argc, char** argv)
                 if (MMSTATE.HasMidtownCD)
                     AudMgr()->PlayCDTrack(2, true);
 
-                game_manager = /*mmGameManager::Instance = */ new mmGameManager();
-                Sim()->AddChild(game_manager);
+                game_manager = /*mmGameManager::Instance = */ MakeUnique<mmGameManager>();
+                Sim()->AddChild(game_manager.get());
 
                 game_manager->Reset();
 
@@ -433,7 +433,7 @@ static void MainPhase(i32 argc, char** argv)
     module_init.End();
     Displayf("********* Load time = %f seconds; %dK allocated.", LoadTimer.Time(), ALLOCATOR.GetHeapUsed() >> 10);
 
-    GameLoop(mm_interface, game_manager, replay_name);
+    GameLoop(mm_interface.get(), game_manager.get(), replay_name);
 
 #ifdef ARTS_DEV_BUILD
     if (game_manager)
@@ -456,8 +456,8 @@ static void MainPhase(i32 argc, char** argv)
     AudMgr()->Disable(-1, -1);
     ALLOCATOR.SanityCheck();
 
-    delete mm_interface;
-    delete game_manager;
+    mm_interface = nullptr;
+    game_manager = nullptr;
 
     if (EnablePaging)
     {
