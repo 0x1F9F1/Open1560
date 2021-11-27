@@ -96,8 +96,8 @@ i32 agiGLPipeline::BeginGfx()
 
     if (device_flags_1_ & 0x1)
     {
-        if (SDL_GL_SetSwapInterval(-1) == -1)
-            SDL_GL_SetSwapInterval(1);
+        // if (SDL_GL_SetSwapInterval(-1) == -1)
+        SDL_GL_SetSwapInterval(1);
     }
     else
     {

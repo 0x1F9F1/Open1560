@@ -639,7 +639,7 @@ void ApplicationHelper(i32 argc, char** argv)
     }
 
     CURHEAP = &ALLOCATOR;
-    SAFEHEAP.Init((PARAM_heapsize.get_or(64) + (ALLOCATOR.IsDebug() ? 16 : 0)) << 20, true);
+    SAFEHEAP.Init(PARAM_heapsize.get_or(ALLOCATOR.IsDebug() ? 80 : 64) << 20, true);
 
     MMSTATE.SetDefaults();
     bool no_ui = MMSTATE.ParseStateArgs(argc, argv);
