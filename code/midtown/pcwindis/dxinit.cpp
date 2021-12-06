@@ -103,7 +103,7 @@ void dxiDirectDrawSurfaceDestroy()
     SafeRelease(lpdsFront);
 }
 
-extern "C" HRESULT WINAPI DirectInputCreateA_Impl(
+extern "C" HRESULT WINAPI DirectInputCreateA_Proxy(
     HINSTANCE hinst, DWORD dwVersion, LPDIRECTINPUTA* ppDI, LPUNKNOWN punkOuter);
 
 void dxiDirectInputCreate()
@@ -120,7 +120,7 @@ void dxiDirectInputCreate()
     HRESULT err =
         pDirectInput8Create(GetModuleHandle(NULL), DIRECTINPUT_VERSION, IID_IDirectInput8A, (void**) &lpDI, NULL);
 #else
-    HRESULT err = DirectInputCreateA_Impl(GetModuleHandleA(NULL), DIRECTINPUT_VERSION, &lpDI, 0);
+    HRESULT err = DirectInputCreateA_Proxy(GetModuleHandleA(NULL), DIRECTINPUT_VERSION, &lpDI, 0);
 #endif
 
     if (err != 0)

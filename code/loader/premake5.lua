@@ -15,6 +15,7 @@ project "Open1560"
 
     files {
         "loader.cpp",
+        "loader.def",
         "symbols.cpp",
         "symbols.h",
     }

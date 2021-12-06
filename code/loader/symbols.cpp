@@ -69,6 +69,12 @@ import_symbol(0x90942C, "?MouseEvent@@3PAXA");
 
 const char* const NewSymbols[] {
     "DirectInputCreateA=",
+    "DirectInputCreateEx=",
+    "DirectInputCreateW=",
+    "DllCanUnloadNow=",
+    "DllGetClassObject=",
+    "DllRegisterServer=",
+    "DllUnregisterServer=",
     "NvOptimusEnablement=",
     "AmdPowerXpressRequestHighPerformance=",
 

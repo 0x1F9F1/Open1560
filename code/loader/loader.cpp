@@ -31,44 +31,88 @@
 #include <mem/module.h>
 #include <mem/pattern.h>
 
-#pragma comment(linker, "/EXPORT:DirectInputCreateA=_DirectInputCreateA_Impl@16")
-
-extern "C" HRESULT WINAPI DirectInputCreateA_Impl(
-    HINSTANCE hinst, DWORD dwVersion, LPDIRECTINPUTA* ppDI, LPUNKNOWN punkOuter)
+template <typename T>
+static ARTS_NOINLINE T DinputProxy(const char* func)
 {
-    static decltype(&DirectInputCreateA_Impl) DirectInputCreateA_Orig = nullptr;
+    static HMODULE system_dinput = [] {
+        wchar_t path[MAX_PATH];
+        GetSystemDirectoryW(path, ARTS_SIZE32(path));
+        wcscat_s(path, L"\\dinput.dll");
 
-    if (DirectInputCreateA_Orig == nullptr)
-    {
-        wchar_t dinput_path[MAX_PATH];
-        GetSystemDirectoryW(dinput_path, ARTS_SIZE32(dinput_path));
-        wcscat_s(dinput_path, L"\\dinput.dll");
+        HMODULE dinput = LoadLibraryW(path);
+        Displayf("Loaded system dinput.dll at 0x%zX", reinterpret_cast<std::uintptr_t>(dinput));
 
-        if (HMODULE dinput_dll = LoadLibraryW(dinput_path))
-        {
-            Displayf("Loaded real dinput.dll at 0x%zX", reinterpret_cast<std::uintptr_t>(dinput_dll));
-
-            DirectInputCreateA_Orig =
-                reinterpret_cast<decltype(DirectInputCreateA_Orig)>(GetProcAddress(dinput_dll, "DirectInputCreateA"));
-
-            if (DirectInputCreateA_Orig)
-            {
-                Displayf(
-                    "Found DirectInputCreateA at 0x%zX", reinterpret_cast<std::uintptr_t>(DirectInputCreateA_Orig));
-            }
-            else
-            {
-                Abortf("Failed to find DirectInputCreateA");
-            }
-        }
-        else
+        if (dinput == nullptr)
         {
             Abortf("Failed to load dinput.dll\n"
                    "If you are using Wine, ensure you are using \"dinput=n,b\"");
         }
+
+        return dinput;
+    }();
+
+    return reinterpret_cast<T>(GetProcAddress(system_dinput, func));
+}
+
+extern "C"
+{
+    HRESULT WINAPI DirectInputCreateA_Proxy(HINSTANCE hinst, DWORD dwVersion, LPDIRECTINPUTA* ppDI, LPUNKNOWN punkOuter)
+    {
+        if (static auto proxy = DinputProxy<decltype(&DirectInputCreateA_Proxy)>("DirectInputCreateA"); proxy)
+            return proxy(hinst, dwVersion, ppDI, punkOuter);
+
+        *ppDI = nullptr;
+        return E_INVALIDARG;
     }
 
-    return DirectInputCreateA_Orig(hinst, dwVersion, ppDI, punkOuter);
+    HRESULT WINAPI DirectInputCreateEx_Proxy(
+        HINSTANCE hinst, DWORD dwVersion, REFIID riidltf, LPVOID* ppvOut, LPUNKNOWN punkOuter)
+    {
+        if (static auto proxy = DinputProxy<decltype(&DirectInputCreateEx_Proxy)>("DirectInputCreateEx"); proxy)
+            return proxy(hinst, dwVersion, riidltf, ppvOut, punkOuter);
+
+        *ppvOut = nullptr;
+        return E_INVALIDARG;
+    }
+
+    HRESULT WINAPI DirectInputCreateW_Proxy(HINSTANCE hinst, DWORD dwVersion, LPDIRECTINPUTW* ppDI, LPUNKNOWN punkOuter)
+    {
+        if (static auto proxy = DinputProxy<decltype(&DirectInputCreateW_Proxy)>("DirectInputCreateW"); proxy)
+            return proxy(hinst, dwVersion, ppDI, punkOuter);
+
+        *ppDI = nullptr;
+        return E_INVALIDARG;
+    }
+
+    HRESULT CALLBACK DllCanUnloadNow_Proxy()
+    {
+        return S_FALSE;
+    }
+
+    HRESULT CALLBACK DllGetClassObject_Proxy(REFCLSID rclsid, REFIID riid, LPVOID* ppv)
+    {
+        if (static auto proxy = DinputProxy<decltype(&DllGetClassObject_Proxy)>("DllGetClassObject"); proxy)
+            return proxy(rclsid, riid, ppv);
+
+        *ppv = nullptr;
+        return CLASS_E_CLASSNOTAVAILABLE;
+    }
+
+    HRESULT CALLBACK DllRegisterServer_Proxy()
+    {
+        if (static auto proxy = DinputProxy<decltype(&DllRegisterServer_Proxy)>("DllRegisterServer"); proxy)
+            return proxy();
+
+        return S_OK;
+    }
+
+    HRESULT CALLBACK DllUnregisterServer_Proxy()
+    {
+        if (static auto proxy = DinputProxy<decltype(&DllUnregisterServer_Proxy)>("DllUnregisterServer"); proxy)
+            return proxy();
+
+        return S_OK;
+    }
 }
 
 static std::size_t InitExportHooks(HMODULE instance)
