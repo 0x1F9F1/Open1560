@@ -217,7 +217,7 @@ i32 agiGLRasterizer::BeginGfx()
 {
     agiGL->CheckErrors();
 
-    if (agiGL->IsCoreProfile() || (agiGL->HasVersion(200) && !PARAM_ancientgl.get_or(false)))
+    if (!agiGL->IsLegacyCompat() || (agiGL->HasVersion(200) && !PARAM_ancientgl.get_or(false)))
     {
         InitModern();
     }
@@ -365,7 +365,7 @@ void agiGLRasterizer::InitModern()
         if (i32 mode = 0; PARAM_glstream.get(mode))
             stream_mode = static_cast<StreamMode>(mode);
 
-        if (agiGL->IsCoreProfile() && stream_mode == StreamMode::ClientSide)
+        if (!agiGL->IsLegacyCompat() && stream_mode == StreamMode::ClientSide)
             stream_mode = StreamMode::BufferData;
     }
 

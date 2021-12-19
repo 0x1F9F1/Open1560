@@ -78,13 +78,14 @@ void agiGLContext::InitVersioning()
 
     i32 major_version = 0;
     i32 minor_version = 0;
+    i32 profile_mask = 0;
 
     if (arts_sscanf(gl_version, "%i.%i", &major_version, &minor_version) != 2)
         Quitf("Failed to get OpenGL version");
 
     gl_version_ = (major_version * 100) + (minor_version * 10);
     context_flags_ = 0;
-    profile_mask_ = 0;
+    legacy_compat_ = true;
 
     Displayf("OpenGL Version: %s", gl_version);
     Displayf("OpenGL Vendor: %s", agi_glGetString(GL_VENDOR));
@@ -100,9 +101,6 @@ void agiGLContext::InitVersioning()
 
         agi_glGetIntegerv(GL_CONTEXT_FLAGS, &context_flags_);
 
-        if (HasVersion(320))
-            agi_glGetIntegerv(GL_CONTEXT_PROFILE_MASK, &profile_mask_);
-
         i32 num_extensions = 0;
         agi_glGetIntegerv(GL_NUM_EXTENSIONS, &num_extensions);
 
@@ -113,19 +111,37 @@ void agiGLContext::InitVersioning()
             if (const char* ext = (const char*) agi_glGetStringi(GL_EXTENSIONS, i))
                 extensions_.Insert(ext, (void*) 2);
         }
+
+        // 3.0:  Legacy features deprecated, removed with GL_CONTEXT_FLAG_FORWARD_COMPATIBLE_BIT
+        // 3.1:  Legacy features moved into GL_ARB_compatibility
+        // 3.2+: Legacy features moved into GL_CONTEXT_COMPATIBILITY_PROFILE_BIT
+        if (HasVersion(320))
+        {
+            agi_glGetIntegerv(GL_CONTEXT_PROFILE_MASK, &profile_mask);
+            legacy_compat_ = profile_mask & GL_CONTEXT_COMPATIBILITY_PROFILE_BIT;
+        }
+        else if (HasVersion(310))
+        {
+            legacy_compat_ = HasExtension("GL_ARB_compatibility");
+        }
+        else
+        {
+            legacy_compat_ = !(context_flags_ & GL_CONTEXT_FLAG_FORWARD_COMPATIBLE_BIT);
+        }
     }
     else if (HasVersion(110))
     {
         ParseExtensionString(extensions_, (const char*) agi_glGetString(GL_EXTENSIONS), 1);
     }
 
-    Displayf("OpenGL %i %s%s%s%s", gl_version_,
-        (profile_mask_ & GL_CONTEXT_CORE_PROFILE_BIT)                ? "Core"
-            : (profile_mask_ & GL_CONTEXT_COMPATIBILITY_PROFILE_BIT) ? "Compatibility"
-                                                                     : "Legacy",
+    Displayf("OpenGL %i %s%s%s%s%s", gl_version_,
+        (profile_mask & GL_CONTEXT_CORE_PROFILE_BIT)                ? "Core"
+            : (profile_mask & GL_CONTEXT_COMPATIBILITY_PROFILE_BIT) ? "Compatibility"
+                                                                    : "Legacy",
         (context_flags_ & GL_CONTEXT_FLAG_FORWARD_COMPATIBLE_BIT) ? ", Forward Compatible" : "",
         (context_flags_ & GL_CONTEXT_FLAG_DEBUG_BIT) ? ", Debug" : "",
-        (context_flags_ & GL_CONTEXT_FLAG_NO_ERROR_BIT_KHR) ? ", No Error" : "");
+        (context_flags_ & GL_CONTEXT_FLAG_NO_ERROR_BIT_KHR) ? ", No Error" : "",
+        legacy_compat_ ? " (Legacy Compat)" : "");
 
     Displayf("OpenGL Extension Count: %i", extensions_.Size());
 
@@ -237,7 +253,7 @@ void agiGLContext::InitState()
         glEnable(GL_DEBUG_OUTPUT);
     }
 
-    direct_state_access_ = IsCoreProfile() && HasExtension(/*450,*/ "GL_ARB_direct_state_access");
+    direct_state_access_ = !IsLegacyCompat() && HasExtension(/*450,*/ "GL_ARB_direct_state_access");
     max_anisotropy_ = 0;
 
     if (HasExtension("GL_EXT_texture_filter_anisotropic"))

@@ -67,9 +67,9 @@ public:
         return gl_version_ >= version;
     }
 
-    bool IsCoreProfile() const
+    bool IsLegacyCompat() const
     {
-        return profile_mask_ & 0x00000001; // GL_CONTEXT_CORE_PROFILE_BIT
+        return legacy_compat_;
     }
 
     i32 GetShaderVersion() const
@@ -93,7 +93,7 @@ private:
 
     i32 gl_version_ {};
     i32 context_flags_ {};
-    i32 profile_mask_ {};
+    bool legacy_compat_ {};
 
     i32 shader_version_ {};
     i32 debug_level_ {};
