@@ -20,6 +20,7 @@ define_dummy_symbol(mmwidget_menu);
 
 #include "menu.h"
 
+#include "agi/pipeline.h"
 #include "arts7/midgets.h"
 #include "eventq7/keys.h"
 #include "manager.h"
@@ -73,6 +74,30 @@ i32 UIMenu::IsAnOptionMenu()
 void UIMenu::ClearAction()
 {
     state_ = 2;
+}
+
+void UIMenu::GetDimensions(f32& x, f32& y, f32& w, f32& h)
+{
+    x = menu_x_;
+    y = menu_y_;
+    w = menu_width_;
+    h = menu_height_;
+}
+
+void UIMenu::ScaleWidget(f32& x, f32& y, f32& w, f32& h)
+{
+    f32 l = menu_x_ + x * menu_width_;
+    f32 b = menu_y_ + y * menu_height_;
+    f32 r = l + (w * menu_width_);
+    f32 t = b + (h * menu_height_);
+
+    Pipe()->RoundNormalized(l, b);
+    Pipe()->RoundNormalized(r, t);
+
+    x = l;
+    y = b;
+    w = r - x;
+    h = t - y;
 }
 
 b32 UIMenu::ScanInput(eqEvent* event)

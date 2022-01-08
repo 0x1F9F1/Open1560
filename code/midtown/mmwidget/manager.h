@@ -136,7 +136,7 @@ public:
 #endif
 
     // ?AdjustPopupCard@MenuManager@@QAEXPAVUIMenu@@@Z
-    ARTS_IMPORT void AdjustPopupCard(UIMenu* arg1);
+    ARTS_EXPORT void AdjustPopupCard(UIMenu* menu);
 
     // ?AllocateMenuSwitchAudio@MenuManager@@QAEXXZ
     ARTS_IMPORT void AllocateMenuSwitchAudio();

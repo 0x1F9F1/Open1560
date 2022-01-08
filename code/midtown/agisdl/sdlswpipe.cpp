@@ -78,10 +78,10 @@ public:
         i32 pipe_width = Pipe()->GetWidth();
         i32 pipe_height = Pipe()->GetHeight();
 
-        i32 x = static_cast<i32>(std::round(pipe_width * params_.X));
-        i32 y = static_cast<i32>(std::round(pipe_height * params_.Y));
-        i32 w = static_cast<i32>(std::round(pipe_width * (params_.X + params_.Width))) - x;
-        i32 h = static_cast<i32>(std::round(pipe_height * (params_.Y + params_.Height))) - y;
+        i32 x = std::lround(pipe_width * params_.X);
+        i32 y = std::lround(pipe_height * params_.Y);
+        i32 w = std::lround(pipe_width * (params_.X + params_.Width)) - x;
+        i32 h = std::lround(pipe_height * (params_.Y + params_.Height)) - y;
         y = pipe_height - (y + h);
 
         SDL_Rect rect {x, y, w, h};

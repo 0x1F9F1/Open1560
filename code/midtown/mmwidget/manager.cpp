@@ -27,6 +27,7 @@ define_dummy_symbol(mmwidget_manager);
 #include "arts7/view.h"
 #include "eventq7/eventq.h"
 #include "mmaudio/sound.h"
+#include "mmeffects/card2d.h"
 
 #include "menu.h"
 #include "pointer.h"
@@ -34,6 +35,14 @@ define_dummy_symbol(mmwidget_manager);
 
 void MenuManager::AddPointer()
 {}
+
+void MenuManager::AdjustPopupCard(UIMenu* menu)
+{
+    f32 x, y, w, h;
+    menu->GetDimensions(x, y, w, h);
+    CheckBG(menu);
+    popup_->SetDimensions(x, y, w, h);
+}
 
 #ifdef ARTS_DEV_BUILD
 void MenuManager::AddWidgets(Bank* /*arg1*/)

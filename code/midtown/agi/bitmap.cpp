@@ -57,11 +57,11 @@ i32 agiBitmap::Init(const char* name, f32 sx, f32 sy, i32 flags)
 
         if (sx > 1.0f || sy > 1.0f)
         {
-            width_scale_ = sx / 640.0f;
-            height_scale_ = sy / 480.0f;
+            width_ = std::lround(sx);
+            height_ = std::lround(sy);
 
-            width_ = static_cast<i32>(sx);
-            height_ = static_cast<i32>(sy);
+            width_scale_ = width_ / 640.0f;
+            height_scale_ = height_ / 480.0f;
         }
         else
         {
@@ -79,8 +79,8 @@ i32 agiBitmap::Init(const char* name, f32 sx, f32 sy, i32 flags)
         width_scale_ = 0.0f;
         height_scale_ = 0.0f;
 
-        width_ = static_cast<i32>(sx);
-        height_ = static_cast<i32>(sy);
+        width_ = std::lround(sx);
+        height_ = std::lround(sy);
 
         surface_ = AsPtr(agiSurfaceDesc::Init(width_, height_, Pipe()->GetScreenFormat()));
         surface_->Clear();

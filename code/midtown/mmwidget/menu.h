@@ -272,7 +272,7 @@ public:
     ARTS_IMPORT i32 GetBstate();
 
     // ?GetDimensions@UIMenu@@QAEXAAM000@Z
-    ARTS_IMPORT void GetDimensions(f32& arg1, f32& arg2, f32& arg3, f32& arg4);
+    ARTS_EXPORT void GetDimensions(f32& x, f32& y, f32& w, f32& h);
 
     // ?GetWidgetID@UIMenu@@QAEHXZ
     ARTS_IMPORT i32 GetWidgetID();
@@ -290,7 +290,7 @@ public:
     ARTS_IMPORT uiWidget* MouseHitCheck(i32 arg1, f32 arg2, f32 arg3);
 
     // ?ScaleWidget@UIMenu@@QAEXAAM000@Z
-    ARTS_IMPORT void ScaleWidget(f32& arg1, f32& arg2, f32& arg3, f32& arg4);
+    ARTS_EXPORT void ScaleWidget(f32& x, f32& y, f32& w, f32& h);
 
     // ?ScanInput@UIMenu@@QAEHPATeqEvent@@@Z
     ARTS_EXPORT b32 ScanInput(eqEvent* event);

@@ -62,10 +62,12 @@ PUMenuBase::PUMenuBase(
     menu_x_ = UI_StartX + (UI_ScaleX - menu_width_) / 2.0f;
     menu_y_ = UI_StartY + (UI_ScaleY - menu_height_) / 2.0f;
 
+    Pipe()->RoundNormalized(menu_x_, menu_y_);
+
     if (bg_bitmap_)
     {
-        bg_x_ = static_cast<i32>(menu_x_ * Pipe()->GetWidth());
-        bg_y_ = static_cast<i32>(menu_y_ * Pipe()->GetHeight());
+        bg_x_ = std::lround(menu_x_ * Pipe()->GetWidth());
+        bg_y_ = std::lround(menu_y_ * Pipe()->GetHeight());
     }
 
     field_AC = 0.075f;

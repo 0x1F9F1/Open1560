@@ -51,7 +51,7 @@ public:
     ARTS_IMPORT ~Card2D() override = default;
 
     // ?Init@Card2D@@QAEXPAVasCamera@@MMMMM@Z
-    ARTS_IMPORT void Init(asCamera* arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6);
+    ARTS_IMPORT void Init(asCamera* camera, f32 x, f32 y, f32 w, f32 h, f32 alpha);
 
     // ?SetAlpha@Card2D@@QAEXM@Z
     ARTS_IMPORT void SetAlpha(f32 arg1);
@@ -60,7 +60,7 @@ public:
     ARTS_IMPORT void SetColor(Vector4 arg1);
 
     // ?SetDimensions@Card2D@@QAEXMMMM@Z
-    ARTS_IMPORT void SetDimensions(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
+    ARTS_IMPORT void SetDimensions(f32 x, f32 y, f32 w, f32 h);
 
     // ?SetPosition@Card2D@@QAEXMM@Z
     ARTS_IMPORT void SetPosition(f32 arg1, f32 arg2);

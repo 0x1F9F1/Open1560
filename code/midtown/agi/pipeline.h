@@ -348,6 +348,12 @@ public:
         window_ = window;
     }
 
+    void RoundNormalized(f32& x, f32& y)
+    {
+        x = std::round(x * width_) / width_;
+        y = std::round(y * height_) / height_;
+    }
+
 protected:
     // ??0agiPipeline@@IAE@XZ
     ARTS_EXPORT agiPipeline();
