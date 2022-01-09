@@ -8,7 +8,6 @@ project "Open1560"
         flags "FatalWarnings"
     filter {}
 
-    useARTSPCH()
     includeARTS()
 
     targetname "dinput"
