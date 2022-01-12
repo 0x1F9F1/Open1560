@@ -142,9 +142,9 @@ i32 agiPipeline::BeginAllGfx()
         f32 ui_aspect = static_cast<f32>(UI_Width) / static_cast<f32>(UI_Height);
 
         if (ui_aspect > game_aspect)
-            UI_Width = static_cast<i32>(UI_Width * (game_aspect / ui_aspect));
+            UI_Width = std::lround(UI_Width * (game_aspect / ui_aspect));
         else if (ui_aspect < game_aspect)
-            UI_Height = static_cast<i32>(UI_Height * (ui_aspect / game_aspect));
+            UI_Height = std::lround(UI_Height * (ui_aspect / game_aspect));
 
         UI_XPos = (width_ - UI_Width) / 2;
         UI_YPos = (height_ - UI_Height) / 2;

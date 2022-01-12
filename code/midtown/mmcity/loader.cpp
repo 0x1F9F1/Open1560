@@ -26,8 +26,8 @@ define_dummy_symbol(mmcity_loader);
 
 void mmLoader::Init(aconst char* underlay_name, f32 bar_x, f32 bar_y)
 {
-    bar_x_ = UI_XPos + static_cast<i32>(UI_Width * bar_x);
-    bar_y_ = UI_YPos + static_cast<i32>(UI_Height * bar_y);
+    bar_x_ = UI_XPos + std::lround(UI_Width * bar_x);
+    bar_y_ = UI_YPos + std::lround(UI_Height * bar_y);
 
     camera_.SetUnderlay(underlay_name);
 

@@ -56,8 +56,8 @@ i32 agiGLBitmap::BeginGfx()
     }
     else
     {
-        width_ = static_cast<i32>(UI_Width * width_scale_ + 0.5f);
-        height_ = static_cast<i32>(UI_Height * height_scale_ + 0.5f);
+        width_ = std::lround(UI_Width * width_scale_);
+        height_ = std::lround(UI_Height * height_scale_);
 
         if (name_[0] != '*')
             surface_->Reload(name_.get(), BitmapSearchPath, 0, 0, 0, width_, height_);

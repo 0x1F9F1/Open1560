@@ -79,7 +79,7 @@ void agiD3DRasterizer::Mesh(agiVtxType type, agiVtx* verts, i32 vert_count, u16*
 {
     ArAssert(type == agiVtxType::Screen, "Invalid Vertex Type");
 
-    STATS.Tris += static_cast<i32>(index_count / 3.0f);
+    STATS.Tris += index_count / 3;
 
     FlushState();
 
@@ -94,7 +94,7 @@ void agiD3DRasterizer::Mesh(agiVtxType type, agiVtx* verts, i32 vert_count, u16*
 
 void agiD3DRasterizer::Mesh2(agiScreenVtx2* verts, i32 vert_count, u16* indices, i32 index_count)
 {
-    STATS.Tris += static_cast<i32>(index_count / 3.0f);
+    STATS.Tris += index_count / 3;
 
     FlushState();
 

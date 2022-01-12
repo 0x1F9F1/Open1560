@@ -66,13 +66,13 @@ void mmTextNode::Cull()
 
         if (x_ < 1.0f || y_ < 1.0f)
         {
-            x = static_cast<i32>(Pipe()->GetWidth() * x_ + 0.5f);
-            y = static_cast<i32>(Pipe()->GetHeight() * y_ + 0.5f);
+            x = std::lround(x_ * Pipe()->GetWidth());
+            y = std::lround(y_ * Pipe()->GetHeight());
         }
         else
         {
-            x = static_cast<i32>(x_);
-            y = static_cast<i32>(y_);
+            x = std::lround(x_);
+            y = std::lround(y_);
         }
 
         Pipe()->CopyBitmap(x, y, text_bitmap_.get(), 0, 0, text_bitmap_->GetWidth(), text_bitmap_->GetHeight());
