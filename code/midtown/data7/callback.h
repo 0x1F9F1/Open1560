@@ -58,25 +58,25 @@ public:
     Callback(Func func) noexcept;
 
     // ??0Callback@@QAE@P6AXXZ@Z
-    ARTS_EXPORT explicit Callback(Static0 func) noexcept;
+    [[deprecated]] ARTS_EXPORT explicit Callback(Static0 func) noexcept;
 
     // ??0Callback@@QAE@P6AXPAX@Z0@Z
-    ARTS_EXPORT explicit Callback(Static1 func, void* param) noexcept;
+    [[deprecated]] ARTS_EXPORT explicit Callback(Static1 func, void* param) noexcept;
 
     // ??0Callback@@QAE@P6AXPAX0@Z0@Z
-    ARTS_EXPORT explicit Callback(Static2 func, void* param) noexcept;
+    [[deprecated]] ARTS_EXPORT explicit Callback(Static2 func, void* param) noexcept;
 
     // ??0Callback@@QAE@P8Base@@AEXXZPAV1@@Z
-    ARTS_EXPORT explicit Callback(Member0 func, Base* this_ptr) noexcept;
+    [[deprecated]] ARTS_EXPORT explicit Callback(Member0 func, Base* this_ptr) noexcept;
 
     // ??0Callback@@QAE@P8Base@@AEXPAX@ZPAV1@0@Z
-    ARTS_EXPORT explicit Callback(Member1 func, Base* this_ptr, void* param) noexcept;
+    [[deprecated]] ARTS_EXPORT explicit Callback(Member1 func, Base* this_ptr, void* param) noexcept;
 
     // ??0Callback@@QAE@P8Base@@AEXPAX0@ZPAV1@0@Z
-    ARTS_EXPORT explicit Callback(Member2 func, Base* this_ptr, void* param) noexcept;
+    [[deprecated]] ARTS_EXPORT explicit Callback(Member2 func, Base* this_ptr, void* param) noexcept;
 
     // ??0Callback@@QAE@P8Base@@AEXPAX0@ZPAV1@00@Z | unused
-    ARTS_EXPORT explicit Callback(Member2 func, Base* this_ptr, void* param1, void* param2) noexcept;
+    [[deprecated]] ARTS_EXPORT explicit Callback(Member2 func, Base* this_ptr, void* param1, void* param2) noexcept;
 
     // ?Call@Callback@@QAEXPAX@Z
     ARTS_EXPORT void Call(void* param = nullptr);
@@ -84,7 +84,7 @@ public:
     bool operator==(const Callback& other) const;
 
 private:
-    alignas(CALLBACK_DATA_ALIGN) u8 data_[CALLBACK_DATA_SIZE];
+    alignas(CALLBACK_DATA_ALIGN) u8 data_[CALLBACK_DATA_SIZE] {};
     void(ARTS_FASTCALL* invoke_)(void* context, void* param) {};
 };
 

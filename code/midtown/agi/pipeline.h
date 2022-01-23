@@ -229,7 +229,7 @@ public:
     ARTS_IMPORT RcOwner<agiTexLut> GetTexLut(aconst char* arg1);
 
     // ?GetTexture@agiPipeline@@QAEPAVagiTexDef@@PADH@Z
-    ARTS_EXPORT RcOwner<agiTexDef> GetTexture(aconst char* name, i32 pack_shift);
+    ARTS_EXPORT RcOwner<agiTexDef> GetTexture(const char* name, i32 pack_shift);
 
     // ?GetTexture@agiPipeline@@QAEPAVagiTexDef@@HH@Z
     ARTS_EXPORT RcOwner<agiTexDef> GetTexture(i32 index, i32 pack_shift);

@@ -397,7 +397,7 @@ void agiSurfaceDesc::Fill(i32 x, i32 y, i32 width, i32 height, u32 color)
     if (x + width > static_cast<i32>(Width) || y + height > static_cast<i32>(Height))
         return;
 
-    Rc<agiColorModel> cmodel = AsRc(agiColorModel::FindMatch(this));
+    Rc<agiColorModel> cmodel = GetColorModel();
 
     color = cmodel->GetColor(agiRgba::FromARGB(color));
 
@@ -470,4 +470,9 @@ DDSURFACEDESC2 agiSurfaceDesc::ToDD()
 agiSurfaceDesc agiSurfaceDesc::FromDD(const DDSURFACEDESC2& sd)
 {
     return mem::bit_cast<agiSurfaceDesc>(sd); // FIXME: 64-bit incompatible
+}
+
+Rc<agiColorModel> agiSurfaceDesc::GetColorModel()
+{
+    return AsRc(agiColorModel::FindMatch(this));
 }

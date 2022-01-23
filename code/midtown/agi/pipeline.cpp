@@ -300,7 +300,7 @@ RcOwner<agiBitmap> agiPipeline::GetBitmap(const char* name, f32 sx, f32 sy, i32 
     return AsOwner(result);
 }
 
-RcOwner<agiTexDef> agiPipeline::GetTexture(aconst char* name, i32 pack_shift)
+RcOwner<agiTexDef> agiPipeline::GetTexture(const char* name, i32 pack_shift)
 {
     return GetTexture(agiTexLib.Lookup(name), pack_shift);
 }

@@ -234,9 +234,34 @@ void agiTexDef::PageInSurface()
     }
 }
 
+#ifdef ARTS_DEBUG
+static Ptr<agiSurfaceDesc> CreateMissingTexture()
+{
+    // FIXME: Support pallete textures
+    if (!Pipe()->IsHardware())
+        return nullptr;
+
+    Ptr<agiSurfaceDesc> surface = AsPtr(agiSurfaceDesc::Init(16, 16, Pipe()->GetAlphaFormat()));
+    Rc<agiColorModel> cmodel = surface->GetColorModel();
+    u32 pink = cmodel->GetColor(0xFF, 0x00, 0xFF, 0xFF);
+    u32 black = cmodel->GetColor(0x00, 0x00, 0x00, 0xFF);
+
+    for (u32 y = 0; y < surface->Height; ++y)
+        for (u32 x = 0; x < surface->Width; ++x)
+            cmodel->SetPixel(surface.get(), x, y, ((x ^ y) & 1) ? black : pink);
+
+    return surface;
+}
+#endif
+
 i32 agiTexDef::Reload()
 {
     Surface = AsPtr(agiSurfaceDesc::Load(Tex.Name, TexSearchPath, Tex.LOD, PackShift & 0xF, 0, 0));
+
+#ifdef ARTS_DEBUG
+    if (!Surface)
+        Surface = CreateMissingTexture();
+#endif
 
     if (!Surface)
         return AGI_ERROR_FILE_NOT_FOUND;

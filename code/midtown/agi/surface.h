@@ -41,6 +41,7 @@
 
 class agiTexLut;
 class agiTexParameters;
+class agiColorModel;
 
 typedef struct _DDPIXELFORMAT DDPIXELFORMAT;
 typedef struct _DDSURFACEDESC2 DDSURFACEDESC2;
@@ -143,6 +144,8 @@ public:
 
     DDSURFACEDESC2 ToDD();
     static agiSurfaceDesc FromDD(const DDSURFACEDESC2& sd);
+
+    Rc<agiColorModel> GetColorModel();
 
     u32 GetPixelSize() const
     {
