@@ -71,9 +71,9 @@ Fix incorrect struct offsets
 * 1589 was released three times:
     Protection | Release Date | Name | Extra
     --- | --- | --- | ---
-    SafeDisc | `03 ‎November ‎1999 00:32:10` | mmpat.exe | Contains symbols for an unknown trial debug build dated `Aug 10 11:52:15 1999`
-    Clean | `10 ‎May ‎2000 22:47:12` | midtown1_patch_aspac.exe |
-    Clean | `16 ‎January ‎2002 18:42:16` | mm1xppat.exe | Contains a 2 byte NOP patch for ComputeCpuSpeed
+    SafeDisc | `03 November 1999 00:32:10` | mmpat.exe | Contains symbols for an unknown trial debug build dated `Aug 10 11:52:15 1999`
+    Clean | `10 May 2000 22:47:12` | midtown1_patch_aspac.exe |
+    Clean | `16 January 2002 18:42:16` | mm1xppat.exe | Contains a 2 byte NOP patch for ComputeCpuSpeed
 
 # Old Links (Use Wayback Machine)
 * http://www.microsoft.com/games/midtown/downloads.htm

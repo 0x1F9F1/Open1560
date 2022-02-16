@@ -19,22 +19,3 @@
 define_dummy_symbol(mmphysics_entity);
 
 #include "entity.h"
-
-void mmPhysEntity::PostUpdate()
-{}
-
-asBound* mmPhysEntity::GetBound()
-{
-    return nullptr;
-}
-
-asInertialCS* mmPhysEntity::GetICS()
-{
-    return nullptr;
-}
-
-void mmPhysEntity::DetachMe()
-{}
-
-void mmPhysEntity::Update()
-{}

@@ -36,19 +36,28 @@ public:
     ARTS_EXPORT ~mmPhysEntity() override = default;
 
     // ?PostUpdate@mmPhysEntity@@UAEXXZ | inline
-    ARTS_EXPORT virtual void PostUpdate();
+    ARTS_EXPORT virtual void PostUpdate()
+    {}
 
     // ?GetBound@mmPhysEntity@@UAEPAVasBound@@XZ | inline
-    ARTS_EXPORT virtual asBound* GetBound();
+    ARTS_EXPORT virtual asBound* GetBound()
+    {
+        return nullptr;
+    }
 
     // ?GetICS@mmPhysEntity@@UAEPAVasInertialCS@@XZ | inline
-    ARTS_EXPORT virtual asInertialCS* GetICS();
+    ARTS_EXPORT virtual asInertialCS* GetICS()
+    {
+        return nullptr;
+    }
 
     // ?DetachMe@mmPhysEntity@@UAEXXZ | inline
-    ARTS_EXPORT virtual void DetachMe();
+    ARTS_EXPORT virtual void DetachMe()
+    {}
 
     // ?Update@mmPhysEntity@@UAEXXZ | inline
-    ARTS_EXPORT void Update() override;
+    ARTS_EXPORT void Update() override
+    {}
 };
 
 check_size(mmPhysEntity, 0x20);
