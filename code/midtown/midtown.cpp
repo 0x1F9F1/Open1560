@@ -194,7 +194,7 @@ static void LoadArchives(const char* base_path)
         }
 
         std::sort(files, files + file_count, [](const char* lhs, const char* rhs) {
-            const auto get_priority = [](const char* name) -> i32 {
+            const auto get_priority = []([[maybe_unused]] const char* name) -> i32 {
                 // if (!arts_stricmp(name, "1560.ar"))
                 //     return 1;
 
