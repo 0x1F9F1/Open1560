@@ -22,6 +22,46 @@ define_dummy_symbol(data7_callback);
 
 Callback NullCallback {};
 
+Callback::Callback(Static0 func) noexcept
+    : Callback([func] { func(); })
+{}
+
+Callback::Callback(Static1 func, void* param) noexcept
+    : Callback([func, param] { func(param); })
+{}
+
+Callback::Callback(Static2 func, void* param) noexcept
+    : Callback([func, param](void* arg) { func(param, arg); })
+{}
+
+Callback::Callback(Member0 func, Base* this_ptr) noexcept
+    : Callback([func, this_ptr] { (this_ptr->*func)(); })
+{
+    if (!this_ptr)
+        Quitf("Can't have callback to member function with nil 'this'");
+}
+
+Callback::Callback(Member1 func, Base* this_ptr, void* param) noexcept
+    : Callback([func, this_ptr, param] { (this_ptr->*func)(param); })
+{
+    if (!this_ptr)
+        Quitf("Can't have callback to member function with nil 'this'");
+}
+
+Callback::Callback(Member2 func, Base* this_ptr, void* param) noexcept
+    : Callback([func, this_ptr, param](void* arg) { (this_ptr->*func)(param, arg); })
+{
+    if (!this_ptr)
+        Quitf("Can't have callback to member function with nil 'this'");
+}
+
+Callback::Callback(Member2 func, Base* this_ptr, void* param1, void* param2) noexcept
+    : Callback([func, this_ptr, param1, param2] { (this_ptr->*func)(param1, param2); })
+{
+    if (!this_ptr)
+        Quitf("Can't have callback to member function with nil 'this'");
+}
+
 CallbackArray::CallbackArray(Callback* callbacks, usize capacity)
     : callbacks_(callbacks)
     , capacity_(static_cast<u16>(capacity))
