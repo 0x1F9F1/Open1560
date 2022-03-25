@@ -29,10 +29,7 @@ arts_component "mmeffects"
 
         includeFreetype()
         links { "freetype" }
-
-        postbuildcommands {
-            '{COPY} "' .. path.join(FREETYPE_DIR, "bin/freetype.dll") .. '" "' .. MM1_GAME_DIRECTORY .. '"',
-        }
+        copyToGameDir(path.join(FREETYPE_DIR, "bin/freetype.dll"))
     else
         files { "mmtext_win32.cpp" }
     end

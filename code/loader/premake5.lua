@@ -25,15 +25,17 @@ project "Open1560"
         "/DEFAULTLIB:\"" .. path.join(os.getcwd(), "Open1560_stubs.lib") .. "\""
     }
 
-    if MM1_GAME_DIRECTORY ~= nil then
-        local game_files = path.join(ROOT_DIR, "game")
+    copyToGameDir ("%{cfg.buildtarget.abspath}")
+    copyToGameDir ("%{cfg.buildtarget.directory}%{cfg.buildtarget.basename}.pdb")
+    copyToGameDir (path.join(ROOT_DIR, "game"))
+    copyToGameDir (path.join(SDL2_DIR, "lib/x86/SDL2.dll"))
 
-        postbuildcommands {
-            '{COPY} "%{cfg.buildtarget.abspath}" "' .. MM1_GAME_DIRECTORY .. '"',
-            '{COPY} "%{cfg.buildtarget.directory}%{cfg.buildtarget.basename}.pdb" "' .. MM1_GAME_DIRECTORY .. '"',
-            '{COPY} "' .. game_files .. '" "' .. MM1_GAME_DIRECTORY .. '"',
-            '{COPY} "' .. path.join(SDL2_DIR, "lib/x86/SDL2.dll") .. '" "' .. MM1_GAME_DIRECTORY .. '"',
-        }
+    if MM1_GAME_DIRECTORY ~= nil then
+        for _, path in ipairs(GAME_FILES) do
+            postbuildcommands {
+                '{COPY} "' .. path .. '" "' .. MM1_GAME_DIRECTORY .. '"',
+            }
+        end
 
         debugdir (MM1_GAME_DIRECTORY)
         debugcommand (MM1_GAME_DIRECTORY .. 'Open1560.exe')

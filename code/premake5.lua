@@ -1,4 +1,5 @@
 ARTS_DIR = path.join(os.getcwd(), "midtown")
+GAME_FILES = {}
 
 function includeARTS()
     includedirs { ARTS_DIR }
@@ -10,6 +11,10 @@ function includeARTS()
 
     includeHedley()
     includeMem()
+end
+
+function copyToGameDir(path)
+    table.insert(GAME_FILES, path)
 end
 
 function arts_component(name)
