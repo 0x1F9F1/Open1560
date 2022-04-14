@@ -28,6 +28,29 @@ define_dummy_symbol(pcwindis_dxsetup);
 #include "mmui/graphics.h"
 #include "setupdata.h"
 
+HRESULT(WINAPI* agiDirectDrawCreate)(GUID FAR* lpGUID, LPDIRECTDRAW FAR* lplpDD, IUnknown FAR* pUnkOuter);
+HRESULT(WINAPI* agiDirectDrawEnumerateA)(LPDDENUMCALLBACKA lpCallback, LPVOID lpContext);
+HRESULT(WINAPI* agiDirectDrawEnumerateExA)(LPDDENUMCALLBACKEXA lpCallback, LPVOID lpContext, DWORD dwFlags);
+
+bool agiLoadDirectDraw()
+{
+    if (!agiDirectDrawCreate || !agiDirectDrawEnumerateA)
+    {
+        HMODULE hddraw = LoadLibraryA("DDRAW.DLL");
+
+        if (hddraw)
+        {
+            agiDirectDrawCreate = (decltype(agiDirectDrawCreate)) GetProcAddress(hddraw, "DirectDrawCreate");
+            agiDirectDrawEnumerateA =
+                (decltype(agiDirectDrawEnumerateA)) GetProcAddress(hddraw, "DirectDrawEnumerateA");
+            agiDirectDrawEnumerateExA =
+                (decltype(agiDirectDrawEnumerateExA)) GetProcAddress(hddraw, "DirectDrawEnumerateExA");
+        }
+    }
+
+    return agiDirectDrawCreate && agiDirectDrawEnumerateA;
+}
+
 // ?AddRenderer@@YAXPAUIDirectDraw4@@PAU_GUID@@PAD@Z
 ARTS_IMPORT /*static*/ void AddRenderer(IDirectDraw4* arg1, _GUID* arg2, char* arg3);
 
@@ -53,6 +76,11 @@ static long WINAPI EnumZ(DDPIXELFORMAT* ddpf, void* ctx)
 
 // ?EnumerateRenderers2@@YAXXZ
 ARTS_IMPORT /*static*/ void EnumerateRenderers2();
+
+static void EnumerateRenderersDX6()
+{
+    EnumerateRenderers2();
+}
 
 // ?Enumerator@@YGHPAU_GUID@@PAD1PAX@Z
 ARTS_IMPORT /*static*/ i32 ARTS_STDCALL Enumerator(_GUID* arg1, char* arg2, char* arg3, void* arg4);
@@ -121,16 +149,6 @@ ARTS_EXPORT /*static*/ void UnlockScreen()
 
 static bool ValidateRenderersDX6()
 {
-    HMODULE hddraw = GetModuleHandleA("DDRAW.DLL");
-
-    if (hddraw == nullptr)
-        return false;
-
-    auto pDirectDrawCreate = reinterpret_cast<decltype(&DirectDrawCreate)>(GetProcAddress(hddraw, "DirectDrawCreate"));
-
-    if (pDirectDrawCreate == nullptr)
-        return false;
-
     i32 count = 0;
 
     for (i32 i = 0; i < dxiRendererCount; ++i)
@@ -142,7 +160,7 @@ static bool ValidateRenderersDX6()
 
         IDirectDraw* ddraw = nullptr;
 
-        if (pDirectDrawCreate((info.Type == dxiRendererType::DX6) ? &info.DX6.Interface : nullptr, &ddraw, NULL))
+        if (agiDirectDrawCreate((info.Type == dxiRendererType::DX6) ? &info.DX6.Interface : nullptr, &ddraw, NULL))
             return false;
 
         IDirectDraw4* ddraw4 = nullptr;
@@ -178,14 +196,15 @@ void dxiConfig([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
 {
     dxiCpuSpeed = ComputeCpuSpeed();
 
-    bool (*validate)() = ValidateRenderersDX6;
-    void (*enumerate)() = EnumerateRenderers2;
-    bool show_message = true;
+    bool (*validate)() = nullptr;
+    void (*enumerate)() = nullptr;
+    bool show_message = false;
 
-    if (PARAM_d3d)
+    if (PARAM_d3d && agiLoadDirectDraw())
     {
         validate = ValidateRenderersDX6;
-        enumerate = EnumerateRenderers2;
+        enumerate = EnumerateRenderersDX6;
+        show_message = true;
     }
 #ifdef ARTS_ENABLE_OPENGL
     else if (PARAM_opengl.get_or(true))
@@ -195,6 +214,10 @@ void dxiConfig([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
         show_message = false;
     }
 #endif
+    else
+    {
+        Quitf("No valid renderer backends");
+    }
 
     if (PARAM_config.get_or(false) || !dxiReadConfigFile() || !validate())
     {
@@ -242,4 +265,8 @@ run_once([] {
 
     create_patch(
         "EliminatingRes String", "Unsigned Printf", 0x6618AC, "Eliminating res %d x %d; texmem=%u, vidmem=%u", 46);
+
+    create_hook("DirectDrawCreate", "Dynamically load DDRAW", 0x5A2EF0 + 2, &agiDirectDrawCreate, hook_type::pointer);
+    create_hook(
+        "DirectDrawEnumerateA", "Dynamically load DDRAW", 0x5A2EF6 + 2, &agiDirectDrawEnumerateA, hook_type::pointer);
 });

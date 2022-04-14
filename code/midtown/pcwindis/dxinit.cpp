@@ -22,6 +22,7 @@ define_dummy_symbol(pcwindis_dxinit);
 
 #include "pcwindis.h"
 #include "setupdata.h"
+#include "dxsetup.h"
 
 #include "agi/pipeline.h"
 #include "data7/ipc.h"
@@ -65,21 +66,11 @@ static GUID* dxiCurrentInterfaceGUID = nullptr;
 
 void dxiDirectDrawCreate()
 {
-    HMODULE ddraw = GetModuleHandleA("DDRAW.DLL");
-
-    if (ddraw == nullptr)
-        Quitf("Failed to find DDRAW.DLL");
-
-    auto pDirectDrawCreate = reinterpret_cast<decltype(&DirectDrawCreate)>(GetProcAddress(ddraw, "DirectDrawCreate"));
-
-    if (pDirectDrawCreate == nullptr)
-        Quitf("Failed to find DirectDrawCreate");
-
     dxiCurrentInterfaceGUID = dxiGetInterfaceGUID();
 
     IDirectDraw* lpDD = nullptr;
 
-    if (pDirectDrawCreate(dxiCurrentInterfaceGUID, &lpDD, NULL) != 0)
+    if (agiDirectDrawCreate(dxiCurrentInterfaceGUID, &lpDD, NULL) != 0)
         Quitf("dxiDirectDrawCreate: DirectDrawCreate failed.");
 
     if (lpDD->QueryInterface(IID_IDirectDraw4, (void**) &lpDD4) != 0)

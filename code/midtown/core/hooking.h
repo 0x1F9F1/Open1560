@@ -122,7 +122,7 @@ inline void* alloc_proxy(std::size_t /*size*/)
 #define patch_static_ctors(...)                    \
     run_once(INIT_early, [] {                      \
         for (usize addr : {__VA_ARGS__})           \
-            create_patch("", "", addr, "\xC3", 1); \
+            create_patch("Static Constructor", "Disable static constructor", addr, "\xC3", 1); \
     });
 
 #define mem_offset_field(OFFSET, TYPE, NAME)                                              \
