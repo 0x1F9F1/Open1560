@@ -172,5 +172,5 @@ Get-ChildItem | Foreach-Object { New-Object PSObject -Property @{ Name=$_.Name.T
 * http://download.microsoft.com/download/midtownmad/Patch/1.2/W9XNT4/EN-US/midtown1_patch_aspac.exe
 * http://download.microsoft.com/download/midtownmad/Update/1.2.1/W9X2KMeXP/EN-US/mm1xppat.EXE
 * http://download.microsoft.com/download/midtownmad/Update/1.2.1/WXP/EN-US/mm1xppat.EXE
-# https://www.sdbj.com/news/2000/feb/01/software-industry-takes-hard-stand-against-piracy/
-# https://github.com/jeffpar/kbarchive/search?l=Markdown&p=3&q=kbMidtownMadness
+* https://www.sdbj.com/news/2000/feb/01/software-industry-takes-hard-stand-against-piracy/
+* https://github.com/jeffpar/kbarchive/search?l=Markdown&p=3&q=kbMidtownMadness
