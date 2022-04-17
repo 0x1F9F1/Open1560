@@ -454,3 +454,19 @@ agiPipeline::~agiPipeline()
         }
     }
 }
+
+mem::cmd_param PARAM_width {"width"};
+mem::cmd_param PARAM_height {"height"};
+mem::cmd_param PARAM_depth {"depth"};
+mem::cmd_param PARAM_vsync {"vsync"};
+mem::cmd_param PARAM_window {"window"};
+
+mem::cmd_param PARAM_afilter {"afilter"};
+mem::cmd_param PARAM_annotate {"annotate"};
+mem::cmd_param PARAM_labelf {"labelf"};
+mem::cmd_param PARAM_labelp {"labelp"};
+mem::cmd_param PARAM_mip {"mip"};
+mem::cmd_param PARAM_multitex {"multitex"};
+mem::cmd_param PARAM_nfog {"nfog"};
+mem::cmd_param PARAM_pack {"pack"};
+mem::cmd_param PARAM_square {"square"};

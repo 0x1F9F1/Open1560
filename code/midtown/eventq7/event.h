@@ -203,3 +203,5 @@ check_size(eqEventReplayChannelClass, 0x638);
 
 // ?eqEventReplayChannel@@3VeqEventReplayChannelClass@@A
 ARTS_IMPORT extern eqEventReplayChannelClass eqEventReplayChannel;
+
+extern mem::cmd_param PARAM_pause;

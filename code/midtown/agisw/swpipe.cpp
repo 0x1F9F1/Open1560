@@ -223,16 +223,6 @@ agiSWPipeline::agiSWPipeline(i32 /*argc*/, char** /*argv*/)
 
 agiSWPipeline::~agiSWPipeline() = default;
 
-static mem::cmd_param PARAM_width {"width"};
-static mem::cmd_param PARAM_height {"height"};
-static mem::cmd_param PARAM_depth {"depth"};
-static mem::cmd_param PARAM_vsync {"vsync"};
-
-static mem::cmd_param PARAM_pack {"pack"};
-static mem::cmd_param PARAM_annotate {"annotate"};
-
-static mem::cmd_param PARAM_window {"window"};
-
 void agiSWPipeline::Init()
 {
     width_ = PARAM_width.get_or<i32>(640);

@@ -553,3 +553,19 @@ extern f32 UI_ScaleY;
 
 extern f32 UI_FullW;
 extern f32 UI_FullH;
+
+extern mem::cmd_param PARAM_width;
+extern mem::cmd_param PARAM_height;
+extern mem::cmd_param PARAM_depth;
+extern mem::cmd_param PARAM_vsync;
+extern mem::cmd_param PARAM_window;
+
+extern mem::cmd_param PARAM_afilter;
+extern mem::cmd_param PARAM_annotate;
+extern mem::cmd_param PARAM_labelf;
+extern mem::cmd_param PARAM_labelp;
+extern mem::cmd_param PARAM_mip;
+extern mem::cmd_param PARAM_multitex;
+extern mem::cmd_param PARAM_nfog;
+extern mem::cmd_param PARAM_pack;
+extern mem::cmd_param PARAM_square;

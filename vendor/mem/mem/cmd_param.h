@@ -32,7 +32,7 @@ namespace mem
     class cmd_param
     {
     public:
-        cmd_param(const char* name, int pos = 0) noexcept;
+        cmd_param(const char* name) noexcept;
         ~cmd_param();
 
         cmd_param(const cmd_param&) = delete;
@@ -55,33 +55,16 @@ namespace mem
 
     private:
         const char* name_ {nullptr};
-        int pos_ {0};
         const char* value_ {nullptr};
+
+        std::uint32_t hash_ {0};
         cmd_param* next_ {nullptr};
 
-        static cmd_param* ROOT;
+        void link();
+        void unlink();
+
+        static cmd_param* lookup(const char* name, std::size_t length);
     };
-
-    MEM_STRONG_INLINE cmd_param::cmd_param(const char* name, int pos) noexcept
-        : name_(name)
-        , pos_(pos)
-        , next_(ROOT)
-    {
-        ROOT = this;
-    }
-
-    inline cmd_param::~cmd_param()
-    {
-        for (cmd_param** i = &ROOT; *i; i = &(*i)->next_)
-        {
-            if (*i == this)
-            {
-                *i = next_;
-
-                break;
-            }
-        }
-    }
 
     namespace internal
     {

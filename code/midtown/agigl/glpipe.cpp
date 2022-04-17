@@ -127,6 +127,15 @@ i32 agiGLPipeline::BeginGfx()
 
     InitScaling();
 
+    afilter_level_ = 0;
+
+    if (gl_context_->HasExtension("GL_EXT_texture_filter_anisotropic"))
+    {
+        glGetIntegerv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &afilter_level_);
+        afilter_level_ = (std::min) (afilter_level_, PARAM_afilter.get_or(16));
+        Displayf("Max Anisotropy = %i", afilter_level_);
+    }
+
     bool native_res = PARAM_native_res.get_or(true);
     i32 msaa_level = 0;
 
@@ -459,13 +468,6 @@ void agiGLPipeline::ClearRect(i32 x, i32 y, i32 width, i32 height, u32 color)
     agiCurState.SetFogMode(fog_mode);
     agiCurState.SetFogColor(fog_color);
 }
-
-static mem::cmd_param PARAM_width {"width"};
-static mem::cmd_param PARAM_height {"height"};
-static mem::cmd_param PARAM_depth {"depth"};
-static mem::cmd_param PARAM_vsync {"vsync"};
-static mem::cmd_param PARAM_pack {"pack"};
-static mem::cmd_param PARAM_annotate {"annotate"};
 
 void agiGLPipeline::Init()
 {

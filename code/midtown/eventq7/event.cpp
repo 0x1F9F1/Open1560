@@ -387,3 +387,5 @@ void eqEventReplayChannelClass::QueueMouse(i32 arg1, i32 arg2, i32 arg3, i32 arg
         EventCount += 8;
     }
 }
+
+mem::cmd_param PARAM_pause {"pause"};

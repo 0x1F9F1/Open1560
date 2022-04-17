@@ -213,8 +213,6 @@ static void APIENTRY GlDebugMessageCallback([[maybe_unused]] GLenum source, GLen
     Printerf(print_level, "OpenGL: %s (%s): %s", type_name, level, message);
 }
 
-static mem::cmd_param PARAM_afilter {"afilter"};
-
 void agiGLContext::InitState()
 {
     if (debug_level_ > 1)
@@ -254,14 +252,6 @@ void agiGLContext::InitState()
     }
 
     direct_state_access_ = !IsLegacyCompat() && HasExtension(/*450,*/ "GL_ARB_direct_state_access");
-    max_anisotropy_ = 0;
-
-    if (HasExtension("GL_EXT_texture_filter_anisotropic"))
-    {
-        glGetIntegerv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &max_anisotropy_);
-        max_anisotropy_ = (std::min) (max_anisotropy_, PARAM_afilter.get_or(16));
-        Displayf("Max Anisotropy = %i", max_anisotropy_);
-    }
 
     // Set defaults
     depth_mask_ = true;

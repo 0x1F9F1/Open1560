@@ -77,11 +77,6 @@ public:
         return shader_version_;
     }
 
-    i32 GetMaxAnisotropy() const
-    {
-        return max_anisotropy_;
-    }
-
 private:
     void InitVersioning();
     void InitState();

@@ -45,22 +45,6 @@ agiDDPipeline::~agiDDPipeline()
     EndGfx();
 }
 
-static mem::cmd_param PARAM_width {"width"};
-static mem::cmd_param PARAM_height {"height"};
-static mem::cmd_param PARAM_depth {"depth"};
-static mem::cmd_param PARAM_vsync {"vsync"};
-
-static mem::cmd_param PARAM_labelf {"labelf"};
-static mem::cmd_param PARAM_labelp {"labelp"};
-
-static mem::cmd_param PARAM_pack {"pack"};
-static mem::cmd_param PARAM_mip {"mip"};
-
-static mem::cmd_param PARAM_square {"square"};
-static mem::cmd_param PARAM_nfog {"nfog"};
-static mem::cmd_param PARAM_multitex {"multitex"};
-static mem::cmd_param PARAM_annotate {"annotate"};
-
 void agiDDPipeline::Init()
 {
     width_ = PARAM_width.get_or<i32>(640);

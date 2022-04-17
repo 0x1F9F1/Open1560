@@ -27,6 +27,10 @@
 #    define CMD_ALLOC_BUFFER_CAPACITY 0x1000
 #endif
 
+#if !defined(CMD_HASH_TABLE_BUCKETS)
+#    define CMD_HASH_TABLE_BUCKETS 128
+#endif
+
 #include "cmd_param.h"
 
 #include <cctype>
@@ -34,18 +38,32 @@
 
 namespace mem
 {
-    cmd_param* cmd_param::ROOT {nullptr};
+    static inline char cmd_tolower(char c)
+    {
+        return c + ((static_cast<unsigned char>(c - 'A') < 26) ? ('A' - 'a') : '0');
+    }
 
     static inline bool cmd_is_option(const char* arg)
     {
         return (arg[0] == '-') && (static_cast<unsigned char>(arg[1] - '0') > 9);
     }
 
-    static inline bool cmd_chr_equal(char lhs, char rhs)
+    static std::uint32_t cmd_strhash(const char* str, std::size_t len)
     {
-        const char x = rhs ^ lhs;
+        std::uint32_t hash = 0;
 
-        return (x == 0) || ((x == 0x20) && (static_cast<unsigned char>((lhs | 0x20) - 'a') < 26));
+        for (std::size_t i = 0; i != len; ++i)
+        {
+            hash += cmd_tolower(str[i]);
+            hash += hash << 10;
+            hash ^= hash >> 6;
+        }
+
+        hash += hash << 3;
+        hash ^= hash >> 11;
+        hash += hash << 15;
+
+        return hash;
     }
 
     static char cmd_alloc_buffer[CMD_ALLOC_BUFFER_CAPACITY];
@@ -61,7 +79,6 @@ namespace mem
         result[len] = '\0';
 
         cmd_alloc_buffer_len += len + 1;
-
         return result;
     }
 
@@ -81,19 +98,15 @@ namespace mem
         return cmd_strdup(arg, len);
     }
 
-    static bool cmd_arg_equal(const char* lhs, const char* rhs)
+    static bool cmd_strequal(const char* lhs, const char* rhs, std::size_t length)
     {
-        while (true)
+        for (std::size_t i = 0; i < length; ++i)
         {
-            char a = *lhs++;
-            char b = *rhs++;
-
-            if (a == '\0')
-                return (b == '\0') || (b == '=');
-
-            if (!cmd_chr_equal(a, b))
+            if (cmd_tolower(lhs[i]) != cmd_tolower(rhs[i]))
                 return false;
         }
+
+        return lhs[length] == '\0';
     }
 
     void cmd_param::init(const char* const* argv)
@@ -119,72 +132,98 @@ namespace mem
                 while (arg[0] == '-')
                     ++arg;
 
-                done_positionals = true;
+                const char* value = arg;
 
-                const char* value = nullptr;
+                while (*value && *value != '=')
+                    ++value;
 
-                for (cmd_param* j = ROOT; j; j = j->next_)
+                std::size_t arg_len = value - arg;
+
+                if (*value == '=')
+                    ++value;
+                else if (i + 1 < argc && !cmd_is_option(argv[i + 1]))
+                    value = argv[i + 1];
+                else
+                    value = nullptr;
+
+                if (cmd_param* cmd = lookup(arg, arg_len))
                 {
-                    if (!j->name_ || !cmd_arg_equal(j->name_, arg))
-                        continue;
-
-                    if (!value)
-                    {
-                        if (const char* val = std::strchr(arg, '='))
-                            value = cmd_unquote(val + 1);
-                        else if (i + 1 < argc && !cmd_is_option(argv[i + 1]))
-                            value = cmd_unquote(argv[i + 1]);
-
-                        if (!value)
-                            value = "1";
-                    }
-
-                    j->value_ = value;
+                    cmd->value_ = value ? cmd_unquote(value) : "1";
                 }
-
-                if (!value)
+                else if (arg_len > 2 && !value && cmd_strequal("no", arg, 2))
                 {
-                    for (cmd_param* j = ROOT; j; j = j->next_)
-                    {
-                        if (!j->name_)
-                            continue;
+                    cmd = lookup(arg + 2, arg_len - 2);
 
-                        // clang-format off
-                        if ((!std::strncmp("no", arg,      2) && cmd_arg_equal(j->name_, arg + 2)) ||
-                            (!std::strncmp("no", j->name_, 2) && cmd_arg_equal(j->name_ + 2, arg)))
-                            j->value_ = "0";
-                        // clang-format on
-                    }
+                    if (cmd)
+                        cmd->value_ = "0";
                 }
             }
             else if (!done_positionals)
             {
-                const char* value = nullptr;
+                char pos[16];
+                std::size_t pos_len = static_cast<std::size_t>(std::snprintf(pos, 16, "%i", i));
 
-                for (cmd_param* j = ROOT; j; j = j->next_)
+                if (cmd_param* cmd = lookup(pos, pos_len))
                 {
-                    if (j->pos_ != i)
-                        continue;
-
-                    if (!value)
-                    {
-                        value = cmd_unquote(arg);
-
-                        if (!value)
-                            value = "";
-                    }
-
-                    j->value_ = value;
+                    cmd->value_ = cmd_unquote(arg);
                 }
+            }
+        }
+    }
+
+    static cmd_param* cmd_hash_table[CMD_HASH_TABLE_BUCKETS];
+
+    MEM_NOINLINE cmd_param::cmd_param(const char* name) noexcept
+        : name_(name)
+    {
+        std::size_t length = std::strlen(name_);
+        hash_ = cmd_strhash(name_, length);
+
+        cmd_param** bucket = &cmd_hash_table[hash_ % CMD_HASH_TABLE_BUCKETS];
+
+        for (cmd_param* i = *bucket; i; i = i->next_)
+        {
+            if (i->hash_ == hash_ && cmd_strequal(i->name_, name_, length))
+                std::abort();
+        }
+
+        next_ = *bucket;
+        *bucket = this;
+    }
+
+    MEM_NOINLINE cmd_param::~cmd_param()
+    {
+        for (cmd_param** i = &cmd_hash_table[hash_ % CMD_HASH_TABLE_BUCKETS]; *i; i = &(*i)->next_)
+        {
+            if (*i == this)
+            {
+                *i = (*i)->next_;
+                return;
             }
         }
     }
 
     void cmd_param::reset()
     {
-        for (cmd_param* j = ROOT; j; j = j->next_)
-            j->value_ = nullptr;
+        for (cmd_param* i : cmd_hash_table)
+        {
+            for (; i; i = i->next_)
+                i->value_ = nullptr;
+        }
 
         cmd_alloc_buffer_len = 0;
+    }
+
+    cmd_param* cmd_param::lookup(const char* name, std::size_t length)
+    {
+        std::uint32_t hash = cmd_strhash(name, length);
+
+        for (cmd_param* i = cmd_hash_table[hash % CMD_HASH_TABLE_BUCKETS]; i; i = i->next_)
+        {
+            if (i->hash_ == hash && cmd_strequal(i->name_, name, length))
+                return i;
+        }
+
+        return nullptr;
     }
 } // namespace mem

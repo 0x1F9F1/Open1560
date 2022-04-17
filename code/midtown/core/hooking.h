@@ -119,9 +119,9 @@ inline void* alloc_proxy(std::size_t /*size*/)
             return reinterpret_cast<TYPE*>(&self)->TYPE::NAME(std::forward<decltype(args)>(args)...);  \
         }))
 
-#define patch_static_ctors(...)                    \
-    run_once(INIT_early, [] {                      \
-        for (usize addr : {__VA_ARGS__})           \
+#define patch_static_ctors(...)                                                                \
+    run_once(INIT_early, [] {                                                                  \
+        for (usize addr : {__VA_ARGS__})                                                       \
             create_patch("Static Constructor", "Disable static constructor", addr, "\xC3", 1); \
     });
 

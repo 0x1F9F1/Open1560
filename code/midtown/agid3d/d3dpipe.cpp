@@ -95,8 +95,6 @@ static long ARTS_STDCALL EnumZ(_DDPIXELFORMAT* format, void* context)
 ARTS_IMPORT extern DDPIXELFORMAT TextureFormats[32];
 ARTS_IMPORT extern i32 TextureFormatCount;
 
-static mem::cmd_param PARAM_afilter {"afilter"};
-
 i32 agiD3DPipeline::BeginGfx()
 {
     if (gfx_started_)

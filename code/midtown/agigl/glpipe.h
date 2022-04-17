@@ -73,6 +73,11 @@ public:
         return render_height_;
     }
 
+    i32 GetAnisotropyLevel() const
+    {
+        return afilter_level_;
+    }
+
     agiGLRasterizer* Rast()
     {
         return rasterizer_.get();
@@ -93,6 +98,7 @@ private:
     i32 render_height_ {};
 
     u32 blit_filter_ {};
+    i32 afilter_level_ {};
 };
 
 Owner<agiPipeline> glCreatePipeline(i32 argc, char** argv);

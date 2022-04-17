@@ -684,9 +684,6 @@ void ApplicationHelper(i32 argc, char** argv)
 #undef ARG
 #undef ARGN
 
-static mem::cmd_param PARAM_width {"width"};
-static mem::cmd_param PARAM_height {"height"};
-
 Owner<agiPipeline> CreatePipeline(i32 argc, char** argv)
 {
     dxiRendererInfo_t& info = GetRendererInfo();

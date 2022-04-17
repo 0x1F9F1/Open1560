@@ -255,16 +255,6 @@ private:
 agiSDLSWPipeline::agiSDLSWPipeline() = default;
 agiSDLSWPipeline::~agiSDLSWPipeline() = default;
 
-static mem::cmd_param PARAM_width {"width"};
-static mem::cmd_param PARAM_height {"height"};
-static mem::cmd_param PARAM_depth {"depth"};
-static mem::cmd_param PARAM_vsync {"vsync"};
-
-static mem::cmd_param PARAM_pack {"pack"};
-static mem::cmd_param PARAM_annotate {"annotate"};
-
-static mem::cmd_param PARAM_window {"window"};
-
 void agiSDLSWPipeline::Init()
 {
     width_ = PARAM_width.get_or<i32>(640);
@@ -276,7 +266,8 @@ void agiSDLSWPipeline::Init()
 
     if (PARAM_window)
         bit_depth_ = 0;
-    else if (PARAM_vsync.get_or(true)) // FIXME: Screen is blank when window + vsync
+
+    if (PARAM_vsync.get_or(true))
         device_flags_1_ |= 0x1;
 
     device_flags_2_ = device_flags_1_;
