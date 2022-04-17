@@ -59,7 +59,7 @@ struct LangString
     const char* Value;
 };
 
-#    define X(ID, VALUE) const char LOC_STR_VAR(ID)[] {VALUE};
+#    define X(ID, VALUE) const char LOC_STR_VAR(ID)[] {u8##VALUE};
 #    include ARTS_LANG_HEADER
 #    undef X
 
