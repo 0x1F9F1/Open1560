@@ -24,21 +24,25 @@
 
 #include <cstdlib>
 
-#include <istream>
-#include <streambuf>
-
 namespace mem
 {
     class cmd_param
     {
     public:
-        cmd_param(const char* name) noexcept;
+        cmd_param(const char* name, const char* description = nullptr, const char* value = nullptr) noexcept;
         ~cmd_param();
 
         cmd_param(const cmd_param&) = delete;
         cmd_param(cmd_param&&) = delete;
 
-        template <typename T = const char*>
+        const char* name() const;
+        const char* description() const;
+
+        const char* value() const;
+        const char* default_value() const;
+        bool is_default() const;
+
+        template <typename T>
         T get() const;
 
         template <typename T>
@@ -47,15 +51,20 @@ namespace mem
         template <typename T>
         T get_or(T value) const;
 
-        explicit operator bool() const;
+        operator bool() const;
 
         static void init(const char* const* argv);
         static void init(int argc, const char* const* argv);
         static void reset();
 
+        static std::size_t collect(cmd_param** values, std::size_t capacity);
+
     private:
         const char* name_ {nullptr};
+        const char* description_ {nullptr};
+
         const char* value_ {nullptr};
+        const char* default_value_ {nullptr};
 
         std::uint32_t hash_ {0};
         cmd_param* next_ {nullptr};
@@ -66,33 +75,40 @@ namespace mem
         static cmd_param* lookup(const char* name, std::size_t length);
     };
 
-    namespace internal
-    {
-        template <typename T>
-        class fixed_basic_streambuf final : public std::basic_streambuf<T>
-        {
-        public:
-            fixed_basic_streambuf(const T* ptr, std::size_t num)
-            {
-                T* source = const_cast<T*>(ptr);
-
-                std::basic_streambuf<T>::setg(source, source, source + num);
-            }
-        };
-
-        using fixed_streambuf = fixed_basic_streambuf<char>;
-    } // namespace internal
-
     template <typename T>
-    MEM_STRONG_INLINE bool parse_cmd(const char* value, T& out)
+    bool parse_cmd(const char* value, T& out);
+
+    MEM_STRONG_INLINE const char* cmd_param::name() const
     {
-        internal::fixed_streambuf buf(value, std::strlen(value));
+        return name_;
+    }
 
-        std::istream strm(&buf);
+    MEM_STRONG_INLINE const char* cmd_param::description() const
+    {
+        return description_;
+    }
 
-        strm >> out;
+    MEM_STRONG_INLINE const char* cmd_param::value() const
+    {
+        return value_;
+    }
 
-        return strm.good();
+    MEM_STRONG_INLINE const char* cmd_param::default_value() const
+    {
+        return default_value_;
+    }
+
+    MEM_STRONG_INLINE bool cmd_param::is_default() const
+    {
+        return value_ == default_value_;
+    }
+
+    template <>
+    MEM_STRONG_INLINE bool parse_cmd<const char*>(const char* value, const char*& out)
+    {
+        out = value;
+
+        return true;
     }
 
     template <>
@@ -198,23 +214,10 @@ namespace mem
         return true;
     }
 
-    template <>
-    MEM_STRONG_INLINE const char* cmd_param::get<const char*>() const
+    template <typename T>
+    MEM_STRONG_INLINE T cmd_param::get() const
     {
-        return value_;
-    }
-
-    template <>
-    MEM_STRONG_INLINE bool cmd_param::get<bool>() const
-    {
-        bool result = false;
-
-        if (value_)
-        {
-            parse_cmd(value_, result);
-        }
-
-        return result;
+        return get_or<T>({});
     }
 
     template <typename T>

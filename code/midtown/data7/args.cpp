@@ -91,7 +91,7 @@ void ArgSet::ParseArgs(i32 argc, const char** argv)
         {
             Errorf("ARGSET::ParseArgs()- can't have digit %c as flag (arg %d)", arg[1], index);
         }
-        else if (!std::strcmp(arg, "-help"))
+        else if (!std::strcmp(arg, "-oldhelp"))
         {
             Usage();
 

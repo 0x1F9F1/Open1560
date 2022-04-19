@@ -858,7 +858,6 @@ static char** GetCommandFileUTF8(int* pNumArgs)
 
 static mem::cmd_param PARAM_clean_dir {"cleandir"};
 static mem::cmd_param PARAM_console {"console"};
-static mem::cmd_param PARAM_period {"period"};
 
 static mem::cmd_param PARAM_speedrun {"speedrun"};
 
@@ -880,8 +879,7 @@ int main(int argc, char** argv)
         return 1;
     }
 
-    SDL_SetHintWithPriority(
-        SDL_HINT_TIMER_RESOLUTION, arts_formatf<16>("%u", PARAM_period.get_or<u32>(1)), SDL_HINT_OVERRIDE);
+    SDL_SetHint(SDL_HINT_TIMER_RESOLUTION, "1");
 
     SDL_LogSetOutputFunction(
         [](void* /*userdata*/, int /*category*/, SDL_LogPriority priority, const char* message) {
@@ -966,11 +964,49 @@ int main(int argc, char** argv)
 static mem::cmd_param PARAM_affinity {"affinity"};
 static mem::cmd_param PARAM_sync {"sync"};
 static mem::cmd_param PARAM_res_hack {"reshack"};
+static mem::cmd_param PARAM_help {"help", "Show list of available command line arguments"};
+
+static void ShowUsage()
+{
+    mem::cmd_param* cmds[256];
+    std::size_t count = mem::cmd_param::collect(cmds, ARTS_SIZE(cmds));
+
+    std::size_t name_width = 0;
+    std::size_t desc_width = 0;
+
+    for (std::size_t i = 0; i < count; ++i)
+    {
+        mem::cmd_param& cmd = *cmds[i];
+
+        name_width = (std::max) (name_width, std::strlen(cmd.name()));
+
+        if (const char* desc = cmd.description())
+            desc_width = (std::max) (desc_width, std::strlen(desc));
+    }
+
+    for (std::size_t i = 0; i < count; ++i)
+    {
+        mem::cmd_param& cmd = *cmds[i];
+
+        const char* name = cmd.name();
+        const char* desc = cmd.description();
+        const char* def_value = cmd.default_value();
+
+        Printf("-%-*s | %-*s | %s", static_cast<int>(name_width), name, static_cast<int>(desc_width), desc ? desc : "",
+            def_value ? def_value : "");
+    }
+}
 
 void Application(i32 argc, char** argv)
 {
     ARTS_EXCEPTION_BEGIN
     {
+        if (PARAM_help)
+        {
+            ShowUsage();
+            return;
+        }
+
         dxiIcon = 111;
 
         u32 affinity = PARAM_affinity.get_or<u32>(0);

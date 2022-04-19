@@ -40,12 +40,15 @@ namespace mem
 {
     static inline char cmd_tolower(char c)
     {
-        return c + ((static_cast<unsigned char>(c - 'A') < 26) ? ('A' - 'a') : '0');
+        if (c >= 'A' && c <= 'Z')
+            c += 'A' - 'a';
+
+        return c;
     }
 
     static inline bool cmd_is_option(const char* arg)
     {
-        return (arg[0] == '-') && (static_cast<unsigned char>(arg[1] - '0') > 9);
+        return (arg[0] == '-') && !(arg[1] >= '0' && arg[1] <= '9');
     }
 
     static std::uint32_t cmd_strhash(const char* str, std::size_t len)
@@ -96,6 +99,20 @@ namespace mem
         }
 
         return cmd_strdup(arg, len);
+    }
+
+    static int cmd_stricmp(const char* lhs, const char* rhs)
+    {
+        while (true)
+        {
+            unsigned char a = static_cast<unsigned char>(cmd_tolower(*lhs++));
+            unsigned char b = static_cast<unsigned char>(cmd_tolower(*rhs++));
+
+            if (int diff = static_cast<int>(a) - static_cast<int>(b); diff != 0 || a == 0)
+                return diff;
+        }
+
+        return 0;
     }
 
     static bool cmd_strequal(const char* lhs, const char* rhs, std::size_t length)
@@ -173,8 +190,11 @@ namespace mem
 
     static cmd_param* cmd_hash_table[CMD_HASH_TABLE_BUCKETS];
 
-    MEM_NOINLINE cmd_param::cmd_param(const char* name) noexcept
+    MEM_NOINLINE cmd_param::cmd_param(const char* name, const char* description, const char* value) noexcept
         : name_(name)
+        , description_(description)
+        , value_(value)
+        , default_value_(value)
     {
         std::size_t length = std::strlen(name_);
         hash_ = cmd_strhash(name_, length);
@@ -208,7 +228,7 @@ namespace mem
         for (cmd_param* i : cmd_hash_table)
         {
             for (; i; i = i->next_)
-                i->value_ = nullptr;
+                i->value_ = i->default_value_;
         }
 
         cmd_alloc_buffer_len = 0;
@@ -225,5 +245,33 @@ namespace mem
         }
 
         return nullptr;
+    }
+
+    std::size_t cmd_param::collect(cmd_param** values, std::size_t capacity)
+    {
+        std::size_t count = 0;
+
+        for (cmd_param* i : cmd_hash_table)
+        {
+            for (; i; i = i->next_)
+            {
+                if (values)
+                {
+                    if (count < capacity)
+                        values[count++] = i;
+                    else
+                        return 0;
+                }
+            }
+        }
+
+        if (values)
+        {
+            std::sort(values, values + count, [](cmd_param* lhs, cmd_param* rhs) {
+                return cmd_stricmp(lhs->name(), rhs->name()) < 0;
+            });
+        }
+
+        return count;
     }
 } // namespace mem
