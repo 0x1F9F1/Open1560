@@ -305,8 +305,11 @@ void LogToConsole()
 {
     if (GetConsoleWindow() == NULL)
     {
-        AllocConsole();
-        SetConsoleTitleA("Open1560 Console");
+        if (!AttachConsole(ATTACH_PARENT_PROCESS))
+        {
+            AllocConsole();
+            SetConsoleTitleA("Open1560 Console");
+        }
 
         std::FILE* f = nullptr;
         freopen_s(&f, "CONOUT$", "w", stdout);
