@@ -776,7 +776,7 @@ b32 mmGame::Init()
                 OppIconInfo& icon = OppIcons[i];
                 icon.Position = &AIMAP.Opponent(i)->Car.GetICS()->Matrix;
                 icon.Enabled = true;
-                icon.Place = 11;
+                icon.Place = OPP_ICON_BLANK;
                 arts_sprintf(icon.Name, LOC_STR(MM_IDS_OPP_NAME), i + 1);
             }
 

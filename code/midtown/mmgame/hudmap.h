@@ -73,11 +73,22 @@ class mmPlayer;
 class mmWaypoints;
 struct Point;
 
+#define OPP_ICON_1ST 1
+#define OPP_ICON_9TH 9
+#define OPP_ICON_GOLD 10
+#define OPP_ICON_BLANK 11
+
 struct OppIconInfo
 {
     u32 Color;
     b32 Enabled;
     Matrix34* Position;
+
+    // Corresponds to OPP_ICON.DDS index + 1
+    // 0:   Invalid
+    // 1-9: Number 1-9
+    // 10:  CnR Gold $
+    // 11:  Blank
     i32 Place;
     char Name[16];
     agiBitmap* Bitmap;

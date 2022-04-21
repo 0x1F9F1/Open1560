@@ -98,4 +98,13 @@ void mmHudMap::DrawOpponents()
 run_once([] {
     create_hook(
         "mmPlayer::~mmPlayer", "Call mmHudMap Destructor", 0x42D453, &class_proxy<mmHudMap>::dtor, hook_type::call);
+
+    // OppIconInfo.Place
+    create_packed_patch<u32>("mmMultiCR::OppStealGold", "Icon Number", 0x41D93C + 6, OPP_ICON_GOLD);
+    create_packed_patch<u8>("mmIcons::Cull", "Icon Number", 0x426646 + 2, OPP_ICON_GOLD);
+    create_packed_patch<u8>("mmIcons::Cull", "Icon Number", 0x426731 + 4, OPP_ICON_BLANK);
+    create_packed_patch<u32>("mmMultiCR::GameMessage", "Icon Number", 0x41EC44 + 2, OPP_ICON_BLANK);
+    create_packed_patch<u32>("mmMultiCR::GameMessage", "Icon Number", 0x41EB00 + 3, OPP_ICON_BLANK);
+    create_packed_patch<u32>("mmGameMulti::RegisterMapNetObjects", "Icon Number", 0x431F6E + 3, OPP_ICON_BLANK);
+    create_packed_patch<u32>("mmGameMulti::DeactivateMapNetObject", "Icon Number", 0x43201A + 6, OPP_ICON_BLANK);
 });
