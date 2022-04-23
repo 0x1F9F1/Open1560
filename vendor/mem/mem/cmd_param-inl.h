@@ -218,7 +218,7 @@ namespace mem
             if (*i == this)
             {
                 *i = (*i)->next_;
-                return;
+                break;
             }
         }
     }

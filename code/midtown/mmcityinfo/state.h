@@ -112,7 +112,7 @@ struct mmStatePack
     mmInputType InputType;
 
     i32 NetworkStatus;
-    i32 NumPlayers;
+    i32 NetworkID;
     i32 field_14;
     b32 ChaseOpponents;
     i32 NoUI;

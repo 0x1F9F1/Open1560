@@ -37,6 +37,7 @@
 
 #define CALLBACK_DATA_SIZE sizeof(void* [4])
 #define CALLBACK_DATA_ALIGN alignof(void*)
+#define CALLBACK_CC ARTS_FASTCALL
 
 class Callback
 {
@@ -85,7 +86,7 @@ public:
 
 private:
     alignas(CALLBACK_DATA_ALIGN) u8 data_[CALLBACK_DATA_SIZE] {};
-    void(ARTS_FASTCALL* invoke_)(void* context, void* param) {};
+    void(CALLBACK_CC* invoke_)(void* context, void* param) {};
 };
 
 check_size(Callback, 0x14);
@@ -105,15 +106,6 @@ private:
     u16 capacity_ {};
 };
 
-#define CFA(FUNC) Callback(static_cast<Callback::Static0>(FUNC))
-#define CFA1(FUNC, PARAM) Callback(static_cast<Callback::Static1>(FUNC), PARAM)
-#define CFA2(FUNC, PARAM) Callback(static_cast<Callback::Static2>(FUNC), PARAM)
-
-#define MFA(FUNC, THIS) Callback(static_cast<Callback::Member0>(&FUNC), THIS)
-#define MFA1(FUNC, THIS, PARAM) Callback(static_cast<Callback::Member1>(&FUNC), THIS, PARAM)
-#define MFA2(FUNC, THIS, PARAM) Callback(static_cast<Callback::Member2>(&FUNC), THIS, PARAM)
-#define MFA3(FUNC, THIS, PARAM1, PARAM2) Callback(static_cast<Callback::Member2>(&FUNC), THIS, PARAM1, PARAM2)
-
 // ?NullCallback@@3VCallback@@A
 // ARTS_IMPORT extern Callback NullCallback;
 [[deprecated]] ARTS_EXPORT extern Callback NullCallback;
@@ -125,16 +117,16 @@ inline Callback::Callback(std::nullptr_t) noexcept
 template <typename Func, typename = void>
 struct CallbackInvoker
 {
-    static void ARTS_FASTCALL Invoke(void* context, [[maybe_unused]] void* param)
+    static void CALLBACK_CC Invoke(void* context, [[maybe_unused]] void* param)
     {
         (*static_cast<Func*>(context))();
     }
 };
 
 template <typename Func>
-struct CallbackInvoker<Func, decltype(void(std::declval<Func>()(std::declval<void*>())))>
+struct CallbackInvoker<Func, decltype(void(std::declval<Func&>()(std::declval<void*>())))>
 {
-    static void ARTS_FASTCALL Invoke(void* context, void* param)
+    static void CALLBACK_CC Invoke(void* context, void* param)
     {
         (*static_cast<Func*>(context))(param);
     }

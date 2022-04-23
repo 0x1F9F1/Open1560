@@ -346,7 +346,7 @@ public:
     i32 EnableExhaust;
     Vector3 ExhaustSmokeOffset;
     f32 SlipPercentThresh;
-    Callback OnExplosion;
+    Callback OnPlayerImpact;
     asParticles GrassPtx;
     asParticles ExhaustPtx;
     asBirthRule AsphaltRule;

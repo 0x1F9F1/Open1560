@@ -29,7 +29,7 @@ void mmStatePack::SetDefaults()
     CurrentCar = 2; // Hopefully vpbug
     InputType = mmInputType::Mouse;
     NetworkStatus = 0;
-    NumPlayers = 0;
+    NetworkID = 0;
     ChaseOpponents = 0;
     NoUI = false;
     Shutdown = false;

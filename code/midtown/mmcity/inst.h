@@ -333,7 +333,7 @@ public:
 #define INST_FLAG_40 0x40 // Is a obstacle?
 
 #define INST_FLAG_80 0x80
-#define INST_FLAG_100 0x100 // Vehicle?
+#define INST_FLAG_100 0x100 // Vehicle? Cleared in mmBangerManager::GetBanger
 #define INST_FLAG_200 0x200 // Breakable? Is Banger/Has Banger Data?
 #define INST_FLAG_GLOW 0x400
 #define INST_FLAG_800 0x800   // Terrain? Passed from mmPhysicsMGR::Update to mmPhysicsMGR::GatherCollidables

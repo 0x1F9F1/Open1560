@@ -60,6 +60,8 @@ public:
     asInertialCS* ICS;
     void (*Callback)(void*, asBound*, mmIntersection*, Vector3*, f32, Vector3*);
     void* Param;
+
+    // Set to 9 if INST_FLAG_100 is set (see mmPhysicsMGR::CollideInstances)
     i32 AudioId;
 };
 
