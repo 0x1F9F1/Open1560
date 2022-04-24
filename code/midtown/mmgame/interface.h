@@ -367,7 +367,7 @@ private:
     ARTS_IMPORT void PlayerRemoveCB();
 
     // ?PlayerResolveCars@mmInterface@@AAEXXZ
-    ARTS_IMPORT void PlayerResolveCars();
+    ARTS_EXPORT void PlayerResolveCars();
 
     // ?PlayerResolveScore@mmInterface@@AAEXXZ
     ARTS_IMPORT void PlayerResolveScore();

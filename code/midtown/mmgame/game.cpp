@@ -50,7 +50,6 @@ define_dummy_symbol(mmgame_game);
 #include "mmcity/loader.h"
 #include "mmcity/position.h"
 #include "mmcity/positions.h"
-#include "mmcityinfo/cityinfo.h"
 #include "mmcityinfo/citylist.h"
 #include "mmcityinfo/playerdata.h"
 #include "mmcityinfo/racedata.h"

@@ -39,7 +39,7 @@
     0x7084E4 | class mmCityList * CityListPtr | ?CityListPtr@@3PAVmmCityList@@A
 */
 
-class mmCityInfo;
+#include "cityinfo.h"
 
 class mmCityList final
 {
@@ -92,7 +92,14 @@ check_size(mmCityList, 0x10);
 // ?CityListPtr@@3PAVmmCityList@@A
 ARTS_IMPORT extern mmCityList* CityListPtr;
 
+extern const char* DEFAULT_CITY;
+
 inline mmCityList* CityList()
 {
     return CityListPtr;
+}
+
+inline mmCityInfo* DefaultCityInfo()
+{
+    return CityList()->GetCityInfo(const_cast<char*>(DEFAULT_CITY));
 }

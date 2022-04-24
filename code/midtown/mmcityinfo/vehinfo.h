@@ -38,6 +38,13 @@
 #define VEH_INFO_FLAG_LARGE 0x10   // Disable mmStuck, use ind cam indoors
 #define VEH_INFO_FLAG_AXLES 0x20   // Has axles (new)
 
+#define VEH_INFO_UNLOCK_BLITZ 0x1      // Pass half of the blitz races
+#define VEH_INFO_UNLOCK_CIRCUIT 0x2    // Pass half of the circuit races
+#define VEH_INFO_UNLOCK_CHECKPOINT 0x4 // Pass half of the checkpoint races
+#define VEH_INFO_UNLOCK_COMPLETE 0x8   // Pass all events
+#define VEH_INFO_UNLOCK_PRO 0x10       // Only in professional mode
+#define VEH_INFO_UNLOCK_ANY_TWO 0x20   // Pass any two events
+
 class mmVehInfo final
 {
 public:
@@ -66,12 +73,15 @@ public:
     char field_54[40] {};
     char Colors[80] {};
 
-    i32 Flags {};
+    i32 Flags {}; // VEH_INFO_FLAG_*
     i32 Order {};
     b32 Valid {};
+
+    // See mmInterface::PlayerResolveCars
     i32 UnlockScore {};
-    i32 UnlockFlags {};
+    i32 UnlockFlags {}; // VEH_INFO_UNLOCK_*
     b32 IsLocked {};
+
     i32 Horsepower {};
     i32 TopSpeed {};
     i32 Durability {};

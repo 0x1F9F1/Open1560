@@ -22,7 +22,7 @@ define_dummy_symbol(mmgame_interface);
 
 #include "agi/rsys.h"
 #include "agisw/swrend.h"
-#include "agiworld//quality.h"
+#include "agiworld/quality.h"
 #include "agiworld/texsheet.h"
 #include "data7/memstat.h"
 #include "data7/timer.h"
@@ -30,6 +30,8 @@ define_dummy_symbol(mmgame_interface);
 #include "midtown.h"
 #include "mmaudio/manager.h"
 #include "mmcar/carsim.h"
+#include "mmcityinfo/citylist.h"
+#include "mmcityinfo/playerdata.h"
 #include "mmcityinfo/state.h"
 #include "mmcityinfo/vehlist.h"
 #include "mmnetwork/network.h"
@@ -104,5 +106,47 @@ void mmInterface::InitLobby()
             MMSTATE.NetworkStatus = 0;
             JoinViaZone = true;
         }
+    }
+}
+
+void mmInterface::PlayerResolveCars()
+{
+    // NOTE: Use MMCURRPLAYER to check passes/score, because PlayerResolveScore may not have been called yet.
+
+    mmVehList* vehlist = VehList();
+    mmCityInfo* cityinfo = DefaultCityInfo();
+
+    for (i32 i = 0; i < vehlist->NumVehicles; ++i)
+    {
+        mmVehInfo* vehinfo = vehlist->GetVehicleInfo(i);
+        bool locked = false;
+
+        if (u32 flags = vehinfo->UnlockFlags)
+        {
+            if (flags & VEH_INFO_UNLOCK_ANY_TWO)
+                locked = locked || (MMCURRPLAYER.GetTotalPassed() < 2);
+
+            if (flags & VEH_INFO_UNLOCK_BLITZ)
+                locked = locked || (MMCURRPLAYER.GetBlitzPassed() < cityinfo->BlitzCount / 2);
+
+            if (flags & VEH_INFO_UNLOCK_CIRCUIT)
+                locked = locked || (MMCURRPLAYER.GetCircuitPassed() < cityinfo->CircuitCount / 2);
+
+            if (flags & VEH_INFO_UNLOCK_CHECKPOINT)
+                locked = locked || (MMCURRPLAYER.GetCheckpointPassed() < cityinfo->CheckpointCount / 2);
+
+            if (flags & VEH_INFO_UNLOCK_COMPLETE)
+                locked = locked ||
+                    (MMCURRPLAYER.GetTotalPassed() <
+                        cityinfo->BlitzCount + cityinfo->CircuitCount + cityinfo->CheckpointCount);
+
+            if (flags & VEH_INFO_UNLOCK_PRO)
+                locked = locked || (MMCURRPLAYER.Difficulty != 1);
+        }
+
+        if (i32 score = vehinfo->UnlockScore)
+            locked = locked || (MMCURRPLAYER.GetTotalScore() < score);
+
+        vehinfo->IsLocked = locked && !AllCars;
     }
 }

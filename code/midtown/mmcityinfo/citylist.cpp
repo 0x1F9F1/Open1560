@@ -19,7 +19,6 @@
 define_dummy_symbol(mmcityinfo_citylist);
 
 #include "citylist.h"
-#include "cityinfo.h"
 
 #include "agiworld/texsheet.h"
 #include "stream/fsystem.h"

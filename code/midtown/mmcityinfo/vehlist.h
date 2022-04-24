@@ -81,3 +81,8 @@ public:
 
 // ?VehicleListPtr@@3PAVmmVehList@@A
 ARTS_IMPORT extern mmVehList* VehicleListPtr;
+
+inline mmVehList* VehList()
+{
+    return VehicleListPtr;
+}
