@@ -907,8 +907,25 @@ int main(int argc, char** argv)
 
     if (int file_argc = 0; char** file_argv = GetCommandFileUTF8(&file_argc))
     {
-        mem::cmd_param::init(file_argc, file_argv);
-        arts_free(file_argv);
+        // NOTE: Leaks file_argv and new_argv
+        if (file_argc > 1)
+        {
+            int new_argc = argc + file_argc;
+            char** new_argv = new char*[new_argc];
+
+            new_argv[0] = argv[0];
+
+            for (int i = 1; i < file_argc; ++i)
+                new_argv[i] = file_argv[i];
+
+            new_argv[file_argc] = const_cast<char*>("-dummycmd=0");
+
+            for (int i = 1; i < argc; ++i)
+                new_argv[file_argc + i] = argv[i];
+
+            argc = new_argc;
+            argv = new_argv;
+        }
     }
 
     mem::cmd_param::init(argc, argv);
