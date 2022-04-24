@@ -915,9 +915,9 @@ int main(int argc, char** argv)
 
     if (PARAM_speedrun)
     {
-        const char* const args[] {"", "-nosmoothstep", "-maxfps=60", "-speedycops"};
-
-        mem::cmd_param::init(ARTS_SSIZE32(args), args);
+        mem::cmd_param::set("nosmoothstep");
+        mem::cmd_param::set("maxfps", "60");
+        mem::cmd_param::set("speedcops");
     }
 
     if (PARAM_console.get_or(false))

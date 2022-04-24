@@ -85,22 +85,6 @@ namespace mem
         return result;
     }
 
-    static char* cmd_unquote(const char* arg)
-    {
-        std::size_t len = std::strlen(arg);
-
-        if (arg[0] == '"')
-        {
-            ++arg;
-            --len;
-
-            if (arg[len - 1] == '"')
-                --len;
-        }
-
-        return cmd_strdup(arg, len);
-    }
-
     static int cmd_stricmp(const char* lhs, const char* rhs)
     {
         while (true)
@@ -146,6 +130,8 @@ namespace mem
 
             if (cmd_is_option(arg))
             {
+                done_positionals = true;
+
                 while (arg[0] == '-')
                     ++arg;
 
@@ -161,29 +147,15 @@ namespace mem
                 else if (i + 1 < argc && !cmd_is_option(argv[i + 1]))
                     value = argv[i + 1];
                 else
-                    value = nullptr;
+                    value = "1";
 
-                if (cmd_param* cmd = lookup(arg, arg_len))
-                {
-                    cmd->value_ = value ? cmd_unquote(value) : "1";
-                }
-                else if (arg_len > 2 && !value && cmd_strequal("no", arg, 2))
-                {
-                    cmd = lookup(arg + 2, arg_len - 2);
-
-                    if (cmd)
-                        cmd->value_ = "0";
-                }
+                set(arg, value, arg_len);
             }
             else if (!done_positionals)
             {
                 char pos[16];
                 std::size_t pos_len = static_cast<std::size_t>(std::snprintf(pos, 16, "%i", i));
-
-                if (cmd_param* cmd = lookup(pos, pos_len))
-                {
-                    cmd->value_ = cmd_unquote(arg);
-                }
+                set(pos, arg, pos_len);
             }
         }
     }
@@ -247,6 +219,29 @@ namespace mem
         return nullptr;
     }
 
+    void cmd_param::set(const char* key, const char* value, std::size_t key_len, std::size_t value_len)
+    {
+        if (key_len == SIZE_MAX)
+            key_len = std::strlen(key);
+
+        if (value_len == SIZE_MAX)
+            value_len = value ? std::strlen(value) : 0;
+
+        if (cmd_param* cmd = lookup(key, key_len))
+        {
+            cmd->value_ = value ? cmd_strdup(value, value_len) : cmd->default_value_;
+        }
+        else if (key_len > 2 && cmd_strequal("no", key, 2))
+        {
+            cmd = lookup(key + 2, key_len - 2);
+
+            if (cmd)
+            {
+                cmd->value_ = (value && !std::strncmp(value, "0", value_len)) ? "1" : "0";
+            }
+        }
+    }
+
     std::size_t cmd_param::collect(cmd_param** values, std::size_t capacity)
     {
         std::size_t count = 0;
@@ -267,9 +262,8 @@ namespace mem
 
         if (values)
         {
-            std::sort(values, values + count, [](cmd_param* lhs, cmd_param* rhs) {
-                return cmd_stricmp(lhs->name(), rhs->name()) < 0;
-            });
+            std::sort(values, values + count,
+                [](cmd_param* lhs, cmd_param* rhs) { return cmd_stricmp(lhs->name(), rhs->name()) < 0; });
         }
 
         return count;

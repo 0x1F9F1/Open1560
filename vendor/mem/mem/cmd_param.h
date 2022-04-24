@@ -57,6 +57,7 @@ namespace mem
         static void init(int argc, const char* const* argv);
         static void reset();
 
+        static void set(const char* key, const char* value = nullptr, std::size_t key_len = SIZE_MAX, std::size_t value_len = SIZE_MAX);
         static std::size_t collect(cmd_param** values, std::size_t capacity);
 
     private:
@@ -114,7 +115,7 @@ namespace mem
     template <>
     MEM_STRONG_INLINE bool parse_cmd<bool>(const char* value, bool& out)
     {
-        if (!std::strcmp(value, "false") || !std::strcmp(value, "0"))
+        if (!std::strcmp(value, "0"))
         {
             out = false;
         }
