@@ -42,9 +42,28 @@
 */
 
 #include "mmnetwork/netobject.h"
+#include "vector7/vector3.h"
+#include "vector7/matrix34.h"
 
 class mmCar;
-struct NETGAME_MSG;
+
+struct NETGAME_MSG
+{
+    i32 MessageId;
+    i32 SenderId;
+    f32 Steering;
+    char Throttle;
+    char Brakes;
+    Vector3 Rotation;
+    Vector3 Position;
+    Vector3 Velocity;
+    f32 Time;
+    f32 Damage;
+    u16 Score;
+    u16 Flags;
+    i32 LastUpdateIdx;
+    char StringValue[4];
+};
 
 class mmNetObject final : public asNetObject
 {
@@ -67,7 +86,7 @@ public:
     ARTS_IMPORT void Deactivate();
 
     // ?Init@mmNetObject@@QAEXPAVmmCar@@PADHK1@Z
-    ARTS_IMPORT void Init(mmCar* arg1, char* arg2, i32 arg3, ulong arg4, char* arg5);
+    ARTS_EXPORT void Init(mmCar* car, char* vehicle, i32 variant, ulong player_id, char* name);
 
     // ?PositionUpdate@mmNetObject@@QAEXPAUNETGAME_MSG@@@Z
     ARTS_IMPORT void PositionUpdate(NETGAME_MSG* arg1);
@@ -76,7 +95,7 @@ public:
     ARTS_IMPORT void Predict();
 
     // ?ReInit@mmNetObject@@QAEXPAVmmCar@@PADHK1@Z
-    ARTS_IMPORT void ReInit(mmCar* arg1, char* arg2, i32 arg3, ulong arg4, char* arg5);
+    ARTS_EXPORT void ReInit(mmCar* car, char* vehicle, i32 variant, ulong player_id, char* name);
 
     // ?SetActive@mmNetObject@@QAEXH@Z
     ARTS_IMPORT void SetActive(i32 arg1);
@@ -93,7 +112,29 @@ public:
     // ?Update@mmNetObject@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    u8 gap28[0xCC];
+    u32 field_28;
+    u32 Flags;
+    i32 Score;
+    f32 Time;
+    NETGAME_MSG LocalData;
+    mmCar* Car;
+    b32 IsEnabled;
+    u32 Active;
+    u32 UpdateCount;
+    b32 MatrixChanged;
+    f32 ActivateTime;
+    f32 Steering;
+    f32 PrevSteering;
+    f32 SteeringDelta;
+    f32 Throttle;
+    f32 PrevThrottle;
+    f32 ThrottleDelta;
+    f32 Brakes;
+    f32 PrevBrakes;
+    f32 BrakesDelta;
+    f32 field_BC;
+    f32 field_C0;
+    Matrix34 Matrix;
 };
 
 check_size(mmNetObject, 0xF4);

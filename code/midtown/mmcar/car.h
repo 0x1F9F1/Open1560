@@ -65,6 +65,11 @@
 class Joint3Dof;
 class mmTrailer;
 
+#define CAR_TYPE_PLAYER 0
+#define CAR_TYPE_NETOBJECT 1
+#define CAR_TYPE_OPPONENT 2
+#define CAR_TYPE_POLICE 3
+
 class mmCar final : public mmPhysEntity
 {
 public:

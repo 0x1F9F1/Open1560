@@ -33,7 +33,6 @@
 
 #include "cmd_param.h"
 
-#include <cctype>
 #include <cstring>
 
 namespace mem

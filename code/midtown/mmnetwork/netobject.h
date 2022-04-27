@@ -32,6 +32,8 @@
 
 #include "arts7/node.h"
 
+class asInertialCS;
+
 class asNetObject : public asNode
 {
 public:
@@ -51,7 +53,8 @@ public:
     // ?Update@asNetObject@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    u8 gap20[0x8];
+    ulong PlayerID;
+    asInertialCS* ICS;
 };
 
 check_size(asNetObject, 0x28);

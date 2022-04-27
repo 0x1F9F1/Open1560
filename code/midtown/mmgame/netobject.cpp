@@ -19,3 +19,46 @@
 define_dummy_symbol(mmgame_netobject);
 
 #include "netobject.h"
+
+#include "mmcar/car.h"
+#include "mmcityinfo/vehlist.h"
+
+void mmNetObject::Init(mmCar* car, char* vehicle, i32 variant, ulong player_id, char* name)
+{
+    vehicle = VehList()->GetVehicleInfo(vehicle)->BaseName;
+
+    car->Init(vehicle, CAR_TYPE_NETOBJECT, variant);
+    ICS = car->GetICS();
+    UpdateCount = 0;
+    MatrixChanged = 0;
+    Flags = 0;
+    Score = 0;
+    SetCar(car);
+    PlayerID = player_id;
+    SetName(name);
+}
+
+void mmNetObject::ReInit(mmCar* car, char* vehicle, i32 variant, ulong player_id, char* name)
+{
+    vehicle = VehList()->GetVehicleInfo(vehicle)->BaseName;
+
+    car->ReInit(vehicle, variant);
+    PrevBrakes = 0.0f;
+    Brakes = 0.0f;
+    PrevSteering = 0.0f;
+    Steering = 0.0f;
+    PrevThrottle = 0.0f;
+    Throttle = 0.0f;
+    field_BC = 0.0f;
+    field_C0 = 0.0f;
+    Matrix.Identity();
+    UpdateCount = 0;
+    MatrixChanged = 0;
+    IsEnabled = 0;
+    Flags = 0;
+    Score = 0;
+    ICS = car->GetICS();
+    SetCar(car);
+    PlayerID = player_id;
+    SetName(name);
+}
