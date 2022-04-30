@@ -316,6 +316,7 @@ private:
     bool toggle_pause_ {};
     bool should_reset_ {};
     i32 vector_capacity_ {};
+    f32 time_warp_ {};
 };
 
 // check_size(asSimulation, 0x2B0);

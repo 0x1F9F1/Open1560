@@ -467,6 +467,7 @@ void asSimulation::ResetClock()
     delta_drift_ = 0.0f;
     prev_utimer_ = 0;
     toggle_pause_ = false;
+    time_warp_ = 1.0f;
 
     f32 max_fps = PARAM_maxfps.get_or(300.0f);
     max_fps_delta_ = (max_fps > 0.0f) ? (1.0f / max_fps) : 0.0f;
@@ -546,6 +547,8 @@ void asSimulation::Update()
 
     if (smooth_)
         SmoothDelta(delta);
+
+    delta *= time_warp_;
 
     if (!eqReplay::Playback)
     {
@@ -949,6 +952,7 @@ void asSimulation::AddWidgets(Bank* bank)
     asNode::AddWidgets(bank);
 
     bank->AddButton("Reset Simulation", [this] { Reset(); });
+    bank->AddSlider("Time Warp", &time_warp_, 0.1f, 10.0f, 0.1f);
 
     bank->PushSection("Physics Draw Mode", false);
     bank->AddToggle("Matrix", &DynaDrawMode, DYNA_DRAW_MATRIX);
