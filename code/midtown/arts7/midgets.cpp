@@ -193,19 +193,29 @@ public:
 
     void Key(i32 key, i32 flags) override
     {
-        if (key == EQ_VK_Z)
+        if (key == EQ_VK_DECIMAL)
         {
             *Value = 0;
         }
         else
         {
-            f32 step = (key == EQ_VK_NUMPAD4) ? -ValueStep : (key == EQ_VK_NUMPAD6) ? ValueStep : 0.0f;
+            f32 step = 0.0f;
+
+            switch (key)
+            {
+                case EQ_VK_NUMPAD4:
+                case EQ_VK_SUBTRACT: step = -1.0f; break;
+                case EQ_VK_NUMPAD6:
+                case EQ_VK_ADD: step = 1.0f; break;
+            }
 
             if (step == 0.0f)
                 return;
 
             if (flags & EQ_KMOD_CTRL)
                 step *= 10.0f;
+
+            step *= ValueStep;
 
             *Value = static_cast<T>(*Value + step);
         }
