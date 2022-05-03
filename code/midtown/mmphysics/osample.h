@@ -57,7 +57,7 @@ public:
     ARTS_EXPORT void RealTime(f32 fps);
 
     // ?Update@asOverSample@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
     // ?DeclareFields@asOverSample@@SAXXZ
     ARTS_IMPORT static void DeclareFields();

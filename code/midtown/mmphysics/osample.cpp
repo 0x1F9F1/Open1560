@@ -20,7 +20,34 @@ define_dummy_symbol(mmphysics_osample);
 
 #include "osample.h"
 
+#include "arts7/sim.h"
+
 void asOverSample::RealTime(f32 fps)
 {
     SampleStep = 1.0f / fps;
+}
+
+void asOverSample::Update()
+{
+    f32 delta = Sim()->GetUpdateDelta();
+    bool full_update = Sim()->IsFullUpdate();
+
+    if (delta >= SampleStep)
+        NumSamples = std::min<i32>(static_cast<i32>(delta / SampleStep) + 1, MaxSamples);
+    else
+        NumSamples = 1;
+
+    BenchOSample = NumSamples;
+
+    Sim()->BeginOverSample(NumSamples);
+
+    for (i32 i = 1; i <= NumSamples; ++i)
+    {
+        Sim()->SetIsFullUpdate(i == NumSamples);
+
+        asNode::Update();
+    }
+
+    Sim()->EndOverSample();
+    Sim()->SetIsFullUpdate(full_update);
 }

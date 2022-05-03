@@ -237,6 +237,11 @@ public:
         return full_update_;
     }
 
+    void SetIsFullUpdate(bool full_update)
+    {
+        full_update_ = full_update;
+    }
+
     f32 GetElapsed() const
     {
         return elapsed_;
