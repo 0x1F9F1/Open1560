@@ -48,20 +48,12 @@
 
 #define mem_run_once static mem::init_function mem_paste(run_once_, __LINE__)
 
-#if defined(_MSC_VER)
-#    define mem_define_dummy_symbol(NAME)         \
-        extern "C" namespace dummy                \
-        {                                         \
-            void mem_paste(dummy_symbol_, NAME)() \
-            {}                                    \
-        }
-#    if defined(MEM_ARCH_X86)
-#        define dummy_symbol_prefix "_"
-#    else
-#        define dummy_symbol_prefix ""
-#    endif
-#    define mem_include_dummy_symbol(NAME) \
-        __pragma(comment(linker, "/INCLUDE:" dummy_symbol_prefix mem_str(mem_paste(dummy_symbol_, NAME))))
-#endif
+#define mem_define_dummy_symbol(NAME)     \
+    void mem_paste(dummy_symbol_, NAME)() \
+    {}
+
+#define mem_include_dummy_symbol(NAME)            \
+    extern void mem_paste(dummy_symbol_, NAME)(); \
+    static void* mem_paste(dummy_include_, NAME) = mem_paste(dummy_symbol_, NAME)
 
 #endif // MEM_MACROS_BRICK_H
