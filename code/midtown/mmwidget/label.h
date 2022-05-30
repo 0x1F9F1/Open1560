@@ -38,6 +38,9 @@
 
 #include "widget.h"
 
+#define UI_LABEL_VTOP 0x4   // Disables MM_TEXT_VCENTER
+#define UI_LABEL_CENTER 0x8 // MM_TEXT_CENTER
+
 class UILabel final : public uiWidget
 {
 public:

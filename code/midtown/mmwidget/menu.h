@@ -178,8 +178,7 @@ public:
         i32 arg1, LocString* arg2, char* arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, Callback arg8);
 
     // ?AddLabel@UIMenu@@QAEPAVUILabel@@HPAULocString@@MMMMHH@Z
-    ARTS_IMPORT UILabel* AddLabel(
-        i32 arg1, LocString* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, i32 arg8);
+    ARTS_IMPORT UILabel* AddLabel(i32 id, LocString* text, f32 x, f32 y, f32 w, f32 h, i32 flags, i32 font_size);
 
     // ?AddMex@UIMenu@@QAEPAVUIMexButton@@HPAULocString@@PAHHMMMMHHVCallback@@@Z | unused
     ARTS_IMPORT UIMexButton* AddMex(i32 arg1, LocString* arg2, i32* arg3, i32 arg4, f32 arg5, f32 arg6, f32 arg7,
