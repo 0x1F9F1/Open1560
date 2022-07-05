@@ -1187,11 +1187,9 @@ void GameLoop([[maybe_unused]] mmInterface* mm_interface, [[maybe_unused]] mmGam
 
             Abortf("Exception caught during simulate loop, saving replay.");
         }
-        else
 #endif
-        {
-            Abortf("Exception caught during simulate loop.");
-        }
+
+        Abortf("Exception caught during simulate loop.");
     }
 }
 

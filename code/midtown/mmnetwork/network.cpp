@@ -22,8 +22,41 @@ define_dummy_symbol(mmnetwork_network);
 
 static GUID MM_GUID {0x6C9983A7, 0xC037, 0x11D2, {0xA8, 0xDA, 0x00, 0xA0, 0xC9, 0x70, 0xAF, 0x5D}};
 
+static HRESULT(WINAPI* arts_DirectPlayCreate)(LPGUID lpGUID, LPDIRECTPLAY* lplpDP, IUnknown* pUnk);
+
+static mem::cmd_param PARAM_dplay {"dplay"};
+
+static bool LoadDirectPlay()
+{
+    if (!PARAM_dplay.get_or(true))
+    {
+        Displayf("DirectPlay disabled. Use `-dplay` cmd argument to enable multiplayer");
+        return false;
+    }
+
+    if (!arts_DirectPlayCreate)
+    {
+        HMODULE hdplayx = LoadLibraryA("DPLAYX.DLL");
+
+        if (hdplayx)
+        {
+            arts_DirectPlayCreate = (decltype(arts_DirectPlayCreate)) GetProcAddress(hdplayx, "DirectPlayCreate");
+        }
+    }
+
+    return arts_DirectPlayCreate;
+}
+
 b32 asNetwork::Initialize(i32 max_players, b32 secure, i32 game_version)
 {
+    Displayf("Initializing network");
+
+    if (!LoadDirectPlay())
+    {
+        Errorf("Failed to load DirectPlay");
+        return false;
+    }
+
     if (dplay_)
         return true;
 
@@ -44,6 +77,14 @@ b32 asNetwork::Initialize(i32 max_players, b32 secure, i32 game_version)
 
 b32 asNetwork::InitializeLobby(i32 max_players, b32 secure)
 {
+    Displayf("Initializing lobby");
+
+    if (!LoadDirectPlay())
+    {
+        Errorf("Failed to load DirectPlay");
+        return false;
+    }
+
     CoInitialize(NULL);
 
     if (dp_lobby_ == nullptr)
@@ -252,3 +293,8 @@ void asNetwork::Disconnect()
     in_session_ = false;
     CreateInterface();
 }
+
+run_once([] {
+    create_hook(
+        "DirectPlayCreate", "Dynamically load DPLAYX", 0x5A429A + 2, &arts_DirectPlayCreate, hook_type::pointer);
+});
