@@ -80,7 +80,7 @@ define_dummy_symbol(midtown);
 #    define CI_BUILD_STRING "Dev"
 #endif
 
-const char* VERSION_STRING = "Open1560: " CI_BUILD_STRING " / " __DATE__ " " __TIME__;
+const char* VERSION_STRING = "Open1560: " __DATE__ " " __TIME__  " / " CI_BUILD_STRING;
 const char* DEFAULT_CITY = "chicago";
 
 // ?GameCloseCallback@@YAXXZ

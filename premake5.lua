@@ -37,7 +37,7 @@ workspace "Open1560"
         local build_commit = os.getenv("APPVEYOR_REPO_COMMIT")
 
         if build_commit ~= nil then
-            build_string = build_string .. "/" .. build_commit
+            build_string = build_string .. " / " .. build_commit
         end
 
         defines { "CI_BUILD_STRING=\"" .. build_string .. "\"" }
