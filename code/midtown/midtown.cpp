@@ -80,7 +80,7 @@ define_dummy_symbol(midtown);
 #    define CI_BUILD_STRING "Dev"
 #endif
 
-const char* VERSION_STRING = "Open1560: " __DATE__ " " __TIME__  " / " CI_BUILD_STRING;
+const char* VERSION_STRING = "Open1560: " __DATE__ " " __TIME__ " / " CI_BUILD_STRING;
 const char* DEFAULT_CITY = "chicago";
 
 // ?GameCloseCallback@@YAXXZ
@@ -188,8 +188,9 @@ static void LoadArchives(const char* base_path)
             if (const char* ext = std::strrchr(f->Path, '.');
                 ext && !arts_stricmp(ext, ".AR") && arts_strnicmp(f->Path, "TEST", 4))
             {
-                if (file_count < ARTS_SIZE(files))
-                    files[file_count++] = arts_strdup(f->Path);
+                ArAssert(file_count < ARTS_SIZE(files), "Too many archives");
+
+                files[file_count++] = arts_strdup(f->Path);
             }
         }
 
@@ -995,10 +996,10 @@ static void ShowUsage()
     {
         mem::cmd_param& cmd = *cmds[i];
 
-        name_width = (std::max) (name_width, std::strlen(cmd.name()));
+        name_width = (std::max)(name_width, std::strlen(cmd.name()));
 
         if (const char* desc = cmd.description())
-            desc_width = (std::max) (desc_width, std::strlen(desc));
+            desc_width = (std::max)(desc_width, std::strlen(desc));
     }
 
     for (std::size_t i = 0; i < count; ++i)

@@ -34,17 +34,17 @@ f32 mmJoystick::GetAxis(i32 axis)
         case mmJoyInput::Vaxis: return VAxis.Value;
         case mmJoyInput::POVaxis: return PovAxis.Value;
 
-        case mmJoyInput::XaxisLeft: return (std::max) (-XAxis.Value, 0.0f);
-        case mmJoyInput::XaxisRight: return (std::max) (+XAxis.Value, 0.0f);
+        case mmJoyInput::XaxisLeft: return (std::max)(-XAxis.Value, 0.0f);
+        case mmJoyInput::XaxisRight: return (std::max)(+XAxis.Value, 0.0f);
 
-        case mmJoyInput::YaxisUp: return (std::max) (-YAxis.Value, 0.0f);
-        case mmJoyInput::YaxisDown: return (std::max) (+YAxis.Value, 0.0f);
+        case mmJoyInput::YaxisUp: return (std::max)(-YAxis.Value, 0.0f);
+        case mmJoyInput::YaxisDown: return (std::max)(+YAxis.Value, 0.0f);
 
-        case mmJoyInput::ZaxisUp: return (std::max) (-ZAxis.Value, 0.0f);
-        case mmJoyInput::ZaxisDown: return (std::max) (+ZAxis.Value, 0.0f);
+        case mmJoyInput::ZaxisUp: return (std::max)(-ZAxis.Value, 0.0f);
+        case mmJoyInput::ZaxisDown: return (std::max)(+ZAxis.Value, 0.0f);
 
-        case mmJoyInput::RaxisUp: return (std::max) (-RAxis.Value, 0.0f);
-        case mmJoyInput::RaxisDown: return (std::max) (+RAxis.Value, 0.0f);
+        case mmJoyInput::RaxisUp: return (std::max)(-RAxis.Value, 0.0f);
+        case mmJoyInput::RaxisDown: return (std::max)(+RAxis.Value, 0.0f);
 
         default: return 0.0f;
     }

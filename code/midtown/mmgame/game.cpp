@@ -124,7 +124,7 @@ mmGame::~mmGame()
         {
             do
             {
-                max_posi = (std::max) (max_posi, std::atoi(&find_data.cFileName[4]));
+                max_posi = (std::max)(max_posi, std::atoi(&find_data.cFileName[4]));
             } while (FindNextFileA(find_handle, &find_data));
 
             FindClose(find_handle);

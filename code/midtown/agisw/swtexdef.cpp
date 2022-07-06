@@ -41,8 +41,11 @@ i32 agiSWTexDef::BeginGfx()
     height_mips_ = 0;
     width_mips_ = 0;
 
-    for (u32 i = Surface->Width; i >>= 1; ++width_mips_) {}
-    for (u32 i = Surface->Height; i >>= 1; ++height_mips_) {}
+    for (u32 i = Surface->Width; i >>= 1; ++width_mips_)
+        ;
+
+    for (u32 i = Surface->Height; i >>= 1; ++height_mips_)
+        ;
 
     void* surface = Surface->Surface;
     u32 size = 1 << (width_mips_ + height_mips_);

@@ -132,7 +132,7 @@ i32 agiGLPipeline::BeginGfx()
     if (gl_context_->HasExtension("GL_EXT_texture_filter_anisotropic"))
     {
         glGetIntegerv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &afilter_level_);
-        afilter_level_ = (std::min) (afilter_level_, PARAM_afilter.get_or(16));
+        afilter_level_ = (std::min)(afilter_level_, PARAM_afilter.get_or(16));
         Displayf("Max Anisotropy = %i", afilter_level_);
     }
 

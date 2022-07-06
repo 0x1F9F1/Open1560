@@ -42,8 +42,8 @@
 */
 
 #include "mmnetwork/netobject.h"
-#include "vector7/vector3.h"
 #include "vector7/matrix34.h"
+#include "vector7/vector3.h"
 
 class mmCar;
 

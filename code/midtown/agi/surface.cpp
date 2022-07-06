@@ -437,7 +437,7 @@ void agiSurfaceDesc::FixPitch()
 
     i32 pitch = Width * GetPixelSize();
 
-    if (!(Flags & AGISD_PITCH) || (pitch > Pitch) || ((std::max) ((pitch + 3) & ~3, pitch * 2) <= Pitch))
+    if (!(Flags & AGISD_PITCH) || (pitch > Pitch) || ((std::max)((pitch + 3) & ~3, pitch * 2) <= Pitch))
     {
         Pitch = pitch;
         Flags |= AGISD_PITCH;
