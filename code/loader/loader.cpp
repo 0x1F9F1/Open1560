@@ -213,8 +213,17 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 {
     if (fdwReason == DLL_PROCESS_ATTACH)
     {
-        if (mem::pointer ver_string = mem::scan(mem::pattern("Angel: ", nullptr), mem::module::main());
-            ver_string != 0x6346BC)
+        mem::module main_module = mem::module::main();
+
+        if (main_module.start != 0x400000)
+        {
+            MessageBoxA(NULL, "Invalid executable base address", "Invalid Version",
+                MB_OK | MB_ICONERROR | MB_SETFOREGROUND | MB_TOPMOST);
+
+            TerminateProcess(GetCurrentProcess(), 1);
+        }
+
+        if (mem::pointer ver_string = mem::scan(mem::pattern("Angel: ", nullptr), main_module); ver_string != 0x6346BC)
         {
             MessageBoxA(NULL,
                 arts_formatf<256>("Invalid Game Version '%s'\n"
