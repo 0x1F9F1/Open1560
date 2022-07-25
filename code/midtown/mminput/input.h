@@ -450,7 +450,7 @@ public:
 
     bool IsInputPressed(i32 ioid) const
     {
-        return (CurrentState & (1_i64 << ioid)) != 0;
+        return (CurrentState >> ioid) & 1;
     }
 
     mmJoyMan* Joy;

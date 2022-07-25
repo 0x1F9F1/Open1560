@@ -235,6 +235,36 @@ static void UnloadArchives()
 #define ARG(NAME) !std::strcmp(arg, NAME)
 #define ARGN(NAME) !std::strncmp(arg, NAME, std::strlen(NAME))
 
+static f32 CopSpeedBoost = 1.0f;
+static f32 CopBrakeBoost = 1.0f;
+
+static f32 CopSteerBoost1 = 1.0f;
+static f32 CopSteerBoost2 = 1.0f;
+
+class PreGameUpdate : public asNode
+{
+    void Update() override
+    {
+        UpdateCopBoost();
+    }
+
+    void UpdatePaused() override
+    {}
+
+    void UpdateCopBoost()
+    {
+        f32 delta = std::clamp(60.0f * Sim()->GetUpdateDelta(), 0.01f, 3.0f);
+
+        CopSpeedBoost = std::pow(1.01f, delta);
+        CopBrakeBoost = std::pow(0.95f, delta);
+
+        CopSteerBoost1 = std::pow(0.5f, delta);
+        CopSteerBoost2 = std::pow(0.85f, delta);
+    }
+};
+
+static PreGameUpdate s_PreGameUpdate;
+
 static void MainPhase(i32 argc, char** argv)
 {
     LoadTimer.Reset();
@@ -397,6 +427,8 @@ static void MainPhase(i32 argc, char** argv)
                     AudMgr()->PlayCDTrack(2, true);
 
                 game_manager = /*mmGameManager::Instance = */ MakeUnique<mmGameManager>();
+
+                Sim()->AddChild(&s_PreGameUpdate);
                 Sim()->AddChild(game_manager.get());
 
                 game_manager->Reset();
@@ -1334,7 +1366,21 @@ void InitPatches()
         create_hook("PtxCount", "Avoid particle limit crash", from, to, hook_type::jmp);
     }
 
-    if (!PARAM_speedycops.get_or(false))
+    if (PARAM_speedycops.get_or(true))
+    {
+        for (u32 addr : {0x461022 + 2, 0x461034 + 2, 0x461042 + 2})
+            create_hook("Cop Speed Boost", "Fix cop speed boost", addr, &CopSpeedBoost, hook_type::pointer);
+
+        for (u32 addr : {0x462B19 + 2, 0x462B21 + 2, 0x462B29 + 2})
+            create_hook("Cop Brake Boost", "Fix cop brake boost", addr, &CopBrakeBoost, hook_type::pointer);
+
+        for (u32 addr : {0x460FBC + 2, 0x460FC8 + 2, 0x460FD2 + 2})
+            create_hook("Cop Steer Boost 1", "Fix steer brake boost", addr, &CopSteerBoost1, hook_type::pointer);
+
+        for (u32 addr : {0x4627F0 + 2, 0x4627F8 + 2, 0x462800 + 2, 0x462A0D + 2, 0x462A15 + 2, 0x462A1D + 2})
+            create_hook("Cop Steer Boost 2", "Fix steer brake boost", addr, &CopSteerBoost2, hook_type::pointer);
+    }
+    else
     {
         patch_jmp("aiGoalChase::Update", "No Speed Boost", 0x461004, jump_type::always);
         create_patch("aiGoalChase::CalcSpeed", "No Brake Boost", 0x462B0F, "\xEB\x2A", 2);
