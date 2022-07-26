@@ -287,4 +287,4 @@ void Statsf(ARTS_FORMAT_STRING const char* format, ...)
 META_DEFINE_CHILD("asCullManager", asCullManager, asNode)
 {}
 
-run_once([] { patch_jmp("asCullManager::Update", "Don't set colors", 0x5250A4, jump_type::always); });
+hook_func(INIT_main, [] { patch_jmp("asCullManager::Update", "Don't set colors", 0x5250A4, jump_type::always); });

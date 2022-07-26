@@ -33,7 +33,7 @@ static const f32 PtxFrameRate = 60.0f;
 
 static mem::cmd_param PARAM_maxskid {"maxskid"};
 
-run_once([] {
+hook_func(INIT_main, [] {
     mmWheel::PtxMaxSkidCount = PtxFrameRate * PARAM_maxskid.get_or(1.0f);
 
     patch_jmp("mmWheel::ComputeDwtdw", "Avoid Probe Poly Caching", 0x47DCAA, jump_type::always);

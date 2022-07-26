@@ -231,7 +231,7 @@ LRESULT CDMan::WindowProc([[maybe_unused]] HWND hwnd, UINT uMsg, WPARAM wParam, 
     return 0;
 }
 
-run_once([] {
+hook_func(INIT_main, [] {
     create_patch("mmHUD Font Size", "Disable scaling CD Player Font", 0x404D63, "\xBA\x18\x00\x00\x00\xEB\x24", 7);
 
     patch_jmp("mmPopup::DisablePU", "Always Resume CD Player", 0x4270C5, jump_type::never);

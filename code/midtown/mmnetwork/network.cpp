@@ -294,7 +294,7 @@ void asNetwork::Disconnect()
     CreateInterface();
 }
 
-run_once([] {
+hook_func(INIT_main, [] {
     create_hook(
         "DirectPlayCreate", "Dynamically load DPLAYX", 0x5A429A + 2, &arts_DirectPlayCreate, hook_type::pointer);
 });

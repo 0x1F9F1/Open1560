@@ -41,7 +41,7 @@ void GetMidtownRegString(char* buffer, i32 buffer_len, [[maybe_unused]] char* ke
 #endif
 }
 
-run_once([] {
+hook_func(INIT_main, [] {
     char patch[] {"\x83\xC4\x04\x50\x68\x4A\x11\x64\x00\x8D\x85\xEC\xFE\xFF\xFF\x68\x00\x01\x00\x00\x50\xE8\xCC\xCC\xCC"
                   "\xCC\x83\xC4\x10\xEB\x4D"};
 

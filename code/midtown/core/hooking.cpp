@@ -23,7 +23,9 @@
 #include <mem/module.h>
 #include <mem/protect.h>
 
-mem::init_function* INIT_early {};
+mem::static_function* INIT_early {};
+mem::static_function* INIT_main {};
+mem::static_function* FRAME_pre_update {};
 
 void write_protected(mem::pointer dest, mem::pointer src, std::size_t length)
 {

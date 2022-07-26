@@ -50,4 +50,4 @@ ARTS_NOINLINE char* arts_getenv(const char* name)
     return result;
 }
 
-run_once([] { create_hook("arts_strdup", "", 0x5A4720, &arts_strdup); });
+hook_func(INIT_main, [] { create_hook("arts_strdup", "", 0x5A4720, &arts_strdup); });

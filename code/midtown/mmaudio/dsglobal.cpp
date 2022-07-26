@@ -140,4 +140,5 @@ u8 DSGlobal::CheckCDFile(aconst char* file_name)
     return false;
 }
 
-run_once([] { create_patch("DSGlobal::InitPrimarySoundBuffer", "Better device priority", 0x4EFC2B, "\x7C\x09", 2); });
+hook_func(INIT_main,
+    [] { create_patch("DSGlobal::InitPrimarySoundBuffer", "Better device priority", 0x4EFC2B, "\x7C\x09", 2); });

@@ -255,7 +255,7 @@ void dxiConfig([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
         dxiRendererChoice = 0;
 }
 
-run_once([] {
+hook_func(INIT_main, [] {
     auto_hook(0x575FD0, EnumZ);
 
     create_patch("TestResolution", "Unsigned Comparison", 0x575E34, "\x72", 1);

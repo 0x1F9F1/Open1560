@@ -235,31 +235,17 @@ static void UnloadArchives()
 #define ARG(NAME) !std::strcmp(arg, NAME)
 #define ARGN(NAME) !std::strncmp(arg, NAME, std::strlen(NAME))
 
-static f32 CopSpeedBoost = 1.0f;
-static f32 CopBrakeBoost = 1.0f;
-
-static f32 CopSteerBoost1 = 1.0f;
-static f32 CopSteerBoost2 = 1.0f;
-
-class PreGameUpdate : public asNode
+class PreGameUpdate final : public asNode
 {
-    void Update() override
+public:
+    PreGameUpdate()
     {
-        UpdateCopBoost();
+        SetNodeFlag(NODE_FLAG_UPDATE_PAUSED);
     }
 
-    void UpdatePaused() override
-    {}
-
-    void UpdateCopBoost()
+    void Update() override
     {
-        f32 delta = std::clamp(60.0f * Sim()->GetUpdateDelta(), 0.01f, 3.0f);
-
-        CopSpeedBoost = std::pow(1.01f, delta);
-        CopBrakeBoost = std::pow(0.95f, delta);
-
-        CopSteerBoost1 = std::pow(0.5f, delta);
-        CopSteerBoost2 = std::pow(0.85f, delta);
+        mem::static_function::exec(FRAME_pre_update, false);
     }
 };
 
@@ -975,7 +961,7 @@ int main(int argc, char** argv)
 
     InitPatches();
 
-    Displayf("Processed %zu Init Functions", mem::init_function::init());
+    Displayf("Processed %zu Init Functions", mem::static_function::exec(INIT_main, true));
 
     MetaClass::FixupClasses();
 
@@ -1270,7 +1256,6 @@ void InitAudioManager()
     AudMgr()->SetNumChannels(MMSTATE.AudNumChannels);
 }
 
-static mem::cmd_param PARAM_speedycops {"speedycops"};
 static mem::cmd_param PARAM_rv3 {"rv3"};
 
 void InitPatches()
@@ -1364,30 +1349,6 @@ void InitPatches()
     for (const auto [from, to] : pxt_checks)
     {
         create_hook("PtxCount", "Avoid particle limit crash", from, to, hook_type::jmp);
-    }
-
-    if (PARAM_speedycops.get_or(true))
-    {
-        for (u32 addr : {0x461022 + 2, 0x461034 + 2, 0x461042 + 2})
-            create_hook("Cop Speed Boost", "Fix cop speed boost", addr, &CopSpeedBoost, hook_type::pointer);
-
-        for (u32 addr : {0x462B19 + 2, 0x462B21 + 2, 0x462B29 + 2})
-            create_hook("Cop Brake Boost", "Fix cop brake boost", addr, &CopBrakeBoost, hook_type::pointer);
-
-        for (u32 addr : {0x460FBC + 2, 0x460FC8 + 2, 0x460FD2 + 2})
-            create_hook("Cop Steer Boost 1", "Fix steer brake boost", addr, &CopSteerBoost1, hook_type::pointer);
-
-        for (u32 addr : {0x4627F0 + 2, 0x4627F8 + 2, 0x462800 + 2, 0x462A0D + 2, 0x462A15 + 2, 0x462A1D + 2})
-            create_hook("Cop Steer Boost 2", "Fix steer brake boost", addr, &CopSteerBoost2, hook_type::pointer);
-    }
-    else
-    {
-        patch_jmp("aiGoalChase::Update", "No Speed Boost", 0x461004, jump_type::always);
-        create_patch("aiGoalChase::CalcSpeed", "No Brake Boost", 0x462B0F, "\xEB\x2A", 2);
-
-        // patch_jmp("aiGoalChase::Update", "No Steering boost", 0x460FB0, jump_type::always);
-        // create_patch("aiGoalChase::CalcSpeed", "No Steering boost", 0x4627E6, "\xEB\x2A", 2);
-        // create_patch("aiGoalChase::CalcSpeed", "No Steering boost", 0x4629F9, "\xEB\x3A", 2);
     }
 
     create_packed_patch<u8>(

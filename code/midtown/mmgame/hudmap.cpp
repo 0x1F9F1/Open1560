@@ -95,7 +95,7 @@ void mmHudMap::DrawOpponents()
     }
 }
 
-run_once([] {
+hook_func(INIT_main, [] {
     create_hook(
         "mmPlayer::~mmPlayer", "Call mmHudMap Destructor", 0x42D453, &class_proxy<mmHudMap>::dtor, hook_type::call);
 

@@ -20,7 +20,7 @@ define_dummy_symbol(mmui_pu_debug);
 
 #include "pu_debug.h"
 
-run_once([] {
+hook_func(INIT_main, [] {
     for (usize addr : {0x4AA4E1, 0x4AA548})
         create_packed_patch<f32>("PUDebug", "Widget Width", addr + 1, 0.9f);
 });

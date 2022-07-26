@@ -235,7 +235,7 @@ i32 MenuManager::MenuState(i32 menu)
     return 0;
 }
 
-run_once([] {
+hook_func(INIT_main, [] {
     for (usize addr : {
              0x4086B4,
              0x4086D7,

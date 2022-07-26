@@ -110,4 +110,5 @@ b32 mmInput::GetNextKeyboardEvent(eqEvent* event)
     return true;
 }
 
-run_once([] { create_patch("mmInput::BuildCaptureIO", "Fix controller button mask", 0x4E1F56, "\x83\xE6\x7F", 3); });
+hook_func(INIT_main,
+    [] { create_patch("mmInput::BuildCaptureIO", "Fix controller button mask", 0x4E1F56, "\x83\xE6\x7F", 3); });

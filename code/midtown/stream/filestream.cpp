@@ -216,7 +216,7 @@ FileStream __stdout(1);
 
 static mem::cmd_param PARAM_mapping {"mapping"};
 
-run_once([] {
+hook_func(INIT_main, [] {
     EnableBinaryFileMapping = PARAM_mapping.get_or(false);
 
     if (EnableBinaryFileMapping) // Sliding modifies TexCoords inplace, which crashes when read-only mapping

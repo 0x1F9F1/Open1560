@@ -22,7 +22,7 @@ define_dummy_symbol(mmcity_renderweb);
 
 static mem::cmd_param PARAM_mirrordist {"mirrordist"};
 
-run_once([] {
+hook_func(INIT_main, [] {
     create_packed_patch<f32>(
         "Mirror Render Distance", "Adjust mirror render distance", 0x490E96 + 1, PARAM_mirrordist.get_or(200.0f));
 });

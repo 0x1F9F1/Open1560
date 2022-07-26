@@ -457,4 +457,4 @@ const u8 CharSet[96 * 8] {
     // clang-format on
 };
 
-run_once([] { create_patch("DrawLabelf", "Ignore DrawColor", 0x52D9EE, "\x31\xC9\x49\x90\x90\x90", 6); });
+hook_func(INIT_main, [] { create_patch("DrawLabelf", "Ignore DrawColor", 0x52D9EE, "\x31\xC9\x49\x90\x90\x90", 6); });

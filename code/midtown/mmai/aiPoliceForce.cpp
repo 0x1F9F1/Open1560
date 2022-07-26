@@ -160,6 +160,6 @@ i32 aiPoliceForce::FindCop(i32 index, mmCar* cop)
     return -1;
 }
 
-run_once([] {
+hook_func(INIT_main, [] {
     create_hook("aiPoliceForce", "Size of aiPoliceForce", 0x43506A, alloc_proxy<aiPoliceForce>, hook_type::call);
 });

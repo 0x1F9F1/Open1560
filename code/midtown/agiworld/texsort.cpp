@@ -355,7 +355,7 @@ RcOwner<agiTexDef> GetPackedTexture(aconst char* name, i32 variation)
     return AsOwner(texture);
 }
 
-run_once([] {
+hook_func(INIT_main, [] {
     create_patch("BigVtxSize", "agiTexSorter::BeginVerts2", 0x503D79 + 2, &BigVtxSize, 4);
     create_patch("BigIdxSize", "agiTexSorter::BeginVerts2", 0x503D81 + 3, &BigIdxSize, 4);
 

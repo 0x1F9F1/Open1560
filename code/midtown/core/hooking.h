@@ -120,7 +120,7 @@ inline void* alloc_proxy(std::size_t /*size*/)
         }))
 
 #define patch_static_ctors(...)                                                                \
-    run_once(INIT_early, [] {                                                                  \
+    hook_func(INIT_early, [] {                                                                 \
         for (usize addr : {__VA_ARGS__})                                                       \
             create_patch("Static Constructor", "Disable static constructor", addr, "\xC3", 1); \
     });
@@ -171,7 +171,7 @@ struct unconst<T&&>
 #    define check_size(TYPE, SIZE)
 #    define define_dummy_symbol mem_define_dummy_symbol
 #    define include_dummy_symbol mem_include_dummy_symbol
-#    define run_once(...)
+#    define hook_func(...)
 #    define offset_field(OFFSET, TYPE, NAME) TYPE NAME
 #    define xconst(VALUE) (VALUE)
 #    define aconst const
@@ -179,10 +179,12 @@ struct unconst<T&&>
 #    define check_size mem_check_size
 #    define define_dummy_symbol mem_define_dummy_symbol
 #    define include_dummy_symbol mem_include_dummy_symbol
-#    define run_once mem_run_once
+#    define hook_func mem_func
 #    define offset_field mem_offset_field
 #    define xconst(VALUE) const_cast<typename unconst<decltype((VALUE))>::type>((VALUE))
 #    define aconst
 #endif
 
-extern mem::init_function* INIT_early;
+extern mem::static_function* INIT_early;
+extern mem::static_function* INIT_main;
+extern mem::static_function* FRAME_pre_update;

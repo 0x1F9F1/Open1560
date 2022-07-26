@@ -133,7 +133,7 @@ LRESULT MixerCTL::WindowProc(HWND /*hwnd*/, UINT /*uMsg*/, WPARAM /*wParam*/, LP
     return 0;
 }
 
-run_once([] {
+hook_func(INIT_main, [] {
     for (mem::pointer address : {0x4EE463, 0x4EE697, 0x4EE9A3})
     {
         // The code writes to the first 2 channels, even when there are less.

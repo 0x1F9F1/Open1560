@@ -62,4 +62,4 @@ void ShowGameManagerStats()
     TexBytesPaged = 0;
 }
 
-run_once([] { auto_hook(0x404280, ShowGameManagerStats); });
+hook_func(INIT_main, [] { auto_hook(0x404280, ShowGameManagerStats); });

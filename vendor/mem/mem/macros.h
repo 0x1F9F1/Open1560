@@ -20,8 +20,9 @@
 #ifndef MEM_MACROS_BRICK_H
 #define MEM_MACROS_BRICK_H
 
-#include "init_function.h"
 #include "mem.h"
+
+#include "static_function.h"
 
 #define mem_decl_extern(TYPE, NAME) typename std::add_lvalue_reference<TYPE>::type NAME
 #define mem_defn_extern(ADDRESS, NAME) decltype(NAME) NAME = mem::pointer(ADDRESS).as<decltype(NAME)>()
@@ -46,7 +47,7 @@
 #define mem_str_(VALUE) #VALUE
 #define mem_str(VALUE) mem_str_(VALUE)
 
-#define mem_run_once static mem::init_function mem_paste(run_once_, __LINE__)
+#define mem_func static mem::static_function mem_paste(mem_func_, __LINE__)
 
 #define mem_define_dummy_symbol(NAME)     \
     void mem_paste(dummy_symbol_, NAME)() \

@@ -265,7 +265,7 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
         Displayf("Processed %zu Export Hooks", InitExportHooks(hinstDLL));
 
         // Run init functions which need to be happen before WinMain
-        Displayf("Processed %zu Early Init Functions", mem::init_function::init(INIT_early));
+        Displayf("Processed %zu Early Init Functions", mem::static_function::exec(INIT_early, true));
     }
 
     return TRUE;

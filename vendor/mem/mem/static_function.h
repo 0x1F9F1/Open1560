@@ -17,57 +17,43 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef MEM_INIT_FUNCTION_BRICK_H
-#define MEM_INIT_FUNCTION_BRICK_H
+#ifndef MEM_STATIC_FUNCTION_BRICK_H
+#define MEM_STATIC_FUNCTION_BRICK_H
 
 #include "defines.h"
 
 namespace mem
 {
-    class init_function
+    class static_function
     {
     public:
         using callback_t = void (*)();
 
-        constexpr init_function() noexcept = default;
-        init_function(callback_t callback) noexcept;
-        init_function(init_function*& parent, callback_t callback) noexcept;
+        constexpr static_function() noexcept = default;
+        static_function(static_function*& parent, callback_t callback) noexcept;
 
-        init_function(const init_function&) = delete;
-        init_function(init_function&&) = delete;
+        static_function(const static_function&) = delete;
+        static_function(static_function&&) = delete;
 
-        static std::size_t init(init_function*& root = ROOT(), bool clear = true);
-
-        static init_function*& ROOT() noexcept;
+        static std::size_t exec(static_function*& root, bool clear);
 
     private:
         callback_t callback_ {nullptr};
-        init_function* next_ {nullptr};
+        static_function* next_ {nullptr};
     };
 
-    MEM_STRONG_INLINE init_function::init_function(callback_t callback) noexcept
-        : init_function(ROOT(), callback)
-    {}
-
-    MEM_STRONG_INLINE init_function::init_function(init_function*& parent, callback_t callback) noexcept
+    MEM_STRONG_INLINE static_function::static_function(static_function*& parent, callback_t callback) noexcept
         : callback_(callback)
         , next_(parent)
     {
         parent = this;
     }
 
-    MEM_STRONG_INLINE init_function*& init_function::ROOT() noexcept
-    {
-        static init_function* root {nullptr};
-
-        return root;
-    }
-
-    MEM_STRONG_INLINE std::size_t init_function::init(init_function*& root, bool clear)
+    MEM_STRONG_INLINE std::size_t static_function::exec(static_function*& root, bool clear)
     {
         std::size_t total = 0;
 
-        init_function* i = root;
+        static_function* i = root;
 
         if (clear)
             root = nullptr;
@@ -84,7 +70,7 @@ namespace mem
                 ++total;
             }
 
-            init_function* j = i->next_;
+            static_function* j = i->next_;
 
             if (clear)
                 i->next_ = nullptr;
@@ -96,4 +82,4 @@ namespace mem
     }
 } // namespace mem
 
-#endif // MEM_INIT_FUNCTION_BRICK_H
+#endif // MEM_STATIC_FUNCTION_BRICK_H
