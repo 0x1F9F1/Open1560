@@ -876,8 +876,6 @@ static char** GetCommandFileUTF8(int* pNumArgs)
 static mem::cmd_param PARAM_clean_dir {"cleandir"};
 static mem::cmd_param PARAM_console {"console"};
 
-void InitPatches();
-
 extern "C" int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE PrevInstance, LPSTR lpCmdLine, int nShowCmd);
 
 ARTS_EXPORT int WINAPI MidtownMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
@@ -991,8 +989,6 @@ int main(int argc, char** argv)
     return 0;
 }
 
-static mem::cmd_param PARAM_affinity {"affinity"};
-static mem::cmd_param PARAM_sync {"sync"};
 static mem::cmd_param PARAM_help {"help", "Show list of available command line arguments"};
 
 static void ShowUsage()
@@ -1026,6 +1022,31 @@ static void ShowUsage()
     }
 }
 
+static mem::cmd_param PARAM_affinity {"affinity"};
+static mem::cmd_param PARAM_sync {"sync"};
+
+static void SetThreadSafety()
+{
+    u32 affinity = PARAM_affinity.get_or<u32>(0);
+
+    if (affinity)
+    {
+        Displayf("SetProcessAffinityMask(0x%X)", affinity);
+
+        SetProcessAffinityMask(GetCurrentProcess(), affinity);
+    }
+
+    if (affinity == 0 || (affinity & (affinity - 1)) != 0)
+    {
+        SynchronousMessageQueues = PARAM_sync.get_or(true);
+
+        if (!SynchronousMessageQueues)
+        {
+            Warningf("For stability, recommend using -sync");
+        }
+    }
+}
+
 void Application(i32 argc, char** argv)
 {
     ARTS_EXCEPTION_BEGIN
@@ -1037,25 +1058,7 @@ void Application(i32 argc, char** argv)
         }
 
         dxiIcon = 111;
-
-        u32 affinity = PARAM_affinity.get_or<u32>(0);
-
-        if (affinity)
-        {
-            Displayf("SetProcessAffinityMask(0x%X)", affinity);
-
-            SetProcessAffinityMask(GetCurrentProcess(), affinity);
-        }
-
-        if (affinity == 0 || (affinity & (affinity - 1)) != 0)
-        {
-            SynchronousMessageQueues = PARAM_sync.get_or(true);
-
-            if (!SynchronousMessageQueues)
-            {
-                Warningf("For stability, recommend using -sync");
-            }
-        }
+        SetThreadSafety();
 
         ApplicationHelper(argc, argv);
     }
