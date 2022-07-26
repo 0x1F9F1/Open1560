@@ -401,3 +401,42 @@ void dxiWindowDestroy()
 
     s_WindowType = dxiRendererType::Invalid;
 }
+
+#include <mem/module.h>
+#include <mem/pattern.h>
+
+static mem::cmd_param PARAM_res_hack {"reshack"};
+
+hook_func(INIT_main, [] {
+    if (PARAM_res_hack.get_or(false))
+    {
+        wchar_t d3dim_path[MAX_PATH];
+        GetSystemDirectoryW(d3dim_path, ARTS_SIZE(d3dim_path));
+        wcscat_s(d3dim_path, L"\\d3dim.dll");
+
+        HMODULE d3dim = LoadLibraryW(d3dim_path);
+
+        if (d3dim)
+        {
+            mem::pattern res_pattern("B8 00 08 00 00 39");
+            mem::default_scanner res_scanner(res_pattern);
+
+            mem::module::nt(d3dim).enum_segments([&res_scanner](mem::region segment, mem::prot_flags prot) {
+                if (prot & mem::prot_flags::X)
+                {
+                    res_scanner(segment, [](mem::pointer addr) {
+                        create_patch("ResHack", "Removes 2048x2048 res limit", addr + 1, "\xFF\xFF\xFF\xFF", 4);
+
+                        return false;
+                    });
+                }
+
+                return false;
+            });
+        }
+        else
+        {
+            Displayf("ResHack - d3dim not found");
+        }
+    }
+});

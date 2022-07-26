@@ -272,6 +272,7 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 }
 
 include_dummy_symbol(midtown);
+include_dummy_symbol(midtown_patches);
 
 include_dummy_symbol(agi_bitmap);
 include_dummy_symbol(agi_cmodel);

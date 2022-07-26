@@ -392,3 +392,5 @@ void __BadSafeCall(const char* name, Base* ptr)
 {
     Quitf("SafeCall failed: '%s' is not a '%s'.", ptr->GetTypeName(), name);
 }
+
+hook_func(INIT_main, [] { MetaClass::FixupClasses(); });

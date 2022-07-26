@@ -67,6 +67,9 @@ arts_component "midtown"
     files {
         "midtown.cpp",
         "midtown.h",
+
+        "patches.cpp",
+        "patches.h",
     }
 
     links {
