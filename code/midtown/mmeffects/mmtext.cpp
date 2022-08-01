@@ -79,6 +79,23 @@ void mmTextNode::Cull()
     }
 }
 
+void mmTextNode::SetString(i32 line, LocString* text)
+{
+    if (!text)
+        return;
+
+    ArAssert(line < max_lines_, "Invalid line index");
+
+    mmTextData& line_data = lines_[line];
+
+    if (char* str = text->Text; (std::strlen(str) < ARTS_SIZE(line_data.Text)) && std::strcmp(str, line_data.Text))
+    {
+        arts_strcpy(line_data.Text, str);
+
+        touched_ = true;
+    }
+}
+
 mmLocFontInfo::mmLocFontInfo(LocString* params)
 {
     Context = arts_strdup(params->Text);

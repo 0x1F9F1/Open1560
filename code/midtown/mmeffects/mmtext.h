@@ -175,7 +175,7 @@ public:
     ARTS_IMPORT void SetPosition(i32 arg1, f32 arg2, f32 arg3);
 
     // ?SetString@mmTextNode@@QAEXHPAULocString@@@Z
-    ARTS_IMPORT void SetString(i32 arg1, LocString* arg2);
+    ARTS_EXPORT void SetString(i32 line, LocString* text);
 
     // ?SetTextPosition@mmTextNode@@QAEXHMM@Z
     ARTS_IMPORT void SetTextPosition(i32 arg1, f32 arg2, f32 arg3);
