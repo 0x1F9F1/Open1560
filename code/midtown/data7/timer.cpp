@@ -63,7 +63,16 @@ f32 Timer::WaitUntil(f32 target)
             if ((wait <= 0.001f) || !SwitchToThread()) // 1 ms
             {
                 for (u32 count = static_cast<u32>(wait * 1000000.0f); count; --count)
+                {
                     YieldProcessor();
+                    YieldProcessor();
+                    YieldProcessor();
+                    YieldProcessor();
+                    YieldProcessor();
+                    YieldProcessor();
+                    YieldProcessor();
+                    YieldProcessor();
+                }
             }
         }
     }
