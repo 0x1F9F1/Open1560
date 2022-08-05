@@ -952,7 +952,8 @@ int main(int argc, char** argv)
     {
         mem::cmd_param::set("smoothstep", "0");
         mem::cmd_param::set("maxfps", "60");
-        mem::cmd_param::set("speedcops", "1");
+        mem::cmd_param::set("speedycops", "1");
+        mem::cmd_param::set("vsync", "0");
     }
 
     Displayf("Processed %zu Init Functions", mem::static_function::exec(INIT_main, true));
