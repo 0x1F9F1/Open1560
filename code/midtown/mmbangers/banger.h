@@ -56,6 +56,9 @@
 #include "arts7/node.h"
 #include "mmcity/inst.h"
 
+#include "vector7/vector2.h"
+#include "vector7/vector3.h"
+
 class mmBangerData;
 class mmPhysEntity;
 
@@ -63,12 +66,12 @@ class mmBangerInstance : public mmInstance
 {
 public:
     // ??0mmBangerInstance@@QAE@XZ | inline
-    ARTS_IMPORT mmBangerInstance();
+    ARTS_EXPORT mmBangerInstance();
 
     // ??_EmmBangerInstance@@UAEPAXI@Z
     // ??_GmmBangerInstance@@UAEPAXI@Z
     // ??1mmBangerInstance@@UAE@XZ | inline
-    ARTS_IMPORT ~mmBangerInstance() override = default;
+    ARTS_EXPORT ~mmBangerInstance() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmBangerInstance@@UAEXPAVBank@@@Z | inline
@@ -99,9 +102,9 @@ public:
     // ?GetVelocity@mmBangerInstance@@UAE?AVVector3@@XZ
     ARTS_IMPORT Vector3 GetVelocity() override;
 
-    i16 BangerIndex;
-    u8 NormalIndex;
-    f32 Normal;
+    i16 BangerIndex {};
+    u8 NormalIndex {};
+    f32 Normal {};
 };
 
 check_size(mmBangerInstance, 0x1C);
@@ -110,12 +113,12 @@ class mmUnhitBangerInstance : public mmBangerInstance
 {
 public:
     // ??0mmUnhitBangerInstance@@QAE@XZ | inline
-    ARTS_IMPORT mmUnhitBangerInstance();
+    ARTS_EXPORT mmUnhitBangerInstance();
 
     // ??_GmmUnhitBangerInstance@@UAEPAXI@Z
     // ??_EmmUnhitBangerInstance@@UAEPAXI@Z
     // ??1mmUnhitBangerInstance@@UAE@XZ | inline
-    ARTS_IMPORT ~mmUnhitBangerInstance() override = default;
+    ARTS_EXPORT ~mmUnhitBangerInstance() override = default;
 
     // ?FromMatrix@mmUnhitBangerInstance@@UAIXABVMatrix34@@@Z
     ARTS_IMPORT void ARTS_FASTCALL FromMatrix(const Matrix34& arg1) override;
@@ -127,10 +130,10 @@ public:
     ARTS_IMPORT void Impact(mmInstance* arg1, Vector3* arg2) override;
 
     // ?Init@mmUnhitBangerInstance@@UAEHPADAAVVector3@@1H0@Z
-    ARTS_IMPORT i32 Init(char* arg1, Vector3& arg2, Vector3& arg3, i32 arg4, char* arg5) override;
+    ARTS_EXPORT b32 Init(aconst char* name, Vector3& pos1, Vector3& pos2, i32 init_flags, aconst char* part) override;
 
     // ?InitBreakables@mmUnhitBangerInstance@@QAEXPAD0PAVmmBangerData@@@Z
-    ARTS_IMPORT void InitBreakables(char* arg1, char* arg2, mmBangerData* arg3);
+    ARTS_IMPORT void InitBreakables(aconst char* name, aconst char* part, mmBangerData* bng_data);
 
     // ?Reset@mmUnhitBangerInstance@@UAEXXZ
     ARTS_IMPORT void Reset() override;
@@ -141,7 +144,8 @@ public:
     // ?ToMatrix@mmUnhitBangerInstance@@UAIAAVMatrix34@@AAV2@@Z
     ARTS_IMPORT Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& arg1) override;
 
-    u8 gap1C[0x14];
+    Vector3 Position {};
+    Vector2 Angle {};
 };
 
 check_size(mmUnhitBangerInstance, 0x30);

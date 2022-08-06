@@ -143,6 +143,14 @@ class mmPhysEntity;
 // ?mmInstanceHeap@@3V?$mmHeap@H@@A
 ARTS_IMPORT extern mmHeap<i32> mmInstanceHeap;
 
+// Flags for .bng files
+#define INST_INIT_FLAG_STATIC 0x1   // Is static, part of BuildingChain, otherwise it is a mmUnhitBangerInstance
+#define INST_INIT_FLAG_SHEAR 0x2    // Inst is a mmShearInstance (requires BNG_FLAG_STATIC)
+#define INST_INIT_FLAG_BUILDING 0x4 // Inst is a mmBuildingInstance (requires BNG_FLAG_STATIC && !BNG_FLAG_SHEAR)
+#define INST_INIT_FLAG_GLOW 0x40    // Inst has a glow mesh (for mmUnhitBangerInstance)
+#define INST_INIT_FLAG_UPPER 0x200  // Inst also has a mmUpperInstance, part of ObjectsChain, requires BNG_FLAG_BUILDING
+#define INST_INIT_FLAG_TERRAIN 0x800 // NEW. Can collide with wheels
+
 class mmInstance : public Base
 {
 public:
@@ -198,7 +206,7 @@ public:
 #endif
 
     // ?Init@mmInstance@@UAEHPADAAVVector3@@1H0@Z
-    ARTS_EXPORT virtual i32 Init(char* arg1, Vector3& arg2, Vector3& arg3, i32 arg4, char* arg5);
+    ARTS_EXPORT virtual b32 Init(aconst char* name, Vector3& pos1, Vector3& pos2, i32 init_flags, aconst char* part);
 
     // ?GetScale@mmInstance@@UAIMXZ
     ARTS_IMPORT virtual f32 ARTS_FASTCALL GetScale();
@@ -207,7 +215,7 @@ public:
     ARTS_IMPORT virtual i32 ComputeLod(f32 arg1, f32 arg2);
 
     // ?AddMeshes@mmInstance@@QAEXPADH0PAVVector3@@@Z
-    ARTS_IMPORT void AddMeshes(char* arg1, i32 arg2, char* arg3, Vector3* arg4);
+    ARTS_IMPORT void AddMeshes(aconst char* name, i32 mesh_flags, aconst char* part, Vector3* offset);
 
     // ?DrawDropShadow@mmInstance@@QAEXHHABVMatrix34@@@Z
     ARTS_IMPORT void DrawDropShadow(i32 arg1, i32 arg2, const Matrix34& arg3);
@@ -219,7 +227,7 @@ public:
     ARTS_EXPORT agiMeshSet* GetResidentMeshSet(i32 lod, i32 index, i32 variant = 0);
 
     // ?InitMeshes@mmInstance@@QAEXPADH0PAVVector3@@@Z
-    ARTS_IMPORT void InitMeshes(char* arg1, i32 arg2, char* arg3, Vector3* arg4);
+    ARTS_IMPORT void InitMeshes(aconst char* name, i32 mesh_flags, aconst char* part, Vector3* offset);
 
     static void* operator new(std::size_t size);
 
@@ -330,13 +338,15 @@ public:
 #define INST_FLAG_ACTIVE 0x20
 
     // Checked in aiPedestrian::DetectBanger[Collision/Obstacle], aiVehicleActive::Detach, aiGoalCollision::Update, mmCullCity::Reset
-#define INST_FLAG_40 0x40 // Is a obstacle?
+#define INST_FLAG_40 0x40 // Is an obstacle?
 
 #define INST_FLAG_80 0x80
 #define INST_FLAG_100 0x100 // Vehicle? Cleared in mmBangerManager::GetBanger
 #define INST_FLAG_200 0x200 // Breakable? Is Banger/Has Banger Data?
 #define INST_FLAG_GLOW 0x400
-#define INST_FLAG_800 0x800   // Terrain? Passed from mmPhysicsMGR::Update to mmPhysicsMGR::GatherCollidables
+
+    // Passed from mmPhysicsMGR::Update to mmPhysicsMGR::GatherCollidables, and mmPhysicsMGR::Collide to mmPhysicsMGR::CollideProbe
+#define INST_FLAG_TERRAIN 0x800
 #define INST_FLAG_1000 0x1000 // mmBangerInstance::Draw - Increment lod
 #define INST_FLAG_2000 0x2000
 #define INST_FLAG_4000 0x4000 // Collided with Player?

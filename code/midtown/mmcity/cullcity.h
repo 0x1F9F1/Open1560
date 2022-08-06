@@ -174,7 +174,7 @@ public:
     ARTS_IMPORT void RelightEverything();
 
     // ?ReparentObject@mmCullCity@@QAEXPAVmmInstance@@@Z
-    ARTS_IMPORT void ReparentObject(mmInstance* arg1);
+    ARTS_IMPORT void ReparentObject(mmInstance* inst);
 
     // ?Reset@mmCullCity@@UAEXXZ
     ARTS_IMPORT void Reset() override;
@@ -195,8 +195,8 @@ public:
 
     offset_field(0x2B950, asRenderWeb, RenderWeb);
 
-    offset_field(0x34ACC, mmInstChain, BuildingChain);
-    offset_field(0x34AD8, mmInstChain, ObjectsChain);
+    offset_field(0x34ACC, mmInstChain, BuildingChain); // StaticChain?
+    offset_field(0x34AD8, mmInstChain, ObjectsChain);  // DynamicChain?
     offset_field(0x34AE4, mmInstChain, ShadowChain);
 
     offset_field(0x34B30, f32, WeatherFriction);

@@ -79,9 +79,10 @@ void ARTS_FASTCALL mmInstance::Relight()
 void mmInstance::Reset()
 {}
 
-i32 mmInstance::Init(char* /*arg1*/, Vector3& /*arg2*/, Vector3& /*arg3*/, i32 /*arg4*/, char* /*arg5*/)
+b32 mmInstance::Init(
+    aconst char* /*name*/, Vector3& /*pos1*/, Vector3& /*pos2*/, i32 /*init_flags*/, aconst char* /*part*/)
 {
-    return 0;
+    return false;
 }
 
 // ?MatrixFromPoints@@YAXAAVMatrix34@@AAVVector3@@1M@Z

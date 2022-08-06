@@ -87,7 +87,7 @@ public:
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
     // ?Init@aiTrafficLightInstance@@UAEHPADAAVVector3@@1H0@Z
-    ARTS_IMPORT i32 Init(char* arg1, Vector3& arg2, Vector3& arg3, i32 arg4, char* arg5) override;
+    ARTS_IMPORT b32 Init(aconst char* name, Vector3& pos1, Vector3& pos2, i32 init_flags, aconst char* part) override;
 
     u8 gap30[0x4];
 };
