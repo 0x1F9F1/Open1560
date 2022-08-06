@@ -144,11 +144,16 @@ class mmPhysEntity;
 ARTS_IMPORT extern mmHeap<i32> mmInstanceHeap;
 
 // Flags for .bng files
+// INST_INIT_FLAG_FCD_* only apply to mmFacadeInstance (STATIC && !SHEAR && !BUILDING)
 #define INST_INIT_FLAG_STATIC 0x1   // Is static, part of BuildingChain, otherwise it is a mmUnhitBangerInstance
 #define INST_INIT_FLAG_SHEAR 0x2    // Inst is a mmShearInstance (requires BNG_FLAG_STATIC)
 #define INST_INIT_FLAG_BUILDING 0x4 // Inst is a mmBuildingInstance (requires BNG_FLAG_STATIC && !BNG_FLAG_SHEAR)
+#define INST_INIT_FLAG_FCD_LEFT 0x8 // Draw "LEFT" facade
+#define INST_INIT_FLAG_FCD_RIGHT 0x10 // Draw "RIGHT" facade
+#define INST_INIT_FLAG_FCD_TOP 0x20 // Draw "TOP" facade
 #define INST_INIT_FLAG_GLOW 0x40    // Inst has a glow mesh (for mmUnhitBangerInstance)
 #define INST_INIT_FLAG_UPPER 0x200  // Inst also has a mmUpperInstance, part of ObjectsChain, requires BNG_FLAG_BUILDING
+#define INST_INIT_FLAG_FCD_BACK 0x400 // Draw "BACK" facade
 #define INST_INIT_FLAG_TERRAIN 0x800 // NEW. Can collide with wheels
 
 class mmInstance : public Base
@@ -359,6 +364,7 @@ public:
 
     /*
         mmFacadeInstance:
+            ; Actually INST_INIT_FLAGs used in Draw
             SubType = flags & 0xFF;
             Owner = (flags >> 8) & 0xFF;
 
