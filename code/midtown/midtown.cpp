@@ -141,6 +141,8 @@ static void CheckSystem()
     }
 }
 
+static mem::cmd_param PARAM_archives {"archives"};
+
 static void LoadArchives(const char* base_path)
 {
     char module_path[ARTS_MAX_PATH];
@@ -163,32 +165,56 @@ static void LoadArchives(const char* base_path)
     char* files[256];
     usize file_count = 0;
 
-    if (Ptr<Stream> input {arts_fopen(arts_formatf<ARTS_MAX_PATH>("%s/mods.txt", base_path), "r")})
+    const auto add_file = [&](const char* path) {
+        ArAssert(file_count < ARTS_SIZE(files), "Too many archives");
+        files[file_count++] = arts_strdup(path);
+    };
+
+    const char* archives = PARAM_archives.value();
+
+    if (!archives || *archives == '/')
     {
-        char path[ARTS_MAX_PATH];
+        const char* file_list = archives ? (archives + 1) : "mods.txt";
 
-        while (input->Gets(path, ARTS_SSIZE(path)))
+        if (Ptr<Stream> input {arts_fopen(arts_formatf<ARTS_MAX_PATH>("%s/%s", base_path, file_list), "r")})
         {
-            if (char* end = std::strpbrk(path, "\r\n"))
-                *end = '\0';
+            char path[ARTS_MAX_PATH];
 
-            if (path[0] != '\0' && path[0] != '#')
+            while (input->Gets(path, ARTS_SSIZE(path)))
             {
-                if (file_count < ARTS_SIZE(files))
-                    files[file_count++] = arts_strdup(path);
+                if (char* end = std::strpbrk(path, "\r\n"))
+                    *end = '\0';
+
+                if (path[0] != '\0' && path[0] != '#')
+                    add_file(path);
             }
         }
+        else if (archives)
+        {
+            Quitf("Failed to open archive list '%s'", file_list);
+        }
     }
-    else
+    else if (*archives)
+    {
+        char* buffer = arts_strdup(archives);
+        char* context = nullptr;
+
+        for (const char* path = arts_strtok(buffer, "|", &context); path; path = arts_strtok(nullptr, "|", &context))
+        {
+            add_file(path);
+        }
+
+        arts_free(buffer);
+    }
+
+    if (file_count == 0)
     {
         for (FileInfo* f = HFS.FirstEntry(base_path); f; f = HFS.NextEntry(f))
         {
             if (const char* ext = std::strrchr(f->Path, '.');
                 ext && !arts_stricmp(ext, ".AR") && arts_strnicmp(f->Path, "TEST", 4))
             {
-                ArAssert(file_count < ARTS_SIZE(files), "Too many archives");
-
-                files[file_count++] = arts_strdup(f->Path);
+                add_file(f->Path);
             }
         }
 
@@ -213,7 +239,7 @@ static void LoadArchives(const char* base_path)
 
         if (Ptr<Stream> stream {arts_fopen(arts_formatf<ARTS_MAX_PATH>("%s/%s", base_path, path), "r")})
         {
-            Displayf("Adding '%s' in autosearch...", path);
+            Displayf("Adding '%s' to autosearch...", path);
             /*FileSystem::FS[...] = */ new VirtualFileSystem(AsOwner(stream));
             // DevelopmentMode = false;
         }
