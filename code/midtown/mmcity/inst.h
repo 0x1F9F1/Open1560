@@ -145,16 +145,16 @@ ARTS_IMPORT extern mmHeap<i32> mmInstanceHeap;
 
 // Flags for .bng files
 // INST_INIT_FLAG_FCD_* only apply to mmFacadeInstance (STATIC && !SHEAR && !BUILDING)
-#define INST_INIT_FLAG_STATIC 0x1   // Is static, part of BuildingChain, otherwise it is a mmUnhitBangerInstance
-#define INST_INIT_FLAG_SHEAR 0x2    // Inst is a mmShearInstance (requires BNG_FLAG_STATIC)
-#define INST_INIT_FLAG_BUILDING 0x4 // Inst is a mmBuildingInstance (requires BNG_FLAG_STATIC && !BNG_FLAG_SHEAR)
-#define INST_INIT_FLAG_FCD_LEFT 0x8 // Draw "LEFT" facade
+#define INST_INIT_FLAG_STATIC 0x1     // Is static, part of BuildingChain, otherwise it is a mmUnhitBangerInstance
+#define INST_INIT_FLAG_SHEAR 0x2      // Inst is a mmShearInstance (requires BNG_FLAG_STATIC)
+#define INST_INIT_FLAG_BUILDING 0x4   // Inst is a mmBuildingInstance (requires BNG_FLAG_STATIC && !BNG_FLAG_SHEAR)
+#define INST_INIT_FLAG_FCD_LEFT 0x8   // Draw "LEFT" facade
 #define INST_INIT_FLAG_FCD_RIGHT 0x10 // Draw "RIGHT" facade
-#define INST_INIT_FLAG_FCD_TOP 0x20 // Draw "TOP" facade
-#define INST_INIT_FLAG_GLOW 0x40    // Inst has a glow mesh (for mmUnhitBangerInstance)
-#define INST_INIT_FLAG_UPPER 0x200  // Inst also has a mmUpperInstance, part of ObjectsChain, requires BNG_FLAG_BUILDING
+#define INST_INIT_FLAG_FCD_TOP 0x20   // Draw "TOP" facade
+#define INST_INIT_FLAG_GLOW 0x40      // Inst has a glow mesh (for mmUnhitBangerInstance)
+#define INST_INIT_FLAG_UPPER 0x200 // Inst also has a mmUpperInstance, part of ObjectsChain, requires BNG_FLAG_BUILDING
 #define INST_INIT_FLAG_FCD_BACK 0x400 // Draw "BACK" facade
-#define INST_INIT_FLAG_TERRAIN 0x800 // NEW. Can collide with wheels
+#define INST_INIT_FLAG_TERRAIN 0x800  // NEW. Can collide with wheels
 
 class mmInstance : public Base
 {
@@ -336,7 +336,7 @@ public:
                     mmWaypointInstance
     */
 #define INST_FLAG_1 0x1
-#define INST_FLAG_2 0x2 // Parented?
+#define INST_FLAG_SHADOW 0x2
 
 #define INST_FLAG_COLLIDER 0x4
 #define INST_FLAG_MOVER 0x8
@@ -353,7 +353,7 @@ public:
     // Passed from mmPhysicsMGR::Update to mmPhysicsMGR::GatherCollidables, and mmPhysicsMGR::Collide to mmPhysicsMGR::CollideProbe
 #define INST_FLAG_TERRAIN 0x800
 #define INST_FLAG_1000 0x1000 // mmBangerInstance::Draw - Increment lod
-#define INST_FLAG_2000 0x2000
+#define INST_FLAG_2000 0x2000 // Important shadows
 #define INST_FLAG_4000 0x4000 // Collided with Player?
 
     // INST_FLAG_*

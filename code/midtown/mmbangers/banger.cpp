@@ -96,7 +96,7 @@ b32 mmUnhitBangerInstance::Init(aconst char* name, Vector3& pos1, Vector3& pos2,
         CullCity()->ReparentObject(this);
 
         if (bng_data && !(bng_data->BillFlags & BANGER_BILL_FLAG_10))
-            Flags |= INST_FLAG_2;
+            Flags |= INST_FLAG_SHADOW;
     }
 
     return is_valid;

@@ -117,7 +117,7 @@ public:
     asBirthRule BirthRule;
     i32 TexNumber;
 
-#define BANGER_BILL_FLAG_10 0x10 // Parented?
+#define BANGER_BILL_FLAG_10 0x10 // Shadows?
 #define BANGER_BILL_FLAG_20 0x20 // Glow?
 
     i32 BillFlags;

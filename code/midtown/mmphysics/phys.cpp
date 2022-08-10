@@ -79,6 +79,7 @@ b32 mmPhysicsMGR::CollideProbe(i16 room, mmIntersection* isect, i32 flags)
         Matrix34 inv_world = world.FastInverse();
         isect->Transform(&inv_world);
 
+        // FIXME: This assumes the first collision is the "best" one
         if (bound->Collide(isect))
         {
             isect->Position.Dot(isect->Position, world);
