@@ -36,7 +36,11 @@ utimer_t adjust_utimer(f32 elapsed, utimer_t prev)
     ulong now = ARTS_RDTSC();
 
     if (prev)
-        ut2float = (elapsed * 1000.0f) / (now - prev);
+    {
+        f32 scale = (elapsed * 1000.0f) / (now - prev);
+
+        ut2float = ut2float ? (ut2float + scale) * 0.5f : scale;
+    }
 
     return now;
 }

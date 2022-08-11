@@ -23,6 +23,7 @@ define_dummy_symbol(arts7_cullmgr);
 #include "agi/pipeline.h"
 #include "agi/print.h"
 #include "data7/metadefine.h"
+#include "data7/utimer.h"
 #include "dyna7/gfx.h"
 #include "memory/allocator.h"
 #include "memory/stack.h"
@@ -236,7 +237,7 @@ void asCullManager::PrintStats()
 
     agiStats stats = STATS;
 
-    Statsf("Sim Delta:%5.2f", Sim()->GetUpdateDelta() * 1000.0f);
+    Statsf("Sim Delta:%5.2f TSC Speed:%2.2f GHz", Sim()->GetUpdateDelta() * 1000.0f, 0.000001f / ut2float);
     Statsf("CULLMGR 3D:%4.1f/2D:%4.1f/Updt:%4.1fms", UpdateTime3D * 1000.0f, (UpdateTime2D - UpdateTime3D) * 1000.0f,
         (CurrentFrameTime - UpdateTime2D) * 1000.0f);
     Statsf("DLPs Drawn:%-3dClipped:%-3d", stats.DlpDrawn, stats.DlpClipped);
