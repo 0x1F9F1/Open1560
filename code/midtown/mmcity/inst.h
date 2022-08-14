@@ -165,7 +165,7 @@ public:
     // ??_EmmInstance@@UAEPAXI@Z
     // ??_GmmInstance@@UAEPAXI@Z
     // ??1mmInstance@@UAE@XZ
-    ARTS_IMPORT ~mmInstance() override = default;
+    ARTS_EXPORT ~mmInstance() override = default;
 
     virtual void ARTS_FASTCALL FromMatrix(const Matrix34& arg1) = 0;
 
@@ -180,7 +180,7 @@ public:
     ARTS_EXPORT virtual mmPhysEntity* AttachEntity();
 
     // ?GetVelocity@mmInstance@@UAE?AVVector3@@XZ | inline
-    ARTS_IMPORT virtual Vector3 GetVelocity();
+    ARTS_EXPORT virtual Vector3 GetVelocity();
 
     // ?Impact@mmInstance@@UAEXPAV1@PAVVector3@@@Z | inline
     ARTS_EXPORT virtual void Impact(mmInstance* arg1, Vector3* arg2);
@@ -189,7 +189,7 @@ public:
     ARTS_EXPORT virtual void Detach();
 
     // ?Draw@mmInstance@@UAIXH@Z
-    ARTS_IMPORT virtual void ARTS_FASTCALL Draw(i32 arg1);
+    ARTS_EXPORT virtual void ARTS_FASTCALL Draw(i32 lod);
 
     // ?DrawShadow@mmInstance@@UAIXXZ
     ARTS_EXPORT virtual void ARTS_FASTCALL DrawShadow();
@@ -201,7 +201,7 @@ public:
     ARTS_EXPORT virtual void ARTS_FASTCALL Relight();
 
     // ?SizeOf@mmInstance@@UAEIXZ
-    ARTS_IMPORT virtual u32 SizeOf();
+    ARTS_EXPORT virtual u32 SizeOf();
 
     // ?Reset@mmInstance@@UAEXXZ
     ARTS_EXPORT virtual void Reset();
@@ -214,13 +214,13 @@ public:
     ARTS_EXPORT virtual b32 Init(aconst char* name, Vector3& pos1, Vector3& pos2, i32 init_flags, aconst char* part);
 
     // ?GetScale@mmInstance@@UAIMXZ
-    ARTS_IMPORT virtual f32 ARTS_FASTCALL GetScale();
+    ARTS_EXPORT virtual f32 ARTS_FASTCALL GetScale();
 
     // ?ComputeLod@mmInstance@@UAEHMM@Z
-    ARTS_IMPORT virtual i32 ComputeLod(f32 arg1, f32 arg2);
+    ARTS_EXPORT virtual i32 ComputeLod(f32 dist, f32 scale);
 
     // ?AddMeshes@mmInstance@@QAEXPADH0PAVVector3@@@Z
-    ARTS_IMPORT void AddMeshes(aconst char* name, i32 mesh_flags, aconst char* part, Vector3* offset);
+    ARTS_EXPORT void AddMeshes(aconst char* name, i32 mesh_flags, aconst char* part, Vector3* offset);
 
     // ?DrawDropShadow@mmInstance@@QAEXHHABVMatrix34@@@Z
     ARTS_IMPORT void DrawDropShadow(i32 arg1, i32 arg2, const Matrix34& arg3);
@@ -232,7 +232,7 @@ public:
     ARTS_EXPORT agiMeshSet* GetResidentMeshSet(i32 lod, i32 index, i32 variant = 0);
 
     // ?InitMeshes@mmInstance@@QAEXPADH0PAVVector3@@@Z
-    ARTS_IMPORT void InitMeshes(aconst char* name, i32 mesh_flags, aconst char* part, Vector3* offset);
+    ARTS_EXPORT void InitMeshes(aconst char* name, i32 mesh_flags, aconst char* part, Vector3* offset);
 
     static void* operator new(std::size_t size);
 
@@ -243,7 +243,7 @@ public:
     ARTS_IMPORT static void DeclareFields();
 
     // ?GetMeshSetSet@mmInstance@@SAHPADH0PAVVector3@@@Z
-    ARTS_IMPORT static i32 GetMeshSetSet(char* arg1, i32 arg2, char* arg3, Vector3* arg4);
+    ARTS_IMPORT static i32 GetMeshSetSet(aconst char* name, i32 mesh_flags, aconst char* part, Vector3* offset);
 
     // ?ResetAll@mmInstance@@SAXXZ
     ARTS_IMPORT static void ResetAll();

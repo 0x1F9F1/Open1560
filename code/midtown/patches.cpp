@@ -22,7 +22,7 @@ define_dummy_symbol(midtown_patches);
 
 static mem::cmd_param PARAM_rv3 {"rv3"};
 
-static void InitPatches()
+[[maybe_unused]] static void InitPatches()
 {
     // TODO: Move these patches elsewhere
 
