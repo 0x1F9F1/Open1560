@@ -391,7 +391,7 @@ class mmMatrixInstance : public mmInstance
 {
 public:
     // ??0mmMatrixInstance@@QAE@XZ
-    ARTS_IMPORT mmMatrixInstance();
+    ARTS_EXPORT mmMatrixInstance();
 
     // ??_EmmMatrixInstance@@UAEPAXI@Z
     // ??1mmMatrixInstance@@UAE@XZ
@@ -406,22 +406,22 @@ public:
 #endif
 
     // ?FromMatrix@mmMatrixInstance@@UAIXABVMatrix34@@@Z
-    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(const Matrix34& arg1) override;
+    ARTS_EXPORT void ARTS_FASTCALL FromMatrix(const Matrix34& matrix) override;
 
     // ?GetClass@mmMatrixInstance@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetPos@mmMatrixInstance@@UAIAAVVector3@@XZ
-    ARTS_IMPORT Vector3& ARTS_FASTCALL GetPos() override;
+    ARTS_EXPORT Vector3& ARTS_FASTCALL GetPos() override;
 
     // ?Init@mmMatrixInstance@@QAEHPADAAVVector3@@11H0@Z
     ARTS_IMPORT i32 Init(char* arg1, Vector3& arg2, Vector3& arg3, Vector3& arg4, i32 arg5, char* arg6);
 
     // ?SizeOf@mmMatrixInstance@@UAEIXZ
-    ARTS_IMPORT u32 SizeOf() override;
+    ARTS_EXPORT u32 SizeOf() override;
 
     // ?ToMatrix@mmMatrixInstance@@UAIAAVMatrix34@@AAV2@@Z
-    ARTS_IMPORT Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& arg1) override;
+    ARTS_EXPORT Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& matrix) override;
 
     // ?DeclareFields@mmMatrixInstance@@SAXXZ
     ARTS_IMPORT static void DeclareFields();

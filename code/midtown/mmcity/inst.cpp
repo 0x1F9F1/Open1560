@@ -141,6 +141,13 @@ void mmInstance::AddMeshes(aconst char* name, i32 mesh_flags, aconst char* part,
 // ?MatrixFromPoints@@YAXAAVMatrix34@@AAVVector3@@1M@Z
 ARTS_IMPORT /*static*/ void MatrixFromPoints(Matrix34& arg1, Vector3& arg2, Vector3& arg3, f32 arg4);
 
+mmMatrixInstance::mmMatrixInstance()
+    : Matrix(IDENTITY)
+{
+    // mmMatrixInstances don't have an underlying entity, and colliding with one (i.e the el_train) will just crash.
+    // Flags |= INST_FLAG_COLLIDER;
+}
+
 void mmMatrixInstance::Hit(mmInstance* /*arg1*/)
 {}
 
@@ -149,7 +156,27 @@ void mmMatrixInstance::AddWidgets(Bank* /*arg1*/)
 {}
 #endif
 
-void ARTS_FASTCALL mmStaticInstance::Relight()
+void mmMatrixInstance::FromMatrix(const Matrix34& matrix)
+{
+    Matrix = matrix;
+}
+
+Vector3& mmMatrixInstance::GetPos()
+{
+    return Matrix.m3;
+}
+
+u32 mmMatrixInstance::SizeOf()
+{
+    return sizeof(*this);
+}
+
+Matrix34& mmMatrixInstance::ToMatrix([[maybe_unused]] Matrix34& matrix)
+{
+    return Matrix;
+}
+
+void mmStaticInstance::Relight()
 {}
 
 agiMeshSet* mmInstance::GetResidentMeshSet(i32 lod, i32 index, i32 variant)
