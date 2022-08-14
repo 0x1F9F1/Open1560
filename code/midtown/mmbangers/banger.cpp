@@ -20,6 +20,7 @@ define_dummy_symbol(mmbangers_banger);
 
 #include "banger.h"
 
+#include "active.h"
 #include "data.h"
 #include "mmcity/cullcity.h"
 #include "vector7/matrix34.h"
@@ -29,14 +30,51 @@ mmBangerInstance::mmBangerInstance()
     Flags |= INST_FLAG_COLLIDER | INST_FLAG_40;
 }
 
+mmPhysEntity* mmBangerInstance::AttachEntity()
+{
+    if (mmBangerActive* entity = BangerActiveMgr()->GetActive(this))
+        return entity;
+
+    if (mmBangerActive* entity = BangerActiveMgr()->Attach(this))
+        return entity;
+
+    Errorf("mmBangerInstance::AttachEntity - Unable to attach an entity");
+
+    return nullptr;
+}
+
 mmBangerData* mmBangerInstance::GetData()
 {
     return BangerDataMgr()->GetBangerData(BangerIndex);
 }
 
+mmPhysEntity* mmBangerInstance::GetEntity()
+{
+    return BangerActiveMgr()->GetActive(this);
+}
+
+Vector3 mmBangerInstance::GetVelocity()
+{
+    if (mmBangerActive* entity = BangerActiveMgr()->GetActive(this))
+        return entity->ICS.LinearVelocity;
+
+    return Vector3(0.0f, 0.0f, 0.0f);
+}
+
 mmUnhitBangerInstance::mmUnhitBangerInstance()
 {
     Flags |= INST_FLAG_200;
+}
+
+void mmUnhitBangerInstance::FromMatrix(const Matrix34& matrix)
+{
+    Position = matrix.m3;
+    Angle = Vector2(matrix.m0.x, matrix.m0.z);
+}
+
+Vector3& mmUnhitBangerInstance::GetPos()
+{
+    return Position;
 }
 
 b32 mmUnhitBangerInstance::Init(aconst char* name, Vector3& pos1, Vector3& pos2, i32 init_flags, aconst char* part)
@@ -102,7 +140,56 @@ b32 mmUnhitBangerInstance::Init(aconst char* name, Vector3& pos1, Vector3& pos2,
     return is_valid;
 }
 
+u32 mmUnhitBangerInstance::SizeOf()
+{
+    return sizeof(*this);
+}
+
+Matrix34& mmUnhitBangerInstance::ToMatrix(Matrix34& matrix)
+{
+    matrix.m0 = Vector3(Angle.x, 0.0f, Angle.y);
+    matrix.m1 = Vector3(0.0f, 1.0f, 0.0f);
+    matrix.m2 = Vector3(-Angle.y, 0.0f, Angle.x);
+    matrix.m3 = Position;
+
+    return matrix;
+}
+
 #ifdef ARTS_DEV_BUILD
 void mmBangerInstance::AddWidgets(Bank* /*arg1*/)
 {}
 #endif
+
+mmHitBangerInstance::mmHitBangerInstance()
+{
+    Flags |= INST_FLAG_COLLIDER | INST_FLAG_40;
+}
+
+void mmHitBangerInstance::Detach()
+{
+    if (mmPhysEntity* entity = GetEntity())
+        entity->DetachMe();
+
+    if (ChainId != -1)
+        CullCity()->ObjectsChain.Unparent(this);
+}
+
+void mmHitBangerInstance::FromMatrix(const Matrix34& matrix)
+{
+    Matrix = matrix;
+}
+
+Vector3& mmHitBangerInstance::GetPos()
+{
+    return Matrix.m3;
+}
+
+u32 mmHitBangerInstance::SizeOf()
+{
+    return sizeof(*this);
+}
+
+Matrix34& mmHitBangerInstance::ToMatrix([[maybe_unused]] Matrix34& matrix)
+{
+    return Matrix;
+}

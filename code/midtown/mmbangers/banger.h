@@ -79,7 +79,7 @@ public:
 #endif
 
     // ?AttachEntity@mmBangerInstance@@UAEPAVmmPhysEntity@@XZ
-    ARTS_IMPORT mmPhysEntity* AttachEntity() override;
+    ARTS_EXPORT mmPhysEntity* AttachEntity() override;
 
     // ?ComputeLod@mmBangerInstance@@UAEHMM@Z
     ARTS_IMPORT i32 ComputeLod(f32 arg1, f32 arg2) override;
@@ -97,10 +97,10 @@ public:
     ARTS_EXPORT mmBangerData* GetData();
 
     // ?GetEntity@mmBangerInstance@@UAEPAVmmPhysEntity@@XZ
-    ARTS_IMPORT mmPhysEntity* GetEntity() override;
+    ARTS_EXPORT mmPhysEntity* GetEntity() override;
 
     // ?GetVelocity@mmBangerInstance@@UAE?AVVector3@@XZ
-    ARTS_IMPORT Vector3 GetVelocity() override;
+    ARTS_EXPORT Vector3 GetVelocity() override;
 
     i16 BangerIndex {};
     u8 NormalIndex {};
@@ -121,10 +121,10 @@ public:
     ARTS_EXPORT ~mmUnhitBangerInstance() override = default;
 
     // ?FromMatrix@mmUnhitBangerInstance@@UAIXABVMatrix34@@@Z
-    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(const Matrix34& arg1) override;
+    ARTS_EXPORT void ARTS_FASTCALL FromMatrix(const Matrix34& matrix) override;
 
     // ?GetPos@mmUnhitBangerInstance@@UAIAAVVector3@@XZ
-    ARTS_IMPORT Vector3& ARTS_FASTCALL GetPos() override;
+    ARTS_EXPORT Vector3& ARTS_FASTCALL GetPos() override;
 
     // ?Impact@mmUnhitBangerInstance@@UAEXPAVmmInstance@@PAVVector3@@@Z
     ARTS_IMPORT void Impact(mmInstance* arg1, Vector3* arg2) override;
@@ -139,10 +139,10 @@ public:
     ARTS_IMPORT void Reset() override;
 
     // ?SizeOf@mmUnhitBangerInstance@@UAEIXZ | inline
-    ARTS_IMPORT u32 SizeOf() override;
+    ARTS_EXPORT u32 SizeOf() override;
 
     // ?ToMatrix@mmUnhitBangerInstance@@UAIAAVMatrix34@@AAV2@@Z
-    ARTS_IMPORT Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& arg1) override;
+    ARTS_EXPORT Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& matrix) override;
 
     Vector3 Position {};
     Vector2 Angle {};
@@ -154,32 +154,32 @@ class mmHitBangerInstance final : public mmBangerInstance
 {
 public:
     // ??0mmHitBangerInstance@@QAE@XZ | inline
-    ARTS_IMPORT mmHitBangerInstance();
+    ARTS_EXPORT mmHitBangerInstance();
 
     // ??_EmmHitBangerInstance@@UAEPAXI@Z
     // ??1mmHitBangerInstance@@UAE@XZ | inline
-    ARTS_IMPORT ~mmHitBangerInstance() override = default;
+    ARTS_EXPORT ~mmHitBangerInstance() override = default;
 
     // ?Detach@mmHitBangerInstance@@UAEXXZ
-    ARTS_IMPORT void Detach() override;
+    ARTS_EXPORT void Detach() override;
 
     // ?Draw@mmHitBangerInstance@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
     // ?FromMatrix@mmHitBangerInstance@@UAIXABVMatrix34@@@Z
-    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(const Matrix34& arg1) override;
+    ARTS_EXPORT void ARTS_FASTCALL FromMatrix(const Matrix34& matrix) override;
 
     // ?GetPos@mmHitBangerInstance@@UAIAAVVector3@@XZ
-    ARTS_IMPORT Vector3& ARTS_FASTCALL GetPos() override;
+    ARTS_EXPORT Vector3& ARTS_FASTCALL GetPos() override;
 
     // ?SizeOf@mmHitBangerInstance@@UAEIXZ | inline
-    ARTS_IMPORT u32 SizeOf() override;
+    ARTS_EXPORT u32 SizeOf() override;
 
     // ?ToMatrix@mmHitBangerInstance@@UAIAAVMatrix34@@AAV2@@Z
-    ARTS_IMPORT Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& arg1) override;
+    ARTS_EXPORT Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& matrix) override;
 
-    i32 MeshVariant;
-    Matrix34 Matrix;
+    i32 MeshVariant {};
+    Matrix34 Matrix {IDENTITY};
 };
 
 check_size(mmHitBangerInstance, 0x50);
@@ -190,7 +190,7 @@ public:
     // ??_GmmBangerManager@@UAEPAXI@Z
     // ??_EmmBangerManager@@UAEPAXI@Z
     // ??1mmBangerManager@@UAE@XZ | inline
-    ARTS_IMPORT ~mmBangerManager() override = default;
+    ARTS_EXPORT ~mmBangerManager() override = default;
 
     // ?GetBanger@mmBangerManager@@QAEPAVmmHitBangerInstance@@XZ
     ARTS_IMPORT mmHitBangerInstance* GetBanger();
@@ -207,7 +207,10 @@ protected:
     // ?Instance@mmBangerManager@@1PAV1@A
     ARTS_IMPORT static mmBangerManager* Instance;
 
-    u8 gap20[0xC];
+private:
+    mmHitBangerInstance* Bangers {};
+    i32 NumBangers {};
+    i32 MaxBangers {};
 };
 
 check_size(mmBangerManager, 0x2C);

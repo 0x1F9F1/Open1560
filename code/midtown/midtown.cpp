@@ -264,6 +264,8 @@ class PreGameUpdate final : public asNode
 public:
     PreGameUpdate()
     {
+        SetName("PreGameUpdate");
+
         SetNodeFlag(NODE_FLAG_UPDATE_PAUSED);
     }
 
