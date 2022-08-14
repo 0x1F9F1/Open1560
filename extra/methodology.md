@@ -77,6 +77,11 @@ Fix incorrect struct offsets
 
 # Retail Releases
 
+## Gold
+Name | Hash | Length
+--- | --- | ---:
+`midtown.exe` | `2E4DAB549C8B789DF30BF1AA4DE4DC74234E0BA0` | 1972736
+
 ## English
 Name | Hash | Length
 --- | --- | ---:
