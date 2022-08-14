@@ -252,7 +252,16 @@ void dxiConfig([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
     }
 
     if (PARAM_sw)
-        dxiRendererChoice = 0;
+    {
+        for (i32 i = 0; i < dxiRendererCount; ++i)
+        {
+            if (IsSoftwareRenderer(dxiInfo[i].Type))
+            {
+                dxiRendererChoice = i;
+                break;
+            }
+        }
+    }
 }
 
 hook_func(INIT_main, [] {
