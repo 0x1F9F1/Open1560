@@ -96,7 +96,7 @@ void mmInstance::DrawGlow()
 void mmInstance::Relight()
 {}
 
-u32 mmInstance::SizeOf()
+usize mmInstance::SizeOf()
 {
     return sizeof(*this);
 }

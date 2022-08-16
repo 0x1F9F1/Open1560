@@ -139,7 +139,7 @@ public:
     ARTS_IMPORT void Reset() override;
 
     // ?SizeOf@mmUnhitBangerInstance@@UAEIXZ | inline
-    ARTS_EXPORT u32 SizeOf() override;
+    ARTS_EXPORT usize SizeOf() override;
 
     // ?ToMatrix@mmUnhitBangerInstance@@UAIAAVMatrix34@@AAV2@@Z
     ARTS_EXPORT Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& matrix) override;
@@ -173,7 +173,7 @@ public:
     ARTS_EXPORT Vector3& ARTS_FASTCALL GetPos() override;
 
     // ?SizeOf@mmHitBangerInstance@@UAEIXZ | inline
-    ARTS_EXPORT u32 SizeOf() override;
+    ARTS_EXPORT usize SizeOf() override;
 
     // ?ToMatrix@mmHitBangerInstance@@UAIAAVMatrix34@@AAV2@@Z
     ARTS_EXPORT Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& matrix) override;

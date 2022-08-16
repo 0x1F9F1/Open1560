@@ -201,7 +201,7 @@ public:
     ARTS_EXPORT virtual void ARTS_FASTCALL Relight();
 
     // ?SizeOf@mmInstance@@UAEIXZ
-    ARTS_EXPORT virtual u32 SizeOf();
+    ARTS_EXPORT virtual usize SizeOf();
 
     // ?Reset@mmInstance@@UAEXXZ
     ARTS_EXPORT virtual void Reset();
@@ -418,7 +418,7 @@ public:
     ARTS_IMPORT i32 Init(char* arg1, Vector3& arg2, Vector3& arg3, Vector3& arg4, i32 arg5, char* arg6);
 
     // ?SizeOf@mmMatrixInstance@@UAEIXZ
-    ARTS_EXPORT u32 SizeOf() override;
+    ARTS_EXPORT usize SizeOf() override;
 
     // ?ToMatrix@mmMatrixInstance@@UAIAAVMatrix34@@AAV2@@Z
     ARTS_EXPORT Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& matrix) override;
@@ -455,7 +455,7 @@ public:
     ARTS_IMPORT i32 Init(char* arg1, Vector3& arg2, Vector3& arg3, f32 arg4, i32 arg5, char* arg6);
 
     // ?SizeOf@mmShearInstance@@UAEIXZ
-    ARTS_IMPORT u32 SizeOf() override;
+    ARTS_IMPORT usize SizeOf() override;
 
     // ?DeclareFields@mmShearInstance@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
@@ -489,7 +489,7 @@ public:
     ARTS_IMPORT i32 Init(char* arg1, Vector3& arg2, Vector3& arg3, Vector3& arg4);
 
     // ?SizeOf@mmBuildingInstance@@UAEIXZ
-    ARTS_IMPORT u32 SizeOf() override;
+    ARTS_IMPORT usize SizeOf() override;
 
     // ?DeclareFields@mmBuildingInstance@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
@@ -536,7 +536,7 @@ public:
     ARTS_IMPORT Vector3& ARTS_FASTCALL GetPos() override;
 
     // ?SizeOf@mmYInstance@@UAEIXZ
-    ARTS_IMPORT u32 SizeOf() override;
+    ARTS_IMPORT usize SizeOf() override;
 
     // ?ToMatrix@mmYInstance@@UAIAAVMatrix34@@AAV2@@Z
     ARTS_IMPORT Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& arg1) override;
@@ -577,7 +577,7 @@ public:
     ARTS_EXPORT void ARTS_FASTCALL Relight() override;
 
     // ?SizeOf@mmStaticInstance@@UAEIXZ
-    ARTS_IMPORT u32 SizeOf() override;
+    ARTS_IMPORT usize SizeOf() override;
 
     // ?DeclareFields@mmStaticInstance@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
@@ -610,7 +610,7 @@ public:
     ARTS_IMPORT i32 InitFacade(char* arg1, Vector3& arg2, Vector3& arg3, f32 arg4, i32 arg5, const Vector3& arg6);
 
     // ?SizeOf@mmFacadeInstance@@UAEIXZ
-    ARTS_IMPORT u32 SizeOf() override;
+    ARTS_IMPORT usize SizeOf() override;
 
     // ?DeclareFields@mmFacadeInstance@@SAXXZ
     ARTS_IMPORT static void DeclareFields();

@@ -153,7 +153,7 @@ struct Vector4Type final : MetaType
     ARTS_IMPORT void Save( MiniParser* arg1, void* arg2) override;
 
     // ?SizeOf@Vector4Type@@UAEIXZ
-    ARTS_IMPORT u32 SizeOf() override;
+    ARTS_IMPORT usize SizeOf() override;
 };
 
 check_size(Vector4Type, 0x4);

@@ -179,7 +179,7 @@ struct RefToType final : MetaType
     ARTS_IMPORT void Save( MiniParser* arg1, void* arg2) override;
 
     // ?SizeOf@RefToType@@UAEIXZ
-    ARTS_IMPORT u32 SizeOf() override;
+    ARTS_IMPORT usize SizeOf() override;
 };
 
 check_size(RefToType, 0x0);
@@ -200,7 +200,7 @@ struct ArrayOfType final : MetaType
     ARTS_IMPORT void Save( MiniParser* arg1, void* arg2) override;
 
     // ?SizeOf@ArrayOfType@@UAEIXZ
-    ARTS_IMPORT u32 SizeOf() override;
+    ARTS_IMPORT usize SizeOf() override;
 };
 
 check_size(ArrayOfType, 0x0);
@@ -235,7 +235,7 @@ struct CharType final : MetaType
     ARTS_IMPORT void Save( MiniParser* arg1, void* arg2) override;
 
     // ?SizeOf@CharType@@UAEIXZ
-    ARTS_IMPORT u32 SizeOf() override;
+    ARTS_IMPORT usize SizeOf() override;
 };
 
 check_size(CharType, 0x0);
@@ -256,7 +256,7 @@ struct SignedCharType final : MetaType
     ARTS_IMPORT void Save( MiniParser* arg1, void* arg2) override;
 
     // ?SizeOf@SignedCharType@@UAEIXZ
-    ARTS_IMPORT u32 SizeOf() override;
+    ARTS_IMPORT usize SizeOf() override;
 };
 
 check_size(SignedCharType, 0x0);
@@ -277,7 +277,7 @@ struct UnsignedCharType final : MetaType
     ARTS_IMPORT void Save( MiniParser* arg1, void* arg2) override;
 
     // ?SizeOf@UnsignedCharType@@UAEIXZ
-    ARTS_IMPORT u32 SizeOf() override;
+    ARTS_IMPORT usize SizeOf() override;
 };
 
 check_size(UnsignedCharType, 0x0);
@@ -298,7 +298,7 @@ struct SignedShortType final : MetaType
     ARTS_IMPORT void Save( MiniParser* arg1, void* arg2) override;
 
     // ?SizeOf@SignedShortType@@UAEIXZ
-    ARTS_IMPORT u32 SizeOf() override;
+    ARTS_IMPORT usize SizeOf() override;
 };
 
 check_size(SignedShortType, 0x0);
@@ -319,7 +319,7 @@ struct UnsignedShortType final : MetaType
     ARTS_IMPORT void Save( MiniParser* arg1, void* arg2) override;
 
     // ?SizeOf@UnsignedShortType@@UAEIXZ
-    ARTS_IMPORT u32 SizeOf() override;
+    ARTS_IMPORT usize SizeOf() override;
 };
 
 check_size(UnsignedShortType, 0x0);
@@ -345,7 +345,7 @@ struct SignedInt64Type final : MetaType
     ARTS_IMPORT void Save( MiniParser* arg1, void* arg2) override;
 
     // ?SizeOf@SignedInt64Type@@UAEIXZ
-    ARTS_IMPORT u32 SizeOf() override;
+    ARTS_IMPORT usize SizeOf() override;
 };
 
 check_size(SignedInt64Type, 0x0);
@@ -366,7 +366,7 @@ struct UnsignedIntType final : MetaType
     ARTS_IMPORT void Save( MiniParser* arg1, void* arg2) override;
 
     // ?SizeOf@UnsignedIntType@@UAEIXZ
-    ARTS_IMPORT u32 SizeOf() override;
+    ARTS_IMPORT usize SizeOf() override;
 };
 
 check_size(UnsignedIntType, 0x0);
@@ -387,7 +387,7 @@ struct FloatType final : MetaType
     ARTS_IMPORT void Save( MiniParser* arg1, void* arg2) override;
 
     // ?SizeOf@FloatType@@UAEIXZ
-    ARTS_IMPORT u32 SizeOf() override;
+    ARTS_IMPORT usize SizeOf() override;
 };
 
 check_size(FloatType, 0x0);

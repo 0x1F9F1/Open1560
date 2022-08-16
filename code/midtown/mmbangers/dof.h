@@ -48,7 +48,7 @@ public:
     ARTS_IMPORT i32 Init(char* name, char* part, i32 flags, Matrix34* matrix, Vector3* offset);
 
     // ?SizeOf@mmDofBangerInstance@@UAEIXZ
-    ARTS_IMPORT u32 SizeOf() override;
+    ARTS_IMPORT usize SizeOf() override;
 
     // ?ToMatrix@mmDofBangerInstance@@UAIAAVMatrix34@@AAV2@@Z | inline
     ARTS_IMPORT Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& arg1) override;

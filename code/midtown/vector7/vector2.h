@@ -125,7 +125,7 @@ struct Vector2Type final : MetaType
     ARTS_IMPORT void Save( MiniParser* arg1, void* arg2) override;
 
     // ?SizeOf@Vector2Type@@UAEIXZ
-    ARTS_IMPORT u32 SizeOf() override;
+    ARTS_IMPORT usize SizeOf() override;
 };
 
 check_size(Vector2Type, 0x4);
