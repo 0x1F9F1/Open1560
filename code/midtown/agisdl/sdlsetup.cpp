@@ -36,6 +36,8 @@ static void AddVideoDisplay(i32 index, dxiRendererType type)
     if (dxiRendererCount >= ARTS_SSIZE(dxiInfo))
         return;
 
+    bool is_software = IsSoftwareRenderer(type);
+
     dxiRendererInfo_t& info = dxiInfo[dxiRendererCount];
 
     info = {};
@@ -67,7 +69,7 @@ static void AddVideoDisplay(i32 index, dxiRendererType type)
 
     arts_strncpy(info.Name, name, ARTS_TRUNCATE);
 
-    if (type == dxiRendererType::SDL2)
+    if (is_software)
         arts_strncat(info.Name, " (Software)", ARTS_TRUNCATE);
 
     // Pipes are used as the list separator
@@ -96,17 +98,20 @@ static void AddVideoDisplay(i32 index, dxiRendererType type)
     // * Frame buffers support arbitrary resolutions.
     // TODO: Allow picking a custom resolution in the UI, similar to -width/-height
 
+    u32 min_width = is_software ? 320 : 640;
+    u32 min_height = is_software ? 240 : 480;
+
     const auto add_resolution = [&](u32 width, u32 height) {
         width += width & 1;
         height += height & 1;
 
-        if (height < 480 || height > info.SDL.Height)
+        if (width < min_width || width > info.SDL.Width)
             return false;
 
-        if (width < 640 || width > info.SDL.Width)
+        if (height < min_height || height > info.SDL.Height)
             return false;
 
-        if (IsSoftwareRenderer(info.Type) && (width > 4096 || height > 4096))
+        if (is_software && (width > 4096 || height > 4096))
             return false;
 
         for (i32 i = 0; i < info.ResCount; ++i)
@@ -129,6 +134,9 @@ static void AddVideoDisplay(i32 index, dxiRendererType type)
         add_resolution((height * aspect_w) / aspect_h, height);
         add_resolution((height * 4) / 3, height);
     };
+
+    if (is_software)
+        add_height(240);
 
     // Always add 480p
     add_height(480);
