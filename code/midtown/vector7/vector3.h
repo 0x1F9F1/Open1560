@@ -359,13 +359,13 @@ class Vector3Array
 {
 public:
     // ??4Vector3Array@@QAEXAAV0@@Z | unused
-    ARTS_IMPORT void operator=( Vector3Array& arg1);
+    ARTS_IMPORT void operator=(Vector3Array& arg1);
 
     // ??AVector3Array@@QAEAAVVector3@@H@Z | unused
     ARTS_IMPORT Vector3& operator[](i32 arg1);
 
     // ?BlockCopy@Vector3Array@@QAEXAAV1@@Z | unused
-    ARTS_IMPORT void BlockCopy( Vector3Array& arg1);
+    ARTS_IMPORT void BlockCopy(Vector3Array& arg1);
 
     // ?Delete@Vector3Array@@QAEXXZ
     ARTS_IMPORT void Delete();

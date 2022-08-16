@@ -206,13 +206,13 @@ class StringArray
 {
 public:
     // ??4StringArray@@QAEXAAV0@@Z | unused
-    ARTS_IMPORT void operator=( StringArray& arg1);
+    ARTS_IMPORT void operator=(StringArray& arg1);
 
     // ??AStringArray@@QAEAAVstring@@H@Z | unused
     ARTS_IMPORT string& operator[](i32 arg1);
 
     // ?BlockCopy@StringArray@@QAEXAAV1@@Z | unused
-    ARTS_IMPORT void BlockCopy( StringArray& arg1);
+    ARTS_IMPORT void BlockCopy(StringArray& arg1);
 
     // ?Delete@StringArray@@QAEXXZ
     ARTS_IMPORT void Delete();

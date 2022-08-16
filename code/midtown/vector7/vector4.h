@@ -114,13 +114,13 @@ class Vector4Array
 {
 public:
     // ??4Vector4Array@@QAEXAAV0@@Z | unused
-    ARTS_IMPORT void operator=( Vector4Array& arg1);
+    ARTS_IMPORT void operator=(Vector4Array& arg1);
 
     // ??AVector4Array@@QAEAAVVector4@@H@Z | unused
     ARTS_IMPORT Vector4& operator[](i32 arg1);
 
     // ?BlockCopy@Vector4Array@@QAEXAAV1@@Z | unused
-    ARTS_IMPORT void BlockCopy( Vector4Array& arg1);
+    ARTS_IMPORT void BlockCopy(Vector4Array& arg1);
 
     // ?Delete@Vector4Array@@QAEXXZ
     ARTS_IMPORT void Delete();
@@ -144,13 +144,13 @@ struct Vector4Type final : MetaType
     ARTS_IMPORT void Delete(void* arg1, i32 arg2) override;
 
     // ?Load@Vector4Type@@UAEXPAVMiniParser@@PAX@Z
-    ARTS_IMPORT void Load( MiniParser* arg1, void* arg2) override;
+    ARTS_IMPORT void Load(MiniParser* arg1, void* arg2) override;
 
     // ?New@Vector4Type@@UAEPAXH@Z
     ARTS_IMPORT void* New(i32 arg1) override;
 
     // ?Save@Vector4Type@@UAEXPAVMiniParser@@PAX@Z
-    ARTS_IMPORT void Save( MiniParser* arg1, void* arg2) override;
+    ARTS_IMPORT void Save(MiniParser* arg1, void* arg2) override;
 
     // ?SizeOf@Vector4Type@@UAEIXZ
     ARTS_IMPORT usize SizeOf() override;
