@@ -141,6 +141,64 @@ static void CheckSystem()
     }
 }
 
+struct ArchiveFileList
+{
+    char* Files[256] {};
+    usize Count {};
+
+    void Add(const char* path)
+    {
+        const char* basename = std::strrchr(path, '/');
+        basename = basename ? (basename + 1) : path;
+        const char* ext = std::strrchr(basename, '.');
+
+        ArAssert(Count < ARTS_SIZE(Files), "Too many files");
+        Files[Count++] = arts_strdup(ext ? path : arts_formatf<256>("%s%s", path, ".ar").get());
+    }
+
+    void Sort()
+    {
+        std::sort(Files, Files + Count, [](const char* lhs, const char* rhs) { return std::strcmp(lhs, rhs) < 0; });
+    }
+};
+
+static void AutoLoadArchives(const char* path, ArchiveFileList& files)
+{
+    for (FileInfo* f = HFS.FirstEntry(path); f; f = HFS.NextEntry(f))
+    {
+        if (const char* ext = std::strrchr(f->Path, '.');
+            ext && !arts_stricmp(ext, ".AR") && arts_strnicmp(f->Path, "TEST", 4))
+        {
+            files.Add(f->Path);
+        }
+    }
+
+    files.Sort();
+}
+
+static void LoadArchiveList(const char* path, ArchiveFileList& files)
+{
+    Ptr<Stream> input {arts_fopen(path, "r")};
+
+    if (input == nullptr)
+    {
+        Warningf("Failed to open archive list '%s'", path);
+
+        return;
+    }
+
+    char buffer[ARTS_MAX_PATH];
+
+    while (input->Gets(buffer, ARTS_SSIZE(buffer)))
+    {
+        if (char* end = std::strpbrk(buffer, "\r\n"))
+            *end = '\0';
+
+        if (buffer[0] != '\0' && buffer[0] != '#')
+            files.Add(buffer);
+    }
+}
+
 static mem::cmd_param PARAM_archives {"archives"};
 
 static void LoadArchives(const char* base_path)
@@ -162,80 +220,37 @@ static void LoadArchives(const char* base_path)
         }
     }
 
-    char* files[256];
-    usize file_count = 0;
+    ArchiveFileList files;
 
-    const auto add_file = [&](const char* path) {
-        ArAssert(file_count < ARTS_SIZE(files), "Too many archives");
-        files[file_count++] = arts_strdup(path);
-    };
+    char* archives = arts_strdup(PARAM_archives.get_or("mods.txt"));
+    char* context = nullptr;
 
-    const char* archives = PARAM_archives.value();
-
-    if (!archives || *archives == '/')
+    for (const char* path = arts_strtok(archives, "|", &context); path; path = arts_strtok(nullptr, "|", &context))
     {
-        const char* file_list = archives ? (archives + 1) : "mods.txt";
-
-        if (Ptr<Stream> input {arts_fopen(arts_formatf<ARTS_MAX_PATH>("%s/%s", base_path, file_list), "r")})
+        if (const char* ext = std::strrchr(path, '.'); ext && !arts_stricmp(ext, ".txt"))
         {
-            char path[ARTS_MAX_PATH];
-
-            while (input->Gets(path, ARTS_SSIZE(path)))
-            {
-                if (char* end = std::strpbrk(path, "\r\n"))
-                    *end = '\0';
-
-                if (path[0] != '\0' && path[0] != '#')
-                    add_file(path);
-            }
+            LoadArchiveList(arts_formatf<ARTS_MAX_PATH>("%s/%s", base_path, path), files);
         }
-        else if (archives)
+        else
         {
-            Quitf("Failed to open archive list '%s'", file_list);
+            files.Add(path);
         }
     }
-    else if (*archives)
+
+    arts_free(archives);
+
+    if (files.Count == 0)
     {
-        char* buffer = arts_strdup(archives);
-        char* context = nullptr;
+        Displayf("Searching for archives");
 
-        for (const char* path = arts_strtok(buffer, "|", &context); path; path = arts_strtok(nullptr, "|", &context))
-        {
-            add_file(path);
-        }
-
-        arts_free(buffer);
+        AutoLoadArchives(base_path, files);
     }
 
-    if (file_count == 0)
+    Displayf("Loading %zu archives", files.Count);
+
+    for (usize i = 0; i < files.Count; ++i)
     {
-        for (FileInfo* f = HFS.FirstEntry(base_path); f; f = HFS.NextEntry(f))
-        {
-            if (const char* ext = std::strrchr(f->Path, '.');
-                ext && !arts_stricmp(ext, ".AR") && arts_strnicmp(f->Path, "TEST", 4))
-            {
-                add_file(f->Path);
-            }
-        }
-
-        std::sort(files, files + file_count, [](const char* lhs, const char* rhs) {
-            const auto get_priority = []([[maybe_unused]] const char* name) -> i32 {
-                // if (!arts_stricmp(name, "1560.ar"))
-                //     return 1;
-
-                return 0;
-            };
-
-            if (i32 prio = get_priority(rhs) - get_priority(lhs); prio)
-                return prio < 0;
-
-            return std::strcmp(lhs, rhs) < 0;
-        });
-    }
-
-    for (usize i = 0; i < file_count; ++i)
-    {
-        char* path = files[i];
+        char* path = files.Files[i];
 
         if (Ptr<Stream> stream {arts_fopen(arts_formatf<ARTS_MAX_PATH>("%s/%s", base_path, path), "r")})
         {
