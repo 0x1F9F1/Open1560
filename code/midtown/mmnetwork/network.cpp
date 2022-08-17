@@ -297,4 +297,8 @@ void asNetwork::Disconnect()
 hook_func(INIT_main, [] {
     create_hook(
         "DirectPlayCreate", "Dynamically load DPLAYX", 0x5A429A + 2, &arts_DirectPlayCreate, hook_type::pointer);
+
+    // DPLAYX on Wine uses a shared memory allocation at a fixed address (see DPLAYX_ConstructData).
+    // Load the DLL early to improve the chance it can use that adddress.
+    LoadDirectPlay();
 });
