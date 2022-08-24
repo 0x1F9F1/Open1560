@@ -101,8 +101,14 @@ hook_func(INIT_main, [] {
 
     // OppIconInfo.Place
     create_packed_patch<u32>("mmMultiCR::OppStealGold", "Icon Number", 0x41D93C + 6, OPP_ICON_GOLD);
+
+    // FIXME: mmIcons::Cull assumes the highest (last) place is `IconCount`, when in reality it is `IconCount + 1`
+    create_patch("mmIcons::Cull", "Cull Loop", 0x426606, "\x0F\x8C", 2);
+    create_patch("mmIcons::Cull", "Cull Loop", 0x4267B5, "\x0F\x8E", 2);
+
     create_packed_patch<u8>("mmIcons::Cull", "Icon Number", 0x426646 + 2, OPP_ICON_GOLD);
     create_packed_patch<u8>("mmIcons::Cull", "Icon Number", 0x426731 + 4, OPP_ICON_BLANK);
+
     create_packed_patch<u32>("mmMultiCR::GameMessage", "Icon Number", 0x41EC44 + 2, OPP_ICON_BLANK);
     create_packed_patch<u32>("mmMultiCR::GameMessage", "Icon Number", 0x41EB00 + 3, OPP_ICON_BLANK);
     create_packed_patch<u32>("mmGameMulti::RegisterMapNetObjects", "Icon Number", 0x431F6E + 3, OPP_ICON_BLANK);
