@@ -10,7 +10,7 @@ project "Open1560"
 
     includeARTS()
 
-    targetname "dinput"
+    targetname "Hook1560"
 
     files {
         "loader.cpp",

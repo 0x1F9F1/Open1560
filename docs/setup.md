@@ -9,7 +9,6 @@ However, there are certain things you may wish to change:
     * Try using the `-legacygl` argument.
     * Consider disabling cloud shadows, the rear view mirror, or lowering the far clip distance.
 * If using Wine:
-    * Download [wine1560.sh](https://raw.githubusercontent.com/0x1F9F1/Open1560/master/extra/wine1560.sh), or manually set the `WINEDLLOVERRIDES` to prefer native dinput.
     * If the hardware renderer is slow, try enabling threaded OpenGL with the environment variable `mesa_glthread=true` for Mesa, or `__GL_THREADED_OPTIMIZATIONS=1` for Nvidia.
     * If the software renderer is slow, try setting the environment variable `SDL_RENDER_DRIVER=opengl`.
 * If your cursor does not move properly, try `-mousemode 1` or `-mousemode 2`.

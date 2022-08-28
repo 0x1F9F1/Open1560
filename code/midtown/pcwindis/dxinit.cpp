@@ -94,9 +94,6 @@ void dxiDirectDrawSurfaceDestroy()
     SafeRelease(lpdsFront);
 }
 
-extern "C" HRESULT WINAPI DirectInputCreateA_Proxy(
-    HINSTANCE hinst, DWORD dwVersion, LPDIRECTINPUTA* ppDI, LPUNKNOWN punkOuter);
-
 void dxiDirectInputCreate()
 {
 #if DIRECTINPUT_VERSION == 0x0800
@@ -111,7 +108,22 @@ void dxiDirectInputCreate()
     HRESULT err =
         pDirectInput8Create(GetModuleHandle(NULL), DIRECTINPUT_VERSION, IID_IDirectInput8A, (void**) &lpDI, NULL);
 #else
-    HRESULT err = DirectInputCreateA_Proxy(GetModuleHandleA(NULL), DIRECTINPUT_VERSION, &lpDI, 0);
+    HMODULE hdinput = LoadLibraryA("dinput.dll");
+
+    // Check for old Open1560 installations
+    if (GetProcAddress(hdinput, "?ComputeCpuSpeed@@YAIXZ"))
+    {
+        MessageBoxA(NULL, "Delete dinput.dll from your game directory", "Outdated Open1560 Detected",
+            MB_OK | MB_ICONERROR | MB_SETFOREGROUND | MB_TOPMOST);
+
+        TerminateProcess(GetCurrentProcess(), 1);
+    }
+
+    HRESULT(WINAPI * pDirectInputCreateA)
+    (HINSTANCE hinst, DWORD dwVersion, LPDIRECTINPUTA * ppDI, LPUNKNOWN punkOuter) =
+        reinterpret_cast<decltype(pDirectInputCreateA)>(GetProcAddress(hdinput, "DirectInputCreateA"));
+
+    HRESULT err = pDirectInputCreateA(GetModuleHandleA(NULL), DIRECTINPUT_VERSION, &lpDI, 0);
 #endif
 
     if (err != 0)

@@ -68,15 +68,7 @@ import_symbol(0x909428, "?KeyboardDevice@@3PAUIDirectInputDeviceA@@A");
 import_symbol(0x90942C, "?MouseEvent@@3PAXA");
 
 const char* const NewSymbols[] {
-    "DirectInputCreateA=",
-    "DirectInputCreateEx=",
-    "DirectInputCreateW=",
-    "DllCanUnloadNow=",
-    "DllGetClassObject=",
-    "DllRegisterServer=",
-    "DllUnregisterServer=",
-    "NvOptimusEnablement=",
-    "AmdPowerXpressRequestHighPerformance=",
+    "Open1560=",
 
     "?Link@asMemoryAllocator@@AAEXPAUFreeNode@1@@Z=?Link@asMemoryAllocator@@AAEXPAUnode@1@@Z",
     "?Unlink@asMemoryAllocator@@AAEXPAUFreeNode@1@@Z=?Unlink@asMemoryAllocator@@AAEXPAUnode@1@@Z",

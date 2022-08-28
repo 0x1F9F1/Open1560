@@ -26,96 +26,10 @@
 
 #include "symbols.h"
 
-#include <dinput.h>
-
 #include <mem/module.h>
 #include <mem/pattern.h>
 
-template <typename T>
-static ARTS_NOINLINE T DinputProxy(const char* func)
-{
-    static HMODULE system_dinput = [] {
-        wchar_t path[MAX_PATH];
-        GetSystemDirectoryW(path, ARTS_SIZE32(path));
-        wcscat_s(path, L"\\dinput.dll");
-
-        HMODULE dinput = LoadLibraryW(path);
-        Displayf("Loaded system dinput.dll at 0x%zX", reinterpret_cast<std::uintptr_t>(dinput));
-
-        if (dinput == nullptr)
-        {
-            Abortf("Failed to load dinput.dll\n"
-                   "If you are using Wine, ensure you are using \"dinput=n,b\"");
-        }
-
-        return dinput;
-    }();
-
-    return reinterpret_cast<T>(GetProcAddress(system_dinput, func));
-}
-
-extern "C"
-{
-    HRESULT WINAPI DirectInputCreateA_Proxy(HINSTANCE hinst, DWORD dwVersion, LPDIRECTINPUTA* ppDI, LPUNKNOWN punkOuter)
-    {
-        if (static auto proxy = DinputProxy<decltype(&DirectInputCreateA_Proxy)>("DirectInputCreateA"); proxy)
-            return proxy(hinst, dwVersion, ppDI, punkOuter);
-
-        *ppDI = nullptr;
-        return E_INVALIDARG;
-    }
-
-    HRESULT WINAPI DirectInputCreateEx_Proxy(
-        HINSTANCE hinst, DWORD dwVersion, REFIID riidltf, LPVOID* ppvOut, LPUNKNOWN punkOuter)
-    {
-        if (static auto proxy = DinputProxy<decltype(&DirectInputCreateEx_Proxy)>("DirectInputCreateEx"); proxy)
-            return proxy(hinst, dwVersion, riidltf, ppvOut, punkOuter);
-
-        *ppvOut = nullptr;
-        return E_INVALIDARG;
-    }
-
-    HRESULT WINAPI DirectInputCreateW_Proxy(HINSTANCE hinst, DWORD dwVersion, LPDIRECTINPUTW* ppDI, LPUNKNOWN punkOuter)
-    {
-        if (static auto proxy = DinputProxy<decltype(&DirectInputCreateW_Proxy)>("DirectInputCreateW"); proxy)
-            return proxy(hinst, dwVersion, ppDI, punkOuter);
-
-        *ppDI = nullptr;
-        return E_INVALIDARG;
-    }
-
-    HRESULT CALLBACK DllCanUnloadNow_Proxy()
-    {
-        return S_FALSE;
-    }
-
-    HRESULT CALLBACK DllGetClassObject_Proxy(REFCLSID rclsid, REFIID riid, LPVOID* ppv)
-    {
-        if (static auto proxy = DinputProxy<decltype(&DllGetClassObject_Proxy)>("DllGetClassObject"); proxy)
-            return proxy(rclsid, riid, ppv);
-
-        *ppv = nullptr;
-        return CLASS_E_CLASSNOTAVAILABLE;
-    }
-
-    HRESULT CALLBACK DllRegisterServer_Proxy()
-    {
-        if (static auto proxy = DinputProxy<decltype(&DllRegisterServer_Proxy)>("DllRegisterServer"); proxy)
-            return proxy();
-
-        return S_OK;
-    }
-
-    HRESULT CALLBACK DllUnregisterServer_Proxy()
-    {
-        if (static auto proxy = DinputProxy<decltype(&DllUnregisterServer_Proxy)>("DllUnregisterServer"); proxy)
-            return proxy();
-
-        return S_OK;
-    }
-}
-
-static std::size_t InitExportHooks(HMODULE instance)
+static std::size_t InitExportHooks(mem::module instance)
 {
     std::unordered_map<std::string_view, std::string_view> remaps;
 
@@ -144,56 +58,55 @@ static std::size_t InitExportHooks(HMODULE instance)
 
     std::vector<std::pair<const SymbolInfo*, mem::pointer>> symbols;
 
-    mem::module::nt(instance).enum_exports(
-        [&remaps, &symbols](const char* namez, std::uint32_t /*ordinal*/, mem::pointer address) {
-            std::string_view name = namez ? namez : "";
+    instance.enum_exports([&remaps, &symbols](const char* namez, std::uint32_t /*ordinal*/, mem::pointer address) {
+        std::string_view name = namez ? namez : "";
 
-            if (auto find = remaps.find(name); find != remaps.end())
-                name = find->second;
+        if (auto find = remaps.find(name); find != remaps.end())
+            name = find->second;
 
-            if (!name.empty())
+        if (!name.empty())
+        {
+            auto symbol = LookupBaseSymbol(name);
+
+            if (symbol == nullptr)
             {
-                auto symbol = LookupBaseSymbol(name);
+                char replaced[256];
+                arts_strncpy(replaced, name.data(), name.size());
 
-                if (symbol == nullptr)
+                char* here = replaced;
+
+                if (*here == '?')
                 {
-                    char replaced[256];
-                    arts_strncpy(replaced, name.data(), name.size());
+                    // Skip qualified name
+                    while (*here != '@' && *here != '\0')
+                        here += std::strcspn(here, "@") + 1;
 
-                    char* here = replaced;
+                    // Hacky replacement of mangled const char* -> char*
+                    while (char* s = std::strstr(here, "PBD"))
+                        std::memcpy(s, "PAD", 3);
 
-                    if (*here == '?')
-                    {
-                        // Skip qualified name
-                        while (*here != '@' && *here != '\0')
-                            here += std::strcspn(here, "@") + 1;
+                    // Hacky replacement of mangled const void* -> void*
+                    while (char* s = std::strstr(here, "PBX"))
+                        std::memcpy(s, "PAX", 3);
 
-                        // Hacky replacement of mangled const char* -> char*
-                        while (char* s = std::strstr(here, "PBD"))
-                            std::memcpy(s, "PAD", 3);
-
-                        // Hacky replacement of mangled const void* -> void*
-                        while (char* s = std::strstr(here, "PBX"))
-                            std::memcpy(s, "PAX", 3);
-
-                        // Hacky replacement of mangled T* __restrict -> T*
-                        while (char* s = std::strstr(here, "PI"))
-                            std::memmove(s + 1, s + 2, std::strlen(s + 1));
-                    }
-
-                    symbol = LookupBaseSymbol(replaced);
+                    // Hacky replacement of mangled T* __restrict -> T*
+                    while (char* s = std::strstr(here, "PI"))
+                        std::memmove(s + 1, s + 2, std::strlen(s + 1));
                 }
 
-                if (symbol == nullptr)
-                {
-                    Quitf("Unrecogized Symbol '%.*s'", name.size(), name.data());
-                }
-
-                symbols.emplace_back(symbol, address);
+                symbol = LookupBaseSymbol(replaced);
             }
 
-            return false;
-        });
+            if (symbol == nullptr)
+            {
+                Quitf("Unrecogized Symbol '%.*s'", name.size(), name.data());
+            }
+
+            symbols.emplace_back(symbol, address);
+        }
+
+        return false;
+    });
 
     // Hook functions after data variables, to avoid clobbering a jump hook
     std::sort(symbols.begin(), symbols.end(),
@@ -209,7 +122,45 @@ static std::size_t InitExportHooks(HMODULE instance)
 
 extern const char* VERSION_STRING;
 
-BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
+DWORD WINAPI Open1560()
+{
+#ifdef ARTS_FINAL
+    if (IsDebuggerPresent())
+#endif
+    {
+        LogToConsole();
+    }
+
+    if (auto _SetProcessDEPPolicy = reinterpret_cast<BOOL(WINAPI*)(DWORD)>(
+            GetProcAddress(GetModuleHandleA("KERNEL32.DLL"), "SetProcessDEPPolicy")))
+    {
+        _SetProcessDEPPolicy(0x00000001 /*PROCESS_DEP_ENABLE*/);
+    }
+
+    // Fixes mouse drift when display scale is not 100%
+    if (auto _SetProcessDPIAware =
+            reinterpret_cast<BOOL(WINAPI*)()>(GetProcAddress(GetModuleHandleA("USER32.DLL"), "SetProcessDPIAware")))
+    {
+        _SetProcessDPIAware();
+    }
+
+    InitBaseSymbols();
+
+    LogToFile("Open1560.log");
+
+    Displayf("Build: %s", VERSION_STRING);
+    Displayf("Download updates at https://0x1f9f1.github.io/Open1560");
+
+    // Run export hooks first to avoid corrupting any patches
+    Displayf("Processed %zu Export Hooks", InitExportHooks(mem::module::self()));
+
+    // Run init functions which need to be happen before WinMain
+    Displayf("Processed %zu Early Init Functions", mem::static_function::exec(INIT_early, true));
+
+    return 0x0A280105; // GetVersion() XP SP3
+}
+
+BOOL APIENTRY DllMain(HMODULE /*hinstDLL*/, DWORD fdwReason, LPVOID /*lpvReserved*/)
 {
     if (fdwReason == DLL_PROCESS_ATTACH)
     {
@@ -233,39 +184,6 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
             TerminateProcess(GetCurrentProcess(), 1);
         }
-
-        if (auto _SetProcessDEPPolicy = reinterpret_cast<BOOL(WINAPI*)(DWORD)>(
-                GetProcAddress(GetModuleHandleA("KERNEL32.DLL"), "SetProcessDEPPolicy")))
-        {
-            _SetProcessDEPPolicy(0x00000001 /*PROCESS_DEP_ENABLE*/);
-        }
-
-        // Fixes mouse drift when display scale is not 100%
-        if (auto _SetProcessDPIAware =
-                reinterpret_cast<BOOL(WINAPI*)()>(GetProcAddress(GetModuleHandleA("USER32.DLL"), "SetProcessDPIAware")))
-        {
-            _SetProcessDPIAware();
-        }
-
-#ifdef ARTS_FINAL
-        if (IsDebuggerPresent())
-#endif
-        {
-            LogToConsole();
-        }
-
-        InitBaseSymbols();
-
-        LogToFile("Open1560.log");
-
-        Displayf("Build: %s", VERSION_STRING);
-        Displayf("Download updates at https://0x1f9f1.github.io/Open1560");
-
-        // Run export hooks first to avoid corrupting any patches
-        Displayf("Processed %zu Export Hooks", InitExportHooks(hinstDLL));
-
-        // Run init functions which need to be happen before WinMain
-        Displayf("Processed %zu Early Init Functions", mem::static_function::exec(INIT_early, true));
     }
 
     return TRUE;
