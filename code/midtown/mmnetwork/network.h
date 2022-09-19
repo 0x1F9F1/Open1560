@@ -146,7 +146,7 @@ public:
     ARTS_IMPORT void CloseSession();
 
     // ?CreateInterface@asNetwork@@QAEHXZ
-    ARTS_IMPORT i32 CreateInterface();
+    ARTS_EXPORT i32 CreateInterface();
 
     // ?CreatePlayer@asNetwork@@QAEHPADPAXH@Z
     ARTS_IMPORT i32 CreatePlayer(char* arg1, void* arg2, i32 arg3);

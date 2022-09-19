@@ -254,6 +254,17 @@ void asNetwork::SetSessionData(NETSESSION_DESC* desc, char* name)
     }
 }
 
+i32 asNetwork::CreateInterface()
+{
+    if (!LoadDirectPlay())
+    {
+        Errorf("Failed to load DirectPlay");
+        return ERROR_INVALID_FUNCTION;
+    }
+
+    return CoCreateInstance(CLSID_DirectPlay, NULL, CLSCTX_INPROC_SERVER, IID_IDirectPlay4A, (void**) &dplay_);
+}
+
 void asNetwork::Deallocate()
 {
     if (recv_buffer_)
