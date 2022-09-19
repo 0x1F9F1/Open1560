@@ -22,9 +22,14 @@ define_dummy_symbol(mmnetwork_network);
 
 static GUID MM_GUID {0x6C9983A7, 0xC037, 0x11D2, {0xA8, 0xDA, 0x00, 0xA0, 0xC9, 0x70, 0xAF, 0x5D}};
 
-static HRESULT(WINAPI* arts_DirectPlayCreate)(LPGUID lpGUID, LPDIRECTPLAY* lplpDP, IUnknown* pUnk);
-
 static mem::cmd_param PARAM_dplay {"dplay"};
+
+static HRESULT(WINAPI* Orig_DirectPlayCreate)(LPGUID lpGUID, LPDIRECTPLAY* lplpDP, IUnknown* pUnk);
+
+static HRESULT WINAPI Hook_DirectPlayCreate(LPGUID lpGUID, LPDIRECTPLAY* lplpDP, IUnknown* pUnk)
+{
+    return Orig_DirectPlayCreate ? Orig_DirectPlayCreate(lpGUID, lplpDP, pUnk) : ERROR_INVALID_FUNCTION;
+}
 
 static bool LoadDirectPlay()
 {
@@ -34,17 +39,17 @@ static bool LoadDirectPlay()
         return false;
     }
 
-    if (!arts_DirectPlayCreate)
+    if (!Orig_DirectPlayCreate)
     {
         HMODULE hdplayx = LoadLibraryA("DPLAYX.DLL");
 
         if (hdplayx)
         {
-            arts_DirectPlayCreate = (decltype(arts_DirectPlayCreate)) GetProcAddress(hdplayx, "DirectPlayCreate");
+            Orig_DirectPlayCreate = (decltype(Orig_DirectPlayCreate)) GetProcAddress(hdplayx, "DirectPlayCreate");
         }
     }
 
-    return arts_DirectPlayCreate;
+    return Orig_DirectPlayCreate;
 }
 
 b32 asNetwork::Initialize(i32 max_players, b32 secure, i32 game_version)
@@ -295,8 +300,7 @@ void asNetwork::Disconnect()
 }
 
 hook_func(INIT_main, [] {
-    create_hook(
-        "DirectPlayCreate", "Dynamically load DPLAYX", 0x5A429A + 2, &arts_DirectPlayCreate, hook_type::pointer);
+    create_hook("DirectPlayCreate", "Dynamically load DPLAYX", 0x5A429A, &Hook_DirectPlayCreate, hook_type::jmp);
 
     // DPLAYX on Wine uses a shared memory allocation at a fixed address (see DPLAYX_ConstructData).
     // Load the DLL early to improve the chance it can use that adddress.
