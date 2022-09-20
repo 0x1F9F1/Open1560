@@ -143,7 +143,7 @@ public:
     mmSkid* Skids {};
     i32 MaxSkids {};
     i32 field_2C {};
-    f32 LastRotation {};
+    f32 TimeSinceLastTrack {};
     f32 FourWheelRadius2 {};
     i32 SkidIndex {};
     i32 NotSkidding {};

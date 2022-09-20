@@ -20,6 +20,7 @@ define_dummy_symbol(mmcar_skid);
 
 #include "skid.h"
 
+#include "arts7/sim.h"
 #include "mmcity/cullcity.h"
 #include "mmdyna/poly.h"
 
@@ -40,18 +41,24 @@ void ARTS_FASTCALL mmSkid::FromMatrix(const Matrix34& /*arg1*/)
 void mmSkid::Update()
 {}
 
-static const f32 SkidRotationSpeedThresh = 5.0f;
+static const f32 SkidSpeedThresh = 3.0f;
+static const f32 SkidTrackTimeThresh = 0.1f;
 
 void mmSkidManager::Update()
 {
     mmCarSim* car = Wheel->CarSim;
     f32 slip_thresh = car->SlipPercentThresh;
 
-    if (std::abs(Wheel->RotationSpeed) > SkidRotationSpeedThresh &&
+    f32 car_speed = car->Speed;
+    f32 wheel_speed = std::abs(Wheel->RotationSpeed * Wheel->Radius);
+
+    if ((car_speed > SkidSpeedThresh || wheel_speed > SkidSpeedThresh) &&
         (std::abs(Wheel->LatSlipPercent) > slip_thresh || std::abs(Wheel->LongSlipPercent) > slip_thresh) &&
         Wheel->OnGround && car->ShouldSkid() && Wheel->Intersection.Normal.y > 0.1f)
     {
-        if (std::abs(Wheel->Rotation - LastRotation) > 1.0f)
+        TimeSinceLastTrack += Sim()->GetUpdateDelta();
+
+        if (TimeSinceLastTrack > SkidTrackTimeThresh)
         {
             if (mmPolygon* surface = Wheel->Intersection.HitPoly;
                 !surface || !(CullCity()->GetRoomFlags(surface->RoomId) & ROOM_FLAG_40))
@@ -59,7 +66,7 @@ void mmSkidManager::Update()
                 LayTrack();
             }
 
-            LastRotation = Wheel->Rotation;
+            TimeSinceLastTrack = 0.0f;
         }
 
         Wheel->GenerateSkidParticles();
