@@ -134,12 +134,25 @@ public:
     ARTS_IMPORT void Reset() override;
 
     // ?Update@mmSkidManager@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
     // ?DeclareFields@mmSkidManager@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap20[0x48];
+    mmWheel* Wheel {};
+    mmSkid* Skids {};
+    i32 MaxSkids {};
+    i32 field_2C {};
+    f32 LastRotation {};
+    f32 FourWheelRadius2 {};
+    i32 SkidIndex {};
+    i32 NotSkidding {};
+    Vector3 field_40 {};
+    Vector3 field_4C {};
+    i32 field_58 {};
+    i32 field_5C {};
+    i32 field_60 {};
+    i32 field_64 {};
 };
 
 check_size(mmSkidManager, 0x68);

@@ -159,7 +159,7 @@ public:
     f32 dword1E4;
     f32 OtherNormalLoad;
     i32 dword1EC;
-    i32 OnGround;
+    b32 OnGround;
     f32 Friction;
     f32 dword1F8;
     f32 dword1FC;

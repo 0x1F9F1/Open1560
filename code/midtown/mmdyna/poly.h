@@ -39,6 +39,8 @@
     0x51D170 | private: float __thiscall mmPolygon::CheckCellZSide(float,float,float) | ?CheckCellZSide@mmPolygon@@AAEMMMM@Z
 */
 
+#include "vector7/vector3.h"
+
 class mmBoundTemplate;
 class mmEdgeBodyIsect;
 class mmIntersection;
@@ -98,7 +100,14 @@ private:
     // ?PlotTriangle@mmPolygon@@AAEXHHHPAVmmBoundTemplate@@H@Z
     ARTS_IMPORT void PlotTriangle(i32 arg1, i32 arg2, i32 arg3, mmBoundTemplate* arg4, i32 arg5);
 
-    u8 gap0[0x4C];
+public:
+    u16 RoomId;
+    u8 MtlIndex;
+    u8 Flags;
+    i16 VertIndices[4];
+    Vector3 BBox[4];
+    Vector3 Normal;
+    f32 SomeFloat;
 };
 
 check_size(mmPolygon, 0x4C);

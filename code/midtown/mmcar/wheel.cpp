@@ -23,13 +23,12 @@ define_dummy_symbol(mmcar_wheel);
 #include "arts7/sim.h"
 #include "mmbangers/active.h"
 
-// TODO: This also needs to factor in the wheel rotation delta
 void mmWheel::GenerateSkidParticles()
 {
-    ParticleCount += std::min(ParticleMultiplier * PtxMaxSkidCount * Sim()->GetUpdateDelta(), 1.0f);
+    ParticleCount += Sim()->GetUpdateDelta() * ParticleMultiplier * PtxMaxSkidCount;
 }
 
-static const f32 PtxFrameRate = 60.0f;
+static const f32 PtxFrameRate = 35.0f;
 
 static mem::cmd_param PARAM_maxskid {"maxskid"};
 

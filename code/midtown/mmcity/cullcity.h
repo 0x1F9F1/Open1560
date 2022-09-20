@@ -124,7 +124,7 @@ class mmPolygon;
 #define ROOM_FLAG_8 0x8     // ?
 #define ROOM_FLAG_10 0x10   // Implies 0x40
 #define ROOM_FLAG_20 0x20   // Force ZEnable
-#define ROOM_FLAG_40 0x40   // ?
+#define ROOM_FLAG_40 0x40   // No Skidding ?
 #define ROOM_FLAG_80 0x80   // FogValue = 0.25
 #define ROOM_FLAG_100 0x100 // ?
 
