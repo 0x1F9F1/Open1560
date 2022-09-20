@@ -120,6 +120,24 @@ static std::size_t InitExportHooks(mem::module instance)
     return symbols.size();
 }
 
+void CheckForOldVersions()
+{
+    // Check for old Open1560 installations in the application directory
+    if (HMODULE hdinput =
+            LoadLibraryExA("dinput.dll", NULL, LOAD_LIBRARY_SEARCH_APPLICATION_DIR | DONT_RESOLVE_DLL_REFERENCES))
+    {
+        if (GetProcAddress(hdinput, "?ComputeCpuSpeed@@YAIXZ"))
+        {
+            MessageBoxA(NULL, "Delete dinput.dll from your game directory", "Outdated Open1560 Detected",
+                MB_OK | MB_ICONERROR | MB_SETFOREGROUND | MB_TOPMOST);
+
+            TerminateProcess(GetCurrentProcess(), 1);
+        }
+
+        FreeLibrary(hdinput);
+    }
+}
+
 extern const char* VERSION_STRING;
 
 DWORD WINAPI Open1560()
@@ -150,6 +168,8 @@ DWORD WINAPI Open1560()
 
     Displayf("Build: %s", VERSION_STRING);
     Displayf("Download updates at https://0x1f9f1.github.io/Open1560");
+
+    CheckForOldVersions();
 
     // Run export hooks first to avoid corrupting any patches
     Displayf("Processed %zu Export Hooks", InitExportHooks(mem::module::self()));
