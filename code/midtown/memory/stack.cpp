@@ -241,7 +241,7 @@ void LookupAddress(char* buffer, usize buflen, usize address)
         if (SymFromAddr(GetCurrentProcess(), address, &dwDisplacement, pSymbol) &&
             SymGetModuleInfo(GetCurrentProcess(), address, &module))
         {
-            bool hide_module = (module.BaseOfImage == 0x400000) || !arts_stricmp(module.ModuleName, "dinput");
+            bool hide_module = (module.BaseOfImage == 0x400000) || !arts_stricmp(module.ModuleName, "Hook1560");
 
             if (pSymbol->NameLen > 64)
                 arts_strcpy(pSymbol->Name + 61, 4, "...");
