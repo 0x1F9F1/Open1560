@@ -72,7 +72,7 @@ static mem::cmd_param PARAM_max_particles {"maxptx"};
 
 void asParticles::Init(i32 max_particles, i32 arg2, i32 arg3, i32 vert_count, agiMeshCardVertex* vertices)
 {
-    max_particles = static_cast<i32>(max_particles * PARAM_max_particles.get_or<f32>(1.5f));
+    max_particles = static_cast<i32>(max_particles * PARAM_max_particles.get_or<f32>(2.0f));
 
     SparkCapacity = max_particles;
     Sparks = MakeUnique<asSparkInfo[]>(max_particles);
@@ -158,7 +158,7 @@ void asParticles::Cull()
     }
 }
 
-static const f32 PtxFrameRate = 60.0f;
+static const f32 PtxFrameRate = 30.0f;
 
 void asParticles::Update()
 {
