@@ -317,12 +317,6 @@ static void MainPhase(i32 argc, char** argv)
         {
             no_audio = true;
         }
-        else if (ARG("-cop2opp"))
-        {
-            CHEATING = true;
-
-            MMSTATE.ChaseOpponents = true;
-        }        
     }
 
     MemStat module_init {"Module init"};
