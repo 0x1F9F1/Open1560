@@ -56,8 +56,10 @@ hook_func(INIT_main, [] {
     }
 });
 
+static const f32 CopFrameRate = 30.0f;
+
 hook_func(FRAME_pre_update, [] {
-    f32 exp = std::clamp(60.0f * Sim()->GetUpdateDelta(), 0.01f, 2.0f);
+    f32 exp = std::clamp(CopFrameRate * Sim()->GetUpdateDelta(), 0.01f, 2.0f);
 
     CopSpeedBoost = std::pow(1.01f, exp);
     CopBrakeBoost = std::pow(0.95f, exp);
