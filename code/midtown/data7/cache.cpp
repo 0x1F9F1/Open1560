@@ -345,7 +345,7 @@ void DataCache::Shutdown()
 
     Flush();
 
-    delete[](objects_ + 1);
+    delete[] (objects_ + 1);
     objects_ = nullptr;
 
     delete[] heap_;

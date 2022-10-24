@@ -150,7 +150,7 @@ public:
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetVelocity@asInertialCS@@QAE?AVVector3@@PBV2@@Z
-    ARTS_IMPORT Vector3 GetVelocity(const Vector3* arg1);
+    ARTS_IMPORT Vector3 GetVelocity(const Vector3* arg1 = nullptr);
 
     // ?MatricesToMomenta@asInertialCS@@QAEXABVMatrix34@@0M@Z | unused
     ARTS_IMPORT void MatricesToMomenta(const Matrix34& arg1, const Matrix34& arg2, f32 arg3);

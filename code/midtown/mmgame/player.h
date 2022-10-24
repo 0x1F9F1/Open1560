@@ -162,7 +162,7 @@ public:
     ARTS_IMPORT void UpdateHOG();
 
     // ?UpdateRegen@mmPlayer@@QAEXXZ
-    ARTS_IMPORT void UpdateRegen();
+    ARTS_EXPORT void UpdateRegen();
 
     // ?DeclareFields@mmPlayer@@SAXXZ
     ARTS_IMPORT static void DeclareFields();

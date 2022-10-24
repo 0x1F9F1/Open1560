@@ -20,8 +20,25 @@ define_dummy_symbol(mmgame_player);
 
 #include "player.h"
 
+#include "arts7/sim.h"
+
 void mmPlayer::AfterLoad()
 {}
 
 void mmPlayer::BeforeSave()
 {}
+
+static const f32 RegenFrameRate = 30.0f;
+static const f32 PlayerRegenRate = RegenFrameRate * 0.0005f;
+
+void mmPlayer::UpdateRegen()
+{
+    if (Car.Sim.ICS.GetVelocity().Mag2() > 25.0f)
+    {
+        if (f32 damage = Car.Sim.CurrentDamage; damage > 0.0f)
+        {
+            Car.Sim.CurrentDamage =
+                std::max<f32>(0.0f, damage - (Car.Sim.MaxDamageScaled * PlayerRegenRate * Sim()->GetUpdateDelta()));
+        }
+    }
+}
