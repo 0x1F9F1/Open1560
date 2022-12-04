@@ -1032,6 +1032,12 @@ void mmGame::SendChatMessage(char* msg)
 
         EggMass = (EggMass == 1.0f) ? 0.01f : 1.0f;
     }
+    else if (X("cop2opp"))
+    {
+        CHEATING = true;
 
+        MMSTATE.ChaseOpponents = true;
+    }    
+    
 #undef X
 }
