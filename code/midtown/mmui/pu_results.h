@@ -44,6 +44,15 @@
 
 class mmTextNode;
 
+enum
+{
+    IDC_PU_RESULTS_RESTART = 10,
+    IDC_PU_RESULTS_NEXT = 11,
+    IDC_PU_RESULTS_ROSTER = 12,
+    IDC_PU_RESULTS_QUIT = 13,
+    IDC_PU_RESULTS_EXIT = 14,
+};
+
 class PUResults final : public PUMenuBase
 {
 public:

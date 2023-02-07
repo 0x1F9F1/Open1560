@@ -30,6 +30,16 @@
 
 #include "pu_menu.h"
 
+enum
+{
+    IDC_PU_MAIN_RESTART = 10,
+    IDC_PU_MAIN_OPTIONS = 11,
+    IDC_PU_MAIN_HELP = 12,
+    IDC_PU_MAIN_QUIT = 13,
+    IDC_PU_MAIN_EXIT = 14,
+    IDC_PU_MAIN_DEBUG = 15,
+};
+
 class PUMain final : public PUMenuBase
 {
 public:
