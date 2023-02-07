@@ -67,9 +67,9 @@ void asLinearCS::Cull()
     DrawColor(ColBlue);
     DrawLine(ORIGIN, ZAXIS);
     DrawEnd();
-    DrawLabelf(XAXIS, xconst("x"));
-    DrawLabelf(YAXIS, xconst("y"));
-    DrawLabelf(ZAXIS, xconst("z"));
+    DrawLabelf(XAXIS, "x"_xconst);
+    DrawLabelf(YAXIS, "y"_xconst);
+    DrawLabelf(ZAXIS, "z"_xconst);
 #endif
 }
 

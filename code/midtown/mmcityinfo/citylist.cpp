@@ -99,7 +99,7 @@ void mmCityList::LoadAll()
 {
     InitTexSheet();
 
-    Load(xconst("Chicago.cinfo")); // Load Chicago first
+    Load("Chicago.cinfo"_xconst); // Load Chicago first
 
     for (i32 i = 0; i < FileSystem::FSCount; ++i)
     {

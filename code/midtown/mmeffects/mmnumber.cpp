@@ -25,7 +25,7 @@ define_dummy_symbol(mmeffects_mmnumber);
 #include "data7/metadefine.h"
 #include "mmtext.h"
 
-aconst char* NUMBERSTRING = xconst("0123456789:,/.");
+aconst char* NUMBERSTRING = "0123456789:,/."_xconst;
 
 mmNumber::mmNumber() = default;
 mmNumber::~mmNumber() = default;

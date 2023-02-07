@@ -99,7 +99,7 @@ mmGame::~mmGame()
 {
     if (MMCURRPLAYER.Loaded && EnableSave)
     {
-        Config.SetIOPath(xconst("players"));
+        Config.SetIOPath("players"_xconst);
         Config.GetControls();
         Config.GetAudio();
         Config.GetGraphics();
@@ -115,7 +115,7 @@ mmGame::~mmGame()
     if (!LogOpenOn)
     {
         DontClearPositions = true;
-        DumpPositions(xconst("positions.csv"));
+        DumpPositions("positions.csv"_xconst);
 
         i32 max_posi = 0;
         WIN32_FIND_DATAA find_data;
@@ -631,8 +631,8 @@ b32 mmGame::Init()
 
     if (!LogOpenOn)
     {
-        LoadPositions(xconst("positions.csv"));
-        ResetPositions->Load(xconst("resetpositions.csv"));
+        LoadPositions("positions.csv"_xconst);
+        ResetPositions->Load("resetpositions.csv"_xconst);
     }
 
     if (ResetPositions->GetCount() == 0)
@@ -659,8 +659,8 @@ b32 mmGame::Init()
 
     switch (MMSTATE.Weather)
     {
-        case mmWeather::Rain: TextureSuffix = xconst("_fall"); break;
-        case mmWeather::Snow: TextureSuffix = xconst("_win"); break;
+        case mmWeather::Rain: TextureSuffix = "_fall"_xconst; break;
+        case mmWeather::Snow: TextureSuffix = "_win"_xconst; break;
         default: TextureSuffix = nullptr; break;
     }
 
@@ -928,7 +928,7 @@ void mmGame::SendChatMessage(char* msg)
     {
         CHEATING = true;
 
-        BangerProjectile = BangerDataMgr()->GetBangerData(xconst("tpmail"), nullptr);
+        BangerProjectile = BangerDataMgr()->GetBangerData("tpmail"_xconst, nullptr);
         ProjectileV = Vector3(0.0f, 5.0f, -30.0f);
     }
     else if (X("banger "))

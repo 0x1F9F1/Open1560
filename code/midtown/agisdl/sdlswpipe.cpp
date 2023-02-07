@@ -357,7 +357,7 @@ i32 agiSDLSWPipeline::BeginGfx()
     opaque_color_model_ = MakeRc<agiColorModel8>(&agiPal);
     alpha_color_model_ = opaque_color_model_;
 
-    TexSearchPath = xconst("texp\0");
+    TexSearchPath = "texp\0"_xconst;
 
     agiCurState.SetTexturePerspective(true);
     agiCurState.SetMaxTextures(1);

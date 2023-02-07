@@ -114,7 +114,7 @@ i32 agiGLPipeline::BeginGfx()
     alpha_color_model_ = AsRc(agiColorModel::FindMatch(&alpha_format_));
     text_color_model_ = alpha_color_model_;
 
-    TexSearchPath = xconst("tex16a\0tex16o\0tex16\0");
+    TexSearchPath = "tex16a\0tex16o\0tex16\0"_xconst;
 
     agiCurState.SetCullMode(agiCullMode::None);
     agiCurState.SetBlendSet(agiBlendSet::SrcAlpha_InvSrcAlpha);

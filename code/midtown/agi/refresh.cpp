@@ -34,7 +34,7 @@ void agiRefreshable::Restore()
 
 aconst char* agiRefreshable::GetName()
 {
-    return xconst("generic refreshable");
+    return "generic refreshable"_xconst;
 }
 
 agiRefreshable::~agiRefreshable()

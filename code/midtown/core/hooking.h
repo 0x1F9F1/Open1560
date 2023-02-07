@@ -175,6 +175,11 @@ struct unconst<T&&>
 #    define offset_field(OFFSET, TYPE, NAME) TYPE NAME
 #    define xconst(VALUE) (VALUE)
 #    define aconst const
+
+ARTS_FORCEINLINE const char* operator""_xconst(const char* str, std::size_t)
+{
+    return str;
+}
 #else
 #    define check_size mem_check_size
 #    define define_dummy_symbol mem_define_dummy_symbol
@@ -183,6 +188,11 @@ struct unconst<T&&>
 #    define offset_field mem_offset_field
 #    define xconst(VALUE) const_cast<typename unconst<decltype((VALUE))>::type>((VALUE))
 #    define aconst
+
+ARTS_FORCEINLINE char* operator""_xconst(const char* str, std::size_t)
+{
+    return const_cast<char*>(str);
+}
 #endif
 
 extern mem::static_function* INIT_early;

@@ -117,7 +117,7 @@ b32 mmUnhitBangerInstance::Init(aconst char* name, Vector3& pos1, Vector3& pos2,
 
     if ((init_flags & INST_INIT_FLAG_GLOW) && bng_data && (bng_data->BillFlags & BANGER_BILL_FLAG_20))
     {
-        AddMeshes(name, MESH_SET_UV | MESH_SET_CPV | MESH_SET_NO_BOUND, xconst("GLOW"), &glow_offset);
+        AddMeshes(name, MESH_SET_UV | MESH_SET_CPV | MESH_SET_NO_BOUND, "GLOW"_xconst, &glow_offset);
 
         Flags |= INST_FLAG_GLOW;
     }

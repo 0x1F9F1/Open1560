@@ -90,7 +90,7 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
     {
         surface = AsPtr(agiSurfaceDesc::Init(256, 64, agiSurfaceDesc::FromFormat(PixelFormat_P8)));
 
-        surface->lpLut = AsRaw(Pipe()->GetTexLut(xconst("*grey")));
+        surface->lpLut = AsRaw(Pipe()->GetTexLut("*grey"_xconst));
         surface->MipMapCount = 3;
 
         const u8* chars = CharSet;

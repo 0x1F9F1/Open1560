@@ -128,5 +128,5 @@ check_size(agiTexSheet, 0xC);
 inline void InitTexSheet()
 {
     if (!TEXSHEET.GetPropCount())
-        TEXSHEET.Load(xconst("mtl/global.tsh"));
+        TEXSHEET.Load("mtl/global.tsh"_xconst);
 }

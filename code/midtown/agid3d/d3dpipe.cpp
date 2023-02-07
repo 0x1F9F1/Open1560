@@ -269,7 +269,7 @@ i32 agiD3DPipeline::BeginGfx()
 
     TextureFormatCount = 0;
     DD_TRY(d3d_device_->EnumTextureFormats(EnumTextureCallback, this));
-    TexSearchPath = xconst("tex16a\0tex16o\0tex16\0");
+    TexSearchPath = "tex16a\0tex16o\0tex16\0"_xconst;
 
     DDSCAPS2 vmcaps {};
     vmcaps.dwCaps = DDSCAPS_TEXTURE;
@@ -289,7 +289,7 @@ i32 agiD3DPipeline::BeginGfx()
             if (TextureFormats[i].dwFlags & DDPF_PALETTEINDEXED8)
             {
                 opaque_format = i;
-                TexSearchPath = xconst("tex16a\0texp\0");
+                TexSearchPath = "tex16a\0texp\0"_xconst;
             }
         }
     }
@@ -443,7 +443,7 @@ i32 agiD3DPipeline::BeginGfx()
 
             flags_ |= 0x10;
 
-            TexSearchPath = xconst("texs3\0tex16a\0tex16o\0");
+            TexSearchPath = "texs3\0tex16a\0tex16o\0"_xconst;
         }
     }
 
