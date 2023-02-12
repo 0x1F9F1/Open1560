@@ -18,6 +18,8 @@
 
 #pragma once
 
+#include <string_view>
+
 extern const char* const NewSymbols[];
 
 struct SymbolInfo
