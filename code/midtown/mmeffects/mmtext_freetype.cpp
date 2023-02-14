@@ -168,7 +168,7 @@ const mmFont::mmGlyph& mmFont::LoadChar(u32 char_code)
         if (result = glyphs_[char_code].get(); result)
             return *result;
 
-        glyphs_[char_code] = MakeUnique<mmGlyph>();
+        glyphs_[char_code] = arnew mmGlyph();
         result = glyphs_[char_code].get();
     }
     else
@@ -195,7 +195,7 @@ const mmFont::mmGlyph& mmFont::LoadChar(u32 char_code)
 
 void mmFont::Draw(agiSurfaceDesc* surface, const char* text, mmRect rect, u32 color, u32 format)
 {
-    Rc<agiColorModel> cmodel = AsRc(agiColorModel::FindMatch(surface));
+    Rc<agiColorModel> cmodel = as_rc agiColorModel::FindMatch(surface);
     color = cmodel->GetColor(agiRgba::FromABGR(color | 0xFF000000));
 
     i32 x = rect.left;
@@ -510,7 +510,7 @@ void mmText::Draw2(agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font
 
 RcOwner<agiBitmap> mmText::CreateFitBitmap(char* text, void* font_ptr, i32 color, i32 bg_color)
 {
-    Rc<agiBitmap> bitmap = AsRc(Pipe()->CreateBitmap());
+    Rc<agiBitmap> bitmap = as_rc Pipe()->CreateBitmap();
 
     mmFont* font = static_cast<mmFont*>(font_ptr);
 
@@ -557,7 +557,7 @@ RcOwner<agiBitmap> mmText::CreateFitBitmap(char* text, void* font_ptr, i32 color
     bitmap->EndGfx();
     bitmap->SafeBeginGfx();
 
-    return AsOwner(bitmap);
+    return as_owner bitmap;
 }
 
 void* mmText::CreateFont(const char* font_name, i32 height)

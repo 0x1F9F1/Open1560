@@ -58,10 +58,10 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
     {
         alpha = PARAM_alphafont.get_or(false);
 
-        surface = AsPtr(agiSurfaceDesc::Init(256, 64, Pipe()->GetAlphaFormat()));
+        surface = as_ptr agiSurfaceDesc::Init(256, 64, Pipe()->GetAlphaFormat());
         surface->Clear();
 
-        Rc<agiColorModel> cmodel = AsRc(agiColorModel::FindMatch(surface.get()));
+        Rc<agiColorModel> cmodel = as_rc agiColorModel::FindMatch(surface.get());
 
         const u32 black = cmodel->GetColor(0x00, 0x00, 0x00, alpha ? 0x00 : 0xFF);
         const u32 white = cmodel->GetColor(0xFF, 0xFF, 0xFF, 0xFF);
@@ -88,9 +88,9 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
     }
     else
     {
-        surface = AsPtr(agiSurfaceDesc::Init(256, 64, agiSurfaceDesc::FromFormat(PixelFormat_P8)));
+        surface = as_ptr agiSurfaceDesc::Init(256, 64, agiSurfaceDesc::FromFormat(PixelFormat_P8));
 
-        surface->lpLut = AsRaw(Pipe()->GetTexLut("*grey"_xconst));
+        surface->lpLut = as_raw Pipe()->GetTexLut("*grey"_xconst);
         surface->MipMapCount = 3;
 
         const u8* chars = CharSet;
@@ -115,7 +115,7 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
         }
     }
 
-    Rc<agiTexDef> texture = AsRc(Pipe()->CreateTexDef());
+    Rc<agiTexDef> texture = as_rc Pipe()->CreateTexDef();
 
     agiTexParameters params {};
     arts_strcpy(params.Name, "*BUILTIN");

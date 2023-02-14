@@ -217,7 +217,7 @@ Ptr<agiSurfaceDesc> dxiScreenShot()
     i32 height = static_cast<i32>(sd.dwHeight);
 
     Ptr<agiSurfaceDesc> surface =
-        AsPtr(agiSurfaceDesc::Init(width, height, agiSurfaceDesc::FromFormat(PixelFormat_B8G8R8)));
+        as_ptr agiSurfaceDesc::Init(width, height, agiSurfaceDesc::FromFormat(PixelFormat_B8G8R8));
 
     void (*translate)(u8 * output, u16 * input, u32 width) = nullptr;
 

@@ -82,7 +82,7 @@ void mmHudMap::DrawOpponents()
                 {
                     // TODO: Move to mmHudMap::Init
                     // icon_grey is actually pink
-                    Icon_Pink = AsRaw(Pipe()->GetBitmap("icon_grey", 0.0, 0.0, BITMAP_TRANSPARENT | BITMAP_OFFSCREEN));
+                    Icon_Pink = as_raw Pipe()->GetBitmap("icon_grey", 0.0, 0.0, BITMAP_TRANSPARENT | BITMAP_OFFSCREEN);
                 }
 #endif
 

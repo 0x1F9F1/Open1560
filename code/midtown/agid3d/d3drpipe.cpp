@@ -37,8 +37,8 @@ i32 agiD3DRPipeline::BeginGfx()
     if (i32 error = agiD3DPipeline::BeginGfx())
         return error;
 
-    rasterizer_ = MakeRc<agiD3DRasterizer>(this);
-    renderer_ = MakeRc<agiZBufRenderer>(rasterizer_.get());
+    rasterizer_ = arref agiD3DRasterizer(this);
+    renderer_ = arref agiZBufRenderer(rasterizer_.get());
 
     return AGI_ERROR_SUCCESS;
 }
@@ -53,22 +53,22 @@ void agiD3DRPipeline::BeginScene()
 
 RcOwner<DLP> agiD3DRPipeline::CreateDLP()
 {
-    return AsOwner(MakeRc<RDLP>(this));
+    return as_owner arref RDLP(this);
 }
 
 RcOwner<agiLight> agiD3DRPipeline::CreateLight()
 {
-    return AsOwner(MakeRc<agiBILight>(this));
+    return as_owner arref agiBILight(this);
 }
 
 RcOwner<agiLightModel> agiD3DRPipeline::CreateLightModel()
 {
-    return AsOwner(MakeRc<agiBILightModel>(this));
+    return as_owner arref agiBILightModel(this);
 }
 
 RcOwner<agiViewport> agiD3DRPipeline::CreateViewport()
 {
-    return AsOwner(MakeRc<agiD3DViewport>(this));
+    return as_owner arref agiD3DViewport(this);
 }
 
 void agiD3DRPipeline::EndGfx()

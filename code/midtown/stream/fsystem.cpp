@@ -291,7 +291,7 @@ Owner<Stream> OpenFile(
 
     Ptr<Stream> result = nullptr;
 
-    if (fs && (result = AsPtr(fs->OpenOn(path, 1, 0, 4096))) != nullptr)
+    if (fs && (result = as_ptr fs->OpenOn(path, 1, 0, 4096)) != nullptr)
     {
         if (fsVerbose)
         {
@@ -313,5 +313,5 @@ Owner<Stream> OpenFile(
         result = nullptr;
     }
 
-    return AsOwner(result);
+    return as_owner result;
 }

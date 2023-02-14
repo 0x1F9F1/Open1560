@@ -29,7 +29,7 @@ void WArray::Flush()
 
 void WArray::Read(char* name)
 {
-    Ptr<Stream> input = AsPtr(OpenFile(name, "tune", ".csv", 0, nullptr, 0, "widget file"));
+    Ptr<Stream> input = as_ptr OpenFile(name, "tune", ".csv", 0, nullptr, 0, "widget file");
 
     if (input == nullptr)
     {

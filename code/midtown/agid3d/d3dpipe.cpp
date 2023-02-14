@@ -103,7 +103,7 @@ i32 agiD3DPipeline::BeginGfx()
     if (i32 error = agiDDPipeline::BeginGfx())
         return error;
 
-    text_color_model_ = AsRc(agiColorModel::FindMatch(0xFF0000, 0xFF00, 0xFF, 0xFF000000));
+    text_color_model_ = as_rc agiColorModel::FindMatch(0xFF0000, 0xFF00, 0xFF, 0xFF000000);
 
     if (u32 black = text_color_model_->GetColor(0, 0, 0, 0))
         Quitf("black isn't zero -- %d", black);
@@ -381,20 +381,20 @@ i32 agiD3DPipeline::BeginGfx()
 
     if (opaque_dd_format_.dwRBitMask)
     {
-        opaque_color_model_ = AsRc(agiColorModel::FindMatch(&opaque_format_));
+        opaque_color_model_ = as_rc agiColorModel::FindMatch(&opaque_format_);
     }
     else
     {
-        opaque_color_model_ = MakeRc<agiColorModel8>(&agiPal);
+        opaque_color_model_ = arref agiColorModel8(&agiPal);
     }
 
     if (alpha_dd_format_.dwRBitMask)
     {
-        alpha_color_model_ = AsRc(agiColorModel::FindMatch(&alpha_format_));
+        alpha_color_model_ = as_rc agiColorModel::FindMatch(&alpha_format_);
     }
     else
     {
-        alpha_color_model_ = MakeRc<agiColorModel8>(&agiPal);
+        alpha_color_model_ = arref agiColorModel8(&agiPal);
     }
 
     if (alpha_color_model_->BitCountA)
@@ -520,22 +520,22 @@ void agiD3DPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x,
 
 RcOwner<agiBitmap> agiD3DPipeline::CreateBitmap()
 {
-    return AsOwner(MakeRc<agiDDBitmap>(this));
+    return as_owner arref agiDDBitmap(this);
 }
 
 RcOwner<agiLight> agiD3DPipeline::CreateLight()
 {
-    return AsOwner(MakeRc<agiD3DLight>(this));
+    return as_owner arref agiD3DLight(this);
 }
 
 RcOwner<agiMtlDef> agiD3DPipeline::CreateMtlDef()
 {
-    return AsOwner(MakeRc<agiD3DMtlDef>(this));
+    return as_owner arref agiD3DMtlDef(this);
 }
 
 RcOwner<agiTexDef> agiD3DPipeline::CreateTexDef()
 {
-    return AsOwner(MakeRc<agiD3DTexDef>(this));
+    return as_owner arref agiD3DTexDef(this);
 }
 
 RcOwner<agiTexLut> agiD3DPipeline::CreateTexLut()
@@ -543,12 +543,12 @@ RcOwner<agiTexLut> agiD3DPipeline::CreateTexLut()
     if (!(device_flags_1_ & 0x100))
         return nullptr;
 
-    return AsOwner(MakeRc<agiD3DTexLut>(this));
+    return as_owner arref agiD3DTexLut(this);
 }
 
 RcOwner<agiViewport> agiD3DPipeline::CreateViewport()
 {
-    return AsOwner(MakeRc<agiD3DViewport>(this));
+    return as_owner arref agiD3DViewport(this);
 }
 
 void agiD3DPipeline::Defragment()

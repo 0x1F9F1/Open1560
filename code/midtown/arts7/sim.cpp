@@ -62,7 +62,7 @@ i32 InitPipeline(char* title, i32 argc, char** argv)
     Argc = argc;
     Argv = argv;
 
-    agiPipeline::CurrentPipe = AsRaw(CreatePipeline(argc, argv));
+    agiPipeline::CurrentPipe = as_raw CreatePipeline(argc, argv);
 
     if (Pipe()->Validate())
         Quit("Couldn't start renderer");
@@ -326,7 +326,7 @@ void asSimulation::Init(aconst char* proj_path, i32 argc, char** argv)
         {
             DevelopmentMode = false;
             ARTS_MEM_STAT("VFS");
-            VFS = new VirtualFileSystem(AsOwner(vfs_stream));
+            VFS = new VirtualFileSystem(as_owner std::move(vfs_stream));
         }
     }
 
@@ -348,7 +348,7 @@ void asSimulation::Init(aconst char* proj_path, i32 argc, char** argv)
     }
 
     SunParams.SetPosition({1000.0f, 1000.0f, 1000.0f});
-    SunLight = AsRaw(Pipe()->CreateLight());
+    SunLight = as_raw Pipe()->CreateLight();
 
     if (SunLight)
         SunLight->Init(SunParams);

@@ -24,22 +24,6 @@
 template <typename T>
 using Ptr = std::unique_ptr<T>;
 
-#ifdef ARTS_STANDALONE
-template <typename T>
-using Owner = Ptr<T>;
-
-#    define AsPtr(PTR) (PTR)
-#    define AsOwner(PTR) (std::move((PTR)))
-#    define AsRaw(PTR) ((PTR).release())
-#else
-template <typename T>
-using Owner = T*;
-
-#    define AsPtr(PTR) (Ptr<std::remove_pointer_t<decltype(PTR)>>((PTR)))
-#    define AsOwner(PTR) ((PTR).release())
-#    define AsRaw(PTR) (PTR)
-#endif
-
 template <typename T, typename... Args>
 [[nodiscard]] inline std::enable_if_t<!std::is_array_v<T>, Ptr<T>> MakeUnique(Args&&... args)
 {
@@ -67,3 +51,53 @@ template <typename T>
 
     return Ptr<T>(new std::remove_extent_t<T>[size]);
 }
+
+struct ArPtrPassthrough
+{
+    template <typename T>
+    ARTS_FORCEINLINE T* operator->*(T* ptr) const noexcept
+    {
+        return ptr;
+    }
+};
+
+struct ArPtrMaker
+{
+    template <typename T>
+    ARTS_FORCEINLINE Ptr<T> operator->*(T* ptr) const noexcept
+    {
+        return Ptr<T>(ptr);
+    }
+
+    ARTS_FORCEINLINE constexpr ArPtrPassthrough release() const noexcept
+    {
+        return {};
+    }
+};
+
+struct ArPtrReleaser
+{
+    template <typename T>
+    ARTS_FORCEINLINE auto operator->*(T&& ptr) const noexcept -> decltype(ptr.release())
+    {
+        return ptr.release();
+    }
+};
+
+#define arnew ::ArPtrMaker {}->*new
+
+#ifdef ARTS_STANDALONE
+template <typename T>
+using Owner = Ptr<T>;
+
+#    define as_ptr
+#    define as_owner
+#    define as_raw ::ArPtrReleaser {}->*
+#else
+template <typename T>
+using Owner = T*;
+
+#    define as_ptr ::ArPtrMaker {}->*
+#    define as_owner ::ArPtrReleaser {}->*
+#    define as_raw
+#endif

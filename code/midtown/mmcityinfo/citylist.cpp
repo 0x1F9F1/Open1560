@@ -80,7 +80,7 @@ void mmCityList::Init(i32 /*arg1*/)
 
 void mmCityList::Load(aconst char* name)
 {
-    Ptr<mmCityInfo> info = MakeUnique<mmCityInfo>();
+    Ptr<mmCityInfo> info = arnew mmCityInfo();
 
     if (!info->Load(arts_formatf<64>("tune/%s", name)) || GetCityID(info->RaceDir) >= 0)
         return;

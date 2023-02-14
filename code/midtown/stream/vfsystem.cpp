@@ -86,9 +86,9 @@ FileInfo* VirtualFileSystem::FirstEntry(const char* path)
         node_count = file_header_.RootCount;
     }
 
-    Ptr<FileInfo> result = MakeUnique<FileInfo>();
+    Ptr<FileInfo> result = arnew FileInfo();
 
-    Ptr<VirtualFileEntry> context = MakeUnique<VirtualFileEntry>();
+    Ptr<VirtualFileEntry> context = arnew VirtualFileEntry();
     context->Nodes = nodes;
     context->NodeCount = node_count;
     context->FillInfo(this, *result);
@@ -131,7 +131,7 @@ Owner<Stream> VirtualFileSystem::OpenOn(const char* path, b32 read_only, void* b
     if (!node || node->IsDirectory())
         return nullptr;
 
-    return AsOwner(MakeUnique<VirtualStream>(base_stream_.get(), node, buffer, buffer_len, this));
+    return as_owner arnew VirtualStream(base_stream_.get(), node, buffer, buffer_len, this);
 }
 
 b32 VirtualFileSystem::PagerInfo(const char* path, PagerInfo_t& info)

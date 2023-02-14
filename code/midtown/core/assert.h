@@ -64,7 +64,7 @@ struct ArAssertData
 
 #define ArDisabledAssert(CONDITION, MESSAGE) static_cast<void>(sizeof(!(CONDITION)))
 
-#define ArDisabledCheck(CONDITION, MESSAGE) void(sizeof(!(CONDITION)))
+#define ArDisabledCheck(CONDITION, MESSAGE) static_cast<void>(sizeof(!(CONDITION)))
 
 #ifdef ARTS_DEBUG
 #    define ArDebugAssert ArEnabledAssert

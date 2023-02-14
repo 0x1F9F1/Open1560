@@ -611,7 +611,7 @@ void mmGame::UpdatePaused()
 
 b32 mmGame::Init()
 {
-    ResetPositions = MakeUnique<mmPositions>();
+    ResetPositions = arnew mmPositions();
     ResetPositions->Init(100);
 
     Displayf("DIFFICULTY: %s", (MMSTATE.Difficulty == mmSkillLevel::Professional) ? "Professional" : "Amateur");
@@ -685,10 +685,10 @@ b32 mmGame::Init()
         Loader()->SetIntroText(LOC_TEXT(MMSTATE.IntroText));
         Loader()->BeginTask(LOC_STRING(MM_IDS_LOADING_CITY));
 
-        pCullCity = MakeUnique<mmCullCity>();
+        pCullCity = arnew mmCullCity();
 
-        Lamp = MakeUnique<asLamp>();
-        LampCS = MakeUnique<asLinearCS>();
+        Lamp = arnew asLamp();
+        LampCS = arnew asLinearCS();
 
         mmCityInfo* city_info = CityList()->GetCurrentCity();
         arts_strcpy(MapName, city_info->MapName);
@@ -701,7 +701,7 @@ b32 mmGame::Init()
 
         if (MMSTATE.AudFlags & AudManager::GetCommentaryOnMask())
         {
-            VoiceCommentary = MakeUnique<mmVoiceCommentary>();
+            VoiceCommentary = arnew mmVoiceCommentary();
             VoiceCommentary->ValidateCity(RaceDir);
         }
         else
@@ -733,7 +733,7 @@ b32 mmGame::Init()
 
         if (MMSTATE.AudFlags & AudManager::GetDSound3DMask())
         {
-            Ptr<AudHead> aud_head = MakeUnique<AudHead>(CullCity()->Camera->GetCameraMatrix());
+            Ptr<AudHead> aud_head = arnew AudHead(CullCity()->Camera->GetCameraMatrix());
 
             aud_head->Init();
             aud_head->SetRolloff(0.0f);
@@ -796,7 +796,7 @@ b32 mmGame::Init()
     // TODO: Fix crash in mmBridgeSet::Init when the AI map is missing
     if (!MMSTATE.DisableAI)
     {
-        AnimMgr = MakeUnique<mmAnimMgr>();
+        AnimMgr = arnew mmAnimMgr();
         AnimMgr->Init(MapName, Player->Car.Sim.Model, nullptr, 0);
         AddChild(AnimMgr.get());
     }
@@ -836,7 +836,7 @@ b32 mmGame::Init()
         Loader()->BeginTask(LOC_STRING(MM_IDS_LOADING_MORE_AUDIO));
 
         if (MMSTATE.Weather == mmWeather::Sun && !MMSTATE.NetworkStatus && AIMAP.NumAmbients > 0)
-            AmbientAudio = MakeUnique<mmAmbientAudio>(Player.get());
+            AmbientAudio = arnew mmAmbientAudio(Player.get());
         else
             AmbientAudio = nullptr;
 
@@ -847,8 +847,8 @@ b32 mmGame::Init()
     LampCS->SetName("Lamp");
     Lamp->SetDistant();
 
-    EventQueue = MakeUnique<eqEventQ>(1, -1, 32);
-    Popup = MakeUnique<mmPopup>(this, 0.2f, 0.1f, 0.6f, 0.8f);
+    EventQueue = arnew eqEventQ(1, -1, 32);
+    Popup = arnew mmPopup(this, 0.2f, 0.1f, 0.6f, 0.8f);
     Popup->Reset();
 
     game_init.End();

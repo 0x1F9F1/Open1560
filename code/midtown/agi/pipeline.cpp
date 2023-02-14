@@ -287,17 +287,17 @@ RcOwner<agiBitmap> agiPipeline::GetBitmap(const char* name, f32 sx, f32 sy, i32 
 
     if (agiBitmap* result = static_cast<agiBitmap*>(BitmapHash.Access(full_name)))
     {
-        return AsOwner(AddRc(result));
+        return as_owner AddRc(result);
     }
 
-    Rc<agiBitmap> result = AsRc(CreateBitmap());
+    Rc<agiBitmap> result = as_rc CreateBitmap();
 
     if (result->Init(name, sx, sy, flags) != AGI_ERROR_SUCCESS)
         return nullptr;
 
     BitmapHash.Insert(full_name, result.get());
 
-    return AsOwner(result);
+    return as_owner result;
 }
 
 RcOwner<agiTexDef> agiPipeline::GetTexture(const char* name, i32 pack_shift)
@@ -331,7 +331,7 @@ RcOwner<agiTexDef> agiPipeline::GetTexture(i32 index, i32 pack_shift)
     }
     else
     {
-        result = AsRc(CreateTexDef());
+        result = as_rc CreateTexDef();
 
         if (result)
         {
@@ -346,7 +346,7 @@ RcOwner<agiTexDef> agiPipeline::GetTexture(i32 index, i32 pack_shift)
         }
     }
 
-    return AsOwner(result);
+    return as_owner result;
 }
 
 SDL_Window* CreatePipelineAttachableWindow(

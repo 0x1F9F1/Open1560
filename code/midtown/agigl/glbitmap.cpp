@@ -66,9 +66,9 @@ i32 agiGLBitmap::BeginGfx()
     if (surface_->Surface == nullptr)
         return AGI_ERROR_OBJECT_EMPTY;
 
-    tex_def_ = AsRc(Pipe()->CreateTexDef());
+    tex_def_ = as_rc Pipe()->CreateTexDef();
 
-    Ptr<agiSurfaceDesc> surface = MakeUnique<agiSurfaceDesc>(*surface_);
+    Ptr<agiSurfaceDesc> surface = arnew agiSurfaceDesc(*surface_);
 
     agiTexParameters params {};
     arts_strcpy(params.Name, "*");

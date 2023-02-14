@@ -498,7 +498,10 @@ isize arts_fgets(char* buffer, isize buffer_len, Stream* stream)
 
 Stream* arts_fopen(const char* path, const char* mode)
 {
-    return AsRaw((mode[0] == 'r') ? FileSystem::OpenAny(path, mode[1] != '+', 0, 4096) : HFS.CreateOn(path, 0, 4096));
+    Ptr<Stream> result = (mode[0] == 'r') ? as_ptr FileSystem::OpenAny(path, mode[1] != '+', 0, 4096)
+                                          : as_ptr HFS.CreateOn(path, 0, 4096);
+
+    return result.release();
 }
 
 void arts_fprintf(Stream* stream, ARTS_FORMAT_STRING const char* format, ...)

@@ -75,7 +75,7 @@ void mmVehList::Init(i32 /*arg1*/)
 
 void mmVehList::Load(char* name)
 {
-    Ptr<mmVehInfo> info = MakeUnique<mmVehInfo>();
+    Ptr<mmVehInfo> info = arnew mmVehInfo();
 
     if (!info->Load(arts_formatf<64>("tune/%s", name)) || GetVehicleID(info->BaseName) >= 0)
         return;

@@ -223,7 +223,7 @@ void agiTexDef::PageInSurface()
         } while (*path);
 
         if (pager_.Handle)
-            Surface = MakeUnique<agiSurfaceDesc>();
+            Surface = arnew agiSurfaceDesc();
     }
 
     if (page_state_ == 0 && pager_.Handle != 0)
@@ -241,7 +241,7 @@ static Ptr<agiSurfaceDesc> CreateMissingTexture()
     if (!Pipe()->IsHardware())
         return nullptr;
 
-    Ptr<agiSurfaceDesc> surface = AsPtr(agiSurfaceDesc::Init(16, 16, Pipe()->GetAlphaFormat()));
+    Ptr<agiSurfaceDesc> surface = as_ptr agiSurfaceDesc::Init(16, 16, Pipe()->GetAlphaFormat());
     Rc<agiColorModel> cmodel = surface->GetColorModel();
     u32 pink = cmodel->GetColor(0xFF, 0x00, 0xFF, 0xFF);
     u32 black = cmodel->GetColor(0x00, 0x00, 0x00, 0xFF);
@@ -256,7 +256,7 @@ static Ptr<agiSurfaceDesc> CreateMissingTexture()
 
 i32 agiTexDef::Reload()
 {
-    Surface = AsPtr(agiSurfaceDesc::Load(Tex.Name, TexSearchPath, Tex.LOD, PackShift & 0xF, 0, 0));
+    Surface = as_ptr agiSurfaceDesc::Load(Tex.Name, TexSearchPath, Tex.LOD, PackShift & 0xF, 0, 0);
 
 #ifdef ARTS_DEBUG
     if (!Surface)
@@ -345,7 +345,7 @@ void UpdateLutQueue()
 
         auto path = arts_formatf<32>("texp/nbr%s.lut", lutQ[index].Name);
 
-        *lutQ[index].Lut = AsRaw(Pipe()->GetTexLut(path));
+        *lutQ[index].Lut = as_raw Pipe()->GetTexLut(path);
 
         if (*lutQ[index].Lut == nullptr)
             Errorf("Lut '%s' didn't load.", path.get());

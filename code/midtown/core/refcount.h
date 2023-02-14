@@ -257,14 +257,30 @@ template <typename T>
     return Rc<T>(ptr);
 }
 
+struct ArRcMaker
+{
+    template <typename T>
+    ARTS_FORCEINLINE Rc<T> operator->*(T* ptr) const noexcept
+    {
+        return Rc<T>(ptr);
+    }
+
+    ARTS_FORCEINLINE constexpr ArPtrPassthrough release() const noexcept
+    {
+        return {};
+    }
+};
+
+#define arref ::ArRcMaker {}->*new
+
 #ifdef ARTS_STANDALONE
 template <typename T>
 using RcOwner = Rc<T>;
 
-#    define AsRc(PTR) (PTR)
+#    define as_rc
 #else
 template <typename T>
 using RcOwner = T*;
 
-#    define AsRc(PTR) (Rc<std::remove_pointer_t<decltype(PTR)>>((PTR)))
+#    define as_rc ::ArRcMaker {}->*
 #endif

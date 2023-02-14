@@ -94,7 +94,7 @@ void asParticles::AddWidgets(Bank* bank)
 
 void asParticles::SetTexture(char* name)
 {
-    Rc<agiTexDef> texture = AsRc(GetPackedTexture(name, 0));
+    Rc<agiTexDef> texture = as_rc GetPackedTexture(name, 0);
 
     if (!texture)
         Errorf("asParticles::SetTexture: '%s' not found", name);

@@ -46,7 +46,7 @@ void StreamMiniParser::Load(MetaClass* cls, const char* path, void* ptr)
 
     if (input)
     {
-        StreamMiniParser parser(path, AsOwner(input));
+        StreamMiniParser parser(path, as_owner std::move(input));
 
         cls->Load(&parser, ptr);
 
@@ -65,7 +65,7 @@ void StreamMiniParser::Save(MetaClass* cls, const char* path, void* ptr)
 
     if (output)
     {
-        StreamMiniParser parser(path, AsOwner(output));
+        StreamMiniParser parser(path, as_owner std::move(output));
 
         cls->Save(&parser, ptr);
 

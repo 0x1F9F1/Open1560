@@ -24,7 +24,7 @@ define_dummy_symbol(agid3d_pcpipe);
 
 Owner<agiPipeline> d3dCreatePipeline([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
 {
-    Ptr<agiD3DRPipeline> result = MakeUnique<agiD3DRPipeline>();
+    Ptr<agiD3DRPipeline> result = arnew agiD3DRPipeline();
     result->Init();
-    return AsOwner(result);
+    return as_owner result;
 }

@@ -255,7 +255,7 @@ static void LoadArchives(const char* base_path)
         if (Ptr<Stream> stream {arts_fopen(arts_formatf<ARTS_MAX_PATH>("%s/%s", base_path, path), "r")})
         {
             Displayf("Adding '%s' to autosearch...", path);
-            /*FileSystem::FS[...] = */ new VirtualFileSystem(AsOwner(stream));
+            /*FileSystem::FS[...] = */ new VirtualFileSystem(as_owner std::move(stream));
             // DevelopmentMode = false;
         }
 
@@ -421,7 +421,7 @@ static void MainPhase(i32 argc, char** argv)
                     loader.BeginTask(LOC_STRING(MM_IDS_LOADING_INTERFACE));
                 }
 
-                mm_interface = MakeUnique<mmInterface>();
+                mm_interface = arnew mmInterface();
                 Sim()->AddChild(mm_interface.get());
 
                 mm_interface->Reset();
@@ -433,7 +433,7 @@ static void MainPhase(i32 argc, char** argv)
 
             case mmGameState::Drive: {
                 if (Rc<agiBitmap> image =
-                        GenerateLoadScreenName() ? AsRc(Pipe()->GetBitmap(LoadScreen, 1.0f, 1.0f, 0)) : nullptr)
+                        GenerateLoadScreenName() ? as_rc Pipe()->GetBitmap(LoadScreen, 1.0f, 1.0f, 0) : nullptr)
                 {
                     loader.Init(LoadScreen, 366.0f / 640.0f, 414.0f / 480.0f);
                 }
@@ -453,7 +453,7 @@ static void MainPhase(i32 argc, char** argv)
                 if (MMSTATE.HasMidtownCD)
                     AudMgr()->PlayCDTrack(2, true);
 
-                game_manager = /*mmGameManager::Instance = */ MakeUnique<mmGameManager>();
+                game_manager = /*mmGameManager::Instance = */ arnew mmGameManager();
 
                 Sim()->AddChild(&s_PreGameUpdate);
                 Sim()->AddChild(game_manager.get());
@@ -782,13 +782,13 @@ Owner<agiPipeline> CreatePipeline(i32 argc, char** argv)
 
         switch (info.Type)
         {
-            case dxiRendererType::DX6_Soft: pipe = AsPtr(swCreatePipeline(argc, argv)); break;
+            case dxiRendererType::DX6_Soft: pipe = as_ptr swCreatePipeline(argc, argv); break;
             case dxiRendererType::DX6_GDI:
-            case dxiRendererType::DX6: pipe = AsPtr(d3dCreatePipeline(argc, argv)); break;
+            case dxiRendererType::DX6: pipe = as_ptr d3dCreatePipeline(argc, argv); break;
 
 #ifdef ARTS_ENABLE_OPENGL
-            case dxiRendererType::OpenGL: pipe = AsPtr(glCreatePipeline(argc, argv)); break;
-            case dxiRendererType::SDL2: pipe = AsPtr(sdlCreatePipeline(argc, argv)); break;
+            case dxiRendererType::OpenGL: pipe = as_ptr glCreatePipeline(argc, argv); break;
+            case dxiRendererType::SDL2: pipe = as_ptr sdlCreatePipeline(argc, argv); break;
 #endif
         }
 
@@ -811,7 +811,7 @@ Owner<agiPipeline> CreatePipeline(i32 argc, char** argv)
 
             MessageBoxA(NULL, LOC_STR(MM_IDS_GRAPHICS_ERROR), APPTITLE, MB_ICONERROR);
 
-            pipe = AsPtr(swCreatePipeline(argc, argv));
+            pipe = as_ptr swCreatePipeline(argc, argv);
             pipe->SetRes(640, 480);
         }
     }
@@ -821,13 +821,13 @@ Owner<agiPipeline> CreatePipeline(i32 argc, char** argv)
 
         switch (bHaveIME ? dxiRendererType::DX6_Soft : info.Type)
         {
-            case dxiRendererType::DX6_Soft: pipe = AsPtr(swCreatePipeline(argc, argv)); break;
+            case dxiRendererType::DX6_Soft: pipe = as_ptr swCreatePipeline(argc, argv); break;
             case dxiRendererType::DX6_GDI:
-            case dxiRendererType::DX6: pipe = AsPtr(d3dCreatePipeline(argc, argv)); break;
+            case dxiRendererType::DX6: pipe = as_ptr d3dCreatePipeline(argc, argv); break;
 
 #ifdef ARTS_ENABLE_OPENGL
-            case dxiRendererType::OpenGL: pipe = AsPtr(glCreatePipeline(argc, argv)); break;
-            case dxiRendererType::SDL2: pipe = AsPtr(sdlCreatePipeline(argc, argv)); break;
+            case dxiRendererType::OpenGL: pipe = as_ptr glCreatePipeline(argc, argv); break;
+            case dxiRendererType::SDL2: pipe = as_ptr sdlCreatePipeline(argc, argv); break;
 #endif
         }
 
@@ -840,7 +840,7 @@ Owner<agiPipeline> CreatePipeline(i32 argc, char** argv)
         }
     }
 
-    return AsOwner(pipe);
+    return as_owner pipe;
 }
 
 #include <shellapi.h>

@@ -276,20 +276,20 @@ i32 agiSWPipeline::BeginGfx()
     swInit();
 
     // FIXME: Leaks agiSWRasterizer
-    renderer_ = MakeRc<agiZBufRenderer>(new agiSWRasterizer(this));
+    renderer_ = arref agiZBufRenderer(new agiSWRasterizer(this));
 
     if (bit_depth_ == 8)
     {
-        screen_color_model_ = MakeRc<agiColorModel8>(&agiPal);
+        screen_color_model_ = arref agiColorModel8(&agiPal);
     }
     else
     {
-        screen_color_model_ = AsRc(agiColorModel::FindMatch(swRedMask, swGreenMask, swBlueMask, 0));
+        screen_color_model_ = as_rc agiColorModel::FindMatch(swRedMask, swGreenMask, swBlueMask, 0);
     }
 
     text_color_model_ = screen_color_model_;
 
-    opaque_color_model_ = MakeRc<agiColorModel8>(&agiPal);
+    opaque_color_model_ = arref agiColorModel8(&agiPal);
     alpha_color_model_ = opaque_color_model_;
 
     TexSearchPath = "texp\0"_xconst;
@@ -365,22 +365,22 @@ void agiSWPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, 
 
 RcOwner<agiBitmap> agiSWPipeline::CreateBitmap()
 {
-    return AsOwner(MakeRc<agiSWBitmap>(this));
+    return as_owner arref agiSWBitmap(this);
 }
 
 RcOwner<DLP> agiSWPipeline::CreateDLP()
 {
-    return AsOwner(MakeRc<RDLP>(this));
+    return as_owner arref RDLP(this);
 }
 
 RcOwner<agiLight> agiSWPipeline::CreateLight()
 {
-    return AsOwner(MakeRc<agiBILight>(this));
+    return as_owner arref agiBILight(this);
 }
 
 RcOwner<agiLightModel> agiSWPipeline::CreateLightModel()
 {
-    return AsOwner(MakeRc<agiBILightModel>(this));
+    return as_owner arref agiBILightModel(this);
 }
 
 RcOwner<agiMtlDef> agiSWPipeline::CreateMtlDef()
@@ -390,17 +390,17 @@ RcOwner<agiMtlDef> agiSWPipeline::CreateMtlDef()
 
 RcOwner<agiTexDef> agiSWPipeline::CreateTexDef()
 {
-    return AsOwner(MakeRc<agiSWTexDef>(this));
+    return as_owner arref agiSWTexDef(this);
 }
 
 RcOwner<agiTexLut> agiSWPipeline::CreateTexLut()
 {
-    return AsOwner(MakeRc<agiSWTexLut>(this));
+    return as_owner arref agiSWTexLut(this);
 }
 
 RcOwner<agiViewport> agiSWPipeline::CreateViewport()
 {
-    return AsOwner(MakeRc<agiSWViewport>(this));
+    return as_owner arref agiSWViewport(this);
 }
 
 void agiSWPipeline::EndFrame()
@@ -445,7 +445,7 @@ ARTS_EXPORT /*static*/ void zmemset(u16* values, u32 count)
 
 Owner<agiPipeline> swCreatePipeline(i32 argc, char** argv)
 {
-    Ptr<agiSWPipeline> result = MakeUnique<agiSWPipeline>(argc, argv);
+    Ptr<agiSWPipeline> result = arnew agiSWPipeline(argc, argv);
     result->Init();
-    return AsOwner(result);
+    return as_owner result;
 }

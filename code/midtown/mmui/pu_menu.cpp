@@ -33,16 +33,16 @@ PUMenuBase::PUMenuBase(
     {
         if (MenuMgr()->Is3D())
         {
-            bg_bitmap_ = AsRc(Pipe()->GetBitmap(background, 1.0f, 1.0f, 0));
+            bg_bitmap_ = as_rc Pipe()->GetBitmap(background, 1.0f, 1.0f, 0);
         }
         else
         {
-            bg_bitmap_ = AsRc(Pipe()->GetBitmap(background, 0.0f, 0.0f, BITMAP_TRANSPARENT));
+            bg_bitmap_ = as_rc Pipe()->GetBitmap(background, 0.0f, 0.0f, BITMAP_TRANSPARENT);
         }
 
         if (!bg_bitmap_)
         {
-            bg_bitmap_ = AsRc(CreateDummyBitmap());
+            bg_bitmap_ = as_rc CreateDummyBitmap();
 
             ArAssert(bg_bitmap_, "Could not create backgrond");
         }
@@ -95,7 +95,7 @@ void PUMenuBase::Cull()
 
 Ptr<mmTextNode> PUMenuBase::CreateTextNode(f32 x, f32 y, f32 width, f32 height, i32 lines, i32 flags)
 {
-    Ptr<mmTextNode> result = MakeUnique<mmTextNode>();
+    Ptr<mmTextNode> result = arnew mmTextNode();
     result->Init(menu_x_ + (x * menu_width_), menu_y_ + (y * menu_height_), width * menu_width_, height * menu_height_,
         lines, flags);
     return result;

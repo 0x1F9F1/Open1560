@@ -47,7 +47,7 @@ static inline constexpr bool IsStdPath(const char* path) noexcept
 
 Owner<Stream> HierFileSystem::CreateOn(const char* path, void* buffer, isize buffer_len)
 {
-    Ptr<FileStream> result = MakeUnique<FileStream>(buffer, buffer_len, this);
+    Ptr<FileStream> result = arnew FileStream(buffer, buffer_len, this);
 
     path = FQN(path);
 
@@ -64,7 +64,7 @@ Owner<Stream> HierFileSystem::CreateOn(const char* path, void* buffer, isize buf
         result.reset();
     }
 
-    return AsOwner(result);
+    return as_owner result;
 }
 
 struct HierFileEntry
@@ -97,9 +97,9 @@ FileInfo* HierFileSystem::FirstEntry(const char* path)
     if (handle == INVALID_HANDLE_VALUE)
         return nullptr;
 
-    Ptr<FileInfo> result = MakeUnique<FileInfo>();
+    Ptr<FileInfo> result = arnew FileInfo();
 
-    Ptr<HierFileEntry> context = MakeUnique<HierFileEntry>();
+    Ptr<HierFileEntry> context = arnew HierFileEntry();
 
     context->Handle = handle;
     context->Data = data;
@@ -138,7 +138,7 @@ Owner<Stream> HierFileSystem::OpenOn(const char* path, b32 read_only, void* buff
 {
     path = FQN(path);
 
-    Ptr<FileStream> result = MakeUnique<FileStream>(buffer, buffer_len, this);
+    Ptr<FileStream> result = arnew FileStream(buffer, buffer_len, this);
 
     i32 error = 0;
 
@@ -160,7 +160,7 @@ Owner<Stream> HierFileSystem::OpenOn(const char* path, b32 read_only, void* buff
         result.reset();
     }
 
-    return AsOwner(result);
+    return as_owner result;
 }
 
 b32 HierFileSystem::QueryOn(const char* path)

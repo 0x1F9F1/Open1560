@@ -345,14 +345,14 @@ RcOwner<agiTexDef> GetPackedTexture(aconst char* name, i32 variation)
 
     lib_tex.field_28 = (prop->Flags & agiTexProp::Snowable) ? 4.0f : 2.0f;
 
-    Rc<agiTexDef> texture = AsRc(Pipe()->GetTexture(tex.Name, pack_shift));
+    Rc<agiTexDef> texture = as_rc Pipe()->GetTexture(tex.Name, pack_shift);
 
     if (!texture)
         Warningf("HEY!  Texture '%s' (%s,var=%d,pack=%d) didn't load.", full_name, tex.Name, variation, pack_shift);
 
     --mutex;
 
-    return AsOwner(texture);
+    return as_owner texture;
 }
 
 hook_func(INIT_main, [] {

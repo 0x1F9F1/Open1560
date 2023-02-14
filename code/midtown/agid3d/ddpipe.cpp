@@ -141,7 +141,7 @@ i32 agiDDPipeline::BeginGfx()
 
     if (bit_depth_ == 8)
     {
-        screen_color_model_ = MakeRc<agiColorModel8>(&agiPal);
+        screen_color_model_ = arref agiColorModel8(&agiPal);
 
         DD_TRY(d_front_->SetPalette(d_pal_));
         DD_TRY(d_back_->SetPalette(d_pal_));
@@ -161,8 +161,8 @@ i32 agiDDPipeline::BeginGfx()
         screen_format_ = agiSurfaceDesc::FromDD(screen_desc);
         d_pix_format_ = screen_desc.ddpfPixelFormat;
 
-        screen_color_model_ = AsRc(agiColorModel::FindMatch(d_pix_format_.dwRBitMask, d_pix_format_.dwGBitMask,
-            d_pix_format_.dwBBitMask, d_pix_format_.dwRGBAlphaBitMask));
+        screen_color_model_ = as_rc agiColorModel::FindMatch(d_pix_format_.dwRBitMask, d_pix_format_.dwGBitMask,
+            d_pix_format_.dwBBitMask, d_pix_format_.dwRGBAlphaBitMask);
 
         if (screen_color_model_ == nullptr)
         {
@@ -235,7 +235,7 @@ void agiDDPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, 
 
 RcOwner<agiBitmap> agiDDPipeline::CreateBitmap()
 {
-    return AsOwner(MakeRc<agiDDBitmap>(this));
+    return as_owner arref agiDDBitmap(this);
 }
 
 void agiDDPipeline::EndFrame()

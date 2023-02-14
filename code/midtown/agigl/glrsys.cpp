@@ -376,28 +376,28 @@ void agiGLRasterizer::InitModern()
     switch (stream_mode)
     {
         case StreamMode::BufferData: {
-            vbo_ = MakeUnique<agiGLBasicStreamBuffer>();
+            vbo_ = arnew agiGLBasicStreamBuffer();
             break;
         }
 
         case StreamMode::MapRange: {
-            vbo_ = MakeUnique<agiGLMapRangeStreamBuffer>(vbo_size);
+            vbo_ = arnew agiGLMapRangeStreamBuffer(vbo_size);
             break;
         }
 
         case StreamMode::MapPersistent:
         case StreamMode::MapCoherent: {
-            vbo_ = MakeUnique<agiGLPersistentStreamBuffer>(vbo_size, stream_mode == StreamMode::MapCoherent);
+            vbo_ = arnew agiGLPersistentStreamBuffer(vbo_size, stream_mode == StreamMode::MapCoherent);
             break;
         }
 
         case StreamMode::AmdPinned: {
-            vbo_ = MakeUnique<agiGLAMDPinnedStreamBuffer>(vbo_size);
+            vbo_ = arnew agiGLAMDPinnedStreamBuffer(vbo_size);
             break;
         }
 
         case StreamMode::MapUnsafe: {
-            vbo_ = MakeUnique<agiGLMapUnsafeStreamBuffer>(vbo_size);
+            vbo_ = arnew agiGLMapUnsafeStreamBuffer(vbo_size);
             break;
         }
 

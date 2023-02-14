@@ -111,7 +111,7 @@ i32 agiGLTexDef::BeginGfx()
     if (color_key || alpha_glow)
     {
         Ptr<agiSurfaceDesc> temp_surface =
-            AsPtr(agiSurfaceDesc::Init(surface->Width, surface->Height, Pipe()->GetAlphaFormat()));
+            as_ptr agiSurfaceDesc::Init(surface->Width, surface->Height, Pipe()->GetAlphaFormat());
 
         temp_surface->CopyFrom(Surface.get(), 0, &Tex);
 
@@ -323,12 +323,12 @@ b32 agiGLTexDef::Lock(agiTexLock& lock)
 
     if (temp_surface_ == nullptr)
     {
-        temp_surface_ = AsPtr(agiSurfaceDesc::Init(Surface->Width, Surface->Height, *Surface));
+        temp_surface_ = as_ptr agiSurfaceDesc::Init(Surface->Width, Surface->Height, *Surface);
 
         temp_surface_->CopyFrom(Surface.get(), 0);
     }
 
-    lock.ColorModel = AsRaw(agiColorModel::FindMatch(temp_surface_.get()));
+    lock.ColorModel = as_raw agiColorModel::FindMatch(temp_surface_.get());
     lock.Width = temp_surface_->Width;
     lock.Height = temp_surface_->Height;
     lock.Pitch = temp_surface_->Pitch;

@@ -49,8 +49,8 @@ i32 agiBitmap::Init(const char* name, f32 sx, f32 sy, i32 flags)
     if (name && name[0] != '*')
     {
         // NOTE: Orignial used agiPipeline::CurrentPipe for Width and Height
-        surface_ = AsPtr(agiSurfaceDesc::Load(
-            xconst(name), BitmapSearchPath, 0, 0, (sx == 1.0f) ? UI_Width : 0, (sy == 1.0f) ? UI_Height : 0));
+        surface_ = as_ptr agiSurfaceDesc::Load(
+            xconst(name), BitmapSearchPath, 0, 0, (sx == 1.0f) ? UI_Width : 0, (sy == 1.0f) ? UI_Height : 0);
 
         if (surface_ == nullptr)
             return AGI_ERROR_FILE_NOT_FOUND;
@@ -82,7 +82,7 @@ i32 agiBitmap::Init(const char* name, f32 sx, f32 sy, i32 flags)
         width_ = std::lround(sx);
         height_ = std::lround(sy);
 
-        surface_ = AsPtr(agiSurfaceDesc::Init(width_, height_, Pipe()->GetScreenFormat()));
+        surface_ = as_ptr agiSurfaceDesc::Init(width_, height_, Pipe()->GetScreenFormat());
         surface_->Clear();
     }
 

@@ -88,7 +88,7 @@ i32 agiGLPipeline::BeginGfx()
     if (context == nullptr)
         Quitf("Failed to create OpenGL context: %s", SDL_GetError());
 
-    gl_context_ = MakeUnique<agiGLContext>(window_, context, debug_level);
+    gl_context_ = arnew agiGLContext(window_, context, debug_level);
 
     SDL_GL_GetDrawableSize(window_, &horz_res_, &vert_res_);
 
@@ -109,9 +109,9 @@ i32 agiGLPipeline::BeginGfx()
     opaque_format_ = agiSurfaceDesc::FromFormat(PixelFormat_X8R8G8B8);
     alpha_format_ = agiSurfaceDesc::FromFormat(PixelFormat_A8R8G8B8);
 
-    screen_color_model_ = AsRc(agiColorModel::FindMatch(&screen_format_));
-    opaque_color_model_ = AsRc(agiColorModel::FindMatch(&opaque_format_));
-    alpha_color_model_ = AsRc(agiColorModel::FindMatch(&alpha_format_));
+    screen_color_model_ = as_rc agiColorModel::FindMatch(&screen_format_);
+    opaque_color_model_ = as_rc agiColorModel::FindMatch(&opaque_format_);
+    alpha_color_model_ = as_rc agiColorModel::FindMatch(&alpha_format_);
     text_color_model_ = alpha_color_model_;
 
     TexSearchPath = "tex16a\0tex16o\0tex16\0"_xconst;
@@ -122,8 +122,8 @@ i32 agiGLPipeline::BeginGfx()
     agiCurState.SetMaxTextures(1);
     agiCurState.SetSmoothShading(true);
 
-    rasterizer_ = MakeRc<agiGLRasterizer>(this);
-    renderer_ = MakeRc<agiZBufRenderer>(rasterizer_.get());
+    rasterizer_ = arref agiGLRasterizer(this);
+    renderer_ = arref agiZBufRenderer(rasterizer_.get());
 
     InitScaling();
 
@@ -328,7 +328,7 @@ void agiGLPipeline::EndFrame()
 
 RcOwner<agiTexDef> agiGLPipeline::CreateTexDef()
 {
-    return AsOwner(MakeRc<agiGLTexDef>(this));
+    return as_owner arref agiGLTexDef(this);
 }
 
 RcOwner<agiTexLut> agiGLPipeline::CreateTexLut()
@@ -338,27 +338,27 @@ RcOwner<agiTexLut> agiGLPipeline::CreateTexLut()
 
 RcOwner<DLP> agiGLPipeline::CreateDLP()
 {
-    return AsOwner(MakeRc<RDLP>(this));
+    return as_owner arref RDLP(this);
 }
 
 RcOwner<agiLight> agiGLPipeline::CreateLight()
 {
-    return AsOwner(MakeRc<agiBILight>(this));
+    return as_owner arref agiBILight(this);
 }
 
 RcOwner<agiLightModel> agiGLPipeline::CreateLightModel()
 {
-    return AsOwner(MakeRc<agiBILightModel>(this));
+    return as_owner arref agiBILightModel(this);
 }
 
 RcOwner<agiViewport> agiGLPipeline::CreateViewport()
 {
-    return AsOwner(MakeRc<agiGLViewport>(this));
+    return as_owner arref agiGLViewport(this);
 }
 
 RcOwner<agiBitmap> agiGLPipeline::CreateBitmap()
 {
-    return AsOwner(MakeRc<agiGLBitmap>(this));
+    return as_owner arref agiGLBitmap(this);
 }
 
 void agiGLPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height)
@@ -518,7 +518,7 @@ Ptr<agiSurfaceDesc> agiGLPipeline::CaptureScreen()
     }
 
     Ptr<agiSurfaceDesc> surface =
-        AsPtr(agiSurfaceDesc::Init(width, height, agiSurfaceDesc::FromFormat(PixelFormat_B8G8R8)));
+        as_ptr agiSurfaceDesc::Init(width, height, agiSurfaceDesc::FromFormat(PixelFormat_B8G8R8));
 
     if (gl_context_->HasExtension(300, "GL_ARB_framebuffer_object"))
         glBindFramebuffer(GL_READ_FRAMEBUFFER, use_fbo ? fbo_ : 0);
@@ -531,7 +531,7 @@ Ptr<agiSurfaceDesc> agiGLPipeline::CaptureScreen()
 
 Owner<agiPipeline> glCreatePipeline([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
 {
-    Ptr<agiGLPipeline> result = MakeUnique<agiGLPipeline>();
+    Ptr<agiGLPipeline> result = arnew agiGLPipeline();
     result->Init();
-    return AsOwner(result);
+    return as_owner result;
 }

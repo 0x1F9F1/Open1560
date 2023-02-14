@@ -355,7 +355,7 @@ void agiSurfaceDesc::Unload()
 
 [[nodiscard]] Owner<agiSurfaceDesc> agiSurfaceDesc::Init(i32 width, i32 height, const agiSurfaceDesc& desc)
 {
-    Ptr<agiSurfaceDesc> result = MakeUnique<agiSurfaceDesc>(desc);
+    Ptr<agiSurfaceDesc> result = arnew agiSurfaceDesc(desc);
 
     result->Flags = AGISD_WIDTH | AGISD_HEIGHT | AGISD_PITCH | AGISD_PIXELFORMAT;
     result->Width = width;
@@ -367,7 +367,7 @@ void agiSurfaceDesc::Unload()
 
     result->Load();
 
-    return AsOwner(result);
+    return as_owner result;
 }
 
 void agiSurfaceDesc::Load()
@@ -474,5 +474,5 @@ agiSurfaceDesc agiSurfaceDesc::FromDD(const DDSURFACEDESC2& sd)
 
 Rc<agiColorModel> agiSurfaceDesc::GetColorModel()
 {
-    return AsRc(agiColorModel::FindMatch(this));
+    return as_rc agiColorModel::FindMatch(this);
 }
