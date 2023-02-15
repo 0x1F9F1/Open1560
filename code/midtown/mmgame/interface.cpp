@@ -76,6 +76,12 @@ mmInterface::~mmInterface()
         VehicleListPtr = nullptr;
     }
 
+    if (CityListPtr)
+    {
+        delete CityListPtr;
+        CityListPtr = nullptr;
+    }
+
     ALLOCATOR.SanityCheck();
 }
 
