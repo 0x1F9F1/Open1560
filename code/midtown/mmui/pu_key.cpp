@@ -74,17 +74,17 @@ void PUKey::PreSetup()
 
     for (i32 i = 0, total = 0; i < GameInput()->NumControls; ++i)
     {
-        if (mmIO* io = &GameInput()->IO[i]; io->Enabled)
+        if (mmIO& io = GameInput()->IO[i]; io.Enabled)
         {
             char text[40];
             char desc[40];
             bool right = total % 2;
 
-            arts_sprintf(text, "%-23s", io->Name);
+            arts_sprintf(text, "%-23s", io.Name.get());
             AddText(text_node_.get(), MenuMgr()->GetFont(16), LOC_TEXT(text), 0,
                 right ? right_column_name_x : left_column_name_x, y);
 
-            io->GetDescription(desc);
+            io.GetDescription(desc, ARTS_SIZE(desc));
             arts_sprintf(text, "%.23s", desc);
             AddText(text_node_.get(), MenuMgr()->GetFont(16), LOC_TEXT(text), 0,
                 right ? right_column_desc_x : left_column_desc_x, y);

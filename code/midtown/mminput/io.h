@@ -44,35 +44,37 @@ class mmIO final
 {
 public:
     // ??0mmIO@@QAE@XZ
-    ARTS_IMPORT mmIO();
+    ARTS_EXPORT mmIO() = default;
 
     // ??_EmmIO@@QAEPAXI@Z | unused
     // ??1mmIO@@QAE@XZ
-    ARTS_IMPORT ~mmIO();
+    ARTS_EXPORT ~mmIO() = default;
 
     // ??8mmIO@@QAEHPATeqEvent@@@Z
     ARTS_EXPORT b32 operator==(eqEvent* event);
 
     // ?Assign@mmIO@@QAEXHH@Z
-    ARTS_IMPORT void Assign(i32 arg1, i32 arg2);
+    ARTS_EXPORT void Assign(i32 device, i32 component);
 
     // ?Clear@mmIO@@QAEXXZ | unused
-    ARTS_IMPORT void Clear();
+    ARTS_EXPORT void Clear();
 
     // ?CompareComponent@mmIO@@QAEHH@Z
-    ARTS_IMPORT i32 CompareComponent(i32 arg1);
+    ARTS_EXPORT b32 CompareComponent(i32 component);
 
     // ?ForceSettingAcrossConfigs@mmIO@@QAEXH@Z
     ARTS_IMPORT void ForceSettingAcrossConfigs(i32 arg1);
 
     // ?GetDescription@mmIO@@QAEXPAD@Z
-    ARTS_IMPORT void GetDescription(char* arg1);
+    [[deprecated]] ARTS_EXPORT void GetDescription(char* buffer);
+
+    void GetDescription(char* buffer, usize buflen);
 
     // ?Init@mmIO@@QAEXPADHJ@Z
-    ARTS_IMPORT void Init(char* arg1, i32 arg2, ilong arg3);
+    ARTS_EXPORT void Init(char* name, i32 ioid, ilong flags);
 
     // ?InitDev@mmIO@@QAEXH_JHHH@Z
-    ARTS_IMPORT void InitDev(i32 arg1, i64 arg2, i32 arg3, i32 arg4, i32 arg5);
+    ARTS_EXPORT void InitDev(i32 type, i64, i32 device, i32 component, i32);
 
     // ?Read@mmIO@@QAEHPAVStream@@@Z
     ARTS_IMPORT i32 Read(Stream* arg1);
@@ -80,13 +82,13 @@ public:
     // ?Write@mmIO@@QAEHPAVStream@@@Z
     ARTS_IMPORT i32 Write(Stream* arg1);
 
-    char* Name;
-    u32 IoIndex;
-    u32 Flags;
-    u32 Changed;
-    b32 Pressed;
-    u32 Enabled;
-    u32 dword18;
+    ConstString Name {};
+    u32 IoIndex {};
+    u32 Flags {};
+    b32 Changed {};
+    b32 Pressed {};
+    b32 Enabled {true};
+    u32 MultiAssign {};
 
     inline mmIODev& GetIODev()
     {

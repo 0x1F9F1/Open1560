@@ -161,6 +161,7 @@ ARTS_IMPORT void testsuperq();
 #define IOID_CHAT 32    // Enter Chat Msg (Event)
 #define IOID_COUNT 33
 
+// mmInputType
 #define IODEV_NUM_CONFIGS 5
 
 // mmInput::PollStates
@@ -290,7 +291,7 @@ public:
     ARTS_IMPORT i32 AttachToPipe();
 
     // ?AutoSetup@mmInput@@QAEXXZ
-    ARTS_IMPORT void AutoSetup();
+    ARTS_EXPORT void AutoSetup();
 
     // ?BinaryLoadConfig@mmInput@@QAEHPAVStream@@@Z
     ARTS_IMPORT i32 BinaryLoadConfig(Stream* arg1);
@@ -329,10 +330,10 @@ public:
     ARTS_IMPORT f32 FilterGamepadSteering();
 
     // ?FlagIODevChanged@mmInput@@QAEXXZ
-    ARTS_IMPORT void FlagIODevChanged();
+    ARTS_EXPORT void FlagIODevChanged();
 
     // ?Flush@mmInput@@QAEXXZ
-    ARTS_IMPORT void Flush();
+    ARTS_EXPORT void Flush();
 
     // ?ForceAssignment@mmInput@@QAEXPAVmmIO@@@Z
     ARTS_IMPORT void ForceAssignment(mmIO* arg1);
@@ -341,10 +342,10 @@ public:
     ARTS_EXPORT b32 GamepadConnected();
 
     // ?GetBrakes@mmInput@@QAEMXZ
-    ARTS_IMPORT f32 GetBrakes();
+    ARTS_EXPORT f32 GetBrakes();
 
     // ?GetBrakesVal@mmInput@@QAEMXZ
-    ARTS_IMPORT f32 GetBrakesVal();
+    ARTS_EXPORT f32 GetBrakesVal();
 
     // ?GetCamPan@mmInput@@QAEMXZ
     ARTS_IMPORT f32 GetCamPan();
@@ -468,7 +469,10 @@ public:
     i32 field_154;
     i32 LastUnassigned;
     i32 field_15C;
+
+    // Bitset of pressed IOID_* inputs
     i64 CurrentState;
+
     i32 HasForceFeedback;
     i32 UseForceFeedback;
     f32 CollideCooldown;

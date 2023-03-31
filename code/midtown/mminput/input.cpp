@@ -22,6 +22,7 @@ define_dummy_symbol(mminput_input);
 
 #include "eventq7/geinputLib.h"
 #include "eventq7/keys.h"
+#include "mmcityinfo/state.h"
 
 #include "io.h"
 
@@ -32,19 +33,92 @@ enum
     kcaAlreadyAssigned = 2,
 };
 
-// TODO: Decide type of connected joystick (mmJoystick::DevInfo::dwDevType)
+void mmInput::AutoSetup()
+{
+    MMSTATE.EnableFF = false;
+
+    if (DeviceConnected())
+    {
+        MMSTATE.InputType = mmInputType::Joystick;
+
+        if (JoystickConnected())
+            MMSTATE.InputType = mmInputType::Joystick;
+        else if (GamepadConnected())
+            MMSTATE.InputType = mmInputType::Gamepad;
+        else if (WheelConnected())
+            MMSTATE.InputType = mmInputType::Wheel2Axis;
+
+        Init(static_cast<i32>(MMSTATE.InputType));
+
+        if (HasForceFeedback)
+            MMSTATE.EnableFF = true;
+
+        GameInput()->HasCoolie = JoystickHasCoolie();
+    }
+    else
+    {
+        // Used to be mouse. Bleh.
+        MMSTATE.InputType = mmInputType::Keyboard;
+
+        Init(static_cast<i32>(MMSTATE.InputType));
+    }
+}
+
+void mmInput::FlagIODevChanged()
+{
+    for (i32 i = 0; i < IOID_COUNT; ++i)
+        IO[i].Changed = true;
+}
+
+void mmInput::Flush()
+{
+    ProcessJoyEvents();
+
+    CurrentState = 0;
+    QueuedEvents = 0;
+
+    eqEvent event;
+
+    while (Events->Pop(&event))
+        ;
+
+    GetBufferedKeyboardData();
+    NumKeyboardInputs = 0;
+
+    ClearEventHitFlags();
+}
+
 b32 mmInput::GamepadConnected()
 {
+    // TODO: Decide type of connected joystick (mmJoystick::DevInfo::dwDevType)
     return false;
+}
+
+f32 mmInput::GetBrakes()
+{
+    return SwapThrottle ? GetThrottleVal() : GetBrakesVal();
+}
+
+f32 mmInput::GetBrakesVal()
+{
+    switch (IO[IOID_BRAKE].GetIODev().IoType)
+    {
+        case ioType::Discrete: return IsInputPressed(IOID_BRAKE) ? 1.0f : 0.0f;
+        case ioType::Continuous: return BrakesVal;
+    }
+
+    return 0.0f;
 }
 
 b32 mmInput::JoystickConnected()
 {
+    // TODO: Decide type of connected joystick (mmJoystick::DevInfo::dwDevType)
     return false;
 }
 
 b32 mmInput::WheelConnected()
 {
+    // TODO: Decide type of connected joystick (mmJoystick::DevInfo::dwDevType)
     return false;
 }
 
