@@ -161,6 +161,8 @@ ARTS_IMPORT void testsuperq();
 #define IOID_CHAT 32    // Enter Chat Msg (Event)
 #define IOID_COUNT 33
 
+#define IODEV_NUM_CONFIGS 5
+
 // mmInput::PollStates
 #define MM_POLL_KEYBOARD 0x10000
 #define MM_POLL_MOUSE 0x20000
@@ -549,7 +551,7 @@ private:
     ARTS_IMPORT void PutEventInQueue(i64 arg1);
 
     // ?ScanForEvent@mmInput@@AAE_JPATeqEvent@@@Z
-    ARTS_IMPORT i64 ScanForEvent(eqEvent* arg1);
+    ARTS_EXPORT i64 ScanForEvent(eqEvent* event);
 
     // ?ScanState@mmInput@@AAE_JPAVmmIO@@@Z
     ARTS_IMPORT i64 ScanState(mmIO* arg1);

@@ -56,7 +56,7 @@ public:
     ARTS_IMPORT ~mmIODev() override = default;
 
     // ??8mmIODev@@QAEHPATeqEvent@@@Z
-    ARTS_IMPORT i32 operator==(eqEvent* arg1);
+    ARTS_EXPORT b32 operator==(eqEvent* event);
 
     // ?Assign@mmIODev@@QAEXHHH@Z
     ARTS_IMPORT void Assign(i32 arg1, i32 arg2, i32 arg3);
@@ -99,8 +99,19 @@ public:
     i32 IoType; // ioType
     u32 dword8C;
     i64 IoidBits;
-    i32 Device;    // mmIODevice
-    i32 Component; // mmJoyInput
+
+    union
+    {
+        i32 Device; // mmIODevice
+        i32 EventType;
+    };
+
+    union
+    {
+        i32 Component; // mmJoyInput
+        i32 EventData;
+    };
+
     u64 State;
 };
 

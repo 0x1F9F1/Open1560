@@ -19,3 +19,8 @@
 define_dummy_symbol(mminput_io);
 
 #include "io.h"
+
+b32 mmIO::operator==(eqEvent* event)
+{
+    return GetIODev() == event;
+}

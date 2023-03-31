@@ -1037,7 +1037,7 @@ void mmGame::SendChatMessage(char* msg)
         CHEATING = true;
 
         MMSTATE.ChaseOpponents = true;
-    }    
-    
+    }
+
 #undef X
 }

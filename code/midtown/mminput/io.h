@@ -37,6 +37,9 @@
 
 union eqEvent;
 
+#include "input.h"
+#include "iodev.h"
+
 class mmIO final
 {
 public:
@@ -48,7 +51,7 @@ public:
     ARTS_IMPORT ~mmIO();
 
     // ??8mmIO@@QAEHPATeqEvent@@@Z
-    ARTS_IMPORT i32 operator==(eqEvent* arg1);
+    ARTS_EXPORT b32 operator==(eqEvent* event);
 
     // ?Assign@mmIO@@QAEXHH@Z
     ARTS_IMPORT void Assign(i32 arg1, i32 arg2);
@@ -81,9 +84,16 @@ public:
     u32 IoIndex;
     u32 Flags;
     u32 Changed;
-    u32 Pressed;
+    b32 Pressed;
     u32 Enabled;
     u32 dword18;
+
+    inline mmIODev& GetIODev()
+    {
+        i32 index = (InputConfiguration * IOID_COUNT) + IoIndex;
+        index = std::min<i32>(index, IODEV_NUM_CONFIGS * IOID_COUNT);
+        return IODev[index];
+    }
 };
 
 check_size(mmIO, 0x1C);

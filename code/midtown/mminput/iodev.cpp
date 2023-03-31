@@ -26,6 +26,25 @@ define_dummy_symbol(mminput_iodev);
 
 #include "core/minwin.h"
 
+b32 mmIODev::operator==(eqEvent* event)
+{
+    if ((IoType == ioType::Event) && (EventType == static_cast<i32>(event->Type)))
+    {
+        switch (event->Type)
+        {
+            case eqEventType::Mouse: {
+                return (EventData == event->Mouse.Buttons);
+            }
+
+            case eqEventType::Keyboard: {
+                return (EventData == event->Key.Key);
+            }
+        }
+    }
+
+    return false;
+}
+
 i32 mmIODev::GetComponentType(i32 device, i32 component)
 {
     switch (device)

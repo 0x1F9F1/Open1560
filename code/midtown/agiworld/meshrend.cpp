@@ -521,7 +521,7 @@ void agiMeshSet::InitViewport(agiViewParameters& params)
 b32 agiMeshSet::Draw(u32 flags)
 {
     // FIXME: Avoid this check
-    // Lots of unchecked calss in aiVehicleInstance::Draw
+    // Lots of unchecked calls in aiVehicleInstance::Draw
     if (agiMeshSet* volatile this_ptr = this; !this_ptr)
         return false;
 

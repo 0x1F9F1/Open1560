@@ -95,6 +95,23 @@ void mmInput::ProcessMouseEvents()
     // Merged with ProcessKeyboardEvents
 }
 
+i64 mmInput::ScanForEvent(eqEvent* event)
+{
+    for (i32 i = 0; i < NumControls; ++i)
+    {
+        mmIO& io = IO[i];
+
+        if (io.GetIODev().IoType == ioType::Event && !io.Pressed && (io == event))
+        {
+            io.Pressed = true;
+
+            return i + 1;
+        }
+    }
+
+    return 0;
+}
+
 void mmInput::GetBufferedKeyboardData()
 {
     NumKeyboardInputs = geinputGetBufferedKeyboard(KeyboardPresses);
