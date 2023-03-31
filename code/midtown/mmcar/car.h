@@ -113,7 +113,7 @@ public:
     ARTS_EXPORT void PostUpdate() override;
 
     // ?ReInit@mmCar@@QAEXPADH@Z
-    ARTS_IMPORT void ReInit(char* arg1, i32 arg2);
+    ARTS_EXPORT void ReInit(char* name, i32 variant);
 
     // ?ReleaseTrailer@mmCar@@QAEXXZ
     ARTS_EXPORT void ReleaseTrailer();

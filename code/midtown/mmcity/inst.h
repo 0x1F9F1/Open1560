@@ -362,6 +362,11 @@ public:
     u16 MeshIndex {};
     i16 ChainId {-1};
 
+    bool IsParented() const
+    {
+        return ChainId != -1;
+    }
+
     /*
         mmFacadeInstance:
             ; Actually INST_INIT_FLAGs used in Draw

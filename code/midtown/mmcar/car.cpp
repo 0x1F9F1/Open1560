@@ -20,9 +20,11 @@ define_dummy_symbol(mmcar_car);
 
 #include "car.h"
 
+#include "agi/dlptmpl.h"
+#include "agi/getdlp.h"
 #include "data7/timer.h"
 #include "mmcity/cullcity.h"
-#include "mmcityinfo/vehinfo.h"
+#include "mmcityinfo/vehlist.h"
 #include "mmphysics/joint3dof.h"
 
 #include "trailer.h"
@@ -105,6 +107,65 @@ void mmCar::PostUpdate()
 #endif
 
     CullCity()->ReparentObject(&Model);
+}
+
+void mmCar::ReInit(char* name, i32 variant)
+{
+    mmVehInfo* veh_info = VehList()->GetVehicleInfo(name);
+
+    if (!veh_info)
+    {
+        Errorf("This vehicle doens't exist");
+        return;
+    }
+
+    TranslateFlags(veh_info->Flags);
+
+    Sim.ReInit(name);
+    Model.Init(name, this, variant);
+
+    FLSkid.ReInit(&Sim.FrontLeft);
+    FRSkid.ReInit(&Sim.FrontRight);
+    BLSkid.ReInit(&Sim.BackLeft);
+    BRSkid.ReInit(&Sim.BackRight);
+
+    CullCity()->ReparentObject(&Model);
+
+    if (Model.CarFlags & CAR_FLAG_TRAILER)
+    {
+        Vector3 trailer_pos {};
+        Vector3 joint_pos {0.0f, 0.7f, 3.0f};
+
+        DLPTemplate* dlp = GetDLPTemplate(arts_formatf<128>("%s_trailer", name));
+
+        dlp->GetCentroid(trailer_pos, "TRAILER_H"_xconst);
+
+        Trailer->Init(name, &Sim, trailer_pos);
+
+        trailer_pos.y += Sim.LCS.Matrix.m3.y;
+        TrailerJoint->InitJoint3Dof(&Sim.ICS, joint_pos, &Trailer->ICS, joint_pos - trailer_pos);
+
+        Trailer->Activate();
+        CullCity()->ReparentObject(&Trailer->Inst);
+        TrailerJoint->UnbreakJoint();
+
+        Sim.EnableExhaust = true;
+
+        dlp->Release();
+    }
+    else
+    {
+        Trailer->Deactivate();
+
+        if (Trailer->Inst.IsParented())
+            CullCity()->ObjectsChain.Unparent(&Trailer->Inst);
+
+        TrailerJoint->BreakJoint();
+
+        Sim.EnableExhaust = false;
+    }
+
+    Reset();
 }
 
 void mmCar::ReleaseTrailer()

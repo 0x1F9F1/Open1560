@@ -35,6 +35,7 @@ class DLPTemplate;
 // ?CheckLibraries@@YAXXZ
 ARTS_IMPORT void CheckLibraries();
 
+// TODO: Use RcOwner
 // ?GetDLPTemplate@@YAPAVDLPTemplate@@PAD@Z
 ARTS_IMPORT DLPTemplate* GetDLPTemplate(char* arg1);
 
