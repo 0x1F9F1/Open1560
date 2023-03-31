@@ -110,4 +110,4 @@ inline void MetaDeclareFields()
 
 #define META_FIELD(NAME, MEMBER)                                                          \
     MetaClass::DeclareNamedTypedField(NAME, static_cast<u32>(offsetof(MetaThis, MEMBER)), \
-        const_cast<MetaType*>(CreateMetaType<decltype(MetaThis::MEMBER)>()));
+        const_cast<MetaType*>(CreateMetaType<decltype(MetaThis::MEMBER)>()))

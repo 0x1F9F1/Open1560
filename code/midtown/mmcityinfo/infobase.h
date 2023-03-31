@@ -37,29 +37,26 @@ class mmInfoBase : public Base
 {
 public:
     // ??0mmInfoBase@@QAE@XZ
-    ARTS_IMPORT mmInfoBase();
+    ARTS_EXPORT mmInfoBase() = default;
 
     // ??_EmmInfoBase@@UAEPAXI@Z
     // ??_GmmInfoBase@@UAEPAXI@Z | unused
     // ??1mmInfoBase@@UAE@XZ | inline
-    ARTS_IMPORT ~mmInfoBase() override = default;
-
-    // ?GetClass@mmInfoBase@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT MetaClass* GetClass() override;
+    ARTS_EXPORT ~mmInfoBase() override = default;
 
     // ?Load@mmInfoBase@@QAEHPAD@Z
-    ARTS_IMPORT i32 Load(char* arg1);
+    ARTS_EXPORT b32 Load(const char* path);
 
     // ?Save@mmInfoBase@@QAEHPAD@Z
-    ARTS_IMPORT i32 Save(char* arg1);
+    ARTS_EXPORT b32 Save(const char* path);
 
     // ?SetIOPath@mmInfoBase@@QAEXPAD@Z
-    ARTS_IMPORT void SetIOPath(aconst char* arg1);
+    ARTS_EXPORT void SetIOPath(const char* path);
 
-    // ?DeclareFields@mmInfoBase@@SAXXZ
-    ARTS_IMPORT static void DeclareFields();
+    char FilePath[128] {};
+    i32 Type {1234};
 
-    u8 gap4[0x84];
+    VIRTUAL_META_DECLARE;
 };
 
 check_size(mmInfoBase, 0x88);

@@ -49,20 +49,17 @@ class mmIODev final : public mmInfoBase
 {
 public:
     // ??0mmIODev@@QAE@XZ
-    ARTS_IMPORT mmIODev();
+    ARTS_EXPORT mmIODev() = default;
 
     // ??_EmmIODev@@UAEPAXI@Z
     // ??1mmIODev@@UAE@XZ
-    ARTS_IMPORT ~mmIODev() override = default;
+    ARTS_EXPORT ~mmIODev() override = default;
 
     // ??8mmIODev@@QAEHPATeqEvent@@@Z
     ARTS_EXPORT b32 operator==(eqEvent* event);
 
     // ?Assign@mmIODev@@QAEXHHH@Z
     ARTS_IMPORT void Assign(i32 arg1, i32 arg2, i32 arg3);
-
-    // ?GetClass@mmIODev@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetComponentType@mmIODev@@QAEHHH@Z
     ARTS_EXPORT i32 GetComponentType(i32 device, i32 component);
@@ -93,26 +90,15 @@ public:
     // ?WriteBinary@mmIODev@@QAEHPAVStream@@@Z
     ARTS_IMPORT i32 WriteBinary(Stream* arg1);
 
-    // ?DeclareFields@mmIODev@@SAXXZ
-    ARTS_IMPORT static void DeclareFields();
+    i32 IoType {}; // ioType
+    i64 IoidBits {};
 
-    i32 IoType; // ioType
-    u32 dword8C;
-    i64 IoidBits;
+    i32 Device {};    // eqEventType, mmIODevice
+    i32 Component {}; // i32, mmJoyInput
 
-    union
-    {
-        i32 Device; // mmIODevice
-        i32 EventType;
-    };
+    u64 State {};
 
-    union
-    {
-        i32 Component; // mmJoyInput
-        i32 EventData;
-    };
-
-    u64 State;
+    VIRTUAL_META_DECLARE;
 };
 
 check_size(mmIODev, 0xA8);

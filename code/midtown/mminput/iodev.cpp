@@ -20,6 +20,7 @@ define_dummy_symbol(mminput_iodev);
 
 #include "iodev.h"
 
+#include "data7/metadefine.h"
 #include "eventq7/keys.h"
 #include "input.h"
 #include "localize.h"
@@ -28,17 +29,12 @@ define_dummy_symbol(mminput_iodev);
 
 b32 mmIODev::operator==(eqEvent* event)
 {
-    if ((IoType == ioType::Event) && (EventType == static_cast<i32>(event->Type)))
+    if ((IoType == ioType::Event) && (static_cast<eqEventType>(Device) == event->Type))
     {
         switch (event->Type)
         {
-            case eqEventType::Mouse: {
-                return (EventData == event->Mouse.Buttons);
-            }
-
-            case eqEventType::Keyboard: {
-                return (EventData == event->Key.Key);
-            }
+            case eqEventType::Mouse: return (Component == event->Mouse.Buttons);
+            case eqEventType::Keyboard: return (Component == event->Key.Key);
         }
     }
 
@@ -163,4 +159,11 @@ b32 ConvertDItoString(i32 vsc, char* buffer, i32 buflen)
 
     arts_sprintf(buffer, buflen, "Key #%x", vsc);
     return false;
+}
+
+META_DEFINE_CHILD("mmIODev", mmIODev, mmInfoBase)
+{
+    META_FIELD("ioType", IoType);
+    META_FIELD("Device", Device);
+    META_FIELD("Component", Component);
 }

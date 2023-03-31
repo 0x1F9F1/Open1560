@@ -19,3 +19,49 @@
 define_dummy_symbol(mmcityinfo_infobase);
 
 #include "infobase.h"
+
+#include "data7/metadefine.h"
+#include "stream/sparser.h"
+#include "stream/stream.h"
+
+b32 mmInfoBase::Load(const char* path)
+{
+    Ptr<Stream> input {arts_fopen(path, "r")};
+
+    if (!input)
+    {
+        Errorf("mmInfoBase::Load(%s) failed.", path);
+        return false;
+    }
+
+    StreamMiniParser parser {path, as_owner std::move(input)};
+
+    GetClass()->Load(&parser, this);
+
+    return true;
+}
+
+b32 mmInfoBase::Save(const char* path)
+{
+    Ptr<Stream> output {arts_fopen(path, "w")};
+
+    if (!output)
+    {
+        Errorf("mmInfoBase::Save(%s) failed.", path);
+        return false;
+    }
+
+    StreamMiniParser parser {path, as_owner std::move(output)};
+
+    GetClass()->Save(&parser, this);
+
+    return true;
+}
+
+void mmInfoBase::SetIOPath(const char* path)
+{
+    arts_strcpy(FilePath, path);
+}
+
+META_DEFINE_CHILD("mmInfoBase", mmInfoBase, Base)
+{}
