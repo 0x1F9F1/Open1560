@@ -191,16 +191,16 @@ public:
     ARTS_IMPORT void Reset() override;
 
     // ?RestoreImpactParams@mmCarSim@@QAEXXZ
-    ARTS_IMPORT void RestoreImpactParams();
+    ARTS_EXPORT void RestoreImpactParams();
 
     // ?SetHackedImpactParams@mmCarSim@@QAEXXZ
-    ARTS_IMPORT void SetHackedImpactParams();
+    ARTS_EXPORT void SetHackedImpactParams();
 
     // ?SetResetPos@mmCarSim@@QAEXAAVVector3@@@Z
-    ARTS_IMPORT void SetResetPos(Vector3& arg1);
+    ARTS_EXPORT void SetResetPos(Vector3& pos);
 
     // ?ShouldSkid@mmCarSim@@QAEHXZ
-    ARTS_IMPORT i32 ShouldSkid();
+    ARTS_EXPORT b32 ShouldSkid();
 
     // ?StartSiren@mmCarSim@@QAEXXZ
     ARTS_IMPORT void StartSiren();

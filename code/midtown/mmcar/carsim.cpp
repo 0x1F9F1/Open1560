@@ -20,6 +20,31 @@ define_dummy_symbol(mmcar_carsim);
 
 #include "carsim.h"
 
+void mmCarSim::RestoreImpactParams()
+{
+    ICS.Elasticity = BoundElasticity;
+    ICS.Friction = BoundFriction;
+}
+
+void mmCarSim::SetHackedImpactParams()
+{
+    ICS.Elasticity = 0.0f;
+    ICS.Friction = 2.0f;
+    Brakes = 1.0f;
+}
+
+void mmCarSim::SetResetPos(Vector3& pos)
+{
+    ResetPosition = pos;
+
+    ResetPosition.y += (FrontRight.Radius - FrontRight.Center.y) - LCS.Matrix.m3.y;
+}
+
+b32 mmCarSim::ShouldSkid()
+{
+    return (Speed > 7.0f) || (Engine.Throttle > 0.5f) || (Brakes > 0.7f);
+}
+
 b32 EnableSmoke = true;
 b32 ForceSmoke = false;
 

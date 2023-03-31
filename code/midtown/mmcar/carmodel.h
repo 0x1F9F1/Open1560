@@ -112,7 +112,7 @@ public:
     ARTS_IMPORT mmPhysEntity* AttachEntity() override;
 
     // ?ClearDamage@mmCarModel@@QAEXH@Z
-    ARTS_IMPORT void ClearDamage(i32 arg1);
+    ARTS_IMPORT void ClearDamage(b32 arg1);
 
     // ?DashActivated@mmCarModel@@QAEXXZ
     ARTS_IMPORT void DashActivated();

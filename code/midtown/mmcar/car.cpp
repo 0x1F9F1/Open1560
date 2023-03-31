@@ -27,6 +27,18 @@ define_dummy_symbol(mmcar_car);
 
 #include "trailer.h"
 
+mmCar::mmCar()
+{
+    AddChild(&OverSample);
+    OverSample.AddChild(&Sim);
+    OverSample.RealTime(35.0f);
+
+    AddChild(&FLSkid);
+    AddChild(&FRSkid);
+    AddChild(&BLSkid);
+    AddChild(&BRSkid);
+}
+
 void mmCar::TranslateFlags(i32 info_flags)
 {
     u32 flags = CAR_FLAG_ACTIVE;
@@ -39,6 +51,21 @@ void mmCar::TranslateFlags(i32 info_flags)
     flags |= (info_flags & VEH_INFO_FLAG_AXLES) ? CAR_FLAG_AXLES : 0;
 
     Model.CarFlags = flags;
+}
+
+void mmCar::Update()
+{
+#ifdef ARTS_DEV_BUILD
+    Timer t;
+#endif
+
+    OverSample.Update();
+
+#ifdef ARTS_DEV_BUILD
+    f32 elapsed = t.Time();
+    mmCar::UpdateTime += elapsed;
+    mmCar::TotalUpdateTime += elapsed;
+#endif
 }
 
 void mmCar::PostUpdate()
@@ -87,6 +114,15 @@ void mmCar::ReleaseTrailer()
         TrailerJoint->BreakJoint();
         Trailer->SetHackedImpactParams();
     }
+}
+
+void mmCar::ClearDamage()
+{
+    Sim.CurrentDamage = 0.0f;
+    Model.ClearDamage(false);
+
+    Sim.Splash.Reset();
+    Sim.SetGlobalTuning(1.0f, 1.0f);
 }
 
 void mmCar::EnableDriving(b32 enabled)

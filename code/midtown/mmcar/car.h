@@ -74,7 +74,7 @@ class mmCar final : public mmPhysEntity
 {
 public:
     // ??0mmCar@@QAE@XZ
-    ARTS_IMPORT mmCar();
+    ARTS_EXPORT mmCar();
 
     // ??_EmmCar@@UAEPAXI@Z
     // ??1mmCar@@UAE@XZ | inline
@@ -86,7 +86,7 @@ public:
 #endif
 
     // ?ClearDamage@mmCar@@QAEXXZ
-    ARTS_IMPORT void ClearDamage();
+    ARTS_EXPORT void ClearDamage();
 
     // ?EnableDriving@mmCar@@QAEXH@Z
     ARTS_EXPORT void EnableDriving(b32 enabled);
@@ -137,7 +137,7 @@ public:
     ARTS_EXPORT void TranslateFlags(i32 info_flags);
 
     // ?Update@mmCar@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
     // ?VehNameRemap@mmCar@@QAEPADPADH@Z
     ARTS_IMPORT char* VehNameRemap(char* arg1, i32 arg2);
