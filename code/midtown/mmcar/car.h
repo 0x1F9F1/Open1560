@@ -78,7 +78,7 @@ public:
 
     // ??_EmmCar@@UAEPAXI@Z
     // ??1mmCar@@UAE@XZ | inline
-    ARTS_IMPORT ~mmCar() override;
+    ARTS_EXPORT ~mmCar() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmCar@@UAEXPAVBank@@@Z
@@ -92,13 +92,13 @@ public:
     ARTS_EXPORT void EnableDriving(b32 enabled);
 
     // ?GetBound@mmCar@@UAEPAVasBound@@XZ | inline
-    ARTS_IMPORT asBound* GetBound() override;
+    ARTS_EXPORT asBound* GetBound() override;
 
     // ?GetClass@mmCar@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetICS@mmCar@@UAEPAVasInertialCS@@XZ | inline
-    ARTS_IMPORT asInertialCS* GetICS() override;
+    ARTS_EXPORT asInertialCS* GetICS() override;
 
     // ?Impact@mmCar@@QAEXPAVmmIntersection@@PAVVector3@@MH1@Z
     ARTS_IMPORT void Impact(mmIntersection* arg1, Vector3* arg2, f32 arg3, i32 arg4, Vector3* arg5);
@@ -107,7 +107,7 @@ public:
     ARTS_IMPORT void Init(char* arg1, i32 arg2, i32 arg3);
 
     // ?IsDrivingDisabled@mmCar@@QAEHXZ
-    ARTS_IMPORT i32 IsDrivingDisabled();
+    ARTS_EXPORT b32 IsDrivingDisabled();
 
     // ?PostUpdate@mmCar@@UAEXXZ
     ARTS_EXPORT void PostUpdate() override;
@@ -122,16 +122,16 @@ public:
     ARTS_IMPORT void RemoveVehicleAudio();
 
     // ?Reset@mmCar@@UAEXXZ
-    ARTS_IMPORT void Reset() override;
+    ARTS_EXPORT void Reset() override;
 
     // ?StartSiren@mmCar@@QAEXXZ
-    ARTS_IMPORT void StartSiren();
+    ARTS_EXPORT void StartSiren();
 
     // ?StopSiren@mmCar@@QAEXXZ
-    ARTS_IMPORT void StopSiren();
+    ARTS_EXPORT void StopSiren();
 
     // ?ToggleSiren@mmCar@@QAEXXZ
-    ARTS_IMPORT void ToggleSiren();
+    ARTS_EXPORT void ToggleSiren();
 
     // ?TranslateFlags@mmCar@@QAEXH@Z
     ARTS_EXPORT void TranslateFlags(i32 info_flags);

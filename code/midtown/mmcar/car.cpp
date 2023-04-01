@@ -27,6 +27,7 @@ define_dummy_symbol(mmcar_car);
 #include "mmcityinfo/vehlist.h"
 #include "mmphysics/joint3dof.h"
 
+#include "playercaraudio.h"
 #include "trailer.h"
 
 mmCar::mmCar()
@@ -68,6 +69,11 @@ void mmCar::Update()
     mmCar::UpdateTime += elapsed;
     mmCar::TotalUpdateTime += elapsed;
 #endif
+}
+
+b32 mmCar::IsDrivingDisabled()
+{
+    return (Sim.ICS.Constraints & (ICS_CONSTRAIN_TX | ICS_CONSTRAIN_TZ | ICS_CONSTRAIN_RY)) != 0;
 }
 
 void mmCar::PostUpdate()
@@ -131,7 +137,7 @@ void mmCar::ReInit(char* name, i32 variant)
 
     CullCity()->ReparentObject(&Model);
 
-    if (Model.CarFlags & CAR_FLAG_TRAILER)
+    if (Model.HasTrailer())
     {
         Vector3 trailer_pos {};
         Vector3 joint_pos {0.0f, 0.7f, 3.0f};
@@ -177,6 +183,50 @@ void mmCar::ReleaseTrailer()
     }
 }
 
+void mmCar::Reset()
+{
+    if (Model.HasSiren())
+        Model.CarFlags &= ~CAR_FLAG_SIREN_ON;
+
+    Sim.Reset();
+    Model.Reset();
+    ClearDamage();
+
+    if (Model.HasTrailer())
+    {
+        TrailerJoint->UnbreakJoint();
+
+        Sim.Reset();
+        Trailer->Reset();
+        TrailerJoint->Reset();
+    }
+
+    FLSkid.Reset();
+    FRSkid.Reset();
+    BLSkid.Reset();
+    BRSkid.Reset();
+}
+
+void mmCar::StartSiren()
+{
+    Model.CarFlags |= CAR_FLAG_SIREN_ON;
+    Sim.PlayerCarAudio->StartSiren();
+}
+
+void mmCar::StopSiren()
+{
+    Model.CarFlags &= ~CAR_FLAG_SIREN_ON;
+    Sim.PlayerCarAudio->StopSiren();
+}
+
+void mmCar::ToggleSiren()
+{
+    if (Model.CarFlags & CAR_FLAG_SIREN_ON)
+        StopSiren();
+    else
+        StartSiren();
+}
+
 void mmCar::ClearDamage()
 {
     Sim.CurrentDamage = 0.0f;
@@ -203,6 +253,16 @@ void mmCar::EnableDriving(b32 enabled)
         if (Model.HasTrailer())
             Trailer->ICS.Constraints |= ICS_CONSTRAIN_ALL;
     }
+}
+
+asBound* mmCar::GetBound()
+{
+    return &Sim.Bound;
+}
+
+asInertialCS* mmCar::GetICS()
+{
+    return &Sim.ICS;
 }
 
 hook_func(INIT_main, [] {

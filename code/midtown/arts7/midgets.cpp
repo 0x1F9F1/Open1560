@@ -57,9 +57,11 @@ asMidgets::asMidgets()
     , current_node_(ARTSPTR)
     , event_queue_(1, EQ_EVENT_MASK(eqEventType::Keyboard), 32)
 {
+#ifndef ARTS_STANDALONE
     // These fields are accessed publicly and cannot easily be changed
     static_assert(offsetof(asMidgets, visible_lines_) == 0x8);
     static_assert(offsetof(asMidgets, open_) == 0x1C);
+#endif
 }
 
 asMidgets::~asMidgets()
