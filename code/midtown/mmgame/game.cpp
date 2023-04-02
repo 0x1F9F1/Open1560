@@ -1038,6 +1038,12 @@ void mmGame::SendChatMessage(char* msg)
 
         MMSTATE.ChaseOpponents = true;
     }
+    else if (X("tpcam"))
+    {
+        CHEATING = true;
+
+        Player->Car.GetICS()->Matrix.m3 = Player->ViewCS->Matrix.m3;
+    }
 
 #undef X
 }

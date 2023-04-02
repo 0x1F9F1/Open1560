@@ -119,7 +119,7 @@ public:
     ARTS_EXPORT void ReleaseTrailer();
 
     // ?RemoveVehicleAudio@mmCar@@QAEXXZ
-    ARTS_IMPORT void RemoveVehicleAudio();
+    ARTS_EXPORT void RemoveVehicleAudio();
 
     // ?Reset@mmCar@@UAEXXZ
     ARTS_EXPORT void Reset() override;
@@ -175,7 +175,17 @@ public:
 check_size(mmCar, 0x230C);
 
 // ?EggNameIndex@@YAHPAD@Z
-ARTS_IMPORT i32 EggNameIndex(char* arg1);
+ARTS_EXPORT i32 EggNameIndex(char* name);
 
 // ?ffval@@3MA
 ARTS_IMPORT extern f32 ffval;
+
+inline asBound* mmCar::GetBound()
+{
+    return &Sim.Bound;
+}
+
+inline asInertialCS* mmCar::GetICS()
+{
+    return &Sim.ICS;
+}

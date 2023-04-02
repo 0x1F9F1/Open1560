@@ -183,6 +183,11 @@ void mmCar::ReleaseTrailer()
     }
 }
 
+void mmCar::RemoveVehicleAudio()
+{
+    Sim.RemoveNetVehicleAudio();
+}
+
 void mmCar::Reset()
 {
     if (Model.HasSiren())
@@ -255,14 +260,49 @@ void mmCar::EnableDriving(b32 enabled)
     }
 }
 
-asBound* mmCar::GetBound()
-{
-    return &Sim.Bound;
-}
+static const char* EggPlayerNames[14] {
+    "vasedans",
+    "vasedanl",
+    "vavan",
+    "vadiesels",
+    "vacompact",
+    "vapickup",
+    "vabus",
+    "vadelivery",
+    "valimo",
+    "valimoblack",
+    "vataxi",
+    "vataxicheck",
+    "valimoangel",
+    "vaboeing_small",
+};
 
-asInertialCS* mmCar::GetICS()
+static const char* EggPlayerVehicles[14] {
+    "vpcaddie",
+    "vpbullet",
+    "vpford",
+    "vpbus",
+    "vpbug",
+    "vpford",
+    "vpbus",
+    "vpford",
+    "vpmustang99",
+    "vpmustang99",
+    "vpcaddie",
+    "vpcaddie",
+    "vpmustang99",
+    "vpbus",
+};
+
+i32 EggNameIndex(char* name)
 {
-    return &Sim.ICS;
+    for (i32 i = 0; i < ARTS_SSIZE32(EggPlayerNames); ++i)
+    {
+        if (!std::strcmp(name, EggPlayerNames[i]))
+            return i;
+    }
+
+    return -1;
 }
 
 hook_func(INIT_main, [] {
