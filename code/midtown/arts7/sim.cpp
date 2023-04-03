@@ -356,19 +356,15 @@ void asSimulation::Init(aconst char* proj_path, i32 argc, char** argv)
     arts_free(proj_path_env);
 }
 
-static f32 NumOverSamples = 0.0f;
-
 void asSimulation::BeginOverSample(i32 samples)
 {
-    NumOverSamples = static_cast<f32>(samples);
-    seconds_ /= NumOverSamples;
-    inv_seconds_ *= NumOverSamples;
+    seconds_ /= samples;
+    inv_seconds_ *= samples;
 }
 
 void asSimulation::EndOverSample()
 {
-    seconds_ *= NumOverSamples;
-    inv_seconds_ /= NumOverSamples;
+    Quitf("Use EndOverSample(i32)");
 }
 
 void asSimulation::EndOverSample(i32 samples)

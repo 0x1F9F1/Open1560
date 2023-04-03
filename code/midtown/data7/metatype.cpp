@@ -160,6 +160,50 @@ const MetaType* CreateMetaType_<signed int>()
     return &SignedIntInst;
 }
 
+struct FloatType final : MetaType
+{
+public:
+    // ?Delete@FloatType@@UAEXPAXH@Z
+    ARTS_IMPORT void Delete(void* ptr, i32 len) override
+    {
+        MetaDelete<f32>(ptr, len);
+    }
+
+    // ?Load@FloatType@@UAEXPAVMiniParser@@PAX@Z
+    ARTS_IMPORT void Load(MiniParser* parser, void* ptr) override
+    {
+        *static_cast<f32*>(ptr) = parser->FloatVal();
+    }
+
+    // ?New@FloatType@@UAEPAXH@Z
+    ARTS_IMPORT void* New(i32 count) override
+    {
+        return MetaNew<f32>(count);
+    }
+
+    // ?Save@FloatType@@UAEXPAVMiniParser@@PAX@Z
+    ARTS_IMPORT void Save(MiniParser* parser, void* ptr) override
+    {
+        parser->Printf("%g ", *static_cast<f32*>(ptr));
+    }
+
+    // ?SizeOf@FloatType@@UAEIXZ
+    ARTS_IMPORT usize SizeOf() override
+    {
+        return sizeof(f32);
+    }
+};
+
+check_size(FloatType, 0x4);
+
+static const FloatType FloatInst;
+
+template <>
+const MetaType* CreateMetaType_<float>()
+{
+    return &FloatInst;
+}
+
 struct StringType final : MetaType
 {
 public:

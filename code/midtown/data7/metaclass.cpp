@@ -30,6 +30,16 @@ define_dummy_symbol(data7_metaclass);
 
 #include <unordered_map>
 
+struct MetaField
+{
+    MetaField* Next {};
+    const char* Name {};
+    usize Offset {};
+    MetaType* Type {};
+};
+
+check_size(MetaField, 0x10);
+
 MetaClass* MetaClass::ClassIndex[MAX_CLASSES] {};
 i32 MetaClass::NextSerial {};
 

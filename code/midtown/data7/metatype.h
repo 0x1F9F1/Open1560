@@ -370,28 +370,10 @@ struct UnsignedIntType final : MetaType
 };
 
 check_size(UnsignedIntType, 0x0);
-
-struct FloatType final : MetaType
-{
-    public:
-    // ?Delete@FloatType@@UAEXPAXH@Z
-    ARTS_IMPORT void Delete(void* arg1, i32 arg2) override;
-
-    // ?Load@FloatType@@UAEXPAVMiniParser@@PAX@Z
-    ARTS_IMPORT void Load(MiniParser* arg1, void* arg2) override;
-
-    // ?New@FloatType@@UAEPAXH@Z
-    ARTS_IMPORT void* New(i32 arg1) override;
-
-    // ?Save@FloatType@@UAEXPAVMiniParser@@PAX@Z
-    ARTS_IMPORT void Save(MiniParser* arg1, void* arg2) override;
-
-    // ?SizeOf@FloatType@@UAEIXZ
-    ARTS_IMPORT usize SizeOf() override;
-};
-
-check_size(FloatType, 0x0);
 #endif
+
+template <>
+const MetaType* CreateMetaType_<float>();
 
 template <>
 const MetaType* CreateMetaType_<char*>();

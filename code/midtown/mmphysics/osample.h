@@ -50,17 +50,13 @@ public:
     ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
-    // ?GetClass@asOverSample@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT MetaClass* GetClass() override;
-
     // ?RealTime@asOverSample@@QAEXM@Z
     ARTS_EXPORT void RealTime(f32 fps);
 
     // ?Update@asOverSample@@UAEXXZ
     ARTS_EXPORT void Update() override;
 
-    // ?DeclareFields@asOverSample@@SAXXZ
-    ARTS_IMPORT static void DeclareFields();
+    VIRTUAL_META_DECLARE;
 
 private:
     f32 SampleStep {1.0f / 25.0f};

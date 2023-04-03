@@ -41,17 +41,8 @@
 */
 
 struct MetaType;
+struct MetaField;
 class MiniParser;
-
-struct MetaField
-{
-    MetaField* Next {};
-    const char* Name {};
-    usize Offset {};
-    MetaType* Type {};
-};
-
-check_size(MetaField, 0x10);
 
 constexpr usize MAX_CLASSES = 512;
 

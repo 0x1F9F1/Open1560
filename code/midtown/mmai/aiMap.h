@@ -326,24 +326,24 @@ public:
     CArrayList* AmbientRoads;
     CArrayList* PedRoads;
 
-    i16 DrawAllPaths;
+    b16 DrawAllPaths;
 
-    i16 DrawIntersectionIds;
-    i16 DrawPathIds;
-    i16 DrawAmbientIds;
+    b16 DrawIntersectionIds;
+    b16 DrawPathIds;
+    b16 DrawAmbientIds;
 
-    i16 AlwaysGreen;
-    i16 AlwaysRed;
+    b16 AlwaysGreen;
+    b16 AlwaysRed;
 
-    i16 DrawPathNormals;
-    i16 DrawTargetPoints;
+    b16 DrawPathNormals;
+    b16 DrawTargetPoints;
 
     // 0: Off
     // 1: Ambients
     // 2: Peds
     i16 DrawActivePaths;
 
-    i16 DrawBBoxes;
+    b16 DrawBBoxes;
     u16 nAmbientCount;
     u16 BackwardsCheat;
 

@@ -21,6 +21,7 @@ define_dummy_symbol(mmphysics_osample);
 #include "osample.h"
 
 #include "arts7/sim.h"
+#include "data7/metadefine.h"
 
 void asOverSample::RealTime(f32 fps)
 {
@@ -48,6 +49,12 @@ void asOverSample::Update()
         asNode::Update();
     }
 
-    Sim()->EndOverSample();
+    Sim()->EndOverSample(NumSamples);
     Sim()->SetIsFullUpdate(full_update);
+}
+
+META_DEFINE_CHILD("asOverSample", asOverSample, asNode)
+{
+    META_FIELD("SampleStep", SampleStep);
+    META_FIELD("MaxSamples", MaxSamples);
 }

@@ -32,6 +32,7 @@ define_dummy_symbol(mmcar_car);
 
 mmCar::mmCar()
 {
+    // FIXME: mmCar is already oversampled by mmPhysicsMGR
     AddChild(&OverSample);
     OverSample.AddChild(&Sim);
     OverSample.RealTime(35.0f);
