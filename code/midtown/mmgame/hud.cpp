@@ -20,10 +20,64 @@ define_dummy_symbol(mmgame_hud);
 
 #include "hud.h"
 
+#include "arts7/sim.h"
 #include "mmcity/cullcity.h"
 #include "mmcityinfo/state.h"
 
 #include "gameman.h"
+
+f32 mmTimer::GetTime()
+{
+    return Time;
+}
+
+void mmTimer::Init(b32 count_down, f32 start_time)
+{
+    CountDown = count_down;
+    StartTime = start_time;
+    Time = start_time;
+}
+
+void mmTimer::Reset()
+{
+    Time = StartTime;
+}
+
+void mmTimer::Start()
+{
+    Running = true;
+}
+
+void mmTimer::StartStop()
+{
+    Running ^= true;
+}
+
+void mmTimer::Stop()
+{
+    Running = false;
+}
+
+void mmTimer::Update()
+{
+    if (!Running)
+        return;
+
+    if (CountDown)
+    {
+        Time -= Sim()->GetUpdateDelta();
+
+        if (Time <= 0.0f)
+        {
+            Time = 0.0f;
+            Running = false;
+        }
+    }
+    else
+    {
+        Time += Sim()->GetUpdateDelta();
+    }
+}
 
 void mmHUD::ToggleMirror()
 {

@@ -112,35 +112,38 @@ class mmTimer final : public asNode
 {
 public:
     // ??0mmTimer@@QAE@XZ
-    ARTS_IMPORT mmTimer();
+    ARTS_EXPORT mmTimer() = default;
 
     // ??_GmmTimer@@UAEPAXI@Z
     // ??_EmmTimer@@UAEPAXI@Z
     // ??1mmTimer@@UAE@XZ
-    ARTS_IMPORT ~mmTimer() override = default;
+    ARTS_EXPORT ~mmTimer() override = default;
 
     // ?GetTime@mmTimer@@QAEMXZ
-    ARTS_IMPORT f32 GetTime();
+    ARTS_EXPORT f32 GetTime();
 
     // ?Init@mmTimer@@QAEXHM@Z
-    ARTS_IMPORT void Init(i32 arg1, f32 arg2);
+    ARTS_EXPORT void Init(b32 count_down, f32 start_time);
 
     // ?Reset@mmTimer@@UAEXXZ
-    ARTS_IMPORT void Reset() override;
+    ARTS_EXPORT void Reset() override;
 
     // ?Start@mmTimer@@QAEXXZ
-    ARTS_IMPORT void Start();
+    ARTS_EXPORT void Start();
 
     // ?StartStop@mmTimer@@QAEXXZ | unused
-    ARTS_IMPORT void StartStop();
+    ARTS_EXPORT void StartStop();
 
     // ?Stop@mmTimer@@QAEXXZ
-    ARTS_IMPORT void Stop();
+    ARTS_EXPORT void Stop();
 
     // ?Update@mmTimer@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
-    u8 gap20[0x10];
+    b32 CountDown {};
+    f32 StartTime {};
+    f32 Time {};
+    b32 Running {};
 };
 
 check_size(mmTimer, 0x30);
