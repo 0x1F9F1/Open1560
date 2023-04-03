@@ -82,6 +82,10 @@ static void PrintMemoryUsage()
 }
 #endif
 
+#ifdef ARTS_DEV_BUILD
+static mem::cmd_param PARAM_showfps {"showfps"};
+#endif
+
 asCullManager::asCullManager(i32 max_cullables, i32 max_cullables_2D)
     : max_cullables_(max_cullables)
     , max_cullables_2D_(max_cullables_2D)
@@ -105,6 +109,8 @@ asCullManager::asCullManager(i32 max_cullables, i32 max_cullables_2D)
     PGRAPH = new asPerfGraph();
     PGRAPH->AddComponent("3D", &UpdateTime3D, ColGreen);
     PGRAPH->AddComponent("2D", &UpdateTime2D, ColBlue);
+
+    current_page_ = PARAM_showfps.get_or(false) ? 1 : 0;
 #endif
 }
 
