@@ -392,6 +392,8 @@ void dxiWindowCreate(const char* title, dxiRendererType type)
     SDL_VERSION(&wm_info.version);
     ArAssert(SDL_GetWindowWMInfo(g_MainWindow, &wm_info), "Failed to get native window handle");
     hwndMain = wm_info.info.win.window;
+
+    SDL_RaiseWindow(g_MainWindow);
 }
 
 void dxiWindowDestroy()
