@@ -1,0 +1,43 @@
+name: Build
+
+on:
+  push:
+    branches: [ "master" ]
+
+env:
+  PREMAKE_GENERATOR: vs2019
+  BUILD_CONFIGURATION: Final
+  GH_TOKEN: ${{github.token}}
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v1.1
+      with:
+        msbuild-architecture: x86
+      
+    - name: Premake
+      run: tools/premake5.exe ${{env.PREMAKE_GENERATOR}} --MM1_GAME_DIRECTORY="${{github.workspace}}/build/output/"
+
+    - name: Build
+      run: msbuild /verbosity:minimal /nologo /m /p:Configuration="${{env.BUILD_CONFIGURATION}}" /p:Platform=Win32 "build/Open1560.sln"
+
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v3.1.2
+      with:
+        name: Open1560
+        path: build/output
+        if-no-files-found: error
+
+    - name: Update Release
+      run: |
+        7z a -tzip "artifacts/Open1560.zip" "${{github.workspace}}/build/output/*"
+        gh release upload "build" "artifacts/Open1560.zip" --clobber

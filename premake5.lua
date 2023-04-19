@@ -29,12 +29,12 @@ workspace "Open1560"
     configurations { "Debug", "Release", "Final" }
     platforms { "Win32" }
 
-    local build_number = os.getenv("APPVEYOR_BUILD_NUMBER")
+    local build_number = os.getenv("GITHUB_RUN_NUMBER")
 
     if build_number ~= nil then
         local build_string = build_number
 
-        local build_commit = os.getenv("APPVEYOR_REPO_COMMIT")
+        local build_commit = os.getenv("GITHUB_SHA")
 
         if build_commit ~= nil then
             build_string = build_string .. " / " .. build_commit
