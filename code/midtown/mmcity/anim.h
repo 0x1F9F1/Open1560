@@ -55,7 +55,7 @@ public:
     ARTS_IMPORT void Update();
 
     // ?PreUpdate@mmAnimInstState@@SAXM@Z
-    ARTS_IMPORT static void PreUpdate(f32 arg1);
+    ARTS_EXPORT static void PreUpdate(f32 delta);
 
     // ?FrameDelta@mmAnimInstState@@2HA
     ARTS_IMPORT static i32 FrameDelta;
@@ -63,7 +63,10 @@ public:
     // ?FrameFraction@mmAnimInstState@@2MA
     ARTS_IMPORT static f32 FrameFraction;
 
-    u8 gap0[0x8];
+    mmAnimation* Anim {};
+    i16 Frame {};
+    u8 CurrentSequence {};
+    u8 NextSequence {};
 };
 
 check_size(mmAnimInstState, 0x8);

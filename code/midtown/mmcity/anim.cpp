@@ -19,3 +19,12 @@
 define_dummy_symbol(mmcity_anim);
 
 #include "anim.h"
+
+static const f32 AnimFrameRate = 30.0f;
+
+void mmAnimInstState::PreUpdate(f32 delta)
+{
+    FrameFraction += delta * AnimFrameRate;
+    FrameDelta = static_cast<i32>(FrameFraction);
+    FrameFraction -= static_cast<f32>(FrameDelta);
+}
