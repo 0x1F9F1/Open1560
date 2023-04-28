@@ -74,6 +74,18 @@ class mmBoundTemplate;
 #define RENDER_PASS_OBJECTS 0x8   // Objects
 #define RENDER_PASS_LIGHTS 0x10   // Lights
 
+/*
+    Cells:
+
+    [LM]
+    1-199 : Open Areas / Landmarks
+    200   : Uppers
+
+    [CITY]
+    201-859 : Roads
+    860+    : Intersections
+*/
+
 class asRenderWeb final : public asPortalWeb
 {
 public:
