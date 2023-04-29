@@ -303,12 +303,12 @@ void asSimulation::Init(aconst char* proj_path, i32 argc, char** argv)
 
     if (!vfs_path)
     {
-        arts_strcpy(exe_path, *argv);
+        arts_strcpy(exe_path, argv[0]);
 
         if (char* ext = std::strrchr(exe_path, '.')) // Replace file extension with .ar
         {
             ++ext;
-            arts_strcpy(ext, ext - exe_path, "AR");
+            arts_strcpy(ext, &exe_path[ARTS_SIZE(exe_path)] - ext, "AR");
             vfs_path = exe_path;
         }
     }

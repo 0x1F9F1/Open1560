@@ -161,6 +161,11 @@ public:
         return &defs_[index - 1];
     }
 
+    i32 Count() const
+    {
+        return count_;
+    }
+
 private:
     Param* params_[agiLibMax] {};
     Def* defs_[agiLibMax] {};
