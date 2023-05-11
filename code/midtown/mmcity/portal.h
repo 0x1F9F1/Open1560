@@ -155,6 +155,9 @@ public:
     b32 Debug;
     b32 SubClip;
     b32 NoPortals;
+
+    // 0 = Main
+    // 1 = Mirror
     u32 CurrentGroup;
     i32 NumSubPortals[2];
     asPortalView Portals[2][256];

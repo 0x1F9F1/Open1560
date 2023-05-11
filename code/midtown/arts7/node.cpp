@@ -175,6 +175,14 @@ b32 asNode::AddChild(asNode* child)
     return true;
 }
 
+void asNode::AdoptChild(Ptr<asNode> child)
+{
+    child->SetNodeFlag(NODE_FLAG_OWNED);
+
+    if (!AddChild(child.release()))
+        Quitf("asNode::AdoptChild() - Failed to adopt child");
+}
+
 asNode* asNode::GetChild(i32 index)
 {
     asNode* child = child_node_;
@@ -319,8 +327,14 @@ void asNode::PerfReport(Stream* output, i32 indent)
 
 void asNode::RemoveAllChildren()
 {
-    for (asNode* n = std::exchange(child_node_, nullptr); n; n = std::exchange(n->next_node_, nullptr))
+    for (asNode *n = std::exchange(child_node_, nullptr), *next = nullptr; n; n = next)
+    {
+        next = std::exchange(n->next_node_, nullptr);
         n->parent_node_ = nullptr;
+
+        if (n->TestNodeFlag(NODE_FLAG_OWNED))
+            delete n;
+    }
 }
 
 b32 asNode::RemoveChild(asNode* child)

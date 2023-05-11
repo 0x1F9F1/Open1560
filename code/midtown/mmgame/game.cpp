@@ -739,10 +739,7 @@ b32 mmGame::Init()
             aud_head->SetRolloff(0.0f);
             aud_head->SetDoppler(0.0f);
 
-            AddChild(aud_head.get());
-
-            // FIXME: Memory leak
-            aud_head.release();
+            AdoptChild(std::move(aud_head));
         }
     }
 

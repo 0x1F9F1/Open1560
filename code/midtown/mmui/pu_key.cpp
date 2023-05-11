@@ -101,10 +101,5 @@ void PUKey::PostSetup()
 {
     CullMgr()->Reset();
 
-    if (text_node_)
-    {
-        RemoveChild(text_node_.get());
-
-        text_node_ = nullptr;
-    }
+    text_node_ = nullptr;
 }

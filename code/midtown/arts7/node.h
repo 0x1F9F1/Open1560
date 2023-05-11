@@ -68,6 +68,7 @@ class bkWindow;
 #define NODE_FLAG_2 0x2
 #define NODE_FLAG_LOAD_ERROR 0x4
 #define NODE_FLAG_UPDATE_PAUSED 0x400
+#define NODE_FLAG_OWNED 0x800
 
 class asNode : public asCullable
 {
@@ -115,6 +116,8 @@ public:
 
     // ?AddChild@asNode@@QAEHPAV1@@Z
     ARTS_EXPORT b32 AddChild(asNode* child);
+
+    void AdoptChild(Ptr<asNode> child);
 
     // ?GetChild@asNode@@QAEPAV1@H@Z
     ARTS_EXPORT asNode* GetChild(i32 index);
@@ -247,10 +250,7 @@ private:
 
     ConstString node_name_;
 
-    // 0x1 | Active
-    // 0x2 | ?
-    // 0x4 | LoadError
-    // 0x400 | Update While Paused
+    // NODE_FLAG_*
     i32 node_flags_ {NODE_FLAG_ACTIVE | NODE_FLAG_2};
 
 #ifdef ARTS_DEV_BUILD

@@ -372,7 +372,6 @@ static void MainPhase(i32 argc, char** argv)
 
     Ptr<mmGameManager> game_manager;
     Ptr<mmInterface> mm_interface;
-    Ptr<PreGameUpdate> pre_game_update;
 
     {
         mmLoader loader;
@@ -452,8 +451,7 @@ static void MainPhase(i32 argc, char** argv)
                 if (MMSTATE.HasMidtownCD)
                     AudMgr()->PlayCDTrack(2, true);
 
-                pre_game_update = arnew PreGameUpdate();
-                Sim()->AddChild(pre_game_update.get());
+                Sim()->AdoptChild(arnew PreGameUpdate());
 
                 game_manager = /*mmGameManager::Instance = */ arnew mmGameManager();
                 Sim()->AddChild(game_manager.get());
@@ -516,7 +514,6 @@ static void MainPhase(i32 argc, char** argv)
     AudMgr()->Disable(-1, -1);
     ALLOCATOR.SanityCheck();
 
-    pre_game_update = nullptr;
     mm_interface = nullptr;
     game_manager = nullptr;
 
