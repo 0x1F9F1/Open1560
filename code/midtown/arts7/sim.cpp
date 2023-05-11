@@ -622,18 +622,18 @@ void asSimulation::Update()
 
 void asSimulation::UpdatePaused(asNode* node)
 {
-    for (i32 i = 0; i < node->NumChildren(); ++i)
+    for (asNode* n = node->GetChildNode(); n; n = n->GetNextNode())
     {
-        if (asNode* child = node->GetChild(i + 1); child->IsNodeActive())
+        if (n->IsNodeActive())
         {
-            if (child->TestNodeFlag(NODE_FLAG_UPDATE_PAUSED))
+            if (n->TestNodeFlag(NODE_FLAG_UPDATE_PAUSED))
             {
-                child->Update();
+                n->Update();
             }
             else
             {
-                child->UpdatePaused();
-                UpdatePaused(child);
+                n->UpdatePaused();
+                UpdatePaused(n);
             }
         }
     }

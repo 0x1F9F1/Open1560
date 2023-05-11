@@ -120,10 +120,10 @@ public:
     void AdoptChild(Ptr<asNode> child);
 
     // ?GetChild@asNode@@QAEPAV1@H@Z
-    ARTS_EXPORT asNode* GetChild(i32 index);
+    [[deprecated]] ARTS_EXPORT asNode* GetChild(i32 index);
 
     // ?GetLastChild@asNode@@QAEPAV1@XZ | unused
-    ARTS_EXPORT asNode* GetLastChild();
+    [[deprecated]] ARTS_EXPORT asNode* GetLastChild();
 
     // ?GetNext@asNode@@QAEPAV1@XZ | unused
     [[deprecated]] ARTS_EXPORT asNode* GetNext()
