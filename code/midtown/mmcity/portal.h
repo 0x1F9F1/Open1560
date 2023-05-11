@@ -81,6 +81,22 @@ struct asPortalView
     i32 RenderDepth;
 };
 
+check_size(asPortalView, 0x48);
+
+struct asPortalCell
+{
+    struct PortalLink* Edges;
+    asPortalRenderable* CellRenderer;
+    asPortalCell* Next;
+    u16 VisitTag;
+    u16 CellIndex;
+    u16 NumPtlPaths;
+    u16 Flags;
+    struct PtlPath** PtlPaths;
+};
+
+check_size(asPortalCell, 0x18);
+
 class asPortalWeb : public asNode
 {
 public:
@@ -117,7 +133,9 @@ public:
 #endif
 
     // ?Cull@asPortalWeb@@QAEXH@Z
-    ARTS_IMPORT void Cull(i32 arg1);
+    ARTS_IMPORT void Cull(b32 front_to_back);
+
+    void CullHack(b32 front_to_back);
 
     // ?DeleteCell@asPortalWeb@@QAEXPAUasPortalCell@@@Z | unused
     ARTS_IMPORT void DeleteCell(asPortalCell* arg1);
@@ -149,7 +167,7 @@ public:
 
     b32 DisableTextures;
     i32 MaxRenderDepth;
-    asPortalCell* Cells;
+    asPortalCell* CellList;
     asPortalCell* StartCell;
     asPortalEdge* Edges;
     b32 Debug;

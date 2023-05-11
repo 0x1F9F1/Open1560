@@ -39,6 +39,11 @@
 
 #include "portal.h"
 
+#include "vector7/vector3.h"
+
+class mmDofBangerInstance;
+class agiMeshSet;
+
 class mmCellRenderer final : public asPortalRenderable
 {
 public:
@@ -49,7 +54,7 @@ public:
     ARTS_IMPORT ~mmCellRenderer();
 
     // ?Cull@mmCellRenderer@@UAEXH@Z
-    ARTS_IMPORT void Cull(i32 arg1) override;
+    ARTS_IMPORT void Cull(b32 sub_cull) override;
 
     // ?Init@mmCellRenderer@@QAEXPADHHHHPAH@Z
     ARTS_IMPORT void Init(char* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32* arg6);
@@ -57,7 +62,15 @@ public:
     // ?Relight@mmCellRenderer@@QAEXXZ
     ARTS_EXPORT void Relight();
 
-    u8 gap4[0x44];
+    mmDofBangerInstance* Drawbridge {};
+    agiMeshSet* Meshes[8] {};
+    Vector3 CellCenter;
+    f32 CellMagnitude {};
+    u8* SlideData {};
+    i16 Index {};
+    i16 RoomFlags {};
+    i16 VisitTagCount {};
+    u16* VisitTags {};
 };
 
 check_size(mmCellRenderer, 0x48);

@@ -140,7 +140,7 @@ public:
     // RENDER_PASS_*
     ARTS_IMPORT static i32 PassMask;
 
-    asPortalCell** Cells;
+    asPortalCell** CellArray;
     mmBoundTemplate* HitIdBound;
     mmBoundTemplate** Bounds;
     i32 HasHitIdBound;
