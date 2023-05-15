@@ -20,18 +20,139 @@ define_dummy_symbol(mmcity_portal);
 
 #include "portal.h"
 
-void asPortalWeb::CullHack(b32 front_to_back)
+#include "agi/viewport.h"
+#include "arts7/sim.h"
+#include "dyna7/gfx.h"
+
+ARTS_IMPORT i32 PortalCurrentIdx;
+ARTS_IMPORT i32 PortalShowIdx;
+ARTS_IMPORT i32 PortalDebugIdx;
+
+void asPortalWeb::Cull(b32 front_to_back)
 {
-    // mmCellRenderer::Cull checks the VisitTag of cells, but when the rear view mirror is active,
-    // the VisitTag will correspond to what the mirror can see, not the main camera. This can cause issues
-    // with cells not being properly rendered.
-    // Avoid this by updating the visit tag to match the currently active render group.
-    ++VisitTag;
+    asPortalView* group = Portals[CurrentGroup];
+    i32 nump = NumSubPortals[CurrentGroup];
 
-    for (i32 i = 0; i < NumSubPortals[CurrentGroup]; ++i)
-        Portals[CurrentGroup][i].Cell->VisitTag = VisitTag;
+    asPortalView* portal = &group[front_to_back ? -1 : nump];
+    asPortalView* end = &group[front_to_back ? nump - 1 : 0];
 
-    Cull(front_to_back);
+    {
+        // mmCellRenderer::Cull checks the VisitTag of cells, but when the rear view mirror is active,
+        // the VisitTag will correspond to what the mirror can see, not the main camera. This can cause issues
+        // with cells not being properly rendered.
+        // Avoid this by updating the visit tag to match the currently active render group.
+        ++VisitTag;
+
+        for (i32 i = 0; i < nump; ++i)
+            group[i].Cell->VisitTag = VisitTag;
+    }
+
+    agiViewParameters& vp = Viewport()->GetParams();
+    Viewport()->SetWorld(xconst(IDENTITY));
+
+    i32 idx = 0;
+    i32 dir = front_to_back ? 1 : -1;
+
+    // NOTE: Always draws at least 1 cell
+    do
+    {
+        portal += dir;
+        ++idx;
+
+        if (portal->Texture)
+            continue;
+
+        if (SubClip)
+        {
+            vp.X = portal->X;
+            vp.Y = portal->Y;
+            vp.Width = portal->Width;
+            vp.Height = portal->Height;
+            vp.ProjX = portal->ProjX;
+            vp.ProjY = portal->ProjY;
+            vp.ProjXZ = portal->ProjXZ;
+            vp.ProjYZ = portal->ProjYZ;
+
+            ++vp.MtxSerial;
+            ++vp.ViewSerial;
+        }
+
+        vp.LeftPlane = ~Vector2(-vp.Near, portal->ProjLeft);
+        vp.RightPlane = ~Vector2(vp.Near, -portal->ProjRight);
+        vp.TopPlane = ~Vector2(-vp.Near, portal->ProjTop);
+        vp.BottomPlane = ~Vector2(vp.Near, -portal->ProjBottom);
+
+#ifdef ARTS_DEV_BUILD
+        if (Debug && (portal->Edge != nullptr) && ((PortalDebugIdx == 0) || (PortalDebugIdx == idx)))
+        {
+            asPortalEdge* edge = portal->Edge;
+
+            {
+                DrawBegin(vp.Camera);
+                DrawColor(ColYellow);
+
+                f32 from_z = -vp.Near * 1.001f;
+
+                DrawLine(portal->ProjLeft, portal->ProjTop, from_z, portal->ProjRight, portal->ProjBottom, from_z);
+                DrawLine(portal->ProjLeft, portal->ProjBottom, from_z, portal->ProjRight, portal->ProjTop, from_z);
+
+                Vector3 label_pos {
+                    (portal->ProjLeft + portal->ProjRight) * 0.5f,
+                    (portal->ProjTop + portal->ProjBottom) * 0.5f,
+                    from_z,
+                };
+
+                i32 cell_idx = portal->Cell->CellIndex;
+                i32 cell1_idx = edge->Cell1->CellIndex;
+                i32 cell2_idx = edge->Cell2->CellIndex;
+
+                DrawLabelf(label_pos, "%d->%d"_xconst, (cell_idx == cell1_idx) ? cell2_idx : cell1_idx,
+                    (cell_idx == cell1_idx) ? cell1_idx : cell2_idx);
+
+                DrawEnd();
+            }
+
+            {
+                DrawBegin(xconst(IDENTITY));
+                DrawColor(ColRed);
+
+                for (i32 i = 0, prev = edge->NumEdges - 1; i < edge->NumEdges; ++i)
+                {
+                    DrawLine(edge->Edges[prev], edge->Edges[i]);
+                    prev = i;
+                }
+
+                DrawEnd();
+            }
+
+            if (edge->Groups)
+            {
+                DrawBegin(xconst(IDENTITY));
+                DrawColor(ColGreen);
+
+                for (i32 i = 0, prev = 3; i < 4; ++i)
+                {
+                    DrawLine(edge->Groups[prev], edge->Groups[i]);
+                    prev = i;
+                }
+
+                DrawLine(portal->Edge->Groups[0], portal->Edge->Groups[2]);
+                DrawLine(portal->Edge->Groups[1], portal->Edge->Groups[3]);
+
+                DrawEnd();
+            }
+        }
+
+        if (idx == PortalDebugIdx)
+            PortalCurrentIdx = portal->Cell->CellIndex;
+
+        if (!Debug || ((idx != PortalDebugIdx) && (portal->Cell->CellIndex != PortalShowIdx)) ||
+            (static_cast<i32>(Sim()->GetElapsed() * 2.0f) & 1))
+#endif
+        {
+            portal->Cell->CellRenderer->Cull(portal->Edge == nullptr);
+        }
+    } while (portal != end);
 }
 
 void asPortalWeb::DeleteEdge(asPortalEdge* /*arg1*/)
@@ -46,8 +167,3 @@ asPortalCell* LookupEdge(char* /*arg1*/)
 {
     return nullptr;
 }
-
-hook_func(INIT_main, [] {
-    for (u32 addr : {0x4911C2, 0x49128A, 0x49130E, 0x491354, 0x49137D, 0x4913D5})
-        create_hook("", "", addr, &asPortalWeb::CullHack, hook_type::call);
-});

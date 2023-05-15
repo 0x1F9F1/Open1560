@@ -117,8 +117,10 @@ public:
 
     Vector2 LeftPlane;
     Vector2 RightPlane;
-    Vector2 BottomPlane;
+
+    // TODO: Are these in the right order?
     Vector2 TopPlane;
+    Vector2 BottomPlane;
 
     f32 field_124;
     b32 Orthographic;
@@ -147,7 +149,7 @@ public:
     // ?GetName@agiViewport@@UAEPADXZ
     ARTS_EXPORT aconst char* GetName() override;
 
-    const agiViewParameters& GetParams()
+    agiViewParameters& GetParams()
     {
         return params_;
     }

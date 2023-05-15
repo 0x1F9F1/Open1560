@@ -94,7 +94,7 @@ class DLPTemplate
 {
 public:
     // ??0DLPTemplate@@QAE@PAD@Z
-    ARTS_EXPORT DLPTemplate(char* name);
+    ARTS_EXPORT DLPTemplate(aconst char* name);
 
     // ?AddRef@DLPTemplate@@QAEXXZ
     ARTS_EXPORT void AddRef()
@@ -103,19 +103,19 @@ public:
     }
 
     // ?BoundBox@DLPTemplate@@QAEHAAVVector3@@0PAD@Z
-    ARTS_IMPORT i32 BoundBox(Vector3& arg1, Vector3& arg2, char* arg3);
+    ARTS_IMPORT i32 BoundBox(Vector3& arg1, Vector3& arg2, aconst char* arg3);
 
     // ?GetCentroid@DLPTemplate@@QAEHAAVVector3@@PAD@Z
-    ARTS_IMPORT i32 GetCentroid(Vector3& arg1, char* arg2);
+    ARTS_IMPORT i32 GetCentroid(Vector3& arg1, aconst char* arg2);
 
     // ?GetGroupVertex@DLPTemplate@@QAEPAVVector3@@PAD@Z | unused
-    ARTS_IMPORT Vector3* GetGroupVertex(char* arg1);
+    ARTS_IMPORT Vector3* GetGroupVertex(aconst char* arg1);
 
     // ?GetVertexCentroid@DLPTemplate@@QAEHAAVVector3@@PAD@Z | unused
-    ARTS_IMPORT i32 GetVertexCentroid(Vector3& arg1, char* arg2);
+    ARTS_IMPORT i32 GetVertexCentroid(Vector3& arg1, aconst char* arg2);
 
     // ?GroupExists@DLPTemplate@@QAEPAVDLPGroup@@PAD@Z
-    ARTS_IMPORT DLPGroup* GroupExists(char* arg1);
+    ARTS_IMPORT DLPGroup* GroupExists(aconst char* arg1);
 
     // ?Init@DLPTemplate@@QAEXHHH@Z
     ARTS_IMPORT void Init(i32 arg1, i32 arg2, i32 arg3);
@@ -125,7 +125,7 @@ public:
         agiLib<agiPhysParameters, agiPhysDef>& plib);
 
     // ?Load@DLPTemplate@@QAEHPAD@Z | unused
-    ARTS_EXPORT i32 Load(char* path);
+    ARTS_EXPORT i32 Load(aconst char* path);
 
     // ?Load@DLPTemplate@@QAEXPAVStream@@@Z
     ARTS_EXPORT void Load(Stream* file);
@@ -137,7 +137,7 @@ public:
     ARTS_IMPORT i32 Release();
 
     // ?Restrict@DLPTemplate@@QAEHPAD@Z
-    ARTS_IMPORT i32 Restrict(char* arg1);
+    ARTS_IMPORT i32 Restrict(aconst char* arg1);
 
     // ?Save@DLPTemplate@@QAEXPAVStream@@@Z | unused
     ARTS_IMPORT void Save(Stream* arg1);
@@ -183,7 +183,7 @@ public:
     ARTS_EXPORT ~DLPPatch() = default;
 
     // ?GetProp@DLPPatch@@QAEPADPAD@Z | unused
-    ARTS_IMPORT char* GetProp(char* arg1);
+    ARTS_IMPORT char* GetProp(aconst char* arg1);
 
     // ?Load@DLPPatch@@QAEXPAVStream@@@Z
     ARTS_EXPORT void Load(Stream* file);

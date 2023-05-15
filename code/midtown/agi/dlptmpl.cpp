@@ -27,7 +27,7 @@ define_dummy_symbol(agi_dlptmpl);
 #include "physlib.h"
 #include "texlib.h"
 
-DLPTemplate::DLPTemplate(char* name)
+DLPTemplate::DLPTemplate(aconst char* name)
     : Name(name)
 {
     DLPTemplateHash.Insert(Name.get(), this);
@@ -38,7 +38,7 @@ DLPTemplate::~DLPTemplate()
     DLPTemplateHash.Delete(Name.get());
 }
 
-i32 DLPTemplate::Load(char* path)
+i32 DLPTemplate::Load(aconst char* path)
 {
     Ptr<Stream> input {arts_fopen(path, "r")};
 

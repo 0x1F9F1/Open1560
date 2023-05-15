@@ -56,8 +56,16 @@ public:
     // ??KVector2@@QBE?AV0@M@Z | unused
     ARTS_IMPORT Vector2 operator/(f32 arg1) const;
 
+    inline Vector2 operator*(f32 value) const
+    {
+        return {x * value, y * value};
+    }
+
     // ??SVector2@@QBE?AV0@XZ | unused
-    ARTS_IMPORT Vector2 operator~() const;
+    ARTS_EXPORT inline Vector2 operator~() const
+    {
+        return *this * InvMag();
+    }
 
     // ?InvMag@Vector2@@QBEMXZ
     ARTS_IMPORT f32 InvMag() const;

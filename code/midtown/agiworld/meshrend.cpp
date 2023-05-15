@@ -653,7 +653,7 @@ void agiMeshSet::DrawLitEnv(agiMeshLighter lighter, agiTexDef* env_map, Matrix34
     }
 }
 
-void agiMeshSet::DrawNormals(Vector3& color)
+void agiMeshSet::DrawNormals([[maybe_unused]] Vector3& color)
 {
     // FIXME: Avoid this check
     if (agiMeshSet* volatile this_ptr = this; !this_ptr)
@@ -661,6 +661,7 @@ void agiMeshSet::DrawNormals(Vector3& color)
 
     if (LockIfResident())
     {
+#ifdef ARTS_DEV_BUILD
         if (Normals)
         {
             DrawBegin(xconst(ViewParams().World));
@@ -675,6 +676,7 @@ void agiMeshSet::DrawNormals(Vector3& color)
 
             DrawEnd();
         }
+#endif
 
         Unlock();
     }

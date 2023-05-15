@@ -51,6 +51,7 @@
 */
 
 #include "arts7/node.h"
+#include "vector7/vector4.h"
 
 struct asPortalCell;
 struct asPortalEdge;
@@ -133,9 +134,7 @@ public:
 #endif
 
     // ?Cull@asPortalWeb@@QAEXH@Z
-    ARTS_IMPORT void Cull(b32 front_to_back);
-
-    void CullHack(b32 front_to_back);
+    ARTS_EXPORT void Cull(b32 front_to_back);
 
     // ?DeleteCell@asPortalWeb@@QAEXPAUasPortalCell@@@Z | unused
     ARTS_IMPORT void DeleteCell(asPortalCell* arg1);
@@ -212,7 +211,18 @@ public:
     // ??0asPortalEdge@@QAE@PAUasPortalCell@@0H@Z | inline
     ARTS_IMPORT asPortalEdge(asPortalCell* arg1, asPortalCell* arg2, i32 arg3);
 
-    u8 gap0[0x30];
+    u8 Flags;
+    u8 NumEdges;
+    u16 VisitTag;
+    Vector3* Edges;
+    asPortalCell* Cell1;
+    asPortalCell* Cell2;
+    Vector4 Plane;
+    agiTexDef* Texture;
+    asPortalEdge* Next;
+    f32 PlaneDist;
+
+    Vector3* Groups; // Vector3[4]
 };
 
 check_size(asPortalEdge, 0x30);
@@ -220,7 +230,7 @@ check_size(asPortalEdge, 0x30);
 class asPortalRenderable
 {
 public:
-    virtual void Cull(i32 arg1) = 0;
+    virtual void Cull(b32 sub_cull) = 0;
 };
 
 check_size(asPortalRenderable, 0x4);

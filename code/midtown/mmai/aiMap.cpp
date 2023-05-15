@@ -29,6 +29,7 @@ define_dummy_symbol(mmai_aiMap);
 void aiMap::UpdatePaused()
 {}
 
+#ifdef ARTS_DEV_BUILD
 void aiMap::AddWidgets(Bank* bank)
 {
     bank->AddButton("Always Green", [this] { AllwaysGreen(); });
@@ -73,6 +74,7 @@ void aiMap::AddWidgets(Bank* bank)
 
     bank->PopSection();
 }
+#endif
 
 void aiMap::Dump()
 {
