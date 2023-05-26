@@ -275,7 +275,7 @@ public:
         ConstString& str = *static_cast<ConstString*>(ptr);
 
         if (parser->NextToken() != MiniParser::LabelRefToken) // TODO: Are all other tokens really valid?
-            str = arts_strdup(parser->GetBuffer());
+            str = parser->GetBuffer();
         else
             str = nullptr;
     }

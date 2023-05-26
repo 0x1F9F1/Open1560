@@ -1168,15 +1168,10 @@ void GameLoop([[maybe_unused]] mmInterface* mm_interface, [[maybe_unused]] mmGam
             else
 #endif
             {
-                bool sampling = false;
+                bool sampling = !!(GetAsyncKeyState(VK_CAPITAL) & 0x8000);
 
-                if (GetAsyncKeyState(VK_CAPITAL) & 0x8000)
-                {
-                    sampling = true;
-
-                    if (__VtResumeSampling)
-                        __VtResumeSampling();
-                }
+                if (sampling && __VtResumeSampling)
+                    __VtResumeSampling();
 
                 if (GetAsyncKeyState(VK_SCROLL) & 0x8000)
                     ALLOCATOR.SanityCheck();
@@ -1189,11 +1184,8 @@ void GameLoop([[maybe_unused]] mmInterface* mm_interface, [[maybe_unused]] mmGam
 
                 Sim()->Simulate();
 
-                if (sampling)
-                {
-                    if (__VtPauseSampling)
-                        __VtPauseSampling();
-                }
+                if (sampling && __VtPauseSampling)
+                    __VtPauseSampling();
             }
         }
 
