@@ -63,6 +63,10 @@ define_dummy_symbol(midtown);
 #include "stream/vfsystem.h"
 #include "vector7/randmath.h"
 
+#ifdef ARTS_DEV_BUILD
+#    include "toolmgr/toolmgr.h"
+#endif
+
 #include <mem/cmd_param-inl.h>
 
 #define SDL_MAIN_NEEDED
@@ -551,9 +555,12 @@ static void MainPhase(i32 argc, char** argv)
 }
 
 static mem::cmd_param PARAM_heapsize {"heapsize"};
+static mem::cmd_param PARAM_speedrun {"speedrun"};
 
 void ApplicationHelper(i32 argc, char** argv)
 {
+    dxiIcon = 111;
+
     CloseCallback = GameCloseCallback;
 
     int path_filter = 1;
@@ -638,6 +645,15 @@ void ApplicationHelper(i32 argc, char** argv)
         }
     }
 
+    if (PARAM_speedrun)
+    {
+        mem::cmd_param::set("smoothstep", "0");
+        mem::cmd_param::set("maxfps", "60");
+        mem::cmd_param::set("speedycops", "1");
+        mem::cmd_param::set("vsync", "0");
+        mem::cmd_param::set("showfps", "1");
+    }
+
     if (priority >= 0 && priority < 4)
     {
         static const char* const priority_names[4] = {"idle", "normal", "high", "REALTIME"};
@@ -666,6 +682,12 @@ void ApplicationHelper(i32 argc, char** argv)
     }
 
     CheckSystem();
+
+    if (SDL_InitSubSystem(SDL_INIT_VIDEO) != 0)
+    {
+        Errorf("Unable to initialize SDL Video: %s", SDL_GetError());
+        return;
+    }
 
     dxiConfig(argc, argv);
     SDL_ShowCursor(0);
@@ -924,17 +946,8 @@ ARTS_EXPORT int WINAPI MidtownMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
     return WinMain(hInstance, hPrevInstance, lpCmdLine, nShowCmd);
 }
 
-static mem::cmd_param PARAM_speedrun {"speedrun"};
-
 int main(int argc, char** argv)
 {
-    if (SDL_Init(SDL_INIT_TIMER | SDL_INIT_VIDEO) != 0)
-    {
-        SDL_Log("Unable to initialize SDL: %s", SDL_GetError());
-
-        return 1;
-    }
-
     SDL_SetHint(SDL_HINT_TIMER_RESOLUTION, "1");
 
     SDL_LogSetOutputFunction(
@@ -989,13 +1002,10 @@ int main(int argc, char** argv)
     if (PARAM_console.get_or(false))
         LogToConsole();
 
-    if (PARAM_speedrun)
+    if (SDL_Init(SDL_INIT_TIMER) != 0)
     {
-        mem::cmd_param::set("smoothstep", "0");
-        mem::cmd_param::set("maxfps", "60");
-        mem::cmd_param::set("speedycops", "1");
-        mem::cmd_param::set("vsync", "0");
-        mem::cmd_param::set("showfps", "1");
+        Errorf("Unable to initialize SDL: %s", SDL_GetError());
+        return 1;
     }
 
     Displayf("Processed %zu Init Functions", mem::static_function::exec(INIT_main, true));
@@ -1090,18 +1100,25 @@ static void SetThreadSafety()
     }
 }
 
+static mem::cmd_param PARAM_tool {"tool"};
+
 void Application(i32 argc, char** argv)
 {
     ARTS_EXCEPTION_BEGIN
     {
+        SetThreadSafety();
+
         if (PARAM_help)
         {
             ShowUsage();
             return;
         }
 
-        dxiIcon = 111;
-        SetThreadSafety();
+        if (const char* tool = PARAM_tool.value())
+        {
+            ProcessTool(tool);
+            return;
+        }
 
         ApplicationHelper(argc, argv);
     }

@@ -47,6 +47,7 @@ project "*"
 if ARTS_DEV_BUILD then
     include "agirend"
     include "mmcamtour"
+    include "toolmgr"
 
     project "*"
         defines { "ARTS_DEV_BUILD" }
@@ -106,6 +107,7 @@ arts_component "midtown"
         "arts_stream",
         "arts_vector7",
 
+
         -- "lua",
         "SDL2",
         "SDL2main",
@@ -115,6 +117,7 @@ arts_component "midtown"
         links {
             "arts_agirend",
             "arts_mmcamtour",
+            "arts_toolmgr",
         }
     end
 
