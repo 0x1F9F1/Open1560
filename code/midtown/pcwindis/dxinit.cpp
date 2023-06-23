@@ -32,6 +32,12 @@ define_dummy_symbol(pcwindis_dxinit);
 #    include "agisdl/sdlswpipe.h"
 #endif
 
+#define ARTS_USE_SDL_DINPUT
+
+#ifdef ARTS_USE_SDL_DINPUT
+#    include "sdldinput.h"
+#endif
+
 #include <SDL_hints.h>
 #include <SDL_syswm.h>
 #include <SDL_video.h>
@@ -96,7 +102,9 @@ void dxiDirectDrawSurfaceDestroy()
 
 void dxiDirectInputCreate()
 {
-#if DIRECTINPUT_VERSION == 0x0800
+#ifdef ARTS_USE_SDL_DINPUT
+    HRESULT err = Create_SDL_IDirectInput2A(&lpDI);
+#elif DIRECTINPUT_VERSION == 0x0800
     create_patch("CLSID_IDirectInputDevice2A", "Replace with IID_IDirectInputDevice8A", 0x624A58,
         &IID_IDirectInputDevice8A, sizeof(IID_IDirectInputDevice8A));
 
@@ -111,7 +119,7 @@ void dxiDirectInputCreate()
     HMODULE hdinput = LoadLibraryA("dinput.dll");
 
     // Check for old Open1560 installations
-    if (GetProcAddress(hdinput, "?ComputeCpuSpeed@@YAIXZ"))
+    if (hdinput && GetProcAddress(hdinput, "?ComputeCpuSpeed@@YAIXZ"))
     {
         MessageBoxA(NULL, "Delete dinput.dll from your game directory", "Outdated Open1560 Detected",
             MB_OK | MB_ICONERROR | MB_SETFOREGROUND | MB_TOPMOST);

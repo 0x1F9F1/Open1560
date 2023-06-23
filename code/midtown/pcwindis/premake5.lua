@@ -8,6 +8,8 @@ arts_component "pcwindis"
         "dxsetup.h",
         "pcwindis.cpp",
         "pcwindis.h",
+        "sdldinput.cpp",
+        "sdldinput.h",
         "setupdata.cpp",
         "setupdata.h",
     }
