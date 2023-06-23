@@ -26,18 +26,18 @@ define_dummy_symbol(vector7_geomath);
 void ComputeShadowMatrix(Matrix34& matrix, Vector4& normal)
 {
     matrix.m0.x = -(normal.x * normal.x) + 1.0f;
-    matrix.m0.y = -(normal.x * normal.y);
-    matrix.m0.z = -(normal.x * normal.z);
+    matrix.m0.y = -(normal.y * normal.x);
+    matrix.m0.z = -(normal.z * normal.x);
 
     matrix.m1.x = -(normal.x * normal.y);
     matrix.m1.y = -(normal.y * normal.y) + 1.0f;
     matrix.m1.z = -(normal.z * normal.y);
 
     matrix.m2.x = -(normal.x * normal.z);
-    matrix.m2.y = -(normal.z * normal.y);
+    matrix.m2.y = -(normal.y * normal.z);
     matrix.m2.z = -(normal.z * normal.z) + 1.0f;
 
     matrix.m3.x = -(normal.x * normal.w);
-    matrix.m3.y = -(normal.w * normal.y);
-    matrix.m3.z = -(normal.w * normal.z);
+    matrix.m3.y = -(normal.y * normal.w);
+    matrix.m3.z = -(normal.z * normal.w);
 }
