@@ -22,6 +22,7 @@ define_dummy_symbol(pcwindis_dxinit);
 
 #include "dxsetup.h"
 #include "pcwindis.h"
+#include "sdldinput.h"
 #include "setupdata.h"
 
 #include "agi/pipeline.h"
@@ -30,12 +31,6 @@ define_dummy_symbol(pcwindis_dxinit);
 #ifdef ARTS_ENABLE_OPENGL
 #    include "agigl/glpipe.h"
 #    include "agisdl/sdlswpipe.h"
-#endif
-
-#define ARTS_USE_SDL_DINPUT
-
-#ifdef ARTS_USE_SDL_DINPUT
-#    include "sdldinput.h"
 #endif
 
 #include <SDL_hints.h>
@@ -100,11 +95,17 @@ void dxiDirectDrawSurfaceDestroy()
     SafeRelease(lpdsFront);
 }
 
+static mem::cmd_param PARAM_sdljoy {"sdljoy"};
+
 void dxiDirectInputCreate()
 {
-#ifdef ARTS_USE_SDL_DINPUT
-    HRESULT err = Create_SDL_IDirectInput2A(&lpDI);
-#elif DIRECTINPUT_VERSION == 0x0800
+    if (PARAM_sdljoy.get_or(true))
+    {
+        lpDI = Create_SDL_IDirectInput2A();
+        return;
+    }
+
+#if DIRECTINPUT_VERSION == 0x0800
     create_patch("CLSID_IDirectInputDevice2A", "Replace with IID_IDirectInputDevice8A", 0x624A58,
         &IID_IDirectInputDevice8A, sizeof(IID_IDirectInputDevice8A));
 

@@ -20,4 +20,4 @@
 
 #include <dinput.h>
 
-HRESULT Create_SDL_IDirectInput2A(IDirectInputA** ppDI);
+IDirectInputA* Create_SDL_IDirectInput2A();
