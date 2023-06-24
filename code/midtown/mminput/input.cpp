@@ -207,5 +207,233 @@ b32 mmInput::GetNextKeyboardEvent(eqEvent* event)
     return true;
 }
 
+#define kEvent (i32)(ioType::Event)
+#define kContinuous (i32)(ioType::Continuous)
+#define kDiscrete (i32)(ioType::Discrete)
+
+#define MM_MOUSE (i32)(mmIODevice::Mouse)
+#define MM_KEYBOARD (i32)(mmIODevice::Keyboard)
+#define MM_JOYSTICK1 (i32)(mmIODevice::Joystick1)
+
+#define mmiMOUSE (i32)(mmInputType::Mouse)
+#define mmiKEYBOARD (i32)(mmInputType::Keyboard)
+#define mmiJOYSTICK (i32)(mmInputType::Joystick)
+#define mmiGAMEPAD (i32)(mmInputType::Gamepad)
+#define mmiWHEEL2AXIS (i32)(mmInputType::Wheel2Axis)
+
+#define kXaxis (i32)(mmJoyInput::Xaxis)
+#define kYaxis (i32)(mmJoyInput::Yaxis)
+#define kZaxis (i32)(mmJoyInput::Zaxis)
+#define kUaxis (i32)(mmJoyInput::Uaxis)
+#define kRaxis (i32)(mmJoyInput::Raxis)
+#define kVaxis (i32)(mmJoyInput::Vaxis)
+#define kPOVaxis (i32)(mmJoyInput::POVaxis)
+#define kXaxisLeft (i32)(mmJoyInput::XaxisLeft)
+#define kXaxisRight (i32)(mmJoyInput::XaxisRight)
+#define kYaxisUp (i32)(mmJoyInput::YaxisUp)
+#define kYaxisDown (i32)(mmJoyInput::YaxisDown)
+#define kJButton1 (i32)(mmJoyInput::JButton1)
+#define kJButton2 (i32)(mmJoyInput::JButton2)
+#define kJButton3 (i32)(mmJoyInput::JButton3)
+#define kJButton4 (i32)(mmJoyInput::JButton4)
+#define kJButton5 (i32)(mmJoyInput::JButton5)
+#define kJButton6 (i32)(mmJoyInput::JButton6)
+#define kJButton7 (i32)(mmJoyInput::JButton7)
+#define kJButton8 (i32)(mmJoyInput::JButton8)
+#define kJButton9 (i32)(mmJoyInput::JButton9)
+#define kJButton10 (i32)(mmJoyInput::JButton10)
+#define kJButton11 (i32)(mmJoyInput::JButton11)
+#define kJButton12 (i32)(mmJoyInput::JButton12)
+#define kZaxisUp (i32)(mmJoyInput::ZaxisUp)
+#define kZaxisDown (i32)(mmJoyInput::ZaxisDown)
+#define kRaxisUp (i32)(mmJoyInput::RaxisUp)
+#define kRaxisDown (i32)(mmJoyInput::RaxisDown)
+
+void mmInput::SetDefaultConfig(i32 config)
+{
+    i32 old_config = std::exchange(InputConfiguration, config);
+
+    switch (InputConfiguration)
+    {
+        case mmiMOUSE:
+            IO[IOID_MAP].InitDev(kEvent, 0, MM_KEYBOARD, 0xf);
+            IO[IOID_FMAP].InitDev(kEvent, 0, MM_KEYBOARD, 0x10);
+            IO[IOID_MAPRES].InitDev(kEvent, 0, MM_KEYBOARD, 0x12);
+            IO[IOID_HUD].InitDev(kEvent, 0, MM_KEYBOARD, 0x23);
+            IO[IOID_STR].InitDev(kContinuous, 0, MM_MOUSE, kXaxis);
+            IO[IOID_STRL].InitDev(kDiscrete, 0, MM_KEYBOARD, 0xcb);
+            IO[IOID_STRR].InitDev(kDiscrete, 0, MM_KEYBOARD, 0xcd);
+            IO[IOID_THROT].InitDev(kDiscrete, 0, MM_MOUSE, EQ_BUTTON_LEFT);
+            IO[IOID_BRAKE].InitDev(kDiscrete, 0, MM_MOUSE, EQ_BUTTON_RIGHT);
+            IO[IOID_HAND].InitDev(kDiscrete, 0, MM_KEYBOARD, 0x39);
+            IO[IOID_CAM].InitDev(kEvent, 0, MM_KEYBOARD, 0x2e);
+            IO[IOID_XVIEW].InitDev(kEvent, 0, MM_KEYBOARD, 0x2f);
+            IO[IOID_HORN].InitDev(kDiscrete, 0, MM_KEYBOARD, 0x1c);
+            IO[IOID_LOKL].InitDev(kDiscrete, 0, MM_KEYBOARD, 0x4b);
+            IO[IOID_LOKR].InitDev(kDiscrete, 0, MM_KEYBOARD, 0x4d);
+            IO[IOID_LOKB].InitDev(kDiscrete, 0, MM_KEYBOARD, 0x50);
+            IO[IOID_LOKF].InitDev(kDiscrete, 0, MM_KEYBOARD, 0x48);
+            IO[IOID_WFOV].InitDev(kEvent, 0, MM_KEYBOARD, 0x11);
+            IO[IOID_DASH].InitDev(kEvent, 0, MM_KEYBOARD, 0x20);
+            IO[IOID_TRANS].InitDev(kEvent, 0, MM_KEYBOARD, 0x14);
+            IO[IOID_UPSH].InitDev(kEvent, 0, MM_KEYBOARD, 0x1e);
+            IO[IOID_DWNS].InitDev(kEvent, 0, MM_KEYBOARD, 0x2c);
+            IO[IOID_REV].InitDev(kEvent, 0, MM_KEYBOARD, 0x13);
+            IO[IOID_WYPTN].InitDev(kEvent, 0, MM_KEYBOARD, 0x1f);
+            IO[IOID_WYPTP].InitDev(kEvent, 0, MM_KEYBOARD, 0x2d);
+            IO[IOID_CDSHOW].InitDev(kEvent, 0, MM_KEYBOARD, 0x3);
+            IO[IOID_CDPLAY].InitDev(kEvent, 0, MM_KEYBOARD, 0x4);
+            IO[IOID_CDPRIOR].InitDev(kEvent, 0, MM_KEYBOARD, 0x5);
+            IO[IOID_CDNEXT].InitDev(kEvent, 0, MM_KEYBOARD, 0x6);
+            IO[IOID_MIRROR].InitDev(kEvent, 0, MM_KEYBOARD, 0xe);
+            IO[IOID_PAN].InitDev(kContinuous, 0, MM_JOYSTICK1, kPOVaxis);
+            IO[IOID_PAN].InitDev(kEvent, 0, MM_KEYBOARD, 0x17);
+            IO[IOID_PAN].InitDev(kEvent, 0, MM_KEYBOARD, 0x15);
+            break;
+        case mmiKEYBOARD:
+            IO[IOID_MAP].InitDev(kEvent, 0, MM_KEYBOARD, 0xf);
+            IO[IOID_FMAP].InitDev(kEvent, 0, MM_KEYBOARD, 0x10);
+            IO[IOID_MAPRES].InitDev(kEvent, 0, MM_KEYBOARD, 0x12);
+            IO[IOID_HUD].InitDev(kEvent, 0, MM_KEYBOARD, 0x23);
+            IO[IOID_STR].InitDev(kDiscrete, 0, MM_KEYBOARD, 0x9);
+            IO[IOID_STRL].InitDev(kDiscrete, 0, MM_KEYBOARD, 0xcb);
+            IO[IOID_STRR].InitDev(kDiscrete, 0, MM_KEYBOARD, 0xcd);
+            IO[IOID_THROT].InitDev(kDiscrete, 0, MM_KEYBOARD, 0xc8);
+            IO[IOID_BRAKE].InitDev(kDiscrete, 0, MM_KEYBOARD, 0xd0);
+            IO[IOID_HAND].InitDev(kDiscrete, 0, MM_KEYBOARD, 0x39);
+            IO[IOID_CAM].InitDev(kEvent, 0, MM_KEYBOARD, 0x2e);
+            IO[IOID_XVIEW].InitDev(kEvent, 0, MM_KEYBOARD, 0x2f);
+            IO[IOID_HORN].InitDev(kDiscrete, 0, MM_KEYBOARD, 0x1c);
+            IO[IOID_LOKL].InitDev(kDiscrete, 0, MM_KEYBOARD, 0x4b);
+            IO[IOID_LOKR].InitDev(kDiscrete, 0, MM_KEYBOARD, 0x4d);
+            IO[IOID_LOKB].InitDev(kDiscrete, 0, MM_KEYBOARD, 0x50);
+            IO[IOID_LOKF].InitDev(kDiscrete, 0, MM_KEYBOARD, 0x48);
+            IO[IOID_WFOV].InitDev(kEvent, 0, MM_KEYBOARD, 0x11);
+            IO[IOID_DASH].InitDev(kEvent, 0, MM_KEYBOARD, 0x20);
+            IO[IOID_TRANS].InitDev(kEvent, 0, MM_KEYBOARD, 0x14);
+            IO[IOID_UPSH].InitDev(kEvent, 0, MM_KEYBOARD, 0x1e);
+            IO[IOID_DWNS].InitDev(kEvent, 0, MM_KEYBOARD, 0x2c);
+            IO[IOID_REV].InitDev(kEvent, 0, MM_KEYBOARD, 0x13);
+            IO[IOID_WYPTN].InitDev(kEvent, 0, MM_KEYBOARD, 0x1f);
+            IO[IOID_WYPTP].InitDev(kEvent, 0, MM_KEYBOARD, 0x2d);
+            IO[IOID_CDSHOW].InitDev(kEvent, 0, MM_KEYBOARD, 0x3);
+            IO[IOID_CDPLAY].InitDev(kEvent, 0, MM_KEYBOARD, 0x4);
+            IO[IOID_CDPRIOR].InitDev(kEvent, 0, MM_KEYBOARD, 0x5);
+            IO[IOID_CDNEXT].InitDev(kEvent, 0, MM_KEYBOARD, 0x6);
+            IO[IOID_MIRROR].InitDev(kEvent, 0, MM_KEYBOARD, 0xe);
+            IO[IOID_PAN].InitDev(kContinuous, 0, MM_JOYSTICK1, kPOVaxis);
+            IO[IOID_PAN].InitDev(kEvent, 0, MM_KEYBOARD, 0x17);
+            IO[IOID_PAN].InitDev(kEvent, 0, MM_KEYBOARD, 0x15);
+            break;
+        case mmiJOYSTICK:
+            IO[IOID_MAP].InitDev(kEvent, 0, MM_JOYSTICK1, kJButton4);
+            IO[IOID_FMAP].InitDev(kEvent, 0, MM_KEYBOARD, 0x10);
+            IO[IOID_MAPRES].InitDev(kEvent, 0, MM_KEYBOARD, 0x12);
+            IO[IOID_HUD].InitDev(kEvent, 0, MM_KEYBOARD, 0x23);
+            IO[IOID_STR].InitDev(kContinuous, 0, MM_JOYSTICK1, kXaxis);
+            IO[IOID_STRL].InitDev(kDiscrete, 0, MM_KEYBOARD, 0xcb);
+            IO[IOID_STRR].InitDev(kDiscrete, 0, MM_KEYBOARD, 0xcd);
+            IO[IOID_THROT].InitDev(kContinuous, 0, MM_JOYSTICK1, kYaxisUp);
+            IO[IOID_BRAKE].InitDev(kContinuous, 0, MM_JOYSTICK1, kYaxisDown);
+            IO[IOID_HAND].InitDev(kDiscrete, 0, MM_JOYSTICK1, kJButton2);
+            IO[IOID_CAM].InitDev(kEvent, 0, MM_JOYSTICK1, kJButton3);
+            IO[IOID_XVIEW].InitDev(kEvent, 0, MM_KEYBOARD, 0x2f);
+            IO[IOID_HORN].InitDev(kDiscrete, 0, MM_JOYSTICK1, kJButton1);
+            IO[IOID_LOKL].InitDev(kDiscrete, 0, MM_KEYBOARD, 0x4b);
+            IO[IOID_LOKR].InitDev(kDiscrete, 0, MM_KEYBOARD, 0x4d);
+            IO[IOID_LOKB].InitDev(kDiscrete, 0, MM_KEYBOARD, 0x50);
+            IO[IOID_LOKF].InitDev(kDiscrete, 0, MM_KEYBOARD, 0x48);
+            IO[IOID_WFOV].InitDev(kEvent, 0, MM_KEYBOARD, 0x11);
+            IO[IOID_DASH].InitDev(kEvent, 0, MM_KEYBOARD, 0x20);
+            IO[IOID_TRANS].InitDev(kEvent, 0, MM_KEYBOARD, 0x14);
+            IO[IOID_UPSH].InitDev(kEvent, 0, MM_KEYBOARD, 0x1e);
+            IO[IOID_DWNS].InitDev(kEvent, 0, MM_KEYBOARD, 0x2c);
+            IO[IOID_REV].InitDev(kEvent, 0, MM_KEYBOARD, 0x13);
+            IO[IOID_WYPTN].InitDev(kEvent, 0, MM_KEYBOARD, 0x1f);
+            IO[IOID_WYPTP].InitDev(kEvent, 0, MM_KEYBOARD, 0x2d);
+            IO[IOID_CDSHOW].InitDev(kEvent, 0, MM_KEYBOARD, 0x3);
+            IO[IOID_CDPLAY].InitDev(kEvent, 0, MM_KEYBOARD, 0x4);
+            IO[IOID_CDPRIOR].InitDev(kEvent, 0, MM_KEYBOARD, 0x5);
+            IO[IOID_CDNEXT].InitDev(kEvent, 0, MM_KEYBOARD, 0x6);
+            IO[IOID_MIRROR].InitDev(kEvent, 0, MM_KEYBOARD, 0xe);
+            IO[IOID_PAN].InitDev(kContinuous, 0, MM_JOYSTICK1, kPOVaxis);
+            IO[IOID_PAN].InitDev(kEvent, 0, MM_KEYBOARD, 0x17);
+            IO[IOID_PAN].InitDev(kEvent, 0, MM_KEYBOARD, 0x15);
+            break;
+        case mmiGAMEPAD:
+            IO[IOID_MAP].InitDev(kEvent, 0, MM_KEYBOARD, 0xf);
+            IO[IOID_FMAP].InitDev(kEvent, 0, MM_KEYBOARD, 0x10);
+            IO[IOID_MAPRES].InitDev(kEvent, 0, MM_KEYBOARD, 0x12);
+            IO[IOID_HUD].InitDev(kEvent, 0, MM_KEYBOARD, 0x23);
+            IO[IOID_STR].InitDev(kContinuous, 0, MM_JOYSTICK1, kXaxis);
+            IO[IOID_STRL].InitDev(kDiscrete, 0, MM_KEYBOARD, 0xcb);
+            IO[IOID_STRR].InitDev(kDiscrete, 0, MM_KEYBOARD, 0xcd);
+            IO[IOID_THROT].InitDev(kDiscrete, 0, MM_JOYSTICK1, kJButton1);
+            IO[IOID_BRAKE].InitDev(kDiscrete, 0, MM_JOYSTICK1, kJButton2);
+            IO[IOID_HAND].InitDev(kContinuous, 0, MM_JOYSTICK1, kYaxisDown);
+            IO[IOID_CAM].InitDev(kEvent, 0, MM_JOYSTICK1, kJButton4);
+            IO[IOID_XVIEW].InitDev(kEvent, 0, MM_KEYBOARD, 0x2f);
+            IO[IOID_HORN].InitDev(kDiscrete, 0, MM_JOYSTICK1, kJButton3);
+            IO[IOID_LOKL].InitDev(kDiscrete, 0, MM_KEYBOARD, 0x4b);
+            IO[IOID_LOKR].InitDev(kDiscrete, 0, MM_KEYBOARD, 0x4d);
+            IO[IOID_LOKB].InitDev(kDiscrete, 0, MM_KEYBOARD, 0x50);
+            IO[IOID_LOKF].InitDev(kDiscrete, 0, MM_KEYBOARD, 0x48);
+            IO[IOID_WFOV].InitDev(kEvent, 0, MM_JOYSTICK1, kJButton6);
+            IO[IOID_DASH].InitDev(kEvent, 0, MM_JOYSTICK1, kJButton5);
+            IO[IOID_TRANS].InitDev(kEvent, 0, MM_KEYBOARD, 0x14);
+            IO[IOID_UPSH].InitDev(kEvent, 0, MM_JOYSTICK1, kJButton8);
+            IO[IOID_DWNS].InitDev(kEvent, 0, MM_JOYSTICK1, kJButton7);
+            IO[IOID_REV].InitDev(kEvent, 0, MM_KEYBOARD, 0x39);
+            IO[IOID_WYPTN].InitDev(kEvent, 0, MM_KEYBOARD, 0x1f);
+            IO[IOID_WYPTP].InitDev(kEvent, 0, MM_KEYBOARD, 0x2d);
+            IO[IOID_CDSHOW].InitDev(kEvent, 0, MM_KEYBOARD, 0x3);
+            IO[IOID_CDPLAY].InitDev(kEvent, 0, MM_KEYBOARD, 0x4);
+            IO[IOID_CDPRIOR].InitDev(kEvent, 0, MM_KEYBOARD, 0x5);
+            IO[IOID_CDNEXT].InitDev(kEvent, 0, MM_KEYBOARD, 0x6);
+            IO[IOID_MIRROR].InitDev(kEvent, 0, MM_KEYBOARD, 0xe);
+            IO[IOID_PAN].InitDev(kContinuous, 0, MM_JOYSTICK1, kPOVaxis);
+            IO[IOID_PAN].InitDev(kEvent, 0, MM_KEYBOARD, 0x17);
+            IO[IOID_PAN].InitDev(kEvent, 0, MM_KEYBOARD, 0x15);
+            break;
+        case mmiWHEEL2AXIS:
+            IO[IOID_MAP].InitDev(kEvent, 0, MM_KEYBOARD, 0xf);
+            IO[IOID_FMAP].InitDev(kEvent, 0, MM_KEYBOARD, 0x10);
+            IO[IOID_MAPRES].InitDev(kEvent, 0, MM_KEYBOARD, 0x12);
+            IO[IOID_HUD].InitDev(kEvent, 0, MM_KEYBOARD, 0x23);
+            IO[IOID_STR].InitDev(kContinuous, 0, MM_JOYSTICK1, kXaxis);
+            IO[IOID_STRL].InitDev(kDiscrete, 0, MM_KEYBOARD, 0xcb);
+            IO[IOID_STRR].InitDev(kDiscrete, 0, MM_KEYBOARD, 0xcd);
+            IO[IOID_THROT].InitDev(kContinuous, 0, MM_JOYSTICK1, kYaxisUp);
+            IO[IOID_BRAKE].InitDev(kContinuous, 0, MM_JOYSTICK1, kYaxisDown);
+            IO[IOID_HAND].InitDev(kDiscrete, 0, MM_KEYBOARD, 0x39);
+            IO[IOID_CAM].InitDev(kEvent, 0, MM_JOYSTICK1, kJButton2);
+            IO[IOID_XVIEW].InitDev(kEvent, 0, MM_KEYBOARD, 0x2f);
+            IO[IOID_HORN].InitDev(kDiscrete, 0, MM_JOYSTICK1, kJButton1);
+            IO[IOID_LOKL].InitDev(kDiscrete, 0, MM_KEYBOARD, 0x4b);
+            IO[IOID_LOKR].InitDev(kDiscrete, 0, MM_KEYBOARD, 0x4d);
+            IO[IOID_LOKB].InitDev(kDiscrete, 0, MM_KEYBOARD, 0x50);
+            IO[IOID_LOKF].InitDev(kDiscrete, 0, MM_KEYBOARD, 0x48);
+            IO[IOID_WFOV].InitDev(kEvent, 0, MM_KEYBOARD, 0x11);
+            IO[IOID_DASH].InitDev(kEvent, 0, MM_KEYBOARD, 0x20);
+            IO[IOID_TRANS].InitDev(kEvent, 0, MM_KEYBOARD, 0x14);
+            IO[IOID_UPSH].InitDev(kEvent, 0, MM_KEYBOARD, 0x1e);
+            IO[IOID_DWNS].InitDev(kEvent, 0, MM_KEYBOARD, 0x2c);
+            IO[IOID_REV].InitDev(kEvent, 0, MM_KEYBOARD, 0x13);
+            IO[IOID_WYPTN].InitDev(kEvent, 0, MM_KEYBOARD, 0x1f);
+            IO[IOID_WYPTP].InitDev(kEvent, 0, MM_KEYBOARD, 0x2d);
+            IO[IOID_CDSHOW].InitDev(kEvent, 0, MM_KEYBOARD, 0x3);
+            IO[IOID_CDPLAY].InitDev(kEvent, 0, MM_KEYBOARD, 0x4);
+            IO[IOID_CDPRIOR].InitDev(kEvent, 0, MM_KEYBOARD, 0x5);
+            IO[IOID_CDNEXT].InitDev(kEvent, 0, MM_KEYBOARD, 0x6);
+            IO[IOID_MIRROR].InitDev(kEvent, 0, MM_KEYBOARD, 0xe);
+            IO[IOID_PAN].InitDev(kContinuous, 0, MM_JOYSTICK1, kPOVaxis);
+            IO[IOID_PAN].InitDev(kEvent, 0, MM_KEYBOARD, 0x17);
+            IO[IOID_PAN].InitDev(kEvent, 0, MM_KEYBOARD, 0x15);
+            break;
+    }
+
+    InputConfiguration = old_config;
+}
+
 hook_func(INIT_main,
     [] { create_patch("mmInput::BuildCaptureIO", "Fix controller button mask", 0x4E1F56, "\x83\xE6\x7F", 3); });

@@ -57,6 +57,7 @@ enum class mmSkillLevel : i32
     Professional = 1,
 };
 
+// InputConfiguration
 enum class mmInputType : i32
 {
     Mouse = 0,      // mmiMOUSE

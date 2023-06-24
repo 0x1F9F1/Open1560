@@ -74,7 +74,7 @@ public:
     ARTS_EXPORT void Init(char* name, i32 ioid, ilong flags);
 
     // ?InitDev@mmIO@@QAEXH_JHHH@Z
-    ARTS_EXPORT void InitDev(i32 type, i64, i32 device, i32 component, i32);
+    ARTS_EXPORT void InitDev(i32 type, i64, i32 device, i32 component, i32 = 0);
 
     // ?Read@mmIO@@QAEHPAVStream@@@Z
     ARTS_IMPORT i32 Read(Stream* arg1);

@@ -423,7 +423,7 @@ public:
     ARTS_IMPORT void SetDeadZone(f32 arg1);
 
     // ?SetDefaultConfig@mmInput@@QAEXH@Z
-    ARTS_IMPORT void SetDefaultConfig(i32 arg1);
+    ARTS_EXPORT void SetDefaultConfig(i32 config);
 
     // ?SetForceFeedbackScale@mmInput@@QAEXM@Z | unused
     ARTS_IMPORT void SetForceFeedbackScale(f32 arg1);
