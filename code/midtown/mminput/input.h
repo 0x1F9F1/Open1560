@@ -234,6 +234,7 @@ namespace $
         // New
         // TODO: Handle in mmInput::ProcessJoyEvents
         // TODO: Handle in mmInput::BuildCaptureIO
+        // TODO: Handle in mmInput::SaveCodeConfig
         ZaxisUp = 33,
         ZaxisDown = 34,
 
