@@ -48,7 +48,7 @@ public:
     }
 
     /*** IUnknown methods ***/
-    STDMETHOD(QueryInterface)(REFIID riid, LPVOID* ppvObj)
+    STDMETHOD(QueryInterface)(REFIID riid, LPVOID* ppvObj) override
     {
         if (riid == IID_IDirectInputDevice2A)
         {
@@ -60,12 +60,12 @@ public:
         return E_NOINTERFACE;
     }
 
-    STDMETHOD_(ULONG, AddRef)()
+    STDMETHOD_(ULONG, AddRef)() override
     {
         return ++RefCount;
     }
 
-    STDMETHOD_(ULONG, Release)()
+    STDMETHOD_(ULONG, Release)() override
     {
         ULONG refs = --RefCount;
 
@@ -76,7 +76,7 @@ public:
     }
 
     /*** IDirectInputDeviceA methods ***/
-    STDMETHOD(GetCapabilities)(LPDIDEVCAPS lpDIDevCaps)
+    STDMETHOD(GetCapabilities)(LPDIDEVCAPS lpDIDevCaps) override
     {
         if (lpDIDevCaps->dwSize != sizeof(*lpDIDevCaps))
             return DIERR_INVALIDPARAM;
@@ -93,17 +93,17 @@ public:
         return DI_OK;
     }
 
-    STDMETHOD(EnumObjects)(LPDIENUMDEVICEOBJECTSCALLBACKA, LPVOID, DWORD)
+    STDMETHOD(EnumObjects)(LPDIENUMDEVICEOBJECTSCALLBACKA, LPVOID, DWORD) override
     {
         return FunctionNotImplemented();
     }
 
-    STDMETHOD(GetProperty)(REFGUID, LPDIPROPHEADER)
+    STDMETHOD(GetProperty)(REFGUID, LPDIPROPHEADER) override
     {
         return FunctionNotImplemented();
     }
 
-    STDMETHOD(SetProperty)(REFGUID, LPCDIPROPHEADER)
+    STDMETHOD(SetProperty)(REFGUID, LPCDIPROPHEADER) override
     {
         // TODO: Handle setting properties
 
@@ -112,17 +112,17 @@ public:
         // return FunctionNotImplemented();
     }
 
-    STDMETHOD(Acquire)()
+    STDMETHOD(Acquire)() override
     {
         return DI_OK;
     }
 
-    STDMETHOD(Unacquire)()
+    STDMETHOD(Unacquire)() override
     {
         return DI_OK;
     }
 
-    STDMETHOD(GetDeviceState)(DWORD cbData, LPVOID lpvData)
+    STDMETHOD(GetDeviceState)(DWORD cbData, LPVOID lpvData) override
     {
         if (cbData != sizeof(DIJOYSTATE))
             return DIERR_INVALIDPARAM;
@@ -174,12 +174,12 @@ public:
         return DI_OK;
     }
 
-    STDMETHOD(GetDeviceData)(DWORD, LPDIDEVICEOBJECTDATA, LPDWORD, DWORD)
+    STDMETHOD(GetDeviceData)(DWORD, LPDIDEVICEOBJECTDATA, LPDWORD, DWORD) override
     {
         return FunctionNotImplemented();
     }
 
-    STDMETHOD(SetDataFormat)(LPCDIDATAFORMAT lpdf)
+    STDMETHOD(SetDataFormat)(LPCDIDATAFORMAT lpdf) override
     {
         LPCDIDATAFORMAT joy_fmt = &c_dfDIJoystick; // DIJOYSTATE
 
@@ -201,22 +201,22 @@ public:
         return DI_OK;
     }
 
-    STDMETHOD(SetEventNotification)(HANDLE)
+    STDMETHOD(SetEventNotification)(HANDLE) override
     {
         return FunctionNotImplemented();
     }
 
-    STDMETHOD(SetCooperativeLevel)(HWND /*hwnd*/, DWORD /*dwFlags*/)
+    STDMETHOD(SetCooperativeLevel)(HWND /*hwnd*/, DWORD /*dwFlags*/) override
     {
         return DI_OK;
     }
 
-    STDMETHOD(GetObjectInfo)(LPDIDEVICEOBJECTINSTANCEA, DWORD, DWORD)
+    STDMETHOD(GetObjectInfo)(LPDIDEVICEOBJECTINSTANCEA, DWORD, DWORD) override
     {
         return FunctionNotImplemented();
     }
 
-    STDMETHOD(GetDeviceInfo)(LPDIDEVICEINSTANCEA pdidi)
+    STDMETHOD(GetDeviceInfo)(LPDIDEVICEINSTANCEA pdidi) override
     {
         if (pdidi->dwSize != sizeof(*pdidi))
             return DIERR_INVALIDPARAM;
@@ -230,53 +230,53 @@ public:
         return DI_OK;
     }
 
-    STDMETHOD(RunControlPanel)(HWND, DWORD)
+    STDMETHOD(RunControlPanel)(HWND, DWORD) override
     {
         return FunctionNotImplemented();
     }
 
-    STDMETHOD(Initialize)(HINSTANCE, DWORD, REFGUID)
+    STDMETHOD(Initialize)(HINSTANCE, DWORD, REFGUID) override
     {
         return FunctionNotImplemented();
     }
 
     /*** IDirectInputDevice2A methods ***/
-    STDMETHOD(CreateEffect)(REFGUID, LPCDIEFFECT, LPDIRECTINPUTEFFECT*, LPUNKNOWN)
+    STDMETHOD(CreateEffect)(REFGUID, LPCDIEFFECT, LPDIRECTINPUTEFFECT*, LPUNKNOWN) override
     {
         return FunctionNotImplemented();
     }
 
-    STDMETHOD(EnumEffects)(LPDIENUMEFFECTSCALLBACKA /*lpCallback*/, LPVOID /*pvRef*/, DWORD /*dwEffType*/)
+    STDMETHOD(EnumEffects)(LPDIENUMEFFECTSCALLBACKA /*lpCallback*/, LPVOID /*pvRef*/, DWORD /*dwEffType*/) override
     {
         return FunctionNotImplemented();
     }
 
-    STDMETHOD(GetEffectInfo)(LPDIEFFECTINFOA, REFGUID)
+    STDMETHOD(GetEffectInfo)(LPDIEFFECTINFOA, REFGUID) override
     {
         return FunctionNotImplemented();
     }
 
-    STDMETHOD(GetForceFeedbackState)(LPDWORD)
+    STDMETHOD(GetForceFeedbackState)(LPDWORD) override
     {
         return FunctionNotImplemented();
     }
 
-    STDMETHOD(SendForceFeedbackCommand)(DWORD)
+    STDMETHOD(SendForceFeedbackCommand)(DWORD) override
     {
         return FunctionNotImplemented();
     }
 
-    STDMETHOD(EnumCreatedEffectObjects)(LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, LPVOID, DWORD)
+    STDMETHOD(EnumCreatedEffectObjects)(LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, LPVOID, DWORD) override
     {
         return FunctionNotImplemented();
     }
 
-    STDMETHOD(Escape)(LPDIEFFESCAPE)
+    STDMETHOD(Escape)(LPDIEFFESCAPE) override
     {
         return FunctionNotImplemented();
     }
 
-    STDMETHOD(Poll)()
+    STDMETHOD(Poll)() override
     {
         SDL_GameControllerUpdate();
 
@@ -306,7 +306,7 @@ public:
         return DI_OK;
     }
 
-    STDMETHOD(SendDeviceData)(DWORD, LPDIDEVICEOBJECTDATA, LPDWORD, DWORD)
+    STDMETHOD(SendDeviceData)(DWORD, LPDIDEVICEOBJECTDATA, LPDWORD, DWORD) override
     {
         return FunctionNotImplemented();
     }
@@ -332,17 +332,17 @@ public:
     }
 
     /*** IUnknown methods ***/
-    STDMETHOD(QueryInterface)(REFIID /*riid*/, LPVOID* /*ppvObj*/)
+    STDMETHOD(QueryInterface)(REFIID /*riid*/, LPVOID* /*ppvObj*/) override
     {
         return FunctionNotImplemented();
     }
 
-    STDMETHOD_(ULONG, AddRef)()
+    STDMETHOD_(ULONG, AddRef)() override
     {
         return ++RefCount;
     }
 
-    STDMETHOD_(ULONG, Release)()
+    STDMETHOD_(ULONG, Release)() override
     {
         ULONG refs = --RefCount;
 
@@ -353,7 +353,7 @@ public:
     }
 
     /*** IDirectInputA methods ***/
-    STDMETHOD(CreateDevice)(REFGUID rguid, LPDIRECTINPUTDEVICEA* lplpDirectInputDevice, LPUNKNOWN /*pUnkOuter*/)
+    STDMETHOD(CreateDevice)(REFGUID rguid, LPDIRECTINPUTDEVICEA* lplpDirectInputDevice, LPUNKNOWN /*pUnkOuter*/) override
     {
         *lplpDirectInputDevice = nullptr;
 
@@ -391,7 +391,7 @@ public:
         return DIERR_DEVICENOTREG;
     }
 
-    STDMETHOD(EnumDevices)(DWORD dwDevType, LPDIENUMDEVICESCALLBACKA lpCallback, LPVOID pvRef, DWORD dwFlags)
+    STDMETHOD(EnumDevices)(DWORD dwDevType, LPDIENUMDEVICESCALLBACKA lpCallback, LPVOID pvRef, DWORD dwFlags) override
     {
         if (dwDevType == DIDEVTYPE_JOYSTICK && dwFlags == DIEDFL_ATTACHEDONLY)
         {
@@ -416,23 +416,23 @@ public:
         return FunctionNotImplemented();
     }
 
-    STDMETHOD(GetDeviceStatus)(REFGUID)
+    STDMETHOD(GetDeviceStatus)(REFGUID) override
     {
         return FunctionNotImplemented();
     }
 
-    STDMETHOD(RunControlPanel)(HWND, DWORD)
+    STDMETHOD(RunControlPanel)(HWND, DWORD) override
     {
         return FunctionNotImplemented();
     }
 
-    STDMETHOD(Initialize)(HINSTANCE, DWORD)
+    STDMETHOD(Initialize)(HINSTANCE, DWORD) override
     {
         return FunctionNotImplemented();
     }
 
     /*** IDirectInput2A methods ***/
-    STDMETHOD(FindDevice)(REFGUID, LPCSTR, LPGUID)
+    STDMETHOD(FindDevice)(REFGUID, LPCSTR, LPGUID) override
     {
         return FunctionNotImplemented();
     }

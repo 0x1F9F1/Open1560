@@ -251,6 +251,8 @@ b32 mmInput::GetNextKeyboardEvent(eqEvent* event)
 
 void mmInput::SetDefaultConfig(i32 config)
 {
+    // NOTE: mmInput::SaveCodeConfig does not support IOID_OPPPOS, IOID_CHAT, k(Z|R)Axis(Up|Down)
+
     i32 old_config = std::exchange(InputConfiguration, config);
 
     switch (InputConfiguration)
@@ -287,8 +289,8 @@ void mmInput::SetDefaultConfig(i32 config)
             IO[IOID_CDNEXT].InitDev(kEvent, 0, MM_KEYBOARD, 0x6);
             IO[IOID_MIRROR].InitDev(kEvent, 0, MM_KEYBOARD, 0xe);
             IO[IOID_PAN].InitDev(kContinuous, 0, MM_JOYSTICK1, kPOVaxis);
-            IO[IOID_PAN].InitDev(kEvent, 0, MM_KEYBOARD, 0x17);
-            IO[IOID_PAN].InitDev(kEvent, 0, MM_KEYBOARD, 0x15);
+            IO[IOID_OPPPOS].InitDev(kEvent, 0, MM_KEYBOARD, 0x17);
+            IO[IOID_CHAT].InitDev(kEvent, 0, MM_KEYBOARD, 0x15);
             break;
         case mmiKEYBOARD:
             IO[IOID_MAP].InitDev(kEvent, 0, MM_KEYBOARD, 0xf);
@@ -322,8 +324,8 @@ void mmInput::SetDefaultConfig(i32 config)
             IO[IOID_CDNEXT].InitDev(kEvent, 0, MM_KEYBOARD, 0x6);
             IO[IOID_MIRROR].InitDev(kEvent, 0, MM_KEYBOARD, 0xe);
             IO[IOID_PAN].InitDev(kContinuous, 0, MM_JOYSTICK1, kPOVaxis);
-            IO[IOID_PAN].InitDev(kEvent, 0, MM_KEYBOARD, 0x17);
-            IO[IOID_PAN].InitDev(kEvent, 0, MM_KEYBOARD, 0x15);
+            IO[IOID_OPPPOS].InitDev(kEvent, 0, MM_KEYBOARD, 0x17);
+            IO[IOID_CHAT].InitDev(kEvent, 0, MM_KEYBOARD, 0x15);
             break;
         case mmiJOYSTICK:
             IO[IOID_MAP].InitDev(kEvent, 0, MM_KEYBOARD, 0xf);
@@ -357,8 +359,8 @@ void mmInput::SetDefaultConfig(i32 config)
             IO[IOID_CDNEXT].InitDev(kEvent, 0, MM_KEYBOARD, 0x6);
             IO[IOID_MIRROR].InitDev(kEvent, 0, MM_KEYBOARD, 0xe);
             IO[IOID_PAN].InitDev(kContinuous, 0, MM_JOYSTICK1, kPOVaxis);
-            IO[IOID_PAN].InitDev(kEvent, 0, MM_KEYBOARD, 0x17);
-            IO[IOID_PAN].InitDev(kEvent, 0, MM_KEYBOARD, 0x15);
+            IO[IOID_OPPPOS].InitDev(kEvent, 0, MM_KEYBOARD, 0x17);
+            IO[IOID_CHAT].InitDev(kEvent, 0, MM_KEYBOARD, 0x15);
             break;
         case mmiGAMEPAD:
             IO[IOID_MAP].InitDev(kEvent, 0, MM_KEYBOARD, 0xf);
@@ -392,8 +394,8 @@ void mmInput::SetDefaultConfig(i32 config)
             IO[IOID_CDNEXT].InitDev(kEvent, 0, MM_KEYBOARD, 0x6);
             IO[IOID_MIRROR].InitDev(kEvent, 0, MM_KEYBOARD, 0xe);
             IO[IOID_PAN].InitDev(kContinuous, 0, MM_JOYSTICK1, kPOVaxis);
-            IO[IOID_PAN].InitDev(kEvent, 0, MM_KEYBOARD, 0x17);
-            IO[IOID_PAN].InitDev(kEvent, 0, MM_KEYBOARD, 0x15);
+            IO[IOID_OPPPOS].InitDev(kEvent, 0, MM_KEYBOARD, 0x17);
+            IO[IOID_CHAT].InitDev(kEvent, 0, MM_KEYBOARD, 0x15);
             break;
         case mmiWHEEL2AXIS:
             IO[IOID_MAP].InitDev(kEvent, 0, MM_KEYBOARD, 0xf);
@@ -427,8 +429,8 @@ void mmInput::SetDefaultConfig(i32 config)
             IO[IOID_CDNEXT].InitDev(kEvent, 0, MM_KEYBOARD, 0x6);
             IO[IOID_MIRROR].InitDev(kEvent, 0, MM_KEYBOARD, 0xe);
             IO[IOID_PAN].InitDev(kContinuous, 0, MM_JOYSTICK1, kPOVaxis);
-            IO[IOID_PAN].InitDev(kEvent, 0, MM_KEYBOARD, 0x17);
-            IO[IOID_PAN].InitDev(kEvent, 0, MM_KEYBOARD, 0x15);
+            IO[IOID_OPPPOS].InitDev(kEvent, 0, MM_KEYBOARD, 0x17);
+            IO[IOID_CHAT].InitDev(kEvent, 0, MM_KEYBOARD, 0x15);
             break;
     }
 
