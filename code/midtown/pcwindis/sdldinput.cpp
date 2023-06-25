@@ -70,7 +70,11 @@ public:
         ULONG refs = --RefCount;
 
         if (refs == 0)
+        {
+            ArWithStaticHeap static_heap;
+
             delete this;
+        }
 
         return refs;
     }
@@ -347,7 +351,11 @@ public:
         ULONG refs = --RefCount;
 
         if (refs == 0)
+        {
+            ArWithStaticHeap static_heap;
+
             delete this;
+        }
 
         return refs;
     }
@@ -360,6 +368,8 @@ public:
 
         if (rguid == GUID_Joystick)
         {
+            ArWithStaticHeap static_heap;
+
             int num_joysticks = SDL_NumJoysticks();
 
             if (num_joysticks > 0)
@@ -444,5 +454,7 @@ private:
 
 IDirectInputA* Create_SDL_IDirectInput2A()
 {
+    ArWithStaticHeap static_heap;
+
     return new SDL_DirectInput2A();
 }

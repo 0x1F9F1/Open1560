@@ -46,16 +46,12 @@ ARTS_NOINLINE void operator delete[](void* ptr) noexcept
 
 ARTS_NOINLINE void operator delete(void* ptr, std::size_t sz) noexcept
 {
-    ArAssert(CURHEAP->SizeOf(ptr) >= sz, "Allocation Size Mismatch");
-
-    CURHEAP->Free(ptr);
+    CURHEAP->Free(ptr, sz);
 }
 
 ARTS_NOINLINE void operator delete[](void* ptr, std::size_t sz) noexcept
 {
-    ArAssert(CURHEAP->SizeOf(ptr) >= sz, "Allocation Size Mismatch");
-
-    CURHEAP->Free(ptr);
+    CURHEAP->Free(ptr, sz);
 }
 
 ARTS_NOINLINE void* arts_calloc(std::size_t num, std::size_t size)
@@ -144,12 +140,27 @@ ARTS_EXPORT ARTS_NOINLINE void arts_operator_delete(void* ptr)
     CURHEAP->Free(ptr);
 }
 
-void* arts_aligned_alloc(std::size_t size, std::size_t align)
+ARTS_NOINLINE void* arts_aligned_alloc(std::size_t size, std::size_t align)
 {
     return CURHEAP->Allocate(size, align, ArReturnAddress());
 }
 
-void arts_aligned_free(void* ptr, [[maybe_unused]] std::size_t align)
+ARTS_NOINLINE void arts_aligned_free(void* ptr, [[maybe_unused]] std::size_t align)
 {
     CURHEAP->Free(ptr);
+}
+
+// FIXME: Not thread-safe
+static asMemoryAllocator* SAVEDHEAP = nullptr;
+
+ArWithStaticHeap::ArWithStaticHeap()
+{
+    ArAssert(SAVEDHEAP == nullptr, "Already allocator statically");
+    SAVEDHEAP = std::exchange(CURHEAP, StaticAllocator());
+}
+
+ArWithStaticHeap::~ArWithStaticHeap()
+{
+    ArAssert(SAVEDHEAP != nullptr, "Not allocating statically");
+    CURHEAP = std::exchange(SAVEDHEAP, nullptr);
 }

@@ -70,6 +70,7 @@ import_symbol(0x909424, "?MouseDevice@@3PAUIDirectInputDeviceA@@A");
 import_symbol(0x909428, "?KeyboardDevice@@3PAUIDirectInputDeviceA@@A");
 import_symbol(0x90942C, "?MouseEvent@@3PAXA");
 
+// clang-format off
 const char* const NewSymbols[] {
     "Open1560=",
 
@@ -98,14 +99,11 @@ const char* const NewSymbols[] {
     "?arts_fprintf@@YAXPAVStream@@PBDZZ=?fprintf@@YAXPAVStream@@PBDZZ",
     "?arts_fscanf@@YAHPAVStream@@PBDZZ=?fscanf@@YAHPAVStream@@PBDZZ",
     "?arts_fseek@@YAHPAVStream@@HH@Z=?fseek@@YAHPAVStream@@HH@Z",
-    "?ExpandName@VirtualFileSystem@@SAXPADPAUVirtualFileInode@@PBD@Z=?ExpandName@VirtualFileSystem@@"
-    "SAXPADPAUVirtualFileInode@@0@Z",
-    "?Lookup@VirtualFileSystem@@SAPAUVirtualFileInode@@PAU2@HPBDPAD@Z=?Lookup@VirtualFileSystem@@SAPAUVirtualFileInode@"
-    "@PAU2@HPAD1@Z",
+    "?ExpandName@VirtualFileSystem@@SAXPADPAUVirtualFileInode@@PBD@Z=?ExpandName@VirtualFileSystem@@SAXPADPAUVirtualFileInode@@0@Z",
+    "?Lookup@VirtualFileSystem@@SAPAUVirtualFileInode@@PAU2@HPBDPAD@Z=?Lookup@VirtualFileSystem@@SAPAUVirtualFileInode@@PAU2@HPAD1@Z",
     "?NormalizeName@VirtualFileSystem@@SAXPADPBD@Z=?NormalizeName@VirtualFileSystem@@SAXPAD0@Z",
     "?Hash@HashTable@@AAEIPBD@Z=?Hash@HashTable@@AAEHPAD@Z",
-    "?AddSlider@asMidgets@@UAEPAVbkSlider@@PBDPADDDMVCallback@@@Z=?AddSlider@asMidgets@@UAEPAVbkSlider@@"
-    "PAD0DDMVCallback@@@Z",
+    "?AddSlider@asMidgets@@UAEPAVbkSlider@@PBDPADDDMVCallback@@@Z=?AddSlider@asMidgets@@UAEPAVbkSlider@@PAD0DDMVCallback@@@Z",
     "?Init@agiSurfaceDesc@@SAPAV1@HHABV1@@Z=?Init@agiSurfaceDesc@@SAPAV1@HHAAV1@@Z",
     "?ipcSpinUnlock@@YAXPAI@Z=?ipcSpunUnlock@@YAXPAI@Z",
     "?AddComponent@asPerfGraph@@QAEXPBDPAMABVVector3@@@Z=?AddComponent@asPerfGraph@@QAEXPADPAMAAVVector3@@@Z",
@@ -115,9 +113,12 @@ const char* const NewSymbols[] {
     "?arts_msize@@YAIPAX@Z=__msize",
     "?arts_msize_dbg@@YAIPAXH@Z=__msize_dbg",
     "?arts_realloc_dbg@@YAPAXPAXIHPBDH@Z=__realloc_dbg",
+    "?SanityCheck@asMemoryAllocator@@QBEXXZ=?SanityCheck@asMemoryAllocator@@QAEXXZ",
+    "?Verify@asMemoryAllocator@@ABEXPAX@Z=?Verify@asMemoryAllocator@@AAEXPAX@Z",
 
     nullptr,
 };
+// clang-format on
 
 static SymbolInfo BaseSymbols[] {
     // clang-format off

@@ -403,8 +403,16 @@ void asMemoryAllocator::CheckPointer(void* ptr)
 
 void asMemoryAllocator::Free(void* ptr)
 {
-    if (!ptr || !initialized_)
+    Free(ptr, 0);
+}
+
+void asMemoryAllocator::Free(void* ptr, usize size)
+{
+    if (!ptr)
         return;
+
+    ArAssert(initialized_, "Freeing pointer after shutdown");
+    ArAssert(SizeOf(ptr) >= size, "Pointer size mismatch");
 
     Lock();
 
@@ -616,7 +624,7 @@ void* asMemoryAllocator::Reallocate(void* ptr, usize size, void* caller)
     return new_ptr;
 }
 
-void asMemoryAllocator::SanityCheck()
+void asMemoryAllocator::SanityCheck() const
 {
     if (!initialized_)
         return;
@@ -727,6 +735,10 @@ void asMemoryAllocator::DumpStats()
 
 usize asMemoryAllocator::SizeOf(void* ptr) const
 {
+#ifndef ARTS_FINAL
+    Verify(ptr);
+#endif
+
     return debug_ ? Node::From(ptr, true)->GetUserSize() : Node::From(ptr, false)->Size;
 }
 
@@ -766,7 +778,7 @@ void asMemoryAllocator::Unlink(FreeNode* n)
     n->NextFree = nullptr;
 }
 
-void asMemoryAllocator::Verify(void* ptr)
+void asMemoryAllocator::Verify(void* ptr) const
 {
     ArAssert(heap_ && heap_size_, "Heap not initialized");
 
@@ -959,6 +971,7 @@ asMemoryAllocator* StaticAllocator()
     {
         alignas(asMemoryAllocator) static unsigned char storage[sizeof(asMemoryAllocator)];
         allocator = new (storage) asMemoryAllocator();
+        allocator->SetDebug(true);
 
         alignas(64) static unsigned char heap[STATIC_HEAP_SIZE];
         allocator->Init(heap, sizeof(heap), true);

@@ -91,6 +91,13 @@ void* arts_aligned_alloc(std::size_t size, std::size_t align);
 
 void arts_aligned_free(void* ptr, std::size_t align);
 
+struct ArWithStaticHeap
+{
+    ArWithStaticHeap();
+
+    ~ArWithStaticHeap();
+};
+
 #define ARTS_ZEROED                               \
     static void* operator new(std::size_t size)   \
     {                                             \

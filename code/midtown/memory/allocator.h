@@ -84,6 +84,8 @@ public:
     // ?Free@asMemoryAllocator@@QAEXPAX@Z
     ARTS_EXPORT void Free(void* ptr);
 
+    void Free(void* ptr, usize size);
+
     // ?GetStats@asMemoryAllocator@@QAEXPAUasMemStats@@@Z
     ARTS_EXPORT void GetStats(asMemStats* stats);
 
@@ -101,7 +103,7 @@ public:
     void* Reallocate(void* ptr, usize size, void* caller);
 
     // ?SanityCheck@asMemoryAllocator@@QAEXXZ
-    ARTS_EXPORT void SanityCheck();
+    ARTS_EXPORT void SanityCheck() const;
 
     void DumpStats();
 
@@ -153,7 +155,7 @@ private:
     ARTS_EXPORT void Unlink(FreeNode* n);
 
     // ?Verify@asMemoryAllocator@@AAEXPAX@Z
-    ARTS_EXPORT void Verify(void* ptr);
+    ARTS_EXPORT void Verify(void* ptr) const;
 
     FreeNode* FindFirstFit(usize size, usize align, usize offset);
 
@@ -169,7 +171,7 @@ private:
     void* heap_ {};
     usize heap_size_ {};
     std::atomic<usize> heap_used_ {};
-    usize lock_count_ {};
+    mutable usize lock_count_ {};
     b32 use_nodes_ {};
     FreeNode* buckets_[32] {};
 
