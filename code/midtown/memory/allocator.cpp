@@ -544,6 +544,9 @@ void asMemoryAllocator::Init(void* heap, usize heap_size, b32 use_nodes)
 
     initialized_ = true;
 
+    if (debug_)
+        std::memset(heap_, 0xCC, heap_size_);
+
     if (use_nodes)
     {
         std::memset(buckets_, 0, sizeof(buckets_));
