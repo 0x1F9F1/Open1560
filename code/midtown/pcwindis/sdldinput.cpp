@@ -353,7 +353,8 @@ public:
     }
 
     /*** IDirectInputA methods ***/
-    STDMETHOD(CreateDevice)(REFGUID rguid, LPDIRECTINPUTDEVICEA* lplpDirectInputDevice, LPUNKNOWN /*pUnkOuter*/) override
+    STDMETHOD(CreateDevice)
+    (REFGUID rguid, LPDIRECTINPUTDEVICEA* lplpDirectInputDevice, LPUNKNOWN /*pUnkOuter*/) override
     {
         *lplpDirectInputDevice = nullptr;
 

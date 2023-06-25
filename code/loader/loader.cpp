@@ -124,9 +124,22 @@ void CheckForOldVersions()
 {
     // Check for old Open1560 installations in the application directory
     if (HMODULE hdinput =
-            LoadLibraryExA("dinput.dll", NULL, LOAD_LIBRARY_SEARCH_APPLICATION_DIR | DONT_RESOLVE_DLL_REFERENCES))
+            LoadLibraryExA("dinput.dll", NULL, LOAD_LIBRARY_SEARCH_APPLICATION_DIR | LOAD_LIBRARY_AS_IMAGE_RESOURCE))
     {
-        if (GetProcAddress(hdinput, "?ComputeCpuSpeed@@YAIXZ"))
+        bool is_hook = false;
+
+        mem::module::nt((HMODULE) (((ULONG_PTR) (hdinput)) & ~(ULONG_PTR) 2))
+            .enum_exports([&is_hook](const char* name, u16 /*ordinal*/, mem::pointer /*function*/) {
+                if (name && !std::strcmp(name, "?ComputeCpuSpeed@@YAIXZ"))
+                {
+                    is_hook = true;
+                    return true;
+                }
+
+                return false;
+            });
+
+        if (is_hook)
         {
             MessageBoxA(NULL, "Delete dinput.dll from your game directory", "Outdated Open1560 Detected",
                 MB_OK | MB_ICONERROR | MB_SETFOREGROUND | MB_TOPMOST);
