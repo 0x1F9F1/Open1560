@@ -103,7 +103,7 @@ void DLPPatch::Load(Stream* file)
 void DLPVertex::Load(Stream* file)
 {
     Id = file->Get<u16>();
-    Position = file->Get<Vector3>();
+    Normal = file->Get<Vector3>();
     UV = file->Get<Vector2>();
 
     u32 color = file->Get<u32>();

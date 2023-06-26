@@ -296,7 +296,7 @@ public:
     u32 Id {};
     Vector2 UV {};
     Vector4 Color {};
-    Vector3 Position {};
+    Vector3 Normal {};
 };
 
 check_size(DLPVertex, 0x28);
