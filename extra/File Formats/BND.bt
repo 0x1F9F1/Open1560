@@ -17,14 +17,15 @@ struct Vector3
     float z;
 };
 
-struct Polygon
+struct mmPolygon
 {
-  ushort word0;
-  ubyte MtlIndex;
-  ubyte Flags;
-  ushort VertIndices[4];
-  Vector3 SomeVecs[4];
-  float Corners[4];
+    ushort CellId;
+    ubyte MtlIndex;
+    ubyte Flags;
+    ushort VertIndices[4];
+    Vector3 PlaneEdges[4];
+    Vector3 PlaneN;
+    float PlaneD;
 };
 
 struct BND
@@ -42,7 +43,7 @@ struct BND
     long NumVerts;
     long NumPolys;
     long NumHotVerts;
-    long numVerticesUnk;
+    long NumHotVerts2;
     long EdgeCount;
     float ScaledDistX;
     float ZDist;
@@ -51,8 +52,8 @@ struct BND
     long unk12;
 
     Vector3 vertices[NumVerts];
-    Polygon polys[NumPolys + 1];
-    Vector3 verticesUnk[numVerticesUnk];
+    mmPolygon polys[NumPolys + 1];
+    Vector3 HotVerts[NumHotVerts2];
     long Edges0[EdgeCount];
     long Edges1[EdgeCount];
     Vector3 EdgeNormals[EdgeCount];
@@ -62,9 +63,9 @@ struct BND
     {
         if (RowCount)
         {
-            float RowOffsets[Height];
+            long RowOffsets[Height];
             ushort RowSomethings[Width * Height];
-            ushort Indices[numIndices];
+            ushort Indices[NumIndexs];
             ubyte FixedHeights[Width * Height];
         }
     }

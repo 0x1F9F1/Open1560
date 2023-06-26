@@ -200,7 +200,10 @@ public:
     enum : u16
     {
         Flags_Enabled = 0x1,
+        Flags_Flag4 = 0x4,
         Flags_Flag8 = 0x8,
+        Flags_Flag100 = 0x100,
+        Flags_Flag400 = 0x400,
     };
 
     u16 Flags {};
@@ -260,6 +263,7 @@ public:
 
     char Name[32] {};
 
+    // The set of all vertex indices used by enabled patches in this group
     i32 NumVertices {};
     Ptr<u16[]> VertexIndices;
 

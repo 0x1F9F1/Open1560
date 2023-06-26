@@ -45,6 +45,7 @@ class mmBoundTemplate;
 class mmEdgeBodyIsect;
 class mmIntersection;
 
+// A triangle or coplanar quad
 class mmPolygon
 {
 public:
@@ -103,11 +104,25 @@ private:
 public:
     u16 RoomId;
     u8 MtlIndex;
+
+    // Flags & 0x3:
+    // 0x0: PlaneEdges are projected along X axis
+    // 0x1: PlaneEdges are projected along Z axis
+    // 0x2: PlaneEdges are projected along Y axis
+
+    // 0x4: Is Quad
+    // 0x8: Flip Winding?
     u8 Flags;
     i16 VertIndices[4];
-    Vector3 BBox[4];
-    Vector3 Normal;
-    f32 SomeFloat;
+
+    // Equations of the 2D lines representing the edges of the polygon
+    // The lines are projected from the 3D plane onto an orthoganal 2D plane
+    Vector3 PlaneEdges[4];
+
+    // Equation of the 3D plane which the polygon exists on
+    // d = PlaneN * PointQ + PlaneD
+    Vector3 PlaneN;
+    f32 PlaneD;
 };
 
 check_size(mmPolygon, 0x4C);
