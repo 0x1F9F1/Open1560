@@ -18,6 +18,9 @@
 
 #pragma once
 
+#include "data7/pager.h"
+#include "vector7/vector3.h"
+
 /*
     mmdyna:bndtmpl
 
@@ -66,6 +69,7 @@
 class asInertialCS;
 class mmEdgeBodyIsect;
 class mmIntersection;
+class mmPolygon;
 
 class mmBoundTemplate
 {
@@ -260,7 +264,50 @@ private:
     // ?PageOutCallback@mmBoundTemplate@@CAXPAXH@Z | mmdyna:bndtmpl2
     ARTS_IMPORT static void PageOutCallback(void* arg1, i32 arg2);
 
-    u8 gap0[0xB4];
+    u32 RefCount;
+    PagerInfo_t PagerInfo;
+    i32 Handle;
+    i32 PageState;
+    Vector3 Center;
+    f32 Radius;
+    f32 RadiusSqr;
+    Vector3 BBMin;
+    Vector3 BBMax;
+    u32 NumVerts;
+    i32 NumPolys;
+    Vector3* Verts;
+    mmPolygon* Polygons;
+    i32 NumHotVerts1;
+    i32 NumHotVerts2;
+    i32 NumEdges;
+    Vector3* HotVerts;
+    u32* EdgeVerts1;
+    u32* EdgeVerts2;
+    u16* field_70;
+    u8* field_74;
+
+    Vector3* EdgePlaneNs;
+    f32* EdgePlaneDs;
+
+    i32 XDim;
+    b32 YDim;
+    i32 ZDim;
+
+    // Bucket = &RowBuckets[RowOffsets[z] + BucketOffsets[z * XDim + x]];
+    // do {
+    //     mmPolygon* poly = &Polygons[*Bucket & 0x7FFF];
+    // } while (*Bucket++ < 0x8000);
+    u32* RowOffsets;
+    u16* BucketOffsets;
+    u16* RowBuckets;
+
+    u8* FixedHeights;
+    f32 HeightScale;
+    f32 XScale;
+    f32 ZScale;
+    u32 Flags;
+    u32 field_AC;
+    ConstString Name;
 };
 
 check_size(mmBoundTemplate, 0xB4);

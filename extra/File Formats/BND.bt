@@ -32,42 +32,39 @@ struct BND
 {
     long Magic; // BND2
     Vector3 Offset;
-    long Width;
-    long RowCount;
-    long Height;
+    long XDim;
+    long YDim;
+    long ZDim;
     Vector3 Center;
     float Radius;
     float RadiusSqr;
-    Vector3 Min;
-    Vector3 Max;
+    Vector3 BBMin;
+    Vector3 BBMax;
     long NumVerts;
     long NumPolys;
-    long NumHotVerts;
+    long NumHotVerts1;
     long NumHotVerts2;
-    long EdgeCount;
-    float ScaledDistX;
-    float ZDist;
-    long NumIndexs;
+    long NumEdges;
+    float XScale;
+    float ZScale;
+    long NumIndices;
     float HeightScale;
-    long unk12;
+    long CacheSize;
 
-    Vector3 vertices[NumVerts];
-    mmPolygon polys[NumPolys + 1];
+    Vector3 Vertices[NumVerts];
+    mmPolygon Polys[NumPolys + 1];
     Vector3 HotVerts[NumHotVerts2];
-    long Edges0[EdgeCount];
-    long Edges1[EdgeCount];
-    Vector3 EdgeNormals[EdgeCount];
-    float Edges2[EdgeCount];
+    long EdgesVerts1[NumEdges];
+    long EdgesVerts2[NumEdges];
+    Vector3 EdgePlaneNs[NumEdges];
+    float EdgePlaneDs[NumEdges];
 
-    if (Width)
+    if (XDim && YDim && ZDim)
     {
-        if (RowCount)
-        {
-            long RowOffsets[Height];
-            ushort RowSomethings[Width * Height];
-            ushort Indices[NumIndexs];
-            ubyte FixedHeights[Width * Height];
-        }
+        long RowOffsets[ZDim];
+        ushort BucketOffsets[XDim * ZDim];
+        ushort RowBuckets[NumIndices];
+        ubyte FixedHeights[XDim * ZDim];
     }
 };
 
