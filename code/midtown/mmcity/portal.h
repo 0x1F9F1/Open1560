@@ -211,9 +211,36 @@ public:
     // ??0asPortalEdge@@QAE@PAUasPortalCell@@0H@Z | inline
     ARTS_IMPORT asPortalEdge(asPortalCell* arg1, asPortalCell* arg2, i32 arg3);
 
+    enum : u8
+    {
+        Flags_Enabled = 1 << 0,
+
+        // Reset all clipping
+        Flags_Open = 1 << 1,
+
+        // Reset MinX or MaxX clipping depending on cell visit direction
+        Flags_SemiOpen = 1 << 2,
+
+        // Hide if EyePos is infront/behind the plane, depending on cell visit direction
+        Flags_Flag8 = 1 << 3,
+
+        // These appear to be unused by the game, but are used by the PTL file.
+        // They seem to be related to which sides of the portal are open/closed
+        Flags_Flag10 = 1 << 4,
+        Flags_Flag20 = 1 << 5,
+        Flags_Flag40 = 1 << 6,
+        Flags_Flag80 = 1 << 7,
+    };
+
     u8 Flags;
     u8 NumEdges;
     u16 VisitTag;
+
+    // *Edges++ = Vector3(min.x, min.y + height, min.z);
+    // *Edges++ = Vector3(max.x, max.y + height, max.z);
+    // *Edges++ = Vector3(max.x, max.y         , max.z);
+    // if (EdgeCount == 3) *Edges++ = ExtraEdge;
+    // *Edges++ = Vector3(min.x, min.y         , min.z);
     Vector3* Edges;
     asPortalCell* Cell1;
     asPortalCell* Cell2;
