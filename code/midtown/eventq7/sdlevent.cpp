@@ -69,13 +69,13 @@ i32 SDLEventHandler::BeginGfx(i32 width, i32 height, b32 fullscreen)
     tracked_events_ = 0x0;
 
     SDL_RaiseWindow(g_MainWindow);
-    SDL_SetWindowGrab(g_MainWindow, SDL_TRUE);
 
     i32 mouse_mode = PARAM_mousemode.get_or(fullscreen ? 0 : 2);
     SDL_SetHint(SDL_HINT_MOUSE_RELATIVE_MODE_WARP, (mouse_mode == 1) ? "1" : "0");
 
     if ((SDL_SetRelativeMouseMode((mouse_mode != 2) ? SDL_TRUE : SDL_FALSE) < 0) || (mouse_mode == 2))
     {
+        SDL_SetWindowGrab(g_MainWindow, SDL_TRUE);
         SDL_WarpMouseInWindow(g_MainWindow, mouse_x_, mouse_y_);
         tracked_events_ |= 0x1;
     }
@@ -85,8 +85,10 @@ i32 SDLEventHandler::BeginGfx(i32 width, i32 height, b32 fullscreen)
 
 void SDLEventHandler::EndGfx()
 {
-    SDL_SetRelativeMouseMode(SDL_FALSE);
-    SDL_SetWindowGrab(g_MainWindow, SDL_FALSE);
+    if (tracked_events_ & 0x1)
+        SDL_SetWindowGrab(g_MainWindow, SDL_FALSE);
+    else
+        SDL_SetRelativeMouseMode(SDL_FALSE);
 }
 
 #define EQ_SEND(NAME, ...)                               \
