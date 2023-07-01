@@ -683,6 +683,8 @@ void ApplicationHelper(i32 argc, char** argv)
 
     CheckSystem();
 
+    SDL_SetHint(SDL_HINT_WINDOWS_DPI_AWARENESS, "permonitorv2");
+
     if (SDL_InitSubSystem(SDL_INIT_VIDEO) != 0)
     {
         Errorf("Unable to initialize SDL Video: %s", SDL_GetError());

@@ -168,13 +168,6 @@ DWORD WINAPI Open1560()
         _SetProcessDEPPolicy(0x00000001 /*PROCESS_DEP_ENABLE*/);
     }
 
-    // Fixes mouse drift when display scale is not 100%
-    if (auto _SetProcessDPIAware =
-            reinterpret_cast<BOOL(WINAPI*)()>(GetProcAddress(GetModuleHandleA("USER32.DLL"), "SetProcessDPIAware")))
-    {
-        _SetProcessDPIAware();
-    }
-
     InitBaseSymbols();
 
     LogToFile("Open1560.log");
