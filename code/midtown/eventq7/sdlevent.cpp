@@ -100,27 +100,24 @@ void SDLEventHandler::EndGfx()
 
 void SDLEventHandler::Update(i32)
 {
-    if (ActiveFlag)
-    {
-        SDL_Event events[32];
-        SDL_PumpEvents();
+    SDL_PumpEvents();
 
-        i32 count = 0;
-        while ((count = SDL_PeepEvents(events, ARTS_SSIZE32(events), SDL_GETEVENT, SDL_FIRSTEVENT, SDL_LASTEVENT)) != 0)
-        {
-            for (i32 i = 0; i < count; ++i)
-                HandleEvent(events[i]);
-        }
-    }
-    else
-    {
-        SDL_Event event;
+    SDL_Event events[32];
 
-        while (ActiveFlag == 0)
+    while (true)
+    {
+        i32 count = SDL_PeepEvents(events, ARTS_SSIZE32(events), SDL_GETEVENT, SDL_FIRSTEVENT, SDL_LASTEVENT);
+
+        if (count < 1)
         {
-            if (SDL_WaitEvent(&event))
-                HandleEvent(event);
+            if (ActiveFlag)
+                break;
+
+            count = SDL_WaitEvent(events);
         }
+
+        for (i32 i = 0; i < count; ++i)
+            HandleEvent(events[i]);
     }
 
     if (mouse_moved_)
