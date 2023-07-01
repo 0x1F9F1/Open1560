@@ -384,9 +384,6 @@ void dxiWindowCreate(const char* title, dxiRendererType type)
         window_flags |= SDL_WINDOW_RESIZABLE;
     }
 
-    SDL_SetHintWithPriority(SDL_HINT_WINDOWS_INTRESOURCE_ICON, arts_formatf<16>("%i", dxiIcon), SDL_HINT_OVERRIDE);
-    SDL_SetHintWithPriority(SDL_HINT_WINDOWS_NO_CLOSE_ON_ALT_F4, "1", SDL_HINT_OVERRIDE);
-
     g_MainWindow = SDL_CreateWindow(title, 0, 0, 0, 0, window_flags);
 
     SDL_SysWMinfo wm_info {};

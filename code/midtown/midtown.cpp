@@ -683,7 +683,11 @@ void ApplicationHelper(i32 argc, char** argv)
 
     CheckSystem();
 
+    SDL_SetHint(SDL_HINT_TIMER_RESOLUTION, "1");
+    SDL_SetHint(SDL_HINT_VIDEO_MINIMIZE_ON_FOCUS_LOSS, "1");
+    SDL_SetHint(SDL_HINT_WINDOWS_NO_CLOSE_ON_ALT_F4, "1");
     SDL_SetHint(SDL_HINT_WINDOWS_DPI_AWARENESS, "permonitorv2");
+    SDL_SetHintWithPriority(SDL_HINT_WINDOWS_INTRESOURCE_ICON, arts_formatf<16>("%i", dxiIcon), SDL_HINT_OVERRIDE);
 
     if (SDL_InitSubSystem(SDL_INIT_VIDEO) != 0)
     {
