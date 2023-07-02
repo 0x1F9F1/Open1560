@@ -151,7 +151,7 @@ public:
     ARTS_IMPORT i32 PlaySteer();
 
     // ?Poll@mmJoystick@@QAEKXZ
-    ARTS_IMPORT ulong Poll();
+    ARTS_EXPORT ulong Poll();
 
     // ?PrintDeviceCaps@mmJoystick@@QAEXXZ
     ARTS_IMPORT void PrintDeviceCaps();
@@ -186,8 +186,8 @@ public:
     // ?inputPrepareDevice@mmJoystick@@QAEHXZ
     ARTS_IMPORT i32 inputPrepareDevice();
 
-    IDirectInputDevice2A* DInput;
-    b32 EnableFF;
+    IDirectInputDevice2A* Device;
+    b32 HasFF;
     DIJOYSTATE JoyState;
     DIDEVCAPS DevCaps;
     DIDEVICEINSTANCEA DevInfo;

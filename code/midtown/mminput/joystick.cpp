@@ -50,6 +50,58 @@ f32 mmJoystick::GetAxis(i32 axis)
     }
 }
 
+ulong mmJoystick::Poll()
+{
+    HRESULT error = Device->Poll();
+
+    if (FAILED(error))
+    {
+        DecodeDIErrorMFlag(error);
+
+        if (error == DIERR_INPUTLOST || error == DIERR_NOTACQUIRED)
+        {
+            error = Device->Acquire();
+
+            DecodeDIErrorMFlag(error);
+
+            if (HasFF == 1)
+                InputStopEffect();
+        }
+
+        return 0;
+    }
+
+    error = Device->GetDeviceState(sizeof(JoyState), &JoyState);
+
+    if (FAILED(error))
+    {
+        if (error == DIERR_INPUTLOST)
+            Device->Acquire();
+
+        return 0;
+    }
+
+    ButtonFlags = 0;
+
+    i32 num_buttons = (std::min<i32>) (DevCaps.dwButtons, 32);
+
+    for (i32 i = 0; i < num_buttons; ++i)
+        ButtonFlags |= u32(JoyState.rgbButtons[i] >> 7) << i;
+
+    XAxis.Normalize(static_cast<f32>(JoyState.lX));
+    YAxis.Normalize(static_cast<f32>(JoyState.lY));
+    ZAxis.Normalize(static_cast<f32>(JoyState.lZ));
+    RAxis.Normalize(static_cast<f32>(JoyState.lRz));
+
+    // Untested
+    // UAxis.Normalize(static_cast<f32>(JoyState.rglSlider[0]));
+    // VAxis.Normalize(static_cast<f32>(JoyState.rglSlider[1]));
+
+    PovAxis.NormalizePOV(JoyState.rgdwPOV[0]);
+
+    return 0;
+}
+
 void mmJoystick::Update()
 {
     Poll();
@@ -71,7 +123,7 @@ void mmJoystick::Update()
         {
             State = (state == 1) ? mmJoyInput::ZaxisDown : mmJoyInput::ZaxisUp;
         }
-        else if ((state = UAxis.Capture()) != 0) // FIXME: Needs to be updated in mmJoystick::Poll
+        else if ((state = UAxis.Capture()) != 0)
         {
             State = mmJoyInput::Uaxis; // TODO: Separate Up/Down
         }
@@ -79,7 +131,7 @@ void mmJoystick::Update()
         {
             State = (state == 1) ? mmJoyInput::RaxisDown : mmJoyInput::RaxisUp;
         }
-        else if ((state = VAxis.Capture()) != 0) // FIXME: Needs to be updated in mmJoystick::Poll
+        else if ((state = VAxis.Capture()) != 0)
         {
             State = mmJoyInput::Vaxis; // TODO: Separate Up/Down
         }
