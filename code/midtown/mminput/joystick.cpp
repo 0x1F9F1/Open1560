@@ -93,11 +93,19 @@ ulong mmJoystick::Poll()
     ZAxis.Normalize(static_cast<f32>(JoyState.lZ));
     RAxis.Normalize(static_cast<f32>(JoyState.lRz));
 
-    // Untested
-    // UAxis.Normalize(static_cast<f32>(JoyState.rglSlider[0]));
-    // VAxis.Normalize(static_cast<f32>(JoyState.rglSlider[1]));
+    // FIXME: Needs range setting in mmJoystick::inputPrepareDevice
+    // UAxis.Normalize(static_cast<f32>(JoyState.lRx));
+    // VAxis.Normalize(static_cast<f32>(JoyState.lRy));
 
-    PovAxis.NormalizePOV(JoyState.rgdwPOV[0]);
+    u32 pov = JoyState.rgdwPOV[0];
+
+    // if ((pov & 0xFFFF) == 0xFFFF && (std::abs(JoyState.lRx) > 500 || std::abs(JoyState.lRy) > 500))
+    // {
+    //     pov = (36000 + static_cast<i32>(std::atan2f((f32) JoyState.lRx, (f32) -JoyState.lRy) * (18000 / 3.141592f))) %
+    //         36000;
+    // }
+
+    PovAxis.NormalizePOV(pov);
 
     return 0;
 }

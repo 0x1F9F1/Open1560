@@ -147,8 +147,8 @@ public:
         state->lZ = get_axis(SDL_CONTROLLER_AXIS_TRIGGERLEFT, -2000, 2000) -
             get_axis(SDL_CONTROLLER_AXIS_TRIGGERRIGHT, -2000, 2000); // ZAxis
 
-        state->lRx = get_axis(SDL_CONTROLLER_AXIS_RIGHTX, -2000, 2000); // RAxis
-        state->lRy = get_axis(SDL_CONTROLLER_AXIS_RIGHTY, -2000, 2000); // RAxis
+        state->lRx = get_axis(SDL_CONTROLLER_AXIS_RIGHTX, -2000, 2000); // UAxis
+        state->lRy = get_axis(SDL_CONTROLLER_AXIS_RIGHTY, -2000, 2000); // VAxis
 
         const auto get_button = [controller](SDL_GameControllerButton button) -> Uint8 {
             return !!SDL_GameControllerGetButton(controller, button);
