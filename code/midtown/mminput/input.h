@@ -240,6 +240,34 @@ namespace $
 
         RaxisUp = 35,
         RaxisDown = 36,
+
+        // Currently unused
+        UaxisUp = 37,
+        UaxisDown = 38,
+        VaxisUp = 39,
+        VaxisDown = 40,
+
+        // TODO: Handle in mmInput::BuildCaptureIO
+        JButton13 = 41,
+        JButton14 = 42,
+        JButton15 = 43,
+        JButton16 = 44,
+        JButton17 = 45,
+        JButton18 = 46,
+        JButton19 = 47,
+        JButton20 = 48,
+        JButton21 = 49,
+        JButton22 = 50,
+        JButton23 = 51,
+        JButton24 = 52,
+        JButton25 = 53,
+        JButton26 = 54,
+        JButton27 = 55,
+        JButton28 = 56,
+        JButton29 = 57,
+        JButton30 = 58,
+        JButton31 = 59,
+        JButton32 = 60,
     };
 } // namespace $
 
@@ -523,7 +551,7 @@ private:
 #endif
 
     // ?EventToButton@mmInput@@AAEHH@Z | unused
-    ARTS_EXPORT i32 EventToButton(i32 event);
+    ARTS_EXPORT i32 EventToButton(i32 event) = delete;
 
     // ?FilterDiscreteSteering@mmInput@@AAEMM@Z
     ARTS_IMPORT f32 FilterDiscreteSteering(f32 arg1);

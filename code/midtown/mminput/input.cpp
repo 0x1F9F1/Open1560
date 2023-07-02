@@ -186,12 +186,6 @@ i64 mmInput::ScanForEvent(eqEvent* event)
     return 0;
 }
 
-i32 mmInput::EventToButton(i32 event)
-{
-    return ((event >= mmJoyInput::JButton1) && (event <= mmJoyInput::JButton12)) ? (1 << (event - mmJoyInput::JButton1))
-                                                                                 : 0;
-}
-
 void mmInput::GetBufferedKeyboardData()
 {
     NumKeyboardInputs = geinputGetBufferedKeyboard(KeyboardPresses);

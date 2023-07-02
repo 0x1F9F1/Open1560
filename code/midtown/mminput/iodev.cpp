@@ -59,6 +59,9 @@ i32 mmIODev::GetComponentType(i32 device, i32 component)
             if (component >= mmJoyInput::JButton1 && component <= mmJoyInput::JButton12)
                 return ioType::Discrete;
 
+            if (component >= mmJoyInput::JButton13 && component <= mmJoyInput::JButton32)
+                return ioType::Discrete;
+
             return ioType::Continuous;
         }
 
@@ -110,6 +113,11 @@ void mmIODev::GetDescription(char* buffer, usize buflen)
             {
                 arts_sprintf(
                     buffer, buflen, "%s %s %d", LocStrJoystick, LocStrButton, (Component - mmJoyInput::JButton1) + 1);
+            }
+            else if (Component >= mmJoyInput::JButton13 && Component <= mmJoyInput::JButton32)
+            {
+                arts_sprintf(
+                    buffer, buflen, "%s %s %d", LocStrJoystick, LocStrButton, (Component - mmJoyInput::JButton13) + 13);
             }
             else
             {

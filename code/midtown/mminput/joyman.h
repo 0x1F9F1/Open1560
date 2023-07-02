@@ -65,7 +65,7 @@ public:
     ARTS_IMPORT ~mmJoyMan();
 
     // ?ButtonToBit@mmJoyMan@@QAEHH@Z
-    ARTS_IMPORT i32 ButtonToBit(i32 arg1);
+    ARTS_EXPORT i32 ButtonToBit(i32 button);
 
     // ?FFIsPlaying@mmJoyMan@@QAEHH@Z
     ARTS_IMPORT i32 FFIsPlaying(i32 arg1);
@@ -89,7 +89,7 @@ public:
     ARTS_IMPORT i32 GetJoyButton(i32 arg1, i32 arg2);
 
     // ?GetOneButton@mmJoyMan@@QAEHJ@Z
-    ARTS_IMPORT i32 GetOneButton(ilong arg1);
+    ARTS_EXPORT i32 GetOneButton(ilong flags);
 
     // ?HasCoolie@mmJoyMan@@QAEHXZ
     ARTS_IMPORT i32 HasCoolie();

@@ -19,3 +19,27 @@
 define_dummy_symbol(mminput_joyman);
 
 #include "joyman.h"
+
+#include "input.h"
+
+i32 mmJoyMan::ButtonToBit(i32 button)
+{
+    if (button >= mmJoyInput::JButton1 && button <= mmJoyInput::JButton12)
+        return 1u << (button - mmJoyInput::JButton1);
+
+    if (button >= mmJoyInput::JButton13 && button <= mmJoyInput::JButton32)
+        return 1u << (button - mmJoyInput::JButton13 + 12);
+
+    return 0;
+}
+
+i32 mmJoyMan::GetOneButton(ilong flags)
+{
+    for (i32 i = 0; i < 32; ++i)
+    {
+        if ((flags >> i) & 1)
+            return i + 1;
+    }
+
+    return -1;
+}
