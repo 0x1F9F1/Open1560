@@ -22,6 +22,8 @@ define_dummy_symbol(mmcity_loader);
 
 #include "agi/bitmap.h"
 #include "agi/pipeline.h"
+#include "arts7/cullmgr.h"
+#include "eventq7/event.h"
 #include "localize/localize.h"
 
 void mmLoader::Init(aconst char* underlay_name, f32 bar_x, f32 bar_y)
@@ -39,4 +41,27 @@ void mmLoader::Init(aconst char* underlay_name, f32 bar_x, f32 bar_y)
     intro_text_.AddText(myFont, LOC_TEXT(""), MM_TEXT_PADDING | MM_TEXT_WORDBREAK, 0.0f, 0.0f);
 
     Update();
+}
+
+void mmLoader::Update()
+{
+    eqEventHandler::SuperQ->Update();
+
+    camera_.Update();
+
+    if (bar_active_)
+    {
+        current_task_percent_ = task_start_percent_;
+
+        CullMgr()->DeclareBitmap(this, bar_active_);
+    }
+
+#ifndef ARTS_FINAL
+    // if ((current_task_percent_ == 1.0f) && (static_cast<i32>(timer_.Time()) % 2))
+    {
+        task_text_.Update();
+    }
+#endif
+
+    CullMgr()->Update();
 }

@@ -71,7 +71,7 @@ public:
 
     virtual void EndGfx() = 0;
 
-    virtual void Update(i32 arg1) = 0;
+    virtual void Update(i32 = 0) = 0;
 
     virtual void BeginTracking() = 0;
 

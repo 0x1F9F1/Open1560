@@ -83,7 +83,7 @@ public:
     ARTS_IMPORT void Shutdown();
 
     // ?Update@mmLoader@@QAEXXZ
-    ARTS_IMPORT void Update();
+    ARTS_EXPORT void Update();
 
     friend mmLoader* Loader();
 
