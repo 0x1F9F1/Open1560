@@ -81,7 +81,7 @@ public:
     ARTS_IMPORT void HitWaterHandler() override;
 
     // ?Init@mmGameSingle@@QAEHXZ
-    ARTS_IMPORT i32 Init();
+    ARTS_EXPORT b32 Init();
 
     // ?InitGameObjects@mmGameSingle@@UAEXXZ
     ARTS_IMPORT void InitGameObjects() override;
@@ -99,7 +99,7 @@ public:
     ARTS_IMPORT void NextRace() override;
 
     // ?Reset@mmGameSingle@@UAEXXZ
-    ARTS_IMPORT void Reset() override;
+    ARTS_EXPORT void Reset() override;
 
     // ?Update@mmGameSingle@@UAEXXZ
     ARTS_IMPORT void Update() override;
@@ -135,7 +135,30 @@ private:
     // ?RegisterFinish@mmGameSingle@@AAEHXZ
     ARTS_IMPORT i32 RegisterFinish();
 
-    u8 gap1E570[0x80];
+public:
+    i32 field_1E570 {};
+    foobar FooBar {};
+
+#ifdef ARTS_STANDALONE
+    i32 OppNumCheck[MaxOpponents] {};
+#else
+    static i32 OppNumCheck[MaxOpponents];
+    i32 OldOppNumCheck[8] {};
+
+    [[deprecated]] i32 field_1E5B4[8] {};
+#endif
+
+    mmWaypoints* Waypoints {};
+
+#ifdef ARTS_STANDALONE
+    i16 OppFinishPositions[MaxOpponents] {};
+#else
+    static i16 OppFinishPositions[MaxOpponents];
+    i16 OldOppFinishPositions[8] {};
+#endif
+
+    i16 NumFinished {};
+    f32 RespawnPosition {};
 };
 
 check_size(mmGameSingle, 0x1E5F0);
