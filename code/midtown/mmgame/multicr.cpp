@@ -19,6 +19,9 @@
 define_dummy_symbol(mmgame_multicr);
 
 #include "multicr.h"
+#include "mmnetwork/network.h"
+#include "player.h"
+#include "wphud.h"
 
 mmWaypoints* mmMultiCR::GetWaypoints()
 {
@@ -27,6 +30,19 @@ mmWaypoints* mmMultiCR::GetWaypoints()
 
 void mmMultiCR::UpdateDebugKeyInput(i32 /*arg1*/)
 {}
+
+void mmMultiCR::OppStealGold(i32 player)
+{
+    StealGold(Cars[player]);
+    Player->Hud.CrHud->ActivateRosterGold(NetObjects[player].PlayerID);
+
+    OppIconInfo& icon = OppIcons[player];
+    icon.Place = OPP_ICON_GOLD;
+    icon.Enabled = true;
+
+    if (NETMGR.IsHost())
+        ++TimesGoldStolen;
+}
 
 i32 mmMultiCR::SelectTeams()
 {

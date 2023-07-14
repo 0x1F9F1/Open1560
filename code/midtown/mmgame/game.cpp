@@ -66,6 +66,10 @@ define_dummy_symbol(mmgame_game);
 #include "popup.h"
 #include "waypoints.h"
 
+#ifndef ARTS_STANDALONE
+OppIconInfo mmGame::OppIcons[MaxOpponents] {};
+#endif
+
 u32 IconColor[8] {
     0xFF0000EF, // Blue
     0xFF00EF00, // Green
@@ -79,12 +83,18 @@ u32 IconColor[8] {
 
 mmGame::mmGame()
 {
-    for (i32 i = 0; i < 8; ++i)
+#ifndef ARTS_STANDALONE
+    std::memset(&OldOppIcons, 0xAA, sizeof(OldOppIcons));
+#endif
+
+    for (usize i = 0; i < ARTS_SIZE(OppIcons); ++i)
     {
-        OppIconInfo* icon = &OppIcons[i];
-        icon->Color = IconColor[i];
-        icon->Enabled = false;
-        icon->Position = nullptr;
+        OppIconInfo& icon = OppIcons[i];
+        icon = {};
+
+        icon.Color = IconColor[i % ARTS_SIZE(IconColor)]; // TODO: Add more icon colors
+        icon.Enabled = false;
+        icon.Position = nullptr;
     }
 
     arts_strcpy(LocPlayerName, LOC_STR(MM_IDS_PLAYER_NAME));
@@ -1044,3 +1054,65 @@ void mmGame::SendChatMessage(char* msg)
 
 #undef X
 }
+
+hook_func(INIT_main, [] {
+    const i32 OppIconAddr = mem::pointer(&mmGame::OppIcons).sub(offsetof(mmGame, OldOppIcons)).as<i32>();
+
+    for (mem::pointer addr : {
+             0x40E994,
+             0x40F223,
+             0x40F27E,
+             0x415626,
+             0x418056,
+             0x41C241,
+             0x41C9A9,
+             0x41EA7B,
+             0x41EBB8,
+             0x41ECD2,
+             0x431C37,
+             0x431EEB,
+             0x431FA4,
+         })
+    {
+        ArAssert(addr.as<u8&>() == 0x8D, "Invalid Opcode");
+
+        u8 modrm = addr.add(1).as<u8&>();
+        u8 mod = (modrm >> 6);
+        u8 reg = (modrm >> 3) & 0x7;
+        // u8 rm = (modrm >> 0) & 0x7;
+
+        ArAssert(mod == 2, "Invalid Mod");
+
+        i32 offset = addr.add(2).as<i32&>();
+
+        create_packed_patch<u8, i32, u8>(
+            "mmGame::OppIconInfo", "Support More Icons", addr, 0xB8 + reg, OppIconAddr + offset, 0x90);
+    }
+
+    {
+        mem::pointer addr = 0x4311AD;
+        ArAssert(addr.as<u8&>() == 0x8B, "Invalid Opcode");
+
+        u8 modrm = addr.add(1).as<u8&>();
+        u8 mod = (modrm >> 6);
+        u8 reg = (modrm >> 3) & 0x7;
+        u8 rm = (modrm >> 0) & 0x7;
+
+        ArAssert(mod == 2, "Invalid Mod");
+        ArAssert(reg == 1, "Invalid Reg");
+
+        u8 sib = addr.add(2).as<u8&>();
+        u8 scale = (sib >> 6) & 0x2;
+        u8 index = (sib >> 3) & 0x7;
+        u8 base = (sib >> 0) & 0x7;
+
+        // Clear base register
+        mod = 2;
+        base = 5;
+
+        i32 offset = addr.add(3).as<i32&>();
+
+        create_packed_patch<u8, u8, u8, i32>("mmGame::OppIconInfo", "Support More Icons", addr, 0x89,
+            (mod << 6) | (reg << 3) | (rm << 0), (scale << 6) | (index << 3) | (base << 0), OppIconAddr + offset);
+    }
+});

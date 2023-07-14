@@ -314,6 +314,11 @@ public:
         return in_lobby_;
     }
 
+    bool IsHost() const
+    {
+        return is_host_;
+    }
+
     void SetSysCallback(Callback cb)
     {
         sys_message_cb_ = cb;

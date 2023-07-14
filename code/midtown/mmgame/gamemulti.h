@@ -62,6 +62,8 @@
 */
 
 #include "game.h"
+#include "hud.h"
+#include "netobject.h"
 
 struct NETGAME_MSG;
 struct NETSYS_MSG;
@@ -87,7 +89,7 @@ public:
     virtual void GameMessage(NETGAME_MSG* arg1) = 0;
 
     // ?ActivateMapNetObject@mmGameMulti@@QAEXH@Z
-    ARTS_IMPORT void ActivateMapNetObject(i32 arg1);
+    ARTS_EXPORT void ActivateMapNetObject(i32 player);
 
     // ?BootPlayerCB@mmGameMulti@@QAEXPAX0@Z
     ARTS_IMPORT void BootPlayerCB(void* arg1, void* arg2);
@@ -99,7 +101,7 @@ public:
     ARTS_IMPORT void ClearNetObjects();
 
     // ?DeactivateMapNetObject@mmGameMulti@@QAEXH@Z
-    ARTS_IMPORT void DeactivateMapNetObject(i32 arg1);
+    ARTS_EXPORT void DeactivateMapNetObject(i32 player);
 
     // ?DropThruCityHandler@mmGameMulti@@UAEXXZ
     ARTS_IMPORT void DropThruCityHandler() override;
@@ -183,7 +185,23 @@ protected:
     // ?StartXYZ@mmGameMulti@@IAEXHAAVVector3@@0MM@Z
     ARTS_IMPORT void StartXYZ(i32 arg1, Vector3& arg2, Vector3& arg3, f32 arg4, f32 arg5);
 
-    u8 gap1E570[0x938];
+public:
+    f32 ResetRotation;
+    f32 Time;
+    mmWaypoints* Waypoints;
+    string field_1E57C;
+    string field_1E584;
+    i32 field_1E58C;
+    i32 field_1E590;
+    f32 field_1E594;
+    mmNetObject PlayerObject;
+    mmNetObject NetObjects[8];
+    mmCar* Cars[8];
+    void* field_1EE4C[8];
+    mmTimer TimeLimit;
+    i32 field_1EE9C;
+    b32 NoKicking;
+    i32 field_1EEA4;
 };
 
 check_size(mmGameMulti, 0x1EEA8);

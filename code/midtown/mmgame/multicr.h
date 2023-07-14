@@ -78,6 +78,7 @@
 #include "gamemulti.h"
 
 class mmCar;
+class mmWaypointObject;
 
 class mmMultiCR final : public mmGameMulti
 {
@@ -175,7 +176,7 @@ private:
     ARTS_IMPORT i32 GetRandomIndex();
 
     // ?OppStealGold@mmMultiCR@@AAEXH@Z
-    ARTS_IMPORT void OppStealGold(i32 arg1);
+    ARTS_EXPORT void OppStealGold(i32 player);
 
     // ?Score@mmMultiCR@@AAEXH@Z
     ARTS_IMPORT void Score(i32 arg1);
@@ -228,7 +229,22 @@ private:
     // ?UpdateTimeWarning@mmMultiCR@@AAEXXZ
     ARTS_IMPORT void UpdateTimeWarning();
 
-    u8 gap1EEA8[0x88];
+private:
+    mmWaypointObject* field_1EEA8;
+    mmWaypointObject* field_1EEAC;
+    mmWaypointObject* field_1EEB0;
+    Vector4* GoldPositions;
+    mmCar* GoldCarrier;
+    i32 BlueScore;
+    i32 RedScore;
+    i16 field_1EEC4[16];
+    i32 field_1EEE4;
+    i32 NumGoldPositions;
+    i32 GoldIndex;
+    i32 field_1EEF0;
+    i32 TimesGoldStolen;
+    f32 field_1EEF8;
+    mmTimer field_1EEFC;
 };
 
 check_size(mmMultiCR, 0x1EF30);

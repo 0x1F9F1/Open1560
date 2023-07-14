@@ -20,6 +20,7 @@ define_dummy_symbol(mmgame_gamemulti);
 
 #include "gamemulti.h"
 
+#include "mmcar/car.h"
 #include "mmnetwork/network.h"
 
 void mmGameMulti::NextRace()
@@ -41,3 +42,20 @@ void mmGameMulti::QuitNetwork()
 
 void mmGameMulti::UpdateDebugKeyInput(i32 /*arg1*/)
 {}
+
+void mmGameMulti::ActivateMapNetObject(i32 player)
+{
+    OppIconInfo& icon = OppIcons[player];
+
+    icon.Position = &Cars[player]->GetICS()->Matrix;
+    icon.Enabled = true;
+}
+
+void mmGameMulti::DeactivateMapNetObject(i32 player)
+{
+    OppIconInfo& icon = OppIcons[player];
+
+    icon.Position = 0;
+    icon.Place = OPP_ICON_BLANK;
+    icon.Enabled = false;
+}

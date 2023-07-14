@@ -207,7 +207,16 @@ public:
     bool EnableAI {true};
     char MapName[40] {};
     char RaceDir[40] {};
-    OppIconInfo OppIcons[8] {};
+
+    static const usize MaxOpponents = 256;
+
+#ifdef ARTS_STANDALONE
+    OppIconInfo OppIcons[MaxOpponents] {};
+#else
+    static OppIconInfo OppIcons[MaxOpponents];
+    OppIconInfo OldOppIcons[8] {};
+#endif
+
     Ptr<eqEventQ> EventQueue;
     eqEvent CurrentEvent {};
     f32 GameStateWait {};
