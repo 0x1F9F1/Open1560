@@ -319,9 +319,6 @@ static mem::cmd_param PARAM_rv3 {"rv3"};
 #endif
 
 #ifndef ARTS_FINAL
-    patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA2D, jump_type::never);
-    patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA4B, jump_type::never);
-
     {
         for (usize addr : {
                  0x4743C9,
