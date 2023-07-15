@@ -33,8 +33,10 @@ define_dummy_symbol(mmgame_gamesingle);
 #include "popup.h"
 #include "waypoints.h"
 
+#ifndef ARTS_STANDALONE
 i32 mmGameSingle::OppNumCheck[MaxOpponents] {};
 i16 mmGameSingle::OppFinishPositions[MaxOpponents] {};
+#endif
 
 b32 mmGameSingle::Init()
 {

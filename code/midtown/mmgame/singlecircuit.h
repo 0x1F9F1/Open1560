@@ -149,7 +149,7 @@ public:
     i16 NumFinished {};
 
 #ifdef ARTS_STANDALONE
-    i32 OppNumChecks[MaxOpponents] {};
+    i32 OppNumCheck[MaxOpponents] {};
 #else
     static i32 OppNumCheck[MaxOpponents];
     i32 OldOppNumCheck[8] {};

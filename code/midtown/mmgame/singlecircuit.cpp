@@ -32,8 +32,10 @@ define_dummy_symbol(mmgame_singlecircuit);
 #include "player.h"
 #include "waypoints.h"
 
+#ifndef ARTS_STANDALONE
 i16 mmSingleCircuit::OppFinishPositions[MaxOpponents] {};
 i32 mmSingleCircuit::OppNumCheck[MaxOpponents] {};
+#endif
 
 mmSingleCircuit::mmSingleCircuit() = default;
 
