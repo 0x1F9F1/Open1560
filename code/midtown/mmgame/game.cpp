@@ -1102,7 +1102,7 @@ hook_func(INIT_main, [] {
         ArAssert(reg == 1, "Invalid Reg");
 
         u8 sib = addr.add(2).as<u8&>();
-        u8 scale = (sib >> 6) & 0x2;
+        u8 scale = (sib >> 6);
         u8 index = (sib >> 3) & 0x7;
         u8 base = (sib >> 0) & 0x7;
 
@@ -1112,7 +1112,10 @@ hook_func(INIT_main, [] {
 
         i32 offset = addr.add(3).as<i32&>();
 
-        create_packed_patch<u8, u8, u8, i32>("mmGame::OppIconInfo", "Support More Icons", addr, 0x89,
-            (mod << 6) | (reg << 3) | (rm << 0), (scale << 6) | (index << 3) | (base << 0), OppIconAddr + offset);
+        modrm = (mod << 6) | (reg << 3) | (rm << 0);
+        sib = (scale << 6) | (index << 3) | (base << 0);
+
+        create_packed_patch<u8, u8, u8, i32>(
+            "mmGame::OppIconInfo", "Support More Icons", addr, 0x89, modrm, sib, OppIconAddr + offset);
     }
 });

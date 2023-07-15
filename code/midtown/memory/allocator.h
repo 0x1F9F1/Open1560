@@ -176,7 +176,7 @@ private:
     FreeNode* buckets_[32] {};
 
 #ifndef ARTS_STANDALONE
-    Node* last_ {};
+    [[deprecated]] Node* last_ {};
 #endif
 
     // New Fields
