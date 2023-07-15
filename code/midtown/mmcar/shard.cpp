@@ -49,7 +49,7 @@ void mmShard::Draw(i32 lod)
     }
 }
 
-mmShardManager* mmShardManager::Instances[64];
+mmShardManager* mmShardManager::Instances[MaxShardManagers];
 
 mmShardManager::mmShardManager()
 {

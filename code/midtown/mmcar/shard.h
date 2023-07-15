@@ -138,8 +138,10 @@ public:
     friend class mmShard;
 
 protected:
+    static const usize MaxShardManagers = 128;
+
     // ?Instances@mmShardManager@@1PAPAV1@A
-    ARTS_EXPORT static mmShardManager* Instances[64];
+    ARTS_EXPORT static mmShardManager* Instances[MaxShardManagers];
 
     // ?NumInstances@mmShardManager@@1HA
     ARTS_IMPORT static i32 NumInstances;
