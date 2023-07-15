@@ -57,7 +57,7 @@ class mmSingleCircuit final : public mmGame
 {
 public:
     // ??0mmSingleCircuit@@QAE@XZ
-    ARTS_IMPORT mmSingleCircuit();
+    ARTS_EXPORT mmSingleCircuit();
 
     // ??_EmmSingleCircuit@@UAEPAXI@Z
     // ??1mmSingleCircuit@@UAE@XZ
@@ -78,7 +78,7 @@ public:
     ARTS_IMPORT void HitWaterHandler() override;
 
     // ?Init@mmSingleCircuit@@QAEHXZ
-    ARTS_IMPORT i32 Init();
+    ARTS_EXPORT b32 Init();
 
     // ?InitGameObjects@mmSingleCircuit@@UAEXXZ
     ARTS_IMPORT void InitGameObjects() override;
@@ -96,7 +96,7 @@ public:
     ARTS_IMPORT void NextRace() override;
 
     // ?Reset@mmSingleCircuit@@UAEXXZ
-    ARTS_IMPORT void Reset() override;
+    ARTS_EXPORT void Reset() override;
 
     // ?Update@mmSingleCircuit@@UAEXXZ
     ARTS_IMPORT void Update() override;
@@ -135,7 +135,31 @@ private:
     // ?RegisterLap@mmSingleCircuit@@AAEHXZ
     ARTS_IMPORT i32 RegisterLap();
 
-    u8 gap1E570[0x90];
+public:
+    foobar FooBar {};
+    mmWaypoints* Waypoints {};
+
+#ifdef ARTS_STANDALONE
+    i16 OppFinishPositions[MaxOpponents] {};
+#else
+    static i16 OppFinishPositions[MaxOpponents];
+    i16 OldOppFinishPositions[8] {};
+#endif
+
+    i16 NumFinished {};
+
+#ifdef ARTS_STANDALONE
+    i32 OppNumChecks[MaxOpponents] {};
+#else
+    static i32 OppNumCheck[MaxOpponents];
+    i32 OldOppNumCheck[8] {};
+#endif
+
+    f32 StartAngle {};
+    f32 BestLapTime {};
+    f32 LapTimes[10] {};
+    i32 LapCounter {};
+    i32 field_1E5FC {};
 };
 
 check_size(mmSingleCircuit, 0x1E600);

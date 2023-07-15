@@ -19,6 +19,7 @@
 define_dummy_symbol(mmgame_gamesingle);
 
 #include "gamesingle.h"
+
 #include "arts7/lamp.h"
 #include "mmai/aiMap.h"
 #include "mmai/aiaudiomanager.h"
@@ -84,7 +85,7 @@ b32 mmGameSingle::Init()
 void mmGameSingle::Reset()
 {
     AudMgr()->Reset();
-    field_1E570 = 0;
+    InWater = false;
 
     if (MMSTATE.HasMidtownCD)
         AudMgr()->StopCD();
@@ -94,7 +95,7 @@ void mmGameSingle::Reset()
 
     GameInput()->Reset();
 
-    GameStateWait = 0.0;
+    GameStateWait = 0.0f;
     GameState = 0;
 
     for (usize i = 0; i < MaxOpponents; ++i)

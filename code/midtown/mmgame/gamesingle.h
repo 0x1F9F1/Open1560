@@ -136,7 +136,7 @@ private:
     ARTS_IMPORT i32 RegisterFinish();
 
 public:
-    i32 field_1E570 {};
+    b32 InWater {};
     foobar FooBar {};
 
 #ifdef ARTS_STANDALONE
