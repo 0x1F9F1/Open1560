@@ -72,7 +72,7 @@ public:
 check_size(ArgSet, 0x208);
 
 // ?GBArgs@@3VArgSet@@A
-ARTS_IMPORT extern ArgSet GBArgs;
+ARTS_EXPORT extern ArgSet GBArgs;
 
 inline asArg* ArgSet::operator[](char flag)
 {

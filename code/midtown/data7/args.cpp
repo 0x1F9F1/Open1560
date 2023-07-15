@@ -44,6 +44,8 @@ void asArg::Print(const char* name)
 
 ArgSet::~ArgSet()
 {
+    ArWithStaticHeap static_heap;
+
     // NOTE: Leaks `Path`
 
     for (asArg* arg : Args)
@@ -58,6 +60,8 @@ ArgSet::~ArgSet()
 
 void ArgSet::ParseArgs(i32 argc, const char** argv)
 {
+    ArWithStaticHeap static_heap;
+
     if (!argv || Path != nullptr)
         return;
 
@@ -173,3 +177,7 @@ void ArgSet::Usage()
 
     Displayf("\t[-help]\tdisplays usage");
 }
+
+ArgSet GBArgs {};
+
+patch_static_ctors(0x578D10);
