@@ -107,9 +107,10 @@ void mmBangerActive::Detach()
 
     ICS.State = ICS_STATE_AWAKE;
 
-    // TODO: Clear INST_FLAG_MOVER ?
     Target->Flags |= INST_FLAG_COLLIDER;
+    Target->Flags &= ~INST_FLAG_MOVER;
     Target->Owner = 0;
+
     Target = nullptr;
 }
 
