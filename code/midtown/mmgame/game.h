@@ -208,7 +208,7 @@ public:
     char MapName[40] {};
     char RaceDir[40] {};
 
-    static const usize MaxOpponents = 128;
+    static const usize MaxOpponents = 64;
 
 #ifdef ARTS_STANDALONE
     OppIconInfo OppIcons[MaxOpponents] {};
