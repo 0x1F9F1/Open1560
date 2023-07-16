@@ -41,7 +41,7 @@ public:
     ARTS_EXPORT ~asSafeHeap();
 
     // ?Init@asSafeHeap@@QAEXHH@Z
-    ARTS_EXPORT void Init(isize heap_size, b32 multi_heap);
+    ARTS_EXPORT void Init(isize heap_size, i32 num_heaps);
 
     // ?Kill@asSafeHeap@@QAEXXZ
     ARTS_EXPORT void Kill();
@@ -61,7 +61,7 @@ private:
     u8* heap_ {};
     u32 heap_index_ {};
     usize heap_size_ {};
-    b32 multi_heap_ {};
+    i32 num_heaps_ {};
 };
 
 check_size(asSafeHeap, 0x14);

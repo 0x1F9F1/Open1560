@@ -26,10 +26,6 @@ define_dummy_symbol(memory_valloc);
 
 asSafeHeap SAFEHEAP {};
 
-static usize MultiHeapCount = 4;
-
-static mem::cmd_param PARAM_multiheap {"multiheap"};
-
 asSafeHeap::asSafeHeap()
 {}
 
@@ -38,26 +34,18 @@ asSafeHeap::~asSafeHeap()
     Kill();
 }
 
-void asSafeHeap::Init(isize heap_size, b32 multi_heap)
+void asSafeHeap::Init(isize heap_size, i32 num_heaps)
 {
-    // TODO: Move param to ApplicationHelper
-    MultiHeapCount = PARAM_multiheap.get_or<i32>(4);
-
-    multi_heap = multi_heap && (MultiHeapCount != 0);
-
     SYSTEM_INFO sys_info;
     GetSystemInfo(&sys_info);
 
     heap_size = (heap_size + sys_info.dwAllocationGranularity - 1) & -isize(sys_info.dwAllocationGranularity);
 
     heap_size_ = heap_size;
-    multi_heap_ = multi_heap;
+    num_heaps_ = (num_heaps > 1) ? num_heaps : 0;
 
-    if (multi_heap)
-        heap_size *= MultiHeapCount;
-
-    heap_ = static_cast<u8*>(VirtualAlloc(
-        nullptr, heap_size, multi_heap ? MEM_RESERVE : MEM_COMMIT, multi_heap ? PAGE_NOACCESS : PAGE_READWRITE));
+    heap_ = static_cast<u8*>(VirtualAlloc(nullptr, heap_size * (num_heaps_ ? num_heaps_ : 1),
+        num_heaps_ ? MEM_RESERVE : MEM_COMMIT, num_heaps_ ? PAGE_NOACCESS : PAGE_READWRITE));
 
     Activate();
 }
@@ -68,7 +56,7 @@ void asSafeHeap::Kill()
     {
         Deactivate();
 
-        if (multi_heap_)
+        if (num_heaps_)
         {
             VirtualFree(heap_, 0, MEM_RELEASE);
         }
@@ -89,9 +77,9 @@ void asSafeHeap::Restart()
 
     Deactivate();
 
-    if (multi_heap_)
+    if (num_heaps_)
     {
-        heap_index_ = (heap_index_ + 1) % MultiHeapCount;
+        heap_index_ = (heap_index_ + 1) % num_heaps_;
     }
 
     Activate();
@@ -101,7 +89,7 @@ void asSafeHeap::Activate()
 {
     current_heap_ = heap_ + (heap_size_ * heap_index_);
 
-    if (multi_heap_)
+    if (num_heaps_)
     {
         VirtualAlloc(current_heap_, heap_size_, MEM_COMMIT, PAGE_READWRITE);
     }
@@ -113,7 +101,7 @@ void asSafeHeap::Deactivate()
 {
     ALLOCATOR.Kill();
 
-    if (multi_heap_)
+    if (num_heaps_)
     {
         // VirtualFree without the MEM_RELEASE flag may free memory but not address descriptors
         ARTS_MSVC_DIAGNOSTIC_IGNORED(6250);

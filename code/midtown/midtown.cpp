@@ -556,6 +556,7 @@ static void MainPhase(i32 argc, char** argv)
 
 static mem::cmd_param PARAM_heapsize {"heapsize"};
 static mem::cmd_param PARAM_speedrun {"speedrun"};
+static mem::cmd_param PARAM_multiheap {"multiheap"};
 
 void ApplicationHelper(i32 argc, char** argv)
 {
@@ -725,7 +726,7 @@ void ApplicationHelper(i32 argc, char** argv)
     }
 
     CURHEAP = &ALLOCATOR;
-    SAFEHEAP.Init(PARAM_heapsize.get_or(ALLOCATOR.IsDebug() ? 80 : 64) << 20, true);
+    SAFEHEAP.Init(PARAM_heapsize.get_or(ALLOCATOR.IsDebug() ? 80 : 64) << 20, PARAM_multiheap.get_or<i32>(2));
 
     MMSTATE.SetDefaults();
     bool no_ui = MMSTATE.ParseStateArgs(argc, argv);
