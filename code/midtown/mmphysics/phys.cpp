@@ -48,6 +48,14 @@ check_size(mmPhysMover, 0x194);
 ARTS_IMPORT i32 MoverCount;
 ARTS_IMPORT mmPhysMover Movers[MAX_MOVERS];
 
+void mmPhysExec::Update()
+{
+    if (OnlyPlayer)
+        DoUpdatePlayerOnly();
+    else
+        DoUpdateAll();
+}
+
 void mmPhysicsMGR::IgnoreMover(mmInstance* inst)
 {
     for (i32 i = 0; i < MoverCount; ++i)

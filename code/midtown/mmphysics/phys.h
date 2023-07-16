@@ -99,7 +99,7 @@ public:
     // ??_GmmPhysExec@@UAEPAXI@Z
     // ??_EmmPhysExec@@UAEPAXI@Z
     // ??1mmPhysExec@@UAE@XZ | inline
-    ARTS_IMPORT ~mmPhysExec() override = default;
+    ARTS_EXPORT ~mmPhysExec() override = default;
 
     // ?DoUpdateAll@mmPhysExec@@QAEXXZ
     ARTS_IMPORT void DoUpdateAll();
@@ -108,9 +108,9 @@ public:
     ARTS_IMPORT void DoUpdatePlayerOnly();
 
     // ?Update@mmPhysExec@@UAEXXZ | inline
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
-    u8 gap20[0x4];
+    b32 OnlyPlayer {};
 };
 
 check_size(mmPhysExec, 0x24);
