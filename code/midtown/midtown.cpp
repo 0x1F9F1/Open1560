@@ -651,7 +651,7 @@ void ApplicationHelper(i32 argc, char** argv)
         mem::cmd_param::set("smoothstep", "0");
         mem::cmd_param::set("maxfps", "60");
         mem::cmd_param::set("speedycops", "1");
-        mem::cmd_param::set("vsync", "0");
+        // mem::cmd_param::set("vsync", "0");
         mem::cmd_param::set("showfps", "1");
     }
 
