@@ -44,8 +44,31 @@ struct asMemoryAllocator::Node
     // Aligned size of data
     u32 Size;
 
-    static constexpr u32 LOWER_GUARD = 0x55555555;
-    static constexpr u32 UPPER_GUARD = 0xAAAAAAAA;
+    static constexpr u8 LOWER_FILL = 0x55;
+    static constexpr u8 UPPER_FILL = 0xAA;
+    static constexpr u8 UNINIT_FILL = 0xCD;
+    static constexpr u8 FREED_FILL = 0xDD;
+
+    static ARTS_FORCEINLINE void SetFill(void* start, void* end, u8 value)
+    {
+        usize length = static_cast<u8*>(end) - static_cast<u8*>(start);
+
+        std::memset(start, value, length);
+    }
+
+    static ARTS_FORCEINLINE bool CheckFill(void* start, void* end, u8 value)
+    {
+        u8* data = static_cast<u8*>(start);
+        usize length = static_cast<u8*>(end) - static_cast<u8*>(start);
+
+        for (usize i = 0; i < length; ++i)
+        {
+            if (data[i] != value)
+                return false;
+        }
+
+        return true;
+    }
 
     ARTS_FORCEINLINE void Clear() noexcept
     {
@@ -123,12 +146,19 @@ struct asMemoryAllocator::Node
         return (Status & 0x2) == 0x2;
     }
 
+    static constexpr u32 BitMixer32 = 0x9E3779B1;
+    static constexpr u32 InvBitMixer32 = 0x0E8B2F51;
+
     // Only valid for debug allocators
     ARTS_FORCEINLINE u32 GetUserSize() const noexcept
     {
         u8* const data = GetData();
         u32 size = 0;
         std::memcpy(&size, data + 0, sizeof(size));
+
+        size *= InvBitMixer32;
+        ArAssert(size < Size, "Corrupted User Size");
+
         return size;
     }
 
@@ -141,37 +171,42 @@ struct asMemoryAllocator::Node
         return source;
     }
 
+#ifdef ARTS_DEBUG
+    static constexpr usize DebugLowerGuardSize = sizeof(u32) * 4;
+    static constexpr usize DebugUpperGuardSize = sizeof(u32) * 2;
+#else
+    static constexpr usize DebugLowerGuardSize = sizeof(u32) * 3;
+    static constexpr usize DebugUpperGuardSize = sizeof(u32) * 1;
+#endif
+
     // Only valid for debug allocators
     ARTS_FORCEINLINE bool CheckLowerGuard() const noexcept
     {
-        u8* const data = GetData();
-        u32 lower = 0;
-        std::memcpy(&lower, data + 8, sizeof(lower));
-        return lower == LOWER_GUARD;
+        u8* data = GetData();
+
+        return CheckFill(data + 8, data + DebugLowerGuardSize, LOWER_FILL);
     }
 
     // Only valid for debug allocators
-    ARTS_FORCEINLINE bool CheckUpperGuard() const noexcept
+    bool CheckUpperGuard() const noexcept
     {
-        u8* const data = GetData();
-        u32 upper = 0;
-        std::memcpy(&upper, data + 12 + GetUserSize(), sizeof(upper));
-        return upper == UPPER_GUARD;
+        u8* data = GetData();
+
+        return CheckFill(data + DebugLowerGuardSize + GetUserSize(), GetNext(), UPPER_FILL);
     }
 
-    static constexpr usize DebugLowerGuardSize = sizeof(u32) * 3;
-    static constexpr usize DebugUpperGuardSize = sizeof(u32) * 1;
-
-    ARTS_FORCEINLINE void SetDebugGuards(u32 real_size, u32 source) noexcept
+    void SetDebugGuards(u32 user_size, u32 source) noexcept
     {
         u8* const data = GetData();
-        std::memcpy(data + 0, &real_size, sizeof(real_size));
+
+        u32 mixer_user_size = user_size * BitMixer32;
+
+        std::memcpy(data + 0, &mixer_user_size, sizeof(mixer_user_size));
         std::memcpy(data + 4, &source, sizeof(source));
-        std::memcpy(data + 8, &LOWER_GUARD, sizeof(LOWER_GUARD));
-        std::memcpy(data + 12 + real_size, &UPPER_GUARD, sizeof(UPPER_GUARD));
-    }
 
-    static constexpr usize DebugGuardOverhead = DebugLowerGuardSize + DebugUpperGuardSize;
+        SetFill(data + 8, data + DebugLowerGuardSize, LOWER_FILL);
+        SetFill(data + DebugLowerGuardSize + user_size, GetNext(), UPPER_FILL);
+    }
 
     static ARTS_FORCEINLINE Node* From(void* ptr, bool debug) noexcept
     {
@@ -267,10 +302,14 @@ void* asMemoryAllocator::Allocate(usize size, usize align, void* caller)
 
     if (debug_)
     {
-        size += Node::DebugGuardOverhead;
+        size += Node::DebugLowerGuardSize + Node::DebugUpperGuardSize;
         align_offset += Node::DebugLowerGuardSize;
 
 #ifndef ARTS_FINAL
+        static u32 size_randomizer = static_cast<u32>(std::time(0));
+        size += size_randomizer >> 27;
+        size_randomizer = (size_randomizer * 214013) + 2531011;
+
         last_allocs_[alloc_id_++ % ARTS_SIZE(last_allocs_)] = reinterpret_cast<usize>(caller);
 #endif
     }
@@ -327,9 +366,11 @@ void* asMemoryAllocator::Allocate(usize size, usize align, void* caller)
             ArDebugAssert(prev, "");
             ArDebugAssert(prev->IsAllocated(), "");
 
+            if (debug_)
+                Node::SetFill(prev->GetNext(), n, Node::UPPER_FILL);
+
             prev->Size = reinterpret_cast<usize>(n) - reinterpret_cast<usize>(prev) - sizeof(Node);
             n->SetPrev(prev);
-
             ArDebugAssert(prev->GetNext() == n, "");
         }
     }
@@ -376,7 +417,6 @@ void* asMemoryAllocator::Allocate(usize size, usize align, void* caller)
 
     if (debug_)
     {
-        std::memset(result, 0xCD, size);
         n->SetDebugGuards(real_size, static_cast<u32>(reinterpret_cast<usize>(caller))); // FIXME: 64-bit incompatible
         result += Node::DebugLowerGuardSize;
     }
@@ -419,10 +459,6 @@ void asMemoryAllocator::Free(void* ptr, usize size)
     Verify(ptr);
 
     FreeNode* n = static_cast<FreeNode*>(Node::From(ptr, debug_));
-
-    if (debug_)
-        std::memset(n->GetData(), 0xDD, n->Size);
-
     n->SetAllocated(false);
 
     Node* prev = n->GetPrev();
@@ -552,8 +588,7 @@ void asMemoryAllocator::Init(void* heap, usize heap_size, b32 use_nodes)
 
     initialized_ = true;
 
-    if (debug_)
-        std::memset(heap_, 0xCC, heap_size_);
+    std::memset(heap_, Node::FREED_FILL, heap_size_);
 
     if (use_nodes)
     {
