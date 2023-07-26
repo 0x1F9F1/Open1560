@@ -99,6 +99,9 @@ void agiTexDef::DoPageIn()
     // FIXME: Some RV3 textures (SKY_*) have incorrect pitch.
     Surface->FixPitch();
 
+    // Ensure the surface pointer is null in case it can't be paged in
+    Surface->Surface = 0;
+
     i32 mip_pack = PackShift & 0xF;
 
     Surface->MipMapCount -= mip_pack;
