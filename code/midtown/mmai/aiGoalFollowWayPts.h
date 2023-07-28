@@ -49,9 +49,12 @@
     0x6A7C00 | class MetaClass aiGoalFollowWayPtsMetaClass | ?aiGoalFollowWayPtsMetaClass@@3VMetaClass@@A
 */
 
-#include "aiGoal.h"
-
 #include "data7/metadeclare.h"
+#include "data7/timer.h"
+#include "vector7/vector3.h"
+
+#include "aiGoal.h"
+#include "aiStuck.h"
 
 class aiVehicleOpponent;
 
@@ -78,7 +81,7 @@ public:
 #endif
 
     // ?Context@aiGoalFollowWayPts@@UAEHXZ
-    ARTS_IMPORT b32 Context() override;
+    ARTS_EXPORT b32 Context() override;
 
     // ?Dump@aiGoalFollowWayPts@@QAEXXZ
     ARTS_IMPORT void Dump();
@@ -132,7 +135,39 @@ private:
     // ?SolveTargetPoint@aiGoalFollowWayPts@@AAEXXZ
     ARTS_IMPORT void SolveTargetPoint();
 
-    u8 gap8[0x184];
+    aiVehicleOpponent* Vehicle;
+    aiRailSet* Rail;
+    mmCar* Car;
+    aiStuck Stuck;
+    Timer Time;
+    aiPath* StartLink;
+    aiPath* LastLink;
+    aiPath* NLastLink;
+    Vector3 TargetPt;
+    i16* WayPtIds;
+    i16* BackingUp;
+    i16* IsFinished;
+    i16* IsStopped;
+    i16 NumWayPts;
+    i16 WayPtIdx;
+    i16 LastMapCompType;
+    i16 CurMapCompType;
+    i16 CurMapCompIdx;
+    i16 CurRdVertIdx;
+    i16 CurLap;
+    i16 State;
+    i16 NumCloseObstacles;
+    i16 NumFarObstacles;
+    i16 DamageState;
+    f32 Brakes;
+    f32 Throttle;
+    f32 Steering;
+    f32 DistToSide;
+    f32 Offset;
+    f32 TargetPtOffset;
+    f32 MaxThrottle;
+    f32 NearObstacles[12][2];
+    f32 FarObstacles[12][2];
 };
 
 check_size(aiGoalFollowWayPts, 0x18C);
