@@ -36,7 +36,7 @@ b32 aiGoalFollowWayPts::Context()
     {
         DamageState = 0;
         Car->ClearDamage();
-        return 1;
+        return true;
     }
     else
     {
@@ -45,12 +45,12 @@ b32 aiGoalFollowWayPts::Context()
             Time.Reset();
             DamageState = 1;
         }
+
         Car->Sim.Steering = 0.0f;
         Car->Sim.Engine.Throttle = 0.0f;
         Car->Sim.Brakes = 0.0f;
 
-        Vector3* p_LinearMomentum = &Car->Sim.ICS.LinearMomentum;
-        *p_LinearMomentum *= 0.95f;
+        Car->Sim.ICS.LinearMomentum *= 0.95f;
 
         return false;
     }
