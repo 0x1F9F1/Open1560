@@ -28,7 +28,7 @@ define_dummy_symbol(mmai_aiGoalFollowWayPts);
 
 b32 aiGoalFollowWayPts::Context()
 {
-    if (Car->Sim.MaxDamageScaled >= Car->Sim.CurrentDamage)
+    if (Car->Sim.CurrentDamage <= Car->Sim.MaxDamageScaled)
     {
         return (*BackingUp != 1) && (*IsFinished == 0);
     }
