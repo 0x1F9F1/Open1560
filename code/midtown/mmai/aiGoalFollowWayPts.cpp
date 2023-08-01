@@ -19,3 +19,39 @@
 define_dummy_symbol(mmai_aiGoalFollowWayPts);
 
 #include "aiGoalFollowWayPts.h"
+
+#include "mmcar/car.h"
+#include "mmcityinfo/state.h"
+
+#include "aiData.h"
+#include "aiMap.h"
+
+b32 aiGoalFollowWayPts::Context()
+{
+    if (Car->Sim.CurrentDamage <= Car->Sim.MaxDamageScaled)
+    {
+        return (*BackingUp != 1) && (*IsFinished == 0);
+    }
+    else if (MMSTATE.GameMode == mmGameMode::Circuit && DamageState == 1 && Time.Time() > 5.0f)
+    {
+        DamageState = 0;
+        Car->ClearDamage();
+        return true;
+    }
+    else
+    {
+        if (!DamageState)
+        {
+            Time.Reset();
+            DamageState = 1;
+        }
+
+        Car->Sim.Steering = 0.0f;
+        Car->Sim.Engine.Throttle = 0.0f;
+        Car->Sim.Brakes = 0.0f;
+
+        Car->Sim.ICS.LinearMomentum *= 0.95f;
+
+        return false;
+    }
+}
