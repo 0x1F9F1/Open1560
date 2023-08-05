@@ -1107,7 +1107,7 @@ hook_func(INIT_main, [] {
         u8 base = (sib >> 0) & 0x7;
 
         // Clear base register
-        mod = 2;
+        mod = 0;
         base = 5;
 
         i32 offset = addr.add(3).as<i32&>();
@@ -1116,6 +1116,6 @@ hook_func(INIT_main, [] {
         sib = (scale << 6) | (index << 3) | (base << 0);
 
         create_packed_patch<u8, u8, u8, i32>(
-            "mmGame::OppIconInfo", "Support More Icons", addr, 0x89, modrm, sib, OppIconAddr + offset);
+            "mmGame::OppIconInfo", "Support More Icons", addr, 0x8B, modrm, sib, OppIconAddr + offset);
     }
 });
