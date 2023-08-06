@@ -43,7 +43,7 @@ b32 mmGameSingle::Init()
     if (!mmGame::Init())
         return false;
 
-    RaceData = MakeUnique<mmRaceData>();
+    RaceData = arnew mmRaceData();
     RaceData->Load(arts_formatf<128>("%s\\mmracedata", RaceDir));
 
     GameState = 0;
