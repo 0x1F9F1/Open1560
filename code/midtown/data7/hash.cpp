@@ -85,7 +85,7 @@ void HashTable::Init(i32 bucket_count)
 
     value_count_ = 0;
     bucket_count_ = ComputePrime(std::max(bucket_count, 100));
-    buckets_ = MakeUnique<HashEntry*[]>(bucket_count_);
+    buckets_ = arnewa HashEntry * [bucket_count_] {};
 }
 
 b32 HashTable::Insert(const char* key, void* value)
@@ -205,7 +205,7 @@ void HashTable::Recompute(i32 capacity)
     capacity = ComputePrime(capacity);
 
     i32 old_bucket_count = bucket_count_;
-    Ptr<HashEntry*[]> old_buckets = MakeUnique<HashEntry*[]>(capacity);
+    Ptr<HashEntry*[]> old_buckets = arnewa HashEntry * [capacity] {};
 
     buckets_.swap(old_buckets);
     bucket_count_ = capacity;

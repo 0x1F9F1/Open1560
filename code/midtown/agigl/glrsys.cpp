@@ -547,7 +547,7 @@ void main()
     {
         GLint buffer_size = 0;
         glGetProgramiv(shader_, GL_PROGRAM_BINARY_LENGTH, &buffer_size);
-        Ptr<u8[]> buffer = MakeUniqueUninit<u8[]>(buffer_size);
+        Ptr<u8[]> buffer = arnewa u8[buffer_size];
 
         GLsizei length = 0;
         GLenum binary_format = 0;

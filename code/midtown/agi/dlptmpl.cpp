@@ -92,7 +92,7 @@ void DLPPatch::Load(Stream* file)
     TexIdx = file->Get<u16>();
     PhysIdx = file->Get<u16>();
 
-    Vertices = MakeUnique<DLPVertex[]>(NumVertices);
+    Vertices = arnewa DLPVertex[NumVertices] {};
 
     for (i32 i = 0; i < NumVertices; ++i)
         Vertices[i].Load(file);
@@ -115,10 +115,10 @@ void DLPVertex::Load(Stream* file)
 void DLPGroup::Init(i32 num_verts, i32 num_patches)
 {
     NumVertices = num_verts;
-    VertexIndices = MakeUnique<u16[]>(num_verts);
+    VertexIndices = arnewa u16[num_verts] {};
 
     NumPatches = num_patches;
-    PatchIndices = MakeUnique<u16[]>(num_patches);
+    PatchIndices = arnewa u16[num_patches] {};
 }
 
 void DLPGroup::Load(Stream* file)

@@ -156,7 +156,7 @@ void ipcMessageQueue::Init(i32 max_messages, i32 mode)
 
     blocking_ = blocking;
     max_messages_ = max_messages;
-    messages_ = MakeUnique<ipcMessage[]>(max_messages);
+    messages_ = arnewa ipcMessage[max_messages] {};
 
     send_event_.init();
     done_event_.init();

@@ -51,12 +51,12 @@ void asLineSparks::Init(i32 num_sparks, asSparkLut* lut)
     SparkColumns.release();
 
     NumSparks = num_sparks;
-    SparkColors = MakeUniqueUninit<u32[]>(num_sparks);
-    SparkVelocities = MakeUniqueUninit<Vector3[]>(num_sparks);
-    SparkStarts = MakeUniqueUninit<Vector3[]>(num_sparks);
-    SparkEnds = MakeUniqueUninit<Vector3[]>(num_sparks);
-    SparkRows = MakeUniqueUninit<u8[]>(num_sparks);
-    SparkColumns = MakeUniqueUninit<u8[]>(num_sparks);
+    SparkColors = arnewa u32[num_sparks];
+    SparkVelocities = arnewa Vector3[num_sparks];
+    SparkStarts = arnewa Vector3[num_sparks];
+    SparkEnds = arnewa Vector3[num_sparks];
+    SparkRows = arnewa u8[num_sparks];
+    SparkColumns = arnewa u8[num_sparks];
     NumActive = 0;
     field_0 = 0;
     GroundY = 0.0f;

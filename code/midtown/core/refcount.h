@@ -242,12 +242,6 @@ private:
     T* ptr_ {};
 };
 
-template <typename T, typename... Args>
-[[nodiscard]] inline std::enable_if_t<!std::is_array_v<T>, Rc<T>> MakeRc(Args&&... args)
-{
-    return Rc<T>(new T(std::forward<Args>(args)...));
-}
-
 template <typename T>
 [[nodiscard]] inline std::enable_if_t<!std::is_array_v<T>, Rc<T>> AddRc(T* ptr) noexcept
 {
@@ -257,21 +251,10 @@ template <typename T>
     return Rc<T>(ptr);
 }
 
-struct ArRcMaker
-{
-    template <typename T>
-    ARTS_FORCEINLINE Rc<T> operator->*(T* ptr) const noexcept
-    {
-        return Rc<T>(ptr);
-    }
+template <typename T>
+using ArMakeRc_t = Rc<T>;
 
-    ARTS_FORCEINLINE constexpr ArPtrPassthrough release() const noexcept
-    {
-        return {};
-    }
-};
-
-#define arref ::ArRcMaker {}->*new
+#define arnewr ::ArPtrMaker<ArMakeRc_t> {}->*new
 
 #ifdef ARTS_STANDALONE
 template <typename T>
@@ -282,5 +265,5 @@ using RcOwner = Rc<T>;
 template <typename T>
 using RcOwner = T*;
 
-#    define as_rc ::ArRcMaker {}->*
+#    define as_rc ::ArPtrMaker<ArMakeRc_t> {}->*
 #endif

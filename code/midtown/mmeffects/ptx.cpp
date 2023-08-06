@@ -75,8 +75,8 @@ void asParticles::Init(i32 max_particles, i32 arg2, i32 arg3, i32 vert_count, ag
     max_particles = static_cast<i32>(max_particles * PARAM_max_particles.get_or<f32>(2.0f));
 
     SparkCapacity = max_particles;
-    Sparks = MakeUnique<asSparkInfo[]>(max_particles);
-    SparkPositions = MakeUnique<asSparkPos[]>(max_particles);
+    Sparks = arnewa asSparkInfo[max_particles] {};
+    SparkPositions = arnewa asSparkPos[max_particles] {};
     MeshCard.Init(vert_count, vertices, 32, arg2, arg3);
 }
 

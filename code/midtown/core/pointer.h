@@ -24,34 +24,6 @@
 template <typename T>
 using Ptr = std::unique_ptr<T>;
 
-template <typename T, typename... Args>
-[[nodiscard]] inline std::enable_if_t<!std::is_array_v<T>, Ptr<T>> MakeUnique(Args&&... args)
-{
-    return Ptr<T>(new T(std::forward<Args>(args)...));
-}
-
-template <typename T>
-[[nodiscard]] inline std::enable_if_t<std::is_array_v<T>, Ptr<T>> MakeUnique(usize size)
-{
-    static_assert(std::extent_v<T> == 0, "Cannot MakeUnique with non-zero array extent");
-
-    return Ptr<T>(new std::remove_extent_t<T>[size] {});
-}
-
-template <typename T>
-[[nodiscard]] inline std::enable_if_t<!std::is_array_v<T>, Ptr<T>> MakeUniqueUninit()
-{
-    return Ptr<T>(new T);
-}
-
-template <typename T>
-[[nodiscard]] inline std::enable_if_t<std::is_array_v<T>, Ptr<T>> MakeUniqueUninit(usize size)
-{
-    static_assert(std::extent_v<T> == 0, "Cannot MakeUnique with non-zero array extent");
-
-    return Ptr<T>(new std::remove_extent_t<T>[size]);
-}
-
 struct ArPtrPassthrough
 {
     template <typename T>
@@ -61,12 +33,19 @@ struct ArPtrPassthrough
     }
 };
 
+template <typename T>
+using ArMakePtr_t = Ptr<T>;
+
+template <typename T>
+using ArMakeArrayPtr_t = Ptr<T[]>;
+
+template <template <typename> typename Maker>
 struct ArPtrMaker
 {
     template <typename T>
-    ARTS_FORCEINLINE Ptr<T> operator->*(T* ptr) const noexcept
+    ARTS_FORCEINLINE Maker<T> operator->*(T* ptr) const noexcept
     {
-        return Ptr<T>(ptr);
+        return Maker<T>(ptr);
     }
 
     ARTS_FORCEINLINE constexpr ArPtrPassthrough release() const noexcept
@@ -84,7 +63,8 @@ struct ArPtrReleaser
     }
 };
 
-#define arnew ::ArPtrMaker {}->*new
+#define arnew ::ArPtrMaker<ArMakePtr_t> {}->*new
+#define arnewa ::ArPtrMaker<ArMakeArrayPtr_t> {}->*new
 
 #ifdef ARTS_STANDALONE
 template <typename T>
@@ -97,7 +77,7 @@ using Owner = Ptr<T>;
 template <typename T>
 using Owner = T*;
 
-#    define as_ptr ::ArPtrMaker {}->*
+#    define as_ptr ::ArPtrMaker<ArMakePtr_t> {}->*
 #    define as_owner ::ArPtrReleaser {}->*
 #    define as_raw
 #endif

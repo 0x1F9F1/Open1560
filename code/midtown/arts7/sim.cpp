@@ -164,9 +164,9 @@ asSimulation::asSimulation()
 
         vector_capacity_ = 256;
         vector_count_ = 0;
-        vector_starts_ = MakeUnique<Vector3[]>(vector_capacity_);
-        vector_ends_ = MakeUnique<Vector3[]>(vector_capacity_);
-        vector_colors_ = MakeUnique<Vector3[]>(vector_capacity_);
+        vector_starts_ = arnewa Vector3[vector_capacity_] {};
+        vector_ends_ = arnewa Vector3[vector_capacity_] {};
+        vector_colors_ = arnewa Vector3[vector_capacity_] {};
     }
 #endif
 

@@ -276,11 +276,11 @@ i32 agiSWPipeline::BeginGfx()
     swInit();
 
     // FIXME: Leaks agiSWRasterizer
-    renderer_ = arref agiZBufRenderer(new agiSWRasterizer(this));
+    renderer_ = arnewr agiZBufRenderer(new agiSWRasterizer(this));
 
     if (bit_depth_ == 8)
     {
-        screen_color_model_ = arref agiColorModel8(&agiPal);
+        screen_color_model_ = arnewr agiColorModel8(&agiPal);
     }
     else
     {
@@ -289,7 +289,7 @@ i32 agiSWPipeline::BeginGfx()
 
     text_color_model_ = screen_color_model_;
 
-    opaque_color_model_ = arref agiColorModel8(&agiPal);
+    opaque_color_model_ = arnewr agiColorModel8(&agiPal);
     alpha_color_model_ = opaque_color_model_;
 
     TexSearchPath = "texp\0"_xconst;
@@ -365,22 +365,22 @@ void agiSWPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, 
 
 RcOwner<agiBitmap> agiSWPipeline::CreateBitmap()
 {
-    return as_owner arref agiSWBitmap(this);
+    return as_owner arnewr agiSWBitmap(this);
 }
 
 RcOwner<DLP> agiSWPipeline::CreateDLP()
 {
-    return as_owner arref RDLP(this);
+    return as_owner arnewr RDLP(this);
 }
 
 RcOwner<agiLight> agiSWPipeline::CreateLight()
 {
-    return as_owner arref agiBILight(this);
+    return as_owner arnewr agiBILight(this);
 }
 
 RcOwner<agiLightModel> agiSWPipeline::CreateLightModel()
 {
-    return as_owner arref agiBILightModel(this);
+    return as_owner arnewr agiBILightModel(this);
 }
 
 RcOwner<agiMtlDef> agiSWPipeline::CreateMtlDef()
@@ -390,17 +390,17 @@ RcOwner<agiMtlDef> agiSWPipeline::CreateMtlDef()
 
 RcOwner<agiTexDef> agiSWPipeline::CreateTexDef()
 {
-    return as_owner arref agiSWTexDef(this);
+    return as_owner arnewr agiSWTexDef(this);
 }
 
 RcOwner<agiTexLut> agiSWPipeline::CreateTexLut()
 {
-    return as_owner arref agiSWTexLut(this);
+    return as_owner arnewr agiSWTexLut(this);
 }
 
 RcOwner<agiViewport> agiSWPipeline::CreateViewport()
 {
-    return as_owner arref agiSWViewport(this);
+    return as_owner arnewr agiSWViewport(this);
 }
 
 void agiSWPipeline::EndFrame()

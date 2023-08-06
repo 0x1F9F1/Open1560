@@ -80,7 +80,7 @@ void mmVehList::Load(char* name)
     if (!info->Load(arts_formatf<64>("tune/%s", name)) || GetVehicleID(info->BaseName) >= 0)
         return;
 
-    Ptr<mmVehInfo*[]> vehicles = MakeUniqueUninit<mmVehInfo*[]>(NumVehicles + 1);
+    Ptr<mmVehInfo*[]> vehicles = arnewa mmVehInfo * [NumVehicles + 1];
 
     for (i32 i = 0; i < NumVehicles; ++i)
         vehicles[i] = Vehicles[i];

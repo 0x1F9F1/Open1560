@@ -52,7 +52,7 @@ i32 agiSWTexDef::BeginGfx()
 
     for (u32 i = 0; i + 2 < Surface->MipMapCount; ++i)
     {
-        surfaces_[i] = MakeUniqueUninit<u8[]>(size);
+        surfaces_[i] = arnewa u8[size];
         std::memcpy(surfaces_[i].get(), surface, size);
         surface = static_cast<u8*>(surface) + size;
         size >>= 2;

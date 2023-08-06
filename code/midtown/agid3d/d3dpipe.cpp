@@ -385,7 +385,7 @@ i32 agiD3DPipeline::BeginGfx()
     }
     else
     {
-        opaque_color_model_ = arref agiColorModel8(&agiPal);
+        opaque_color_model_ = arnewr agiColorModel8(&agiPal);
     }
 
     if (alpha_dd_format_.dwRBitMask)
@@ -394,7 +394,7 @@ i32 agiD3DPipeline::BeginGfx()
     }
     else
     {
-        alpha_color_model_ = arref agiColorModel8(&agiPal);
+        alpha_color_model_ = arnewr agiColorModel8(&agiPal);
     }
 
     if (alpha_color_model_->BitCountA)
@@ -520,22 +520,22 @@ void agiD3DPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x,
 
 RcOwner<agiBitmap> agiD3DPipeline::CreateBitmap()
 {
-    return as_owner arref agiDDBitmap(this);
+    return as_owner arnewr agiDDBitmap(this);
 }
 
 RcOwner<agiLight> agiD3DPipeline::CreateLight()
 {
-    return as_owner arref agiD3DLight(this);
+    return as_owner arnewr agiD3DLight(this);
 }
 
 RcOwner<agiMtlDef> agiD3DPipeline::CreateMtlDef()
 {
-    return as_owner arref agiD3DMtlDef(this);
+    return as_owner arnewr agiD3DMtlDef(this);
 }
 
 RcOwner<agiTexDef> agiD3DPipeline::CreateTexDef()
 {
-    return as_owner arref agiD3DTexDef(this);
+    return as_owner arnewr agiD3DTexDef(this);
 }
 
 RcOwner<agiTexLut> agiD3DPipeline::CreateTexLut()
@@ -543,12 +543,12 @@ RcOwner<agiTexLut> agiD3DPipeline::CreateTexLut()
     if (!(device_flags_1_ & 0x100))
         return nullptr;
 
-    return as_owner arref agiD3DTexLut(this);
+    return as_owner arnewr agiD3DTexLut(this);
 }
 
 RcOwner<agiViewport> agiD3DPipeline::CreateViewport()
 {
-    return as_owner arref agiD3DViewport(this);
+    return as_owner arnewr agiD3DViewport(this);
 }
 
 void agiD3DPipeline::Defragment()

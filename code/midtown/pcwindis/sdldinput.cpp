@@ -374,7 +374,7 @@ public:
 
             if (num_joysticks > 0)
             {
-                Ptr<SDL_GameController*[]> controllers = MakeUnique<SDL_GameController*[]>(num_joysticks + 1);
+                Ptr<SDL_GameController*[]> controllers = arnewa SDL_GameController * [num_joysticks + 1] {};
                 usize num_gamepads = 0;
 
                 for (int i = 0; i < num_joysticks; ++i)

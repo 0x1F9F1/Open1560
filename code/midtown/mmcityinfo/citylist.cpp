@@ -85,7 +85,7 @@ void mmCityList::Load(aconst char* name)
     if (!info->Load(arts_formatf<64>("tune/%s", name)) || GetCityID(info->RaceDir) >= 0)
         return;
 
-    Ptr<mmCityInfo*[]> cities = MakeUniqueUninit<mmCityInfo*[]>(NumCities + 1);
+    Ptr<mmCityInfo*[]> cities = arnewa mmCityInfo * [NumCities + 1];
 
     for (i32 i = 0; i < NumCities; ++i)
         cities[i] = Cities[i];

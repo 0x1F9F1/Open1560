@@ -141,7 +141,7 @@ i32 agiDDPipeline::BeginGfx()
 
     if (bit_depth_ == 8)
     {
-        screen_color_model_ = arref agiColorModel8(&agiPal);
+        screen_color_model_ = arnewr agiColorModel8(&agiPal);
 
         DD_TRY(d_front_->SetPalette(d_pal_));
         DD_TRY(d_back_->SetPalette(d_pal_));
@@ -235,7 +235,7 @@ void agiDDPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, 
 
 RcOwner<agiBitmap> agiDDPipeline::CreateBitmap()
 {
-    return as_owner arref agiDDBitmap(this);
+    return as_owner arnewr agiDDBitmap(this);
 }
 
 void agiDDPipeline::EndFrame()

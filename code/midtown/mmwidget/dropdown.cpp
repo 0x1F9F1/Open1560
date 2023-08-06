@@ -35,8 +35,8 @@ void mmDropDown::InitString(string values)
     DropIndex = nullptr;
 
     NumValues = values.NumSubStrings();
-    ValueNodes = MakeUnique<mmTextNode[]>(NumValues);
-    DropIndex = MakeUnique<u32[]>(NumValues);
+    ValueNodes = arnewa mmTextNode[NumValues] {};
+    DropIndex = arnewa u32[NumValues] {};
 
     DropHeight = NumValues * Height;
     Highlighted = -1;

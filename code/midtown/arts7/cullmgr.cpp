@@ -89,9 +89,9 @@ static mem::cmd_param PARAM_showfps {"showfps"};
 asCullManager::asCullManager(i32 max_cullables, i32 max_cullables_2D)
     : max_cullables_(max_cullables)
     , max_cullables_2D_(max_cullables_2D)
-    , cullables_(MakeUnique<asCullable*[]>(max_cullables))
-    , cullables_2D_(MakeUnique<asCullable*[]>(max_cullables_2D))
-    , transforms_(MakeUnique<Matrix34*[]>(max_cullables))
+    , cullables_(arnewa asCullable * [max_cullables] {})
+    , cullables_2D_(arnewa asCullable * [max_cullables_2D] {})
+    , transforms_(arnewa Matrix34 * [max_cullables] {})
 {
     Reset(); // TODO: Is this call unncessary?
 
