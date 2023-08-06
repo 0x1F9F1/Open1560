@@ -358,7 +358,7 @@ void MetaClass::FixupClasses()
     }
 }
 
-ARTS_NOINLINE void MetaClass::DeclareNamedTypedField(const char* name, u32 offset, MetaType* type)
+ARTS_NOINLINE void MetaClass::DeclareNamedTypedField(const char* name, usize offset, MetaType* type)
 {
     MetaField* field = new MetaField {nullptr, name, offset, type};
     *ppField = field;

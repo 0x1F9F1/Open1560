@@ -105,7 +105,7 @@ public:
     static void FixupClasses();
 
     // ?DeclareNamedTypedField@MetaClass@@SAXPADIPAUMetaType@@@Z
-    ARTS_EXPORT static void DeclareNamedTypedField(const char* name, u32 offset, MetaType* type);
+    ARTS_EXPORT static void DeclareNamedTypedField(const char* name, usize offset, MetaType* type);
 
     // ?FindByName@MetaClass@@SAPAV1@PADPAV1@@Z
     ARTS_EXPORT static MetaClass* FindByName(const char* name, MetaClass* root);

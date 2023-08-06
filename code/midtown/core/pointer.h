@@ -19,7 +19,6 @@
 #pragma once
 
 #include <memory>
-#include <type_traits>
 
 template <typename T>
 using Ptr = std::unique_ptr<T>;

@@ -23,6 +23,18 @@
 
 ARTS_CLANG_DIAGNOSTIC_IGNORED("-Winvalid-offsetof");
 
+template <typename Parent, typename Derived>
+inline MetaClass* GetMetaClass()
+{
+    static_assert(std::is_base_of_v<Parent, Derived>, "Derived class does not inherit from parent class");
+
+    ArAssert(
+        static_cast<const Parent*>(reinterpret_cast<const Derived*>(0x1000)) == reinterpret_cast<const Parent*>(0x1000),
+        "Derived class is not a pointer-interconvertible with parent class");
+
+    return GetMetaClass<Parent>();
+}
+
 template <typename T>
 inline void* MetaNew([[maybe_unused]] isize len)
 {
@@ -97,17 +109,12 @@ inline void MetaDeclareFields()
     META_DEFINE_CLASS_STORE(NAME, TYPE, &MetaClass::RootMetaClass) \
     META_DECLARE_FIELDS(TYPE)
 
-#define META_CHECK_IS_INTERCONVIRTIBLE(BASE, DERIVED)                                                       \
-    ArCheck((static_cast<DERIVED*>(reinterpret_cast<BASE*>(0x1000)) == reinterpret_cast<DERIVED*>(0x1000)), \
-        #DERIVED " is not interconvertible with " #BASE)
-
-#define META_DEFINE_CHILD(NAME, TYPE, PARENT)                                                                   \
-    static_assert(std::is_base_of_v<PARENT, TYPE>, "Invalid Parent");                                           \
-    META_DEFINE_CLASS_STORE(NAME, TYPE, (META_CHECK_IS_INTERCONVIRTIBLE(PARENT, TYPE), GetMetaClass<PARENT>())) \
+#define META_DEFINE_CHILD(NAME, TYPE, PARENT)                           \
+    META_DEFINE_CLASS_STORE(NAME, TYPE, (GetMetaClass<PARENT, TYPE>())) \
     META_DECLARE_FIELDS(TYPE)
 
 #define META_DECLARE_FIELDS(TYPE) void TYPE::MetaData::DeclareFields()
 
-#define META_FIELD(NAME, MEMBER)                                                          \
-    MetaClass::DeclareNamedTypedField(NAME, static_cast<u32>(offsetof(MetaThis, MEMBER)), \
-        const_cast<MetaType*>(CreateMetaType<decltype(MetaThis::MEMBER)>()))
+#define META_FIELD(NAME, MEMBER)       \
+    MetaClass::DeclareNamedTypedField( \
+        NAME, offsetof(MetaThis, MEMBER), const_cast<MetaType*>(CreateMetaType<decltype(MetaThis::MEMBER)>()))

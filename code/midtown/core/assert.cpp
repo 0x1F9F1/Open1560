@@ -27,8 +27,3 @@
     Abortf("Assertion Failure: %s (%s) in %s (%s:%u)", data.message, data.condition, location.function,
         location.filename, location.linenum);
 }
-
-[[noreturn]] ARTS_NOINLINE void ARTS_FASTCALL ArReportCheck(const ArCheckData& data)
-{
-    Abortf("Check Failure: '%s' in %s:%u", data.message, data.filename, data.linenum);
-}
