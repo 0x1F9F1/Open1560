@@ -91,6 +91,8 @@
 
 #include "arts7/node.h"
 
+#include "mmai/aiGoalFollowWayPts.h"
+
 class CReverbBuffer;
 class SoundObj;
 
@@ -275,7 +277,7 @@ public:
     // ?GetSoftFreqChange2DFlags@AudSound@@SA?BKXZ | unused
     ARTS_IMPORT static const ulong GetSoftFreqChange2DFlags();
 
-private:
+public:
     // ?s_DWDefault2DCtrlFlags@AudSound@@0KB
     ARTS_IMPORT static const ulong s_DWDefault2DCtrlFlags;
 
@@ -296,7 +298,42 @@ private:
 
     ARTS_DIAGNOSTIC_POP;
 
-    u8 gap20[0x98];
+    i32 field_20;
+    i32 Priority;
+    i32 dword28;
+    i32 SoundIndex;
+    i32 Enabled;
+    i32 dword34;
+    i32 AudMask;
+    i32 UpdateFlags;
+    i32 dword40;
+    i32 dword44;            
+    i32 ActiveSound;
+    i32 NumSoundObjs;
+    i32 dword50;
+    i32 Position;          
+    Vector3 LastPosition;
+    Vector3 Velocity;
+    i32 dword70;
+    i32 dword74;
+    i32* Volumes;    
+    i32* Frequencies; 
+    i32* Pans;       
+    i32* ReverbMixes; 
+    i32 dword88;
+    i32 dword8C;
+    i32 dword90;
+    i32 dword94;
+    i32 dword98;
+    i32 dword9C;
+    i32 dwordA0;
+    i32 dwordA4;
+    i32 dwordA8;
+    i32 dwordAC;
+    i32* SoundNames; 
+    i32* SoundObjs;  
+
+    // u8 gap20[0x98];
 };
 
 check_size(AudSound, 0xB8);

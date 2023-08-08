@@ -209,7 +209,7 @@ private:
     ARTS_IMPORT void SendTimeWarning(i32 arg1);
 
     // ?StealGold@mmMultiCR@@AAEXPAVmmCar@@@Z
-    ARTS_IMPORT void StealGold(mmCar* arg1);
+    ARTS_EXPORT void StealGold(mmCar* car);
 
     // ?UpdateBank@mmMultiCR@@AAEXXZ
     ARTS_IMPORT void UpdateBank();
@@ -229,7 +229,7 @@ private:
     // ?UpdateTimeWarning@mmMultiCR@@AAEXXZ
     ARTS_IMPORT void UpdateTimeWarning();
 
-private:
+public:
     mmWaypointObject* field_1EEA8;
     mmWaypointObject* field_1EEAC;
     mmWaypointObject* field_1EEB0;

@@ -18,28 +18,21 @@
 
 define_dummy_symbol(mmgame_multicr);
 
-// headers will be improved later
 #include "multicr.h"
-#include "arts7/sim.h"
-#include "mmnetwork/network.h"
-#include "player.h"
-#include "wphud.h"
 
-#include "mmaudio/head.h"
+#include "arts7/sim.h"
+#include "mmcityinfo/state.h"
+#include "localize/localize.h"
+#include "mmnetwork/network.h"
+#include "mmaudio/sound.h"
 #include "mmaudio/manager.h"
 #include "mmaudio/mmvoicecommentary.h"
-#include "mmaudio/sound.h"
 
+#include "player.h"
 #include "popup.h"
+#include "wphud.h"
+#include "wpobject.h"
 
-#include "mmcar/car.h"
-#include "mmcar/carsim.h"
-
-#include "mmcityinfo/state.h"
-
-#include "localize/localize.h"
-
-#include "mmgame/game.h"
 
 mmWaypoints* mmMultiCR::GetWaypoints()
 {
@@ -70,40 +63,43 @@ i32 mmMultiCR::SelectTeams()
 void mmMultiCR::SendSetup(ulong /*arg1*/)
 {}
 
+void mmMultiCR::StealGold(mmCar* car)
+{
+    // Original implementation
+    // car = GoldCarrier;
+    // mmMultiCR::FondleCarMass(GoldCarrier, MMSTATE.CRGoldMass);       // compile error
+																		// hardcoding the GoldMasss works  
+    // New implementation
+    car->Sim.Engine.Trans->CurrentGear = 2;
+    car->Sim.CurrentDamage += 500.0f; 
+    field_1EEB0->Initialized = true;
+}
 
-// ...
-// ...
-// Note: set sim.h member variables to public
-// Double spacing is added for Review readability
 void mmMultiCR::UpdateGame()
 {
     switch (GameState)
     {
-        case 0: // OK
+        case 0:
             if (NETMGR.IsHost())
                 GameState = 1;
             break; 
 
-
-        case 1: // OK
+        case 1:
             GameState = 2;
             if (MMSTATE.HasMidtownCD)
                 AudMgr()->PlayCDTrack(GetCDTrack(10), true);
             Player->Hud.StopTimers();
             break;
 
-
-        case 2: // ----------------------
+        case 2:
             if (MMSTATE.CRLimitMode == mmCRLimitMode::Time && NETMGR.IsHost())
             {
                 field_1EEFC.Start();
                 Player->Hud.BlitzTimer.Start();
             }
 
-
-            // StartSounds->ActiveSound = 0;            struct AudSound is not yet complete
-            // StartSounds->PlayOnce(-1.0, -1.0);       struct AudSound is not yet complete
-
+            StartSounds->ActiveSound = 0;            
+            StartSounds->PlayOnce(-1.0, -1.0);       
 
             Player->Hud.SetMessage(AngelReadString(0x83u), 2.0f, true);
 
@@ -111,11 +107,10 @@ void mmMultiCR::UpdateGame()
                 VoiceCommentary->PlayCRPreRace();
 
             EnableRacers();
-            GameState = 4; // extend enum class?
+            GameState = 4; 
             break;
 
-
-        case 4: // ----------------------
+        case 4:
             if (!MMSTATE.DisableDamage && Player->IsMaxDamaged())
             {
                 Player->Hud.SetMessage(AngelReadString(0x84u), 5.0f, false);
@@ -130,80 +125,50 @@ void mmMultiCR::UpdateGame()
                 {
                     DropGold(Player->Car.GetICS()->Matrix.m3, 0);
 
-
-                    // goldMassDelta = (float) -MMSTATE.CRGoldMass;         // pseudo
-                    // FondleCarMass(&Player->Car, goldMassDelta);          // pseudo
-
-                    i32 GoldmassDelta = 500;
-                    i32 GoldMass = GoldmassDelta - MMSTATE.CRGoldMass;
-
-                    FondleCarMass(&Player->Car, GoldMass);                  // needs review
-                                                                            // goal is to (also) pass other parameters, such as Horsepower or invoke damage
-
-
+                    // Old implementation
+                    // FondleCarMass(&Player->Car, -MMSTATE.CRGoldMass);        // compile error        
+                              
                     if (VoiceCommentary)
-                       VoiceCommentary->PlayCR(1, MMSTATE.CRIsRobber = 1);  // 1 for true?
+                        VoiceCommentary->PlayCR(1, 1);
+                        // VoiceCommentary->PlayCR(1, MMSTATE.CRIsRobber);      // compile error
+                        // VoiceCommentary->PlayCR(1, MMSTATE.CRIsRobber = 1);  // compile error
 
-
-                    // Player->Hud.Arrow.SetInterest(&field_1EEB0->Position);           // write gap in "mmWaypointObject struc"
-                    Player->Hud.Arrow.SetInterest(&Player->Car.GetICS()->Matrix.m3);    // temporary filler
-
-
+                    Player->Hud.Arrow.SetInterest(&field_1EEB0->Position);  
                     Player->EnableRegen(1);
                 }
             }
             break;
 
+        case 5:
+            GameStateWait -= Sim()->GetUpdateDelta();
 
-        case 5: // ----------------------
-
-
-            // GameStateWait -= ARTSPTR->seconds_;      // any preference? I went with Sim() for now
-            GameStateWait -= Sim()->seconds_;
-
-            // some if statement
-            // some if statement
-            //  MMSTATE.GameState = 0;
-
+            if (GameStateWait <= 0.0f)
+                MMSTATE.GameState = mmGameState::Menus;
 
             if (MMSTATE.HasMidtownCD)
                 AudMgr()->PlayCDTrack(GetCDTrack(10), true);
             break;
 
+        case 6:
+            GameStateWait -= Sim()->GetUpdateDelta();
 
-        case 6: // ----------------------
-            GameStateWait -= Sim()->seconds_;
-
-
-            // some if statement
-            // some if statement
-
-
-            // indent
-            Player->ResetDamage();
-            Player->Car.EnableDriving(true);
-            GameState = 4;
-            SendMsg(509);
+            if (GameStateWait <= 0.0f)
+                Player->ResetDamage();
+                Player->Car.EnableDriving(true);
+                GameState = 4;
+                SendMsg(509);
             break;
 
-
-        case 7: // ----------------------
-            GameStateWait -= Sim()->seconds_;
-
-
-            // some if statement
-            // some if statement
-
-            
-            // indent
-            GameState = 4;
+        case 7:
+            GameStateWait -= Sim()->GetUpdateDelta();
+            if (GameStateWait <= 0.0f)
+                GameState = 4;
             break;
 
-
-        case 9: // OK
+        case 9:
             if (GameStateWait > 0.0f)
             {
-                GameStateWait -= Sim()->seconds_;
+                GameStateWait -= Sim()->GetUpdateDelta();
             }
             else
             {
@@ -213,14 +178,12 @@ void mmMultiCR::UpdateGame()
             }
             break;
 
-
-        case 10: // OK (?)
+        case 10:
             if (!Popup->IsEnabled())
                 Popup->ShowResults();
             break;
         default: break;
     }
-
 
     if (GameState != 9 && GameState != 10)
     {
@@ -236,5 +199,5 @@ void mmMultiCR::UpdateGame()
     }
 
     PlayerObject.Flags |= field_1EEA4 & 0xFFFF0000;
-    UpdateGame();
+    mmGameMulti::UpdateGame();
 }
