@@ -21,18 +21,17 @@ define_dummy_symbol(mmgame_multicr);
 #include "multicr.h"
 
 #include "arts7/sim.h"
-#include "mmcityinfo/state.h"
 #include "localize/localize.h"
-#include "mmnetwork/network.h"
-#include "mmaudio/sound.h"
 #include "mmaudio/manager.h"
 #include "mmaudio/mmvoicecommentary.h"
+#include "mmaudio/sound.h"
+#include "mmcityinfo/state.h"
+#include "mmnetwork/network.h"
 
 #include "player.h"
 #include "popup.h"
 #include "wphud.h"
 #include "wpobject.h"
-
 
 mmWaypoints* mmMultiCR::GetWaypoints()
 {
@@ -65,13 +64,9 @@ void mmMultiCR::SendSetup(ulong /*arg1*/)
 
 void mmMultiCR::StealGold(mmCar* car)
 {
-    // Original implementation
-    // car = GoldCarrier;
-    // mmMultiCR::FondleCarMass(GoldCarrier, MMSTATE.CRGoldMass);       // compile error
-																		// hardcoding the GoldMasss works  
-    // New implementation
-    car->Sim.Engine.Trans->CurrentGear = 2;
-    car->Sim.CurrentDamage += 500.0f; 
+    GoldCarrier = car;
+
+    mmMultiCR::FondleCarMass(GoldCarrier, float(MMSTATE.CRGoldMass));
     field_1EEB0->Initialized = true;
 }
 
@@ -82,7 +77,7 @@ void mmMultiCR::UpdateGame()
         case 0:
             if (NETMGR.IsHost())
                 GameState = 1;
-            break; 
+            break;
 
         case 1:
             GameState = 2;
@@ -98,8 +93,8 @@ void mmMultiCR::UpdateGame()
                 Player->Hud.BlitzTimer.Start();
             }
 
-            StartSounds->ActiveSound = 0;            
-            StartSounds->PlayOnce(-1.0, -1.0);       
+            StartSounds->ActiveSound = 0;
+            StartSounds->PlayOnce(-1.0, -1.0);
 
             Player->Hud.SetMessage(AngelReadString(0x83u), 2.0f, true);
 
@@ -107,7 +102,7 @@ void mmMultiCR::UpdateGame()
                 VoiceCommentary->PlayCRPreRace();
 
             EnableRacers();
-            GameState = 4; 
+            GameState = 4;
             break;
 
         case 4:
@@ -124,16 +119,12 @@ void mmMultiCR::UpdateGame()
                 if (GoldCarrier == &Player->Car)
                 {
                     DropGold(Player->Car.GetICS()->Matrix.m3, 0);
+                    FondleCarMass(&Player->Car, -float(MMSTATE.CRGoldMass));
 
-                    // Old implementation
-                    // FondleCarMass(&Player->Car, -MMSTATE.CRGoldMass);        // compile error        
-                              
                     if (VoiceCommentary)
-                        VoiceCommentary->PlayCR(1, 1);
-                        // VoiceCommentary->PlayCR(1, MMSTATE.CRIsRobber);      // compile error
-                        // VoiceCommentary->PlayCR(1, MMSTATE.CRIsRobber = 1);  // compile error
+                        VoiceCommentary->PlayCR(1, static_cast<b16>(MMSTATE.CRIsRobber));
 
-                    Player->Hud.Arrow.SetInterest(&field_1EEB0->Position);  
+                    Player->Hud.Arrow.SetInterest(&field_1EEB0->Position);
                     Player->EnableRegen(1);
                 }
             }
@@ -153,10 +144,12 @@ void mmMultiCR::UpdateGame()
             GameStateWait -= Sim()->GetUpdateDelta();
 
             if (GameStateWait <= 0.0f)
+            {
                 Player->ResetDamage();
                 Player->Car.EnableDriving(true);
                 GameState = 4;
                 SendMsg(509);
+            }
             break;
 
         case 7:

@@ -68,17 +68,15 @@ public:
     // ?Update@mmWaypointObject@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    b32 Initialized; 
-    i32 IdentMask;    
-    i32 HitId;       
-    i32* Inst;        
-    Vector3 Position; 
-    i32 Heading;      
-    i32 Type;         
-    i32 Radius;       
+    b32 Initialized;
+    i32 IdentMask;
+    i32 HitId;
+    i32* Inst;
+    Vector3 Position;
+    i32 Heading;
+    i32 Type;
+    i32 Radius;
     i32 RadiusSqr;
-
-    // u8 gap20[0x2C];
 };
 
 check_size(mmWaypointObject, 0x4C);

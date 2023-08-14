@@ -220,7 +220,7 @@ Ptr<agiSurfaceDesc> dxiScreenShot()
     Ptr<agiSurfaceDesc> surface =
         as_ptr agiSurfaceDesc::Init(width, height, agiSurfaceDesc::FromFormat(PixelFormat_B8G8R8));
 
-    void (*translate)(u8 * output, u16 * input, u32 width) = nullptr;
+    void (*translate)(u8* output, u16* input, u32 width) = nullptr;
 
     switch (sd.ddpfPixelFormat.dwRBitMask)
     {

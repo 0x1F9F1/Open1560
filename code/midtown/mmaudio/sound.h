@@ -307,19 +307,19 @@ public:
     i32 AudMask;
     i32 UpdateFlags;
     i32 dword40;
-    i32 dword44;            
+    i32 dword44;
     i32 ActiveSound;
     i32 NumSoundObjs;
     i32 dword50;
-    i32 Position;          
+    i32 Position;
     Vector3 LastPosition;
     Vector3 Velocity;
     i32 dword70;
     i32 dword74;
-    i32* Volumes;    
-    i32* Frequencies; 
-    i32* Pans;       
-    i32* ReverbMixes; 
+    i32* Volumes;
+    i32* Frequencies;
+    i32* Pans;
+    i32* ReverbMixes;
     i32 dword88;
     i32 dword8C;
     i32 dword90;
@@ -330,10 +330,8 @@ public:
     i32 dwordA4;
     i32 dwordA8;
     i32 dwordAC;
-    i32* SoundNames; 
-    i32* SoundObjs;  
-
-    // u8 gap20[0x98];
+    i32* SoundNames;
+    i32* SoundObjs;
 };
 
 check_size(AudSound, 0xB8);
