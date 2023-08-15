@@ -36,8 +36,7 @@
 */
 
 #include "arts7/node.h"
-
-#include "mmai/aiGoalFollowWayPts.h"
+#include "vector7/vector3.h"
 
 class mmWaypointObject final : public asNode
 {

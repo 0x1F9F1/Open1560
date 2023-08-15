@@ -66,7 +66,7 @@ void mmMultiCR::StealGold(mmCar* car)
 {
     GoldCarrier = car;
 
-    mmMultiCR::FondleCarMass(GoldCarrier, float(MMSTATE.CRGoldMass));
+    mmMultiCR::FondleCarMass(GoldCarrier, static_cast<float>(MMSTATE.CRGoldMass));
     field_1EEB0->Initialized = true;
 }
 
@@ -74,19 +74,21 @@ void mmMultiCR::UpdateGame()
 {
     switch (GameState)
     {
-        case 0:
+        case 0: {
             if (NETMGR.IsHost())
                 GameState = 1;
             break;
+        }
 
-        case 1:
+        case 1: {
             GameState = 2;
             if (MMSTATE.HasMidtownCD)
                 AudMgr()->PlayCDTrack(GetCDTrack(10), true);
             Player->Hud.StopTimers();
             break;
+        }
 
-        case 2:
+        case 2: {
             if (MMSTATE.CRLimitMode == mmCRLimitMode::Time && NETMGR.IsHost())
             {
                 field_1EEFC.Start();
@@ -96,7 +98,7 @@ void mmMultiCR::UpdateGame()
             StartSounds->ActiveSound = 0;
             StartSounds->PlayOnce(-1.0, -1.0);
 
-            Player->Hud.SetMessage(AngelReadString(0x83u), 2.0f, true);
+            Player->Hud.SetMessage(LOC_STR(MM_IDS_RACE_GO), 2.0f, true);
 
             if (VoiceCommentary)
                 VoiceCommentary->PlayCRPreRace();
@@ -104,12 +106,13 @@ void mmMultiCR::UpdateGame()
             EnableRacers();
             GameState = 4;
             break;
+        }
 
-        case 4:
+        case 4: {
             if (!MMSTATE.DisableDamage && Player->IsMaxDamaged())
             {
-                Player->Hud.SetMessage(AngelReadString(0x84u), 5.0f, false);
-
+                Player->Hud.SetMessage(LOC_STR(MM_IDS_DAMAGE_PENALTY), 5.0f, false);
+                ;
                 if (VoiceCommentary)
                     VoiceCommentary->PlayTimePenalty();
 
@@ -119,7 +122,7 @@ void mmMultiCR::UpdateGame()
                 if (GoldCarrier == &Player->Car)
                 {
                     DropGold(Player->Car.GetICS()->Matrix.m3, 0);
-                    FondleCarMass(&Player->Car, -float(MMSTATE.CRGoldMass));
+                    FondleCarMass(&Player->Car, -static_cast<float>(MMSTATE.CRGoldMass));
 
                     if (VoiceCommentary)
                         VoiceCommentary->PlayCR(1, static_cast<b16>(MMSTATE.CRIsRobber));
@@ -129,8 +132,9 @@ void mmMultiCR::UpdateGame()
                 }
             }
             break;
+        }
 
-        case 5:
+        case 5: {
             GameStateWait -= Sim()->GetUpdateDelta();
 
             if (GameStateWait <= 0.0f)
@@ -139,8 +143,9 @@ void mmMultiCR::UpdateGame()
             if (MMSTATE.HasMidtownCD)
                 AudMgr()->PlayCDTrack(GetCDTrack(10), true);
             break;
+        }
 
-        case 6:
+        case 6: {
             GameStateWait -= Sim()->GetUpdateDelta();
 
             if (GameStateWait <= 0.0f)
@@ -151,14 +156,16 @@ void mmMultiCR::UpdateGame()
                 SendMsg(509);
             }
             break;
+        }
 
-        case 7:
+        case 7: {
             GameStateWait -= Sim()->GetUpdateDelta();
             if (GameStateWait <= 0.0f)
                 GameState = 4;
             break;
+        }
 
-        case 9:
+        case 9: {
             if (GameStateWait > 0.0f)
             {
                 GameStateWait -= Sim()->GetUpdateDelta();
@@ -170,12 +177,14 @@ void mmMultiCR::UpdateGame()
                 GameState = 10;
             }
             break;
+        }
 
-        case 10:
+        case 10: {
             if (!Popup->IsEnabled())
                 Popup->ShowResults();
             break;
-        default: break;
+            default: break;
+        }
     }
 
     if (GameState != 9 && GameState != 10)

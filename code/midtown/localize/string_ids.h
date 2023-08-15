@@ -198,10 +198,10 @@
 #define MM_IDS_178 178
 #define MM_IDS_179 179
 #define MM_IDS_180 180
-#define MM_IDS_181 181
-#define MM_IDS_182 182
-#define MM_IDS_183 183
-#define MM_IDS_184 184
+#define MM_IDS_RACE_READY 181
+#define MM_IDS_RACE_SET 182
+#define MM_IDS_RACE_GO 183
+#define MM_IDS_DAMAGE_PENALTY 184
 #define MM_IDS_185 185
 #define MM_IDS_186 186
 #define MM_IDS_187 187

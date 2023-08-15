@@ -90,8 +90,7 @@
 */
 
 #include "arts7/node.h"
-
-#include "mmai/aiGoalFollowWayPts.h"
+#include "vector7/vector3.h"
 
 class CReverbBuffer;
 class SoundObj;
@@ -277,7 +276,7 @@ public:
     // ?GetSoftFreqChange2DFlags@AudSound@@SA?BKXZ | unused
     ARTS_IMPORT static const ulong GetSoftFreqChange2DFlags();
 
-public:
+private:
     // ?s_DWDefault2DCtrlFlags@AudSound@@0KB
     ARTS_IMPORT static const ulong s_DWDefault2DCtrlFlags;
 
@@ -298,6 +297,7 @@ public:
 
     ARTS_DIAGNOSTIC_POP;
 
+public:
     i32 field_20;
     i32 Priority;
     i32 dword28;
