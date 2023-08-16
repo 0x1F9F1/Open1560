@@ -98,7 +98,7 @@ void mmMultiCR::UpdateGame()
             StartSounds->ActiveSound = 0;
             StartSounds->PlayOnce(-1.0, -1.0);
 
-            Player->Hud.SetMessage(LOC_STR(MM_IDS_RACE_GO), 2.0f, true);
+            Player->Hud.SetMessage(LOC_STRING(MM_IDS_RACE_GO), 2.0f, true);
 
             if (VoiceCommentary)
                 VoiceCommentary->PlayCRPreRace();
@@ -111,7 +111,7 @@ void mmMultiCR::UpdateGame()
         case 4: {
             if (!MMSTATE.DisableDamage && Player->IsMaxDamaged())
             {
-                Player->Hud.SetMessage(LOC_STR(MM_IDS_DAMAGE_PENALTY), 5.0f, false);
+                Player->Hud.SetMessage(LOC_STRING(MM_IDS_DAMAGE_PENALTY), 5.0f, false);
                 ;
                 if (VoiceCommentary)
                     VoiceCommentary->PlayTimePenalty();
