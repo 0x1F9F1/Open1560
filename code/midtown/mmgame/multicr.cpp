@@ -112,7 +112,7 @@ void mmMultiCR::UpdateGame()
             if (!MMSTATE.DisableDamage && Player->IsMaxDamaged())
             {
                 Player->Hud.SetMessage(LOC_STRING(MM_IDS_DAMAGE_PENALTY), 5.0f, false);
-                ;
+
                 if (VoiceCommentary)
                     VoiceCommentary->PlayTimePenalty();
 
@@ -183,8 +183,8 @@ void mmMultiCR::UpdateGame()
             if (!Popup->IsEnabled())
                 Popup->ShowResults();
             break;
-            default: break;
         }
+        default: break;
     }
 
     if (GameState != 9 && GameState != 10)
