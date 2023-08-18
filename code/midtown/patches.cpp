@@ -48,6 +48,10 @@ static mem::cmd_param PARAM_rv3 {"rv3"};
 
     create_packed_patch<f32>("PolarCamCS", "Increase Max XCAM Distance", 0x620340, 250.0f);
 
+    patch_jmp("mmMultiBlitz::Reset", "Always allow resetting", 0x41982D, jump_type::never);
+    patch_jmp("mmMultiCircuit::Reset", "Always allow resetting", 0x41B19D, jump_type::never);
+    patch_jmp("mmMultiRace::Reset", "Always allow resetting", 0x4203EF, jump_type::never);
+
     create_patch("aiVehicleOpponent::Reset", "Fix List::Clear memory leak", 0x44DE4D,
         "\x89\xF9\xE8\x3C\xE4\x12\x00\x90\x8B\xD3\x42", 11);
 

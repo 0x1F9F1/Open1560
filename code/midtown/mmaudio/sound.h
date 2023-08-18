@@ -90,6 +90,7 @@
 */
 
 #include "arts7/node.h"
+#include "vector7/vector3.h"
 
 class CReverbBuffer;
 class SoundObj;
@@ -296,7 +297,41 @@ private:
 
     ARTS_DIAGNOSTIC_POP;
 
-    u8 gap20[0x98];
+public:
+    i32 field_20;
+    i32 Priority;
+    i32 field_28;
+    i32 SoundIndex;
+    i32 Enabled;
+    i32 field_34;
+    i32 AudMask;
+    i32 UpdateFlags;
+    i32 field_40;
+    i32 field_44;
+    i32 ActiveSound;
+    i32 NumSoundObjs;
+    i32 field_50;
+    i32 Position;
+    Vector3 LastPosition;
+    Vector3 Velocity;
+    i32 field_70;
+    i32 field_74;
+    i32* Volumes;
+    i32* Frequencies;
+    i32* Pans;
+    i32* ReverbMixes;
+    i32 field_88;
+    i32 field_8C;
+    i32 field_90;
+    i32 field_94;
+    i32 field_98;
+    i32 field_9C;
+    i32 field_A0;
+    i32 field_A4;
+    i32 field_A8;
+    i32 field_AC;
+    i32* SoundNames;
+    i32* SoundObjs;
 };
 
 check_size(AudSound, 0xB8);

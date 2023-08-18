@@ -148,7 +148,7 @@ public:
     ARTS_EXPORT void UpdateDebugKeyInput(i32 arg1) override;
 
     // ?UpdateGame@mmMultiCR@@UAEXXZ
-    ARTS_IMPORT void UpdateGame() override;
+    ARTS_EXPORT void UpdateGame() override;
 
     // ?UpdateGameInput@mmMultiCR@@UAEXH@Z
     ARTS_IMPORT void UpdateGameInput(i32 arg1) override;
@@ -209,7 +209,7 @@ private:
     ARTS_IMPORT void SendTimeWarning(i32 arg1);
 
     // ?StealGold@mmMultiCR@@AAEXPAVmmCar@@@Z
-    ARTS_IMPORT void StealGold(mmCar* arg1);
+    ARTS_EXPORT void StealGold(mmCar* car);
 
     // ?UpdateBank@mmMultiCR@@AAEXXZ
     ARTS_IMPORT void UpdateBank();
@@ -229,7 +229,7 @@ private:
     // ?UpdateTimeWarning@mmMultiCR@@AAEXXZ
     ARTS_IMPORT void UpdateTimeWarning();
 
-private:
+public:
     mmWaypointObject* field_1EEA8;
     mmWaypointObject* field_1EEAC;
     mmWaypointObject* field_1EEB0;

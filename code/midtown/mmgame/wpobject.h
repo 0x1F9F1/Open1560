@@ -36,6 +36,7 @@
 */
 
 #include "arts7/node.h"
+#include "vector7/vector3.h"
 
 class mmWaypointObject final : public asNode
 {
@@ -66,7 +67,15 @@ public:
     // ?Update@mmWaypointObject@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    u8 gap20[0x2C];
+    b32 Initialized;
+    i32 IdentMask;
+    i32 HitId;
+    i32* Inst;
+    Vector3 Position;
+    i32 Heading;
+    i32 Type;
+    i32 Radius;
+    i32 RadiusSqr;
 };
 
 check_size(mmWaypointObject, 0x4C);
