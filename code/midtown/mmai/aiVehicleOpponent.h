@@ -101,7 +101,7 @@ public:
     ARTS_IMPORT i32 GetEngineSoundIndex();
 
     // ?Init@aiVehicleOpponent@@QAEXHPAVaiRaceData@@PAD@Z
-    ARTS_IMPORT void Init(i32 arg1, aiRaceData* arg2, char* arg3);
+    ARTS_EXPORT void Init(i32 opp_id, aiRaceData* race_data, char* arg3);
 
     // ?Reset@aiVehicleOpponent@@UAEXXZ
     ARTS_IMPORT void Reset() override;
