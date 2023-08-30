@@ -101,7 +101,7 @@ public:
     ARTS_IMPORT i32 GetEngineSoundIndex();
 
     // ?Init@aiVehicleOpponent@@QAEXHPAVaiRaceData@@PAD@Z
-    ARTS_EXPORT void Init(i32 opp_id, aiRaceData* race_data, char* arg3);
+    ARTS_EXPORT void Init(i32 opp_id, aiRaceData* race_data, char* race_name);
 
     // ?Reset@aiVehicleOpponent@@UAEXXZ
     ARTS_IMPORT void Reset() override;
@@ -132,13 +132,13 @@ public:
 
     mmCar Car;
     aiRailSet RailSet;
-    aiGoalFollowWayPts* WayPts;
-    aiGoalBackup* BackupGoal;
-    aiGoalStop* StopGoal;
-    i16 IsFinished;
-    i16 IsStopped;
-    i16 IsBackup;
-    i16 IsSemi;
+    Ptr<aiGoalFollowWayPts> WayPts;
+    Ptr<aiGoalBackup> BackupGoal;
+    Ptr<aiGoalStop> StopGoal;
+    b16 IsFinished;
+    b16 IsStopped;
+    b16 IsBackup;
+    b16 IsSemi;
     i16 AudIndexNumber;
     i16 field_23B6;
     f32 MaxAudDist;

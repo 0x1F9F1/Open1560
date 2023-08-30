@@ -32,51 +32,44 @@ define_dummy_symbol(mmai_aiVehicleOpponent);
 void aiVehicleOpponent::DrawDamage()
 {}
 
-void aiVehicleOpponent::Init(int opp_id, aiRaceData* race_data, char* arg3)
+void aiVehicleOpponent::Init(i32 opp_id, aiRaceData* race_data, char* race_name)
 {
-    int TextureQuality = agiRQ.TextureQuality;
+    i32 texture_quality = agiRQ.TextureQuality;
     if (agiRQ.TextureQuality)
         --agiRQ.TextureQuality;
 
-    int paint_job = opp_id & 3;
-    int index = opp_id + 1;
+    i32 paint_job = opp_id & 3;
+    i32 index = opp_id + 1;
 
-    List* p_opponents = &race_data->Opponents;
-    OpponentRaceData* oppRaceData = static_cast<OpponentRaceData*>(p_opponents->Access(index));
+    OpponentRaceData* oppRaceData = static_cast<OpponentRaceData*>(race_data->Opponents.Access(index));
 
     Car.Init(oppRaceData->Model, CAR_TYPE_OPPONENT, paint_job);
 
-    agiRQ.TextureQuality = TextureQuality;
+    agiRQ.TextureQuality = texture_quality;
 
     aiVehicle::Init(opp_id);
     Car.Reset();
 
-    std::unique_ptr<aiGoalFollowWayPts> followWayPts = std::make_unique<aiGoalFollowWayPts>(
-        oppRaceData->PathFile, &RailSet, this, &IsBackup, &IsFinished, &IsStopped, arg3, oppRaceData->MaxThrottle);
+    WayPts = arnew aiGoalFollowWayPts(oppRaceData->PathFile, &RailSet, this, &IsBackup, &IsFinished, &IsStopped,
+        xconst(race_name), oppRaceData->MaxThrottle);
 
-    WayPts = followWayPts.release();
+    BackupGoal = arnew aiGoalBackup(&RailSet, &Car, &IsBackup);
 
-    std::unique_ptr<aiGoalBackup> backupGoal = std::make_unique<aiGoalBackup>(&RailSet, &Car, &IsBackup);
+    StopGoal = arnew aiGoalStop(&Car, &IsStopped);
 
-    BackupGoal = backupGoal.release();
-
-    std::unique_ptr<aiGoalStop> stopGoal = std::make_unique<aiGoalStop>(&Car, &IsStopped);
-
-    StopGoal = stopGoal.release();
-
-    IsSemi = strcmp("vpsemi", oppRaceData->Model) == 0;
+    IsSemi = !std::strcmp("vpsemi", oppRaceData->Model);
 
     DLPTemplate* DLPTemplate = GetDLPTemplate(oppRaceData->Model);
 
     if (DLPTemplate)
     {
         Vector3 max, min;
-        DLPTemplate->BoundBox(min, max, const_cast<char*>("BODY_H"));
+        DLPTemplate->BoundBox(min, max, ("BODY_H"_xconst));
 
         RailSet.FrontBumperDist = -min.z;
         RailSet.LSideDist = -min.x;
         RailSet.BackBumperDist = max.z;
         RailSet.RSideDist = max.x;
     }
-    AudIndexNumber = 1; // original = -1
+    AudIndexNumber = -1;
 }

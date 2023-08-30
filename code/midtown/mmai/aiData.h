@@ -52,8 +52,8 @@ public:
     char Model[32];
     Vector3 Position;
     f32 Rotation;
-    int Type;
-    int BehaviourFlags;
+    i32 Type;
+    i32 BehaviourFlags;
 };
 
 check_size(PoliceRaceData, 0x38);

@@ -65,8 +65,8 @@ public:
     ARTS_IMPORT aiGoalFollowWayPts();
 
     // ??0aiGoalFollowWayPts@@QAE@PADPAVaiRailSet@@PAVaiVehicleOpponent@@PAF330M@Z
-    ARTS_IMPORT aiGoalFollowWayPts(
-        char* arg1, aiRailSet* arg2, aiVehicleOpponent* arg3, i16* arg4, i16* arg5, i16* arg6, char* arg7, f32 arg8);
+    ARTS_IMPORT aiGoalFollowWayPts(char* pathfile, aiRailSet* railset, aiVehicleOpponent* vehicle_opponent,
+        b16* is_backup, b16* is_finished, b16* is_stopped, aconst char* race_name, f32 max_throttle);
 
     // ??_EaiGoalFollowWayPts@@QAEPAXI@Z | unused
     // ??1aiGoalFollowWayPts@@QAE@XZ
@@ -145,9 +145,9 @@ private:
     aiPath* NLastLink;
     Vector3 TargetPt;
     i16* WayPtIds;
-    i16* BackingUp;
-    i16* IsFinished;
-    i16* IsStopped;
+    b16* BackingUp;
+    b16* IsFinished;
+    b16* IsStopped;
     i16 NumWayPts;
     i16 WayPtIdx;
     i16 LastMapCompType;
