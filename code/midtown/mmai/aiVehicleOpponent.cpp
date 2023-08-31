@@ -41,30 +41,30 @@ void aiVehicleOpponent::Init(i32 opp_id, aiRaceData* race_data, char* race_name)
     i32 paint_job = opp_id & 3;
     i32 index = opp_id + 1;
 
-    OpponentRaceData* oppRaceData = static_cast<OpponentRaceData*>(race_data->Opponents.Access(index));
+    OpponentRaceData* opp_race_info = static_cast<OpponentRaceData*>(race_data->Opponents.Access(index));
 
-    Car.Init(oppRaceData->Model, CAR_TYPE_OPPONENT, paint_job);
+    Car.Init(opp_race_info->Model, CAR_TYPE_OPPONENT, paint_job);
 
     agiRQ.TextureQuality = texture_quality;
 
     aiVehicle::Init(opp_id);
     Car.Reset();
 
-    WayPts = arnew aiGoalFollowWayPts(oppRaceData->PathFile, &RailSet, this, &IsBackup, &IsFinished, &IsStopped,
-        xconst(race_name), oppRaceData->MaxThrottle);
+    WayPts = arnew aiGoalFollowWayPts(opp_race_info->PathFile, &RailSet, this, &IsBackup, &IsFinished, &IsStopped,
+        xconst(race_name), opp_race_info->MaxThrottle);
 
     BackupGoal = arnew aiGoalBackup(&RailSet, &Car, &IsBackup);
 
     StopGoal = arnew aiGoalStop(&Car, &IsStopped);
 
-    IsSemi = !std::strcmp("vpsemi", oppRaceData->Model);
+    IsSemi = !std::strcmp("vpsemi", opp_race_info->Model);
 
-    DLPTemplate* DLPTemplate = GetDLPTemplate(oppRaceData->Model);
+    DLPTemplate* dlp_templ = GetDLPTemplate(opp_race_info->Model);
 
-    if (DLPTemplate)
+    if (dlp_templ)
     {
         Vector3 max, min;
-        DLPTemplate->BoundBox(min, max, ("BODY_H"_xconst));
+        dlp_templ->BoundBox(min, max, "BODY_H"_xconst);
 
         RailSet.FrontBumperDist = -min.z;
         RailSet.LSideDist = -min.x;
