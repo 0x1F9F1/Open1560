@@ -23,6 +23,11 @@ define_dummy_symbol(mmai_aiVehicleOpponent);
 #include "agi/dlptmpl.h"
 #include "agi/getdlp.h"
 #include "agiworld/quality.h"
+#include "dyna7/gfx.h"
+#include "mmdyna/isect.h"
+#include "mmdyna/poly.h"
+#include "mmphysics/phys.h"
+#include "vector7/vector3.h"
 
 #include "aiData.h"
 #include "aiGoalBackup.h"
@@ -31,6 +36,56 @@ define_dummy_symbol(mmai_aiVehicleOpponent);
 
 void aiVehicleOpponent::DrawDamage()
 {}
+
+void aiVehicleOpponent::DrawTargetPt()
+{
+    DrawColor(ColPurple);
+
+    Vector3 target_point = WayPts->TargetPt;
+    target_point.y += 1.0f;
+
+    Vector3 base_position = Car.Sim.ICS.Matrix.m3;
+
+    Vector3 car_position = base_position;
+    car_position.y += 1.0f;
+
+    Vector3 speed_label = base_position;
+    speed_label.y += 0.5f;
+
+    Vector3 steering_label = base_position;
+    steering_label.y += 0.25f;
+
+    Vector3 throttle_label = base_position;
+    throttle_label.y += 0.0f;
+
+    Vector3 brake_label = base_position;
+    brake_label.y -= 0.25f;
+
+    mmIntersection isect;
+    isect.InitSegment(car_position, target_point, nullptr, 0, 2);
+
+    PHYS.Collide(&isect, PHYS_COLLIDE_ROOM);
+
+    if (isect.HitPoly)
+    {
+        target_point.y = (-isect.HitPoly->PlaneD - isect.HitPoly->PlaneN.z * target_point.z -
+                             isect.HitPoly->PlaneN.x * target_point.x) /
+                isect.HitPoly->PlaneN.y -
+            -0.5f;
+    }
+
+    DrawLine(car_position, target_point);
+
+    DrawLabelf(speed_label, xconst("MPH: %.2f"), Car.Sim.SpeedMPH);
+    DrawLabelf(steering_label, xconst("Steering: %.2f"), Car.Sim.Steering);
+    DrawLabelf(throttle_label, xconst("Throttle: %.2f"), Car.Sim.Engine.Throttle);
+    DrawLabelf(brake_label, xconst("Brakes: %.2f"), Car.Sim.Brakes);
+    // DrawLabelf(damage_label, xconst("Damage: %.2f"), Car.Sim.CurrentDamage);
+
+    DrawColor(ColLightCyan);
+
+    RailSet.DrawTurn(WayPts->DistToSide);
+}
 
 void aiVehicleOpponent::Init(i32 opp_id, aiRaceData* race_data, char* race_name)
 {

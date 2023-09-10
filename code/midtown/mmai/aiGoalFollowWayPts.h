@@ -143,7 +143,11 @@ private:
     aiPath* StartLink;
     aiPath* LastLink;
     aiPath* NLastLink;
+
+public:
     Vector3 TargetPt;
+
+private:
     i16* WayPtIds;
     b16* BackingUp;
     b16* IsFinished;
@@ -162,7 +166,11 @@ private:
     f32 Brakes;
     f32 Throttle;
     f32 Steering;
+
+public:
     f32 DistToSide;
+
+private:
     f32 Offset;
     f32 TargetPtOffset;
     f32 MaxThrottle;
