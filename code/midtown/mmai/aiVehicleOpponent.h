@@ -86,7 +86,7 @@ public:
     ARTS_IMPORT void DrawId() override;
 
     // ?DrawTargetPt@aiVehicleOpponent@@QAEXXZ
-    ARTS_IMPORT void DrawTargetPt();
+    ARTS_EXPORT void DrawTargetPt();
 
     // ?Dump@aiVehicleOpponent@@QAEXXZ
     ARTS_IMPORT void Dump();
