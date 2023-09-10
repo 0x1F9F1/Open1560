@@ -37,7 +37,7 @@ class aiGoalStop final : public aiGoal
 {
 public:
     // ??0aiGoalStop@@QAE@PAVmmCar@@PAF@Z
-    ARTS_IMPORT aiGoalStop(mmCar* arg1, i16* arg2);
+    ARTS_IMPORT aiGoalStop(mmCar* arg1, b16* arg2);
 
     // ??1aiGoalStop@@QAE@XZ
     ARTS_IMPORT ~aiGoalStop() = default;

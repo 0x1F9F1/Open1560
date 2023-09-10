@@ -25,6 +25,9 @@
     0x446B10 | public: __thiscall aiRaceData::~aiRaceData(void) | ??1aiRaceData@@QAE@XZ
 */
 
+#include "data7/list.h"
+#include "vector7/vector3.h"
+
 class aiRaceData
 {
 public:
@@ -34,7 +37,33 @@ public:
     // ??1aiRaceData@@QAE@XZ
     ARTS_IMPORT ~aiRaceData();
 
-    u8 gap0[0x2C];
+    f32 Density;
+    f32 SpeedLimit;
+    List Exceptions;
+    List Police;
+    List Opponents;
 };
 
 check_size(aiRaceData, 0x2C);
+
+class PoliceRaceData
+{
+public:
+    char Model[32];
+    Vector3 Position;
+    f32 Rotation;
+    i32 Type;
+    i32 BehaviourFlags;
+};
+
+check_size(PoliceRaceData, 0x38);
+
+class OpponentRaceData
+{
+public:
+    char Model[32];
+    char PathFile[32];
+    f32 MaxThrottle;
+};
+
+check_size(OpponentRaceData, 0x44);

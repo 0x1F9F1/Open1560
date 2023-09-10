@@ -20,5 +20,56 @@ define_dummy_symbol(mmai_aiVehicleOpponent);
 
 #include "aiVehicleOpponent.h"
 
+#include "agi/dlptmpl.h"
+#include "agi/getdlp.h"
+#include "agiworld/quality.h"
+
+#include "aiData.h"
+#include "aiGoalBackup.h"
+#include "aiGoalFollowWayPts.h"
+#include "aiGoalStop.h"
+
 void aiVehicleOpponent::DrawDamage()
 {}
+
+void aiVehicleOpponent::Init(i32 opp_id, aiRaceData* race_data, char* race_name)
+{
+    i32 tex_quality = agiRQ.TextureQuality;
+    if (agiRQ.TextureQuality)
+        --agiRQ.TextureQuality;
+
+    i32 paint_job = opp_id & 3;
+    i32 index = opp_id + 1;
+
+    OpponentRaceData* opp = static_cast<OpponentRaceData*>(race_data->Opponents.Access(index));
+
+    Car.Init(opp->Model, CAR_TYPE_OPPONENT, paint_job);
+
+    agiRQ.TextureQuality = tex_quality;
+
+    aiVehicle::Init(opp_id);
+    Car.Reset();
+
+    WayPts = arnew aiGoalFollowWayPts(
+        opp->PathFile, &RailSet, this, &IsBackup, &IsFinished, &IsStopped, xconst(race_name), opp->MaxThrottle);
+
+    BackupGoal = arnew aiGoalBackup(&RailSet, &Car, &IsBackup);
+
+    StopGoal = arnew aiGoalStop(&Car, &IsStopped);
+
+    IsSemi = !std::strcmp("vpsemi", opp->Model);
+
+    DLPTemplate* dlp = GetDLPTemplate(opp->Model);
+
+    if (dlp)
+    {
+        Vector3 min, max;
+        dlp->BoundBox(min, max, "BODY_H"_xconst);
+
+        RailSet.FrontBumperDist = -min.z;
+        RailSet.LSideDist = -min.x;
+        RailSet.BackBumperDist = max.z;
+        RailSet.RSideDist = max.x;
+    }
+    AudIndexNumber = -1;
+}
