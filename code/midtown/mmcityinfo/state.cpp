@@ -41,7 +41,7 @@ void mmStatePack::SetDefaults()
     PedDensity = 1.0f;
     CopDensity = 1.0f;
     MaxOpponents = 7.0f;
-    PhysicsRealism = 0.75f;
+    PhysicsRealism = 0.4f;
     EnableFF = true;
     UnlockAllRaces = false;
     Weather = mmWeather::Sun;
@@ -57,7 +57,7 @@ void mmStatePack::SetDefaults()
     AmbientCount = 100;
     NumLaps = 0;
     Difficulty = mmSkillLevel::Amateur;
-    WaveVolume = 1.0f;
+    WaveVolume = 0.5f;
     AudBalance = 0.0f;
     CDVolume = 0.5f;
     AudFlags = AudManager::GetHiSampleSizeMask() | AudManager::GetHiResMask() | AudManager::GetStereoOnMask() |
@@ -74,7 +74,7 @@ void mmStatePack::SetDefaults()
     CRGoldMass = 0;
 
     arts_strcpy(IntroText, "Loading Open1560");
-    CameraIndex = 0;
+    CameraIndex = 2;
     HudmapMode = 0;
     WideFov = false;
     DashView = false;
@@ -101,7 +101,7 @@ bool mmStatePack::ParseStateArgs(i32 argc, char** argv)
 
         if (ARG("-noui"))
         {
-            const char* veh_name = "vpbug";
+            const char* veh_name = "vpmustang99";
 
             if (asArg* veh = GBArgs['v'])
                 veh_name = veh->sValues[0];

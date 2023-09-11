@@ -72,6 +72,8 @@ static mem::cmd_param PARAM_rv3 {"rv3"};
     patch_jmp("mmCullCity::Init", "DevelopmentMode", 0x48C851, jump_type::always);
     patch_jmp("mmCullCity::Init", "DevelopmentMode", 0x4908DC, jump_type::always);
 
+    patch_jmp("mmAnimDOF::Init", "Drawbridge Check Fix", 0x4C47BC, jump_type::always);
+
     patch_jmp("GetMeshSet", "Pager address check", 0x512AD5, jump_type::always);
     patch_jmp("mmBoundTemplate::LockIfResident", "Pager address check", 0x519329, jump_type::always);
 
