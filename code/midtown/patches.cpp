@@ -21,6 +21,8 @@ define_dummy_symbol(midtown_patches);
 #include "patches.h"
 
 static mem::cmd_param PARAM_rv3 {"rv3"};
+static mem::cmd_param PARAM_opp_jump {"opp_jump"};
+static mem::cmd_param PARAM_traffic_colors {"traffic_colors"};
 
 [[maybe_unused]] static void InitPatches()
 {
@@ -71,8 +73,6 @@ static mem::cmd_param PARAM_rv3 {"rv3"};
 
     patch_jmp("mmCullCity::Init", "DevelopmentMode", 0x48C851, jump_type::always);
     patch_jmp("mmCullCity::Init", "DevelopmentMode", 0x4908DC, jump_type::always);
-
-    patch_jmp("mmAnimDOF::Init", "Drawbridge Check Fix", 0x4C47BC, jump_type::always);
 
     patch_jmp("GetMeshSet", "Pager address check", 0x512AD5, jump_type::always);
     patch_jmp("mmBoundTemplate::LockIfResident", "Pager address check", 0x519329, jump_type::always);
@@ -324,7 +324,7 @@ static mem::cmd_param PARAM_rv3 {"rv3"};
     }
 #endif
 
-#ifndef ARTS_FINAL
+    if (PARAM_traffic_colors)
     {
         for (usize addr : {
                  0x4743C9,
@@ -362,7 +362,6 @@ static mem::cmd_param PARAM_rv3 {"rv3"};
     }
 
     patch_jmp("mmCar::VehNameRemap", "Work in all game modes", 0x474371, jump_type::never);
-#endif
 }
 
 hook_func(INIT_main, [] { InitPatches(); });

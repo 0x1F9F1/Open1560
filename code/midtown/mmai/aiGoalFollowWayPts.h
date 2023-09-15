@@ -96,7 +96,7 @@ public:
     ARTS_IMPORT void Reset() override;
 
     // ?Update@aiGoalFollowWayPts@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
     // ?DeclareFields@aiGoalFollowWayPts@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
@@ -163,11 +163,11 @@ private:
     i16 NumCloseObstacles;
     i16 NumFarObstacles;
     i16 DamageState;
+
+public:
     f32 Brakes;
     f32 Throttle;
     f32 Steering;
-
-public:
     f32 DistToSide;
 
 private:

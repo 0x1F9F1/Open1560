@@ -26,6 +26,7 @@ define_dummy_symbol(mmcar_car);
 #include "mmcity/cullcity.h"
 #include "mmcityinfo/vehlist.h"
 #include "mmphysics/joint3dof.h"
+#include "patches.cpp"
 
 #include "playercaraudio.h"
 #include "trailer.h"
@@ -64,6 +65,14 @@ void mmCar::Update()
 #endif
 
     OverSample.Update();
+
+    if (PARAM_opp_jump)
+    {
+        if (!Sim.FrontLeft.OnGround && !Sim.FrontRight.OnGround && !Sim.BackLeft.OnGround && !Sim.BackRight.OnGround)
+        {
+            Sim.ICS.AngularMomentum *= 0.1f;
+        }
+    }
 
 #ifdef ARTS_DEV_BUILD
     f32 elapsed = t.Time();

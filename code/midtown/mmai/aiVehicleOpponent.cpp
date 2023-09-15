@@ -50,16 +50,16 @@ void aiVehicleOpponent::DrawTargetPt()
     car_position.y += 1.0f;
 
     Vector3 speed_label = base_position;
-    speed_label.y += 0.5f;
+    speed_label.y -= 0.5f;
 
     Vector3 steering_label = base_position;
-    steering_label.y += 0.25f;
+    steering_label.y -= 0.75f;
 
     Vector3 throttle_label = base_position;
-    throttle_label.y += 0.0f;
+    throttle_label.y -= 1.0f;
 
     Vector3 brake_label = base_position;
-    brake_label.y -= 0.25f;
+    brake_label.y -= 1.25f;
 
     mmIntersection isect;
     isect.InitSegment(car_position, target_point, nullptr, 0, 2);

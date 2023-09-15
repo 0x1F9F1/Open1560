@@ -57,7 +57,7 @@ void mmStatePack::SetDefaults()
     AmbientCount = 100;
     NumLaps = 0;
     Difficulty = mmSkillLevel::Amateur;
-    WaveVolume = 0.5f;
+    WaveVolume = 0.2f;
     AudBalance = 0.0f;
     CDVolume = 0.5f;
     AudFlags = AudManager::GetHiSampleSizeMask() | AudManager::GetHiResMask() | AudManager::GetStereoOnMask() |
