@@ -88,7 +88,27 @@ public:
     // ?Load@mmRaceData@@QAEHPAD@Z
     ARTS_IMPORT i32 Load(char* arg1);
 
-    u8 gap0[0x4B4];
+    i32 NumRaces;
+    i32 AmaCarTypes[15];
+    i32 AmaNumLaps[15];
+    i32 AmaNumOpps[15];
+    i32 AmaNumCops[15];
+    i32 AmaTimeOfDay[15];
+    i32 AmaWeather[15];
+    f32 AmaPedDensity[15];
+    f32 AmaAmbientDensity[15];
+    f32 AmaTimeLimit[15];
+    i32 AmaDifficulty[15];
+    i32 ProCarTypes[15];
+    i32 ProNumLaps[15];
+    i32 ProNumOpps[15];
+    i32 ProNumCops[15];
+    i32 ProTimeOfDay[15];
+    i32 ProWeather[15];
+    f32 ProPedDensity[15];
+    f32 ProAmbientDensity[15];
+    f32 ProTimeLimit[15];
+    i32 ProDifficulty[15];
 };
 
 check_size(mmRaceData, 0x4B4);

@@ -120,6 +120,8 @@ public:
 private:
     agiTexProp* props_ {};
     i32 prop_count_ {};
+
+public:
     b32 allow_remapping_ {}; // UseAlternate
 };
 

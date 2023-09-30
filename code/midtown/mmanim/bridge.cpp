@@ -19,3 +19,19 @@
 define_dummy_symbol(mmanim_bridge);
 
 #include "bridge.h"
+
+#include "arts7/node.h"
+
+i32 mmBridgeSet::Init(char* name, Stream* file)
+{
+    SetName(name);
+
+    for (i32 entry_index = 0; entry_index < NumEntries; ++entry_index)
+    {
+        if (!ReadEntry(file, entry_index))
+        {
+            Errorf("Error reading bridge file");
+            return false;
+        }
+    }
+}

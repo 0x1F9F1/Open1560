@@ -113,9 +113,18 @@
 #include "instchn.h"
 #include "renderweb.h"
 
+#include "mmbangers/active.h"
+#include "mmbangers/data.h"
+
+#include "agiworld/texsort.h"
+#include "sky.h"
+
+#include "mmphysics/phys.h"
+
 class agiTexDef;
 class asCamera;
 class mmPolygon;
+class asRenderWeb;
 
 // TODO: Move to portal.h?
 #define ROOM_FLAG_1 0x1     // No Env/Sph Mapping
@@ -156,7 +165,7 @@ public:
     ARTS_IMPORT i16 GetRoomFlags(i16 arg1);
 
     // ?Init@mmCullCity@@QAEXPADPAVasCamera@@@Z
-    ARTS_IMPORT void Init(char* arg1, asCamera* arg2);
+    ARTS_IMPORT void Init(char* name, asCamera* camera);
 
     // ?InitObjectDetail@mmCullCity@@QAEXXZ
     ARTS_IMPORT void InitObjectDetail();
@@ -191,26 +200,6 @@ public:
     // ?GetInstance@mmCullCity@@SAPAV1@XZ | inline
     ARTS_IMPORT static mmCullCity* GetInstance();
 
-    offset_field(0x20, asCamera*, Camera);
-
-    offset_field(0x2B950, asRenderWeb, RenderWeb);
-
-    offset_field(0x34ACC, mmInstChain, BuildingChain); // StaticChain?
-    offset_field(0x34AD8, mmInstChain, ObjectsChain);  // DynamicChain?
-    offset_field(0x34AE4, mmInstChain, ShadowChain);
-
-    offset_field(0x34B30, f32, WeatherFriction);
-
-    offset_field(0x34B48, agiTexDef*, ShadowMap);
-    offset_field(0x34B50, Matrix34, EnvMatrix);
-
-    offset_field(0x34D54, u32, SkyColor);
-    offset_field(0x34D58, b32, UseFogEnd2);
-    offset_field(0x34D5C, f32, FogEnd);
-    offset_field(0x34D60, f32, FogEnd2);
-
-    ARTS_ZEROED;
-
 private:
     // ?AddInstance@mmCullCity@@AAEXHPAD0HPAVVector3@@11M@Z
     ARTS_IMPORT void AddInstance(
@@ -230,9 +219,61 @@ private:
     // ?Instance@mmCullCity@@0PAV1@A
     ARTS_IMPORT static mmCullCity* Instance;
 
-    u8 gap20[0x34D4C];
-};
+    asCamera* Camera;                          // offset: 0x20              // check_size = OK
+    mmBoundTemplate* HitIdBound;               // offset: 0x24              // check_size = OK
+    mmBangerDataManager BangerDataManager;     // offset: 0x28              // check_size = OK
+    mmBangerActiveManager BangerActiveManager; // offset: 0x268F8           // check_size = OK
+    mmBangerManager BangerManager;             // offset: 0x2B91C           // check_size = OK
+    mmSky Sky;                                 // offset: 0x2B948           // check_size = OK
+    asRenderWeb RenderWeb;                     // offset: 0x2B950           // check_size = OK
+    agiTexSorter TexSorter;                    // offset: 0x34AC8           // check_size = OK
 
+    // Unknown padding/fields
+    char _padding[3];
+
+    mmInstChain BuildingChain; // offset: 0x34ACC           // check_size = OK
+    mmInstChain ObjectsChain;  // offset: 0x34AD8           // ...
+    mmInstChain ShadowChain;   // offset: 0x34AE4           // ...
+    asNode asnode34AF0;        // offset: 0x34AF0           // check_size = OK
+    i32 field_34B10;           // offset: 0x34B10
+    char* CityName;            // offset: 0x34B14
+
+    i32 SnowTextureCount;        // offset: 0x34B18
+    i32 CurrentSnowTexture;      // offset: 0x34B1C
+    i32 SnowTexturesDst;         // offset: 0x34B20
+    i32 SnowTexturesSrc;         // offset: 0x34B24
+    i32 ShowTextureWidthRatios;  // offset: 0x34B28
+    i32 SnowTextureHeightRatios; // offset: 0x34B2C
+    f32 WeatherFriction;         // offset: 0x34B30
+    f32 RainFriction;            // offset: 0x34B34
+    f32 SnowFrictionStart;       // offset: 0x34B38
+    f32 SnowFrictionMin;         // offset: 0x34B3C
+    f32 SnowFrictionTime;        // offset: 0x34B40
+    f32 SnowTotalElapsed;        // offset: 0x34B44
+
+    // agiTexDef* ShadowMap;                      // offset: 0x34B48           // check_size = OK
+
+    t_mmEnvSetup* ShadowMap;
+    t_mmEnvSetup* SphereMap;
+
+    Matrix34 EnvMatrix;    // offset: 0x34B50           // check_size = OK
+    asParticles Particles; // offset: 0x34B80           // check_size = OK
+
+    i32 BirthRule;             // offset: 0x34BEC
+    asBirthRule SnowBirthRule; // offset: 0x34BF0           // check_size = OK
+    asBirthRule RainBirthRule; // offset: 0x34CA0           // ...
+
+    i32 field_34D50;      // offset: 0x34D50
+    u32 SkyColor;         // offset: 0x34D54
+    b32 UseFogEnd2;       // offset: 0x34D58
+    t_mmEnvSetup* FogEnd; // offset: 0x34D5C
+    f32 FogEnd2;          // offset: 0x34D60
+
+    mmInstance* LastInstance; // check_size = OK
+    mmInstance* ResetInst;
+
+    // u8 gap20[0x34D4C];
+};
 check_size(mmCullCity, 0x34D6C);
 
 inline mmCullCity* CullCity()
@@ -289,9 +330,15 @@ public:
     // ?Phase@mmRunwayLight@@2MA
     ARTS_IMPORT static f32 Phase;
 
-    u8 gap14[0x4C];
+    Vector3 Start;
+    Vector3 End;
+    Vector3 Step;
+    Vector3 Center;
+    i32 Scale;
+    i32 NumLights;
+    i32 Texture;
+    agiMeshCardInfo MeshCard;
 };
-
 check_size(mmRunwayLight, 0x60);
 
 // ?fix_clip@@YAXXZ
