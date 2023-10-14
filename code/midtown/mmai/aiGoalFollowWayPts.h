@@ -96,7 +96,7 @@ public:
     ARTS_IMPORT void Reset() override;
 
     // ?Update@aiGoalFollowWayPts@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
     // ?DeclareFields@aiGoalFollowWayPts@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
@@ -143,7 +143,11 @@ private:
     aiPath* StartLink;
     aiPath* LastLink;
     aiPath* NLastLink;
+
+public:
     Vector3 TargetPt;
+
+private:
     i16* WayPtIds;
     b16* BackingUp;
     b16* IsFinished;
@@ -159,10 +163,14 @@ private:
     i16 NumCloseObstacles;
     i16 NumFarObstacles;
     i16 DamageState;
+
+public:
     f32 Brakes;
     f32 Throttle;
     f32 Steering;
     f32 DistToSide;
+
+private:
     f32 Offset;
     f32 TargetPtOffset;
     f32 MaxThrottle;

@@ -354,7 +354,7 @@ public:
 #define INST_FLAG_TERRAIN 0x800
 #define INST_FLAG_1000 0x1000 // mmBangerInstance::Draw - Increment lod
 #define INST_FLAG_2000 0x2000 // Important shadows
-#define INST_FLAG_4000 0x4000 // Collided with Player?
+#define INST_FLAG_COLLIDED_PLAYER 0x4000
 
     // INST_FLAG_*
     u16 Flags {INST_FLAG_ACTIVE};
