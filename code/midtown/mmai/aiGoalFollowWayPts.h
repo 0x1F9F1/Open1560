@@ -58,6 +58,10 @@
 
 class aiVehicleOpponent;
 
+#define CAR_NOT_STUCK 0
+#define CAR_MAYBE_STUCK 1
+#define CAR_STUCK 2
+
 class aiGoalFollowWayPts final : public aiGoal
 {
 public:
@@ -135,6 +139,9 @@ private:
     // ?SolveTargetPoint@aiGoalFollowWayPts@@AAEXXZ
     ARTS_IMPORT void SolveTargetPoint();
 
+    i32 GetWayPtId(i16 index, i32 num_waypts);
+
+public:
     aiVehicleOpponent* Vehicle;
     aiRailSet* Rail;
     mmCar* Car;
@@ -143,11 +150,7 @@ private:
     aiPath* StartLink;
     aiPath* LastLink;
     aiPath* NLastLink;
-
-public:
     Vector3 TargetPt;
-
-private:
     i16* WayPtIds;
     b16* BackingUp;
     b16* IsFinished;
@@ -163,14 +166,10 @@ private:
     i16 NumCloseObstacles;
     i16 NumFarObstacles;
     i16 DamageState;
-
-public:
     f32 Brakes;
     f32 Throttle;
     f32 Steering;
     f32 DistToSide;
-
-private:
     f32 Offset;
     f32 TargetPtOffset;
     f32 MaxThrottle;
