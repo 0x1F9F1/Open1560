@@ -124,8 +124,9 @@ void aiGoalFollowWayPts::Update()
 
         LastMapCompType = road_segment_id;
 
-        CurMapCompIdx = AIMAP.DetermineOppMapComponent(Car->Sim.ICS.Matrix, Rail, &CurMapCompType, &CurRdVertIdx,
-            &Rail->RoadDist, &DistToSide, &unk_var1, &TargetPtOffset, Car->Sim.Speed, LastMapCompType, road_segment_id);
+        CurMapCompIdx = static_cast<i16>(
+            AIMAP.DetermineOppMapComponent(Car->Sim.ICS.Matrix, Rail, &CurMapCompType, &CurRdVertIdx, &Rail->RoadDist,
+                &DistToSide, &unk_var1, &TargetPtOffset, Car->Sim.Speed, LastMapCompType, road_segment_id));
 
         PlanRoute();
 
@@ -168,7 +169,7 @@ void aiGoalFollowWayPts::Update()
 
             if (angle < 0.1f && angle > -0.1f)
             {
-                Car->Sim.ICS.AngularMomentum *= 2.1f;
+                Car->Sim.ICS.AngularMomentum *= 0.1f;
             }
         }
         Car->Sim.Steering = Steering;
