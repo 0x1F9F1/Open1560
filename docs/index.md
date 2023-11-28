@@ -16,7 +16,9 @@ title: Open1560
 * Do I need to install dgVoodoo2?
     * No, Open1560 uses an OpenGL renderer.
 * What does Open1560 change?
-    * See a list of changes [here](./changes.md)
+    * See a list of changes [here](./changes.md).
+* How do I work with the Open1560 code?
+    * See the build instructions [here](./building.md).
 
 # Support
 
