@@ -117,7 +117,7 @@ public:
         return prop_count_;
     }
 
-private:
+public:
     agiTexProp* props_ {};
     i32 prop_count_ {};
     b32 allow_remapping_ {}; // UseAlternate

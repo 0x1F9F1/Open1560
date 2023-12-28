@@ -132,9 +132,11 @@
 */
 
 #include "data7/base.h"
+#include "vector7/matrix34.h"
+#include "vector7/vector2.h"
+#include "vector7/vector3.h"
 
 #include "heap.h"
-#include "vector7/matrix34.h"
 
 class agiMeshSet;
 class mmBoundTemplate;
@@ -465,7 +467,7 @@ public:
     // ?DeclareFields@mmShearInstance@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap44[0x4];
+    f32 Scale;
 };
 
 check_size(mmShearInstance, 0x48);
@@ -549,7 +551,9 @@ public:
     // ?DeclareFields@mmYInstance@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap14[0x18];
+    Vector3 Position;
+    Vector2 Rotation;
+    f32 Scale;
 };
 
 check_size(mmYInstance, 0x2C);
