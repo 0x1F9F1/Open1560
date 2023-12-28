@@ -318,7 +318,7 @@ public:
     Vector3 End;
     Vector3 Step;
     Vector3 Center;
-    i32 Scale;
+    f32 Scale;
     i32 NumLights;
     i32 Texture;
     agiMeshCardInfo MeshCard;
