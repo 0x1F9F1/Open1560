@@ -224,7 +224,6 @@ public:
     mmSky Sky;
     asRenderWeb RenderWeb;
     agiTexSorter TexSorter;
-    u8 gap[0x3];
     mmInstChain BuildingChain;
     mmInstChain ObjectsChain;
     mmInstChain ShadowChain;

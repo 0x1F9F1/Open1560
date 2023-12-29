@@ -22,6 +22,7 @@
     __pragma(comment(linker, "/ALTERNATENAME:__imp_" NAME "=_Symbol_" #ADDRESS)); \
     extern "C" const usize Symbol_##ADDRESS = ADDRESS;
 
+import_symbol(0x48CC30, "?ShowRenderStats@@YAXXZ");
 import_symbol(0x5248E0, "?PrintRenderPerf@@YAXXZ");
 import_symbol(0x63650C, "?DashColorScale@@3MA");
 import_symbol(0x6A6F1C, "?JoinViaZone@@3HA");

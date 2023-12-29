@@ -28,6 +28,7 @@ define_dummy_symbol(mmcity_cullcity);
 #include "agiworld/meshset.h"
 #include "agiworld/quality.h"
 #include "agiworld/texsheet.h"
+#include "arts7/cullmgr.h"
 #include "data7/memstat.h"
 #include "localize/localize.h"
 #include "mmcityinfo/state.h"
@@ -66,6 +67,9 @@ ARTS_IMPORT /*static*/ void parseRGB(u32& arg1);
 
 // ?parseVector3@@YAXAAVVector3@@@Z
 ARTS_IMPORT /*static*/ void parseVector3(Vector3& arg1);
+
+// ?ShowRenderStats@@YAXXZ
+ARTS_IMPORT /*static*/ void ShowRenderStats();
 
 void mmCullCity::Cull()
 {
@@ -120,7 +124,7 @@ void mmCullCity::Init(char* name, asCamera* camera)
     arts_strcpy(lm_path, name);
     arts_strcat(lm_path, "lm");
 
-    TEXSHEET.allow_remapping_ = (MMSTATE.TimeOfDay == mmTimeOfDay::Sunset or MMSTATE.TimeOfDay == mmTimeOfDay::Night);
+    TEXSHEET.allow_remapping_ = (MMSTATE.TimeOfDay == mmTimeOfDay::Sunset || MMSTATE.TimeOfDay == mmTimeOfDay::Night);
 
     switch (MMSTATE.Weather)
     {
@@ -139,8 +143,8 @@ void mmCullCity::Init(char* name, asCamera* camera)
     if (DevelopmentMode)
     {
         city_dlp = GetDLPTemplate(city_path);
-        if (!city_dlp)
-            Quitf("Unable to load city '%s'", name);
+        // if (!city_dlp)
+        //     Quitf("Unable to load city '%s'", name);
 
         lm_dlp = GetDLPTemplate(lm_path);
     }
@@ -149,13 +153,13 @@ void mmCullCity::Init(char* name, asCamera* camera)
     InitProblems();
 
     Camera = camera;
-    asNode::AddChild(&BangerDataManager);
-    asNode::AddChild(&BangerActiveManager);
-    asNode::AddChild(&BangerManager);
-    asNode::AddChild(&asnode34AF0);
-    asNode::AddChild(&PHYS);
-    asNode::AddChild(&RenderWeb);
-    asNode::AddChild(&Particles);
+    AddChild(&BangerDataManager);
+    AddChild(&BangerActiveManager);
+    AddChild(&BangerManager);
+    AddChild(&asnode34AF0);
+    AddChild(&PHYS);
+    AddChild(&RenderWeb);
+    AddChild(&Particles);
 
     agiMeshCardVertex* vertex = NULL;
 
@@ -195,27 +199,17 @@ void mmCullCity::Init(char* name, asCamera* camera)
     LastInstance = (mmInstance*) mmInstanceHeap.HeapHead;
     ResetInst = new mmYInstance();
 
+    EnableSphereCull = CHICAGO;
+
     LoadBangers(name);
 
-    if (MMSTATE.GameMode == mmGameMode::Blitz)
+    switch (MMSTATE.GameMode)
     {
-        LoadBangers(arts_formatf<64>("%s_b%d", name, MMSTATE.EventId));
-    }
-    else if (MMSTATE.GameMode == mmGameMode::Checkpoint)
-    {
-        LoadBangers(arts_formatf<64>("%s_r%d", name, MMSTATE.EventId));
-    }
-    else if (MMSTATE.GameMode == mmGameMode::Circuit)
-    {
-        LoadBangers(arts_formatf<64>("%s_c%d", name, MMSTATE.EventId));
-    }
-    else if (MMSTATE.GameMode == mmGameMode::Cruise)
-    {
-        LoadBangers(arts_formatf<64>("%s_roam", name));
-    }
-    else if (MMSTATE.GameMode == mmGameMode::CnR)
-    {
-        LoadBangers(arts_formatf<64>("%s_cops", name));
+        case mmGameMode::Cruise: LoadBangers(arts_formatf<64>("%s_roam", name)); break;
+        case mmGameMode::Checkpoint: LoadBangers(arts_formatf<64>("%s_r%d", name, MMSTATE.EventId)); break;
+        case mmGameMode::CnR: LoadBangers(arts_formatf<64>("%s_cops", name)); break;
+        case mmGameMode::Circuit: LoadBangers(arts_formatf<64>("%s_c%d", name, MMSTATE.EventId)); break;
+        case mmGameMode::Blitz: LoadBangers(arts_formatf<64>("%s_b%d", name, MMSTATE.EventId)); break;
     }
 
     ResetInst = new mmYInstance();
@@ -231,29 +225,30 @@ void mmCullCity::Init(char* name, asCamera* camera)
 
         mmRunwayLight* light_1 = new mmRunwayLight("fxltglow"_xconst, pos_1, pos_2);
         mmRunwayLight* light_2 = new mmRunwayLight("fxltglow"_xconst, pos_3, pos_4);
+
         BuildingChain.Parent(light_1, 35);
         BuildingChain.Parent(light_2, 35);
+    }
 
-        InitTimeOfDayAndWeather();
+    InitTimeOfDayAndWeather();
 
-        if (IsSnowing)
-            InitSnowTextures();
+    if (IsSnowing)
+        InitSnowTextures();
 
-        BangerMgr()->Init(40);
+    BangerMgr()->Init(40);
 
-        if (city_dlp && city_dlp->Release())
-            Errorf("Someone is still holding a ref on the city's template");
+    if (city_dlp && city_dlp->Release())
+        Errorf("Someone is still holding a ref on the city's template");
 
-        if (lm_dlp)
-            lm_dlp->Release();
+    if (lm_dlp)
+        lm_dlp->Release();
 
-        EndMemStat();
+    EndMemStat();
 
-        void ShowRenderStats();
+    CULLMGR->AddPage(ShowRenderStats);
 
-        if (StaticLog)
-        {
-            delete StaticLog;
-        }
+    if (StaticLog)
+    {
+        delete StaticLog;
     }
 }
