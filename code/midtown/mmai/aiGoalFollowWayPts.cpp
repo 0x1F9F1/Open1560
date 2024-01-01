@@ -58,13 +58,13 @@ b32 aiGoalFollowWayPts::Context()
     }
 }
 
-i32 aiGoalFollowWayPts::GetWayPtId(i16 index, i32 num_waypts)
+i32 aiGoalFollowWayPts::GetWayPtId(i16 index)
 {
-    if (index < 0 || index > num_waypts)
+    if (index < 0 || index > NumWayPts)
     {
         Warningf("Check Point Index: %d, is outside of the array bounds.", index);
         Warningf("Requested by: Opp %d.", Vehicle->OppId);
-        return WayPtIds[num_waypts];
+        return WayPtIds[NumWayPts];
     }
     return WayPtIds[index];
 }
@@ -83,8 +83,8 @@ void aiGoalFollowWayPts::Update()
             Car->Sim.Steering = 0.0f;
             Car->Sim.Brakes = 0.0f;
             Car->Sim.Engine.Throttle = 1.0f;
-            return;
         }
+        return;
     }
 
     Stuck.Update();
@@ -116,8 +116,8 @@ void aiGoalFollowWayPts::Update()
         {
             i16 prev_wp_index = WayPtIdx - 1;
 
-            i32 prev_wp_id = GetWayPtId(prev_wp_index, NumWayPts);
-            i32 cur_wp_id = GetWayPtId(WayPtIdx, NumWayPts);
+            i32 prev_wp_id = GetWayPtId(prev_wp_index);
+            i32 cur_wp_id = GetWayPtId(WayPtIdx);
 
             road_segment_id = DetRdSegBetweenInts(AIMAP.Intersection(prev_wp_id), AIMAP.Intersection(cur_wp_id))->Id;
         }

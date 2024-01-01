@@ -58,10 +58,6 @@
 
 class aiVehicleOpponent;
 
-#define CAR_NOT_STUCK 0
-#define CAR_MAYBE_STUCK 1
-#define CAR_STUCK 2
-
 class aiGoalFollowWayPts final : public aiGoal
 {
 public:
@@ -139,7 +135,7 @@ private:
     // ?SolveTargetPoint@aiGoalFollowWayPts@@AAEXXZ
     ARTS_IMPORT void SolveTargetPoint();
 
-    i32 GetWayPtId(i16 index, i32 num_waypts);
+    i32 GetWayPtId(i16 index);
 
 public:
     aiVehicleOpponent* Vehicle;
