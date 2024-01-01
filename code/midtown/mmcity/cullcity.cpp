@@ -124,7 +124,7 @@ void mmCullCity::Init(char* name, asCamera* camera)
     arts_strcpy(lm_path, name);
     arts_strcat(lm_path, "lm");
 
-    TEXSHEET.allow_remapping_ = (MMSTATE.TimeOfDay == mmTimeOfDay::Sunset || MMSTATE.TimeOfDay == mmTimeOfDay::Night);
+    TEXSHEET.allow_remapping_ = MMSTATE.TimeOfDay == mmTimeOfDay::Sunset || MMSTATE.TimeOfDay == mmTimeOfDay::Night;
 
     switch (MMSTATE.Weather)
     {
