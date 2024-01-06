@@ -76,7 +76,7 @@ void mmStatePack::SetDefaults()
     CRGoldMass = 0;
 
     arts_strcpy(IntroText, "Loading Open1560");
-    CameraIndex = TRACK_CAR_FAR;
+    CameraIndex = TRACK_CAM_FAR;
     HudmapMode = HUD_MAP_SMALL;
     WideFov = false;
     DashView = false;
