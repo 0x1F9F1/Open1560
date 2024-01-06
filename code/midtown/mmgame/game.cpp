@@ -481,7 +481,7 @@ void mmGame::UpdateGameInput()
             case IOID_XVIEW: Player->ToggleExternalView(); break;
 
             case IOID_WFOV: {
-                if (Player->HudMap.GetMode() < HUD_MAP_MODE_2)
+                if (Player->HudMap.GetMode() < HUD_MAP_MEDIUM)
                 {
                     Player->ToggleWideFOV();
 

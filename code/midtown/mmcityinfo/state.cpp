@@ -23,14 +23,16 @@ define_dummy_symbol(mmcityinfo_state);
 #include "data7/args.h"
 #include "midtown.h"
 #include "mmaudio/manager.h"
+#include "mmcamcs/trackcamcs.h"
+#include "mmgame/hudmap.h"
 
 void mmStatePack::SetDefaults()
 {
     CurrentCar = 2; // Hopefully vpbug
-    InputType = mmInputType::Mouse;
+    InputType = mmInputType::Keyboard;
     NetworkStatus = 0;
     NetworkID = 0;
-    ChaseOpponents = 0;
+    ChaseOpponents = false;
     NoUI = false;
     Shutdown = false;
     GameMode = mmGameMode::Cruise;
@@ -40,13 +42,13 @@ void mmStatePack::SetDefaults()
     AmbientDensity = 0.33f;
     PedDensity = 1.0f;
     CopDensity = 1.0f;
-    MaxOpponents = 7.0f;
-    PhysicsRealism = 0.75f;
+    MaxOpponents = 8.0f;
+    PhysicsRealism = 0.25f;
     EnableFF = true;
     UnlockAllRaces = false;
     Weather = mmWeather::Sun;
     TimeOfDay = mmTimeOfDay::Noon;
-    arts_strcpy(CarName, "vpbug");
+    arts_strcpy(CarName, "vppanoz");
     CurrentColor = 0;
     arts_strcpy(NetName, "loaf");
     TimeLimit = 0.0f;
@@ -56,10 +58,10 @@ void mmStatePack::SetDefaults()
     SuperCops = false;
     AmbientCount = 100;
     NumLaps = 0;
-    Difficulty = mmSkillLevel::Amateur;
-    WaveVolume = 1.0f;
+    Difficulty = mmSkillLevel::Professional;
+    WaveVolume = 0.1f;
     AudBalance = 0.0f;
-    CDVolume = 0.5f;
+    CDVolume = 0.1f;
     AudFlags = AudManager::GetHiSampleSizeMask() | AudManager::GetHiResMask() | AudManager::GetStereoOnMask() |
         AudManager::GetCommentaryOnMask() | AudManager::GetCDMusicOnMask() | AudManager::GetSoundFXOnMask();
     AudNumChannels = 32;
@@ -74,15 +76,15 @@ void mmStatePack::SetDefaults()
     CRGoldMass = 0;
 
     arts_strcpy(IntroText, "Loading Open1560");
-    CameraIndex = 0;
-    HudmapMode = 0;
+    CameraIndex = TRACK_CAR_FAR;
+    HudmapMode = HUD_MAP_SMALL;
     WideFov = false;
     DashView = false;
     EnableMirror = true;
     ExternalView = false;
     XcamView = false;
     ShowPositions = true;
-    MapRes = 0;
+    MapRes = 1; // 0 Zoomed out, 1 zoomed in
     DisablePeds = false;
     EnablePaging = false;
     Interlaced = false;
@@ -101,7 +103,7 @@ bool mmStatePack::ParseStateArgs(i32 argc, char** argv)
 
         if (ARG("-noui"))
         {
-            const char* veh_name = "vpbug";
+            const char* veh_name = "vppanoz";
 
             if (asArg* veh = GBArgs['v'])
                 veh_name = veh->sValues[0];

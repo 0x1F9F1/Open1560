@@ -49,6 +49,12 @@
 
 #include "carcamcs.h"
 
+#define TRACK_CAM_NEAR 0
+#define TRACK_CAM_BASE 1
+#define TRACK_CAR_FAR 2
+#define TRACK_CAR_XCAM 3
+#define TRACK_CAR_HELICOPTER 4
+
 class TrackCamCS final : public CarCamCS
 {
 public:
