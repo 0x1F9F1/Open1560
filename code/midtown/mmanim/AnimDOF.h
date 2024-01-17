@@ -101,7 +101,17 @@ public:
     // ?DeclareFields@mmAnimDOF@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap4[0x94];
+    Vector3 field_4;
+    mmUnhitBangerInstance* UnhitBanger;
+    mmDofBangerInstance* DofBanger;
+    Matrix34 field_18;
+    Matrix34 field_48;
+    Vector3 RotationAxis;
+    i32 field_84;
+    i32 field_88;
+    i32 field_8C;
+    i32 Opposite;
+    mmAnimTrigger* Trigger;
 };
 
 check_size(mmAnimDOF, 0x98);
