@@ -29,10 +29,10 @@ define_dummy_symbol(mmcityinfo_state);
 void mmStatePack::SetDefaults()
 {
     CurrentCar = 2; // Hopefully vpbug
-    InputType = mmInputType::Keyboard;
+    InputType = mmInputType::Mouse;
     NetworkStatus = 0;
     NetworkID = 0;
-    ChaseOpponents = false;
+    ChaseOpponents = 0;
     NoUI = false;
     Shutdown = false;
     GameMode = mmGameMode::Cruise;
@@ -42,13 +42,13 @@ void mmStatePack::SetDefaults()
     AmbientDensity = 0.33f;
     PedDensity = 1.0f;
     CopDensity = 1.0f;
-    MaxOpponents = 8.0f;
-    PhysicsRealism = 0.25f;
+    MaxOpponents = 7.0f;
+    PhysicsRealism = 0.75f;
     EnableFF = true;
     UnlockAllRaces = false;
     Weather = mmWeather::Sun;
     TimeOfDay = mmTimeOfDay::Noon;
-    arts_strcpy(CarName, "vppanoz");
+    arts_strcpy(CarName, "vpbug");
     CurrentColor = 0;
     arts_strcpy(NetName, "loaf");
     TimeLimit = 0.0f;
@@ -58,10 +58,10 @@ void mmStatePack::SetDefaults()
     SuperCops = false;
     AmbientCount = 100;
     NumLaps = 0;
-    Difficulty = mmSkillLevel::Professional;
-    WaveVolume = 0.1f;
+    Difficulty = mmSkillLevel::Amateur;
+    WaveVolume = 1.0f;
     AudBalance = 0.0f;
-    CDVolume = 0.1f;
+    CDVolume = 0.5f;
     AudFlags = AudManager::GetHiSampleSizeMask() | AudManager::GetHiResMask() | AudManager::GetStereoOnMask() |
         AudManager::GetCommentaryOnMask() | AudManager::GetCDMusicOnMask() | AudManager::GetSoundFXOnMask();
     AudNumChannels = 32;
@@ -76,15 +76,15 @@ void mmStatePack::SetDefaults()
     CRGoldMass = 0;
 
     arts_strcpy(IntroText, "Loading Open1560");
-    CameraIndex = TRACK_CAM_FAR;
-    HudmapMode = HUD_MAP_SMALL;
+    CameraIndex = TRACK_CAM_NEAR;
+    HudmapMode = HUD_MAP_NONE;
     WideFov = false;
     DashView = false;
     EnableMirror = true;
     ExternalView = false;
     XcamView = false;
     ShowPositions = true;
-    MapRes = 1; // 0 Zoomed out, 1 zoomed in
+    MapRes = 0; // 0 Zoomed out, 1 zoomed in
     DisablePeds = false;
     EnablePaging = false;
     Interlaced = false;
@@ -111,7 +111,16 @@ bool mmStatePack::ParseStateArgs(i32 argc, char** argv)
             NoUI = true;
             no_ui = true;
             arts_strcpy(CarName, veh_name);
+
             GameState = mmGameState::Drive;
+            MaxOpponents = 8.0f;
+            PhysicsRealism = 0.25f;
+            Difficulty = mmSkillLevel::Professional;
+            WaveVolume = 0.1f;
+            CDVolume = 0.1f;
+            CameraIndex = TRACK_CAM_FAR;
+            HudmapMode = HUD_MAP_SMALL;
+            MapRes = 1;
         }
         else if (ARG("-keyboard"))
         {
