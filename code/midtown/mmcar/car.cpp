@@ -155,7 +155,7 @@ void mmCar::ReInit(char* name, i32 variant)
 
     CullCity()->ReparentObject(&Model);
 
-    if (!Model.HasTrailer())
+    if (Model.HasTrailer())
     {
         Vector3 trailer_pos {};
         Vector3 joint_pos {0.0f, 0.7f, 3.0f};
