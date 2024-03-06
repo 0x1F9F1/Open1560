@@ -29,6 +29,8 @@ define_dummy_symbol(mmai_aiVehicleOpponent);
 #include "aiGoalFollowWayPts.h"
 #include "aiGoalStop.h"
 
+static mem::cmd_param PARAM_opponent_color_count {"colorcount"};
+
 void aiVehicleOpponent::DrawDamage()
 {}
 
@@ -38,7 +40,7 @@ void aiVehicleOpponent::Init(i32 opp_id, aiRaceData* race_data, char* race_name)
     if (agiRQ.TextureQuality)
         --agiRQ.TextureQuality;
 
-    i32 paint_job = opp_id & 3;
+    i32 paint_job = opp_id % PARAM_opponent_color_count.get_or(4);
     i32 index = opp_id + 1;
 
     OpponentRaceData* opp = static_cast<OpponentRaceData*>(race_data->Opponents.Access(index));
