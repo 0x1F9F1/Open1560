@@ -23,11 +23,19 @@ define_dummy_symbol(mmai_aiVehicleOpponent);
 #include "agi/dlptmpl.h"
 #include "agi/getdlp.h"
 #include "agiworld/quality.h"
+#include "memory/allocator.h"
+#include "mmcar/trailer.h"
+#include "mmcity/cullcity.h"
+#include "mmphysics/joint3dof.h"
+#include "mmphysics/phys.h"
 
 #include "aiData.h"
 #include "aiGoalBackup.h"
 #include "aiGoalFollowWayPts.h"
 #include "aiGoalStop.h"
+#include "aiMap.h"
+
+static mem::cmd_param PARAM_detach_opponent_trailer_mph {"detach_opponent_trailer_mph"};
 
 void aiVehicleOpponent::DrawDamage()
 {}
@@ -72,4 +80,50 @@ void aiVehicleOpponent::Init(i32 opp_id, aiRaceData* race_data, char* race_name)
         RailSet.RSideDist = max.x;
     }
     AudIndexNumber = -1;
+}
+
+void aiVehicleOpponent::Update()
+{
+    if (AudIndexNumber == -1)
+    {
+        AddToAiAudMgr();
+    }
+
+    Vector3 car_pos_diff = Car.Sim.ICS.Matrix.m3 - AIMAP.PlayerPos();
+    f32 car_dist_sqr = car_pos_diff ^ car_pos_diff;
+
+    if (IsSemi || (car_dist_sqr) < 40000.0f)
+    {
+        PHYS.DeclareMover(
+            &Car.Model, MOVER_TYPE_PERM, MOVER_FLAG_ACTIVE | MOVER_FLAG_COLLIDE_TERRAIN | MOVER_FLAG_COLLIDE_MOVERS);
+    }
+    else
+    {
+        PHYS.DeclareMover(&Car.Model, MOVER_TYPE_PERM,
+            (CullCity()->GetRoomFlags(Car.Model.ChainId) & INST_FLAG_100) != 0
+                ? MOVER_FLAG_ACTIVE | MOVER_FLAG_COLLIDE_TERRAIN | MOVER_FLAG_COLLIDE_MOVERS
+                : MOVER_FLAG_ACTIVE | MOVER_FLAG_COLLIDE_TERRAIN | MOVER_FLAG_20);
+    }
+
+    if (Car.Model.HasTrailer())
+    {
+        PHYS.DeclareMover(&Car.Trailer->Inst, MOVER_TYPE_PERM, MOVER_FLAG_COLLIDE_TERRAIN | MOVER_FLAG_COLLIDE_MOVERS);
+
+        if (Car.Sim.HasCollided)
+        {
+            if (Car.Sim.SpeedMPH > PARAM_detach_opponent_trailer_mph.get_or(50.0f) &&
+                (Car.TrailerJoint->JointFlags & JOINT_FLAG_BROKEN) == 0)
+            {
+                Car.ReleaseTrailer();
+            }
+        }
+    }
+
+    ALLOCATOR.CheckPointer(WayPts.get());
+    ALLOCATOR.CheckPointer(BackupGoal.get());
+    ALLOCATOR.CheckPointer(StopGoal.get());
+    aiVehicle::Update();
+    ALLOCATOR.CheckPointer(WayPts.get());
+    ALLOCATOR.CheckPointer(BackupGoal.get());
+    ALLOCATOR.CheckPointer(StopGoal.get());
 }
