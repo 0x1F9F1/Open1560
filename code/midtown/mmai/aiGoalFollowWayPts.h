@@ -135,6 +135,7 @@ private:
     // ?SolveTargetPoint@aiGoalFollowWayPts@@AAEXXZ
     ARTS_IMPORT void SolveTargetPoint();
 
+public:
     aiVehicleOpponent* Vehicle;
     aiRailSet* Rail;
     mmCar* Car;

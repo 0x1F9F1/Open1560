@@ -23,6 +23,9 @@ define_dummy_symbol(mmai_aiVehicleOpponent);
 #include "agi/dlptmpl.h"
 #include "agi/getdlp.h"
 #include "agiworld/quality.h"
+#include "dyna7/gfx.h"
+#include "mmdyna/poly.h"
+#include "mmphysics/phys.h"
 
 #include "aiData.h"
 #include "aiGoalBackup.h"
@@ -31,6 +34,52 @@ define_dummy_symbol(mmai_aiVehicleOpponent);
 
 void aiVehicleOpponent::DrawDamage()
 {}
+
+void aiVehicleOpponent::DrawTargetPt()
+{
+    DrawColor(ColPurple);
+
+    Vector3 base_pos = Car.Sim.ICS.Matrix.m3;
+
+    Vector3 car_pos = base_pos;
+    car_pos.y += 1.0f;
+
+    Vector3 target_pt = WayPts->TargetPt;
+    target_pt.y += 1.0f;
+
+    mmIntersection isect;
+    isect.InitSegment(car_pos, target_pt, nullptr, 2, 0);
+
+    PHYS.Collide(&isect, PHYS_COLLIDE_ROOM);
+
+    if (isect.HitPoly)
+    {
+        target_pt.y = (-isect.HitPoly->PlaneD - isect.HitPoly->PlaneN.z * target_pt.z - isect.HitPoly->PlaneN.x * target_pt.x) / isect.HitPoly->PlaneN.y - -0.5f;
+    }
+
+    DrawLine(car_pos, target_pt);
+
+    Vector3 speed_label = base_pos;
+    speed_label.y += 0.5f;
+
+    Vector3 steering_label = base_pos;
+    steering_label.y += 0.25f;
+
+    Vector3 throttle_label = base_pos;
+    throttle_label.y += 0.0f;
+
+    Vector3 brake_label = base_pos;
+    brake_label.y -= 0.25f;
+
+    DrawLabelf(speed_label, xconst("MPH: %.2f"), Car.Sim.SpeedMPH);
+    DrawLabelf(steering_label, xconst("Steering: %.2f"), Car.Sim.Steering);
+    DrawLabelf(throttle_label, xconst("Throttle: %.2f"), Car.Sim.Engine.Throttle);
+    DrawLabelf(brake_label, xconst("Brakes: %.2f"), Car.Sim.Brakes);
+
+    DrawColor(ColLightCyan);
+
+    RailSet.DrawTurn(WayPts->DistToSide);
+}
 
 void aiVehicleOpponent::Init(i32 opp_id, aiRaceData* race_data, char* race_name)
 {
