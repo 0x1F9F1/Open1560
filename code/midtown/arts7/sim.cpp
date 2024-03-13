@@ -20,6 +20,7 @@ define_dummy_symbol(arts7_sim);
 
 #include "sim.h"
 
+#include "agi/error.h"
 #include "agi/getdlp.h"
 #include "agi/light.h"
 #include "agi/mtllib.h"
@@ -57,12 +58,15 @@ i32 InitPipeline(char* title, i32 argc, char** argv)
     if (PipelineInitialized)
         Quitf("Tried to InitPipeline twice.");
 
-    PipelineInitialized = true;
-
     Argc = argc;
     Argv = argv;
 
     agiPipeline::CurrentPipe = as_raw CreatePipeline(argc, argv);
+
+    if (!agiPipeline::CurrentPipe)
+        return AGI_ERROR_NO_DEVICE;
+
+    PipelineInitialized = true;
 
     if (Pipe()->Validate())
         Quit("Couldn't start renderer");
@@ -95,7 +99,10 @@ void ShutdownPipeline()
     PipelineInitialized = false;
 
     if (SunLight)
+    {
         SunLight->Release();
+        SunLight = nullptr;
+    }
 
     agiPrintShutdown();
 
