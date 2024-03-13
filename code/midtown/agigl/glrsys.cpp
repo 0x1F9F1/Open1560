@@ -954,6 +954,12 @@ void agiGLRasterizer::FlushState()
     if (fog_mode != agiLastState.FogMode || fog_start != agiLastState.FogStart || fog_end != agiLastState.FogEnd ||
         fog_density != agiLastState.FogDensity)
     {
+        if (fog_mode != agiFogMode::None)
+        {
+            if (!shader_ && !agiGL->HasVersion(140))
+                fog_mode = agiFogMode::None;
+        }
+
         agiLastState.FogMode = fog_mode;
         agiLastState.FogStart = fog_start;
         agiLastState.FogEnd = fog_end;
