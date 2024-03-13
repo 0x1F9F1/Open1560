@@ -86,9 +86,18 @@ i32 agiGLPipeline::BeginGfx()
     }
 
     if (context == nullptr)
-        Quitf("Failed to create OpenGL context: %s", SDL_GetError());
+    {
+        Errorf("Failed to create OpenGL context: %s", SDL_GetError());
+        return AGI_ERROR_NO_DEVICE;
+    }
 
     gl_context_ = arnew agiGLContext(window_, context, debug_level);
+
+    if (!gl_context_->HasVersion(120))
+    {
+        Errorf("Unsupported OpenGL version");
+        return AGI_ERROR_UNSUPPORTED;
+    }
 
     SDL_GL_GetDrawableSize(window_, &horz_res_, &vert_res_);
 
