@@ -29,7 +29,7 @@
 #define MM_IDS_9 9
 #define MM_IDS_10 10
 #define MM_IDS_11 11
-#define MM_IDS_12 12
+#define MM_IDS_LOADING_CITY_LAYOUT 12
 #define MM_IDS_13 13
 #define MM_IDS_14 14
 #define MM_IDS_15 15

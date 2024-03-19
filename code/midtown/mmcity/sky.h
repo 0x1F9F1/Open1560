@@ -56,14 +56,14 @@ public:
     // ?Color@mmSky@@2IA
     ARTS_IMPORT static u32 Color;
 
-private:
     // ?DoFlash@mmSky@@0HA
     ARTS_IMPORT static i32 DoFlash;
 
     // ?Instance@mmSky@@0PAV1@A
     ARTS_IMPORT static mmSky* Instance;
 
-    u8 gap0[0x8];
+    f32 RotationSpeed;
+    f32 Mesh;
 };
 
 check_size(mmSky, 0x8);

@@ -30,7 +30,7 @@
 template <typename T>
 class mmHeap
 {
-private:
+public:
     u8* HeapBase {};
     u8* HeapEnd {};
     u8* HeapHead {};
