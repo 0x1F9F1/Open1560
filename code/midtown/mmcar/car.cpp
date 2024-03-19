@@ -24,11 +24,23 @@ define_dummy_symbol(mmcar_car);
 #include "agi/getdlp.h"
 #include "data7/timer.h"
 #include "mmcity/cullcity.h"
+#include "mmcityinfo/state.h"
 #include "mmcityinfo/vehlist.h"
 #include "mmphysics/joint3dof.h"
 
 #include "playercaraudio.h"
 #include "trailer.h"
+
+static mem::cmd_param PARAM_opponent_physics {"opponent_physics"};
+
+void mmCar::ApplyOpponentPhysics()
+{
+    if (!Sim.FrontLeft.OnGround && !Sim.FrontRight.OnGround && !Sim.BackLeft.OnGround && !Sim.BackRight.OnGround)
+    {
+        Sim.ICS.AngularMomentum *= 0.1f;
+        CHEATING = true;
+    }
+}
 
 mmCar::mmCar()
 {
@@ -64,6 +76,11 @@ void mmCar::Update()
 #endif
 
     OverSample.Update();
+
+    if (PARAM_opponent_physics && MMSTATE.NetworkStatus == 0)
+    {
+        ApplyOpponentPhysics();
+    }
 
 #ifdef ARTS_DEV_BUILD
     f32 elapsed = t.Time();
