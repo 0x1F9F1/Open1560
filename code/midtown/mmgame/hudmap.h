@@ -96,10 +96,10 @@ struct OppIconInfo
 
 check_size(OppIconInfo, 0x24);
 
-#define HUD_MAP_MODE_0 0
-#define HUD_MAP_MODE_1 1
-#define HUD_MAP_MODE_2 2
-#define HUD_MAP_MODE_3 3
+#define HUD_MAP_NONE 0
+#define HUD_MAP_SMALL 1
+#define HUD_MAP_MEDIUM 2
+#define HUD_MAP_LARGE 3
 
 class mmHudMap final : public asNode
 {

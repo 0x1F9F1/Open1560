@@ -23,6 +23,8 @@ define_dummy_symbol(mmcityinfo_state);
 #include "data7/args.h"
 #include "midtown.h"
 #include "mmaudio/manager.h"
+#include "mmcamcs/trackcamcs.h"
+#include "mmgame/hudmap.h"
 
 void mmStatePack::SetDefaults()
 {
@@ -74,15 +76,15 @@ void mmStatePack::SetDefaults()
     CRGoldMass = 0;
 
     arts_strcpy(IntroText, "Loading Open1560");
-    CameraIndex = 0;
-    HudmapMode = 0;
+    CameraIndex = TRACK_CAM_NEAR;
+    HudmapMode = HUD_MAP_NONE;
     WideFov = false;
     DashView = false;
     EnableMirror = true;
     ExternalView = false;
     XcamView = false;
     ShowPositions = true;
-    MapRes = 0;
+    MapRes = 0; // 0 Zoomed out, 1 zoomed in
     DisablePeds = false;
     EnablePaging = false;
     Interlaced = false;
@@ -101,7 +103,7 @@ bool mmStatePack::ParseStateArgs(i32 argc, char** argv)
 
         if (ARG("-noui"))
         {
-            const char* veh_name = "vpbug";
+            const char* veh_name = "vppanoz";
 
             if (asArg* veh = GBArgs['v'])
                 veh_name = veh->sValues[0];
@@ -109,7 +111,16 @@ bool mmStatePack::ParseStateArgs(i32 argc, char** argv)
             NoUI = true;
             no_ui = true;
             arts_strcpy(CarName, veh_name);
+
             GameState = mmGameState::Drive;
+            MaxOpponents = 8.0f;
+            PhysicsRealism = 0.25f;
+            Difficulty = mmSkillLevel::Professional;
+            WaveVolume = 0.1f;
+            CDVolume = 0.1f;
+            CameraIndex = TRACK_CAM_FAR;
+            HudmapMode = HUD_MAP_SMALL;
+            MapRes = 1;
         }
         else if (ARG("-keyboard"))
         {
