@@ -29,6 +29,8 @@
     0x61BC40 | const aiVehicle::`vftable' | ??_7aiVehicle@@6B@
 */
 
+#include "data7/list.h"
+
 class aiVehicle
 {
 public:
@@ -51,7 +53,9 @@ public:
     // ?Init@aiVehicle@@QAEXH@Z
     ARTS_IMPORT void Init(i32 arg1);
 
-    u8 gap4[0x10];
+    List Goals;
+    i16 OppId;
+    i16 UpdateGroup;
 };
 
 check_size(aiVehicle, 0x14);

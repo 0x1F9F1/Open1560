@@ -96,7 +96,7 @@ public:
     ARTS_IMPORT void Reset() override;
 
     // ?Update@aiGoalFollowWayPts@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
     // ?DeclareFields@aiGoalFollowWayPts@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
@@ -135,6 +135,9 @@ private:
     // ?SolveTargetPoint@aiGoalFollowWayPts@@AAEXXZ
     ARTS_IMPORT void SolveTargetPoint();
 
+    i32 GetWayPtId(i16 index);
+
+public:
     aiVehicleOpponent* Vehicle;
     aiRailSet* Rail;
     mmCar* Car;

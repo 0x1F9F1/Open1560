@@ -41,6 +41,10 @@
 class mmCarSim;
 class asInertialCS;
 
+#define CAR_NOT_STUCK 0
+#define CAR_MAYBE_STUCK 1
+#define CAR_STUCK 2
+
 class mmStuck final : public asNode
 {
 public:
