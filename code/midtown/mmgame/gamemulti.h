@@ -183,7 +183,7 @@ protected:
     ARTS_IMPORT void EnableRacers();
 
     // ?StartXYZ@mmGameMulti@@IAEXHAAVVector3@@0MM@Z
-    ARTS_IMPORT void StartXYZ(i32 arg1, Vector3& arg2, Vector3& arg3, f32 arg4, f32 arg5);
+    ARTS_EXPORT void StartXYZ(i32 index, Vector3& out_result, Vector3& start_position, f32 rotation, f32 length);
 
 public:
     f32 ResetRotation;
