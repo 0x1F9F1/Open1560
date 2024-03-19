@@ -151,8 +151,8 @@ f32 mmPolygon::CornersHeight(f32 x1, f32 z1, f32 x2, f32 z2)
 
 f32 mmPolygon::MaxY(f32 x_min, f32 z_min, f32 x_max, f32 z_max)
 {
-    f32 max_y = -999999.0f;                   
-    i32 vert_count = (Flags & 4) != 0 ? 4 : 3; 
+    f32 max_y = -999999.0f;
+    i32 vert_count = (Flags & 4) != 0 ? 4 : 3;
 
     for (i32 i = 0; i < vert_count; ++i)
     {
@@ -160,7 +160,7 @@ f32 mmPolygon::MaxY(f32 x_min, f32 z_min, f32 x_max, f32 z_max)
 
         if (vert.x >= x_min && vert.x <= x_max && vert.z >= z_min && vert.z <= z_max)
         {
-            max_y = std::max(max_y, vert.y); 
+            max_y = std::max(max_y, vert.y);
         }
     }
 
