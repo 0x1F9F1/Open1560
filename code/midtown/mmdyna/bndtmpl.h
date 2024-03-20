@@ -248,7 +248,7 @@ public:
     // ?WinID@mmBoundTemplate@@2HA | mmdyna:bndtmpl2
     ARTS_IMPORT static i32 WinID;
 
-private:
+public:
     // ?DoMakeTable@mmBoundTemplate@@AAEXHHH@Z | mmdyna:bndtmpl2
     ARTS_IMPORT void DoMakeTable(i32 arg1, i32 arg2, i32 arg3);
 
