@@ -64,6 +64,9 @@
 
 #include "arts7/node.h"
 
+#include "AnimDOF.h"
+#include "AnimTrigger.h"
+
 class AudSound;
 class mmInstance;
 
@@ -89,10 +92,10 @@ public:
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@mmBridgeSet@@QAEHPADPAVStream@@@Z
-    ARTS_IMPORT i32 Init(char* arg1, Stream* arg2);
+    ARTS_EXPORT i32 Init(char* name, Stream* file);
 
     // ?InitTrigger@mmBridgeSet@@QAEXXZ
-    ARTS_IMPORT void InitTrigger();
+    ARTS_EXPORT void InitTrigger();
 
     // ?ReadEntry@mmBridgeSet@@QAEHPAVStream@@H@Z
     ARTS_IMPORT i32 ReadEntry(Stream* arg1, i32 arg2);
@@ -101,10 +104,10 @@ public:
     ARTS_IMPORT void Reset() override;
 
     // ?SetSoundPtrs@mmBridgeSet@@QAEXPAVAudSound@@0@Z
-    ARTS_IMPORT void SetSoundPtrs(AudSound* arg1, AudSound* arg2);
+    ARTS_EXPORT void SetSoundPtrs(AudSound* sound1, AudSound* sound2);
 
     // ?UnAssignSounds@mmBridgeSet@@QAEXXZ
-    ARTS_IMPORT void UnAssignSounds();
+    ARTS_EXPORT void UnAssignSounds();
 
     // ?Update@mmBridgeSet@@UAEXXZ
     ARTS_IMPORT void Update() override;
@@ -114,8 +117,6 @@ public:
 
     // ?DeclareFields@mmBridgeSet@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
-
-    offset_field(0x48, f32, TriggerTimeout);
 
 private:
     // ?CalculateAudioPanning@mmBridgeSet@@AAEXXZ
@@ -145,7 +146,33 @@ private:
     // ?s_fCloserMinDistMult@mmBridgeSet@@0MA
     ARTS_IMPORT static f32 s_fCloserMinDistMult;
 
-    u8 gap20[0x418];
+public:
+    mmAnimTrigger Trigger;
+    i32 Triggered;
+    f32 TriggerTimeout;
+    Vector3 TriggerPos;
+    f32 TriggerDist2;
+    i32 NumEntries;
+    mmAnimDOF AnimDofs[6];
+    i32 Switch;
+    i32 State;
+    i32 InitialPos;
+    f32 DownInterval;
+    f32 UpInterval;
+    i32 field_404;
+    i32 field_408;
+    f32 Pan;
+    f32 Volume;
+    f32 field_414;
+    f32 MaxAudioDistSqr;
+    f32 field_41C;
+    f32 field_420;
+    f32 field_424;
+    f32 field_428;
+    AudSound* Sound1;
+    AudSound* Sound2;
+    i16 MgrIndex;
+    u8 Flags;
 };
 
 check_size(mmBridgeSet, 0x438);
