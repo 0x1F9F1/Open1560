@@ -54,13 +54,13 @@ public:
 
 private:
     // ?CheckCellXSide@mmPolygon@@AAEMMMM@Z
-    ARTS_EXPORT f32 CheckCellXSide(f32 x_plane, f32 z_min, f32 z_max);
+    ARTS_EXPORT f32 CheckCellXSide(f32 plane_x, f32 z_min, f32 z_max);
 
     // ?CheckCellZSide@mmPolygon@@AAEMMMM@Z
-    ARTS_EXPORT f32 CheckCellZSide(f32 z_plane, f32 x_min, f32 x_max);
+    ARTS_EXPORT f32 CheckCellZSide(f32 plane_z, f32 x_min, f32 x_max);
 
     // ?CheckCorner@mmPolygon@@AAEMMMPAM00@Z
-    ARTS_EXPORT f32 CheckCorner(f32 x, f32 z, f32* x_plane, f32* z_plane, f32* const_plane);
+    ARTS_EXPORT f32 CheckCorner(f32 x, f32 z, f32* plane_x, f32* plane_z, f32* plane_d);
 
     // ?CornersHeight@mmPolygon@@AAEMMMMM@Z
     ARTS_EXPORT f32 CornersHeight(f32 x1, f32 z1, f32 x2, f32 z2);
@@ -100,6 +100,16 @@ private:
 
     // ?PlotTriangle@mmPolygon@@AAEXHHHPAVmmBoundTemplate@@H@Z
     ARTS_IMPORT void PlotTriangle(i32 arg1, i32 arg2, i32 arg3, mmBoundTemplate* arg4, i32 arg5);
+
+    i32 GetNumVerts() const
+    {
+        return IsQuad() ? 4 : 3;
+    }
+
+    b32 IsQuad() const
+    {
+        return (Flags & 4) != 0;
+    }
 
 public:
     u16 RoomId;
