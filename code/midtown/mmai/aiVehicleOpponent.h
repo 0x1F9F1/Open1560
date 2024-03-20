@@ -122,7 +122,7 @@ public:
     ARTS_IMPORT void UnAssignSounds();
 
     // ?Update@aiVehicleOpponent@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
     // ?UpdateAudio@aiVehicleOpponent@@QAEXXZ
     ARTS_IMPORT void UpdateAudio();
