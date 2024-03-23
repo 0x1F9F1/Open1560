@@ -107,13 +107,13 @@ public:
     ARTS_IMPORT i32 CollideTerrains(mmBoundTemplate** arg1, Matrix34& arg2, mmEdgeBodyIsect* arg3, i32 arg4, i32 arg5);
 
     // ?ComputeBounds@mmBoundTemplate@@QAEXXZ | mmdyna:bndtmpl2
-    ARTS_IMPORT void ComputeBounds();
+    ARTS_EXPORT void ComputeBounds();
 
     // ?ComputeEdgeNormals@mmBoundTemplate@@QAEXXZ | mmdyna:bndtmpl2
     ARTS_IMPORT void ComputeEdgeNormals();
 
     // ?ComputeEdges@mmBoundTemplate@@QAEXXZ | mmdyna:bndtmpl2
-    ARTS_IMPORT void ComputeEdges();
+    ARTS_EXPORT void ComputeEdges();
 
 #ifdef ARTS_DEV_BUILD
     // ?Draw@mmBoundTemplate@@QAEXXZ

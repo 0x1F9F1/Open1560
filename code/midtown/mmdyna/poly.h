@@ -102,6 +102,16 @@ private:
     ARTS_IMPORT void PlotTriangle(i32 arg1, i32 arg2, i32 arg3, mmBoundTemplate* arg4, i32 arg5);
 
 public:
+    i32 GetNumVerts() const
+    {
+        return IsQuad() ? 4 : 3;
+    }
+
+    b32 IsQuad() const
+    {
+        return (Flags & 4) != 0;
+    }
+
     u16 RoomId;
     u8 MtlIndex;
 
