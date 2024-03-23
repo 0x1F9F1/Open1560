@@ -19,3 +19,16 @@
 define_dummy_symbol(mmdyna_bndtmpl2);
 
 #include "bndtmpl2.h"
+
+b32 EdgeInList(i32 v1, i32 v2, ilong count, i32* edge_1s, i32* edge_2s)
+{
+    for (i32 i = 0; i < count; ++i)
+    {
+        if ((v1 == edge_1s[i] && v2 == edge_2s[i]) || (v1 == edge_2s[i] && v2 == edge_1s[i]))
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
