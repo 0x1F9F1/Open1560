@@ -40,7 +40,7 @@ public:
 
     virtual b32 Context() = 0;
 
-    virtual i32 Priority() = 0;
+    virtual b32 Priority() = 0;
 
     // ?Update@aiGoal@@UAEXXZ | inline
     ARTS_EXPORT virtual void Update()

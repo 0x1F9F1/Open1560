@@ -41,9 +41,9 @@ b32 aiGoalBackup::Context()
     return *BackingUp;
 }
 
-i32 aiGoalBackup::Priority()
+b32 aiGoalBackup::Priority()
 {
-    return 1;
+    return true;
 }
 
 void aiGoalBackup::Reset()
