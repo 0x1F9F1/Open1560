@@ -50,7 +50,7 @@ public:
     ARTS_EXPORT void Init() override;
 
     // ?Priority@aiGoalBackup@@UAEHXZ
-    ARTS_EXPORT i32 Priority() override;
+    ARTS_EXPORT b32 Priority() override;
 
     // ?Reset@aiGoalBackup@@UAEXXZ
     ARTS_EXPORT void Reset() override;
