@@ -22,6 +22,10 @@ define_dummy_symbol(mmai_aiGoalChase);
 
 #include "arts7/sim.h"
 
+#include "aiMap.h"
+#include "aiPath.h"
+#include "aiVehiclePolice.h"
+
 static mem::cmd_param PARAM_speedycops {"speedycops"};
 
 static f32 CopSpeedBoost = 1.0f;
@@ -67,3 +71,103 @@ hook_func(FRAME_pre_update, [] {
     CopSteerBoost1 = std::pow(0.5f, exp);
     CopSteerBoost2 = std::pow(0.85f, exp);
 });
+
+b32 aiGoalChase::Collision(mmCar* perp)
+{
+    return perp->Sim.HasCollided;
+}
+
+void aiGoalChase::Dump()
+{
+    Displayf("PerpMapCompIdx: %d", PerpMapCompIdx);
+    Displayf("PerpMapCompType: %d", PerpMapCompType);
+    Displayf("PerpRdVertIdx: %d", PerpRdVertIdx);
+    Displayf("PerpCullRoom: %d", PerpCullRoom);
+    Displayf("PerpRoadDist: %f", PerpRoadDist);
+    Displayf("PerpDistToSide: %f", PerpDistToSide);
+    Displayf("CurMapCompIdx: %d", CurMapCompIdx);
+    Displayf("PrevMapCompIdx: %d", PrevMapCompIdx);
+    Displayf("CurMapCompType: %d", CurMapCompType);
+    Displayf("PrevMapCompType: %d", PrevMapCompType);
+    Displayf("CurRdVertIdx: %d", CurRdVertIdx);
+    Displayf("CurCullRoom: %d", CurCullRoom);
+    Displayf("ForwardDist: %f", ForwardDist);
+    Displayf("SideDist: %f", SideDist);
+    Displayf("TargetOffset: %f", TargetOffset);
+    Displayf("ApprehendState: %d", ApprehendState);
+    Displayf("State: %d", State);
+    Displayf("LastState: %d", LastState);
+    Displayf("StartedChase: %d", StartedChase);
+    Displayf("Angle: %f", Angle);
+    Displayf("SteerVal: %f", SteerVal);
+    Displayf("SeparationDist: %f", SeparationDist);
+    Displayf("RotAngle: %f", RotAngle);
+    Displayf("Throttle: %f", Throttle);
+    Displayf("Brake: %f", Brake);
+    Displayf("Dist2Perp: %f", Dist2Perp);
+    Displayf("DistToSide: %f", DistToSide);
+    Displayf("WaitTime: %f", WaitTime);
+    Displayf("Offset: %f", Offset);
+    Displayf("NumBehaviors: %d", NumBehaviors);
+    Displayf("NumCloseObs: %d", NumCloseObs);
+    Displayf("NumFarObs: %d", NumFarObs);
+}
+
+void aiGoalChase::Follow()
+{
+    if (Dist2Perp <= 20.0f)
+    {
+        CalcSpeed(AIMAP.PlayerCar->Sim.Speed);
+    }
+    else
+    {
+        CalcSpeed(AIMAP.PlayerCar->Sim.Speed + 10.0f);
+    }
+
+    f32 path_center_length = RailSet->CurLink->CenterLength(1, RailSet->CurLink->VertexCount - 2);
+
+    if (CurMapCompIdx != PerpMapCompIdx || CurMapCompType != 1 || path_center_length - 30.0f <= PerpRoadDist)
+    {
+        Offset = DistToSide;
+    }
+    else
+    {
+        f32 lane_width = RailSet->CurLink->LaneWidths[2 * RailSet->CurLink->NumLanes + 4] - RailSet->RSideDist - 1.5f;
+
+        if (PerpDistToSide <= -lane_width)
+        {
+            Offset = -lane_width;
+        }
+        else if (PerpDistToSide < lane_width)
+        {
+            Offset = PerpDistToSide;
+        }
+        else
+        {
+            Offset = lane_width;
+        }
+    }
+
+    RailSet->CalcCopRailPosition(*TargetPos, PoliceCar->Sim.ICS.Matrix.m3, TargetOffset + RailSet->RoadDist, Offset);
+    TargetPos->y = PoliceCar->Sim.ICS.Matrix.m3.y;
+}
+
+b32 aiGoalChase::Priority()
+{
+    return true;
+}
+
+b32 aiGoalChase::Speeding(mmCar* perp)
+{
+    f32 speed_limit = 40.0f;
+
+    if (RailSet->CurLink->NumLanes == 4)
+        speed_limit = 70.0f;
+
+    return perp->Sim.Speed * 2.2360249 > speed_limit;
+}
+
+b32 aiGoalChase::Stopped(mmCar* perp)
+{
+    return perp->Sim.Speed < 1.0f;
+}

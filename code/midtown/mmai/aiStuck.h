@@ -36,6 +36,8 @@
 
 #include "arts7/node.h"
 
+#include "vector7/vector3.h"
+
 class mmCarSim;
 
 class aiStuck final : public asNode
@@ -69,7 +71,18 @@ public:
     // ?Update@aiStuck@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    u8 gap20[0x38];
+    i32 State;
+    i32 Impacted;
+    i32 field_28;
+    Vector3 field_2C;
+    i32 TimeThresh;
+    i32 PosThresh;
+    i32 MoveThresh;
+    i32 PosThreshSqr;
+    i32 MoveThreshSqr;
+    i32 RotAmount;
+    i32* ICS;
+    mmCarSim* CarSim;
 };
 
 check_size(aiStuck, 0x58);
