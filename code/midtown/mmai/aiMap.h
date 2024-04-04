@@ -229,7 +229,7 @@ public:
     ARTS_IMPORT i32 FindPedAppRoad(i32 arg1);
 
     // ?GetCameraPos@aiMap@@QAEXXZ | unused
-    ARTS_IMPORT void GetCameraPos();
+    ARTS_EXPORT void GetCameraPos();
 
     // ?GetClass@aiMap@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
@@ -241,25 +241,25 @@ public:
     ARTS_IMPORT void Init(char* arg1, char* arg2, char* arg3, mmCar* arg4);
 
     // ?Intersection@aiMap@@QAEPAVaiIntersection@@H@Z
-    ARTS_IMPORT aiIntersection* Intersection(i32 arg1);
+    ARTS_EXPORT aiIntersection* Intersection(i32 index);
 
     // ?MapComponent@aiMap@@QAEHAAVVector3@@PAF1F@Z
     ARTS_IMPORT i32 MapComponent(Vector3& arg1, i16* arg2, i16* arg3, i16 arg4);
 
     // ?Opponent@aiMap@@QAEPAVaiVehicleOpponent@@H@Z
-    ARTS_IMPORT aiVehicleOpponent* Opponent(i32 arg1);
+    ARTS_EXPORT aiVehicleOpponent* Opponent(i32 index);
 
     // ?Path@aiMap@@QAEPAVaiPath@@H@Z
-    ARTS_IMPORT aiPath* Path(i32 arg1);
+    ARTS_EXPORT aiPath* Path(i32 index);
 
     // ?Pedestrian@aiMap@@QAEPAVaiPedestrian@@H@Z | unused
-    ARTS_IMPORT aiPedestrian* Pedestrian(i32 arg1);
+    ARTS_EXPORT aiPedestrian* Pedestrian(i32 index);
 
     // ?PlayerPos@aiMap@@QAEAAVVector3@@XZ | unused
-    ARTS_IMPORT Vector3& PlayerPos();
+    ARTS_EXPORT Vector3& PlayerPos();
 
     // ?Police@aiMap@@QAEPAVaiVehiclePolice@@H@Z
-    ARTS_IMPORT aiVehiclePolice* Police(i32 arg1);
+    ARTS_EXPORT aiVehiclePolice* Police(i32 index);
 
     // ?PredictAmbFreewayIntersectionPath@aiMap@@QAEPAVaiPath@@HAAVMatrix34@@@Z
     ARTS_IMPORT aiPath* PredictAmbFreewayIntersectionPath(i32 arg1, Matrix34& arg2);
@@ -281,7 +281,7 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?Stats@aiMap@@QAEXXZ
-    ARTS_IMPORT void Stats();
+    ARTS_EXPORT void Stats();
 #endif
 
     // ?Update@aiMap@@UAEXXZ
@@ -291,7 +291,7 @@ public:
     ARTS_EXPORT void UpdatePaused() override;
 
     // ?Vehicle@aiMap@@QAEPAVaiVehicleAmbient@@H@Z | unused
-    ARTS_IMPORT aiVehicleAmbient* Vehicle(i32 arg1);
+    ARTS_EXPORT aiVehicleAmbient* Vehicle(i32 index);
 
     // ?DeclareFields@aiMap@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
