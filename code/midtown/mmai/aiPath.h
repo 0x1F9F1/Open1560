@@ -134,7 +134,7 @@ public:
     ARTS_IMPORT void CenterPosition(f32 arg1, Vector3& arg2);
 
     // ?CenterVertice@aiPath@@QAEPAVVector3@@H@Z | inline
-    ARTS_IMPORT Vector3* CenterVertice(i32 arg1);
+    ARTS_EXPORT Vector3* CenterVertice(i32 index);
 
     // ?ContinuityError@aiPath@@QAEHH@Z | unused
     ARTS_IMPORT i32 ContinuityError(i32 arg1);
@@ -235,10 +235,10 @@ public:
     ARTS_IMPORT void UpdatePedestrians();
 
     // ?VertXDir@aiPath@@QAEPAVVector3@@H@Z | inline
-    ARTS_IMPORT Vector3* VertXDir(i32 arg1);
+    ARTS_EXPORT Vector3* VertXDir(i32 index);
 
     // ?VertZDir@aiPath@@QAEPAVVector3@@H@Z | inline
-    ARTS_IMPORT Vector3* VertZDir(i32 arg1);
+    ARTS_EXPORT Vector3* VertZDir(i32 index);
 
     aiPath* OncomingPath;
     i32 EdgeIndex;

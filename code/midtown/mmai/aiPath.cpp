@@ -22,6 +22,16 @@ define_dummy_symbol(mmai_aiPath);
 
 #include "aiIntersection.h"
 
+Vector3* aiPath::CenterVertice(i32 index)
+{
+    if (index >= 0 && index < VertexCount)
+        return &CenterVerts[index];
+
+    Warningf("Returning a NULL CenterVertice vector.");
+    Warningf("Bad Idx: %d, Path Id: %d", index, Id);
+    return 0;
+}
+
 void aiPath::Dump()
 {
     Displayf("Path %d, Vertex Count = %d, Num Lanes = %d", Id, VertexCount, NumLanes);
@@ -43,4 +53,24 @@ void aiPath::Dump()
         Displayf("\t\tStart = %.2f, %.2f, %.2f", start.x, start.y, start.z);
         Displayf("\t\tEnd   = %.2f, %.2f, %.2f", end.x, end.y, end.z);
     }
+}
+
+Vector3* aiPath::VertXDir(i32 index)
+{
+    if (index >= 0 && index < VertexCount)
+        return &VertZDirs[index];
+
+    Warningf("Returning a NULL VertXDir vector.");
+    Warningf("Bad Idx: %d, Path Id: %d", index, Id);
+    return 0;
+}
+
+Vector3* aiPath::VertZDir(i32 index)
+{
+    if (index >= 0 && index < VertexCount)
+        return &VertZDirs[index];
+
+    Warningf("Returning a NULL VertZDir vector.");
+    Warningf("Bad Idx: %d, Path Id: %d", index, Id);
+    return 0;
 }
