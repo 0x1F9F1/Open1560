@@ -24,7 +24,6 @@ define_dummy_symbol(mmai_aiVehicleOpponent);
 #include "agi/getdlp.h"
 #include "agiworld/quality.h"
 #include "data7/str.h"
-#include "mmcityinfo/vehinfo.h"
 #include "mmcityinfo/vehlist.h"
 
 #include "aiData.h"
@@ -32,7 +31,7 @@ define_dummy_symbol(mmai_aiVehicleOpponent);
 #include "aiGoalFollowWayPts.h"
 #include "aiGoalStop.h"
 
-static mem::cmd_param PARAM_opp_color_count {"colorcount"};
+static mem::cmd_param PARAM_maxoppcolors {"maxoppcolors"};
 
 void aiVehicleOpponent::DrawDamage()
 {}
@@ -46,7 +45,7 @@ void aiVehicleOpponent::Init(i32 opp_id, aiRaceData* race_data, char* race_name)
     OpponentRaceData* opp = static_cast<OpponentRaceData*>(race_data->Opponents.Access(opp_id + 1));
 
     mmVehInfo* veh_info = VehList()->GetVehicleInfo(opp->Model);
-    i32 paint_job = opp_id % PARAM_opp_color_count.get_or(string(veh_info->Colors).NumSubStrings());
+    i32 paint_job = opp_id % PARAM_maxoppcolors.get_or(string(veh_info->Colors).NumSubStrings());
 
     Car.Init(opp->Model, CAR_TYPE_OPPONENT, paint_job);
 
