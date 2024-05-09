@@ -40,6 +40,7 @@ For a tutorial on how to use command line arguments, click [here](https://www.bl
 | allrace    | false | Unlocks All Races |
 | maxcops    | 3     | Max cops chasing you at once |
 | nodamage   | false | Disables Damage |
+| maxoppcolors   | auto | Cycles through the opponent car colors based on the number of paintjobs available |
 
 ## Basic
 
