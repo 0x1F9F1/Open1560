@@ -51,6 +51,7 @@
 */
 
 #include "arts7/node.h"
+#include "vector7/vector3.h"
 #include "vector7/vector4.h"
 
 struct asPortalCell;
@@ -94,6 +95,19 @@ struct asPortalCell
     u16 NumPtlPaths;
     u16 Flags;
     struct PtlPath** PtlPaths;
+};
+
+struct PtlPortal
+{
+    u8 Flags;
+    i8 EdgeCount;
+    i16 gap2;
+    i16 Cell1;
+    i16 Cell2;
+    f32 Height;
+    Vector3 Min;
+    Vector3 Max;
+    Vector3 ExtraEdge;
 };
 
 check_size(asPortalCell, 0x18);

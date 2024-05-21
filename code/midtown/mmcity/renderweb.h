@@ -119,7 +119,7 @@ public:
     ARTS_IMPORT asPortalCell* GetStartCell(Vector3& arg1, asPortalCell* arg2, mmPolygon** arg3) override;
 
     // ?Load@asRenderWeb@@QAEHPADH@Z
-    ARTS_IMPORT i32 Load(char* arg1, i32 arg2);
+    ARTS_EXPORT i32 Load(char* city_name, i32 enable_lm);
 
     // ?SetMirrorPos@asRenderWeb@@QAEXMMMMM@Z
     ARTS_IMPORT void SetMirrorPos(f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
