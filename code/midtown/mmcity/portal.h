@@ -19,6 +19,7 @@
 #pragma once
 
 #include "arts7/node.h"
+#include "vector7/vector3.h"
 #include "vector7/vector4.h"
 
 struct asPortalCell;
@@ -86,10 +87,10 @@ public:
     virtual asPortalCell* GetStartCell(Vector3& arg1, asPortalCell* arg2, mmPolygon** arg3) = 0;
 
     // ?AddCell@asPortalWeb@@QAEPAUasPortalCell@@PADPAVasPortalRenderable@@I@Z
-    ARTS_IMPORT asPortalCell* AddCell(char* name, asPortalRenderable* render, u32 index);
+    ARTS_IMPORT asPortalCell* AddCell(aconst char* name, asPortalRenderable* render, u32 index);
 
     // ?AddEdge@asPortalWeb@@QAEPAUasPortalEdge@@PADPAUasPortalCell@@1H@Z
-    ARTS_IMPORT asPortalEdge* AddEdge(char* name, asPortalCell* cell1, asPortalCell* cell2, i32 num_edges);
+    ARTS_IMPORT asPortalEdge* AddEdge(aconst char* name, asPortalCell* cell1, asPortalCell* cell2, i32 num_edges);
 
     // ?BuildGroups@asPortalWeb@@QAEXXZ
     ARTS_IMPORT void BuildGroups();

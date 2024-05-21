@@ -84,8 +84,6 @@ public:
     // ?AddTitle@asMidgets@@UAEPAVbkWindow@@PAD@Z
     bkWindow* AddTitle(const char* arg1) override;
 
-    // TODO: Add bool overload to for AddToggle
-
     // ?AddToggle@asMidgets@@UAEPAVbkButton@@PADPAHHVCallback@@@Z
     bkButton* AddToggle(const char* arg1, i32* arg2, i32 arg3, Callback arg4) override;
 

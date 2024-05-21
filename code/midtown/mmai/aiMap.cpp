@@ -189,7 +189,7 @@ b32 aiMap::ChooseNextLaneLink(aiRailSet* rail)
     }
 }
 
-i32 aiMap::ChooseNextRandomLink(aiRailSet* rail)
+b32 aiMap::ChooseNextRandomLink(aiRailSet* rail)
 {
     aiPath* path = rail->CurLink;
     i32 total_paths = path->Sink->NumSourcePaths + path->Sink->NumSinkPaths;

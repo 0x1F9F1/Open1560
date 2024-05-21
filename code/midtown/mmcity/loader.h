@@ -91,3 +91,42 @@ ARTS_IMPORT extern void* IntroFont;
 
 // ?myFont@@3PAXA
 ARTS_IMPORT extern void* myFont;
+
+struct LoaderTask
+{
+    LocString* Name {};
+    f32 Percent {};
+
+    LoaderTask(LocString* name, f32 percent)
+        : Percent(percent)
+    {
+        Begin(name);
+    }
+
+    ~LoaderTask()
+    {
+        End();
+    }
+
+    void Begin(LocString* name)
+    {
+        End();
+        Loader()->BeginTask(name);
+        Name = name;
+    }
+
+    void End()
+    {
+        if (Name)
+        {
+            Loader()->EndTask(Percent);
+            Name = nullptr;
+        }
+    }
+};
+
+#define ARTS_LOADER_TASK(NAME, PERCENT)             \
+    LoaderTask ARTS_CONCAT(loader_task_, ARTS_LINE) \
+    {                                               \
+        LOC_STRING(NAME), PERCENT                   \
+    }

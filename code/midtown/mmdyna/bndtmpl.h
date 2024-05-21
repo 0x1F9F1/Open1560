@@ -161,8 +161,8 @@ public:
     ARTS_IMPORT void ValidatePtr(char* arg1);
 
     // ?GetBoundTemplate@mmBoundTemplate@@SAPAV1@PAD0PAVVector3@@HHHHH@Z
-    ARTS_IMPORT static mmBoundTemplate* GetBoundTemplate(
-        char* arg1, char* arg2, Vector3* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7, i32 arg8);
+    ARTS_IMPORT static RcOwner<mmBoundTemplate> GetBoundTemplate(
+        aconst char* arg1, aconst char* arg2, Vector3* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7, i32 arg8);
 
     // ?MakeBox@mmBoundTemplate@@SAPAV1@PAD0HPAVVector3@@1@Z
     ARTS_IMPORT static mmBoundTemplate* MakeBox(char* arg1, char* arg2, i32 arg3, Vector3* arg4, Vector3* arg5);

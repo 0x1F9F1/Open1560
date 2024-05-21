@@ -35,7 +35,7 @@ public:
     ARTS_IMPORT void Cull(b32 sub_cull) override;
 
     // ?Init@mmCellRenderer@@QAEXPADHHHHPAH@Z
-    ARTS_IMPORT void Init(char* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32* arg6);
+    ARTS_IMPORT void Init(aconst char* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32* arg6);
 
     // ?Relight@mmCellRenderer@@QAEXXZ
     ARTS_EXPORT void Relight();

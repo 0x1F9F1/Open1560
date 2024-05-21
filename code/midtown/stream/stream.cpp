@@ -194,7 +194,7 @@ i32 Stream::Vscanf(const char* format, std::va_list va)
     UnGetCh(ch);
 
     char buffer[256];
-    isize length = arts_fgets(buffer, ARTS_SIZE(buffer), this);
+    isize length = Gets(buffer, ARTS_SIZE(buffer));
 
     if (!length)
         return 0;

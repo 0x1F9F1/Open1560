@@ -61,7 +61,7 @@ public:
     ARTS_IMPORT asPortalCell* GetStartCell(Vector3& arg1, asPortalCell* arg2, mmPolygon** arg3) override;
 
     // ?Load@asRenderWeb@@QAEHPADH@Z
-    ARTS_IMPORT i32 Load(char* arg1, i32 arg2);
+    b32 Load(aconst char* city_name, b32 enable_lm);
 
     // ?SetMirrorPos@asRenderWeb@@QAEXMMMMM@Z
     ARTS_IMPORT void SetMirrorPos(f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
@@ -97,16 +97,23 @@ public:
     // ?PassMask@asRenderWeb@@2HA
     ARTS_IMPORT static i32 PassMask;
 
-    asPortalCell** CellArray {};
-    mmBoundTemplate* HitIdBound {};
-    mmBoundTemplate** Bounds {};
+private:
+    void LoadCells(const char* city_name, bool enable_lm);
+    void LoadPortals(const char* city_name);
+    void LoadHitId(const char* city_name);
+    void LoadRoomBounds(const char* city_name, bool enable_lm);
+
+public:
+    Ptr<asPortalCell*[]> CellArray {};
+    Rc<mmBoundTemplate> HitIdBound {};
+    Ptr<Rc<mmBoundTemplate>[]> Bounds {};
     b32 HasHitIdBound {};
     i32 MaxCells {};
     i32 HitID {};
     asParticles* Particles[64] {};
     i32 PtxCount {};
     b32 EnableMirror {};
-    agiViewport* Viewport {};
+    Rc<agiViewport> Viewport {};
     Matrix34* CarCamera {};
     Matrix34* MirrorMatrix {};
 };

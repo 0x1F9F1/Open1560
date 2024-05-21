@@ -65,6 +65,10 @@ public:
     virtual void PushColumn(i32 arg1) = 0;
     virtual void PopColumn() = 0;
     virtual void Off() = 0;
+
+#ifdef ARTS_STANDALONE
+    bkButton* AddToggle(const char* title, bool* value, Callback cb = nullptr);
+#endif
 };
 
 check_size(Bank, 0x4);

@@ -130,7 +130,7 @@ private:
 
 public:
     asCamera* Camera;
-    mmBoundTemplate* HitIdBound;
+    Rc<mmBoundTemplate> HitIdBound;
     mmBangerDataManager BangerDataManager;
     mmBangerActiveManager BangerActiveManager;
     mmBangerManager BangerManager;

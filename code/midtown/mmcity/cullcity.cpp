@@ -177,8 +177,6 @@ void mmCullCity::Init(char* name, asCamera* camera)
     }
 
     HitIdBound = RenderWeb.HitIdBound;
-    HitIdBound->AddRef();
-
     BuildingChain.Init(RenderWeb.MaxCells);
     ObjectsChain.Init(RenderWeb.MaxCells);
     ShadowChain.Init(RenderWeb.MaxCells);
