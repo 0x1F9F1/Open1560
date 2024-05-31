@@ -58,7 +58,7 @@ void aiPath::Dump()
 Vector3* aiPath::VertXDir(i32 index)
 {
     if (index >= 0 && index < VertexCount)
-        return &VertZDirs[index];
+        return &VertXDirs[index];
 
     Warningf("Returning a NULL VertXDir vector.");
     Warningf("Bad Idx: %d, Path Id: %d", index, Id);
