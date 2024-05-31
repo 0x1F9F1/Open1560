@@ -166,7 +166,7 @@ public:
         return &camera_;
     }
 
-private:
+public:
     // ?Regen@asCamera@@AAEXXZ
     ARTS_IMPORT void Regen();
 
