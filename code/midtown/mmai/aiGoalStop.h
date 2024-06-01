@@ -37,27 +37,28 @@ class aiGoalStop final : public aiGoal
 {
 public:
     // ??0aiGoalStop@@QAE@PAVmmCar@@PAF@Z
-    ARTS_IMPORT aiGoalStop(mmCar* arg1, b16* arg2);
+    ARTS_EXPORT aiGoalStop(mmCar* car, i16* stop_id);
 
     // ??1aiGoalStop@@QAE@XZ
-    ARTS_IMPORT ~aiGoalStop() = default;
+    ARTS_EXPORT ~aiGoalStop() = default;
 
     // ?Context@aiGoalStop@@UAEHXZ
-    ARTS_IMPORT b32 Context() override;
+    ARTS_EXPORT b32 Context() override;
 
     // ?Init@aiGoalStop@@UAEXXZ
     ARTS_IMPORT void Init() override;
 
     // ?Priority@aiGoalStop@@UAEHXZ
-    ARTS_IMPORT i32 Priority() override;
+    ARTS_EXPORT b32 Priority() override;
 
     // ?Reset@aiGoalStop@@UAEXXZ
     ARTS_EXPORT void Reset() override;
 
     // ?Update@aiGoalStop@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
-    u8 gap8[0x8];
+    mmCar* Car;
+    i16* StopId;
 };
 
 check_size(aiGoalStop, 0x10);
