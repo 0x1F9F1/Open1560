@@ -57,7 +57,7 @@ public:
     // ?Update@aiGoalStop@@UAEXXZ
     ARTS_EXPORT void Update() override;
 
-    mmCar* Target;
+    mmCar* Car;
     i16* StopId;
 };
 

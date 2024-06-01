@@ -23,7 +23,7 @@ define_dummy_symbol(mmai_aiGoalStop);
 #include "mmcar/car.h"
 
 aiGoalStop::aiGoalStop(mmCar* car, i16* stop_id)
-    : Target(car)
+    : Car(car)
     , StopId(stop_id)
 {}
 
@@ -48,9 +48,9 @@ void aiGoalStop::Update()
 {
     ++UpdateCount;
 
-    Target->Sim.Steering = 0.0f;
-    Target->Sim.Engine.Throttle = 0.0f;
-    Target->Sim.Brakes = 1.0f;
+    Car->Sim.Steering = 0.0f;
+    Car->Sim.Engine.Throttle = 0.0f;
+    Car->Sim.Brakes = 1.0f;
 
-    Target->Sim.ICS.LinearMomentum *= 0.95f;
+    Car->Sim.ICS.LinearMomentum *= 0.95f;
 }
