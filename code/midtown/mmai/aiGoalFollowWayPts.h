@@ -106,7 +106,7 @@ private:
     ARTS_IMPORT void AddToBlockedRange(f32 arg1, f32 arg2, f32 arg3);
 
     // ?AvoidCollision@aiGoalFollowWayPts@@AAEXH@Z
-    ARTS_IMPORT void AvoidCollision(i32 arg1);
+    ARTS_IMPORT void AvoidCollision(i32 dist_to_side);
 
     // ?AvoidOpponentCollision@aiGoalFollowWayPts@@AAEXPAVaiVehicleOpponent@@@Z
     ARTS_IMPORT void AvoidOpponentCollision(aiVehicleOpponent* arg1);

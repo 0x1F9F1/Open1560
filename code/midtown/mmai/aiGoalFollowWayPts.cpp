@@ -66,14 +66,12 @@ i32 aiGoalFollowWayPts::GetWayPtId(i16 index)
         Warningf("Requested by: Opp %d.", Vehicle->OppId);
         return WayPtIds[NumWayPts];
     }
+
     return WayPtIds[index];
 }
 
 void aiGoalFollowWayPts::Update()
 {
-    i16 unk_var1 = 0;
-    i32 unk_var2 = 1;
-
     ++UpdateCount;
 
     if ((Car->Sim.ICS.Constraints & (ICS_CONSTRAIN_TX | ICS_CONSTRAIN_TZ)) != 0)
@@ -84,6 +82,7 @@ void aiGoalFollowWayPts::Update()
             Car->Sim.Brakes = 0.0f;
             Car->Sim.Engine.Throttle = 1.0f;
         }
+
         return;
     }
 
@@ -124,9 +123,12 @@ void aiGoalFollowWayPts::Update()
 
         LastMapCompType = road_segment_id;
 
+        i16 out_index = 0;
+        f32 dist_to_side = 1.0f;
+
         CurMapCompIdx = static_cast<i16>(
             AIMAP.DetermineOppMapComponent(Car->Sim.ICS.Matrix, Rail, &CurMapCompType, &CurRdVertIdx, &Rail->RoadDist,
-                &DistToSide, &unk_var1, &TargetPtOffset, Car->Sim.Speed, LastMapCompType, road_segment_id));
+                &DistToSide, &out_index, &TargetPtOffset, Car->Sim.Speed, LastMapCompType, road_segment_id));
 
         PlanRoute();
 
@@ -135,13 +137,13 @@ void aiGoalFollowWayPts::Update()
             Rail->NextLink->StopDestinationSources(1);
         }
 
-        if (Vehicle->IsSemi || !DetectCollision(&unk_var2))
+        if (Vehicle->IsSemi || !DetectCollision(reinterpret_cast<i32*>(&dist_to_side)))
         {
-            aiVehicleOpponent* collision_opp = DetectOpponentCollision();
+            aiVehicleOpponent* opp = DetectOpponentCollision();
 
-            if (collision_opp)
+            if (opp)
             {
-                AvoidOpponentCollision(collision_opp);
+                AvoidOpponentCollision(opp);
             }
             else
             {
@@ -150,7 +152,7 @@ void aiGoalFollowWayPts::Update()
         }
         else
         {
-            AvoidCollision(unk_var2);
+            AvoidCollision(reinterpret_cast<i32>(&dist_to_side));
         }
 
         Vector3 target_dir = TargetPt - Car->Sim.ICS.Matrix.m3;
@@ -172,6 +174,7 @@ void aiGoalFollowWayPts::Update()
                 Car->Sim.ICS.AngularMomentum *= 0.1f;
             }
         }
+
         Car->Sim.Steering = Steering;
         Car->Sim.Brakes = Brakes;
         Car->Sim.Engine.Throttle = Throttle;
