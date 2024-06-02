@@ -37,6 +37,10 @@
 
 #include "arts7/node.h"
 
+#include "mmcamcs/viewcs.h"
+
+#include "vector7/matrix34.h"
+
 class BaseCamCS : public asNode
 {
 public:
@@ -79,7 +83,18 @@ public:
     // ?DeclareFields@BaseCamCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap20[0x7C];
+    b16 Active;
+    i16 Undefined;
+    Matrix34 camera_ {};
+    Matrix34 matrix_ {};
+    mmViewCS* View;
+    f32 BlendTime;
+    f32 BlendGoal;
+    f32 CameraFOV;
+    f32 CameraNear;
+    f32 CameraFar;
+
+    // u8 gap20[0x7C];
 };
 
 check_size(BaseCamCS, 0x9C);

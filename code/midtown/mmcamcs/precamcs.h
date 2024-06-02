@@ -40,7 +40,7 @@ class PreCamCS final : public CarCamCS
 {
 public:
     // ??0PreCamCS@@QAE@XZ
-    ARTS_IMPORT PreCamCS();
+    ARTS_EXPORT PreCamCS();
 
     // ??_EPreCamCS@@UAEPAXI@Z
     // ??1PreCamCS@@UAE@XZ | inline
@@ -69,7 +69,14 @@ public:
     // ?DeclareFields@PreCamCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap118[0x18];
+    f32 PolarHeight;
+    f32 PolarDistance;
+    f32 dword120;
+    f32 PolarIncline;
+    f32 dword128;
+    f32 AzimuthOffset;
+
+    // u8 gap118[0x18];  this gap is correct
 };
 
 check_size(PreCamCS, 0x130);
