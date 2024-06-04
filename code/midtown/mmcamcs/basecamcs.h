@@ -84,7 +84,6 @@ public:
     ARTS_IMPORT static void DeclareFields();
 
     b16 Active;
-    i16 Undefined;
     Matrix34 camera_ {};
     Matrix34 matrix_ {};
     mmViewCS* View;
@@ -93,8 +92,6 @@ public:
     f32 CameraFOV;
     f32 CameraNear;
     f32 CameraFar;
-
-    // u8 gap20[0x7C];
 };
 
 check_size(BaseCamCS, 0x9C);

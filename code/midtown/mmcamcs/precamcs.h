@@ -71,12 +71,10 @@ public:
 
     f32 PolarHeight;
     f32 PolarDistance;
-    f32 dword120;
+    f32 field_120;
     f32 PolarIncline;
-    f32 dword128;
+    f32 field_128;
     f32 AzimuthOffset;
-
-    // u8 gap118[0x18];  this gap is correct
 };
 
 check_size(PreCamCS, 0x130);

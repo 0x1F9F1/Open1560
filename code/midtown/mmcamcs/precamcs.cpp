@@ -23,11 +23,11 @@ define_dummy_symbol(mmcamcs_precamcs);
 PreCamCS::PreCamCS()
 {
     CarCamCS::CarCamCS();
-    dword120 = 5.0f;        // unknown
-    AzimuthOffset = 0.0f;   // rotation angle
-    PolarHeight = 2.0f;     // vertical height (smooth)
-    PolarDistance = 22.0f;  // distance to car (smooth)
-    PolarIncline = 1.1f;    // rotation (vertical based), higher will also twist the camera
-    dword128 = 0.0f;        // unkown...
-    BlendTime = 3.0f;       // gets buggy when changed
+    field_120 = 0.0f;       
+    AzimuthOffset = 0.0f;   
+    PolarHeight = 2.0f;    
+    PolarDistance = 22.0f;  
+    PolarIncline = 1.1f;  
+    field_128 = 2.0f;   
+    BlendTime = 3.0f;      
 }
