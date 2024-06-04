@@ -55,10 +55,10 @@ public:
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@PreCamCS@@QAEXPAVmmCar@@@Z
-    ARTS_IMPORT void Init(mmCar* arg1);
+    ARTS_EXPORT void Init(mmCar* car);
 
     // ?MakeActive@PreCamCS@@UAEXXZ
-    ARTS_IMPORT void MakeActive() override;
+    ARTS_EXPORT void MakeActive() override;
 
     // ?Reset@PreCamCS@@UAEXXZ
     ARTS_IMPORT void Reset() override;
@@ -71,7 +71,7 @@ public:
 
     f32 PolarHeight;
     f32 PolarDistance;
-    f32 field_120;
+    f32 PolarAngle;
     f32 PolarIncline;
     f32 field_128;
     f32 AzimuthOffset;

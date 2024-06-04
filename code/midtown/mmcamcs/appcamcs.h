@@ -62,7 +62,7 @@ protected:
     // ?ApproachIt@AppCamCS@@IAEXXZ
     ARTS_IMPORT void ApproachIt();
 
-private:
+public:
     // ?DApproach@AppCamCS@@AAEHAAMMMM0M@Z
     ARTS_IMPORT i32 DApproach(f32& arg1, f32 arg2, f32 arg3, f32 arg4, f32& arg5, f32 arg6);
 
@@ -72,7 +72,31 @@ private:
     // ?UpdateMaxDist@AppCamCS@@AAEXXZ
     ARTS_IMPORT void UpdateMaxDist();
 
-    u8 gap9C[0x78];
+    Matrix34* CarMatrix;
+    Vector3 TrackTo;
+    f32 ApproachOn;
+    f32 AppAppOn;
+    f32 AppRot;
+    f32 AppXRot;
+    f32 AppYPos;
+    f32 AppXZPos;
+    f32 AppApp;
+    f32 AppRotMin;
+    f32 AppPosMin;
+    b32 LookAbove;
+    b32 OneShot;
+    f32 MaxDist;
+    f32 MinDist;
+    f32 LookAt;
+    f32 field_E4;
+    f32 field_E8;
+    f32 field_EC;
+    Vector3 Vector_F0;
+    Vector3 Vector_FC;
+    Vector3 Vector_F108;
 };
 
 check_size(AppCamCS, 0x114);
+
+
+    // u8 gap9C[0x78];
