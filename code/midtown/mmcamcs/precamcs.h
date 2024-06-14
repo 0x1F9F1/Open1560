@@ -61,10 +61,10 @@ public:
     ARTS_EXPORT void MakeActive() override;
 
     // ?Reset@PreCamCS@@UAEXXZ
-    ARTS_IMPORT void Reset() override;
+    ARTS_EXPORT void Reset() override;
 
     // ?Update@PreCamCS@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
     // ?DeclareFields@PreCamCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();

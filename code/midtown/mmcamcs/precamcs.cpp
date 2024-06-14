@@ -26,6 +26,17 @@ define_dummy_symbol(mmcamcs_precamcs);
 
 #include "carcamcs.h"
 
+PreCamCS::PreCamCS()
+{
+    PolarAngle = 0.0f;
+    AzimuthOffset = 0.0f;
+    PolarHeight = 2.0f;
+    PolarDistance = 22.0f;
+    PolarIncline = 1.1f;
+    field_128 = 2.0f;
+    BlendTime = 3.0f;
+}
+
 void PreCamCS::Init(mmCar* car)
 {
     Car = car;
@@ -35,20 +46,25 @@ void PreCamCS::Init(mmCar* car)
 
 void PreCamCS::MakeActive()
 {
+    Car->Model.Activate();
+
     if (Car->Trailer)
         Car->Trailer->Inst.Flags |= INST_FLAG_ACTIVE;
 
     PolarAngle = atan2(CarMatrix->m2.x, CarMatrix->m2.z) + AzimuthOffset;
 }
 
-PreCamCS::PreCamCS()
+void PreCamCS::Reset()
 {
-    CarCamCS::CarCamCS();
-    PolarAngle = 0.0f;       
-    AzimuthOffset = 0.0f;   
-    PolarHeight = 2.0f;    
-    PolarDistance = 22.0f;  
-    PolarIncline = 1.1f;  
-    field_128 = 2.0f;   
-    BlendTime = 3.0f;      
+    asNode::Reset();
+}
+
+void PreCamCS::Update()
+{
+    camera_.PolarView(PolarDistance, PolarAngle, PolarIncline, 0.0f);
+
+    if (CarMatrix)
+        camera_.m3 += CarMatrix->m3;
+
+    camera_.m3.y += PolarHeight;
 }

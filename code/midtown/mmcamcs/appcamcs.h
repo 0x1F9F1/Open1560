@@ -97,6 +97,3 @@ public:
 };
 
 check_size(AppCamCS, 0x114);
-
-
-    // u8 gap9C[0x78];
