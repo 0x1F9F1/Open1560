@@ -46,8 +46,8 @@ i32 asRenderWeb::Load(char* city_name, i32 enable_lm)
     char city_mesh[256];
     char lm_mesh[256];
     char hitid_name[256];
-    char buffer[512];    // original: 128
-    i32 visit_tags[512]; // original: 128
+    char buffer[512];           // original: 128
+    i32 visit_tags[512] = {0};  // original: 128
     char cull_problem_1[32];
     // char cull_problem_2[32];
     // char cull_problem_3[32];
@@ -60,7 +60,7 @@ i32 asRenderWeb::Load(char* city_name, i32 enable_lm)
     arts_sprintf(lm_mesh, "%slm", city_name);
 
     if (CellArray)
-        operator delete(CellArray);
+        delete[] CellArray;
 
     BeginMemStat("asRenderWeb::Load");
 
@@ -78,8 +78,8 @@ i32 asRenderWeb::Load(char* city_name, i32 enable_lm)
     Loader()->BeginTask(AngelReadString(MM_IDS_LOADING_STATIC_TERRAIN));
     BeginMemStat("asRenderWeb CELLS");
 
-    CellArray = new asPortalCell*[MaxCells]();
-    memset(CellArray, 0, sizeof(asPortalCell*) * MaxCells);
+    CellArray = new asPortalCell*[MaxCells];
+    std::memset(CellArray, 0, sizeof(asPortalCell*) * MaxCells); 
 
     ////////////////////////////////////////////////////////////////////////////////////
 
@@ -111,10 +111,10 @@ i32 asRenderWeb::Load(char* city_name, i32 enable_lm)
         if (cell_index < 1 || cell_index > MaxCells)
             Quitf("Bad cell index CULL%02d", cell_index);
 
-        mmCellRenderer* rndr = new mmCellRenderer();
+        mmCellRenderer* rndr = new mmCellRenderer;
         rndr->Init(enable_lm ? lm_mesh : city_mesh, cell_index, cull_flags, room_flags, visit_tag_count, visit_tags);
 
-        CellArray[cell_index] = asPortalWeb::AddCell(city_mesh, rndr, cell_index);
+        CellArray[cell_index] = AddCell(city_mesh, rndr, cell_index);
         CellArray[cell_index]->Flags = cell_index == 24 || cell_index == 31 || cell_index == 32 || cell_index == 39;
     }
 
@@ -141,7 +141,7 @@ i32 asRenderWeb::Load(char* city_name, i32 enable_lm)
 
     for (i32 i = 0; i < visit_tag_count; ++i)
     {
-        PtlPortal ptl {}; // Correct?
+        PtlPortal ptl {};
         stream->Read(reinterpret_cast<char*>(&ptl), sizeof(PtlPortal) - sizeof(ptl.ExtraEdge));
 
         if (ptl.EdgeCount == 3)
@@ -159,7 +159,7 @@ i32 asRenderWeb::Load(char* city_name, i32 enable_lm)
 
         if (cell_array_1 && cell_array_2)
         {
-            asPortalWeb::AddEdge("PORTAL"_xconst, cell_array_1, cell_array_2, ptl.EdgeCount + 2);
+            AddEdge("PORTAL"_xconst, cell_array_1, cell_array_2, ptl.EdgeCount + 2);
 
             asPortalEdge* edge = new asPortalEdge(cell_array_1, cell_array_2, ptl.EdgeCount + 2);
             edge->Groups = new Vector3[4];
@@ -202,7 +202,7 @@ i32 asRenderWeb::Load(char* city_name, i32 enable_lm)
     delete[] portal_data;
     stream->~Stream();
 
-    asPortalWeb::BuildGroups(); // does this work?
+    BuildGroups(); 
     EndMemStat();
 
     ////////////////////////////////////////////////////////////////////////////////////
@@ -360,8 +360,8 @@ i32 asRenderWeb::Load(char* city_name, i32 enable_lm)
     if (MakeTableStats)
         // ?
         // MakeTableStats->Destructor(MakeTableStats, 1u);
-
         EndMemStat();
+
     EndMemStat();
     Loader()->EndTask();
     return 1;
