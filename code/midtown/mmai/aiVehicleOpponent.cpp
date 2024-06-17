@@ -35,7 +35,7 @@ define_dummy_symbol(mmai_aiVehicleOpponent);
 #include "aiGoalStop.h"
 #include "aiMap.h"
 
-static mem::cmd_param PARAM_detach_opp_trailer_mph {"detach_opp_trailer_mph"};
+static mem::cmd_param PARAM_detachtrailermph {"detachtrailermph"};
 
 void aiVehicleOpponent::DrawDamage()
 {}
@@ -85,35 +85,24 @@ void aiVehicleOpponent::Init(i32 opp_id, aiRaceData* race_data, char* race_name)
 void aiVehicleOpponent::Update()
 {
     if (AudIndexNumber == -1)
-    {
         AddToAiAudMgr();
-    }
 
     if (IsSemi || Car.Sim.ICS.Matrix.m3.Dist2(AIMAP.PlayerPos()) < (200.0f * 200.0f))
-    {
         PHYS.DeclareMover(
             &Car.Model, MOVER_TYPE_PERM, MOVER_FLAG_ACTIVE | MOVER_FLAG_COLLIDE_TERRAIN | MOVER_FLAG_COLLIDE_MOVERS);
-    }
+
     else
-    {
         PHYS.DeclareMover(&Car.Model, MOVER_TYPE_PERM,
             (CullCity()->GetRoomFlags(Car.Model.ChainId) & INST_FLAG_100)
                 ? MOVER_FLAG_ACTIVE | MOVER_FLAG_COLLIDE_TERRAIN | MOVER_FLAG_COLLIDE_MOVERS
                 : MOVER_FLAG_ACTIVE | MOVER_FLAG_COLLIDE_TERRAIN | MOVER_FLAG_20);
-    }
 
     if (Car.Model.HasTrailer())
-    {
         PHYS.DeclareMover(&Car.Trailer->Inst, MOVER_TYPE_PERM, MOVER_FLAG_COLLIDE_TERRAIN | MOVER_FLAG_COLLIDE_MOVERS);
 
-        if (Car.Sim.HasCollided)
-        {
-            if (Car.Sim.SpeedMPH > PARAM_detach_opp_trailer_mph.get_or(50.0f) && !Car.TrailerJoint->IsBroken())
-            {
-                Car.ReleaseTrailer();
-            }
-        }
-    }
+    if (Car.Sim.HasCollided)
+        if (Car.Sim.SpeedMPH > PARAM_detachtrailermph.get_or(50.0f) && !Car.TrailerJoint->IsBroken())
+            Car.ReleaseTrailer();
 
     ALLOCATOR.CheckPointer(WayPts.get());
     ALLOCATOR.CheckPointer(BackupGoal.get());
