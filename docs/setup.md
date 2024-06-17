@@ -36,6 +36,7 @@ For a tutorial on how to use command line arguments, click [here](https://www.bl
 
 | Name       | Value | Description |
 | ---------- | ----- | --- |
+| aiphysics | false | Sets AI-like physics midair
 | allcars    | false | Unlocks All Cars |
 | allrace    | false | Unlocks All Races |
 | maxcops    | 3     | Max cops chasing you at once |
@@ -45,7 +46,6 @@ For a tutorial on how to use command line arguments, click [here](https://www.bl
 
 | Name       | Value | Description |
 | ---------- | ----- | --- |
-| aiphysics | false | Sets AI-like physics midair
 | affinity   | 0     | Sets the process affinity |
 | afilter    | 16    | Anisotropic filtering level |
 | border     | true  | Enables a border when in windowed mode |
