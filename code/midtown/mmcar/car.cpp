@@ -31,9 +31,9 @@ define_dummy_symbol(mmcar_car);
 #include "playercaraudio.h"
 #include "trailer.h"
 
-static mem::cmd_param PARAM_opponent_physics {"opponent_physics"};
+static mem::cmd_param PARAM_aiphysics {"aiphysics"};
 
-void mmCar::ApplyOpponentPhysics()
+void mmCar::ApplyAiPhysics()
 {
     if (!Sim.FrontLeft.OnGround && !Sim.FrontRight.OnGround && !Sim.BackLeft.OnGround && !Sim.BackRight.OnGround)
     {
@@ -77,10 +77,8 @@ void mmCar::Update()
 
     OverSample.Update();
 
-    if (PARAM_opponent_physics && MMSTATE.NetworkStatus == 0)
-    {
-        ApplyOpponentPhysics();
-    }
+    if (PARAM_aiphysics && MMSTATE.NetworkStatus == 0)
+        ApplyAiPhysics();
 
 #ifdef ARTS_DEV_BUILD
     f32 elapsed = t.Time();
