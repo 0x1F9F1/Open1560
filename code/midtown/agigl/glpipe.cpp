@@ -86,9 +86,18 @@ i32 agiGLPipeline::BeginGfx()
     }
 
     if (context == nullptr)
-        Quitf("Failed to create OpenGL context: %s", SDL_GetError());
+    {
+        Errorf("Failed to create OpenGL context: %s", SDL_GetError());
+        return AGI_ERROR_NO_DEVICE;
+    }
 
     gl_context_ = arnew agiGLContext(window_, context, debug_level);
+
+    if (!gl_context_->HasVersion(120))
+    {
+        Errorf("Unsupported OpenGL version");
+        return AGI_ERROR_UNSUPPORTED;
+    }
 
     SDL_GL_GetDrawableSize(window_, &horz_res_, &vert_res_);
 
@@ -264,16 +273,28 @@ void agiGLPipeline::BeginFrame()
 
     gl_context_->MakeCurrent();
 
-    if (PARAM_frameclear.get_or(true))
+    bool frameclear = PARAM_frameclear.get_or(true);
+
+    if (frameclear)
     {
         agiGL->EnableDisable(GL_SCISSOR_TEST, false);
+        agiGL->DepthMask(true);
         glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
     }
 
     if (fbo_ != 0)
     {
+        if (frameclear)
+        {
+            glClear(GL_COLOR_BUFFER_BIT);
+        }
+
         glBindFramebuffer(GL_FRAMEBUFFER, fbo_);
+    }
+
+    if (frameclear)
+    {
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     }
 }
 

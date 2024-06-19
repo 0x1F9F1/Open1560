@@ -102,7 +102,28 @@ void dxiDirectInputCreate()
     if (PARAM_sdljoy.get_or(true))
     {
         lpDI = Create_SDL_IDirectInput2A();
-        return;
+
+        if (lpDI)
+        {
+            // TODO: Add support for all SDL joysticks
+
+            bool has_devices = false;
+
+            const auto enum_callback = [](LPCDIDEVICEINSTANCEA, LPVOID pvRev) -> BOOL {
+                *static_cast<bool*>(pvRev) = true;
+
+                return DIENUM_CONTINUE;
+            };
+
+            if ((lpDI->EnumDevices(DIDEVTYPE_JOYSTICK, enum_callback, &has_devices, DIEDFL_ATTACHEDONLY) == DI_OK) &&
+                has_devices)
+            {
+                return;
+            }
+
+            // No valid devices, fallback to dinput
+            lpDI->Release();
+        }
     }
 
 #if DIRECTINPUT_VERSION == 0x0800
@@ -220,7 +241,7 @@ Ptr<agiSurfaceDesc> dxiScreenShot()
     Ptr<agiSurfaceDesc> surface =
         as_ptr agiSurfaceDesc::Init(width, height, agiSurfaceDesc::FromFormat(PixelFormat_B8G8R8));
 
-    void (*translate)(u8 * output, u16 * input, u32 width) = nullptr;
+    void (*translate)(u8* output, u16* input, u32 width) = nullptr;
 
     switch (sd.ddpfPixelFormat.dwRBitMask)
     {

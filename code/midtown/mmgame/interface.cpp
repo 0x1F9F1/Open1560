@@ -156,3 +156,11 @@ void mmInterface::PlayerResolveCars()
         vehinfo->IsLocked = locked && !AllCars;
     }
 }
+
+void mmInterface::SetStateDefaults()
+{
+    MMSTATE.TimeOfDay = mmTimeOfDay::Noon;
+    MMSTATE.GameMode = mmGameMode::Cruise;
+    MMSTATE.Weather = mmWeather::Sun;
+    MMSTATE.EventId = 0;
+}

@@ -23,9 +23,11 @@ define_dummy_symbol(mmai_aiVehicleOpponent);
 #include "agi/dlptmpl.h"
 #include "agi/getdlp.h"
 #include "agiworld/quality.h"
+#include "data7/str.h"
 #include "memory/allocator.h"
 #include "mmcar/trailer.h"
 #include "mmcity/cullcity.h"
+#include "mmcityinfo/vehlist.h"
 #include "mmphysics/joint3dof.h"
 #include "mmphysics/phys.h"
 
@@ -36,6 +38,7 @@ define_dummy_symbol(mmai_aiVehicleOpponent);
 #include "aiMap.h"
 
 static mem::cmd_param PARAM_detachopptrailermph {"detachopptrailermph"};
+static mem::cmd_param PARAM_maxoppcolors {"maxoppcolors"};
 
 void aiVehicleOpponent::DrawDamage()
 {}
@@ -46,10 +49,10 @@ void aiVehicleOpponent::Init(i32 opp_id, aiRaceData* race_data, char* race_name)
     if (agiRQ.TextureQuality)
         --agiRQ.TextureQuality;
 
-    i32 paint_job = opp_id & 3;
-    i32 index = opp_id + 1;
+    OpponentRaceData* opp = static_cast<OpponentRaceData*>(race_data->Opponents.Access(opp_id + 1));
 
-    OpponentRaceData* opp = static_cast<OpponentRaceData*>(race_data->Opponents.Access(index));
+    mmVehInfo* veh_info = VehList()->GetVehicleInfo(opp->Model);
+    i32 paint_job = opp_id % PARAM_maxoppcolors.get_or(string(veh_info->Colors).NumSubStrings());
 
     Car.Init(opp->Model, CAR_TYPE_OPPONENT, paint_job);
 
@@ -60,9 +63,7 @@ void aiVehicleOpponent::Init(i32 opp_id, aiRaceData* race_data, char* race_name)
 
     WayPts = arnew aiGoalFollowWayPts(
         opp->PathFile, &RailSet, this, &IsBackup, &IsFinished, &IsStopped, xconst(race_name), opp->MaxThrottle);
-
     BackupGoal = arnew aiGoalBackup(&RailSet, &Car, &IsBackup);
-
     StopGoal = arnew aiGoalStop(&Car, &IsStopped);
 
     IsSemi = !std::strcmp("vpsemi", opp->Model);
@@ -79,6 +80,7 @@ void aiVehicleOpponent::Init(i32 opp_id, aiRaceData* race_data, char* race_name)
         RailSet.BackBumperDist = max.z;
         RailSet.RSideDist = max.x;
     }
+
     AudIndexNumber = -1;
 }
 

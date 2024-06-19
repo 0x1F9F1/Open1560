@@ -421,7 +421,7 @@ private:
     ARTS_IMPORT void SetSessionData(NETSESSION_DESC* arg1);
 
     // ?SetStateDefaults@mmInterface@@AAEXXZ | unused
-    ARTS_IMPORT void SetStateDefaults();
+    ARTS_EXPORT void SetStateDefaults();
 
     // ?SetStateRace@mmInterface@@AAEXH@Z | unused
     ARTS_EXPORT void SetStateRace(i32 arg1);

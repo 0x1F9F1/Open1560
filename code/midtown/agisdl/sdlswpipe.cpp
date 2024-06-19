@@ -39,6 +39,7 @@
 #include "eventq7/winevent.h"
 #include "pcwindis/dxinit.h"
 
+#include <SDL_hints.h>
 #include <SDL_render.h>
 #include <SDL_syswm.h>
 
@@ -304,6 +305,12 @@ i32 agiSDLSWPipeline::BeginGfx()
     sdl_renderer_ = SDL_CreateRenderer(
         window_, -1, SDL_RENDERER_ACCELERATED | ((device_flags_1_ & 0x1) ? SDL_RENDERER_PRESENTVSYNC : 0));
 
+    if (sdl_renderer_ == nullptr)
+    {
+        Errorf("Failed to create SDL renderer: %s", SDL_GetError());
+        return AGI_ERROR_NO_DEVICE;
+    }
+
     // FIXME: SDL_CreateRenderer can silently recreate the underlying window
     SDL_SysWMinfo wm_info {};
     SDL_VERSION(&wm_info.version);
@@ -509,6 +516,12 @@ void agiSDLSWPipeline::EndGfx()
     {
         SDL_DestroyRenderer(sdl_renderer_);
         sdl_renderer_ = nullptr;
+    }
+
+    // The "software" renderer/driver creates a window surface, but doesn't destroy it afterwards
+    if (SDL_HasWindowSurface(window_))
+    {
+        SDL_DestroyWindowSurface(window_);
     }
 
     gfx_started_ = false;
