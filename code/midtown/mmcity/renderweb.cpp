@@ -81,8 +81,6 @@ i32 asRenderWeb::Load(char* city_name, i32 enable_lm)
     CellArray = new asPortalCell*[MaxCells];
     std::memset(CellArray, 0, sizeof(asPortalCell*) * MaxCells); 
 
-    ////////////////////////////////////////////////////////////////////////////////////
-
     for (i32 i = 0; i < num_cells; ++i)
     {
         arts_fgets(buffer, sizeof(buffer), stream);
@@ -121,8 +119,6 @@ i32 asRenderWeb::Load(char* city_name, i32 enable_lm)
     EndMemStat();
     Loader()->EndTask(0.16f);
 
-    ////////////////////////////////////////////////////////////////////////////////////
-
     Loader()->BeginTask(AngelReadString(MM_IDS_LOADING_PORTAL_INFO));
     BeginMemStat("asRenderWeb PORTALS");
 
@@ -136,8 +132,6 @@ i32 asRenderWeb::Load(char* city_name, i32 enable_lm)
 
     PtlPortal* portal_data = new PtlPortal[ptr];
     stream->Read(reinterpret_cast<char*>(portal_data), sizeof(PtlPortal) * ptr);
-
-    ////////////////////////////////////////////////////////////////////////////////////
 
     for (i32 i = 0; i < visit_tag_count; ++i)
     {
@@ -202,14 +196,12 @@ i32 asRenderWeb::Load(char* city_name, i32 enable_lm)
     delete[] portal_data;
     stream->~Stream();
 
-    BuildGroups(); 
+    BuildGroups();
+
     EndMemStat();
-
-    ////////////////////////////////////////////////////////////////////////////////////
-
     Loader()->EndTask();
-    Loader()->BeginTask(AngelReadString(MM_IDS_LOADING_COLLISION_DATABASE));
 
+    Loader()->BeginTask(AngelReadString(MM_IDS_LOADING_COLLISION_DATABASE));
     BeginMemStat("asRenderWeb hitid bound");
 
     arts_sprintf(hitid_name, "%s_hitid", city_name);
@@ -227,8 +219,6 @@ i32 asRenderWeb::Load(char* city_name, i32 enable_lm)
     }
 
     EndMemStat();
-
-    ////////////////////////////////////////////////////////////////////////////////////
 
     BeginMemStat("asRenderWeb per-room bound");
 
@@ -270,8 +260,6 @@ i32 asRenderWeb::Load(char* city_name, i32 enable_lm)
             Bounds[i] = mmBoundTemplate::GetBoundTemplate(mesh, bound_name, nullptr, 0, 0, 0, 0, 0);
         }
     }
-
-    ////////////////////////////////////////////////////////////////////////////////////
 
     else
     {
@@ -346,20 +334,12 @@ i32 asRenderWeb::Load(char* city_name, i32 enable_lm)
         }
 
         if (lm_template)
-        {
             lm_template->Release();
-        }
         else
-        {
             Errorf("Not able to get city template");
-        }
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////
-
-    if (MakeTableStats)
-        // ?
-        // MakeTableStats->Destructor(MakeTableStats, 1u);
+    if (MakeTableStats) // ? // MakeTableStats->Destructor(MakeTableStats, 1u);
         EndMemStat();
 
     EndMemStat();
