@@ -46,33 +46,26 @@ i32 mmBridgeSet::Init(char* name, Stream* file)
         asPortalCell* cell = nullptr;
 
         if (chain_id >= 0 && chain_id < CullCity()->RenderWeb.MaxCells)
-        {
             cell = CullCity()->RenderWeb.CellArray[chain_id];
-        }
 
         if (cell && cell->NumPtlPaths > 0)
         {
             PtlPath* base_path = cell->PtlPaths[0];
 
             if (base_path && base_path->Type == 1)
-            {
                 if (AIMAP.Path(base_path->PathId))
-                {
                     AIMAP.Path(base_path->PathId)->HasBridge = 1;
-                }
-            }
 
             if (cell->NumPtlPaths > 1)
             {
                 PtlPath* oncoming_path = cell->PtlPaths[1];
 
                 if (oncoming_path && AIMAP.Path(oncoming_path->PathId))
-                {
                     AIMAP.Path(oncoming_path->PathId)->OncomingPath->HasBridge = 1;
-                }
             }
         }
     }
+
     return 1;
 }
 
@@ -82,22 +75,18 @@ void mmBridgeSet::InitTrigger()
     {
         State = 3;
 
-        mmAnimTrigger trig;
-        trig.Init(&TriggerPos, &TriggerDist2);
+        mmAnimTrigger anim;
+        anim.Init(&TriggerPos, &TriggerDist2);
     }
 }
 
 void mmBridgeSet::SetSoundPtrs(AudSound* sound1, AudSound* sound2)
 {
     if (Sound1 && Sound1->IsPlaying(0))
-    {
         Sound1->Stop();
-    }
 
     if (Sound2 && Sound2->IsPlaying(0))
-    {
         Sound2->Stop();
-    }
 
     Sound1 = sound1;
     Sound2 = sound2;
