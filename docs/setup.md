@@ -38,6 +38,7 @@ For a tutorial on how to use command line arguments, click [here](https://www.bl
 | ---------- | ----- | --- |
 | allcars    | false | Unlocks All Cars |
 | allrace    | false | Unlocks All Races |
+| detachopptrailermph | 50 | Speed at which the opponent semi will detach its trailer
 | maxcops    | 3     | Max cops chasing you at once |
 | nodamage   | false | Disables Damage |
 

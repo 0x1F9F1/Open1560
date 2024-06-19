@@ -35,7 +35,7 @@ define_dummy_symbol(mmai_aiVehicleOpponent);
 #include "aiGoalStop.h"
 #include "aiMap.h"
 
-static mem::cmd_param PARAM_detachtrailermph {"detachtrailermph"};
+static mem::cmd_param PARAM_detachopptrailermph {"detachopptrailermph"};
 
 void aiVehicleOpponent::DrawDamage()
 {}
@@ -90,7 +90,6 @@ void aiVehicleOpponent::Update()
     if (IsSemi || Car.Sim.ICS.Matrix.m3.Dist2(AIMAP.PlayerPos()) < (200.0f * 200.0f))
         PHYS.DeclareMover(
             &Car.Model, MOVER_TYPE_PERM, MOVER_FLAG_ACTIVE | MOVER_FLAG_COLLIDE_TERRAIN | MOVER_FLAG_COLLIDE_MOVERS);
-
     else
         PHYS.DeclareMover(&Car.Model, MOVER_TYPE_PERM,
             (CullCity()->GetRoomFlags(Car.Model.ChainId) & INST_FLAG_100)
@@ -101,7 +100,7 @@ void aiVehicleOpponent::Update()
         PHYS.DeclareMover(&Car.Trailer->Inst, MOVER_TYPE_PERM, MOVER_FLAG_COLLIDE_TERRAIN | MOVER_FLAG_COLLIDE_MOVERS);
 
     if (Car.Sim.HasCollided)
-        if (Car.Sim.SpeedMPH > PARAM_detachtrailermph.get_or(50.0f) && !Car.TrailerJoint->IsBroken())
+        if (Car.Sim.SpeedMPH > PARAM_detachopptrailermph.get_or(50.0f) && !Car.TrailerJoint->IsBroken())
             Car.ReleaseTrailer();
 
     ALLOCATOR.CheckPointer(WayPts.get());
