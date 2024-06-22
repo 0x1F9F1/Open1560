@@ -20,13 +20,13 @@ define_dummy_symbol(mmcamcs_precamcs);
 
 #include "precamcs.h"
 
-#include "arts7/node.h"
 #include "mmcar/car.h"
 #include "mmcar/trailer.h"
 
 #include "carcamcs.h"
 
 PreCamCS::PreCamCS()
+    : CarCamCS()
 {
     PolarAngle = 0.0f;
     AzimuthOffset = 0.0f;
@@ -40,8 +40,8 @@ PreCamCS::PreCamCS()
 void PreCamCS::Init(mmCar* car)
 {
     Car = car;
-    CarMatrix = &car->Sim.LCS.World;
-    SetName(car->Sim.GetNodeName());
+    CarMatrix = &Car->Sim.LCS.World;
+    SetName(Car->Sim.GetNodeName());
 }
 
 void PreCamCS::MakeActive()

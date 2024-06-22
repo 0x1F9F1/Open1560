@@ -44,7 +44,7 @@ public:
 
     // ??_EPreCamCS@@UAEPAXI@Z
     // ??1PreCamCS@@UAE@XZ | inline
-    ARTS_IMPORT ~PreCamCS() override = default;
+    ARTS_EXPORT ~PreCamCS() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@PreCamCS@@UAEXPAVBank@@@Z
