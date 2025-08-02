@@ -19,7 +19,7 @@
 define_dummy_symbol(midtown_patches);
 
 #if 0 // TODO: Port remaining patches
-#include "patches.h"
+#    include "patches.h"
 
 static mem::cmd_param PARAM_rv3 {"rv3"};
 
@@ -192,7 +192,7 @@ static mem::cmd_param PARAM_rv3 {"rv3"};
 
     // create_patch("mmPopup::Update", "Don't Reset GameManager on F4", 0x427741, "\x90\x90\x90", 3);
 
-#ifdef __clang__
+#    ifdef __clang__
     // Hacky workaround for clang's lack of vector deleting destructor support
     // https://bugs.llvm.org/show_bug.cgi?id=19398
 
@@ -244,9 +244,9 @@ static mem::cmd_param PARAM_rv3 {"rv3"};
         create_hook(
             "VecDelDtor", "Avoid using vector deleting destructors", addr, &VecDelDtor::Destruct, hook_type::call);
     }
-#endif
+#    endif
 
-#if !defined(ARTS_FINAL) && 0
+#    if !defined(ARTS_FINAL) && 0
     {
         for (usize addr : {
                  0x4743C9,
@@ -284,6 +284,6 @@ static mem::cmd_param PARAM_rv3 {"rv3"};
     }
 
     patch_jmp("mmCar::VehNameRemap", "Work in all game modes", 0x474371, jump_type::never);
-#endif
+#    endif
 }
 #endif
