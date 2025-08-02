@@ -14,8 +14,6 @@ arts_component "agigl"
         "glrsys.h",
         "glstream.cpp",
         "glstream.h",
-
-        "wglext.h",
     }
 
     links {
@@ -24,4 +22,3 @@ arts_component "agigl"
     }
 
     includeGlad()
-    includeWgl()
