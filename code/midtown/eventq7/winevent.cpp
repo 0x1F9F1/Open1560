@@ -621,7 +621,7 @@ void WINEventHandler::OnMouse(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam
     if (uMsg == WM_MOUSEWHEEL) // Not sent when using MouseDevice
     {
         MouseScrollWheelPosition += GET_WHEEL_DELTA_WPARAM(wParam);
-        u32 key_press = 0;
+        [[maybe_unused]] u32 key_press = 0;
 
         if (MouseScrollWheelPosition >= WHEEL_DELTA)
         {

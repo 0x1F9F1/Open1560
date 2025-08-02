@@ -278,7 +278,7 @@ static const char* EggPlayerNames[14] {
     "vaboeing_small",
 };
 
-static const char* EggPlayerVehicles[14] {
+[[maybe_unused]] static const char* EggPlayerVehicles[14] {
     "vpcaddie",
     "vpbullet",
     "vpford",

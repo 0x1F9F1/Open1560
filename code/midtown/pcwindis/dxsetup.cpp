@@ -40,11 +40,12 @@ bool agiLoadDirectDraw()
 
         if (hddraw)
         {
-            agiDirectDrawCreate = (decltype(agiDirectDrawCreate)) GetProcAddress(hddraw, "DirectDrawCreate");
+            agiDirectDrawCreate =
+                mem::bit_cast<decltype(agiDirectDrawCreate)>(GetProcAddress(hddraw, "DirectDrawCreate"));
             agiDirectDrawEnumerateA =
-                (decltype(agiDirectDrawEnumerateA)) GetProcAddress(hddraw, "DirectDrawEnumerateA");
+                mem::bit_cast<decltype(agiDirectDrawEnumerateA)>(GetProcAddress(hddraw, "DirectDrawEnumerateA"));
             agiDirectDrawEnumerateExA =
-                (decltype(agiDirectDrawEnumerateExA)) GetProcAddress(hddraw, "DirectDrawEnumerateExA");
+                mem::bit_cast<decltype(agiDirectDrawEnumerateExA)>(GetProcAddress(hddraw, "DirectDrawEnumerateExA"));
         }
     }
 

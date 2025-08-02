@@ -8,6 +8,11 @@ newoption {
    description = "Command Line for MM1",
 }
 
+newoption {
+   trigger     = "clang",
+   description = "Use the clang-cl compiler",
+}
+
 ROOT_DIR = os.getcwd()
 
 local function read_file_line(file)
@@ -24,7 +29,10 @@ MM1_COMMAND_LINE = _OPTIONS['MM1_COMMAND_LINE'] or read_file_line('CommandLine.t
 workspace "Open1560"
     location "build"
 
-    -- toolset "msc-ClangCL"
+    filter { "options:clang" }
+        toolset "msc-ClangCL"
+
+    filter{}
 
     configurations { "Debug", "Release", "Final" }
     platforms { "Win32" }

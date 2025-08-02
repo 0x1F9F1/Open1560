@@ -29,7 +29,7 @@ typedef HRESULT(WINAPI* LPFNDLLGETCLASSOBJECT)(const CLSID&, const IID&, void**)
 static bool DirectSoundPrivateCreate(LPKSPROPERTYSET* ppKsPropertySet)
 {
     LPFNDLLGETCLASSOBJECT pfnDllGetClassObject =
-        (LPFNDLLGETCLASSOBJECT) GetProcAddress(GetModuleHandleA("DSOUND"), "DllGetClassObject");
+        mem::bit_cast<LPFNDLLGETCLASSOBJECT>(GetProcAddress(GetModuleHandleA("DSOUND"), "DllGetClassObject"));
 
     if (!pfnDllGetClassObject)
         return false;

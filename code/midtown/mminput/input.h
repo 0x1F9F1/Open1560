@@ -551,7 +551,7 @@ private:
 #endif
 
     // ?EventToButton@mmInput@@AAEHH@Z | unused
-    ARTS_EXPORT i32 EventToButton(i32 event) = delete;
+    /*ARTS_EXPORT*/ i32 EventToButton(i32 event) = delete;
 
     // ?FilterDiscreteSteering@mmInput@@AAEMM@Z
     ARTS_IMPORT f32 FilterDiscreteSteering(f32 arg1);

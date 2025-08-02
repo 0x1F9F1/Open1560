@@ -162,7 +162,7 @@ DWORD WINAPI Open1560()
         LogToConsole();
     }
 
-    if (auto _SetProcessDEPPolicy = reinterpret_cast<BOOL(WINAPI*)(DWORD)>(
+    if (auto _SetProcessDEPPolicy = mem::bit_cast<BOOL(WINAPI*)(DWORD)>(
             GetProcAddress(GetModuleHandleA("KERNEL32.DLL"), "SetProcessDEPPolicy")))
     {
         _SetProcessDEPPolicy(0x00000001 /*PROCESS_DEP_ENABLE*/);

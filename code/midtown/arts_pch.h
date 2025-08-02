@@ -58,7 +58,15 @@
 #include "data7/printer.h"
 #include "data7/quitf.h"
 
+#if defined(__clang__)
+
 ARTS_CLANG_DIAGNOSTIC_IGNORED("-Wmissing-field-initializers");
 ARTS_CLANG_DIAGNOSTIC_IGNORED("-Wunused-private-field");
 ARTS_CLANG_DIAGNOSTIC_IGNORED("-Woverloaded-virtual");
 ARTS_CLANG_DIAGNOSTIC_IGNORED("-Wswitch");
+ARTS_CLANG_DIAGNOSTIC_IGNORED("-Winvalid-offsetof");
+
+// The <mm3dnow.h> header is deprecated, and 3dNow! intrinsics are unsupported.
+#define _MM3DNOW_H_INCLUDED
+
+#endif

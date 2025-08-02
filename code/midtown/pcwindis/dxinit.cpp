@@ -134,7 +134,7 @@ void dxiDirectInputCreate()
 
     HRESULT(WINAPI * pDirectInput8Create)
     (HINSTANCE hinst, DWORD dwVersion, REFIID riidltf, LPVOID * ppvOut, LPUNKNOWN punkOuter) =
-        reinterpret_cast<decltype(pDirectInput8Create)>(GetProcAddress(hdinput8, "DirectInput8Create"));
+        mem::bit_cast<decltype(pDirectInput8Create)>(GetProcAddress(hdinput8, "DirectInput8Create"));
 
     HRESULT err =
         pDirectInput8Create(GetModuleHandle(NULL), DIRECTINPUT_VERSION, IID_IDirectInput8A, (void**) &lpDI, NULL);
@@ -143,7 +143,7 @@ void dxiDirectInputCreate()
 
     HRESULT(WINAPI * pDirectInputCreateA)
     (HINSTANCE hinst, DWORD dwVersion, LPDIRECTINPUTA * ppDI, LPUNKNOWN punkOuter) =
-        reinterpret_cast<decltype(pDirectInputCreateA)>(GetProcAddress(hdinput, "DirectInputCreateA"));
+        mem::bit_cast<decltype(pDirectInputCreateA)>(GetProcAddress(hdinput, "DirectInputCreateA"));
 
     HRESULT err = pDirectInputCreateA(GetModuleHandleA(NULL), DIRECTINPUT_VERSION, &lpDI, 0);
 #endif

@@ -30,7 +30,7 @@ void mmAxle::Init(char* veh_name, [[maybe_unused]] char* axle_name, mmWheel* lef
     WheelL = left_wheel;
     WheelR = right_wheel;
 
-    if (DLPTemplate* dlp = GetDLPTemplate(veh_name))
+    if ([[maybe_unused]] DLPTemplate* dlp = GetDLPTemplate(veh_name))
     {
         // dlp->GetCentroid(Center, arts_formatf<128>("%s_H", axle_name));
 

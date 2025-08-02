@@ -55,6 +55,6 @@
 
 #define mem_include_dummy_symbol(NAME)            \
     extern void mem_paste(dummy_symbol_, NAME)(); \
-    static void* mem_paste(dummy_include_, NAME) = mem_paste(dummy_symbol_, NAME)
+    auto mem_paste(dummy_include_, NAME) = &mem_paste(dummy_symbol_, NAME)
 
 #endif // MEM_MACROS_BRICK_H

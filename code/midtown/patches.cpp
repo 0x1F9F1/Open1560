@@ -317,8 +317,8 @@ static mem::cmd_param PARAM_rv3 {"rv3"};
              0x4FE75D,
          })
     {
-        create_patch("", "", addr, "\x90\x90\x90\x90\x90\x90", 6);
-        create_hook("", "", addr, &VecDelDtor::Destruct, hook_type::call);
+        create_patch("VecDelDtor", "Avoid using vector deleting destructors", addr, "\x90\x90\x90\x90\x90\x90", 6);
+        create_hook("VecDelDtor", "Avoid using vector deleting destructors", addr, &VecDelDtor::Destruct, hook_type::call);
     }
 #endif
 

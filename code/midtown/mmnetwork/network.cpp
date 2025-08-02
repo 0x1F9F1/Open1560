@@ -45,7 +45,8 @@ static bool LoadDirectPlay()
 
         if (hdplayx)
         {
-            Orig_DirectPlayCreate = (decltype(Orig_DirectPlayCreate)) GetProcAddress(hdplayx, "DirectPlayCreate");
+            Orig_DirectPlayCreate =
+                mem::bit_cast<decltype(Orig_DirectPlayCreate)>(GetProcAddress(hdplayx, "DirectPlayCreate"));
         }
     }
 

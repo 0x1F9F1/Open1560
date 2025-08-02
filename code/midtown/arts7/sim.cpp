@@ -221,7 +221,7 @@ void asSimulation::Init(aconst char* proj_path, i32 argc, char** argv)
         proj_path = proj_path_env;
 
     const char* vfs_path = nullptr;
-    i32 dbg_flags = _CRTDBG_ALLOC_MEM_DF;
+    [[maybe_unused]] i32 dbg_flags = _CRTDBG_ALLOC_MEM_DF;
 
     GBArgs.ParseArgs(argc, const_cast<const char**>(argv));
 
