@@ -76,7 +76,7 @@ public:
     ARTS_IMPORT f32 CenterLength(i32 arg1, i32 arg2);
 
     // ?CenterVertice@aiPath@@QAEPAVVector3@@H@Z | inline
-    ARTS_IMPORT Vector3* CenterVertice(i32 arg1);
+    ARTS_EXPORT Vector3* CenterVertice(i32 index);
 
 #ifdef ARTS_DEV_BUILD
     // ?Draw@aiPath@@QAEXXZ
@@ -169,10 +169,10 @@ public:
     ARTS_IMPORT void UpdatePedestrians();
 
     // ?VertXDir@aiPath@@QAEPAVVector3@@H@Z | inline
-    ARTS_IMPORT Vector3* VertXDir(i32 arg1);
+    ARTS_EXPORT Vector3* VertXDir(i32 index);
 
     // ?VertZDir@aiPath@@QAEPAVVector3@@H@Z | inline
-    ARTS_IMPORT Vector3* VertZDir(i32 arg1);
+    ARTS_EXPORT Vector3* VertZDir(i32 index);
 
     aiPath* OncomingPath;
     i32 EdgeIndex;

@@ -106,6 +106,11 @@ public:
     // ?DeclareFields@Joint3Dof@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
+    b32 IsBroken() const
+    {
+        return (JointFlags & JOINT_FLAG_BROKEN) != 0;
+    }
+
     asInertialCS* ICS1;
     asInertialCS* ICS2;
     Vector3 Offset1;

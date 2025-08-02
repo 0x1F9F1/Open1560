@@ -28,11 +28,11 @@ Released as NET DEMO (Trial) and VW DEMO.\
 Very similar to 1589, despite the lower build number (contains EditMode, hardcoded tuning, etc).
 
 ## 1589
-Release 3 times. Commonly known as XP Patch or MS Zone Patch.\
+Released 3 times. Commonly known as XP Patch or MS Zone Patch.\
 Has a few interesting changes, but not good for modding (no debug symbols, no exception handling, hardcoded localization, hardcoded tuning).
 
-## VCK
-Debug executables with optimisation disabled. Good for research.
+## Vehicle Creation Kit
+Compiled in debug mode (with optimisations disabled), though no debug symbols. Good for research.
 
 # Debug Symbols (Linker Map)
 There are 4 known linker maps: 1427, 1560 Debug, 1560 Release, 1588 Release, 1589 Debug Trial.\

@@ -109,6 +109,8 @@ public:
     // ?DeclareFields@mmCar@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
+    void ApplyAiPhysics();
+
 #ifdef ARTS_DEV_BUILD
     // ?PostUpdateTime@mmCar@@2MA
     ARTS_IMPORT static f32 PostUpdateTime;

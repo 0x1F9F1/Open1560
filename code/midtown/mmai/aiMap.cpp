@@ -20,14 +20,15 @@ define_dummy_symbol(mmai_aiMap);
 
 #include "aiMap.h"
 
+#include "arts7/camera.h"
+#include "arts7/cullmgr.h"
+#include "mmcity/cullcity.h"
+
 #include "aiIntersection.h"
 #include "aiPath.h"
 #include "aiVehicleAmbient.h"
 #include "aiVehicleOpponent.h"
 #include "aiVehiclePolice.h"
-
-void aiMap::UpdatePaused()
-{}
 
 #ifdef ARTS_DEV_BUILD
 void aiMap::AddWidgets(Bank* bank)
@@ -113,3 +114,51 @@ void aiMap::DumpIntersections()
     for (i32 i = 0; i < NumIntersections; ++i)
         Intersections[i]->Dump();
 }
+
+aiIntersection* aiMap::Intersection(i32 index)
+{
+    if (index >= 0 && index <= NumIntersections)
+        return Intersections[index];
+
+    Warningf("Returning a NULL Intersection. Idx: %d", index);
+    return nullptr;
+}
+
+aiVehicleOpponent* aiMap::Opponent(i32 index)
+{
+    if (index >= 0 && index <= NumOpponents)
+        return &Opponents[index];
+
+    Warningf("Returning a NULL Opponent. Idx: %d", index);
+    return nullptr;
+}
+
+aiPath* aiMap::Path(i32 index)
+{
+    if (index >= 0 && index <= NumPaths)
+        return Paths[index];
+
+    Warningf("Returning a NULL Path for %d.", index);
+    return nullptr;
+}
+
+aiVehiclePolice* aiMap::Police(i32 index)
+{
+    if (index >= 0 && index <= NumPolice)
+        return &PoliceVehicles[index];
+
+    Warningf("Returning a NULL Cop. Idx: %d", index);
+    return nullptr;
+}
+
+void aiMap::Stats()
+{
+    Statsf("AI Total Update: %.3fms", _fTotUpdate * 1000.0f);
+    Statsf("Ped Update: %.3fms, Qty: %d", _fPedUpdate * 1000.0f, _nPedQty);
+    Statsf("Ambient Update: %.3fms, Qty: %d", _fAmbientUpdate * 1000.0f, _nAmbientQty);
+    Statsf("Opponent Update: %.3fms, Qty: %d", _fOppUpdate * 1000.0f, NumOpponents);
+    Statsf("Police Update: %.3fms, Qty: %d", _fCopUpdate * 1000.0f, NumPolice);
+}
+
+void aiMap::UpdatePaused()
+{}
