@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Avoid using the poorly optimized (for Wine) DirectX Renderer
-export SDL_RENDER_DRIVER=opengl
-
 # Enable threaded OpenGL for Mesa
 # export mesa_glthread=true
 
