@@ -18,23 +18,6 @@
 
 #pragma once
 
-/*
-    mmanim:AnimTrigger
-
-    0x4C41E0 | public: __thiscall mmAnimTrigger::mmAnimTrigger(void) | ??0mmAnimTrigger@@QAE@XZ
-    0x4C41F0 | public: __thiscall mmAnimTrigger::~mmAnimTrigger(void) | ??1mmAnimTrigger@@QAE@XZ
-    0x4C4200 | public: void __thiscall mmAnimTrigger::Init(class mmInstance *,int) | ?Init@mmAnimTrigger@@QAEXPAVmmInstance@@H@Z
-    0x4C4220 | public: void __thiscall mmAnimTrigger::Init(class Vector3 *,float *) | ?Init@mmAnimTrigger@@QAEXPAVVector3@@PAM@Z
-    0x4C4240 | public: void __thiscall mmAnimTrigger::Init(int *,float) | ?Init@mmAnimTrigger@@QAEXPAHM@Z
-    0x4C4270 | public: void __thiscall mmAnimTrigger::Init(float) | ?Init@mmAnimTrigger@@QAEXM@Z
-    0x4C4290 | public: int __thiscall mmAnimTrigger::CheckCondition(void) | ?CheckCondition@mmAnimTrigger@@QAEHXZ
-    0x4C4300 | public: int __thiscall mmAnimTrigger::CheckObjectHit(void) | ?CheckObjectHit@mmAnimTrigger@@QAEHXZ
-    0x4C4320 | public: int __thiscall mmAnimTrigger::CheckTimeDelay(void) | ?CheckTimeDelay@mmAnimTrigger@@QAEHXZ
-    0x4C4350 | public: int __thiscall mmAnimTrigger::CheckStateStatus(void) | ?CheckStateStatus@mmAnimTrigger@@QAEHXZ
-    0x4C43A0 | public: void __thiscall mmAnimTrigger::Reset(void) | ?Reset@mmAnimTrigger@@QAEXXZ
-    0x4C43B0 | public: int __thiscall mmAnimTrigger::CheckObjectDistance(void) | ?CheckObjectDistance@mmAnimTrigger@@QAEHXZ
-*/
-
 class mmInstance;
 
 class mmAnimTrigger

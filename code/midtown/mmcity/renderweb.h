@@ -18,50 +18,6 @@
 
 #pragma once
 
-/*
-    mmcity:renderweb
-
-    0x48FCC0 | public: __thiscall asRenderWeb::asRenderWeb(void) | ??0asRenderWeb@@QAE@XZ
-    0x48FD40 | public: virtual __thiscall asRenderWeb::~asRenderWeb(void) | ??1asRenderWeb@@UAE@XZ
-    0x48FDD0 | public: virtual struct asPortalCell * __thiscall asRenderWeb::GetStartCell(class Vector3 &,struct asPortalCell *,class mmPolygon * *) | ?GetStartCell@asRenderWeb@@UAEPAUasPortalCell@@AAVVector3@@PAU2@PAPAVmmPolygon@@@Z
-    0x48FFF0 | public: int __thiscall asRenderWeb::Load(char *,int) | ?Load@asRenderWeb@@QAEHPADH@Z
-    0x490CD0 | public: virtual void __thiscall asRenderWeb::Update(void) | ?Update@asRenderWeb@@UAEXXZ
-    0x490D60 | public: void __thiscall asRenderWeb::UpdateMirror(void) | ?UpdateMirror@asRenderWeb@@QAEXXZ
-    0x490E70 | public: void __thiscall asRenderWeb::SetMirrorPos(float,float,float,float,float) | ?SetMirrorPos@asRenderWeb@@QAEXMMMMM@Z
-    0x490F40 | void __cdecl DrawMirrorBorder(void) | ?DrawMirrorBorder@@YAXXZ
-    0x490FF0 | public: virtual void __thiscall asRenderWeb::Cull(void) | ?Cull@asRenderWeb@@UAEXXZ
-    0x4915A0 | public: int __thiscall asRenderWeb::GetCellNeighbors(int,struct asPortalCell * *,int) | ?GetCellNeighbors@asRenderWeb@@QAEHHPAPAUasPortalCell@@H@Z
-    0x491610 | public: void __thiscall asRenderWeb::DrawAllBounds(void) | ?DrawAllBounds@asRenderWeb@@QAEXXZ
-    0x491690 | public: virtual void __thiscall asRenderWeb::AddWidgets(class Bank *) | ?AddWidgets@asRenderWeb@@UAEXPAVBank@@@Z
-    0x491710 | public: static void __cdecl asRenderWeb::DeclareFields(void) | ?DeclareFields@asRenderWeb@@SAXXZ
-    0x491890 | public: virtual class MetaClass * __thiscall asRenderWeb::GetClass(void) | ?GetClass@asRenderWeb@@UAEPAVMetaClass@@XZ
-    0x4918A0 | public: virtual void * __thiscall asRenderWeb::`vector deleting destructor'(unsigned int) | ??_EasRenderWeb@@UAEPAXI@Z
-    0x61CF38 | const asRenderWeb::`vftable' | ??_7asRenderWeb@@6B@
-    0x63F1D8 | int ZREAD | ?ZREAD@@3HA
-    0x63F1DC | int ZWRITE | ?ZWRITE@@3HA
-    0x63F1E0 | int MULTIPASS | ?MULTIPASS@@3HA
-    0x63F1E4 | float ScreenClearY | ?ScreenClearY@@3MA
-    0x63F1E8 | int EnableSubClip | ?EnableSubClip@@3HA
-    0x63F1EC | float ShadowZBias | ?ShadowZBias@@3MA
-    0x6A8E90 | int CachedFullSegmentTests | ?CachedFullSegmentTests@@3HA
-    0x6A8E94 | int StartCellCollides | ?StartCellCollides@@3HA
-    0x6A8EA0 | int pass4Count | ?pass4Count@@3HA
-    0x6A8EA8 | public: static float asRenderWeb::InvLodFactor | ?InvLodFactor@asRenderWeb@@2MA
-    0x6A8EAC | int EnableCachedPoly | ?EnableCachedPoly@@3HA
-    0x6A8EB0 | int CachedFullSegmentHits | ?CachedFullSegmentHits@@3HA
-    0x6A8EB4 | int SC_SVP | ?SC_SVP@@3HA
-    0x6A8EB8 | public: static int asRenderWeb::PassMask | ?PassMask@asRenderWeb@@2HA
-    0x6A8EBC | class Matrix34 * GridMtx | ?GridMtx@@3PAVMatrix34@@A
-    0x6A8ECC | int upperCount | ?upperCount@@3HA
-    0x6A8ED0 | int pass2Count | ?pass2Count@@3HA
-    0x6A8ED4 | int pass3Count | ?pass3Count@@3HA
-    0x6A8ED8 | int SC_SVCP | ?SC_SVCP@@3HA
-    0x6A8EE0 | int pass1Count | ?pass1Count@@3HA
-    0x6A8EE8 | class MetaClass asRenderWebMetaClass | ?asRenderWebMetaClass@@3VMetaClass@@A
-    0x6A8F10 | int PopupEnabled | ?PopupEnabled@@3HA
-    0x6A8F14 | int Front2Back | ?Front2Back@@3HA
-*/
-
 #include "portal.h"
 
 class agiViewport;

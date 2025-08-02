@@ -18,66 +18,6 @@
 
 #pragma once
 
-/*
-    mmaudio:dsglobal
-
-    0x4EF140 | public: __thiscall DSGlobal::DSGlobal(void) | ??0DSGlobal@@QAE@XZ
-    0x4EF200 | public: __thiscall DSGlobal::~DSGlobal(void) | ??1DSGlobal@@QAE@XZ
-    0x4EF2E0 | public: void __thiscall DSGlobal::DeallocateUIADF(void) | ?DeallocateUIADF@DSGlobal@@QAEXXZ
-    0x4EF340 | public: void __thiscall DSGlobal::DeallocateCityADF(void) | ?DeallocateCityADF@DSGlobal@@QAEXXZ
-    0x4EF370 | public: void __thiscall DSGlobal::DeallocateADFRecord(int) | ?DeallocateADFRecord@DSGlobal@@QAEXH@Z
-    0x4EF400 | public: void __thiscall DSGlobal::DeInit(short,short) | ?DeInit@DSGlobal@@QAEXFF@Z
-    0x4EF550 | public: int __thiscall DSGlobal::Init(unsigned long,unsigned char,unsigned int *,char *,short,short) | ?Init@DSGlobal@@QAEHKEPAIPADFF@Z
-    0x4EF770 | public: int __thiscall DSGlobal::Init3DListener(float,float,float,float,float) | ?Init3DListener@DSGlobal@@QAEHMMMMM@Z
-    0x4EF800 | void __cdecl UpperCase(char *) | ?UpperCase@@YAXPAD@Z
-    0x4EF850 | int __cdecl IsDSDeviceInList(struct _GUID *) | ?IsDSDeviceInList@@YAHPAU_GUID@@@Z
-    0x4EF8B0 | int __stdcall DSEnumProc(struct _GUID *,char *,char *,void *) | ?DSEnumProc@@YGHPAU_GUID@@PAD1PAX@Z
-    0x4EFA50 | public: void __thiscall DSGlobal::SetDeviceRating(struct tag_dsdevdesc *) | ?SetDeviceRating@DSGlobal@@QAEXPAUtag_dsdevdesc@@@Z
-    0x4EFBB0 | public: int __thiscall DSGlobal::EnumDSDevices(void) | ?EnumDSDevices@DSGlobal@@QAEHXZ
-    0x4EFBD0 | public: int __thiscall DSGlobal::InitPrimarySoundBuffer(unsigned long,unsigned char,char *) | ?InitPrimarySoundBuffer@DSGlobal@@QAEHKEPAD@Z
-    0x4EFDD0 | public: void __thiscall DSGlobal::ClearDSDeviceList(void) | ?ClearDSDeviceList@DSGlobal@@QAEXXZ
-    0x4EFE10 | public: int __thiscall DSGlobal::LoadUIADF(char *) | ?LoadUIADF@DSGlobal@@QAEHPAD@Z
-    0x4EFFB0 | public: int __thiscall DSGlobal::LoadCityADF(char *,int,unsigned long) | ?LoadCityADF@DSGlobal@@QAEHPADHK@Z
-    0x4F01C0 | public: int __thiscall DSGlobal::InitCityADF(char *,int,unsigned long) | ?InitCityADF@DSGlobal@@QAEHPADHK@Z
-    0x4F0280 | public: int __thiscall DSGlobal::InitUIADF(char *,int,unsigned long) | ?InitUIADF@DSGlobal@@QAEHPADHK@Z
-    0x4F0340 | public: void __thiscall DSGlobal::ConvertTo8Bit(int) | ?ConvertTo8Bit@DSGlobal@@QAEXH@Z
-    0x4F04D0 | int __cdecl FormatCodeToWFX(unsigned long,struct tWAVEFORMATEX *) | ?FormatCodeToWFX@@YAHKPAUtWAVEFORMATEX@@@Z
-    0x4F0580 | public: void __thiscall DSGlobal::SetPrimaryBufferFormat(unsigned long,unsigned char) | ?SetPrimaryBufferFormat@DSGlobal@@QAEXKE@Z
-    0x4F0670 | public: void __thiscall DSGlobal::ScanAvailableDSFormats(void) | ?ScanAvailableDSFormats@DSGlobal@@QAEXXZ
-    0x4F0730 | public: char * __thiscall DSGlobal::TranslateDSError(long) | ?TranslateDSError@DSGlobal@@QAEPADJ@Z
-    0x4F08E0 | public: unsigned char __thiscall DSGlobal::CheckCDFile(char *) | ?CheckCDFile@DSGlobal@@QAEEPAD@Z
-    0x4F0990 | public: void __thiscall DSGlobal::SetBitDepth(int) | ?SetBitDepth@DSGlobal@@QAEXH@Z
-    0x4F09C0 | public: char * * __thiscall DSGlobal::GetDeviceNames(void) | ?GetDeviceNames@DSGlobal@@QAEPAPADXZ
-    0x4F09F0 | public: unsigned long __thiscall DSGlobal::GetNum3DHallBufs(void) | ?GetNum3DHallBufs@DSGlobal@@QAEKXZ
-    0x4F0A20 | public: static unsigned int const __cdecl DSGlobal::GetStereoOnMask(void) | ?GetStereoOnMask@DSGlobal@@SA?BIXZ
-    0x4F0A30 | public: static unsigned int const __cdecl DSGlobal::GetHiResMask(void) | ?GetHiResMask@DSGlobal@@SA?BIXZ
-    0x4F0A40 | public: static unsigned int const __cdecl DSGlobal::GetHiSampleSizeMask(void) | ?GetHiSampleSizeMask@DSGlobal@@SA?BIXZ
-    0x4F0A50 | public: static unsigned int const __cdecl DSGlobal::GetEchoOnMask(void) | ?GetEchoOnMask@DSGlobal@@SA?BIXZ
-    0x4F0A60 | public: static unsigned int const __cdecl DSGlobal::GetDSound3DMask(void) | ?GetDSound3DMask@DSGlobal@@SA?BIXZ
-    0x4F0A70 | public: static unsigned int const __cdecl DSGlobal::GetSoundFXOnMask(void) | ?GetSoundFXOnMask@DSGlobal@@SA?BIXZ
-    0x4F0A80 | public: static unsigned int const __cdecl DSGlobal::GetCommentaryOnMask(void) | ?GetCommentaryOnMask@DSGlobal@@SA?BIXZ
-    0x4F0A90 | public: static unsigned int const __cdecl DSGlobal::GetCDMusicOnMask(void) | ?GetCDMusicOnMask@DSGlobal@@SA?BIXZ
-    0x4F0AA0 | public: static unsigned int const __cdecl DSGlobal::GetUsingEAXMask(void) | ?GetUsingEAXMask@DSGlobal@@SA?BIXZ
-    0x4F0AB0 | public: unsigned int __thiscall DSGlobal::EAXEnabled(void) | ?EAXEnabled@DSGlobal@@QAEIXZ
-    0x4F0AC0 | public: unsigned int __thiscall DSGlobal::IsAlwaysEAX(void) | ?IsAlwaysEAX@DSGlobal@@QAEIXZ
-    0x4F0AD0 | public: unsigned int __thiscall DSGlobal::AlwaysEAX(unsigned int) | ?AlwaysEAX@DSGlobal@@QAEII@Z
-    0x4F0B00 | public: unsigned int __thiscall DSGlobal::DSound3DEnabled(void) | ?DSound3DEnabled@DSGlobal@@QAEIXZ
-    0x4F0B10 | public: void __thiscall DSGlobal::DisableEAXFlag(void) | ?DisableEAXFlag@DSGlobal@@QAEXXZ
-    0x61FED0 | private: static unsigned int const DSGlobal::s_iStereoOnMask | ?s_iStereoOnMask@DSGlobal@@0IB
-    0x61FED4 | private: static unsigned int const DSGlobal::s_iHiResMask | ?s_iHiResMask@DSGlobal@@0IB
-    0x61FED8 | private: static unsigned int const DSGlobal::s_iHiSampleSizeMask | ?s_iHiSampleSizeMask@DSGlobal@@0IB
-    0x61FEDC | private: static unsigned int const DSGlobal::s_iEchoOnMask | ?s_iEchoOnMask@DSGlobal@@0IB
-    0x61FEE0 | private: static unsigned int const DSGlobal::s_iDSound3DMask | ?s_iDSound3DMask@DSGlobal@@0IB
-    0x61FEE4 | private: static unsigned int const DSGlobal::s_iSoundFXOnMask | ?s_iSoundFXOnMask@DSGlobal@@0IB
-    0x61FEE8 | private: static unsigned int const DSGlobal::s_iCDMusicOnMask | ?s_iCDMusicOnMask@DSGlobal@@0IB
-    0x61FEEC | private: static unsigned int const DSGlobal::s_iUsingEAXMask | ?s_iUsingEAXMask@DSGlobal@@0IB
-    0x61FEF0 | private: static unsigned int const DSGlobal::s_iAlwaysEAXMask | ?s_iAlwaysEAXMask@DSGlobal@@0IB
-    0x61FEF4 | private: static unsigned int const DSGlobal::s_iCommentaryOnMask | ?s_iCommentaryOnMask@DSGlobal@@0IB
-    0x61FEF8 | const CDMan::`vftable' | ??_7CDMan@@6B@
-    0x647DD8 | struct tag_fd * aOutputFormats | ?aOutputFormats@@3PAUtag_fd@@A
-    0x719334 | class DSGlobal * DSGlobalPtr | ?DSGlobalPtr@@3PAVDSGlobal@@A
-*/
-
 #include <Windows.h>
 
 #include <mmeapi.h>

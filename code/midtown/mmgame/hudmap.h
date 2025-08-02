@@ -18,47 +18,6 @@
 
 #pragma once
 
-/*
-    mmgame:hudmap
-
-    0x4280C0 | public: __thiscall mmHudMap::mmHudMap(void) | ??0mmHudMap@@QAE@XZ
-    0x4281B0 | public: void __thiscall mmHudMap::Init(class asCamera *,class Matrix34 *,class mmHUD *,class mmGame *,char *) | ?Init@mmHudMap@@QAEXPAVasCamera@@PAVMatrix34@@PAVmmHUD@@PAVmmGame@@PAD@Z
-    0x428750 | public: virtual void __thiscall mmHudMap::Reset(void) | ?Reset@mmHudMap@@UAEXXZ
-    0x428790 | public: void __thiscall mmHudMap::RegisterOpponents(struct OppIconInfo *,int) | ?RegisterOpponents@mmHudMap@@QAEXPAUOppIconInfo@@H@Z
-    0x4287B0 | public: void __thiscall mmHudMap::RegisterCopsnRobbers(class Vector3 * *) | ?RegisterCopsnRobbers@mmHudMap@@QAEXPAPAVVector3@@@Z
-    0x4287E0 | public: void __thiscall mmHudMap::RegisterMisc(class Vector3 * *,int) | ?RegisterMisc@mmHudMap@@QAEXPAPAVVector3@@H@Z
-    0x428810 | public: void __thiscall mmHudMap::Activate(void) | ?Activate@mmHudMap@@QAEXXZ
-    0x428840 | public: void __thiscall mmHudMap::Deactivate(void) | ?Deactivate@mmHudMap@@QAEXXZ
-    0x428870 | public: void __thiscall mmHudMap::SetMode(int) | ?SetMode@mmHudMap@@QAEXH@Z
-    0x428B90 | public: void __thiscall mmHudMap::Cycle(void) | ?Cycle@mmHudMap@@QAEXXZ
-    0x428BC0 | public: void __thiscall mmHudMap::ToggleFullScreen(void) | ?ToggleFullScreen@mmHudMap@@QAEXXZ
-    0x428BF0 | private: class agiBitmap * __thiscall mmHudMap::GetCurrentMap(void) | ?GetCurrentMap@mmHudMap@@AAEPAVagiBitmap@@XZ
-    0x428C00 | public: void __thiscall mmHudMap::ToggleMapRes(void) | ?ToggleMapRes@mmHudMap@@QAEXXZ
-    0x428C60 | public: virtual void __thiscall mmHudMap::Update(void) | ?Update@mmHudMap@@UAEXXZ
-    0x428E50 | public: virtual void __thiscall mmHudMap::Cull(void) | ?Cull@mmHudMap@@UAEXXZ
-    0x428FE0 | private: void __thiscall mmHudMap::DrawCentered(class agiBitmap *,struct Point) | ?DrawCentered@mmHudMap@@AAEXPAVagiBitmap@@UPoint@@@Z
-    0x429050 | private: void __thiscall mmHudMap::DrawClipped(class agiBitmap *,struct Point,float,float,float,float) | ?DrawClipped@mmHudMap@@AAEXPAVagiBitmap@@UPoint@@MMMM@Z
-    0x4291F0 | private: void __thiscall mmHudMap::DrawOrientedBitmap(class Matrix34 *,class agiBitmap *) | ?DrawOrientedBitmap@mmHudMap@@AAEXPAVMatrix34@@PAVagiBitmap@@@Z
-    0x4293D0 | public: void __thiscall mmHudMap::ResChanged(void) | ?ResChanged@mmHudMap@@QAEXXZ
-    0x429410 | private: void __thiscall mmHudMap::DrawOriented(class Matrix34 *,unsigned int) | ?DrawOriented@mmHudMap@@AAEXPAVMatrix34@@I@Z
-    0x4295F0 | private: void __thiscall mmHudMap::DrawOpponents(void) | ?DrawOpponents@mmHudMap@@AAEXXZ
-    0x4296B0 | private: void __thiscall mmHudMap::DrawCops(void) | ?DrawCops@mmHudMap@@AAEXXZ
-    0x429720 | private: void __thiscall mmHudMap::DrawWaypoints(void) | ?DrawWaypoints@mmHudMap@@AAEXXZ
-    0x429860 | private: void __thiscall mmHudMap::DrawCopsnRobbers(void) | ?DrawCopsnRobbers@mmHudMap@@AAEXXZ
-    0x429930 | public: void __thiscall mmHudMap::DrawMisc(void) | ?DrawMisc@mmHudMap@@QAEXXZ
-    0x4299A0 | private: void __thiscall mmHudMap::FlushVerts(void) | ?FlushVerts@mmHudMap@@AAEXXZ
-    0x429B20 | private: struct Point __thiscall mmHudMap::WorldToBitmap(class Vector3 *) | ?WorldToBitmap@mmHudMap@@AAE?AUPoint@@PAVVector3@@@Z
-    0x429BC0 | private: int __thiscall mmHudMap::BitmapToScreen(struct Point *,struct Point) | ?BitmapToScreen@mmHudMap@@AAEHPAUPoint@@U2@@Z
-    0x429C60 | public: virtual void __thiscall mmHudMap::AddWidgets(class Bank *) | ?AddWidgets@mmHudMap@@UAEXPAVBank@@@Z
-    0x429DC0 | public: static void __cdecl mmHudMap::DeclareFields(void) | ?DeclareFields@mmHudMap@@SAXXZ
-    0x429F30 | public: virtual class MetaClass * __thiscall mmHudMap::GetClass(void) | ?GetClass@mmHudMap@@UAEPAVMetaClass@@XZ
-    0x429F70 | public: virtual void * __thiscall mmHudMap::`vector deleting destructor'(unsigned int) | ??_EmmHudMap@@UAEPAXI@Z
-    0x429FD0 | public: virtual __thiscall mmHudMap::~mmHudMap(void) | ??1mmHudMap@@UAE@XZ
-    0x61AE70 | const mmHudMap::`vftable' | ??_7mmHudMap@@6B@
-    0x6A7350 | class MetaClass mmHudMapMetaClass | ?mmHudMapMetaClass@@3VMetaClass@@A
-    0x6A7378 | union agiVtx * Tris | ?Tris@@3PATagiVtx@@A
-*/
-
 #include "arts7/node.h"
 
 #include "vector7/vector2.h"

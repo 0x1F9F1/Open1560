@@ -18,18 +18,6 @@
 
 #pragma once
 
-/*
-    arts7:pgraph
-
-    0x52A8A0 | public: __thiscall asPerfGraph::asPerfGraph(void) | ??0asPerfGraph@@QAE@XZ
-    0x52A930 | public: __thiscall asPerfGraph::~asPerfGraph(void) | ??1asPerfGraph@@QAE@XZ
-    0x52A960 | public: void __thiscall asPerfGraph::AddComponent(char *,float *,class Vector3 &) | ?AddComponent@asPerfGraph@@QAEXPADPAMAAVVector3@@@Z
-    0x52A9E0 | public: void __thiscall asPerfGraph::Key(int) | ?Key@asPerfGraph@@QAEXH@Z
-    0x52AA30 | public: void __thiscall asPerfGraph::Update(void) | ?Update@asPerfGraph@@QAEXXZ
-    0x52AB30 | public: void __thiscall asPerfGraph::Cull(void) | ?Cull@asPerfGraph@@QAEXXZ
-    0x790984 | class asPerfGraph * PGRAPH | ?PGRAPH@@3PAVasPerfGraph@@A
-*/
-
 #include "agi/rgba.h"
 
 class asPerfGraph

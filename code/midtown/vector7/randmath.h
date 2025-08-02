@@ -18,19 +18,6 @@
 
 #pragma once
 
-/*
-    vector7:randmath
-
-    0x564A00 | int __cdecl irand(int) | ?irand@@YAHH@Z
-    0x564A30 | int __cdecl irand(void) | ?irand@@YAHXZ
-    0x564A70 | float __cdecl frand(void) | ?frand@@YAMXZ
-    0x564A90 | float __cdecl frand(int) | ?frand@@YAMH@Z
-    0x564AB0 | _rand
-    0x564AC0 | _srand
-    0x658A60 | int gRandSeed | ?gRandSeed@@3HA
-    0x909448 | void (__cdecl* LogRandomCalls)(void) | ?LogRandomCalls@@3P6AXXZA
-*/
-
 // ?frand@@YAMXZ
 ARTS_IMPORT f32 frand();
 

@@ -18,19 +18,6 @@
 
 #pragma once
 
-/*
-    mmcityinfo:vehinfo
-
-    0x4D39D0 | public: __thiscall mmVehInfo::mmVehInfo(void) | ??0mmVehInfo@@QAE@XZ
-    0x4D39F0 | public: virtual __thiscall mmVehInfo::~mmVehInfo(void) | ??1mmVehInfo@@UAE@XZ
-    0x4D3A00 | public: int __thiscall mmVehInfo::Load(char *) | ?Load@mmVehInfo@@QAEHPAD@Z
-    0x4D3BE0 | public: int __thiscall mmVehInfo::HasColorVariations(void) | ?HasColorVariations@mmVehInfo@@QAEHXZ
-    0x4D3C00 | public: void __thiscall mmVehInfo::Print(void) | ?Print@mmVehInfo@@QAEXXZ
-    0x4D3C90 | public: virtual void * __thiscall mmVehInfo::`scalar deleting destructor'(unsigned int) | ??_GmmVehInfo@@UAEPAXI@Z
-    0x4D3C90 | public: virtual void * __thiscall mmVehInfo::`vector deleting destructor'(unsigned int) | ??_EmmVehInfo@@UAEPAXI@Z
-    0x61F948 | const mmVehInfo::`vftable' | ??_7mmVehInfo@@6B@
-*/
-
 #define VEH_INFO_FLAG_6_WHEELS 0x1 // Has 6 wheels
 #define VEH_INFO_FLAG_TRAILER 0x2  // Has a trailer
 #define VEH_INFO_FLAG_FENDERS 0x4  // Has fenders

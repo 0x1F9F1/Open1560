@@ -18,29 +18,6 @@
 
 #pragma once
 
-/*
-    mmcamcs:viewcs
-
-    0x4F8FB0 | public: __thiscall mmViewCS::mmViewCS(void) | ??0mmViewCS@@QAE@XZ
-    0x4F9070 | public: virtual __thiscall mmViewCS::~mmViewCS(void) | ??1mmViewCS@@UAE@XZ
-    0x4F9080 | public: static class mmViewCS * __cdecl mmViewCS::Instance(class asCamera *) | ?Instance@mmViewCS@@SAPAV1@PAVasCamera@@@Z
-    0x4F9110 | public: void __thiscall mmViewCS::SetCurrentCam(class CarCamCS *) | ?SetCurrentCam@mmViewCS@@QAEXPAVCarCamCS@@@Z
-    0x4F9180 | public: int __thiscall mmViewCS::NewCam(class CarCamCS *,int,float,class Callback) | ?NewCam@mmViewCS@@QAEHPAVCarCamCS@@HMVCallback@@@Z
-    0x4F9230 | public: virtual void __thiscall mmViewCS::Update(void) | ?Update@mmViewCS@@UAEXXZ
-    0x4F9260 | public: void __thiscall mmViewCS::Init(void) | ?Init@mmViewCS@@QAEXXZ
-    0x4F9270 | public: void __thiscall mmViewCS::SetCamera(class asCamera *) | ?SetCamera@mmViewCS@@QAEXPAVasCamera@@@Z
-    0x4F92C0 | public: virtual void __thiscall mmViewCS::Reset(void) | ?Reset@mmViewCS@@UAEXXZ
-    0x4F9320 | public: void __thiscall mmViewCS::ForceMatrixDelta(class Matrix34 const &) | ?ForceMatrixDelta@mmViewCS@@QAEXABVMatrix34@@@Z
-    0x4F9340 | public: void __thiscall mmViewCS::ForceMatrixDelta(class Vector3 const &) | ?ForceMatrixDelta@mmViewCS@@QAEXABVVector3@@@Z
-    0x4F9360 | public: void __thiscall mmViewCS::OneShot(void) | ?OneShot@mmViewCS@@QAEXXZ
-    0x4F9380 | public: static void __cdecl mmViewCS::DeclareFields(void) | ?DeclareFields@mmViewCS@@SAXXZ
-    0x4F94F0 | public: virtual class MetaClass * __thiscall mmViewCS::GetClass(void) | ?GetClass@mmViewCS@@UAEPAVMetaClass@@XZ
-    0x4F9500 | public: virtual void * __thiscall mmViewCS::`vector deleting destructor'(unsigned int) | ??_EmmViewCS@@UAEPAXI@Z
-    0x4F9560 | public: virtual void __thiscall mmViewCS::AddWidgets(class Bank *) | ?AddWidgets@mmViewCS@@UAEXPAVBank@@@Z
-    0x620118 | const mmViewCS::`vftable' | ??_7mmViewCS@@6B@
-    0x7193A8 | class MetaClass mmViewCSMetaClass | ?mmViewCSMetaClass@@3VMetaClass@@A
-*/
-
 #include "arts7/linear.h"
 
 class asCamera;

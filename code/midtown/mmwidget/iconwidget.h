@@ -18,20 +18,6 @@
 
 #pragma once
 
-/*
-    mmwidget:iconwidget
-
-    0x4BC0F0 | public: __thiscall UIIconW::UIIconW(void) | ??0UIIconW@@QAE@XZ
-    0x4BC1B0 | public: virtual __thiscall UIIconW::~UIIconW(void) | ??1UIIconW@@UAE@XZ
-    0x4BC220 | public: void __thiscall UIIconW::Init(struct LocString *,char *,float,float,float,float,class Callback) | ?Init@UIIconW@@QAEXPAULocString@@PADMMMMVCallback@@@Z
-    0x4BC300 | public: virtual void __thiscall UIIconW::Action(union eqEvent) | ?Action@UIIconW@@UAEXTeqEvent@@@Z
-    0x4BC360 | public: virtual void __thiscall UIIconW::Update(void) | ?Update@UIIconW@@UAEXXZ
-    0x4BC3E0 | public: virtual void __thiscall UIIconW::Switch(int) | ?Switch@UIIconW@@UAEXH@Z
-    0x4BC460 | public: virtual void * __thiscall UIIconW::`vector deleting destructor'(unsigned int) | ??_EUIIconW@@UAEPAXI@Z
-    0x4BC460 | public: virtual void * __thiscall UIIconW::`scalar deleting destructor'(unsigned int) | ??_GUIIconW@@UAEPAXI@Z
-    0x61EE18 | const UIIconW::`vftable' | ??_7UIIconW@@6B@
-*/
-
 #include "widget.h"
 
 class UIIconW final : public uiWidget

@@ -18,50 +18,6 @@
 
 #pragma once
 
-/*
-    mmphysics:inertia
-
-    0x4D91F0 | public: __thiscall asInertialCS::asInertialCS(void) | ??0asInertialCS@@QAE@XZ
-    0x4D92F0 | public: void __thiscall asInertialCS::SetMass(float,float,float,float) | ?SetMass@asInertialCS@@QAEXMMMM@Z
-    0x4D9400 | public: void __thiscall asInertialCS::SetDensity(float,float,float,float) | ?SetDensity@asInertialCS@@QAEXMMMM@Z
-    0x4D9450 | public: void __thiscall asInertialCS::SetZeroDOF(float,float) | ?SetZeroDOF@asInertialCS@@QAEXMM@Z
-    0x4D9510 | public: void __thiscall asInertialCS::Zero(void) | ?Zero@asInertialCS@@QAEXXZ
-    0x4D9630 | public: virtual void __thiscall asInertialCS::Reset(void) | ?Reset@asInertialCS@@UAEXXZ
-    0x4D9650 | public: void __thiscall asInertialCS::UpdateKids(void) | ?UpdateKids@asInertialCS@@QAEXXZ
-    0x4D9680 | public: virtual void __thiscall asInertialCS::Update(void) | ?Update@asInertialCS@@UAEXXZ
-    0x4D9740 | public: void __thiscall asInertialCS::FinishForces(void) | ?FinishForces@asInertialCS@@QAEXXZ
-    0x4D9AE0 | public: void __thiscall asInertialCS::MoveICS(void) | ?MoveICS@asInertialCS@@QAEXXZ
-    0x4D9B60 | public: void __thiscall asInertialCS::FinishUpdate(void) | ?FinishUpdate@asInertialCS@@QAEXXZ
-    0x4DA200 | public: void __thiscall asInertialCS::ApplyForce(class Vector3 const &) | ?ApplyForce@asInertialCS@@QAEXABVVector3@@@Z
-    0x4DA290 | public: void __thiscall asInertialCS::ApplyForce(class Vector3 const &,class Vector3 const &) | ?ApplyForce@asInertialCS@@QAEXABVVector3@@0@Z
-    0x4DA3A0 | public: void __thiscall asInertialCS::ApplyTorque(class Vector3 const &) | ?ApplyTorque@asInertialCS@@QAEXABVVector3@@@Z
-    0x4DA430 | public: void __thiscall asInertialCS::ApplyImpulse(class Vector3 const &) | ?ApplyImpulse@asInertialCS@@QAEXABVVector3@@@Z
-    0x4DA4C0 | public: void __thiscall asInertialCS::ApplyImpulse(class Vector3 const &,class Vector3 const &) | ?ApplyImpulse@asInertialCS@@QAEXABVVector3@@0@Z
-    0x4DA5D0 | public: void __thiscall asInertialCS::ApplyAngImpulse(class Vector3 const &) | ?ApplyAngImpulse@asInertialCS@@QAEXABVVector3@@@Z
-    0x4DA660 | public: virtual void __thiscall asInertialCS::ApplyPush(class Vector3 const &,class Vector3 const &) | ?ApplyPush@asInertialCS@@UAEXABVVector3@@0@Z
-    0x4DA7D0 | public: void __thiscall asInertialCS::ApplyPush(class Vector3 const &) | ?ApplyPush@asInertialCS@@QAEXABVVector3@@@Z
-    0x4DA940 | public: void __thiscall asInertialCS::ApplyTurn(class Vector3 const &) | ?ApplyTurn@asInertialCS@@QAEXABVVector3@@@Z
-    0x4DA980 | private: void __thiscall asInertialCS::DrawForce(class Vector3 const &,class Vector3 const &) | ?DrawForce@asInertialCS@@AAEXABVVector3@@0@Z
-    0x4DA9D0 | private: void __thiscall asInertialCS::DrawForce(class Vector3 const &,class Vector3 const &,class Vector3 const &) | ?DrawForce@asInertialCS@@AAEXABVVector3@@00@Z
-    0x4DAA20 | public: void __thiscall asInertialCS::DoConstrain(void) | ?DoConstrain@asInertialCS@@QAEXXZ
-    0x4DAAD0 | public: class Vector3 __thiscall asInertialCS::GetVelocity(class Vector3 const *) | ?GetVelocity@asInertialCS@@QAE?AVVector3@@PBV2@@Z
-    0x4DABA0 | public: void __thiscall asInertialCS::CalcCMatrix(class Matrix34 &,class Vector3 const &) const | ?CalcCMatrix@asInertialCS@@QBEXAAVMatrix34@@ABVVector3@@@Z
-    0x4DAD70 | public: virtual void __thiscall asInertialCS::GetCMatrix(class Matrix34 &,class Vector3 const &) const | ?GetCMatrix@asInertialCS@@UBEXAAVMatrix34@@ABVVector3@@@Z
-    0x4DADE0 | float __cdecl InertiaAxis(class Vector3 const &,class Vector3 const &) | ?InertiaAxis@@YAMABVVector3@@0@Z
-    0x4DAE20 | class Vector3 __cdecl MatrixToAngVelocity(class Matrix34 const &,float) | ?MatrixToAngVelocity@@YA?AVVector3@@ABVMatrix34@@M@Z
-    0x4DAEF0 | public: void __thiscall asInertialCS::MatricesToMomenta(class Matrix34 const &,class Matrix34 const &,float) | ?MatricesToMomenta@asInertialCS@@QAEXABVMatrix34@@0M@Z
-    0x4DB120 | class Vector3 __cdecl MatrixToAngVelocity(class Matrix34 const &,class Matrix34 const &,float) | ?MatrixToAngVelocity@@YA?AVVector3@@ABVMatrix34@@0M@Z
-    0x4DB180 | public: void __thiscall asInertialCS::FileIO(class MiniParser *) | ?FileIO@asInertialCS@@QAEXPAVMiniParser@@@Z
-    0x4DB190 | public: virtual void __thiscall asInertialCS::AddWidgets(class Bank *) | ?AddWidgets@asInertialCS@@UAEXPAVBank@@@Z
-    0x4DB970 | public: static void __cdecl asInertialCS::DeclareFields(void) | ?DeclareFields@asInertialCS@@SAXXZ
-    0x4DBAF0 | public: virtual class MetaClass * __thiscall asInertialCS::GetClass(void) | ?GetClass@asInertialCS@@UAEPAVMetaClass@@XZ
-    0x4DBB30 | public: void __thiscall Vector3::Set(float,float,float) | ?Set@Vector3@@QAEXMMM@Z
-    0x4DBB50 | public: void __thiscall Vector3::operator+=(class Vector3 const &) | ??YVector3@@QAEXABV0@@Z
-    0x4DBB80 | public: virtual void * __thiscall asInertialCS::`vector deleting destructor'(unsigned int) | ??_EasInertialCS@@UAEPAXI@Z
-    0x61FA48 | const asInertialCS::`vftable' | ??_7asInertialCS@@6B@
-    0x7190E8 | class MetaClass asInertialCSMetaClass | ?asInertialCSMetaClass@@3VMetaClass@@A
-*/
-
 #include "arts7/linear.h"
 
 class JointedStruct;

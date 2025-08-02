@@ -18,17 +18,6 @@
 
 #pragma once
 
-/*
-    mmai:aiVehicle
-
-    0x4658F0 | public: __thiscall aiVehicle::aiVehicle(void) | ??0aiVehicle@@QAE@XZ
-    0x465910 | public: __thiscall aiVehicle::~aiVehicle(void) | ??1aiVehicle@@QAE@XZ
-    0x465920 | public: void __thiscall aiVehicle::Init(int) | ?Init@aiVehicle@@QAEXH@Z
-    0x465930 | public: virtual void __thiscall aiVehicle::Reset(void) | ?Reset@aiVehicle@@UAEXXZ
-    0x465940 | public: virtual void __thiscall aiVehicle::Update(void) | ?Update@aiVehicle@@UAEXXZ
-    0x61BC40 | const aiVehicle::`vftable' | ??_7aiVehicle@@6B@
-*/
-
 class aiVehicle
 {
 public:

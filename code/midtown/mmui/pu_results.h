@@ -18,28 +18,6 @@
 
 #pragma once
 
-/*
-    mmui:pu_results
-
-    0x4A8080 | public: __thiscall PUResults::PUResults(int,float,float,float,float,char *) | ??0PUResults@@QAE@HMMMMPAD@Z
-    0x4A81B0 | public: void __thiscall PUResults::Init320(void) | ?Init320@PUResults@@QAEXXZ
-    0x4A8590 | public: void __thiscall PUResults::Init640(void) | ?Init640@PUResults@@QAEXXZ
-    0x4A89C0 | public: virtual __thiscall PUResults::~PUResults(void) | ??1PUResults@@UAE@XZ
-    0x4A89D0 | public: void __thiscall PUResults::AddTitle(struct LocString *,struct LocString *) | ?AddTitle@PUResults@@QAEXPAULocString@@0@Z
-    0x4A8A00 | public: virtual void __thiscall PUResults::Reset(void) | ?Reset@PUResults@@UAEXXZ
-    0x4A8A10 | public: void __thiscall PUResults::RosterRO(int) | ?RosterRO@PUResults@@QAEXH@Z
-    0x4A8A30 | public: void __thiscall PUResults::RestartRO(int) | ?RestartRO@PUResults@@QAEXH@Z
-    0x4A8A50 | public: void __thiscall PUResults::AddName(int,char *,float) | ?AddName@PUResults@@QAEXHPADM@Z
-    0x4A8B00 | public: void __thiscall PUResults::AddName(int,char *,int) | ?AddName@PUResults@@QAEXHPADH@Z
-    0x4A8BC0 | public: void __thiscall PUResults::ClearNames(void) | ?ClearNames@PUResults@@QAEXXZ
-    0x4A8C30 | public: void __thiscall PUResults::DisableNextRace(void) | ?DisableNextRace@PUResults@@QAEXXZ
-    0x4A8C40 | public: void __thiscall PUResults::EnableNextRace(void) | ?EnableNextRace@PUResults@@QAEXXZ
-    0x4A8C50 | public: void __thiscall PUResults::SetMessage(struct LocString *) | ?SetMessage@PUResults@@QAEXPAULocString@@@Z
-    0x4A8C70 | public: virtual void * __thiscall PUResults::`vector deleting destructor'(unsigned int) | ??_EPUResults@@UAEPAXI@Z
-    0x4A8C70 | public: virtual void * __thiscall PUResults::`scalar deleting destructor'(unsigned int) | ??_GPUResults@@UAEPAXI@Z
-    0x61DDA8 | const PUResults::`vftable' | ??_7PUResults@@6B@
-*/
-
 #include "pu_menu.h"
 
 class mmTextNode;

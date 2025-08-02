@@ -18,11 +18,4 @@
 
 #pragma once
 
-/*
-    agiworld:mrkni
-
-    0x516620 | protected: static void __fastcall agiMeshSet::ToScreen(unsigned char *,class Vector4 *,int) | ?ToScreen@agiMeshSet@@KIXPAEPAVVector4@@H@Z
-    0x73EE30 | protected: static class Vector4 * agiMeshSet::out | ?out@agiMeshSet@@1PAVVector4@@A
-*/
-
 #include "meshrend.h"

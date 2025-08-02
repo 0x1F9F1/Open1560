@@ -18,14 +18,5 @@
 
 #pragma once
 
-/*
-    data7:perfstat
-
-    0x57B410 | void __cdecl PerfInit(void) | ?PerfInit@@YAXXZ
-    0x57B450 | void __cdecl PerfShutdown(void) | ?PerfShutdown@@YAXXZ
-    0x57B470 | int __cdecl PerfLookup(char *) | ?PerfLookup@@YAHPAD@Z
-    0x57B530 | unsigned int __cdecl PerfGetValue(int) | ?PerfGetValue@@YAIH@Z
-*/
-
 // ?PerfGetValue@@YAIH@Z
 ARTS_IMPORT u32 PerfGetValue(i32 arg1);

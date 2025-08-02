@@ -18,25 +18,6 @@
 
 #pragma once
 
-/*
-    mmwidget:pointer
-
-    0x4BD970 | public: __thiscall sfPointer::sfPointer(void) | ??0sfPointer@@QAE@XZ
-    0x4BD9A0 | public: virtual __thiscall sfPointer::~sfPointer(void) | ??1sfPointer@@UAE@XZ
-    0x4BDA00 | public: void __thiscall sfPointer::Init(void) | ?Init@sfPointer@@QAEXXZ
-    0x4BDA20 | public: virtual void __thiscall sfPointer::ResChange(int,int) | ?ResChange@sfPointer@@UAEXHH@Z
-    0x4BDA80 | public: float __thiscall sfPointer::GetPointerHeight(void) | ?GetPointerHeight@sfPointer@@QAEMXZ
-    0x4BDA90 | public: virtual void __thiscall sfPointer::Update(void) | ?Update@sfPointer@@UAEXXZ
-    0x4BDD10 | private: void __thiscall sfPointer::UpdateAttached(void) | ?UpdateAttached@sfPointer@@AAEXXZ
-    0x4BDD20 | public: void __thiscall sfPointer::WaitForRelease(void) | ?WaitForRelease@sfPointer@@QAEXXZ
-    0x4BDD30 | public: virtual void __thiscall sfPointer::Cull(void) | ?Cull@sfPointer@@UAEXXZ
-    0x4BDDB0 | public: static void __cdecl sfPointer::DeclareFields(void) | ?DeclareFields@sfPointer@@SAXXZ
-    0x4BDF20 | public: virtual class MetaClass * __thiscall sfPointer::GetClass(void) | ?GetClass@sfPointer@@UAEPAVMetaClass@@XZ
-    0x4BDF30 | public: virtual void * __thiscall sfPointer::`vector deleting destructor'(unsigned int) | ??_EsfPointer@@UAEPAXI@Z
-    0x61F0A8 | const sfPointer::`vftable' | ??_7sfPointer@@6B@
-    0x705C50 | class MetaClass sfPointerMetaClass | ?sfPointerMetaClass@@3VMetaClass@@A
-*/
-
 #include "arts7/node.h"
 
 class sfPointer final : public asNode

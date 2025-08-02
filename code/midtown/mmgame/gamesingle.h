@@ -18,39 +18,6 @@
 
 #pragma once
 
-/*
-    mmgame:gamesingle
-
-    0x416C90 | unsigned long __stdcall ThreadFunc(void *) | ?ThreadFunc@@YGKPAX@Z
-    0x416CA0 | public: __thiscall mmGameSingle::mmGameSingle(void) | ??0mmGameSingle@@QAE@XZ
-    0x416D30 | public: virtual __thiscall mmGameSingle::~mmGameSingle(void) | ??1mmGameSingle@@UAE@XZ
-    0x416DF0 | public: int __thiscall mmGameSingle::Init(void) | ?Init@mmGameSingle@@QAEHXZ
-    0x416F70 | public: virtual void __thiscall mmGameSingle::InitMyPlayer(void) | ?InitMyPlayer@mmGameSingle@@UAEXXZ
-    0x416FE0 | public: virtual void __thiscall mmGameSingle::InitHUD(void) | ?InitHUD@mmGameSingle@@UAEXXZ
-    0x417040 | public: virtual void __thiscall mmGameSingle::InitGameObjects(void) | ?InitGameObjects@mmGameSingle@@UAEXXZ
-    0x417340 | public: virtual void __thiscall mmGameSingle::InitOtherPlayers(void) | ?InitOtherPlayers@mmGameSingle@@UAEXXZ
-    0x4173A0 | public: virtual void __thiscall mmGameSingle::Reset(void) | ?Reset@mmGameSingle@@UAEXXZ
-    0x4174A0 | private: void __thiscall mmGameSingle::EnableRacers(void) | ?EnableRacers@mmGameSingle@@AAEXXZ
-    0x417530 | private: void __thiscall mmGameSingle::DisableRacers(void) | ?DisableRacers@mmGameSingle@@AAEXXZ
-    0x4175A0 | public: virtual void __thiscall mmGameSingle::HitWaterHandler(void) | ?HitWaterHandler@mmGameSingle@@UAEXXZ
-    0x417640 | public: virtual void __thiscall mmGameSingle::Update(void) | ?Update@mmGameSingle@@UAEXXZ
-    0x417660 | public: virtual void __thiscall mmGameSingle::UpdateGameInput(int) | ?UpdateGameInput@mmGameSingle@@UAEXH@Z
-    0x4176A0 | public: virtual void __thiscall mmGameSingle::UpdateGame(void) | ?UpdateGame@mmGameSingle@@UAEXXZ
-    0x417EF0 | public: void __thiscall mmGameSingle::UpdateScore(void) | ?UpdateScore@mmGameSingle@@QAEXXZ
-    0x418270 | private: void __thiscall mmGameSingle::FinishMessage(int,int) | ?FinishMessage@mmGameSingle@@AAEXHH@Z
-    0x4183F0 | private: int __thiscall mmGameSingle::RegisterFinish(void) | ?RegisterFinish@mmGameSingle@@AAEHXZ
-    0x4187F0 | private: int __thiscall mmGameSingle::ProgressCheck(int,int) | ?ProgressCheck@mmGameSingle@@AAEHHH@Z
-    0x418840 | public: virtual void __thiscall mmGameSingle::NextRace(void) | ?NextRace@mmGameSingle@@UAEXXZ
-    0x4189E0 | public: virtual void __thiscall mmGameSingle::AddWidgets(class Bank *) | ?AddWidgets@mmGameSingle@@UAEXPAVBank@@@Z
-    0x418B90 | public: static void __cdecl mmGameSingle::DeclareFields(void) | ?DeclareFields@mmGameSingle@@SAXXZ
-    0x418D00 | public: virtual class MetaClass * __thiscall mmGameSingle::GetClass(void) | ?GetClass@mmGameSingle@@UAEPAVMetaClass@@XZ
-    0x418E60 | public: virtual void * __thiscall mmGameSingle::`vector deleting destructor'(unsigned int) | ??_EmmGameSingle@@UAEPAXI@Z
-    0x418EC0 | public: virtual void __thiscall mmGameSingle::UpdateDebugKeyInput(int) | ?UpdateDebugKeyInput@mmGameSingle@@UAEXH@Z
-    0x418ED0 | public: virtual class mmWaypoints * __thiscall mmGameSingle::GetWaypoints(void) | ?GetWaypoints@mmGameSingle@@UAEPAVmmWaypoints@@XZ
-    0x61A728 | const mmGameSingle::`vftable' | ??_7mmGameSingle@@6B@
-    0x6A7110 | class MetaClass mmGameSingleMetaClass | ?mmGameSingleMetaClass@@3VMetaClass@@A
-*/
-
 #include "game.h"
 
 class mmGameSingle final : public mmGame

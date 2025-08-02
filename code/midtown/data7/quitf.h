@@ -18,11 +18,5 @@
 
 #pragma once
 
-/*
-    data7:quitf
-
-    0x576F80 | void __cdecl Quitf(char const *,...) | ?Quitf@@YAXPBDZZ
-*/
-
 // ?Quitf@@YAXPBDZZ
 [[noreturn]] ARTS_EXPORT void Quitf(ARTS_FORMAT_STRING const char* format, ...);

@@ -18,18 +18,6 @@
 
 #pragma once
 
-/*
-    mmui:dlg_msg
-
-    0x49F2E0 | public: __thiscall Dialog_Message::Dialog_Message(int,float,float,float,float,char *) | ??0Dialog_Message@@QAE@HMMMMPAD@Z
-    0x49F3F0 | public: void __thiscall Dialog_Message::Init(int,char *,char *) | ?Init@Dialog_Message@@QAEXHPAD0@Z
-    0x49F460 | public: virtual __thiscall Dialog_Message::~Dialog_Message(void) | ??1Dialog_Message@@UAE@XZ
-    0x49F470 | public: virtual void __thiscall Dialog_Message::PreSetup(void) | ?PreSetup@Dialog_Message@@UAEXXZ
-    0x49F480 | public: virtual void * __thiscall Dialog_Message::`vector deleting destructor'(unsigned int) | ??_EDialog_Message@@UAEPAXI@Z
-    0x49F480 | public: virtual void * __thiscall Dialog_Message::`scalar deleting destructor'(unsigned int) | ??_GDialog_Message@@UAEPAXI@Z
-    0x61D6B8 | const Dialog_Message::`vftable' | ??_7Dialog_Message@@6B@
-*/
-
 #include "pu_menu.h"
 
 class Dialog_Message final : public PUMenuBase

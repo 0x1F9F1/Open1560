@@ -18,29 +18,6 @@
 
 #pragma once
 
-/*
-    arts7:view
-
-    0x52BBA0 | public: __thiscall asViewCS::asViewCS(void) | ??0asViewCS@@QAE@XZ
-    0x52BCD0 | public: void __thiscall asViewCS::SetAzimuth(void) | ?SetAzimuth@asViewCS@@QAEXXZ
-    0x52BD30 | public: virtual void __thiscall asViewCS::Reset(void) | ?Reset@asViewCS@@UAEXXZ
-    0x52BF00 | public: virtual void __thiscall asViewCS::Update(void) | ?Update@asViewCS@@UAEXXZ
-    0x52BF80 | public: void __thiscall asViewCS::UpdatePolar(void) | ?UpdatePolar@asViewCS@@QAEXXZ
-    0x52C0C0 | public: void __thiscall asViewCS::UpdateRoam(void) | ?UpdateRoam@asViewCS@@QAEXXZ
-    0x52C1D0 | public: void __thiscall asViewCS::UpdatePOV(void) | ?UpdatePOV@asViewCS@@QAEXXZ
-    0x52C220 | public: void __thiscall asViewCS::UpdateLookAt(void) | ?UpdateLookAt@asViewCS@@QAEXXZ
-    0x52C280 | public: void __thiscall asViewCS::UpdateTrack(void) | ?UpdateTrack@asViewCS@@QAEXXZ
-    0x52C640 | public: void __thiscall asViewCS::UpdateStereo(void) | ?UpdateStereo@asViewCS@@QAEXXZ
-    0x52C770 | public: void __thiscall asViewCS::FileIO(class MiniParser *) | ?FileIO@asViewCS@@QAEXPAVMiniParser@@@Z
-    0x52C780 | public: virtual void __thiscall asViewCS::AddWidgets(class Bank *) | ?AddWidgets@asViewCS@@UAEXPAVBank@@@Z
-    0x52CC70 | public: static void __cdecl asViewCS::DeclareFields(void) | ?DeclareFields@asViewCS@@SAXXZ
-    0x52CDE0 | public: virtual class MetaClass * __thiscall asViewCS::GetClass(void) | ?GetClass@asViewCS@@UAEPAVMetaClass@@XZ
-    0x52CDF0 | public: virtual void * __thiscall asViewCS::`vector deleting destructor'(unsigned int) | ??_EasViewCS@@UAEPAXI@Z
-    0x52CE50 | public: virtual __thiscall asViewCS::~asViewCS(void) | ??1asViewCS@@UAE@XZ
-    0x620E40 | const asViewCS::`vftable' | ??_7asViewCS@@6B@
-    0x7909B8 | class MetaClass asViewCSMetaClass | ?asViewCSMetaClass@@3VMetaClass@@A
-*/
-
 #include "linear.h"
 
 class asViewCS final : public asLinearCS

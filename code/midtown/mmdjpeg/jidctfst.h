@@ -18,12 +18,6 @@
 
 #pragma once
 
-/*
-    mmdjpeg:jidctfst
-
-    0x583D40 | void __cdecl jpeg_idct_ifast(struct jpeg_decompress_struct *,struct jpeg_component_info *,short *,unsigned char * *,unsigned int) | ?jpeg_idct_ifast@@YAXPAUjpeg_decompress_struct@@PAUjpeg_component_info@@PAFPAPAEI@Z
-*/
-
 struct jpeg_component_info;
 struct jpeg_decompress_struct;
 

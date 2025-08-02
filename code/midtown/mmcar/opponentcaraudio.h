@@ -18,32 +18,6 @@
 
 #pragma once
 
-/*
-    mmcar:opponentcaraudio
-
-    0x47B950 | public: __thiscall mmOpponentCarAudio::mmOpponentCarAudio(class mmCarSim *) | ??0mmOpponentCarAudio@@QAE@PAVmmCarSim@@@Z
-    0x47B9C0 | public: virtual __thiscall mmOpponentCarAudio::~mmOpponentCarAudio(void) | ??1mmOpponentCarAudio@@UAE@XZ
-    0x47BA30 | public: void __thiscall mmOpponentCarAudio::Init(class mmCarSim *) | ?Init@mmOpponentCarAudio@@QAEXPAVmmCarSim@@@Z
-    0x47BB80 | public: void __thiscall mmOpponentCarAudio::PlayReverseBeep(void) | ?PlayReverseBeep@mmOpponentCarAudio@@QAEXXZ
-    0x47BBE0 | public: void __thiscall mmOpponentCarAudio::Update(int,float,float) | ?Update@mmOpponentCarAudio@@QAEXHMM@Z
-    0x47BC80 | public: void __thiscall mmOpponentCarAudio::CalculateDistToPlayer2(void) | ?CalculateDistToPlayer2@mmOpponentCarAudio@@QAEXXZ
-    0x47BD60 | public: void __thiscall mmOpponentCarAudio::CalculatePan(void) | ?CalculatePan@mmOpponentCarAudio@@QAEXXZ
-    0x47BDB0 | public: void __thiscall mmOpponentCarAudio::CalculateDoppler(float) | ?CalculateDoppler@mmOpponentCarAudio@@QAEXM@Z
-    0x47BDE0 | public: void __thiscall mmOpponentCarAudio::UpdateDoppler(void) | ?UpdateDoppler@mmOpponentCarAudio@@QAEXXZ
-    0x47BDF0 | public: void __thiscall mmOpponentCarAudio::UpdateDoppler(float) | ?UpdateDoppler@mmOpponentCarAudio@@QAEXM@Z
-    0x47BF00 | public: virtual void __thiscall mmOpponentCarAudio::Reset(void) | ?Reset@mmOpponentCarAudio@@UAEXXZ
-    0x47BF20 | public: void __thiscall mmOpponentCarAudio::LoadSucessful(class mmCarSim *) | ?LoadSucessful@mmOpponentCarAudio@@QAEXPAVmmCarSim@@@Z
-    0x47BF50 | public: void __thiscall mmOpponentCarAudio::AssignSounds(class AudSound *,class AudSound *,class mmOpponentImpactAudio *,class AudSound *) | ?AssignSounds@mmOpponentCarAudio@@QAEXPAVAudSound@@0PAVmmOpponentImpactAudio@@0@Z
-    0x47C020 | public: void __thiscall mmOpponentCarAudio::UnAssignSounds(void) | ?UnAssignSounds@mmOpponentCarAudio@@QAEXXZ
-    0x47C0C0 | public: void __thiscall mmOpponentCarAudio::SetMinAmpSpeed(float) | ?SetMinAmpSpeed@mmOpponentCarAudio@@QAEXM@Z
-    0x47C0E0 | public: static void __cdecl mmOpponentCarAudio::DeclareFields(void) | ?DeclareFields@mmOpponentCarAudio@@SAXXZ
-    0x47C2A0 | public: virtual class MetaClass * __thiscall mmOpponentCarAudio::GetClass(void) | ?GetClass@mmOpponentCarAudio@@UAEPAVMetaClass@@XZ
-    0x47C3D0 | public: virtual void * __thiscall mmOpponentCarAudio::`vector deleting destructor'(unsigned int) | ??_EmmOpponentCarAudio@@UAEPAXI@Z
-    0x47C430 | public: __thiscall mmOpponentCarAudio::mmOpponentCarAudio(void) | ??0mmOpponentCarAudio@@QAE@XZ
-    0x61C500 | const mmOpponentCarAudio::`vftable' | ??_7mmOpponentCarAudio@@6B@
-    0x6A7FF8 | class MetaClass mmOpponentCarAudioMetaClass | ?mmOpponentCarAudioMetaClass@@3VMetaClass@@A
-*/
-
 #include "arts7/node.h"
 
 class AudSound;

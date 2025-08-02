@@ -18,28 +18,6 @@
 
 #pragma once
 
-/*
-    data7:cache
-
-    0x576FC0 | public: __thiscall DataCache::DataCache(void) | ??0DataCache@@QAE@XZ
-    0x576FD0 | public: void __thiscall DataCache::Init(unsigned int,int,char *) | ?Init@DataCache@@QAEXIHPAD@Z
-    0x577070 | public: void __thiscall DataCache::Shutdown(void) | ?Shutdown@DataCache@@QAEXXZ
-    0x5770B0 | private: void __thiscall DataCache::Unload(int) | ?Unload@DataCache@@AAEXH@Z
-    0x5771A0 | private: void __thiscall DataCache::Relocate(struct DataCacheObject *,unsigned char *) | ?Relocate@DataCache@@AAEXPAUDataCacheObject@@PAE@Z
-    0x5771F0 | public: int __thiscall DataCache::Lock(int *) | ?Lock@DataCache@@QAEHPAH@Z
-    0x577290 | public: void __thiscall DataCache::Unlock(int) | ?Unlock@DataCache@@QAEXH@Z
-    0x577300 | public: void __thiscall DataCache::UnlockAndFree(int) | ?UnlockAndFree@DataCache@@QAEXH@Z
-    0x5773A0 | private: void __thiscall DataCache::CleanEndOfHeap(void) | ?CleanEndOfHeap@DataCache@@AAEXXZ
-    0x577410 | public: int __thiscall DataCache::BeginObject(int *,void (__cdecl*)(void *,int),void *,unsigned int) | ?BeginObject@DataCache@@QAEHPAHP6AXPAXH@Z1I@Z
-    0x5775C0 | private: void __thiscall DataCache::InitObject(int,int *,void (__cdecl*)(void *,int),void *,unsigned char *,unsigned int) | ?InitObject@DataCache@@AAEXHPAHP6AXPAXH@Z1PAEI@Z
-    0x577690 | public: void __thiscall DataCache::EndObject(int) | ?EndObject@DataCache@@QAEXH@Z
-    0x5776D0 | public: void __thiscall DataCache::Flush(void) | ?Flush@DataCache@@QAEXXZ
-    0x577750 | public: void __thiscall DataCache::Age(void) | ?Age@DataCache@@QAEXXZ
-    0x577920 | public: void * __thiscall DataCache::Allocate(int,unsigned int) | ?Allocate@DataCache@@QAEPAXHI@Z
-    0x5779D0 | public: void __thiscall DataCache::GetStatus(unsigned int &,unsigned int &,unsigned int &) | ?GetStatus@DataCache@@QAEXAAI00@Z
-    0x90A9B0 | class DataCache CACHE | ?CACHE@@3VDataCache@@A
-*/
-
 #include "mutex.h"
 
 using DataCacheCallback = void (*)(void* ctx, isize delta);

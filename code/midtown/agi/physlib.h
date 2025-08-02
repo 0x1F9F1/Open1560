@@ -18,14 +18,6 @@
 
 #pragma once
 
-/*
-    agi:physlib
-
-    0x557120 | public: __thiscall agiLib<class agiPhysParameters,class agiPhysDef>::agiLib<class agiPhysParameters,class agiPhysDef>(void) | ??0?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAE@XZ
-    0x557150 | public: __thiscall agiLib<class agiPhysParameters,class agiPhysDef>::~agiLib<class agiPhysParameters,class agiPhysDef>(void) | ??1?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAE@XZ
-    0x8FAFE8 | class agiLib<class agiPhysParameters,class agiPhysDef> agiPhysLib | ?agiPhysLib@@3V?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@A
-*/
-
 #include "agilib.h"
 
 #include "physdef.h"

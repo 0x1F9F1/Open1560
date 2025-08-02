@@ -18,19 +18,6 @@
 
 #pragma once
 
-/*
-    mmwidget:mstore
-
-    0x4AB7B0 | public: __thiscall MArray::MArray(void) | ??0MArray@@QAE@XZ
-    0x4AB7C0 | public: __thiscall MArray::~MArray(void) | ??1MArray@@QAE@XZ
-    0x4AB7D0 | public: void __thiscall MArray::Init(int) | ?Init@MArray@@QAEXH@Z
-    0x4AB810 | public: void __thiscall MArray::Write(char *) | ?Write@MArray@@QAEXPAD@Z
-    0x4ABB20 | public: void __thiscall MArray::Flush(void) | ?Flush@MArray@@QAEXXZ
-    0x4ABB30 | public: void __thiscall MArray::Read(char *) | ?Read@MArray@@QAEXPAD@Z
-    0x4ABCF0 | public: void __thiscall MArray::AddMenuData(int,class Vector4 &,char *) | ?AddMenuData@MArray@@QAEXHAAVVector4@@PAD@Z
-    0x4ABD60 | public: int __thiscall MArray::RetrieveMenuData(int,float &,float &,float &,float &) | ?RetrieveMenuData@MArray@@QAEHHAAM000@Z
-*/
-
 class MArray
 {
 public:

@@ -18,27 +18,6 @@
 
 #pragma once
 
-/*
-    mmdyna:poly
-
-    0x51A7E0 | public: __thiscall mmPolygon::mmPolygon(void) | ??0mmPolygon@@QAE@XZ
-    0x51A820 | private: void __thiscall mmPolygon::Init(void) | ?Init@mmPolygon@@AAEXXZ
-    0x51ADA0 | private: void __thiscall mmPolygon::GetST(class Vector3 *,class Vector3 *,class mmBoundTemplate *) | ?GetST@mmPolygon@@AAEXPAVVector3@@0PAVmmBoundTemplate@@@Z
-    0x51AEB0 | private: int __thiscall mmPolygon::FullSegment(class mmEdgeBodyIsect *) | ?FullSegment@mmPolygon@@AAEHPAVmmEdgeBodyIsect@@@Z
-    0x51B440 | private: int __thiscall mmPolygon::FullSegment(class mmIntersection *) | ?FullSegment@mmPolygon@@AAEHPAVmmIntersection@@@Z
-    0x51B990 | private: int __thiscall mmPolygon::GetCorner(class Vector3 &,class Vector3 &,class Vector3 &,class Vector3 &,class Vector3 &,class Vector3 &,float &) | ?GetCorner@mmPolygon@@AAEHAAVVector3@@00000AAM@Z
-    0x51BC80 | private: int __thiscall mmPolygon::FullSphere(class mmIntersection *) | ?FullSphere@mmPolygon@@AAEHPAVmmIntersection@@@Z
-    0x51C2A0 | private: void __thiscall mmPolygon::Draw(void) | ?Draw@mmPolygon@@AAEXXZ
-    0x51C320 | private: void __thiscall mmPolygon::Plot(class mmBoundTemplate *,int) | ?Plot@mmPolygon@@AAEXPAVmmBoundTemplate@@H@Z
-    0x51C380 | private: void __thiscall mmPolygon::PlotTriangle(int,int,int,class mmBoundTemplate *,int) | ?PlotTriangle@mmPolygon@@AAEXHHHPAVmmBoundTemplate@@H@Z
-    0x51CBD0 | private: void __thiscall mmPolygon::PlotScan(int,int,int,class mmBoundTemplate *,int) | ?PlotScan@mmPolygon@@AAEXHHHPAVmmBoundTemplate@@H@Z
-    0x51CC60 | private: float __thiscall mmPolygon::MaxY(float,float,float,float) | ?MaxY@mmPolygon@@AAEMMMMM@Z
-    0x51CDB0 | private: float __thiscall mmPolygon::CornersHeight(float,float,float,float) | ?CornersHeight@mmPolygon@@AAEMMMMM@Z
-    0x51CFD0 | private: float __thiscall mmPolygon::CheckCorner(float,float,float *,float *,float *) | ?CheckCorner@mmPolygon@@AAEMMMPAM00@Z
-    0x51D080 | private: float __thiscall mmPolygon::CheckCellXSide(float,float,float) | ?CheckCellXSide@mmPolygon@@AAEMMMM@Z
-    0x51D170 | private: float __thiscall mmPolygon::CheckCellZSide(float,float,float) | ?CheckCellZSide@mmPolygon@@AAEMMMM@Z
-*/
-
 #include "vector7/vector3.h"
 
 class mmBoundTemplate;

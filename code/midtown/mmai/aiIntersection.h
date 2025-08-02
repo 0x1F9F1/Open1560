@@ -18,24 +18,6 @@
 
 #pragma once
 
-/*
-    mmai:aiIntersection
-
-    0x4472E0 | public: __thiscall aiIntersection::aiIntersection(int) | ??0aiIntersection@@QAE@H@Z
-    0x447300 | public: __thiscall aiIntersection::~aiIntersection(void) | ??1aiIntersection@@QAE@XZ
-    0x447370 | public: void __thiscall aiIntersection::Init(void) | ?Init@aiIntersection@@QAEXXZ
-    0x447520 | public: void __thiscall aiIntersection::Reset(void) | ?Reset@aiIntersection@@QAEXXZ
-    0x447530 | public: void __thiscall aiIntersection::AddSinkPath(class aiPath *) | ?AddSinkPath@aiIntersection@@QAEXPAVaiPath@@@Z
-    0x4475A0 | public: void __thiscall aiIntersection::AddSourcePath(class aiPath *) | ?AddSourcePath@aiIntersection@@QAEXPAVaiPath@@@Z
-    0x447610 | public: void __thiscall aiIntersection::SaveBinary(class Stream *) | ?SaveBinary@aiIntersection@@QAEXPAVStream@@@Z
-    0x4476E0 | public: void __thiscall aiIntersection::ReadBinary(class Stream *) | ?ReadBinary@aiIntersection@@QAEXPAVStream@@@Z
-    0x447880 | public: void __thiscall aiIntersection::DrawPaths(void) | ?DrawPaths@aiIntersection@@QAEXXZ
-    0x4478B0 | public: void __thiscall aiIntersection::DrawId(void) | ?DrawId@aiIntersection@@QAEXXZ
-    0x4478F0 | public: void __thiscall aiIntersection::Dump(void) | ?Dump@aiIntersection@@QAEXXZ
-    0x447920 | public: void __thiscall aiIntersection::CreateRoadMap(void) | ?CreateRoadMap@aiIntersection@@QAEXXZ
-    0x447C50 | public: class aiPath * __thiscall aiIntersection::Path(int) | ?Path@aiIntersection@@QAEPAVaiPath@@H@Z
-*/
-
 #include "vector7/vector3.h"
 
 class aiPath;

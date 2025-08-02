@@ -18,12 +18,6 @@
 
 #pragma once
 
-/*
-    mminput:localize
-
-    0x4E7310 | struct LocString * __cdecl AngelReadKeyString(unsigned int) | ?AngelReadKeyString@@YAPAULocString@@I@Z
-*/
-
 #include "localize/localize.h"
 
 // ?AngelReadKeyString@@YAPAULocString@@I@Z

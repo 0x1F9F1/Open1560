@@ -18,28 +18,6 @@
 
 #pragma once
 
-/*
-    mmeffects:mmnumber
-
-    0x4FE660 | public: __thiscall mmNumberFont::mmNumberFont(void) | ??0mmNumberFont@@QAE@XZ
-    0x4FE730 | public: __thiscall mmNumberFont::~mmNumberFont(void) | ??1mmNumberFont@@QAE@XZ
-    0x4FE780 | public: void __thiscall mmNumberFont::LoadFont(char *,int,unsigned int) | ?LoadFont@mmNumberFont@@QAEXPADHI@Z
-    0x4FE880 | public: void __thiscall mmNumberFont::LoadLocFont(char *,struct LocString *,int,unsigned int) | ?LoadLocFont@mmNumberFont@@QAEXPADPAULocString@@HI@Z
-    0x4FEA10 | public: __thiscall mmNumber::mmNumber(void) | ??0mmNumber@@QAE@XZ
-    0x4FEAA0 | public: virtual __thiscall mmNumber::~mmNumber(void) | ??1mmNumber@@UAE@XZ
-    0x4FEAB0 | public: void __thiscall mmNumber::Init(class mmNumberFont *,float,float) | ?Init@mmNumber@@QAEXPAVmmNumberFont@@MM@Z
-    0x4FEB20 | public: void __thiscall mmNumber::SetString(char *) | ?SetString@mmNumber@@QAEXPAD@Z
-    0x4FEB50 | public: void __cdecl mmNumber::Printf(char const *,...) | ?Printf@mmNumber@@QAAXPBDZZ
-    0x4FEB70 | public: virtual void __thiscall mmNumber::Update(void) | ?Update@mmNumber@@UAEXXZ
-    0x4FEB90 | public: virtual void __thiscall mmNumber::Cull(void) | ?Cull@mmNumber@@UAEXXZ
-    0x4FECA0 | public: virtual void __thiscall mmNumber::AddWidgets(class Bank *) | ?AddWidgets@mmNumber@@UAEXPAVBank@@@Z
-    0x4FECB0 | public: static void __cdecl mmNumber::DeclareFields(void) | ?DeclareFields@mmNumber@@SAXXZ
-    0x4FEE20 | public: virtual class MetaClass * __thiscall mmNumber::GetClass(void) | ?GetClass@mmNumber@@UAEPAVMetaClass@@XZ
-    0x620618 | const mmNumber::`vftable' | ??_7mmNumber@@6B@
-    0x649C9C | char * NUMBERSTRING | ?NUMBERSTRING@@3PADA
-    0x719570 | class MetaClass mmNumberMetaClass | ?mmNumberMetaClass@@3VMetaClass@@A
-*/
-
 #include "arts7/node.h"
 
 // Rewritten using 1588+ logic

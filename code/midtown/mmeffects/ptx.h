@@ -18,28 +18,6 @@
 
 #pragma once
 
-/*
-    mmeffects:ptx
-
-    0x5000B0 | public: __thiscall asParticles::asParticles(void) | ??0asParticles@@QAE@XZ
-    0x500120 | public: virtual __thiscall asParticles::~asParticles(void) | ??1asParticles@@UAE@XZ
-    0x5001A0 | public: void __thiscall asParticles::Init(int,int,int,int,struct agiMeshCardVertex *) | ?Init@asParticles@@QAEXHHHHPAUagiMeshCardVertex@@@Z
-    0x500210 | public: virtual void __thiscall asParticles::Reset(void) | ?Reset@asParticles@@UAEXXZ
-    0x500220 | public: void __thiscall asParticles::SetTexture(class agiTexDef *) | ?SetTexture@asParticles@@QAEXPAVagiTexDef@@@Z
-    0x500250 | public: void __thiscall asParticles::SetTexture(char *) | ?SetTexture@asParticles@@QAEXPAD@Z
-    0x5002A0 | public: virtual void __thiscall asParticles::Update(void) | ?Update@asParticles@@UAEXXZ
-    0x5005F0 | public: void __thiscall asParticles::Blast(int,class asBirthRule *) | ?Blast@asParticles@@QAEXHPAVasBirthRule@@@Z
-    0x500690 | int __cdecl cmpPtx(void const *,void const *) | ?cmpPtx@@YAHPBX0@Z
-    0x5006B0 | public: virtual void __thiscall asParticles::Cull(void) | ?Cull@asParticles@@UAEXXZ
-    0x500750 | public: virtual void __thiscall asParticles::AddWidgets(class Bank *) | ?AddWidgets@asParticles@@UAEXPAVBank@@@Z
-    0x500830 | public: static void __cdecl asParticles::DeclareFields(void) | ?DeclareFields@asParticles@@SAXXZ
-    0x500990 | public: virtual class MetaClass * __thiscall asParticles::GetClass(void) | ?GetClass@asParticles@@UAEPAVMetaClass@@XZ
-    0x5009A0 | public: virtual void * __thiscall asParticles::`vector deleting destructor'(unsigned int) | ??_EasParticles@@UAEPAXI@Z
-    0x6206F0 | const asParticles::`vftable' | ??_7asParticles@@6B@
-    0x7195A8 | class MetaClass asParticlesMetaClass | ?asParticlesMetaClass@@3VMetaClass@@A
-    0x7195D0 | int EnablePtxSorting | ?EnablePtxSorting@@3HA
-*/
-
 #include "agiworld/meshrend.h"
 #include "arts7/node.h"
 #include "vector7/vector3.h"

@@ -18,13 +18,6 @@
 
 #pragma once
 
-/*
-    data7:utimer
-
-    0x57C4C0 | unsigned long __cdecl utimer(void) | ?utimer@@YAKXZ
-    0x90B4B4 | float ut2float | ?ut2float@@3MA
-*/
-
 using utimer_t = ulong;
 
 utimer_t adjust_utimer(f32 elapsed, utimer_t prev);

@@ -18,13 +18,6 @@
 
 #pragma once
 
-/*
-    mmwidget:compbase
-
-    0x4BF2D0 | public: virtual void __thiscall mmCompBase::Reset(void) | ?Reset@mmCompBase@@UAEXXZ
-    0x4BF2E0 | public: virtual void __thiscall mmCompBase::Update(void) | ?Update@mmCompBase@@UAEXXZ
-*/
-
 #include "arts7/node.h"
 
 union eqEvent;

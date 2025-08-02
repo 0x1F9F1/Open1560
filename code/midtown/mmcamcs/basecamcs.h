@@ -18,23 +18,6 @@
 
 #pragma once
 
-/*
-    mmcamcs:basecamcs
-
-    0x4FBE00 | public: __thiscall BaseCamCS::BaseCamCS(void) | ??0BaseCamCS@@QAE@XZ
-    0x4FBEA0 | public: virtual __thiscall BaseCamCS::~BaseCamCS(void) | ??1BaseCamCS@@UAE@XZ
-    0x4FBEB0 | public: virtual void __thiscall BaseCamCS::AfterLoad(void) | ?AfterLoad@BaseCamCS@@UAEXXZ
-    0x4FBEC0 | public: int __thiscall BaseCamCS::IsViewCSInTransition(void) | ?IsViewCSInTransition@BaseCamCS@@QAEHXZ
-    0x4FBEF0 | public: void __thiscall BaseCamCS::UpdateView(void) | ?UpdateView@BaseCamCS@@QAEXXZ
-    0x4FBF40 | public: virtual void __thiscall BaseCamCS::AddWidgets(class Bank *) | ?AddWidgets@BaseCamCS@@UAEXPAVBank@@@Z
-    0x4FC090 | public: virtual void __thiscall BaseCamCS::ForceMatrixDelta(class Vector3 const &) | ?ForceMatrixDelta@BaseCamCS@@UAEXABVVector3@@@Z
-    0x4FC0E0 | public: static void __cdecl BaseCamCS::DeclareFields(void) | ?DeclareFields@BaseCamCS@@SAXXZ
-    0x4FC2C0 | public: virtual class MetaClass * __thiscall BaseCamCS::GetClass(void) | ?GetClass@BaseCamCS@@UAEPAVMetaClass@@XZ
-    0x4FC2D0 | public: virtual void * __thiscall BaseCamCS::`vector deleting destructor'(unsigned int) | ??_EBaseCamCS@@UAEPAXI@Z
-    0x620488 | const BaseCamCS::`vftable' | ??_7BaseCamCS@@6B@
-    0x7194F8 | class MetaClass BaseCamCSMetaClass | ?BaseCamCSMetaClass@@3VMetaClass@@A
-*/
-
 #include "arts7/node.h"
 
 class BaseCamCS : public asNode

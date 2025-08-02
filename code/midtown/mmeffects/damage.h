@@ -18,16 +18,6 @@
 
 #pragma once
 
-/*
-    mmeffects:damage
-
-    0x502220 | public: __thiscall mmDamage::mmDamage(void) | ??0mmDamage@@QAE@XZ
-    0x502230 | public: __thiscall mmDamage::~mmDamage(void) | ??1mmDamage@@QAE@XZ
-    0x502240 | public: void __thiscall mmDamage::Init(class agiMeshSet *) | ?Init@mmDamage@@QAEXPAVagiMeshSet@@@Z
-    0x502420 | public: void __thiscall mmDamage::Reset(int) | ?Reset@mmDamage@@QAEXH@Z
-    0x502470 | public: void __thiscall mmDamage::Apply(class Vector3 &,float) | ?Apply@mmDamage@@QAEXAAVVector3@@M@Z
-*/
-
 class agiMeshSet;
 
 struct mmDamage

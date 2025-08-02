@@ -18,34 +18,6 @@
 
 #pragma once
 
-/*
-    mmwidget:sliderbar
-
-    0x4BE6A0 | public: __thiscall mmSlider::mmSlider(void) | ??0mmSlider@@QAE@XZ
-    0x4BE730 | public: virtual __thiscall mmSlider::~mmSlider(void) | ??1mmSlider@@UAE@XZ
-    0x4BE7D0 | public: void __thiscall mmSlider::Init(char *,class uiWidget *,float,float,float,float,int,float,float,int,int) | ?Init@mmSlider@@QAEXPADPAVuiWidget@@MMMMHMMHH@Z
-    0x4BE830 | public: void __thiscall mmSlider::LoadBitmap(char *) | ?LoadBitmap@mmSlider@@QAEXPAD@Z
-    0x4BE9E0 | public: void __thiscall mmSlider::SetReadWrite(int) | ?SetReadWrite@mmSlider@@QAEXH@Z
-    0x4BEA00 | public: int __thiscall mmSlider::IsReadWrite(void) | ?IsReadWrite@mmSlider@@QAEHXZ
-    0x4BEA10 | public: float __thiscall mmSlider::SetValue(float) | ?SetValue@mmSlider@@QAEMM@Z
-    0x4BEA70 | public: float __thiscall mmSlider::GetScreenHeight(void) | ?GetScreenHeight@mmSlider@@QAEMXZ
-    0x4BEAA0 | public: float __thiscall mmSlider::FudgeWidth(void) | ?FudgeWidth@mmSlider@@QAEMXZ
-    0x4BEAD0 | public: void __thiscall mmSlider::SetPosition(float,float) | ?SetPosition@mmSlider@@QAEXMM@Z
-    0x4BEAF0 | public: void __thiscall mmSlider::GetSliderHotSpots(float &,float &,float &,float &,float &,float &) | ?GetSliderHotSpots@mmSlider@@QAEXAAM00000@Z
-    0x4BEBC0 | public: void __thiscall mmSlider::UpdatePosition(void) | ?UpdatePosition@mmSlider@@QAEXXZ
-    0x4BEBF0 | public: float __thiscall mmSlider::Inc(void) | ?Inc@mmSlider@@QAEMXZ
-    0x4BEC10 | public: float __thiscall mmSlider::Dec(void) | ?Dec@mmSlider@@QAEMXZ
-    0x4BEC30 | public: void __thiscall mmSlider::SetStep(float) | ?SetStep@mmSlider@@QAEXM@Z
-    0x4BECB0 | public: void __thiscall mmSlider::SetRange(float,float) | ?SetRange@mmSlider@@QAEXMM@Z
-    0x4BED20 | public: virtual void __thiscall mmSlider::Update(void) | ?Update@mmSlider@@UAEXXZ
-    0x4BED40 | public: virtual void __thiscall mmSlider::Cull(void) | ?Cull@mmSlider@@UAEXXZ
-    0x4BEF00 | public: static void __cdecl mmSlider::DeclareFields(void) | ?DeclareFields@mmSlider@@SAXXZ
-    0x4BF070 | public: virtual class MetaClass * __thiscall mmSlider::GetClass(void) | ?GetClass@mmSlider@@UAEPAVMetaClass@@XZ
-    0x4BF080 | public: virtual void * __thiscall mmSlider::`vector deleting destructor'(unsigned int) | ??_EmmSlider@@UAEPAXI@Z
-    0x61F140 | const mmSlider::`vftable' | ??_7mmSlider@@6B@
-    0x705CA0 | class MetaClass mmSliderMetaClass | ?mmSliderMetaClass@@3VMetaClass@@A
-*/
-
 #include "arts7/node.h"
 
 class uiWidget;

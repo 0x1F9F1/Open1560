@@ -18,19 +18,6 @@
 
 #pragma once
 
-/*
-    data7:base
-
-    0x5791A0 | public: virtual char * __thiscall Base::GetTypeNameV(void) | ?GetTypeNameV@Base@@UAEPADXZ
-    0x5791B0 | public: char * __thiscall Base::GetTypeName(void) | ?GetTypeName@Base@@QAEPADXZ
-    0x5791C0 | public: virtual void __thiscall Base::BeforeSave(void) | ?BeforeSave@Base@@UAEXXZ
-    0x5791D0 | public: virtual void __thiscall Base::AfterLoad(void) | ?AfterLoad@Base@@UAEXXZ
-    0x5791E0 | public: virtual __thiscall Base::~Base(void) | ??1Base@@UAE@XZ
-    0x5791F0 | public: static void __cdecl Base::DeclareFields(void) | ?DeclareFields@Base@@SAXXZ
-    0x579290 | public: virtual class MetaClass * __thiscall Base::GetClass(void) | ?GetClass@Base@@UAEPAVMetaClass@@XZ
-    0x90B100 | class MetaClass BaseMetaClass | ?BaseMetaClass@@3VMetaClass@@A
-*/
-
 #include "metadeclare.h"
 
 class Base

@@ -18,18 +18,6 @@
 
 #pragma once
 
-/*
-    agi:palette
-
-    0x55C090 | public: __thiscall agiPalette::agiPalette(void) | ??0agiPalette@@QAE@XZ
-    0x55C0B0 | public: void __thiscall agiPalette::Kill(void) | ?Kill@agiPalette@@QAEXXZ
-    0x55C0F0 | public: void __thiscall agiPalette::Cube(void) | ?Cube@agiPalette@@QAEXXZ
-    0x55C180 | public: void __thiscall agiPalette::Load(char *) | ?Load@agiPalette@@QAEXPAD@Z
-    0x55C310 | public: unsigned int __thiscall agiPalette::GetColor(struct agiRgba) | ?GetColor@agiPalette@@QAEIUagiRgba@@@Z
-    0x55C3A0 | public: unsigned int __thiscall agiPalette::FindColor(struct agiRgba) | ?FindColor@agiPalette@@QAEIUagiRgba@@@Z
-    0x907238 | class agiPalette agiPal | ?agiPal@@3VagiPalette@@A
-*/
-
 struct agiRgba;
 
 class agiPalette

@@ -18,16 +18,6 @@
 
 #pragma once
 
-/*
-    mmui:pu_exit
-
-    0x4AAAA0 | public: __thiscall PUExit::PUExit(int,float,float,float,float,char *) | ??0PUExit@@QAE@HMMMMPAD@Z
-    0x4AABE0 | public: virtual __thiscall PUExit::~PUExit(void) | ??1PUExit@@UAE@XZ
-    0x4AABF0 | public: virtual void * __thiscall PUExit::`vector deleting destructor'(unsigned int) | ??_EPUExit@@UAEPAXI@Z
-    0x4AABF0 | public: virtual void * __thiscall PUExit::`scalar deleting destructor'(unsigned int) | ??_GPUExit@@UAEPAXI@Z
-    0x61E0F8 | const PUExit::`vftable' | ??_7PUExit@@6B@
-*/
-
 #include "pu_menu.h"
 
 class PUExit final : public PUMenuBase

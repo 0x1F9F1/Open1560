@@ -18,21 +18,6 @@
 
 #pragma once
 
-/*
-    vector7:trigmath
-
-    0x573250 | float __cdecl tanf_fast(float) | ?tanf_fast@@YAMM@Z
-    0x5732C0 | float __cdecl atanf_fast_large_values(float) | ?atanf_fast_large_values@@YAMM@Z
-    0x5732F0 | float __cdecl atanf_fast(float) | ?atanf_fast@@YAMM@Z
-    0x573370 | float __cdecl atanf_faster(float) | ?atanf_faster@@YAMM@Z
-    0x5733D0 | float __cdecl atan2f_fast(float,float) | ?atan2f_fast@@YAMMM@Z
-    0x573450 | float __cdecl atan2f_faster(float,float) | ?atan2f_faster@@YAMMM@Z
-    0x65A548 | float * asintable | ?asintable@@3PAMA
-    0x65E878 | float * TRIGMATH_COSTABLE | ?TRIGMATH_COSTABLE@@3PAMA
-    0x65F8A0 | float * TRIGMATH_TANTABLE | ?TRIGMATH_TANTABLE@@3PAMA
-    0x6608C8 | float * TRIGMATH_ATANTABLE | ?TRIGMATH_ATANTABLE@@3PAMA
-*/
-
 // ?ASinf@@YAMM@Z | inline
 ARTS_IMPORT f32 ASinf(f32 arg1);
 

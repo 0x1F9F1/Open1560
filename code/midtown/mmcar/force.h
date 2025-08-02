@@ -18,23 +18,6 @@
 
 #pragma once
 
-/*
-    mmcar:force
-
-    0x480BE0 | public: __thiscall mmForce::mmForce(void) | ??0mmForce@@QAE@XZ
-    0x480C00 | public: virtual void __thiscall mmForce::Update(void) | ?Update@mmForce@@UAEXXZ
-    0x480E10 | public: virtual void __thiscall mmForce::AddWidgets(class Bank *) | ?AddWidgets@mmForce@@UAEXPAVBank@@@Z
-    0x480E20 | public: static void __cdecl mmForce::DeclareFields(void) | ?DeclareFields@mmForce@@SAXXZ
-    0x480F80 | public: virtual class MetaClass * __thiscall mmForce::GetClass(void) | ?GetClass@mmForce@@UAEPAVMetaClass@@XZ
-    0x480F90 | public: virtual void * __thiscall mmForce::`vector deleting destructor'(unsigned int) | ??_EmmForce@@UAEPAXI@Z
-    0x61C850 | const mmForce::`vftable' | ??_7mmForce@@6B@
-    0x63C9EC | float YDownForceMinHeight | ?YDownForceMinHeight@@3MA
-    0x63C9F0 | float YDownForceMaxHeight | ?YDownForceMaxHeight@@3MA
-    0x63C9F4 | float YDownForceMin | ?YDownForceMin@@3MA
-    0x63C9F8 | float YDownForceMax | ?YDownForceMax@@3MA
-    0x6A8148 | class MetaClass mmForceMetaClass | ?mmForceMetaClass@@3VMetaClass@@A
-*/
-
 #include "arts7/node.h"
 
 class mmForce final : public asNode

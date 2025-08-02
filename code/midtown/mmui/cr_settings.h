@@ -18,37 +18,6 @@
 
 #pragma once
 
-/*
-    mmui:cr_settings
-
-    0x4A0550 | public: __thiscall CRSettings::CRSettings(int) | ??0CRSettings@@QAE@H@Z
-    0x4A0E90 | public: virtual __thiscall CRSettings::~CRSettings(void) | ??1CRSettings@@UAE@XZ
-    0x4A0F10 | public: void __thiscall CRSettings::SettingsCB(void) | ?SettingsCB@CRSettings@@QAEXXZ
-    0x4A0F20 | public: void __thiscall CRSettings::SetTeam(void) | ?SetTeam@CRSettings@@QAEXXZ
-    0x4A0F40 | public: void __thiscall CRSettings::SetTeamWidget(void) | ?SetTeamWidget@CRSettings@@QAEXXZ
-    0x4A0F50 | public: void __thiscall CRSettings::SetHost(int) | ?SetHost@CRSettings@@QAEXH@Z
-    0x4A1050 | public: void __thiscall CRSettings::InitPlayerRecord(void) | ?InitPlayerRecord@CRSettings@@QAEXXZ
-    0x4A1120 | public: int __thiscall CRSettings::AddPlayerRecord(char *,int,int,char *) | ?AddPlayerRecord@CRSettings@@QAEHPADHH0@Z
-    0x4A1260 | public: void __thiscall CRSettings::SetPlayerScore(int,int) | ?SetPlayerScore@CRSettings@@QAEXHH@Z
-    0x4A12A0 | public: void __thiscall CRSettings::ResetPlayerRecord(void) | ?ResetPlayerRecord@CRSettings@@QAEXXZ
-    0x4A1330 | public: void __thiscall CRSettings::SetLimitControl(void) | ?SetLimitControl@CRSettings@@QAEXXZ
-    0x4A1490 | public: int __thiscall CRSettings::EncodeCRData(void) | ?EncodeCRData@CRSettings@@QAEHXZ
-    0x4A14E0 | public: void __thiscall CRSettings::DecodeCRData(int) | ?DecodeCRData@CRSettings@@QAEXH@Z
-    0x4A1550 | public: void __thiscall CRSettings::GetLimit(int &,int &) | ?GetLimit@CRSettings@@QAEXAAH0@Z
-    0x4A15A0 | public: void __thiscall CRSettings::SetLimit(int &,int &) | ?SetLimit@CRSettings@@QAEXAAH0@Z
-    0x4A1620 | public: void __thiscall CRSettings::SetGoldMass(int) | ?SetGoldMass@CRSettings@@QAEXH@Z
-    0x4A1650 | public: int __thiscall CRSettings::GetGoldMass(void) | ?GetGoldMass@CRSettings@@QAEHXZ
-    0x4A1660 | public: int __thiscall CRSettings::GetLimitVal(int &) | ?GetLimitVal@CRSettings@@QAEHAAH@Z
-    0x4A16B0 | public: int __thiscall CRSettings::GetGoldMassVal(void) | ?GetGoldMassVal@CRSettings@@QAEHXZ
-    0x4A16C0 | public: void __thiscall CRSettings::SetGameClassCallback(void) | ?SetGameClassCallback@CRSettings@@QAEXXZ
-    0x4A16E0 | public: void __thiscall CRSettings::SetTeamWidgets(void) | ?SetTeamWidgets@CRSettings@@QAEXXZ
-    0x4A1760 | public: virtual void * __thiscall CRSettings::`scalar deleting destructor'(unsigned int) | ??_GCRSettings@@UAEPAXI@Z
-    0x4A1760 | public: virtual void * __thiscall CRSettings::`vector deleting destructor'(unsigned int) | ??_ECRSettings@@UAEPAXI@Z
-    0x61D870 | const CRSettings::`vftable' | ??_7CRSettings@@6B@
-    0x640A60 | int * GameType_PenaltyTable | ?GameType_PenaltyTable@@3PAHA
-    0x640A88 | int * Limit_ValueTable | ?Limit_ValueTable@@3PAHA
-*/
-
 #include "mmwidget/menu.h"
 
 class CRSettings final : public UIMenu

@@ -18,18 +18,6 @@
 
 #pragma once
 
-/*
-    mminput:effect
-
-    0x4E7350 | int __stdcall inputEnumEffectTypeProc(struct DIEFFECTINFOA const *,void *) | ?inputEnumEffectTypeProc@@YGHPBUDIEFFECTINFOA@@PAX@Z
-    0x4E73B0 | public: __thiscall mmEffectFF::mmEffectFF(void) | ??0mmEffectFF@@QAE@XZ
-    0x4E7420 | public: __thiscall mmEffectFF::~mmEffectFF(void) | ??1mmEffectFF@@QAE@XZ
-    0x4E7440 | public: virtual int __thiscall mmEffectFF::Play(void) | ?Play@mmEffectFF@@UAEHXZ
-    0x4E7450 | public: virtual int __thiscall mmEffectFF::Stop(void) | ?Stop@mmEffectFF@@UAEHXZ
-    0x4E7460 | public: virtual int __thiscall mmEffectFF::SetValues(float,float) | ?SetValues@mmEffectFF@@UAEHMM@Z
-    0x61FD10 | const mmEffectFF::`vftable' | ??_7mmEffectFF@@6B@
-*/
-
 struct DIEFFECTINFOA;
 struct IDirectInputDevice2A;
 

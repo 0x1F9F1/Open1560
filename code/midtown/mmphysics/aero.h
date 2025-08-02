@@ -18,21 +18,6 @@
 
 #pragma once
 
-/*
-    mmphysics:aero
-
-    0x4DFC10 | public: __thiscall asAero::asAero(void) | ??0asAero@@QAE@XZ
-    0x4DFC70 | public: virtual void __thiscall asAero::Update(void) | ?Update@asAero@@UAEXXZ
-    0x4E0130 | public: void __thiscall asAero::Load(class Stream *) | ?Load@asAero@@QAEXPAVStream@@@Z
-    0x4E0200 | public: void __thiscall asAero::Save(class Stream *) | ?Save@asAero@@QAEXPAVStream@@@Z
-    0x4E0330 | public: virtual void __thiscall asAero::AddWidgets(class Bank *) | ?AddWidgets@asAero@@UAEXPAVBank@@@Z
-    0x4E0490 | public: static void __cdecl asAero::DeclareFields(void) | ?DeclareFields@asAero@@SAXXZ
-    0x4E0670 | public: virtual class MetaClass * __thiscall asAero::GetClass(void) | ?GetClass@asAero@@UAEPAVMetaClass@@XZ
-    0x4E0680 | public: virtual void * __thiscall asAero::`vector deleting destructor'(unsigned int) | ??_EasAero@@UAEPAXI@Z
-    0x61FBF8 | const asAero::`vftable' | ??_7asAero@@6B@
-    0x7191F8 | class MetaClass asAeroMetaClass | ?asAeroMetaClass@@3VMetaClass@@A
-*/
-
 #include "arts7/node.h"
 
 class asAero final : public asNode

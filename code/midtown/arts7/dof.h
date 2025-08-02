@@ -18,24 +18,6 @@
 
 #pragma once
 
-/*
-    arts7:dof
-
-    0x52ACF0 | public: __thiscall asDofCS::asDofCS(void) | ??0asDofCS@@QAE@XZ
-    0x52ADE0 | public: void __thiscall asDofCS::operator=(class asDofCS const &) | ??4asDofCS@@QAEXABV0@@Z
-    0x52AF20 | public: virtual void __thiscall asDofCS::Reset(void) | ?Reset@asDofCS@@UAEXXZ
-    0x52AF50 | public: void __thiscall asDofCS::SetTime(float,float,int) | ?SetTime@asDofCS@@QAEXMMH@Z
-    0x52AFC0 | public: virtual void __thiscall asDofCS::Update(void) | ?Update@asDofCS@@UAEXXZ
-    0x52B5D0 | public: void __thiscall asDofCS::FileIO(class MiniParser *) | ?FileIO@asDofCS@@QAEXPAVMiniParser@@@Z
-    0x52B5E0 | protected: void __thiscall asDofCS::ModeCB(void) | ?ModeCB@asDofCS@@IAEXXZ
-    0x52B600 | public: virtual void __thiscall asDofCS::AddWidgets(class Bank *) | ?AddWidgets@asDofCS@@UAEXPAVBank@@@Z
-    0x52B9F0 | public: static void __cdecl asDofCS::DeclareFields(void) | ?DeclareFields@asDofCS@@SAXXZ
-    0x52BB60 | public: virtual class MetaClass * __thiscall asDofCS::GetClass(void) | ?GetClass@asDofCS@@UAEPAVMetaClass@@XZ
-    0x52BB70 | public: void __thiscall Vector3::Add(class Vector3 const &,class Vector3 const &) | ?Add@Vector3@@QAEXABV1@0@Z
-    0x620DF8 | const asDofCS::`vftable' | ??_7asDofCS@@6B@
-    0x790990 | class MetaClass asDofCSMetaClass | ?asDofCSMetaClass@@3VMetaClass@@A
-*/
-
 #include "linear.h"
 
 class asDofCS final : public asLinearCS

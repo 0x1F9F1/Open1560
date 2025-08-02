@@ -18,31 +18,6 @@
 
 #pragma once
 
-/*
-    mmcity:ped
-
-    0x497800 | public: __thiscall mmPed::mmPed(void) | ??0mmPed@@QAE@XZ
-    0x497820 | public: void __thiscall mmPed::Init(char *,class Vector3 &) | ?Init@mmPed@@QAEXPADAAVVector3@@@Z
-    0x4978B0 | public: virtual __thiscall mmPed::~mmPed(void) | ??1mmPed@@UAE@XZ
-    0x4978C0 | public: void __thiscall mmPed::Update(void) | ?Update@mmPed@@QAEXXZ
-    0x4978E0 | public: virtual void __fastcall mmPed::Draw(int) | ?Draw@mmPed@@UAIXH@Z
-    0x497930 | public: virtual class Matrix34 & __fastcall mmPed::ToMatrix(class Matrix34 &) | ?ToMatrix@mmPed@@UAIAAVMatrix34@@AAV2@@Z
-    0x497980 | public: __thiscall mmPedManager::mmPedManager(void) | ??0mmPedManager@@QAE@XZ
-    0x4979A0 | public: virtual __thiscall mmPedManager::~mmPedManager(void) | ??1mmPedManager@@UAE@XZ
-    0x4979B0 | public: void __thiscall mmPedManager::Init(int) | ?Init@mmPedManager@@QAEXH@Z
-    0x497A60 | public: virtual void __thiscall mmPedManager::Update(void) | ?Update@mmPedManager@@UAEXXZ
-    0x497A90 | public: static void __cdecl mmPed::DeclareFields(void) | ?DeclareFields@mmPed@@SAXXZ
-    0x497C10 | public: virtual class MetaClass * __thiscall mmPed::GetClass(void) | ?GetClass@mmPed@@UAEPAVMetaClass@@XZ
-    0x497C20 | public: static void __cdecl mmPedManager::DeclareFields(void) | ?DeclareFields@mmPedManager@@SAXXZ
-    0x497D80 | public: virtual class MetaClass * __thiscall mmPedManager::GetClass(void) | ?GetClass@mmPedManager@@UAEPAVMetaClass@@XZ
-    0x497D90 | public: virtual void * __thiscall mmPed::`vector deleting destructor'(unsigned int) | ??_EmmPed@@UAEPAXI@Z
-    0x497DF0 | public: virtual void * __thiscall mmPedManager::`vector deleting destructor'(unsigned int) | ??_EmmPedManager@@UAEPAXI@Z
-    0x61D268 | const mmPed::`vftable' | ??_7mmPed@@6B@
-    0x61D2D0 | const mmPedManager::`vftable' | ??_7mmPedManager@@6B@
-    0x705740 | class MetaClass mmPedManagerMetaClass | ?mmPedManagerMetaClass@@3VMetaClass@@A
-    0x705768 | class MetaClass mmPedMetaClass | ?mmPedMetaClass@@3VMetaClass@@A
-*/
-
 #include "arts7/node.h"
 #include "inst.h"
 

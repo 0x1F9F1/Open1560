@@ -18,20 +18,6 @@
 
 #pragma once
 
-/*
-    mmcar:axle
-
-    0x47D480 | public: __thiscall mmAxle::mmAxle(void) | ??0mmAxle@@QAE@XZ
-    0x47D4A0 | public: void __thiscall mmAxle::Init(char *,char *,class mmWheel *,class mmWheel *) | ?Init@mmAxle@@QAEXPAD0PAVmmWheel@@1@Z
-    0x47D4F0 | public: virtual void __thiscall mmAxle::Update(void) | ?Update@mmAxle@@UAEXXZ
-    0x47D590 | public: virtual void __thiscall mmAxle::AddWidgets(class Bank *) | ?AddWidgets@mmAxle@@UAEXPAVBank@@@Z
-    0x47D5B0 | public: static void __cdecl mmAxle::DeclareFields(void) | ?DeclareFields@mmAxle@@SAXXZ
-    0x47D720 | public: virtual class MetaClass * __thiscall mmAxle::GetClass(void) | ?GetClass@mmAxle@@UAEPAVMetaClass@@XZ
-    0x47D730 | public: virtual void * __thiscall mmAxle::`vector deleting destructor'(unsigned int) | ??_EmmAxle@@UAEPAXI@Z
-    0x61C680 | const mmAxle::`vftable' | ??_7mmAxle@@6B@
-    0x6A8080 | class MetaClass mmAxleMetaClass | ?mmAxleMetaClass@@3VMetaClass@@A
-*/
-
 #include "arts7/linear.h"
 
 class mmWheel;

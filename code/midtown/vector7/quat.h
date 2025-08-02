@@ -18,22 +18,6 @@
 
 #pragma once
 
-/*
-    vector7:quat
-
-    0x572550 | public: void __thiscall Quaternion::Init(float,float,float,float) | ?Init@Quaternion@@QAEXMMMM@Z
-    0x5726A0 | public: void __thiscall Quaternion::FromMatrix(class Matrix34 const &) | ?FromMatrix@Quaternion@@QAEXABVMatrix34@@@Z
-    0x5727F0 | public: class Quaternion __thiscall Quaternion::operator~(void) const | ??SQuaternion@@QBE?AV0@XZ
-    0x572890 | public: float __thiscall Quaternion::Mag(void) const | ?Mag@Quaternion@@QBEMXZ
-    0x572960 | public: void __thiscall Quaternion::Normalize(void) | ?Normalize@Quaternion@@QAEXXZ
-    0x5729C0 | public: float __thiscall Quaternion::Angle(class Quaternion const &) const | ?Angle@Quaternion@@QBEMABV1@@Z
-    0x572A30 | public: void __thiscall Quaternion::TrackBall(float,float,float,float,float) | ?TrackBall@Quaternion@@QAEXMMMMM@Z
-    0x572CE0 | public: void __thiscall Quaternion::Lerp(float,class Quaternion const &,class Quaternion const &) | ?Lerp@Quaternion@@QAEXMABV1@0@Z
-    0x572F60 | public: void __thiscall Quaternion::Slerp(float,class Quaternion const &,class Quaternion const &) | ?Slerp@Quaternion@@QAEXMABV1@0@Z
-    0x573120 | public: int __thiscall Quaternion::Approach(class Quaternion const &,float,float) | ?Approach@Quaternion@@QAEHABV1@MM@Z
-    0x5731A0 | public: void __thiscall Quaternion::CatmullRom(float,class Quaternion const &,class Quaternion const &,class Quaternion const &,class Quaternion const &) | ?CatmullRom@Quaternion@@QAEXMABV1@000@Z
-*/
-
 class Quaternion
 {
 public:

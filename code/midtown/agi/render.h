@@ -18,14 +18,6 @@
 
 #pragma once
 
-/*
-    agi:render
-
-    0x55DD80 | public: __thiscall agiRenderer::agiRenderer(void) | ??0agiRenderer@@QAE@XZ
-    0x907868 | struct agiCardStateStruct agiLastCardState | ?agiLastCardState@@3UagiCardStateStruct@@A
-    0x907898 | class agiCardState agiCurCardState | ?agiCurCardState@@3VagiCardState@@A
-*/
-
 class agiCardState;
 class agiCardStateStruct;
 union agiVtx;

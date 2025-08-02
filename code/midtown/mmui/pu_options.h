@@ -18,16 +18,6 @@
 
 #pragma once
 
-/*
-    mmui:pu_options
-
-    0x4AA5E0 | public: __thiscall PUOptions::PUOptions(int,float,float,float,float) | ??0PUOptions@@QAE@HMMMM@Z
-    0x4AA750 | public: virtual __thiscall PUOptions::~PUOptions(void) | ??1PUOptions@@UAE@XZ
-    0x4AA760 | public: virtual void * __thiscall PUOptions::`vector deleting destructor'(unsigned int) | ??_EPUOptions@@UAEPAXI@Z
-    0x4AA760 | public: virtual void * __thiscall PUOptions::`scalar deleting destructor'(unsigned int) | ??_GPUOptions@@UAEPAXI@Z
-    0x61E050 | const PUOptions::`vftable' | ??_7PUOptions@@6B@
-*/
-
 #include "pu_menu.h"
 
 class PUOptions final : public PUMenuBase

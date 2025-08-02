@@ -18,13 +18,6 @@
 
 #pragma once
 
-/*
-    data7:pager
-
-    0x90A9F0 | class ipcMessageQueue PAGER | ?PAGER@@3VipcMessageQueue@@A
-    0x90AA18 | int EnablePaging | ?EnablePaging@@3HA
-*/
-
 class ipcMessageQueue;
 
 struct PagerInfo_t

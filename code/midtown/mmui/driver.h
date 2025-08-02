@@ -18,32 +18,6 @@
 
 #pragma once
 
-/*
-    mmui:driver
-
-    0x4A5350 | public: __thiscall DriverMenu::DriverMenu(int) | ??0DriverMenu@@QAE@H@Z
-    0x4A5430 | public: virtual void __thiscall DriverMenu::PreSetup(void) | ?PreSetup@DriverMenu@@UAEXXZ
-    0x4A5460 | public: void __thiscall DriverMenu::InitPlayerSelection(void) | ?InitPlayerSelection@DriverMenu@@QAEXXZ
-    0x4A5850 | public: virtual __thiscall DriverMenu::~DriverMenu(void) | ??1DriverMenu@@UAE@XZ
-    0x4A58C0 | public: void __thiscall DriverMenu::RemovePlayer(char *) | ?RemovePlayer@DriverMenu@@QAEXPAD@Z
-    0x4A5B00 | public: void __thiscall DriverMenu::SetPlayerPick(int) | ?SetPlayerPick@DriverMenu@@QAEXH@Z
-    0x4A5B10 | public: void __thiscall DriverMenu::DecPlayer(void) | ?DecPlayer@DriverMenu@@QAEXXZ
-    0x4A5B40 | public: void __thiscall DriverMenu::IncPlayer(void) | ?IncPlayer@DriverMenu@@QAEXXZ
-    0x4A5B70 | public: void __thiscall DriverMenu::RemoveAllPlayers(void) | ?RemoveAllPlayers@DriverMenu@@QAEXXZ
-    0x4A5B80 | public: void __thiscall DriverMenu::AddPlayer(char *) | ?AddPlayer@DriverMenu@@QAEXPAD@Z
-    0x4A5C90 | public: void __thiscall DriverMenu::TDPickCB(void) | ?TDPickCB@DriverMenu@@QAEXXZ
-    0x4A5CA0 | public: void __thiscall DriverMenu::DeleteCB(void) | ?DeleteCB@DriverMenu@@QAEXXZ
-    0x4A5CB0 | public: void __thiscall DriverMenu::NewPlayer(void) | ?NewPlayer@DriverMenu@@QAEXXZ
-    0x4A5CC0 | public: char * __thiscall DriverMenu::GetNewDriverName(void) | ?GetNewDriverName@DriverMenu@@QAEPADXZ
-    0x4A5CD0 | public: void __thiscall DriverMenu::EnterNewPlayer(void) | ?EnterNewPlayer@DriverMenu@@QAEXXZ
-    0x4A5CE0 | public: void __thiscall DriverMenu::DisplayDriverInfo(char *,char *,char *,char *,char *,int) | ?DisplayDriverInfo@DriverMenu@@QAEXPAD0000H@Z
-    0x4A5DA0 | public: void __thiscall DriverMenu::SetController(char *) | ?SetController@DriverMenu@@QAEXPAD@Z
-    0x4A5DC0 | public: void __thiscall DriverMenu::SetNetName(char *) | ?SetNetName@DriverMenu@@QAEXPAD@Z
-    0x4A5E00 | public: virtual void * __thiscall DriverMenu::`scalar deleting destructor'(unsigned int) | ??_GDriverMenu@@UAEPAXI@Z
-    0x4A5E00 | public: virtual void * __thiscall DriverMenu::`vector deleting destructor'(unsigned int) | ??_EDriverMenu@@UAEPAXI@Z
-    0x61DBF0 | const DriverMenu::`vftable' | ??_7DriverMenu@@6B@
-*/
-
 #include "mmwidget/menu.h"
 
 class DriverMenu final : public UIMenu

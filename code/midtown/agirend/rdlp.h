@@ -18,31 +18,6 @@
 
 #pragma once
 
-/*
-    agirend:rdlp
-
-    0x550800 | public: __thiscall RDLP::RDLP(class agiPipeline *) | ??0RDLP@@QAE@PAVagiPipeline@@@Z
-    0x550850 | public: virtual __thiscall RDLP::~RDLP(void) | ??1RDLP@@UAE@XZ
-    0x5508A0 | private: int __thiscall RDLP::InitFacet(struct agiPatch *,int,int,int,int) | ?InitFacet@RDLP@@AAEHPAUagiPatch@@HHHH@Z
-    0x550C40 | public: virtual int __thiscall RDLP::BeginGfx(void) | ?BeginGfx@RDLP@@UAEHXZ
-    0x551200 | public: virtual void __thiscall RDLP::EndGfx(void) | ?EndGfx@RDLP@@UAEXXZ
-    0x551290 | public: __thiscall RDynamicDLP::RDynamicDLP(int,class RDLP *) | ??0RDynamicDLP@@QAE@HPAVRDLP@@@Z
-    0x5512F0 | public: virtual __thiscall RDynamicDLP::~RDynamicDLP(void) | ??1RDynamicDLP@@UAE@XZ
-    0x551360 | public: virtual int __thiscall RDynamicDLP::Init(char *) | ?Init@RDynamicDLP@@UAEHPAD@Z
-    0x5513B0 | public: virtual void __thiscall RDynamicDLP::SetTexture(short) | ?SetTexture@RDynamicDLP@@UAEXF@Z
-    0x551440 | public: virtual void __thiscall RDynamicDLP::Lock(void) | ?Lock@RDynamicDLP@@UAEXXZ
-    0x551480 | public: virtual void __thiscall RDynamicDLP::Unlock(void) | ?Unlock@RDynamicDLP@@UAEXXZ
-    0x551490 | public: virtual class DynamicDLP * __thiscall RDLP::GetDynamic(int) | ?GetDynamic@RDLP@@UAEPAVDynamicDLP@@H@Z
-    0x551530 | public: virtual class MultipassDLP * __thiscall RDLP::GetMultipass(int) | ?GetMultipass@RDLP@@UAEPAVMultipassDLP@@H@Z
-    0x551540 | public: virtual void __thiscall RDLP::FixROpts(int,int) | ?FixROpts@RDLP@@UAEXHH@Z
-    0x5515E0 | public: virtual void * __thiscall RDLP::`scalar deleting destructor'(unsigned int) | ??_GRDLP@@UAEPAXI@Z
-    0x5515E0 | public: virtual void * __thiscall RDLP::`vector deleting destructor'(unsigned int) | ??_ERDLP@@UAEPAXI@Z
-    0x551610 | public: virtual void * __thiscall RDynamicDLP::`scalar deleting destructor'(unsigned int) | ??_GRDynamicDLP@@UAEPAXI@Z
-    0x551610 | public: virtual void * __thiscall RDynamicDLP::`vector deleting destructor'(unsigned int) | ??_ERDynamicDLP@@UAEPAXI@Z
-    0x6213B8 | const RDLP::`vftable' | ??_7RDLP@@6B@
-    0x6213F0 | const RDynamicDLP::`vftable' | ??_7RDynamicDLP@@6B@
-*/
-
 #include "agi/dlp.h"
 #include "agi/dyndlp.h"
 

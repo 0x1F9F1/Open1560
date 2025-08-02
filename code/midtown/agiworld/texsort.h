@@ -18,43 +18,6 @@
 
 #pragma once
 
-/*
-    agiworld:texsort
-
-    0x503830 | public: __thiscall agiTexSorter::agiTexSorter(void) | ??0agiTexSorter@@QAE@XZ
-    0x503A50 | public: __thiscall agiTexSorter::~agiTexSorter(void) | ??1agiTexSorter@@QAE@XZ
-    0x503A60 | public: static class agiPolySet * __cdecl agiTexSorter::GetEnv(class agiTexDef *,int,int) | ?GetEnv@agiTexSorter@@SAPAVagiPolySet@@PAVagiTexDef@@HH@Z
-    0x503B20 | public: static class agiPolySet * __cdecl agiTexSorter::BeginVerts(class agiTexDef *,int,int) | ?BeginVerts@agiTexSorter@@SAPAVagiPolySet@@PAVagiTexDef@@HH@Z
-    0x503D70 | public: static class agiPolySet * __cdecl agiTexSorter::BeginVerts2(class agiTexDef *,class agiTexDef *,int,int) | ?BeginVerts2@agiTexSorter@@SAPAVagiPolySet@@PAVagiTexDef@@0HH@Z
-    0x503FF0 | public: static void __cdecl agiTexSorter::EndVerts(void) | ?EndVerts@agiTexSorter@@SAXXZ
-    0x504040 | public: static void __cdecl agiTexSorter::EndVerts2(void) | ?EndVerts2@agiTexSorter@@SAXXZ
-    0x504090 | public: void __thiscall agiTexSorter::Cull(int) | ?Cull@agiTexSorter@@QAEXH@Z
-    0x504150 | public: static void __cdecl agiTexSorter::DoTexture(class agiPolySet *) | ?DoTexture@agiTexSorter@@SAXPAVagiPolySet@@@Z
-    0x5043E0 | class agiTexDef * __cdecl GetPackedTexture(char *,int) | ?GetPackedTexture@@YAPAVagiTexDef@@PADH@Z
-    0x504620 | public: void __thiscall agiTexSorter::AddWidgets(class Bank *) | ?AddWidgets@agiTexSorter@@QAEXPAVBank@@@Z
-    0x64A3E0 | public: static int agiTexSorter::MaxOpaqueSetCount | ?MaxOpaqueSetCount@agiTexSorter@@2HA
-    0x64A3E4 | public: static int agiTexSorter::MaxAlphaSetCount | ?MaxAlphaSetCount@agiTexSorter@@2HA
-    0x64A3E8 | public: static int agiTexSorter::MaxVertsPerSet | ?MaxVertsPerSet@agiTexSorter@@2HA
-    0x64A3EC | public: static int agiTexSorter::MaxIndicesPerSet | ?MaxIndicesPerSet@agiTexSorter@@2HA
-    0x64A3F0 | int EnableTexSorting | ?EnableTexSorting@@3HA
-    0x64A3F4 | public: static int agiTexSorter::InitialZMode | ?InitialZMode@agiTexSorter@@2HA
-    0x719620 | public: static int agiTexSorter::GeometryCalls | ?GeometryCalls@agiTexSorter@@2HA
-    0x719624 | private: static class agiTexSorter * agiTexSorter::Instance | ?Instance@agiTexSorter@@0PAV1@A
-    0x719628 | char * TextureSuffix | ?TextureSuffix@@3PADA
-    0x71962C | int EnvMapFlushes | ?EnvMapFlushes@@3HA
-    0x719630 | public: static class agiPolySet * * agiTexSorter::OpaquePolySets | ?OpaquePolySets@agiTexSorter@@2PAPAVagiPolySet@@A
-    0x719730 | public: static int agiTexSorter::OutOfPoolFlushes | ?OutOfPoolFlushes@agiTexSorter@@2HA
-    0x719734 | public: static int agiTexSorter::BigPoolFlushes | ?BigPoolFlushes@agiTexSorter@@2HA
-    0x719738 | public: static int agiPolySet::TriCount | ?TriCount@agiPolySet@@2HA
-    0x71973C | public: static int agiTexSorter::OverflowFlushes | ?OverflowFlushes@agiTexSorter@@2HA
-    0x719744 | public: static int agiTexSorter::OpaqueSetCount | ?OpaqueSetCount@agiTexSorter@@2HA
-    0x719750 | public: static class agiPolySet agiTexSorter::EnvPolySet | ?EnvPolySet@agiTexSorter@@2VagiPolySet@@A
-    0x71977C | public: static int agiTexSorter::TotalTris | ?TotalTris@agiTexSorter@@2HA
-    0x719780 | public: static int agiTexSorter::AlphaSetCount | ?AlphaSetCount@agiTexSorter@@2HA
-    0x719788 | public: static class agiPolySet * * agiTexSorter::AlphaPolySets | ?AlphaPolySets@agiTexSorter@@2PAPAVagiPolySet@@A
-    0x719838 | int DisableFogOnAlphaGlow | ?DisableFogOnAlphaGlow@@3HA
-*/
-
 #include "agi/vertex.h"
 
 class agiPolySet;

@@ -18,21 +18,6 @@
 
 #pragma once
 
-/*
-    agi:cmodel8
-
-    0x55BEB0 | public: __thiscall agiColorModel8::agiColorModel8(class agiPalette *) | ??0agiColorModel8@@QAE@PAVagiPalette@@@Z
-    0x55BF00 | public: virtual __thiscall agiColorModel8::~agiColorModel8(void) | ??1agiColorModel8@@UAE@XZ
-    0x55BF10 | public: virtual unsigned int __thiscall agiColorModel8::GetColor(struct agiRgba) | ?GetColor@agiColorModel8@@UAEIUagiRgba@@@Z
-    0x55BF30 | public: virtual unsigned int __thiscall agiColorModel8::FindColor(struct agiRgba) | ?FindColor@agiColorModel8@@UAEIUagiRgba@@@Z
-    0x55BF50 | public: virtual unsigned int __thiscall agiColorModel8::Filter(unsigned int,unsigned int,unsigned int,unsigned int) | ?Filter@agiColorModel8@@UAEIIIII@Z
-    0x55C000 | public: virtual unsigned int __thiscall agiColorModel8::GetPixel(class agiSurfaceDesc *,int,int) | ?GetPixel@agiColorModel8@@UAEIPAVagiSurfaceDesc@@HH@Z
-    0x55C020 | public: virtual void __thiscall agiColorModel8::SetPixel(class agiSurfaceDesc *,int,int,unsigned int) | ?SetPixel@agiColorModel8@@UAEXPAVagiSurfaceDesc@@HHI@Z
-    0x55C040 | public: virtual void * __thiscall agiColorModel8::`scalar deleting destructor'(unsigned int) | ??_GagiColorModel8@@UAEPAXI@Z
-    0x55C040 | public: virtual void * __thiscall agiColorModel8::`vector deleting destructor'(unsigned int) | ??_EagiColorModel8@@UAEPAXI@Z
-    0x621780 | const agiColorModel8::`vftable' | ??_7agiColorModel8@@6B@
-*/
-
 #include "cmodel.h"
 
 class agiPalette;

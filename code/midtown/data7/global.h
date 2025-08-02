@@ -18,13 +18,6 @@
 
 #pragma once
 
-/*
-    data7:global
-
-    0x5790A0 | void __cdecl HexDump(void *,int) | ?HexDump@@YAXPAXH@Z
-    0x6622CC | int DevelopmentMode | ?DevelopmentMode@@3HA
-*/
-
 // ?HexDump@@YAXPAXH@Z
 ARTS_EXPORT void HexDump(const void* data, i32 length);
 

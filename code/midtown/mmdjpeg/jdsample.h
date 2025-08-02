@@ -18,12 +18,6 @@
 
 #pragma once
 
-/*
-    mmdjpeg:jdsample
-
-    0x5829E0 | void __cdecl jinit_upsampler(struct jpeg_decompress_struct *) | ?jinit_upsampler@@YAXPAUjpeg_decompress_struct@@@Z
-*/
-
 struct jpeg_decompress_struct;
 
 // ?jinit_upsampler@@YAXPAUjpeg_decompress_struct@@@Z

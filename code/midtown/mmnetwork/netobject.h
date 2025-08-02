@@ -18,18 +18,6 @@
 
 #pragma once
 
-/*
-    mmnetwork:netobject
-
-    0x48B4A0 | public: __thiscall asNetObject::asNetObject(void) | ??0asNetObject@@QAE@XZ
-    0x48B4C0 | public: virtual __thiscall asNetObject::~asNetObject(void) | ??1asNetObject@@UAE@XZ
-    0x48B4D0 | public: virtual void __thiscall asNetObject::PositionUpdate(class Matrix34 *,class Vector3,float,float,float) | ?PositionUpdate@asNetObject@@UAEXPAVMatrix34@@VVector3@@MMM@Z
-    0x48B4F0 | public: virtual void __thiscall asNetObject::Update(void) | ?Update@asNetObject@@UAEXXZ
-    0x48B500 | public: virtual void * __thiscall asNetObject::`vector deleting destructor'(unsigned int) | ??_EasNetObject@@UAEPAXI@Z
-    0x48B500 | public: virtual void * __thiscall asNetObject::`scalar deleting destructor'(unsigned int) | ??_GasNetObject@@UAEPAXI@Z
-    0x61CB80 | const asNetObject::`vftable' | ??_7asNetObject@@6B@
-*/
-
 #include "arts7/node.h"
 
 class asInertialCS;

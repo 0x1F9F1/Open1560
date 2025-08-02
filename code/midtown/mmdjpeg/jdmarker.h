@@ -18,14 +18,6 @@
 
 #pragma once
 
-/*
-    mmdjpeg:jdmarker
-
-    0x57E150 | unsigned char __cdecl jpeg_resync_to_restart(struct jpeg_decompress_struct *,int) | ?jpeg_resync_to_restart@@YAEPAUjpeg_decompress_struct@@H@Z
-    0x57E380 | void __cdecl jinit_marker_reader(struct jpeg_decompress_struct *) | ?jinit_marker_reader@@YAXPAUjpeg_decompress_struct@@@Z
-    0x57FCB0 | void __cdecl jpeg_set_marker_processor(struct jpeg_decompress_struct *,int,unsigned char (__cdecl*)(struct jpeg_decompress_struct *)) | ?jpeg_set_marker_processor@@YAXPAUjpeg_decompress_struct@@HP6AE0@Z@Z
-*/
-
 struct jpeg_decompress_struct;
 
 // ?jinit_marker_reader@@YAXPAUjpeg_decompress_struct@@@Z

@@ -18,43 +18,6 @@
 
 #pragma once
 
-/*
-    agiworld:meshlight
-
-    0x510640 | void __cdecl agiMeshLighterReset(void) | ?agiMeshLighterReset@@YAXXZ
-    0x510730 | void __cdecl agiMeshLighterQuarter(unsigned char *,unsigned int *,unsigned int *,class agiMeshSet *) | ?agiMeshLighterQuarter@@YAXPAEPAI1PAVagiMeshSet@@@Z
-    0x5108F0 | void __cdecl agiMeshLighterUpdateColors(void) | ?agiMeshLighterUpdateColors@@YAXXZ
-    0x510AE0 | void __cdecl agiMeshLighterTriple(unsigned char *,unsigned int *,unsigned int *,class agiMeshSet *) | ?agiMeshLighterTriple@@YAXPAEPAI1PAVagiMeshSet@@@Z
-    0x510EE0 | void __cdecl mmxTriple(unsigned int *,unsigned int *,int,unsigned char *,int) | ?mmxTriple@@YAXPAI0HPAEH@Z
-    0x511010 | void __cdecl agiMeshPrelight(unsigned int *,class agiMeshSet *,class Matrix34 &) | ?agiMeshPrelight@@YAXPAIPAVagiMeshSet@@AAVMatrix34@@@Z
-    0x5111E0 | void __cdecl agiBeginCones(void) | ?agiBeginCones@@YAXXZ
-    0x5111F0 | void __cdecl agiDeclareCone(class Vector3 &,class Vector3 &,class Vector3 &,float,float,class Vector3 &,int) | ?agiDeclareCone@@YAXAAVVector3@@00MM0H@Z
-    0x5112C0 | void __cdecl agiConeLighter(unsigned char *,unsigned int *,unsigned int *,class agiMeshSet *) | ?agiConeLighter@@YAXPAEPAI1PAVagiMeshSet@@@Z
-    0x5116B0 | void __cdecl agiInitCones(class Matrix34 &,float) | ?agiInitCones@@YAXAAVMatrix34@@M@Z
-    0x5118F0 | void __cdecl agiDrawCones(void) | ?agiDrawCones@@YAXXZ
-    0x5119F0 | void __cdecl agiMeshLighterSpecular(unsigned char *,unsigned int *,unsigned int *,class agiMeshSet *) | ?agiMeshLighterSpecular@@YAXPAEPAI1PAVagiMeshSet@@@Z
-    0x64ABB8 | float agiMeshLighterMin | ?agiMeshLighterMin@@3MA
-    0x64ABBC | float agiMeshLighterMax | ?agiMeshLighterMax@@3MA
-    0x64ABC0 | float agiMeshLighterConeRange2 | ?agiMeshLighterConeRange2@@3MA
-    0x64ABC8 | float agiMeshLighterSpecularExponent | ?agiMeshLighterSpecularExponent@@3MA
-    0x73D3D8 | union mmx minus1 | ?minus1@@3Tmmx@@A
-    0x73D3E0 | class Vector3 agiMeshLighterSunColor | ?agiMeshLighterSunColor@@3VVector3@@A
-    0x73D3F0 | union mmx zero | ?zero@@3Tmmx@@A
-    0x73D3F8 | union mmx keyColor | ?keyColor@@3Tmmx@@A
-    0x73E618 | class Vector3 agiMeshLighterSun | ?agiMeshLighterSun@@3VVector3@@A
-    0x73E628 | class Vector3 agiMeshLighterFill1 | ?agiMeshLighterFill1@@3VVector3@@A
-    0x73E638 | class Vector3 agiMeshLighterFill2 | ?agiMeshLighterFill2@@3VVector3@@A
-    0x73E648 | class Vector3 agiMeshLighterSpecularColor | ?agiMeshLighterSpecularColor@@3VVector3@@A
-    0x73E658 | union mmx unclampSSS_3_10 | ?unclampSSS_3_10@@3Tmmx@@A
-    0x73E660 | class Vector3 agiMeshLighterAmbient | ?agiMeshLighterAmbient@@3VVector3@@A
-    0x73E670 | union mmx ambColor | ?ambColor@@3Tmmx@@A
-    0x73E678 | union mmx clampSSS_3_10 | ?clampSSS_3_10@@3Tmmx@@A
-    0x73E680 | union mmx fill1Color | ?fill1Color@@3Tmmx@@A
-    0x73E688 | class Vector3 agiMeshLighterFill2Color | ?agiMeshLighterFill2Color@@3VVector3@@A
-    0x73E6A8 | class Vector3 agiMeshLighterFill1Color | ?agiMeshLighterFill1Color@@3VVector3@@A
-    0x73E6B8 | union mmx fill2Color | ?fill2Color@@3Tmmx@@A
-*/
-
 class agiMeshSet;
 union mmx;
 

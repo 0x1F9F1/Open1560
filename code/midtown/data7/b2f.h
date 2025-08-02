@@ -18,12 +18,6 @@
 
 #pragma once
 
-/*
-    data7:b2f
-
-    0x662478 | float * ByteToFloatTable | ?ByteToFloatTable@@3PAMA
-*/
-
 // ?ByteToFloatTable@@3PAMA
 extern const f32 ByteToFloatTable[256];
 

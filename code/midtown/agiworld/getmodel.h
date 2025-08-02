@@ -18,13 +18,6 @@
 
 #pragma once
 
-/*
-    agiworld:getmodel
-
-    0x5154C0 | class agiMeshModel * __cdecl GetModel(char *,char *,char *) | ?GetModel@@YAPAVagiMeshModel@@PAD00@Z
-    0x73E720 | class HashTable MeshModelHash | ?MeshModelHash@@3VHashTable@@A
-*/
-
 class agiMeshModel;
 
 // ?GetModel@@YAPAVagiMeshModel@@PAD00@Z

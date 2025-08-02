@@ -18,41 +18,6 @@
 
 #pragma once
 
-/*
-    mmbangers:data
-
-    0x4C81B0 | public: int __thiscall mmBangerData::LoadEntry(char *) | ?LoadEntry@mmBangerData@@QAEHPAD@Z
-    0x4C8370 | public: void __thiscall mmBangerData::LaunchInstance(float,class Vector3 *) | ?LaunchInstance@mmBangerData@@QAEXMPAVVector3@@@Z
-    0x4C8550 | public: virtual void __thiscall mmBangerDataManager::AddWidgets(class Bank *) | ?AddWidgets@mmBangerDataManager@@UAEXPAVBank@@@Z
-    0x4C85E0 | public: virtual void __thiscall mmBangerData::AddWidgets(class Bank *) | ?AddWidgets@mmBangerData@@UAEXPAVBank@@@Z
-    0x4C8A30 | public: __thiscall mmBangerDataManager::mmBangerDataManager(void) | ??0mmBangerDataManager@@QAE@XZ
-    0x4C8B50 | public: virtual __thiscall mmBangerDataManager::~mmBangerDataManager(void) | ??1mmBangerDataManager@@UAE@XZ
-    0x4C8C10 | public: int __thiscall mmBangerDataManager::AddBangerDataEntry(char *,char *) | ?AddBangerDataEntry@mmBangerDataManager@@QAEHPAD0@Z
-    0x4C8E70 | public: int __thiscall mmBangerData::Bootstrap(char *,char *) | ?Bootstrap@mmBangerData@@QAEHPAD0@Z
-    0x4C8ED0 | public: void __thiscall mmBangerData::BootstrapBreakablesOnly(char *) | ?BootstrapBreakablesOnly@mmBangerData@@QAEXPAD@Z
-    0x4C8F10 | public: void __thiscall mmBangerData::InitBreakables(char *) | ?InitBreakables@mmBangerData@@QAEXPAD@Z
-    0x4C9150 | public: int __thiscall mmBangerData::InitPhysics(char *,char *) | ?InitPhysics@mmBangerData@@QAEHPAD0@Z
-    0x4C93D0 | public: void __thiscall mmBangerData::ComputeYRadius(char *) | ?ComputeYRadius@mmBangerData@@QAEXPAD@Z
-    0x4C9510 | public: virtual void __thiscall mmBangerDataManager::Save(void) | ?Save@mmBangerDataManager@@UAEXXZ
-    0x4C9540 | public: static void __cdecl mmBangerData::DeclareFields(void) | ?DeclareFields@mmBangerData@@SAXXZ
-    0x4C98C0 | public: virtual class MetaClass * __thiscall mmBangerData::GetClass(void) | ?GetClass@mmBangerData@@UAEPAVMetaClass@@XZ
-    0x4C98D0 | public: static void __cdecl mmBangerDataManager::DeclareFields(void) | ?DeclareFields@mmBangerDataManager@@SAXXZ
-    0x4C9A40 | public: virtual class MetaClass * __thiscall mmBangerDataManager::GetClass(void) | ?GetClass@mmBangerDataManager@@UAEPAVMetaClass@@XZ
-    0x4C9A50 | struct MetaType * __cdecl RefTo(struct MetaType *,int,short *) | ?RefTo@@YAPAUMetaType@@PAU1@HPAF@Z
-    0x4C9A90 | public: virtual void * __thiscall mmBangerData::`vector deleting destructor'(unsigned int) | ??_EmmBangerData@@UAEPAXI@Z
-    0x4C9AF0 | public: virtual void * __thiscall mmBangerDataManager::`vector deleting destructor'(unsigned int) | ??_EmmBangerDataManager@@UAEPAXI@Z
-    0x4C9B50 | public: __thiscall mmBangerData::mmBangerData(void) | ??0mmBangerData@@QAE@XZ
-    0x4C9BE0 | public: virtual __thiscall mmBangerData::~mmBangerData(void) | ??1mmBangerData@@UAE@XZ
-    0x61F6E0 | const mmBangerDataManager::`vftable' | ??_7mmBangerDataManager@@6B@
-    0x61F720 | const RefToType::`vftable' | ??_7RefToType@@6B@
-    0x61F738 | const mmBangerData::`vftable' | ??_7mmBangerData@@6B@
-    0x705FB0 | class MetaClass mmBangerDataMetaClass | ?mmBangerDataMetaClass@@3VMetaClass@@A
-    0x705FD8 | public: static float mmBangerDataManager::FloatClock | ?FloatClock@mmBangerDataManager@@2MA
-    0x705FDC | protected: static class mmBangerDataManager * mmBangerDataManager::Instance | ?Instance@mmBangerDataManager@@1PAV1@A
-    0x705FF0 | public: static int mmBangerDataManager::SignalClock | ?SignalClock@mmBangerDataManager@@2HA
-    0x706008 | class MetaClass mmBangerDataManagerMetaClass | ?mmBangerDataManagerMetaClass@@3VMetaClass@@A
-*/
-
 #include "arts7/node.h"
 
 #include "mmeffects/birth.h"

@@ -18,36 +18,6 @@
 
 #pragma once
 
-/*
-    mmai:aiVehicleOpponent
-
-    0x44DA70 | public: __thiscall aiVehicleOpponent::aiVehicleOpponent(void) | ??0aiVehicleOpponent@@QAE@XZ
-    0x44DAD0 | public: __thiscall aiVehicleOpponent::~aiVehicleOpponent(void) | ??1aiVehicleOpponent@@QAE@XZ
-    0x44DC00 | public: void __thiscall aiVehicleOpponent::Init(int,class aiRaceData *,char *) | ?Init@aiVehicleOpponent@@QAEXHPAVaiRaceData@@PAD@Z
-    0x44DE10 | public: virtual void __thiscall aiVehicleOpponent::Reset(void) | ?Reset@aiVehicleOpponent@@UAEXXZ
-    0x44DED0 | public: virtual void __thiscall aiVehicleOpponent::Update(void) | ?Update@aiVehicleOpponent@@UAEXXZ
-    0x44E060 | public: void __thiscall aiVehicleOpponent::Dump(void) | ?Dump@aiVehicleOpponent@@QAEXXZ
-    0x44E100 | public: void __thiscall aiVehicleOpponent::UnAssignSounds(void) | ?UnAssignSounds@aiVehicleOpponent@@QAEXXZ
-    0x44E120 | public: int __thiscall aiVehicleOpponent::GetEngineSoundIndex(void) | ?GetEngineSoundIndex@aiVehicleOpponent@@QAEHXZ
-    0x44E130 | public: void __thiscall aiVehicleOpponent::DrawTargetPt(void) | ?DrawTargetPt@aiVehicleOpponent@@QAEXXZ
-    0x44E2A0 | public: void __thiscall aiVehicleOpponent::DrawDamage(void) | ?DrawDamage@aiVehicleOpponent@@QAEXXZ
-    0x44E2B0 | public: virtual void __thiscall aiVehicleOpponent::DrawId(void) | ?DrawId@aiVehicleOpponent@@UAEXXZ
-    0x44E300 | public: void __thiscall aiVehicleOpponent::UpdateAudio(void) | ?UpdateAudio@aiVehicleOpponent@@QAEXXZ
-    0x44E3A0 | public: float __thiscall aiVehicleOpponent::GetDistanceToPlayer2(void) | ?GetDistanceToPlayer2@aiVehicleOpponent@@QAEMXZ
-    0x44E3B0 | public: void __thiscall aiVehicleOpponent::SetAudioMinDistance(float) | ?SetAudioMinDistance@aiVehicleOpponent@@QAEXM@Z
-    0x44E3D0 | public: void __thiscall aiVehicleOpponent::SetAudioMaxDistance(float) | ?SetAudioMaxDistance@aiVehicleOpponent@@QAEXM@Z
-    0x44E400 | public: void __thiscall aiVehicleOpponent::SetAudioCloserMinDistMult(float) | ?SetAudioCloserMinDistMult@aiVehicleOpponent@@QAEXM@Z
-    0x44E420 | public: class mmOpponentCarAudio * __thiscall aiVehicleOpponent::GetCarAudioPtr(void) | ?GetCarAudioPtr@aiVehicleOpponent@@QAEPAVmmOpponentCarAudio@@XZ
-    0x44E430 | private: void __thiscall aiVehicleOpponent::AddToAiAudMgr(void) | ?AddToAiAudMgr@aiVehicleOpponent@@AAEXXZ
-    0x44E490 | public: void __thiscall aiVehicleOpponent::AddWidget(class Bank *) | ?AddWidget@aiVehicleOpponent@@QAEXPAVBank@@@Z
-    0x44E4B0 | public: void __thiscall aiVehicleOpponent::AssignSounds(class AudSound *,class AudSound *,class mmOpponentImpactAudio *,class AudSound *) | ?AssignSounds@aiVehicleOpponent@@QAEXPAVAudSound@@0PAVmmOpponentImpactAudio@@0@Z
-    0x44E4E0 | public: static void __cdecl aiVehicleOpponent::DeclareFields(void) | ?DeclareFields@aiVehicleOpponent@@SAXXZ
-    0x44E670 | public: virtual class MetaClass * __thiscall aiVehicleOpponent::GetClass(void) | ?GetClass@aiVehicleOpponent@@UAEPAVMetaClass@@XZ
-    0x44E7D0 | public: virtual int __thiscall aiVehicleOpponent::Type(void) | ?Type@aiVehicleOpponent@@UAEHXZ
-    0x61B6F8 | const aiVehicleOpponent::`vftable' | ??_7aiVehicleOpponent@@6B@
-    0x6A7A58 | class MetaClass aiVehicleOpponentMetaClass | ?aiVehicleOpponentMetaClass@@3VMetaClass@@A
-*/
-
 #include "aiVehicle.h"
 
 #include "aiRailSet.h"

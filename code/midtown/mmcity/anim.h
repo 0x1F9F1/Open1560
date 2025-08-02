@@ -18,19 +18,6 @@
 
 #pragma once
 
-/*
-    mmcity:anim
-
-    0x497E50 | public: int __thiscall mmAnimation::LookupSequence(char *) | ?LookupSequence@mmAnimation@@QAEHPAD@Z
-    0x497EB0 | public: void __thiscall mmAnimation::Load(char *,class Stream *) | ?Load@mmAnimation@@QAEXPADPAVStream@@@Z
-    0x498700 | class mmAnimation * __cdecl GetAnimation(char *) | ?GetAnimation@@YAPAVmmAnimation@@PAD@Z
-    0x498830 | public: static void __cdecl mmAnimInstState::PreUpdate(float) | ?PreUpdate@mmAnimInstState@@SAXM@Z
-    0x498880 | public: void __thiscall mmAnimInstState::Update(void) | ?Update@mmAnimInstState@@QAEXXZ
-    0x498950 | public: __thiscall HashTable::~HashTable(void) | ??1HashTable@@QAE@XZ
-    0x7057B0 | public: static float mmAnimInstState::FrameFraction | ?FrameFraction@mmAnimInstState@@2MA
-    0x7057B4 | public: static int mmAnimInstState::FrameDelta | ?FrameDelta@mmAnimInstState@@2HA
-*/
-
 class mmAnimation
 {
 public:

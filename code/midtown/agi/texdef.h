@@ -18,52 +18,6 @@
 
 #pragma once
 
-/*
-    agi:texdef
-
-    0x556100 | public: __thiscall agiTexParameters::agiTexParameters(void) | ??0agiTexParameters@@QAE@XZ
-    0x556120 | public: void __thiscall agiTexParameters::Load(class Stream *) | ?Load@agiTexParameters@@QAEXPAVStream@@@Z
-    0x556170 | public: void __thiscall agiTexParameters::Save(class Stream *) | ?Save@agiTexParameters@@QAEXPAVStream@@@Z
-    0x5561C0 | protected: __thiscall agiTexDef::agiTexDef(class agiPipeline *) | ??0agiTexDef@@IAE@PAVagiPipeline@@@Z
-    0x556230 | protected: virtual __thiscall agiTexDef::~agiTexDef(void) | ??1agiTexDef@@MAE@XZ
-    0x5562F0 | public: void __thiscall agiTexDef::CheckSurface(void) | ?CheckSurface@agiTexDef@@QAEXXZ
-    0x556310 | public: int __thiscall agiTexDef::Reload(void) | ?Reload@agiTexDef@@QAEHXZ
-    0x556380 | public: int __thiscall agiTexDef::Init(class agiTexParameters const &) | ?Init@agiTexDef@@QAEHABVagiTexParameters@@@Z
-    0x556400 | public: virtual char * __thiscall agiTexDef::GetName(void) | ?GetName@agiTexDef@@UAEPADXZ
-    0x556430 | public: virtual int __thiscall agiTexDef::IsTexture(void) | ?IsTexture@agiTexDef@@UAEHXZ
-    0x556440 | public: virtual int __thiscall agiTexDef::Lock(struct agiTexLock &) | ?Lock@agiTexDef@@UAEHAAUagiTexLock@@@Z
-    0x556450 | public: virtual void __thiscall agiTexDef::Unlock(struct agiTexLock &) | ?Unlock@agiTexDef@@UAEXAAUagiTexLock@@@Z
-    0x556460 | public: static void __cdecl agiTexDef::PageOutCallback(void *,int) | ?PageOutCallback@agiTexDef@@SAXPAXH@Z
-    0x5564A0 | void __cdecl UpdateLutQueue(void) | ?UpdateLutQueue@@YAXXZ
-    0x556530 | void __cdecl ShutdownLutQueue(void) | ?ShutdownLutQueue@@YAXXZ
-    0x556550 | public: void __thiscall agiTexDef::DoPageIn(void) | ?DoPageIn@agiTexDef@@QAEXXZ
-    0x5566A0 | public: static void __cdecl agiTexDef::PageInCallback(void *) | ?PageInCallback@agiTexDef@@SAXPAX@Z
-    0x5566B0 | public: void __thiscall agiTexDef::PageInSurface(void) | ?PageInSurface@agiTexDef@@QAEXXZ
-    0x556770 | public: int __thiscall agiTexDef::LockSurfaceIfResident(void) | ?LockSurfaceIfResident@agiTexDef@@QAEHXZ
-    0x5567A0 | public: void __thiscall agiTexDef::UnlockSurface(void) | ?UnlockSurface@agiTexDef@@QAEXXZ
-    0x5567C0 | public: void __thiscall agiTexDef::UnlockAndFreeSurface(void) | ?UnlockAndFreeSurface@agiTexDef@@QAEXXZ
-    0x5567E0 | public: virtual void __thiscall agiTexDef::Request(void) | ?Request@agiTexDef@@UAEXXZ
-    0x5567F0 | public: virtual int __thiscall agiTexDef::IsAvailable(void) | ?IsAvailable@agiTexDef@@UAEHXZ
-    0x556800 | public: int __thiscall agiTexLut::Init(char *) | ?Init@agiTexLut@@QAEHPAD@Z
-    0x5568D0 | public: virtual char * __thiscall agiTexLut::GetName(void) | ?GetName@agiTexLut@@UAEPADXZ
-    0x5568F0 | protected: __thiscall agiTexLut::agiTexLut(class agiPipeline *) | ??0agiTexLut@@IAE@PAVagiPipeline@@@Z
-    0x556920 | protected: virtual __thiscall agiTexLut::~agiTexLut(void) | ??1agiTexLut@@MAE@XZ
-    0x556970 | protected: virtual void * __thiscall agiTexDef::`scalar deleting destructor'(unsigned int) | ??_GagiTexDef@@MAEPAXI@Z
-    0x556970 | protected: virtual void * __thiscall agiTexDef::`vector deleting destructor'(unsigned int) | ??_EagiTexDef@@MAEPAXI@Z
-    0x5569A0 | protected: virtual void * __thiscall agiTexLut::`vector deleting destructor'(unsigned int) | ??_EagiTexLut@@MAEPAXI@Z
-    0x5569A0 | protected: virtual void * __thiscall agiTexLut::`scalar deleting destructor'(unsigned int) | ??_GagiTexLut@@MAEPAXI@Z
-    0x6215B8 | const agiTexDef::`vftable' | ??_7agiTexDef@@6B@
-    0x6215E8 | const agiTexLut::`vftable' | ??_7agiTexLut@@6B@
-    0x656834 | int MaxTexSize | ?MaxTexSize@@3HA
-    0x656838 | char * TexSearchPath | ?TexSearchPath@@3PADA
-    0x8FAD28 | int PackShift | ?PackShift@@3HA
-    0x8FAD2C | int TexBytesPaged | ?TexBytesPaged@@3HA
-    0x8FAD70 | struct lutQentry * lutQ | ?lutQ@@3PAUlutQentry@@A
-    0x8FAF70 | class HashTable TexLutHash | ?TexLutHash@@3VHashTable@@A
-    0x8FAF88 | class DataCache TEXCACHE | ?TEXCACHE@@3VDataCache@@A
-    0x8FAFC8 | int TexsPaged | ?TexsPaged@@3HA
-*/
-
 #include "refresh.h"
 
 #include "data7/pager.h"

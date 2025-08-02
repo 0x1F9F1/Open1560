@@ -18,31 +18,6 @@
 
 #pragma once
 
-/*
-    vector7:vector4
-
-    0x56DBA0 | public: float __thiscall Vector4::Mag(void) const | ?Mag@Vector4@@QBEMXZ
-    0x56DC70 | public: class Vector4 __thiscall Vector4::operator/(float) const | ??KVector4@@QBE?AV0@M@Z
-    0x56DD00 | public: class Vector4 __thiscall Vector4::operator!(void) const | ??7Vector4@@QBE?AV0@XZ
-    0x56DD80 | public: void __thiscall Vector4::Bilinear(float,float,class Vector4 const &,class Vector4 const &,class Vector4 const &,class Vector4 const &) | ?Bilinear@Vector4@@QAEXMMABV1@000@Z
-    0x56DDD0 | public: void __thiscall Vector4::CalculatePlane(class Vector3 const &,class Vector3 const &,class Vector3 const &) | ?CalculatePlane@Vector4@@QAEXABVVector3@@00@Z
-    0x56DED0 | public: void __thiscall Vector4::GetLookAt(class Vector3 const &,class Vector3 *,class Vector3 *) const | ?GetLookAt@Vector4@@QBEXABVVector3@@PAV2@1@Z
-    0x56DF50 | public: void __thiscall Vector4::Lerp(float,class Vector4 const &,class Vector4 const &) | ?Lerp@Vector4@@QAEXMABV1@0@Z
-    0x56E040 | public: void __thiscall Vector4Array::Init(int) | ?Init@Vector4Array@@QAEXH@Z
-    0x56E0B0 | public: void __thiscall Vector4Array::Delete(void) | ?Delete@Vector4Array@@QAEXXZ
-    0x56E100 | private: void __thiscall Vector4Array::NewTable(int) | ?NewTable@Vector4Array@@AAEXH@Z
-    0x56E170 | public: class Vector4 & __thiscall Vector4Array::operator[](int) | ??AVector4Array@@QAEAAVVector4@@H@Z
-    0x56E1F0 | public: void __thiscall Vector4Array::operator=(class Vector4Array &) | ??4Vector4Array@@QAEXAAV0@@Z
-    0x56E2F0 | public: void __thiscall Vector4Array::BlockCopy(class Vector4Array &) | ?BlockCopy@Vector4Array@@QAEXAAV1@@Z
-    0x56E3F0 | public: virtual void __thiscall Vector4Type::Save(class MiniParser *,void *) | ?Save@Vector4Type@@UAEXPAVMiniParser@@PAX@Z
-    0x56E430 | public: virtual void __thiscall Vector4Type::Load(class MiniParser *,void *) | ?Load@Vector4Type@@UAEXPAVMiniParser@@PAX@Z
-    0x56E470 | public: virtual unsigned int __thiscall Vector4Type::SizeOf(void) | ?SizeOf@Vector4Type@@UAEIXZ
-    0x56E480 | public: virtual void * __thiscall Vector4Type::New(int) | ?New@Vector4Type@@UAEPAXH@Z
-    0x56E4D0 | public: virtual void __thiscall Vector4Type::Delete(void *,int) | ?Delete@Vector4Type@@UAEXPAXH@Z
-    0x621C38 | const Vector4Type::`vftable' | ??_7Vector4Type@@6B@
-    0x9094EC | struct Vector4Type Vector4Inst | ?Vector4Inst@@3UVector4Type@@A
-*/
-
 #include "data7/metatype.h"
 
 class Vector4

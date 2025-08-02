@@ -18,12 +18,6 @@
 
 #pragma once
 
-/*
-    agiworld:quality
-
-    0x64ACD8 | struct agiWorldRenderQuality agiRQ | ?agiRQ@@3UagiWorldRenderQuality@@A
-*/
-
 #define AGI_QUALITY_LOW 0
 #define AGI_QUALITY_MEDIUM 1
 #define AGI_QUALITY_HIGH 2

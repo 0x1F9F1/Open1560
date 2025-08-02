@@ -18,32 +18,6 @@
 
 #pragma once
 
-/*
-    data7:printer
-
-    0x5769C0 | void __cdecl DefaultPrinter(int,char const *,char *) | ?DefaultPrinter@@YAXHPBDPAD@Z
-    0x576C70 | void __cdecl Displayf(char const *,...) | ?Displayf@@YAXPBDZZ
-    0x576C90 | void __cdecl Printf(char const *,...) | ?Printf@@YAXPBDZZ
-    0x576CB0 | void __cdecl Debugf(char const *,...) | ?Debugf@@YAXPBDZZ
-    0x576CD0 | void __cdecl Warningf(char const *,...) | ?Warningf@@YAXPBDZZ
-    0x576CF0 | void __cdecl Errorf(char const *,...) | ?Errorf@@YAXPBDZZ
-    0x576D10 | void __cdecl PErrorf(char const *,...) | ?PErrorf@@YAXPBDZZ
-    0x576D60 | void __cdecl PDebug(char const *,...) | ?PDebug@@YAXPBDZZ
-    0x576DB0 | void __cdecl Abortf(char const *,...) | ?Abortf@@YAXPBDZZ
-    0x576DD0 | void __cdecl Quit(char const *) | ?Quit@@YAXPBD@Z
-    0x576E00 | int __cdecl LogToCommPort(int,int) | ?LogToCommPort@@YAHHH@Z
-    0x576E90 | void __cdecl LogToMonochromeMonitor(void) | ?LogToMonochromeMonitor@@YAXXZ
-    0x576EA0 | void __cdecl LogToFile(char *) | ?LogToFile@@YAXPAD@Z
-    0x576F00 | void __cdecl LogToFile(void) | ?LogToFile@@YAXXZ
-    0x661AA4 | int EnableNormalOutput | ?EnableNormalOutput@@3HA
-    0x661AA8 | int EnableDebugOutput | ?EnableDebugOutput@@3HA
-    0x661AB8 | void (__cdecl* Printer)(int,char const *,char *) | ?Printer@@3P6AXHPBDPAD@ZA
-    0x661AC0 | char * __assertFailed | ?__assertFailed@@3PADA
-    0x90A680 | int MessageFirst | ?MessageFirst@@3HA
-    0x90A684 | unsigned short * MonoPointer | ?MonoPointer@@3PAGA
-    0x90A688 | char (* MessageFifo)[80] | ?MessageFifo@@3PAY0FA@DA
-*/
-
 #include <cstdarg>
 
 void Printerf(i32 level, ARTS_FORMAT_STRING const char* format, ...);

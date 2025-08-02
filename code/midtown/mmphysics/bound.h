@@ -18,18 +18,6 @@
 
 #pragma once
 
-/*
-    mmphysics:bound
-
-    0x4DF0D0 | public: __thiscall asBound::asBound(void) | ??0asBound@@QAE@XZ
-    0x4DF110 | public: int __thiscall asBound::Impact(class mmIntersection *,class asBound *,int,int,int) | ?Impact@asBound@@QAEHPAVmmIntersection@@PAV1@HHH@Z
-    0x4DFAF0 | public: class agiPhysParameters & __thiscall asBound::GetPhysMtl(class mmPolygon const &) | ?GetPhysMtl@asBound@@QAEAAVagiPhysParameters@@ABVmmPolygon@@@Z
-    0x4DFBE0 | public: virtual void * __thiscall asBound::`vector deleting destructor'(unsigned int) | ??_EasBound@@UAEPAXI@Z
-    0x4DFBE0 | public: virtual void * __thiscall asBound::`scalar deleting destructor'(unsigned int) | ??_GasBound@@UAEPAXI@Z
-    0x61FBB8 | const asBound::`vftable' | ??_7asBound@@6B@
-    0x719194 | int ImpactCallbackCount | ?ImpactCallbackCount@@3HA
-*/
-
 #include "arts7/node.h"
 
 class agiPhysParameters;

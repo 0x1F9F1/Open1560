@@ -18,19 +18,6 @@
 
 #pragma once
 
-/*
-    agirend:bilmodel
-
-    0x555260 | public: __thiscall agiBILightModel::agiBILightModel(class agiPipeline *) | ??0agiBILightModel@@QAE@PAVagiPipeline@@@Z
-    0x555280 | public: virtual __thiscall agiBILightModel::~agiBILightModel(void) | ??1agiBILightModel@@UAE@XZ
-    0x5552E0 | public: virtual int __thiscall agiBILightModel::BeginGfx(void) | ?BeginGfx@agiBILightModel@@UAEHXZ
-    0x555310 | public: virtual void __thiscall agiBILightModel::EndGfx(void) | ?EndGfx@agiBILightModel@@UAEXXZ
-    0x555320 | public: virtual int __thiscall agiBILightModel::Activate(void) | ?Activate@agiBILightModel@@UAEHXZ
-    0x555340 | public: virtual void * __thiscall agiBILightModel::`vector deleting destructor'(unsigned int) | ??_EagiBILightModel@@UAEPAXI@Z
-    0x555340 | public: virtual void * __thiscall agiBILightModel::`scalar deleting destructor'(unsigned int) | ??_GagiBILightModel@@UAEPAXI@Z
-    0x621508 | const agiBILightModel::`vftable' | ??_7agiBILightModel@@6B@
-*/
-
 #include "agi/lmodel.h"
 
 class agiBILightModel final : public agiLightModel

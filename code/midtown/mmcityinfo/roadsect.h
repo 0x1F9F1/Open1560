@@ -18,62 +18,6 @@
 
 #pragma once
 
-/*
-    mmcityinfo:roadsect
-
-    0x4D2160 | public: __thiscall mmPropInfo::mmPropInfo(void) | ??0mmPropInfo@@QAE@XZ
-    0x4D2190 | public: virtual __thiscall mmPropInfo::~mmPropInfo(void) | ??1mmPropInfo@@UAE@XZ
-    0x4D21F0 | public: void __thiscall mmPropInfo::NewItems(int) | ?NewItems@mmPropInfo@@QAEXH@Z
-    0x4D2220 | public: void __thiscall mmPropInfo::SetItem(int,char *) | ?SetItem@mmPropInfo@@QAEXHPAD@Z
-    0x4D2240 | public: void __thiscall mmPropInfo::SetSpacing(float) | ?SetSpacing@mmPropInfo@@QAEXM@Z
-    0x4D2250 | public: char * __thiscall mmPropInfo::GetItem(int) | ?GetItem@mmPropInfo@@QAEPADH@Z
-    0x4D2280 | public: float __thiscall mmPropInfo::GetSpacing(void) | ?GetSpacing@mmPropInfo@@QAEMXZ
-    0x4D2290 | public: int __thiscall mmPropInfo::GetNumItems(void) | ?GetNumItems@mmPropInfo@@QAEHXZ
-    0x4D22A0 | public: void __thiscall mmPropInfo::Append(char *) | ?Append@mmPropInfo@@QAEXPAD@Z
-    0x4D2320 | public: __thiscall mmRoadSide::mmRoadSide(void) | ??0mmRoadSide@@QAE@XZ
-    0x4D23B0 | public: __thiscall mmRoadSect::mmRoadSect(void) | ??0mmRoadSect@@QAE@XZ
-    0x4D24F0 | public: void __thiscall mmRoadSect::SetStreetWidth(float) | ?SetStreetWidth@mmRoadSect@@QAEXM@Z
-    0x4D2500 | public: void __thiscall mmRoadSect::SetStreetType(char *) | ?SetStreetType@mmRoadSect@@QAEXPAD@Z
-    0x4D2510 | public: void __thiscall mmRoadSect::SetRSidewalk(float,float) | ?SetRSidewalk@mmRoadSect@@QAEXMM@Z
-    0x4D2530 | public: void __thiscall mmRoadSect::SetLSidewalk(float,float) | ?SetLSidewalk@mmRoadSect@@QAEXMM@Z
-    0x4D2550 | public: void __thiscall mmRoadSect::NewVertexs(int,int,int,int,int) | ?NewVertexs@mmRoadSect@@QAEXHHHHH@Z
-    0x4D2600 | public: void __thiscall mmRoadSect::SetRoadVertex(int,int,int,class Vector3 &) | ?SetRoadVertex@mmRoadSect@@QAEXHHHAAVVector3@@@Z
-    0x4D2650 | public: void __thiscall mmRoadSect::SetSidewalkVertex(int,int,int,class Vector3 &) | ?SetSidewalkVertex@mmRoadSect@@QAEXHHHAAVVector3@@@Z
-    0x4D26B0 | public: class Vector3 * __thiscall mmRoadSect::GetVertex(int,int,int) | ?GetVertex@mmRoadSect@@QAEPAVVector3@@HHH@Z
-    0x4D26E0 | public: class Vector3 * __thiscall mmRoadSect::GetSidewalkVertex(int,int,int) | ?GetSidewalkVertex@mmRoadSect@@QAEPAVVector3@@HHH@Z
-    0x4D2720 | public: void __thiscall mmRoadSect::SetRoadNormal(int,class Vector3 &) | ?SetRoadNormal@mmRoadSect@@QAEXHAAVVector3@@@Z
-    0x4D2750 | public: void __thiscall mmRoadSect::SetRoomId(int,int) | ?SetRoomId@mmRoadSect@@QAEXHH@Z
-    0x4D2770 | public: void __thiscall mmRoadSect::SetIntersectionType(int,int) | ?SetIntersectionType@mmRoadSect@@QAEXHH@Z
-    0x4D2790 | public: class Vector3 * __thiscall mmRoadSect::GetNormal(int) | ?GetNormal@mmRoadSect@@QAEPAVVector3@@H@Z
-    0x4D27B0 | public: int __thiscall mmRoadSect::GetRoomId(int) | ?GetRoomId@mmRoadSect@@QAEHH@Z
-    0x4D27D0 | public: int __thiscall mmRoadSect::GetIntersectionType(int) | ?GetIntersectionType@mmRoadSect@@QAEHH@Z
-    0x4D27F0 | public: void __thiscall mmRoadSect::SetStopLightPos(int,class Vector3 const &,class Vector3 const &) | ?SetStopLightPos@mmRoadSect@@QAEXHABVVector3@@0@Z
-    0x4D2840 | public: void __thiscall mmRoadSect::GetStopLightPos(int,class Vector3 &,class Vector3 &) | ?GetStopLightPos@mmRoadSect@@QAEXHAAVVector3@@0@Z
-    0x4D2890 | public: void __thiscall mmRoadSect::SetBlocked(int,int) | ?SetBlocked@mmRoadSect@@QAEXHH@Z
-    0x4D28B0 | public: int __thiscall mmRoadSect::IsBlocked(int) | ?IsBlocked@mmRoadSect@@QAEHH@Z
-    0x4D28D0 | public: void __thiscall mmRoadSect::SetPedBlocked(int,int) | ?SetPedBlocked@mmRoadSect@@QAEXHH@Z
-    0x4D28F0 | public: int __thiscall mmRoadSect::IsPedBlocked(int) | ?IsPedBlocked@mmRoadSect@@QAEHH@Z
-    0x4D2910 | public: void __thiscall mmRoadSect::SetStopLightName(int,char *) | ?SetStopLightName@mmRoadSect@@QAEXHPAD@Z
-    0x4D2940 | public: char * __thiscall mmRoadSect::GetStopLightName(int) | ?GetStopLightName@mmRoadSect@@QAEPADH@Z
-    0x4D2960 | public: void __thiscall mmRoadSect::SetDivided(int) | ?SetDivided@mmRoadSect@@QAEXH@Z
-    0x4D2970 | public: int __thiscall mmRoadSect::IsDivided(void) | ?IsDivided@mmRoadSect@@QAEHXZ
-    0x4D2980 | public: void __thiscall mmRoadSect::SetAlley(int) | ?SetAlley@mmRoadSect@@QAEXH@Z
-    0x4D2990 | public: int __thiscall mmRoadSect::IsAlley(void) | ?IsAlley@mmRoadSect@@QAEHXZ
-    0x4D29A0 | public: static void __cdecl mmPropInfo::DeclareFields(void) | ?DeclareFields@mmPropInfo@@SAXXZ
-    0x4D2B60 | public: virtual class MetaClass * __thiscall mmPropInfo::GetClass(void) | ?GetClass@mmPropInfo@@UAEPAVMetaClass@@XZ
-    0x4D2B70 | public: static void __cdecl mmRoadSide::DeclareFields(void) | ?DeclareFields@mmRoadSide@@SAXXZ
-    0x4D2D80 | public: virtual class MetaClass * __thiscall mmRoadSide::GetClass(void) | ?GetClass@mmRoadSide@@UAEPAVMetaClass@@XZ
-    0x4D2D90 | public: static void __cdecl mmRoadSect::DeclareFields(void) | ?DeclareFields@mmRoadSect@@SAXXZ
-    0x4D3140 | public: virtual class MetaClass * __thiscall mmRoadSect::GetClass(void) | ?GetClass@mmRoadSect@@UAEPAVMetaClass@@XZ
-    0x4D3150 | public: virtual void * __thiscall mmPropInfo::`vector deleting destructor'(unsigned int) | ??_EmmPropInfo@@UAEPAXI@Z
-    0x4D31B0 | public: virtual void * __thiscall mmRoadSide::`vector deleting destructor'(unsigned int) | ??_EmmRoadSide@@UAEPAXI@Z
-    0x4D3210 | public: virtual void * __thiscall mmRoadSect::`vector deleting destructor'(unsigned int) | ??_EmmRoadSect@@UAEPAXI@Z
-    0x61F918 | const mmPropInfo::`vftable' | ??_7mmPropInfo@@6B@
-    0x708618 | class MetaClass mmPropInfoMetaClass | ?mmPropInfoMetaClass@@3VMetaClass@@A
-    0x708640 | class MetaClass mmRoadSideMetaClass | ?mmRoadSideMetaClass@@3VMetaClass@@A
-    0x708668 | class MetaClass mmRoadSectMetaClass | ?mmRoadSectMetaClass@@3VMetaClass@@A
-*/
-
 #include "infobase.h"
 
 class mmRoadSide final : public mmInfoBase

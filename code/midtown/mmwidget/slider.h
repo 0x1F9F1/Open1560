@@ -18,32 +18,6 @@
 
 #pragma once
 
-/*
-    mmwidget:slider
-
-    0x4B39B0 | public: __thiscall UISlider::UISlider(void) | ??0UISlider@@QAE@XZ
-    0x4B3A40 | public: virtual __thiscall UISlider::~UISlider(void) | ??1UISlider@@UAE@XZ
-    0x4B3AB0 | public: void __thiscall UISlider::Init(struct LocString *,float *,float,float,float,float,float,float,int,int,int,int,class Callback,class UIMenu *) | ?Init@UISlider@@QAEXPAULocString@@PAMMMMMMMHHHHVCallback@@PAVUIMenu@@@Z
-    0x4B3CD0 | public: virtual void __thiscall UISlider::SetPosition(float,float) | ?SetPosition@UISlider@@UAEXMM@Z
-    0x4B3E30 | public: void __thiscall UISlider::SetText(struct LocString *) | ?SetText@UISlider@@QAEXPAULocString@@@Z
-    0x4B3E40 | public: virtual void __thiscall UISlider::Update(void) | ?Update@UISlider@@UAEXXZ
-    0x4B3EA0 | public: virtual void __thiscall UISlider::Action(union eqEvent) | ?Action@UISlider@@UAEXTeqEvent@@@Z
-    0x4B3F70 | public: virtual void __thiscall UISlider::Switch(int) | ?Switch@UISlider@@UAEXH@Z
-    0x4B3FE0 | public: int __thiscall UISlider::TestHit(float,float) | ?TestHit@UISlider@@QAEHMM@Z
-    0x4B3FF0 | public: void __thiscall UISlider::SetReadWrite(int) | ?SetReadWrite@UISlider@@QAEXH@Z
-    0x4B4040 | public: int __thiscall UISlider::IsReadWrite(void) | ?IsReadWrite@UISlider@@QAEHXZ
-    0x4B4050 | public: float __thiscall UISlider::GetValue(void) | ?GetValue@UISlider@@QAEMXZ
-    0x4B4060 | public: float __thiscall UISlider::SetValue(float) | ?SetValue@UISlider@@QAEMM@Z
-    0x4B4090 | public: void __thiscall UISlider::SetMouseParams(float) | ?SetMouseParams@UISlider@@QAEXM@Z
-    0x4B40E0 | public: void __thiscall UISlider::EvalMouseXY(float,float) | ?EvalMouseXY@UISlider@@QAEXMM@Z
-    0x4B4210 | public: void __thiscall UISlider::SetData(float) | ?SetData@UISlider@@QAEXM@Z
-    0x4B4230 | public: float __thiscall UISlider::GetFudgeWidth(void) | ?GetFudgeWidth@UISlider@@QAEMXZ
-    0x4B4240 | public: virtual void * __thiscall UISlider::`scalar deleting destructor'(unsigned int) | ??_GUISlider@@UAEPAXI@Z
-    0x4B4240 | public: virtual void * __thiscall UISlider::`vector deleting destructor'(unsigned int) | ??_EUISlider@@UAEPAXI@Z
-    0x4B4270 | public: virtual float __thiscall UISlider::GetScreenHeight(void) | ?GetScreenHeight@UISlider@@UAEMXZ
-    0x61E590 | const UISlider::`vftable' | ??_7UISlider@@6B@
-*/
-
 #include "widget.h"
 
 class UISlider final : public uiWidget

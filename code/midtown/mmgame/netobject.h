@@ -18,29 +18,6 @@
 
 #pragma once
 
-/*
-    mmgame:netobject
-
-    0x432740 | public: __thiscall mmNetObject::mmNetObject(void) | ??0mmNetObject@@QAE@XZ
-    0x4327F0 | public: virtual __thiscall mmNetObject::~mmNetObject(void) | ??1mmNetObject@@UAE@XZ
-    0x432800 | public: void __thiscall mmNetObject::Clear(void) | ?Clear@mmNetObject@@QAEXXZ
-    0x432850 | public: void __thiscall mmNetObject::Activate(void) | ?Activate@mmNetObject@@QAEXXZ
-    0x4328A0 | public: void __thiscall mmNetObject::Deactivate(void) | ?Deactivate@mmNetObject@@QAEXXZ
-    0x432900 | public: void __thiscall mmNetObject::Init(class mmCar *,char *,int,unsigned long,char *) | ?Init@mmNetObject@@QAEXPAVmmCar@@PADHK1@Z
-    0x432980 | public: void __thiscall mmNetObject::ReInit(class mmCar *,char *,int,unsigned long,char *) | ?ReInit@mmNetObject@@QAEXPAVmmCar@@PADHK1@Z
-    0x432A40 | public: void __thiscall mmNetObject::SetCar(class mmCar *) | ?SetCar@mmNetObject@@QAEXPAVmmCar@@@Z
-    0x432A50 | public: void __thiscall mmNetObject::SetActive(int) | ?SetActive@mmNetObject@@QAEXH@Z
-    0x432A70 | public: void __thiscall mmNetObject::SetScore(int) | ?SetScore@mmNetObject@@QAEXH@Z
-    0x432A80 | public: virtual void __thiscall mmNetObject::SetLocalData(void) | ?SetLocalData@mmNetObject@@UAEXXZ
-    0x432BD0 | public: void __thiscall mmNetObject::PositionUpdate(struct NETGAME_MSG *) | ?PositionUpdate@mmNetObject@@QAEXPAUNETGAME_MSG@@@Z
-    0x432F80 | public: void __thiscall mmNetObject::Predict(void) | ?Predict@mmNetObject@@QAEXXZ
-    0x433130 | public: virtual void __thiscall mmNetObject::Update(void) | ?Update@mmNetObject@@UAEXXZ
-    0x4331D0 | public: virtual void * __thiscall mmNetObject::`vector deleting destructor'(unsigned int) | ??_EmmNetObject@@UAEPAXI@Z
-    0x4331D0 | public: virtual void * __thiscall mmNetObject::`scalar deleting destructor'(unsigned int) | ??_GmmNetObject@@UAEPAXI@Z
-    0x61B120 | const mmNetObject::`vftable' | ??_7mmNetObject@@6B@
-    0x6A77E8 | float time_delta | ?time_delta@@3MA
-*/
-
 #include "mmnetwork/netobject.h"
 #include "vector7/matrix34.h"
 #include "vector7/vector3.h"

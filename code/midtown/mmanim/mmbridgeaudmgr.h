@@ -18,23 +18,6 @@
 
 #pragma once
 
-/*
-    mmanim:mmbridgeaudmgr
-
-    0x4C3D10 | public: __thiscall mmBridgeAudMgr::mmBridgeAudMgr(void) | ??0mmBridgeAudMgr@@QAE@XZ
-    0x4C3EC0 | public: virtual __thiscall mmBridgeAudMgr::~mmBridgeAudMgr(void) | ??1mmBridgeAudMgr@@UAE@XZ
-    0x4C3F80 | public: short __thiscall mmBridgeAudMgr::Add(class mmBridgeSet *) | ?Add@mmBridgeAudMgr@@QAEFPAVmmBridgeSet@@@Z
-    0x4C4010 | public: void __thiscall mmBridgeAudMgr::Remove(class mmBridgeSet *,short) | ?Remove@mmBridgeAudMgr@@QAEXPAVmmBridgeSet@@F@Z
-    0x4C4070 | public: short __thiscall mmBridgeAudMgr::FindGreatestDistance(class mmBridgeSet *) | ?FindGreatestDistance@mmBridgeAudMgr@@QAEFPAVmmBridgeSet@@@Z
-    0x4C4110 | public: short __thiscall mmBridgeAudMgr::FindUnusedSlot(void) | ?FindUnusedSlot@mmBridgeAudMgr@@QAEFXZ
-    0x4C4150 | public: virtual void __thiscall mmBridgeAudMgr::Update(void) | ?Update@mmBridgeAudMgr@@UAEXXZ
-    0x4C4180 | public: void __thiscall mmBridgeAudMgr::AssignSounds(short) | ?AssignSounds@mmBridgeAudMgr@@QAEXF@Z
-    0x4C41B0 | public: virtual void * __thiscall mmBridgeAudMgr::`vector deleting destructor'(unsigned int) | ??_EmmBridgeAudMgr@@UAEPAXI@Z
-    0x4C41B0 | public: virtual void * __thiscall mmBridgeAudMgr::`scalar deleting destructor'(unsigned int) | ??_GmmBridgeAudMgr@@UAEPAXI@Z
-    0x61F430 | const mmBridgeAudMgr::`vftable' | ??_7mmBridgeAudMgr@@6B@
-    0x705E1C | class mmBridgeAudMgr * MMBRIDGEAUDMGRPTR | ?MMBRIDGEAUDMGRPTR@@3PAVmmBridgeAudMgr@@A
-*/
-
 #include "arts7/node.h"
 
 class mmBridgeSet;

@@ -18,37 +18,6 @@
 
 #pragma once
 
-/*
-    mmai:aiGoalFollowWayPts
-
-    0x4659B0 | public: __thiscall aiGoalFollowWayPts::aiGoalFollowWayPts(void) | ??0aiGoalFollowWayPts@@QAE@XZ
-    0x465A10 | public: __thiscall aiGoalFollowWayPts::aiGoalFollowWayPts(char *,class aiRailSet *,class aiVehicleOpponent *,short *,short *,short *,char *,float) | ??0aiGoalFollowWayPts@@QAE@PADPAVaiRailSet@@PAVaiVehicleOpponent@@PAF330M@Z
-    0x466420 | public: __thiscall aiGoalFollowWayPts::~aiGoalFollowWayPts(void) | ??1aiGoalFollowWayPts@@QAE@XZ
-    0x4664D0 | public: virtual void __thiscall aiGoalFollowWayPts::Init(void) | ?Init@aiGoalFollowWayPts@@UAEXXZ
-    0x4668C0 | public: virtual int __thiscall aiGoalFollowWayPts::Context(void) | ?Context@aiGoalFollowWayPts@@UAEHXZ
-    0x4669B0 | public: virtual int __thiscall aiGoalFollowWayPts::Priority(void) | ?Priority@aiGoalFollowWayPts@@UAEHXZ
-    0x4669C0 | public: virtual void __thiscall aiGoalFollowWayPts::Reset(void) | ?Reset@aiGoalFollowWayPts@@UAEXXZ
-    0x466AB0 | public: virtual void __thiscall aiGoalFollowWayPts::Update(void) | ?Update@aiGoalFollowWayPts@@UAEXXZ
-    0x466EA0 | private: class aiVehicleOpponent * __thiscall aiGoalFollowWayPts::DetectOpponentCollision(void) | ?DetectOpponentCollision@aiGoalFollowWayPts@@AAEPAVaiVehicleOpponent@@XZ
-    0x467040 | private: void __thiscall aiGoalFollowWayPts::AvoidOpponentCollision(class aiVehicleOpponent *) | ?AvoidOpponentCollision@aiGoalFollowWayPts@@AAEXPAVaiVehicleOpponent@@@Z
-    0x4674B0 | private: void __thiscall aiGoalFollowWayPts::PlanRoute(void) | ?PlanRoute@aiGoalFollowWayPts@@AAEXXZ
-    0x4676E0 | private: int __thiscall aiGoalFollowWayPts::LocateWayPtFromRoad(class aiPath *,class aiPath * *,class aiPath * *) | ?LocateWayPtFromRoad@aiGoalFollowWayPts@@AAEHPAVaiPath@@PAPAV2@1@Z
-    0x467D60 | private: int __thiscall aiGoalFollowWayPts::LocateWayPtFromInt(class aiIntersection *,class aiPath * *) | ?LocateWayPtFromInt@aiGoalFollowWayPts@@AAEHPAVaiIntersection@@PAPAVaiPath@@@Z
-    0x467E40 | private: class aiPath * __thiscall aiGoalFollowWayPts::DetRdSegBetweenInts(class aiIntersection *,class aiIntersection *) | ?DetRdSegBetweenInts@aiGoalFollowWayPts@@AAEPAVaiPath@@PAVaiIntersection@@0@Z
-    0x467ED0 | private: int __thiscall aiGoalFollowWayPts::DetectCollision(int *) | ?DetectCollision@aiGoalFollowWayPts@@AAEHPAH@Z
-    0x468B00 | private: void __thiscall aiGoalFollowWayPts::AddToBlockedRange(float,float,float) | ?AddToBlockedRange@aiGoalFollowWayPts@@AAEXMMM@Z
-    0x468CA0 | private: void __thiscall aiGoalFollowWayPts::AvoidCollision(int) | ?AvoidCollision@aiGoalFollowWayPts@@AAEXH@Z
-    0x469170 | private: void __thiscall aiGoalFollowWayPts::CalcSpeed(void) | ?CalcSpeed@aiGoalFollowWayPts@@AAEXXZ
-    0x469E10 | private: void __thiscall aiGoalFollowWayPts::SolveTargetPoint(void) | ?SolveTargetPoint@aiGoalFollowWayPts@@AAEXXZ
-    0x469E60 | public: void __thiscall aiGoalFollowWayPts::Dump(void) | ?Dump@aiGoalFollowWayPts@@QAEXXZ
-    0x46A0E0 | public: void __thiscall aiGoalFollowWayPts::AddWidgets(class Bank *) | ?AddWidgets@aiGoalFollowWayPts@@QAEXPAVBank@@@Z
-    0x46A140 | public: static void __cdecl aiGoalFollowWayPts::DeclareFields(void) | ?DeclareFields@aiGoalFollowWayPts@@SAXXZ
-    0x46A2D0 | public: virtual class MetaClass * __thiscall aiGoalFollowWayPts::GetClass(void) | ?GetClass@aiGoalFollowWayPts@@UAEPAVMetaClass@@XZ
-    0x46A310 | public: void * __thiscall aiGoalFollowWayPts::`vector deleting destructor'(unsigned int) | ??_EaiGoalFollowWayPts@@QAEPAXI@Z
-    0x61BCD0 | const aiGoalFollowWayPts::`vftable' | ??_7aiGoalFollowWayPts@@6B@
-    0x6A7C00 | class MetaClass aiGoalFollowWayPtsMetaClass | ?aiGoalFollowWayPtsMetaClass@@3VMetaClass@@A
-*/
-
 #include "data7/metadeclare.h"
 #include "data7/timer.h"
 #include "vector7/vector3.h"

@@ -18,14 +18,6 @@
 
 #pragma once
 
-/*
-    agi:texlib
-
-    0x5581A0 | public: __thiscall agiLib<class agiTexParameters,class agiTexDef>::agiLib<class agiTexParameters,class agiTexDef>(void) | ??0?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAE@XZ
-    0x5581D0 | public: __thiscall agiLib<class agiTexParameters,class agiTexDef>::~agiLib<class agiTexParameters,class agiTexDef>(void) | ??1?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAE@XZ
-    0x8FF0D8 | class agiLib<class agiTexParameters,class agiTexDef> agiTexLib | ?agiTexLib@@3V?$agiLib@VagiTexParameters@@VagiTexDef@@@@A
-*/
-
 #include "agilib.h"
 
 #include "texdef.h"

@@ -18,19 +18,6 @@
 
 #pragma once
 
-/*
-    mmaudio:crevbuf
-
-    0x4F4AA0 | public: __thiscall CReverbBuffer::CReverbBuffer(struct IDirectSound3DBuffer *) | ??0CReverbBuffer@@QAE@PAUIDirectSound3DBuffer@@@Z
-    0x4F4AF0 | public: __thiscall CReverbBuffer::~CReverbBuffer(void) | ??1CReverbBuffer@@QAE@XZ
-    0x4F4B00 | public: int __thiscall CReverbBuffer::PropertySetOk(void) | ?PropertySetOk@CReverbBuffer@@QAEHXZ
-    0x4F4B10 | private: int __thiscall CReverbBuffer::QueryProperty(unsigned long) | ?QueryProperty@CReverbBuffer@@AAEHK@Z
-    0x4F4B60 | public: void __thiscall CReverbBuffer::SetReverbMix(float) | ?SetReverbMix@CReverbBuffer@@QAEXM@Z
-    0x4F4B80 | public: void __thiscall CReverbBuffer::SetAll(struct EAXBUFFER_REVERBPROPERTIES *) | ?SetAll@CReverbBuffer@@QAEXPAUEAXBUFFER_REVERBPROPERTIES@@@Z
-    0x4F4BA0 | public: float __thiscall CReverbBuffer::GetReverbMix(void) | ?GetReverbMix@CReverbBuffer@@QAEMXZ
-    0x4F4BE0 | public: void __thiscall CReverbBuffer::GetAll(struct EAXBUFFER_REVERBPROPERTIES *) | ?GetAll@CReverbBuffer@@QAEXPAUEAXBUFFER_REVERBPROPERTIES@@@Z
-*/
-
 struct EAXBUFFER_REVERBPROPERTIES;
 struct IDirectSound3DBuffer;
 

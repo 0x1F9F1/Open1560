@@ -18,20 +18,6 @@
 
 #pragma once
 
-/*
-    agirend:bilight
-
-    0x555370 | public: __thiscall agiBILight::agiBILight(class agiPipeline *) | ??0agiBILight@@QAE@PAVagiPipeline@@@Z
-    0x555390 | public: virtual __thiscall agiBILight::~agiBILight(void) | ??1agiBILight@@UAE@XZ
-    0x5553E0 | public: virtual int __thiscall agiBILight::BeginGfx(void) | ?BeginGfx@agiBILight@@UAEHXZ
-    0x555400 | public: virtual void __thiscall agiBILight::EndGfx(void) | ?EndGfx@agiBILight@@UAEXXZ
-    0x555410 | public: virtual int __thiscall agiBILight::Update(void) | ?Update@agiBILight@@UAEHXZ
-    0x555420 | public: virtual void __thiscall agiBILight::Remove(void) | ?Remove@agiBILight@@UAEXXZ
-    0x555430 | public: virtual void * __thiscall agiBILight::`scalar deleting destructor'(unsigned int) | ??_GagiBILight@@UAEPAXI@Z
-    0x555430 | public: virtual void * __thiscall agiBILight::`vector deleting destructor'(unsigned int) | ??_EagiBILight@@UAEPAXI@Z
-    0x621528 | const agiBILight::`vftable' | ??_7agiBILight@@6B@
-*/
-
 #include "agi/light.h"
 
 class agiBILight final : public agiLight

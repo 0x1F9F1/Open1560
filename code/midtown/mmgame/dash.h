@@ -18,43 +18,6 @@
 
 #pragma once
 
-/*
-    mmgame:dash
-
-    0x4215D0 | public: __thiscall mmDashView::mmDashView(void) | ??0mmDashView@@QAE@XZ
-    0x421770 | public: virtual __thiscall mmDashView::~mmDashView(void) | ??1mmDashView@@UAE@XZ
-    0x421880 | public: void __thiscall mmDashView::Init(char *,class mmPlayer *) | ?Init@mmDashView@@QAEXPADPAVmmPlayer@@@Z
-    0x421C10 | public: virtual void __thiscall mmDashView::Reset(void) | ?Reset@mmDashView@@UAEXXZ
-    0x421C20 | public: virtual void __thiscall mmDashView::BeforeSave(void) | ?BeforeSave@mmDashView@@UAEXXZ
-    0x421CC0 | public: virtual void __thiscall mmDashView::AfterLoad(void) | ?AfterLoad@mmDashView@@UAEXXZ
-    0x421D60 | public: void __thiscall mmDashView::ActivateUntilTransitionIsOver(void) | ?ActivateUntilTransitionIsOver@mmDashView@@QAEXXZ
-    0x421D80 | public: void __thiscall mmDashView::Activate(void) | ?Activate@mmDashView@@QAEXXZ
-    0x421DA0 | public: void __thiscall mmDashView::Deactivate(void) | ?Deactivate@mmDashView@@QAEXXZ
-    0x421DC0 | public: void __thiscall mmDashView::TempDeactivate(void) | ?TempDeactivate@mmDashView@@QAEXXZ
-    0x421DD0 | public: virtual void __thiscall mmDashView::Update(void) | ?Update@mmDashView@@UAEXXZ
-    0x421F00 | public: virtual void __thiscall mmDashView::Cull(void) | ?Cull@mmDashView@@UAEXXZ
-    0x4220F0 | public: __thiscall mmExternalView::mmExternalView(void) | ??0mmExternalView@@QAE@XZ
-    0x422170 | public: void __thiscall mmExternalView::Init(class mmPlayer *) | ?Init@mmExternalView@@QAEXPAVmmPlayer@@@Z
-    0x4221B0 | public: virtual void __thiscall mmExternalView::ResChange(int,int) | ?ResChange@mmExternalView@@UAEXHH@Z
-    0x422300 | public: virtual void __thiscall mmExternalView::Reset(void) | ?Reset@mmExternalView@@UAEXXZ
-    0x422310 | public: virtual void __thiscall mmExternalView::Update(void) | ?Update@mmExternalView@@UAEXXZ
-    0x422330 | public: void __thiscall mmExternalView::WideFOV(int) | ?WideFOV@mmExternalView@@QAEXH@Z
-    0x422340 | public: virtual void __thiscall mmExternalView::Cull(void) | ?Cull@mmExternalView@@UAEXXZ
-    0x4224E0 | public: virtual void __thiscall mmExternalView::AddWidgets(class Bank *) | ?AddWidgets@mmExternalView@@UAEXPAVBank@@@Z
-    0x4227D0 | public: virtual void __thiscall mmDashView::AddWidgets(class Bank *) | ?AddWidgets@mmDashView@@UAEXPAVBank@@@Z
-    0x422BD0 | public: static void __cdecl mmDashView::DeclareFields(void) | ?DeclareFields@mmDashView@@SAXXZ
-    0x422EC0 | public: virtual class MetaClass * __thiscall mmDashView::GetClass(void) | ?GetClass@mmDashView@@UAEPAVMetaClass@@XZ
-    0x422F00 | public: virtual __thiscall asLinearCS::~asLinearCS(void) | ??1asLinearCS@@UAE@XZ
-    0x422F10 | public: virtual __thiscall RadialGauge::~RadialGauge(void) | ??1RadialGauge@@UAE@XZ
-    0x422F60 | public: virtual void * __thiscall mmExternalView::`scalar deleting destructor'(unsigned int) | ??_GmmExternalView@@UAEPAXI@Z
-    0x422F60 | public: virtual void * __thiscall mmExternalView::`vector deleting destructor'(unsigned int) | ??_EmmExternalView@@UAEPAXI@Z
-    0x422F90 | public: virtual void * __thiscall mmDashView::`vector deleting destructor'(unsigned int) | ??_EmmDashView@@UAEPAXI@Z
-    0x61AAC0 | const mmDashView::`vftable' | ??_7mmDashView@@6B@
-    0x61AB00 | const mmExternalView::`vftable' | ??_7mmExternalView@@6B@
-    0x636504 | float MAX_SPEED | ?MAX_SPEED@@3MA
-    0x6A72B8 | class MetaClass mmDashViewMetaClass | ?mmDashViewMetaClass@@3VMetaClass@@A
-*/
-
 #include "arts7/linear.h"
 #include "arts7/node.h"
 

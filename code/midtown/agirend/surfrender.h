@@ -18,36 +18,6 @@
 
 #pragma once
 
-/*
-    agirend:surfrender
-
-    0x552D60 | public: __thiscall agiSurfRenderer::agiSurfRenderer(class agiRasterizer *) | ??0agiSurfRenderer@@QAE@PAVagiRasterizer@@@Z
-    0x552DB0 | protected: virtual __thiscall agiSurfRenderer::~agiSurfRenderer(void) | ??1agiSurfRenderer@@MAE@XZ
-    0x552DC0 | public: virtual void __thiscall agiSurfRenderer::BeginGroup(void) | ?BeginGroup@agiSurfRenderer@@UAEXXZ
-    0x552E00 | private: static int __cdecl agiSurfRenderer::AddSurface(struct agiPatch *,int,int,int,int) | ?AddSurface@agiSurfRenderer@@CAHPAUagiPatch@@HHHH@Z
-    0x5544F0 | public: virtual void __thiscall agiSurfRenderer::Draw(class DLP *,int) | ?Draw@agiSurfRenderer@@UAEXPAVDLP@@H@Z
-    0x554890 | public: virtual void __thiscall agiSurfRenderer::DrawCard(class Vector3 &) | ?DrawCard@agiSurfRenderer@@UAEXAAVVector3@@@Z
-    0x554D70 | public: virtual void __thiscall agiSurfRenderer::BeginDraw(int) | ?BeginDraw@agiSurfRenderer@@UAEXH@Z
-    0x554DA0 | public: virtual void __thiscall agiSurfRenderer::Verts(union agiVtx *,int) | ?Verts@agiSurfRenderer@@UAEXPATagiVtx@@H@Z
-    0x554E40 | public: virtual void __thiscall agiSurfRenderer::Points(union agiVtx *,int) | ?Points@agiSurfRenderer@@UAEXPATagiVtx@@H@Z
-    0x554EB0 | public: virtual void __thiscall agiSurfRenderer::DrawTri(int,int,int) | ?DrawTri@agiSurfRenderer@@UAEXHHH@Z
-    0x554EE0 | public: virtual void __thiscall agiSurfRenderer::DrawLine(int,int) | ?DrawLine@agiSurfRenderer@@UAEXHH@Z
-    0x555180 | public: virtual void __thiscall agiSurfRenderer::DrawLabel(union agiVtx &,char *) | ?DrawLabel@agiSurfRenderer@@UAEXAATagiVtx@@PAD@Z
-    0x5551F0 | public: virtual void __thiscall agiSurfRenderer::EndDraw(void) | ?EndDraw@agiSurfRenderer@@UAEXXZ
-    0x555200 | protected: virtual void * __thiscall agiSurfRenderer::`scalar deleting destructor'(unsigned int) | ??_GagiSurfRenderer@@MAEPAXI@Z
-    0x555200 | protected: virtual void * __thiscall agiSurfRenderer::`vector deleting destructor'(unsigned int) | ??_EagiSurfRenderer@@MAEPAXI@Z
-    0x555230 | protected: virtual void * __thiscall agiRenderer::`vector deleting destructor'(unsigned int) | ??_EagiRenderer@@MAEPAXI@Z
-    0x555230 | protected: virtual void * __thiscall agiRenderer::`scalar deleting destructor'(unsigned int) | ??_GagiRenderer@@MAEPAXI@Z
-    0x6214A0 | const agiSurfRenderer::`vftable' | ??_7agiSurfRenderer@@6B@
-    0x6214D0 | const agiRenderer::`vftable' | ??_7agiRenderer@@6B@
-    0x656590 | int EarlyBackface | ?EarlyBackface@@3HA
-    0x8BABF8 | protected: static int agiSurfRenderer::SurfaceCount | ?SurfaceCount@agiSurfRenderer@@1HA
-    0x8BABFC | protected: static int agiSurfRenderer::VertexCount | ?VertexCount@agiSurfRenderer@@1HA
-    0x8BAC00 | int NoClip | ?NoClip@@3HA
-    0x8BAC08 | protected: static struct agiSurface * agiSurfRenderer::SurfaceHeap | ?SurfaceHeap@agiSurfRenderer@@1PAUagiSurface@@A
-    0x8FAC14 | int ZTrick | ?ZTrick@@3HA
-*/
-
 #include "agi/render.h"
 
 class agiLighter;

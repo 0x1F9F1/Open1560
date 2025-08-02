@@ -18,12 +18,6 @@
 
 #pragma once
 
-/*
-    mmcity:heap
-
-    0x4955C0 | void __cdecl mmHeapError(void) | ?mmHeapError@@YAXXZ
-*/
-
 // ?mmHeapError@@YAXXZ
 [[noreturn]] ARTS_EXPORT void mmHeapError();
 

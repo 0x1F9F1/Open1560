@@ -18,17 +18,6 @@
 
 #pragma once
 
-/*
-    agiworld:meshmodel
-
-    0x5141B0 | public: int __thiscall agiMeshModel::ModelGeometry(unsigned int,class bnAnimation *,int) | ?ModelGeometry@agiMeshModel@@QAEHIPAVbnAnimation@@H@Z
-    0x5142B0 | public: int __thiscall agiMeshModel::ModelDraw(unsigned int,class agiLitAnimation *,int) | ?ModelDraw@agiMeshModel@@QAEHIPAVagiLitAnimation@@H@Z
-    0x5142D0 | public: int __thiscall agiMeshModel::ModelDraw(unsigned int,class bnAnimation *,int) | ?ModelDraw@agiMeshModel@@QAEHIPAVbnAnimation@@H@Z
-    0x514330 | public: int __thiscall agiMeshModel::ModelDrawSkel(unsigned int,class bnAnimation *,int) | ?ModelDrawSkel@agiMeshModel@@QAEHIPAVbnAnimation@@H@Z
-    0x5144F0 | public: int __thiscall agiMeshModel::ModelDrawLit(void (__cdecl*)(unsigned char *,unsigned int *,unsigned int *,class agiMeshSet *),unsigned int,class agiLitAnimation *,int) | ?ModelDrawLit@agiMeshModel@@QAEHP6AXPAEPAI1PAVagiMeshSet@@@ZIPAVagiLitAnimation@@H@Z
-    0x5145C0 | public: __thiscall agiLitAnimation::agiLitAnimation(class agiMeshModel *,class bnAnimation *,class Stream *) | ??0agiLitAnimation@@QAE@PAVagiMeshModel@@PAVbnAnimation@@PAVStream@@@Z
-*/
-
 #include "meshset.h"
 
 class agiMeshModel;

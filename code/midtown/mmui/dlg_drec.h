@@ -18,22 +18,6 @@
 
 #pragma once
 
-/*
-    mmui:dlg_drec
-
-    0x49EC10 | public: __thiscall Dialog_DriverRec::Dialog_DriverRec(int,float,float,float,float,char *) | ??0Dialog_DriverRec@@QAE@HMMMMPAD@Z
-    0x49EF70 | public: virtual __thiscall Dialog_DriverRec::~Dialog_DriverRec(void) | ??1Dialog_DriverRec@@UAE@XZ
-    0x49EF80 | public: virtual void __thiscall Dialog_DriverRec::PreSetup(void) | ?PreSetup@Dialog_DriverRec@@UAEXXZ
-    0x49EF90 | public: void __thiscall Dialog_DriverRec::InitDriverRecord(int) | ?InitDriverRecord@Dialog_DriverRec@@QAEXH@Z
-    0x49F060 | public: int __thiscall Dialog_DriverRec::AddDriverRecord(int,char *,int,float,char *,int) | ?AddDriverRecord@Dialog_DriverRec@@QAEHHPADHM0H@Z
-    0x49F1A0 | public: void __thiscall Dialog_DriverRec::ResetDriverRecord(void) | ?ResetDriverRecord@Dialog_DriverRec@@QAEXXZ
-    0x49F230 | public: void __thiscall Dialog_DriverRec::SetRecordPosition(int) | ?SetRecordPosition@Dialog_DriverRec@@QAEXH@Z
-    0x49F250 | public: void __thiscall Dialog_DriverRec::SetSortState(void) | ?SetSortState@Dialog_DriverRec@@QAEXXZ
-    0x49F2B0 | public: virtual void * __thiscall Dialog_DriverRec::`vector deleting destructor'(unsigned int) | ??_EDialog_DriverRec@@UAEPAXI@Z
-    0x49F2B0 | public: virtual void * __thiscall Dialog_DriverRec::`scalar deleting destructor'(unsigned int) | ??_GDialog_DriverRec@@UAEPAXI@Z
-    0x61D668 | const Dialog_DriverRec::`vftable' | ??_7Dialog_DriverRec@@6B@
-*/
-
 #include "pu_menu.h"
 
 class Dialog_DriverRec final : public PUMenuBase

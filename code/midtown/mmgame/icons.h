@@ -18,20 +18,6 @@
 
 #pragma once
 
-/*
-    mmgame:icons
-
-    0x426390 | public: __thiscall mmIcons::mmIcons(void) | ??0mmIcons@@QAE@XZ
-    0x426410 | public: virtual __thiscall mmIcons::~mmIcons(void) | ??1mmIcons@@UAE@XZ
-    0x426470 | public: void __thiscall mmIcons::Init(class Matrix34 *,float,float) | ?Init@mmIcons@@QAEXPAVMatrix34@@MM@Z
-    0x4264B0 | public: void __thiscall mmIcons::RegisterOpponents(struct OppIconInfo *,int,void *) | ?RegisterOpponents@mmIcons@@QAEXPAUOppIconInfo@@HPAX@Z
-    0x426530 | public: virtual void __thiscall mmIcons::Update(void) | ?Update@mmIcons@@UAEXXZ
-    0x426570 | public: virtual void __thiscall mmIcons::Cull(void) | ?Cull@mmIcons@@UAEXXZ
-    0x426B70 | public: virtual void * __thiscall mmIcons::`vector deleting destructor'(unsigned int) | ??_EmmIcons@@UAEPAXI@Z
-    0x426B70 | public: virtual void * __thiscall mmIcons::`scalar deleting destructor'(unsigned int) | ??_GmmIcons@@UAEPAXI@Z
-    0x61AD28 | const mmIcons::`vftable' | ??_7mmIcons@@6B@
-*/
-
 #include "arts7/node.h"
 
 struct OppIconInfo;

@@ -18,28 +18,6 @@
 
 #pragma once
 
-/*
-    agisw:swrsys
-
-    0x537BB0 | public: __thiscall agiSWRasterizer::agiSWRasterizer(class agiPipeline *) | ??0agiSWRasterizer@@QAE@PAVagiPipeline@@@Z
-    0x537BD0 | public: virtual __thiscall agiSWRasterizer::~agiSWRasterizer(void) | ??1agiSWRasterizer@@UAE@XZ
-    0x537BE0 | public: virtual int __thiscall agiSWRasterizer::BeginGfx(void) | ?BeginGfx@agiSWRasterizer@@UAEHXZ
-    0x537BF0 | public: virtual void __thiscall agiSWRasterizer::EndGfx(void) | ?EndGfx@agiSWRasterizer@@UAEXXZ
-    0x537C00 | public: virtual void __thiscall agiSWRasterizer::BeginGroup(void) | ?BeginGroup@agiSWRasterizer@@UAEXXZ
-    0x537C10 | public: virtual void __thiscall agiSWRasterizer::EndGroup(void) | ?EndGroup@agiSWRasterizer@@UAEXXZ
-    0x537C20 | public: virtual void __thiscall agiSWRasterizer::Verts(enum agiVtxType,union agiVtx *,int) | ?Verts@agiSWRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z
-    0x537C30 | public: virtual void __thiscall agiSWRasterizer::SetVertCount(int) | ?SetVertCount@agiSWRasterizer@@UAEXH@Z
-    0x537C40 | public: virtual void __thiscall agiSWRasterizer::Triangle(int,int,int) | ?Triangle@agiSWRasterizer@@UAEXHHH@Z
-    0x537C70 | public: virtual void __thiscall agiSWRasterizer::Quad(int,int,int,int) | ?Quad@agiSWRasterizer@@UAEXHHHH@Z
-    0x537CB0 | public: virtual void __thiscall agiSWRasterizer::Line(int,int) | ?Line@agiSWRasterizer@@UAEXHH@Z
-    0x537CF0 | public: virtual void __thiscall agiSWRasterizer::Card(int,int) | ?Card@agiSWRasterizer@@UAEXHH@Z
-    0x537D00 | public: virtual void __thiscall agiSWRasterizer::Points(enum agiVtxType,union agiVtx *,int) | ?Points@agiSWRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z
-    0x537D10 | public: virtual void __thiscall agiSWRasterizer::Mesh(enum agiVtxType,union agiVtx *,int,unsigned short *,int) | ?Mesh@agiSWRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@HPAGH@Z
-    0x537DC0 | public: virtual void * __thiscall agiSWRasterizer::`vector deleting destructor'(unsigned int) | ??_EagiSWRasterizer@@UAEPAXI@Z
-    0x537DC0 | public: virtual void * __thiscall agiSWRasterizer::`scalar deleting destructor'(unsigned int) | ??_GagiSWRasterizer@@UAEPAXI@Z
-    0x621338 | const agiSWRasterizer::`vftable' | ??_7agiSWRasterizer@@6B@
-*/
-
 #include "agi/rsys.h"
 
 class agiSWRasterizer final : public agiRasterizer

@@ -18,12 +18,6 @@
 
 #pragma once
 
-/*
-    mmdjpeg:jdmainct
-
-    0x581070 | void __cdecl jinit_d_main_controller(struct jpeg_decompress_struct *,unsigned char) | ?jinit_d_main_controller@@YAXPAUjpeg_decompress_struct@@E@Z
-*/
-
 struct jpeg_decompress_struct;
 
 // ?jinit_d_main_controller@@YAXPAUjpeg_decompress_struct@@E@Z

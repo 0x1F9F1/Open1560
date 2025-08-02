@@ -18,22 +18,6 @@
 
 #pragma once
 
-/*
-    agiworld:texsheet
-
-    0x511B30 | char * __cdecl mystrtok(char *,char const *) | ?mystrtok@@YAPADPADPBD@Z
-    0x511B90 | public: void __thiscall agiTexSheet::Load(char *) | ?Load@agiTexSheet@@QAEXPAD@Z
-    0x512080 | int __cdecl cmpTex(void const *,void const *) | ?cmpTex@@YAHPBX0@Z
-    0x5120A0 | public: void __thiscall agiTexSheet::Kill(void) | ?Kill@agiTexSheet@@QAEXXZ
-    0x5120D0 | public: void __thiscall agiTexSheet::Save(char *) | ?Save@agiTexSheet@@QAEXPAD@Z
-    0x512340 | public: struct agiTexProp * __thiscall agiTexSheet::Lookup(char *,int) | ?Lookup@agiTexSheet@@QAEPAUagiTexProp@@PADH@Z
-    0x5123A0 | public: struct agiTexProp * __thiscall agiTexSheet::LookupAlternate(char *) | ?LookupAlternate@agiTexSheet@@QAEPAUagiTexProp@@PAD@Z
-    0x512410 | public: int __thiscall agiTexSheet::GetVariationCount(char *) | ?GetVariationCount@agiTexSheet@@QAEHPAD@Z
-    0x512460 | public: char * __thiscall agiTexSheet::RemapName(char *,int) | ?RemapName@agiTexSheet@@QAEPADPADH@Z
-    0x5124A0 | public: void __thiscall agiTexSheet::Add(char *) | ?Add@agiTexSheet@@QAEXPAD@Z
-    0x73E6C0 | class agiTexSheet TEXSHEET | ?TEXSHEET@@3VagiTexSheet@@A
-*/
-
 class agiTexSheet;
 
 // ?mystrtok@@YAPADPADPBD@Z

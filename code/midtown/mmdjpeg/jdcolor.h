@@ -18,12 +18,6 @@
 
 #pragma once
 
-/*
-    mmdjpeg:jdcolor
-
-    0x583130 | void __cdecl jinit_color_deconverter(struct jpeg_decompress_struct *) | ?jinit_color_deconverter@@YAXPAUjpeg_decompress_struct@@@Z
-*/
-
 struct jpeg_decompress_struct;
 
 // ?jinit_color_deconverter@@YAXPAUjpeg_decompress_struct@@@Z

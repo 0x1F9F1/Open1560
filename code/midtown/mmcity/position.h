@@ -18,19 +18,6 @@
 
 #pragma once
 
-/*
-    mmcity:position
-
-    0x491E00 | public: __thiscall mmPositions::mmPositions(void) | ??0mmPositions@@QAE@XZ
-    0x491E10 | public: void __thiscall mmPositions::Init(int) | ?Init@mmPositions@@QAEXH@Z
-    0x491E40 | public: int __thiscall mmPositions::Load(char *) | ?Load@mmPositions@@QAEHPAD@Z
-    0x492010 | public: int __thiscall mmPositions::GetCount(void) | ?GetCount@mmPositions@@QAEHXZ
-    0x492020 | public: class Vector4 & __thiscall mmPositions::GetVector4(int) | ?GetVector4@mmPositions@@QAEAAVVector4@@H@Z
-    0x492050 | public: void __thiscall mmPositions::Dump(char *) | ?Dump@mmPositions@@QAEXPAD@Z
-    0x4920F0 | public: int __thiscall mmPositions::Recall(int,class Matrix34 *,int *,char *) | ?Recall@mmPositions@@QAEHHPAVMatrix34@@PAHPAD@Z
-    0x492180 | public: int __thiscall mmPositions::Register(class Vector4 &,int,int,int,int,char *) | ?Register@mmPositions@@QAEHAAVVector4@@HHHHPAD@Z
-*/
-
 #include "vector7/vector4.h"
 
 struct mmPosition

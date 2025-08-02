@@ -18,33 +18,6 @@
 
 #pragma once
 
-/*
-    mmcityinfo:miscdata
-
-    0x4CC490 | public: __thiscall mmMiscData::mmMiscData(void) | ??0mmMiscData@@QAE@XZ
-    0x4CC5A0 | public: virtual __thiscall mmMiscData::~mmMiscData(void) | ??1mmMiscData@@UAE@XZ
-    0x4CC6A0 | public: int __thiscall mmMiscData::Load(char *) | ?Load@mmMiscData@@QAEHPAD@Z
-    0x4CC710 | public: int __thiscall mmMiscData::Save(char *,int) | ?Save@mmMiscData@@QAEHPADH@Z
-    0x4CC7A0 | public: int __thiscall mmMiscData::LoadBinary(char *) | ?LoadBinary@mmMiscData@@QAEHPAD@Z
-    0x4CC960 | public: int __thiscall mmMiscData::SaveBinary(char *) | ?SaveBinary@mmMiscData@@QAEHPAD@Z
-    0x4CCAE0 | public: class mmRecord __thiscall mmMiscData::GetBestRaceTime(int,int) | ?GetBestRaceTime@mmMiscData@@QAE?AVmmRecord@@HH@Z
-    0x4CCC10 | public: class mmRecord __thiscall mmMiscData::GetBestBlitzTime(int,int) | ?GetBestBlitzTime@mmMiscData@@QAE?AVmmRecord@@HH@Z
-    0x4CCD40 | public: class mmRecord __thiscall mmMiscData::GetBestCircuitTime(int,int) | ?GetBestCircuitTime@mmMiscData@@QAE?AVmmRecord@@HH@Z
-    0x4CCE70 | public: class mmRecord __thiscall mmMiscData::GetBestRaceScore(int,int) | ?GetBestRaceScore@mmMiscData@@QAE?AVmmRecord@@HH@Z
-    0x4CCFA0 | public: class mmRecord __thiscall mmMiscData::GetBestBlitzScore(int,int) | ?GetBestBlitzScore@mmMiscData@@QAE?AVmmRecord@@HH@Z
-    0x4CD0D0 | public: class mmRecord __thiscall mmMiscData::GetBestCircuitScore(int,int) | ?GetBestCircuitScore@mmMiscData@@QAE?AVmmRecord@@HH@Z
-    0x4CD200 | public: int __thiscall mmMiscData::CheckCheckpoint(char *,float,int,char *,int,int) | ?CheckCheckpoint@mmMiscData@@QAEHPADMH0HH@Z
-    0x4CD3A0 | public: int __thiscall mmMiscData::CheckCircuit(char *,float,int,char *,int,int) | ?CheckCircuit@mmMiscData@@QAEHPADMH0HH@Z
-    0x4CD540 | public: int __thiscall mmMiscData::CheckBlitz(char *,float,int,char *,int,int) | ?CheckBlitz@mmMiscData@@QAEHPADMH0HH@Z
-    0x4CD6E0 | public: static void __cdecl mmMiscData::DeclareFields(void) | ?DeclareFields@mmMiscData@@SAXXZ
-    0x4CD960 | public: virtual class MetaClass * __thiscall mmMiscData::GetClass(void) | ?GetClass@mmMiscData@@UAEPAVMetaClass@@XZ
-    0x4CD970 | public: virtual void * __thiscall mmRecord::`scalar deleting destructor'(unsigned int) | ??_GmmRecord@@UAEPAXI@Z
-    0x4CD9A0 | public: virtual void * __thiscall mmMiscData::`vector deleting destructor'(unsigned int) | ??_EmmMiscData@@UAEPAXI@Z
-    0x61F8B8 | const mmMiscData::`vftable' | ??_7mmMiscData@@6B@
-    0x61F8D0 | const mmRecord::`vftable' | ??_7mmRecord@@6B@
-    0x7084F8 | class MetaClass mmMiscDataMetaClass | ?mmMiscDataMetaClass@@3VMetaClass@@A
-*/
-
 #include "infobase.h"
 
 class mmRecord;

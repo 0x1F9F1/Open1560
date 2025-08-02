@@ -18,16 +18,6 @@
 
 #pragma once
 
-/*
-    mminput:friction
-
-    0x4E7AA0 | public: virtual int __thiscall mmFrictionFF::Init(struct IDirectInputDevice2A *) | ?Init@mmFrictionFF@@UAEHPAUIDirectInputDevice2A@@@Z
-    0x4E7BB0 | public: virtual int __thiscall mmFrictionFF::SetValues(float,float) | ?SetValues@mmFrictionFF@@UAEHMM@Z
-    0x4E7BE0 | public: int __thiscall mmFrictionFF::Assign(long) | ?Assign@mmFrictionFF@@QAEHJ@Z
-    0x4E7CB0 | public: virtual int __thiscall mmFrictionFF::Play(void) | ?Play@mmFrictionFF@@UAEHXZ
-    0x4E7D10 | public: virtual int __thiscall mmFrictionFF::Stop(void) | ?Stop@mmFrictionFF@@UAEHXZ
-*/
-
 #include "effect.h"
 
 class mmFrictionFF final : public mmEffectFF

@@ -18,38 +18,6 @@
 
 #pragma once
 
-/*
-    mmcity:portal
-
-    0x4957E0 | public: struct asPortalCell * __thiscall asPortalWeb::AddCell(char *,class asPortalRenderable *,unsigned int) | ?AddCell@asPortalWeb@@QAEPAUasPortalCell@@PADPAVasPortalRenderable@@I@Z
-    0x495830 | public: void __thiscall asPortalWeb::DeleteCell(struct asPortalCell *) | ?DeleteCell@asPortalWeb@@QAEXPAUasPortalCell@@@Z
-    0x4958E0 | public: struct asPortalEdge * __thiscall asPortalWeb::AddEdge(char *,struct asPortalCell *,struct asPortalCell *,int) | ?AddEdge@asPortalWeb@@QAEPAUasPortalEdge@@PADPAUasPortalCell@@1H@Z
-    0x4959A0 | public: void __thiscall asPortalWeb::DeleteEdge(struct asPortalEdge *) | ?DeleteEdge@asPortalWeb@@QAEXPAUasPortalEdge@@@Z
-    0x4959B0 | struct asPortalCell * __cdecl LookupCell(char *) | ?LookupCell@@YAPAUasPortalCell@@PAD@Z
-    0x4959C0 | struct asPortalCell * __cdecl LookupEdge(char *) | ?LookupEdge@@YAPAUasPortalCell@@PAD@Z
-    0x4959D0 | public: void __thiscall asPortalPVS::Init(int,int) | ?Init@asPortalPVS@@QAEXHH@Z
-    0x495A30 | public: static struct asPortalPVS * __cdecl asPortalPVS::Create(int,...) | ?Create@asPortalPVS@@SAPAU1@HZZ
-    0x495AB0 | public: void __thiscall asPortalPVS::SetVisible(unsigned int) | ?SetVisible@asPortalPVS@@QAEXI@Z
-    0x495AE0 | public: __thiscall asPortalWeb::asPortalWeb(void) | ??0asPortalWeb@@QAE@XZ
-    0x495B70 | public: int __thiscall asPortalWeb::BuildVisibilityList(class Matrix34 &,struct asPortalCell * *,int,float) | ?BuildVisibilityList@asPortalWeb@@QAEHAAVMatrix34@@PAPAUasPortalCell@@HM@Z
-    0x495DD0 | public: int __thiscall asPortalWeb::BuildVisibilityList(class Vector3 &,struct asPortalCell * *,int,float) | ?BuildVisibilityList@asPortalWeb@@QAEHAAVVector3@@PAPAUasPortalCell@@HM@Z
-    0x495EE0 | public: virtual void __thiscall asPortalWeb::Update(void) | ?Update@asPortalWeb@@UAEXXZ
-    0x4969F0 | public: void __thiscall asPortalWeb::BuildGroups(void) | ?BuildGroups@asPortalWeb@@QAEXXZ
-    0x496FE0 | public: void __thiscall asPortalWeb::Cull(int) | ?Cull@asPortalWeb@@QAEXH@Z
-    0x497400 | public: void __thiscall asPortalWeb::Stats(void) | ?Stats@asPortalWeb@@QAEXXZ
-    0x4974C0 | public: virtual __thiscall asPortalWeb::~asPortalWeb(void) | ??1asPortalWeb@@UAE@XZ
-    0x497530 | public: void __thiscall asPortalWeb::LockTarget(void) | ?LockTarget@asPortalWeb@@QAEXXZ
-    0x497540 | public: virtual void __thiscall asPortalWeb::AddWidgets(class Bank *) | ?AddWidgets@asPortalWeb@@UAEXPAVBank@@@Z
-    0x4976D0 | public: static void __cdecl asPortalWeb::DeclareFields(void) | ?DeclareFields@asPortalWeb@@SAXXZ
-    0x497770 | public: virtual class MetaClass * __thiscall asPortalWeb::GetClass(void) | ?GetClass@asPortalWeb@@UAEPAVMetaClass@@XZ
-    0x497780 | public: virtual void * __thiscall asPortalWeb::`scalar deleting destructor'(unsigned int) | ??_GasPortalWeb@@UAEPAXI@Z
-    0x497780 | public: virtual void * __thiscall asPortalWeb::`vector deleting destructor'(unsigned int) | ??_EasPortalWeb@@UAEPAXI@Z
-    0x4977B0 | public: __thiscall asPortalEdge::asPortalEdge(struct asPortalCell *,struct asPortalCell *,int) | ??0asPortalEdge@@QAE@PAUasPortalCell@@0H@Z
-    0x61D1E0 | const asPortalWeb::`vftable' | ??_7asPortalWeb@@6B@
-    0x705714 | public: static unsigned short asPortalWeb::VisitTag | ?VisitTag@asPortalWeb@@2GA
-    0x705718 | class MetaClass asPortalWebMetaClass | ?asPortalWebMetaClass@@3VMetaClass@@A
-*/
-
 #include "arts7/node.h"
 #include "vector7/vector4.h"
 

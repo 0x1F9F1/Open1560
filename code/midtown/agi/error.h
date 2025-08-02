@@ -18,14 +18,6 @@
 
 #pragma once
 
-/*
-    agi:error
-
-    0x55BE20 | char * __cdecl agiGetError(int) | ?agiGetError@@YAPADH@Z
-    0x55BE80 | void __cdecl agiDisplayf(char const *,...) | ?agiDisplayf@@YAXPBDZZ
-    0x907230 | int agiVerbose | ?agiVerbose@@3HA
-*/
-
 #define AGI_ERROR_SUCCESS 0
 #define AGI_ERROR_FILE_NOT_FOUND -1
 #define AGI_ERROR_OBJECT_EMPTY -2

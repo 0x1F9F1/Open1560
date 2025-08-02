@@ -18,34 +18,6 @@
 
 #pragma once
 
-/*
-    mmcar:networkcaraudio
-
-    0x483440 | public: __thiscall mmNetworkCarAudio::mmNetworkCarAudio(class mmCarSim *) | ??0mmNetworkCarAudio@@QAE@PAVmmCarSim@@@Z
-    0x4834A0 | public: void __thiscall mmNetworkCarAudio::Init(class mmCarSim *,unsigned short) | ?Init@mmNetworkCarAudio@@QAEXPAVmmCarSim@@G@Z
-    0x483630 | public: virtual __thiscall mmNetworkCarAudio::~mmNetworkCarAudio(void) | ??1mmNetworkCarAudio@@UAE@XZ
-    0x4836A0 | public: virtual void __thiscall mmNetworkCarAudio::Update(void) | ?Update@mmNetworkCarAudio@@UAEXXZ
-    0x4836E0 | public: void __thiscall mmNetworkCarAudio::UpdateAudio(void) | ?UpdateAudio@mmNetworkCarAudio@@QAEXXZ
-    0x483810 | public: void __thiscall mmNetworkCarAudio::FluctuateSlowSiren(void) | ?FluctuateSlowSiren@mmNetworkCarAudio@@QAEXXZ
-    0x483A60 | public: void __thiscall mmNetworkCarAudio::FluctuateFastSiren(void) | ?FluctuateFastSiren@mmNetworkCarAudio@@QAEXXZ
-    0x483E10 | public: void __thiscall mmNetworkCarAudio::DeactivateAudio(void) | ?DeactivateAudio@mmNetworkCarAudio@@QAEXXZ
-    0x483EC0 | public: void __thiscall mmNetworkCarAudio::CalculateDistToPlayer2(void) | ?CalculateDistToPlayer2@mmNetworkCarAudio@@QAEXXZ
-    0x483F80 | public: void __thiscall mmNetworkCarAudio::CalculateDoppler(void) | ?CalculateDoppler@mmNetworkCarAudio@@QAEXXZ
-    0x483FA0 | public: void __thiscall mmNetworkCarAudio::UpdateDoppler(void) | ?UpdateDoppler@mmNetworkCarAudio@@QAEXXZ
-    0x484250 | public: void __thiscall mmNetworkCarAudio::StopSiren(void) | ?StopSiren@mmNetworkCarAudio@@QAEXXZ
-    0x484290 | public: void __thiscall mmNetworkCarAudio::StartSiren(void) | ?StartSiren@mmNetworkCarAudio@@QAEXXZ
-    0x4842E0 | public: virtual void __thiscall mmNetworkCarAudio::Reset(void) | ?Reset@mmNetworkCarAudio@@UAEXXZ
-    0x484300 | public: void __thiscall mmNetworkCarAudio::RemoveFromManager(void) | ?RemoveFromManager@mmNetworkCarAudio@@QAEXXZ
-    0x484320 | public: void __thiscall mmNetworkCarAudio::LoadSucessful(class mmCarSim *) | ?LoadSucessful@mmNetworkCarAudio@@QAEXPAVmmCarSim@@@Z
-    0x4843A0 | public: static void __cdecl mmNetworkCarAudio::DeclareFields(void) | ?DeclareFields@mmNetworkCarAudio@@SAXXZ
-    0x484570 | public: virtual class MetaClass * __thiscall mmNetworkCarAudio::GetClass(void) | ?GetClass@mmNetworkCarAudio@@UAEPAVMetaClass@@XZ
-    0x4846A0 | public: virtual void * __thiscall mmNetworkCarAudio::`vector deleting destructor'(unsigned int) | ??_EmmNetworkCarAudio@@UAEPAXI@Z
-    0x484700 | public: __thiscall mmNetworkCarAudio::mmNetworkCarAudio(void) | ??0mmNetworkCarAudio@@QAE@XZ
-    0x61CA30 | const mmNetworkCarAudio::`vftable' | ??_7mmNetworkCarAudio@@6B@
-    0x6A81F0 | class MetaClass mmNetworkCarAudioMetaClass | ?mmNetworkCarAudioMetaClass@@3VMetaClass@@A
-    0x6A822C | public: static short mmNetworkCarAudio::s_iPlayingFluctuator | ?s_iPlayingFluctuator@mmNetworkCarAudio@@2FA
-*/
-
 #include "arts7/node.h"
 
 class mmCarSim;

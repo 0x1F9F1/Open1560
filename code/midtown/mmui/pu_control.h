@@ -18,21 +18,6 @@
 
 #pragma once
 
-/*
-    mmui:pu_control
-
-    0x4A9F50 | public: __thiscall PUControl::PUControl(int,float,float,float,float) | ??0PUControl@@QAE@HMMMM@Z
-    0x4AA250 | public: virtual __thiscall PUControl::~PUControl(void) | ??1PUControl@@UAE@XZ
-    0x4AA2B0 | public: virtual void __thiscall PUControl::PreSetup(void) | ?PreSetup@PUControl@@UAEXXZ
-    0x4AA2D0 | public: void __thiscall PUControl::CancelAction(void) | ?CancelAction@PUControl@@QAEXXZ
-    0x4AA2F0 | public: void __thiscall PUControl::SetRWStates(void) | ?SetRWStates@PUControl@@QAEXXZ
-    0x4AA380 | public: void __thiscall PUControl::ControlSelect(void) | ?ControlSelect@PUControl@@QAEXXZ
-    0x4AA3B0 | public: void __thiscall PUControl::SetSensitivityCB(void) | ?SetSensitivityCB@PUControl@@QAEXXZ
-    0x4AA3C0 | public: virtual void * __thiscall PUControl::`scalar deleting destructor'(unsigned int) | ??_GPUControl@@UAEPAXI@Z
-    0x4AA3C0 | public: virtual void * __thiscall PUControl::`vector deleting destructor'(unsigned int) | ??_EPUControl@@UAEPAXI@Z
-    0x61DFA8 | const PUControl::`vftable' | ??_7PUControl@@6B@
-*/
-
 #include "pu_menu.h"
 
 class PUControl final : public PUMenuBase

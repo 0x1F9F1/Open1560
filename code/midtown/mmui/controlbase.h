@@ -18,15 +18,6 @@
 
 #pragma once
 
-/*
-    mmui:controlbase
-
-    0x4AB700 | public: __thiscall ControlBase::ControlBase(void) | ??0ControlBase@@QAE@XZ
-    0x4AB710 | public: __thiscall ControlBase::~ControlBase(void) | ??1ControlBase@@QAE@XZ
-    0x4AB720 | public: void __thiscall ControlBase::InitSensitivity(void) | ?InitSensitivity@ControlBase@@QAEXXZ
-    0x4AB780 | public: void __thiscall ControlBase::SetSensitivity(void) | ?SetSensitivity@ControlBase@@QAEXXZ
-*/
-
 struct ControlBase
 {
 public:

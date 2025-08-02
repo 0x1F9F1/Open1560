@@ -18,20 +18,6 @@
 
 #pragma once
 
-/*
-    mmai:aiGoalRegainRail
-
-    0x46AA20 | public: __thiscall aiGoalRegainRail::aiGoalRegainRail(class aiRailSet *,class aiVehicleSpline *) | ??0aiGoalRegainRail@@QAE@PAVaiRailSet@@PAVaiVehicleSpline@@@Z
-    0x46AA50 | public: __thiscall aiGoalRegainRail::~aiGoalRegainRail(void) | ??1aiGoalRegainRail@@QAE@XZ
-    0x46AA60 | public: virtual void __thiscall aiGoalRegainRail::Init(void) | ?Init@aiGoalRegainRail@@UAEXXZ
-    0x46AA80 | public: virtual void __thiscall aiGoalRegainRail::Reset(void) | ?Reset@aiGoalRegainRail@@UAEXXZ
-    0x46B130 | public: virtual void __thiscall aiGoalRegainRail::Update(void) | ?Update@aiGoalRegainRail@@UAEXXZ
-    0x46B240 | public: virtual int __thiscall aiGoalRegainRail::Context(void) | ?Context@aiGoalRegainRail@@UAEHXZ
-    0x46B260 | public: virtual int __thiscall aiGoalRegainRail::Priority(void) | ?Priority@aiGoalRegainRail@@UAEHXZ
-    0x46B270 | public: void __thiscall aiGoalRegainRail::Dump(void) | ?Dump@aiGoalRegainRail@@QAEXXZ
-    0x61BD28 | const aiGoalRegainRail::`vftable' | ??_7aiGoalRegainRail@@6B@
-*/
-
 #include "aiGoal.h"
 
 class aiRailSet;

@@ -18,25 +18,6 @@
 
 #pragma once
 
-/*
-    mmui:pu_menu
-
-    0x4AAFE0 | public: __thiscall PUMenuBase::PUMenuBase(int,float,float,float,float,char *) | ??0PUMenuBase@@QAE@HMMMMPAD@Z
-    0x4AB1B0 | public: virtual __thiscall PUMenuBase::~PUMenuBase(void) | ??1PUMenuBase@@UAE@XZ
-    0x4AB210 | public: class agiBitmap * __thiscall PUMenuBase::CreateDummyBitmap(void) | ?CreateDummyBitmap@PUMenuBase@@QAEPAVagiBitmap@@XZ
-    0x4AB270 | public: float __thiscall PUMenuBase::CreateTitle(void) | ?CreateTitle@PUMenuBase@@QAEMXZ
-    0x4AB280 | public: float __thiscall PUMenuBase::AddPrevious(float,float,float,float) | ?AddPrevious@PUMenuBase@@QAEMMMMM@Z
-    0x4AB2F0 | public: void __thiscall PUMenuBase::AddOKCancel(class Callback,class Callback) | ?AddOKCancel@PUMenuBase@@QAEXVCallback@@0@Z
-    0x4AB390 | public: float __thiscall PUMenuBase::AddExit(float,float,float,float) | ?AddExit@PUMenuBase@@QAEMMMMM@Z
-    0x4AB400 | public: virtual void __thiscall PUMenuBase::Update(void) | ?Update@PUMenuBase@@UAEXXZ
-    0x4AB430 | public: virtual void __thiscall PUMenuBase::Cull(void) | ?Cull@PUMenuBase@@UAEXXZ
-    0x4AB470 | public: void __thiscall PUMenuBase::DisableExit(void) | ?DisableExit@PUMenuBase@@QAEXXZ
-    0x4AB480 | public: void __thiscall PUMenuBase::EnableExit(void) | ?EnableExit@PUMenuBase@@QAEXXZ
-    0x4AB490 | public: virtual void * __thiscall PUMenuBase::`scalar deleting destructor'(unsigned int) | ??_GPUMenuBase@@UAEPAXI@Z
-    0x4AB490 | public: virtual void * __thiscall PUMenuBase::`vector deleting destructor'(unsigned int) | ??_EPUMenuBase@@UAEPAXI@Z
-    0x61E200 | const PUMenuBase::`vftable' | ??_7PUMenuBase@@6B@
-*/
-
 #include "mmwidget/menu.h"
 
 class agiBitmap;

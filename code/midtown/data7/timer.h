@@ -18,19 +18,6 @@
 
 #pragma once
 
-/*
-    data7:timer
-
-    0x576830 | public: static unsigned long __cdecl Timer::Ticks(void) | ?Ticks@Timer@@SAKXZ
-    0x576860 | public: static void __cdecl Timer::Sleep(int) | ?Sleep@Timer@@SAXH@Z
-    0x576870 | public: __thiscall Timer::Timer(void) | ??0Timer@@QAE@XZ
-    0x5768E0 | public: void __thiscall Timer::Reset(void) | ?Reset@Timer@@QAEXXZ
-    0x5768F0 | public: float __thiscall Timer::Time(void) | ?Time@Timer@@QAEMXZ
-    0x576920 | public: static void __cdecl Timer::BeginBenchmark(void) | ?BeginBenchmark@Timer@@SAXXZ
-    0x576990 | public: static void __cdecl Timer::EndBenchmark(void) | ?EndBenchmark@Timer@@SAXXZ
-    0x90A66C | public: static float Timer::TicksToSeconds | ?TicksToSeconds@Timer@@2MA
-*/
-
 // TODO: Use u64 for ticks
 class Timer
 {

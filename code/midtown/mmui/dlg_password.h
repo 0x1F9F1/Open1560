@@ -18,18 +18,6 @@
 
 #pragma once
 
-/*
-    mmui:dlg_password
-
-    0x49DAB0 | public: __thiscall Dialog_Password::Dialog_Password(int,float,float,float,float,char *) | ??0Dialog_Password@@QAE@HMMMMPAD@Z
-    0x49DC20 | public: virtual __thiscall Dialog_Password::~Dialog_Password(void) | ??1Dialog_Password@@UAE@XZ
-    0x49DC30 | public: virtual void __thiscall Dialog_Password::PreSetup(void) | ?PreSetup@Dialog_Password@@UAEXXZ
-    0x49DC40 | public: void __thiscall Dialog_Password::PasswordCallback(void) | ?PasswordCallback@Dialog_Password@@QAEXXZ
-    0x49DC50 | public: virtual void * __thiscall Dialog_Password::`vector deleting destructor'(unsigned int) | ??_EDialog_Password@@UAEPAXI@Z
-    0x49DC50 | public: virtual void * __thiscall Dialog_Password::`scalar deleting destructor'(unsigned int) | ??_GDialog_Password@@UAEPAXI@Z
-    0x61D538 | const Dialog_Password::`vftable' | ??_7Dialog_Password@@6B@
-*/
-
 #include "pu_menu.h"
 
 class Dialog_Password final : public PUMenuBase

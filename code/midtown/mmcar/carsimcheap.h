@@ -18,19 +18,6 @@
 
 #pragma once
 
-/*
-    mmcar:carsimcheap
-
-    0x474880 | public: __thiscall mmWheelCheap::mmWheelCheap(void) | ??0mmWheelCheap@@QAE@XZ
-    0x474950 | public: void __thiscall mmWheelCheap::Init(class Vector3 *,class aiVehicleData *,class asInertialCS *) | ?Init@mmWheelCheap@@QAEXPAVVector3@@PAVaiVehicleData@@PAVasInertialCS@@@Z
-    0x474A20 | public: virtual void __thiscall mmWheelCheap::Update(void) | ?Update@mmWheelCheap@@UAEXXZ
-    0x475180 | public: virtual void __thiscall mmWheelCheap::Reset(void) | ?Reset@mmWheelCheap@@UAEXXZ
-    0x4751A0 | public: virtual void * __thiscall mmWheelCheap::`scalar deleting destructor'(unsigned int) | ??_GmmWheelCheap@@UAEPAXI@Z
-    0x4751A0 | public: virtual void * __thiscall mmWheelCheap::`vector deleting destructor'(unsigned int) | ??_EmmWheelCheap@@UAEPAXI@Z
-    0x61C170 | const mmWheelCheap::`vftable' | ??_7mmWheelCheap@@6B@
-    0x6A7E7C | float EggFriction | ?EggFriction@@3MA
-*/
-
 #include "arts7/linear.h"
 
 #include "mmdyna/isect.h"

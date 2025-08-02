@@ -18,18 +18,6 @@
 
 #pragma once
 
-/*
-    mmui:pu_key
-
-    0x4A93C0 | public: __thiscall PUKey::PUKey(int,float,float,float,float) | ??0PUKey@@QAE@HMMMM@Z
-    0x4A9460 | public: virtual __thiscall PUKey::~PUKey(void) | ??1PUKey@@UAE@XZ
-    0x4A9470 | private: virtual void __thiscall PUKey::PreSetup(void) | ?PreSetup@PUKey@@EAEXXZ
-    0x4A9710 | private: virtual void __thiscall PUKey::PostSetup(void) | ?PostSetup@PUKey@@EAEXXZ
-    0x4A9750 | public: virtual void * __thiscall PUKey::`vector deleting destructor'(unsigned int) | ??_EPUKey@@UAEPAXI@Z
-    0x4A9750 | public: virtual void * __thiscall PUKey::`scalar deleting destructor'(unsigned int) | ??_GPUKey@@UAEPAXI@Z
-    0x61DE58 | const PUKey::`vftable' | ??_7PUKey@@6B@
-*/
-
 #include "pu_menu.h"
 
 class mmTextNode;

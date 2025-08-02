@@ -18,21 +18,6 @@
 
 #pragma once
 
-/*
-    mmcamcs:polarcamcs
-
-    0x4FAB60 | public: __thiscall PolarCamCS::PolarCamCS(void) | ??0PolarCamCS@@QAE@XZ
-    0x4FABB0 | public: void __thiscall PolarCamCS::Init(class mmCar *) | ?Init@PolarCamCS@@QAEXPAVmmCar@@@Z
-    0x4FABE0 | public: virtual void __thiscall PolarCamCS::Reset(void) | ?Reset@PolarCamCS@@UAEXXZ
-    0x4FABF0 | public: virtual void __thiscall PolarCamCS::MakeActive(void) | ?MakeActive@PolarCamCS@@UAEXXZ
-    0x4FAC20 | public: virtual void __thiscall PolarCamCS::Update(void) | ?Update@PolarCamCS@@UAEXXZ
-    0x4FB010 | public: static void __cdecl PolarCamCS::DeclareFields(void) | ?DeclareFields@PolarCamCS@@SAXXZ
-    0x4FB180 | public: virtual class MetaClass * __thiscall PolarCamCS::GetClass(void) | ?GetClass@PolarCamCS@@UAEPAVMetaClass@@XZ
-    0x4FB1C0 | public: virtual void * __thiscall PolarCamCS::`vector deleting destructor'(unsigned int) | ??_EPolarCamCS@@UAEPAXI@Z
-    0x620348 | const PolarCamCS::`vftable' | ??_7PolarCamCS@@6B@
-    0x719498 | class MetaClass PolarCamCSMetaClass | ?PolarCamCSMetaClass@@3VMetaClass@@A
-*/
-
 #include "carcamcs.h"
 
 class PolarCamCS final : public CarCamCS

@@ -18,37 +18,6 @@
 
 #pragma once
 
-/*
-    mmui:graphics
-
-    0x499710 | void __cdecl AutoDetect(int,int) | ?AutoDetect@@YAXHH@Z
-    0x499970 | public: __thiscall GraphicsOptions::GraphicsOptions(int) | ??0GraphicsOptions@@QAE@H@Z
-    0x49A050 | void __cdecl SetTexQualString(void) | ?SetTexQualString@@YAXXZ
-    0x49A2F0 | public: virtual __thiscall GraphicsOptions::~GraphicsOptions(void) | ??1GraphicsOptions@@UAE@XZ
-    0x49A350 | public: void __thiscall GraphicsOptions::SetResolution(void) | ?SetResolution@GraphicsOptions@@QAEXXZ
-    0x49A370 | public: void __thiscall GraphicsOptions::SetLightQuality(void) | ?SetLightQuality@GraphicsOptions@@QAEXXZ
-    0x49A390 | public: void __thiscall GraphicsOptions::SetRenderer(void) | ?SetRenderer@GraphicsOptions@@QAEXXZ
-    0x49A5A0 | public: virtual void __thiscall GraphicsOptions::PreSetup(void) | ?PreSetup@GraphicsOptions@@UAEXXZ
-    0x49A5C0 | public: virtual void __thiscall GraphicsOptions::ResetDefaultAction(void) | ?ResetDefaultAction@GraphicsOptions@@UAEXXZ
-    0x49A610 | public: virtual void __thiscall GraphicsOptions::CancelAction(void) | ?CancelAction@GraphicsOptions@@UAEXXZ
-    0x49A640 | public: virtual void __thiscall GraphicsOptions::DoneAction(void) | ?DoneAction@GraphicsOptions@@UAEXXZ
-    0x49A6A0 | public: virtual void * __thiscall GraphicsOptions::`vector deleting destructor'(unsigned int) | ??_EGraphicsOptions@@UAEPAXI@Z
-    0x49A6A0 | public: virtual void * __thiscall GraphicsOptions::`scalar deleting destructor'(unsigned int) | ??_GGraphicsOptions@@UAEPAXI@Z
-    0x49A6D0 | public: virtual void __thiscall OptionsBase::StoreCurrentSetup(void) | ?StoreCurrentSetup@OptionsBase@@UAEXXZ
-    0x49A6E0 | public: virtual int __thiscall OptionsBase::IsAnOptionMenu(void) | ?IsAnOptionMenu@OptionsBase@@UAEHXZ
-    0x49A6F0 | public: void __thiscall string::Init(int) | ?Init@string@@QAEXH@Z
-    0x49A730 | public: __thiscall string::string(class string const &) | ??0string@@QAE@ABV0@@Z
-    0x61D370 | const GraphicsOptions::`vftable' | ??_7GraphicsOptions@@6B@
-    0x7057EC | int data1 | ?data1@@3HA
-    0x7057F0 | int data2 | ?data2@@3HA
-    0x7057F4 | int data3 | ?data3@@3HA
-    0x7057F8 | int data4 | ?data4@@3HA
-    0x7057FC | int data5 | ?data5@@3HA
-    0x705800 | int data6 | ?data6@@3HA
-    0x705820 | int RenderToSystemMemory | ?RenderToSystemMemory@@3HA
-    0x705824 | int TextureLevel | ?TextureLevel@@3HA
-*/
-
 #include "optionsbase.h"
 
 // ?AutoDetect@@YAXHH@Z

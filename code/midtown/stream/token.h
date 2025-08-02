@@ -18,17 +18,6 @@
 
 #pragma once
 
-/*
-    stream:token
-
-    0x5615D0 | public: __thiscall Tokenizer::Tokenizer(char const *,class Stream *) | ??0Tokenizer@@QAE@PBDPAVStream@@@Z
-    0x561600 | public: int __thiscall Tokenizer::GetToken(char *,int) | ?GetToken@Tokenizer@@QAEHPADH@Z
-    0x561690 | public: void __thiscall Tokenizer::MatchToken(char *) | ?MatchToken@Tokenizer@@QAEXPAD@Z
-    0x561710 | public: int __thiscall Tokenizer::GetInt(void) | ?GetInt@Tokenizer@@QAEHXZ
-    0x561770 | public: float __thiscall Tokenizer::GetFloat(void) | ?GetFloat@Tokenizer@@QAEMXZ
-    0x5617D0 | public: void __thiscall Tokenizer::IgnoreToken(void) | ?IgnoreToken@Tokenizer@@QAEXXZ
-*/
-
 class Tokenizer
 {
 public:

@@ -18,58 +18,6 @@
 
 #pragma once
 
-/*
-    stream:stream
-
-    0x55E8B0 | public: __thiscall Stream::Stream(void *,int,class FileSystem *) | ??0Stream@@QAE@PAXHPAVFileSystem@@@Z
-    0x55E940 | public: virtual __thiscall Stream::~Stream(void) | ??1Stream@@UAE@XZ
-    0x55E9C0 | public: int __thiscall Stream::Read(void *,int) | ?Read@Stream@@QAEHPAXH@Z
-    0x55EB00 | public: int __thiscall Stream::Write(void *,int) | ?Write@Stream@@QAEHPAXH@Z
-    0x55EC00 | public: int __thiscall Stream::GetCh(void) | ?GetCh@Stream@@QAEHXZ
-    0x55EC30 | public: int __thiscall Stream::PutCh(unsigned char) | ?PutCh@Stream@@QAEHE@Z
-    0x55EC60 | public: int __thiscall Stream::Seek(int) | ?Seek@Stream@@QAEHH@Z
-    0x55EC90 | public: int __thiscall Stream::Tell(void) | ?Tell@Stream@@QAEHXZ
-    0x55ECA0 | public: int __thiscall Stream::Size(void) | ?Size@Stream@@QAEHXZ
-    0x55ECC0 | public: int __thiscall Stream::Flush(void) | ?Flush@Stream@@QAEHXZ
-    0x55ED30 | protected: virtual int __thiscall Stream::AlignSize(void) | ?AlignSize@Stream@@MAEHXZ
-    0x55ED40 | protected: virtual int __thiscall Stream::GetError(char *,int) | ?GetError@Stream@@MAEHPADH@Z
-    0x55ED80 | public: virtual void * __thiscall Stream::GetMapping(void) | ?GetMapping@Stream@@UAEPAXXZ
-    0x55ED90 | public: virtual unsigned int __thiscall Stream::GetPagerHandle(void) | ?GetPagerHandle@Stream@@UAEIXZ
-    0x55EDA0 | public: virtual int __thiscall Stream::GetPagingInfo(unsigned int &,unsigned int &,unsigned int &) | ?GetPagingInfo@Stream@@UAEHAAI00@Z
-    0x55EDB0 | public: void __thiscall Stream::Error(char *) | ?Error@Stream@@QAEXPAD@Z
-    0x55EDF0 | public: int __cdecl Stream::Printf(char const *,...) | ?Printf@Stream@@QAAHPBDZZ
-    0x55EE40 | public: int __thiscall Stream::Vprintf(char const *,char *) | ?Vprintf@Stream@@QAEHPBDPAD@Z
-    0x55EE90 | protected: virtual void __thiscall Stream::RawDebug(void) | ?RawDebug@Stream@@MAEXXZ
-    0x55EEA0 | public: void __thiscall Stream::Debug(void) | ?Debug@Stream@@QAEXXZ
-    0x55EEB0 | public: int __thiscall Stream::PutString(char *) | ?PutString@Stream@@QAEHPAD@Z
-    0x55EEF0 | public: int __thiscall Stream::GetString(char *,int) | ?GetString@Stream@@QAEHPADH@Z
-    0x55EF80 | public: int __thiscall Stream::Put(unsigned char) | ?Put@Stream@@QAEHE@Z
-    0x55EFA0 | public: int __thiscall Stream::Put(unsigned short) | ?Put@Stream@@QAEHG@Z
-    0x55EFD0 | public: int __thiscall Stream::Put(unsigned long) | ?Put@Stream@@QAEHK@Z
-    0x55F020 | public: int __thiscall Stream::Put(float) | ?Put@Stream@@QAEHM@Z
-    0x55F080 | public: int __thiscall Stream::Put(unsigned char *,int) | ?Put@Stream@@QAEHPAEH@Z
-    0x55F0A0 | public: int __thiscall Stream::Put(unsigned short *,int) | ?Put@Stream@@QAEHPAGH@Z
-    0x55F100 | public: int __thiscall Stream::Put(unsigned long *,int) | ?Put@Stream@@QAEHPAKH@Z
-    0x55F170 | public: int __thiscall Stream::Get(unsigned char *,int) | ?Get@Stream@@QAEHPAEH@Z
-    0x55F190 | public: int __thiscall Stream::Get(unsigned short *,int) | ?Get@Stream@@QAEHPAGH@Z
-    0x55F1D0 | public: int __thiscall Stream::Get(unsigned long *,int) | ?Get@Stream@@QAEHPAKH@Z
-    0x55F210 | private: static void __cdecl Stream::SwapShorts(unsigned short *,int) | ?SwapShorts@Stream@@CAXPAGH@Z
-    0x55F240 | private: static void __cdecl Stream::SwapLongs(unsigned long *,int) | ?SwapLongs@Stream@@CAXPAKH@Z
-    0x55F290 | public: unsigned short __thiscall Stream::GetShort(void) | ?GetShort@Stream@@QAEGXZ
-    0x55F2B0 | public: unsigned long __thiscall Stream::GetLong(void) | ?GetLong@Stream@@QAEKXZ
-    0x55F2D0 | void __cdecl fprintf(class Stream *,char const *,...) | ?fprintf@@YAXPAVStream@@PBDZZ
-    0x55F2F0 | class Stream * __cdecl fopen(char *,char *) | ?fopen@@YAPAVStream@@PAD0@Z
-    0x55F330 | int __cdecl fseek(class Stream *,int,int) | ?fseek@@YAHPAVStream@@HH@Z
-    0x55F390 | _vprintf
-    0x55F3B0 | _printf
-    0x55F3E0 | int __cdecl fgets(char *,int,class Stream *) | ?fgets@@YAHPADHPAVStream@@@Z
-    0x55F450 | int __cdecl fscanf(class Stream *,char const *,...) | ?fscanf@@YAHPAVStream@@PBDZZ
-    0x55F500 | public: virtual void * __thiscall Stream::`vector deleting destructor'(unsigned int) | ??_EStream@@UAEPAXI@Z
-    0x55F500 | public: virtual void * __thiscall Stream::`scalar deleting destructor'(unsigned int) | ??_GStream@@UAEPAXI@Z
-    0x6218E8 | const Stream::`vftable' | ??_7Stream@@6B@
-    0x907960 | int EnableBinaryFileMapping | ?EnableBinaryFileMapping@@3HA
-*/
-
 #include "data7/base.h"
 
 #include "core/endian.h"

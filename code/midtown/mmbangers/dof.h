@@ -18,16 +18,6 @@
 
 #pragma once
 
-/*
-    mmbangers:dof
-
-    0x4CB7D0 | public: virtual unsigned int __thiscall mmDofBangerInstance::SizeOf(void) | ?SizeOf@mmDofBangerInstance@@UAEIXZ
-    0x4CB7E0 | public: int __thiscall mmDofBangerInstance::Init(char *,char *,int,class Matrix34 *,class Vector3 *) | ?Init@mmDofBangerInstance@@QAEHPAD0HPAVMatrix34@@PAVVector3@@@Z
-    0x4CB890 | public: virtual class Matrix34 & __fastcall mmFacadeBangerInstance::ToMatrix(class Matrix34 &) | ?ToMatrix@mmFacadeBangerInstance@@UAIAAVMatrix34@@AAV2@@Z
-    0x4CB940 | public: virtual class Vector3 & __fastcall mmFacadeBangerInstance::GetPos(void) | ?GetPos@mmFacadeBangerInstance@@UAIAAVVector3@@XZ
-    0x4CB9C0 | private: virtual void __fastcall mmGlassBangerInstance::Draw(int) | ?Draw@mmGlassBangerInstance@@EAIXH@Z
-*/
-
 #include "banger.h"
 
 class mmDofBangerInstance : public mmUnhitBangerInstance

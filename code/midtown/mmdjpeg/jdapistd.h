@@ -18,14 +18,6 @@
 
 #pragma once
 
-/*
-    mmdjpeg:jdapistd
-
-    0x57D570 | unsigned char __cdecl jpeg_start_decompress(struct jpeg_decompress_struct *) | ?jpeg_start_decompress@@YAEPAUjpeg_decompress_struct@@@Z
-    0x57D680 | unsigned int __cdecl jpeg_read_scanlines(struct jpeg_decompress_struct *,unsigned char * *,unsigned int) | ?jpeg_read_scanlines@@YAIPAUjpeg_decompress_struct@@PAPAEI@Z
-    0x57D720 | unsigned int __cdecl jpeg_read_raw_data(struct jpeg_decompress_struct *,unsigned char * * *,unsigned int) | ?jpeg_read_raw_data@@YAIPAUjpeg_decompress_struct@@PAPAPAEI@Z
-*/
-
 struct jpeg_decompress_struct;
 
 // ?jpeg_read_scanlines@@YAIPAUjpeg_decompress_struct@@PAPAEI@Z

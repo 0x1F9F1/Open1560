@@ -18,21 +18,6 @@
 
 #pragma once
 
-/*
-    mmeffects:linespark
-
-    0x501700 | class asSparkLut * __cdecl GetSparkLut(char *) | ?GetSparkLut@@YAPAVasSparkLut@@PAD@Z
-    0x501740 | public: void __thiscall asSparkLut::Init(char *) | ?Init@asSparkLut@@QAEXPAD@Z
-    0x501920 | public: void __thiscall asLineSparks::Init(int,class asSparkLut *) | ?Init@asLineSparks@@QAEXHPAVasSparkLut@@@Z
-    0x501A10 | public: void __thiscall asLineSparks::AddWidgets(class Bank *) | ?AddWidgets@asLineSparks@@QAEXPAVBank@@@Z
-    0x501C40 | public: void __thiscall asLineSparks::RadialBlast(int,class Vector3 &,class Vector3 &) | ?RadialBlast@asLineSparks@@QAEXHAAVVector3@@0@Z
-    0x501F80 | public: void __thiscall asLineSparks::Update(void) | ?Update@asLineSparks@@QAEXXZ
-    0x501FC0 | public: void __thiscall asLineSparks::Update(float) | ?Update@asLineSparks@@QAEXM@Z
-    0x502190 | public: void __thiscall asLineSparks::Draw(void) | ?Draw@asLineSparks@@QAEXXZ
-    0x64A0D8 | private: static unsigned int * asSparkLut::BuiltinClut | ?BuiltinClut@asSparkLut@@0PAIA
-    0x719600 | class HashTable SLH | ?SLH@@3VHashTable@@A
-*/
-
 #include "vector7/vector3.h"
 
 // ?SLH@@3VHashTable@@A

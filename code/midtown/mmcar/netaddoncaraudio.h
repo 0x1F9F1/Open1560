@@ -18,17 +18,6 @@
 
 #pragma once
 
-/*
-    mmcar:netaddoncaraudio
-
-    0x485540 | public: __thiscall NetAddOnCarAudio::NetAddOnCarAudio(char *,short) | ??0NetAddOnCarAudio@@QAE@PADF@Z
-    0x485660 | public: __thiscall NetAddOnCarAudio::~NetAddOnCarAudio(void) | ??1NetAddOnCarAudio@@QAE@XZ
-    0x4856B0 | public: int __thiscall NetAddOnCarAudio::AssignSounds(class mmNetworkCarAudio *,short) | ?AssignSounds@NetAddOnCarAudio@@QAEHPAVmmNetworkCarAudio@@F@Z
-    0x485740 | public: void __thiscall NetAddOnCarAudio::EchoOn(float) | ?EchoOn@NetAddOnCarAudio@@QAEXM@Z
-    0x4857A0 | public: void __thiscall NetAddOnCarAudio::EchoOff(void) | ?EchoOff@NetAddOnCarAudio@@QAEXXZ
-    0x4857D0 | public: void __thiscall NetAddOnCarAudio::Update(void) | ?Update@NetAddOnCarAudio@@QAEXXZ
-*/
-
 class mmNetworkCarAudio;
 
 struct NetAddOnCarAudio

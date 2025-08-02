@@ -18,19 +18,6 @@
 
 #pragma once
 
-/*
-    agirend:zbrender
-
-    0x54FA70 | public: __thiscall agiZBufRenderer::agiZBufRenderer(class agiRasterizer *) | ??0agiZBufRenderer@@QAE@PAVagiRasterizer@@@Z
-    0x54FA90 | public: virtual __thiscall agiZBufRenderer::~agiZBufRenderer(void) | ??1agiZBufRenderer@@UAE@XZ
-    0x54FAA0 | public: virtual void __thiscall agiZBufRenderer::EndGroup(void) | ?EndGroup@agiZBufRenderer@@UAEXXZ
-    0x5507D0 | public: virtual void * __thiscall agiZBufRenderer::`scalar deleting destructor'(unsigned int) | ??_GagiZBufRenderer@@UAEPAXI@Z
-    0x5507D0 | public: virtual void * __thiscall agiZBufRenderer::`vector deleting destructor'(unsigned int) | ??_EagiZBufRenderer@@UAEPAXI@Z
-    0x621388 | const agiZBufRenderer::`vftable' | ??_7agiZBufRenderer@@6B@
-    0x656348 | int twiddle | ?twiddle@@3HA
-    0x65634C | float aa_expansion | ?aa_expansion@@3MA
-*/
-
 #include "surfrender.h"
 
 class agiZBufRenderer final : public agiSurfRenderer

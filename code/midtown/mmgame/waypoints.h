@@ -18,51 +18,6 @@
 
 #pragma once
 
-/*
-    mmgame:waypoints
-
-    0x42D540 | public: __thiscall mmWaypoints::mmWaypoints(void) | ??0mmWaypoints@@QAE@XZ
-    0x42D950 | public: int __thiscall mmWaypoints::BlitzRemove(int) | ?BlitzRemove@mmWaypoints@@QAEHH@Z
-    0x42D9D0 | public: int __thiscall mmWaypoints::Init(class mmPlayer *,char *,int,int,int,int) | ?Init@mmWaypoints@@QAEHPAVmmPlayer@@PADHHHH@Z
-    0x42DB00 | public: float __thiscall mmWaypoints::GetStartAngle(void) | ?GetStartAngle@mmWaypoints@@QAEMXZ
-    0x42DB20 | public: virtual __thiscall mmWaypoints::~mmWaypoints(void) | ??1mmWaypoints@@UAE@XZ
-    0x42DC20 | public: int __thiscall mmWaypoints::LoadCSV(char *,int) | ?LoadCSV@mmWaypoints@@QAEHPADH@Z
-    0x42E910 | public: virtual void __thiscall mmWaypoints::Cull(void) | ?Cull@mmWaypoints@@UAEXXZ
-    0x42E920 | public: void __thiscall mmWaypoints::CalculateGatePoints(class Vector3,float,float,class Vector2 *,class Vector2 *) | ?CalculateGatePoints@mmWaypoints@@QAEXVVector3@@MMPAVVector2@@1@Z
-    0x42E9A0 | public: virtual void __thiscall mmWaypoints::Update(void) | ?Update@mmWaypoints@@UAEXXZ
-    0x42ED30 | public: void __thiscall mmWaypoints::DeactivateFinish(void) | ?DeactivateFinish@mmWaypoints@@QAEXXZ
-    0x42ED50 | public: virtual void __thiscall mmWaypoints::Reset(void) | ?Reset@mmWaypoints@@UAEXXZ
-    0x42EE40 | public: void __thiscall mmWaypoints::GetStart(class Vector3 &) | ?GetStart@mmWaypoints@@QAEXAAVVector3@@@Z
-    0x42EE80 | public: void __thiscall mmWaypoints::GetWaypoint(int,class Vector3 &) | ?GetWaypoint@mmWaypoints@@QAEXHAAVVector3@@@Z
-    0x42EED0 | public: float __thiscall mmWaypoints::GetHeading(int) | ?GetHeading@mmWaypoints@@QAEMH@Z
-    0x42EF00 | public: void __thiscall mmWaypoints::GenerateHitRooms(void) | ?GenerateHitRooms@mmWaypoints@@QAEXXZ
-    0x42EF60 | public: int __thiscall mmWaypoints::GetHitRoom(int) | ?GetHitRoom@mmWaypoints@@QAEHH@Z
-    0x42EF80 | public: void __thiscall mmWaypoints::SetArrow(void) | ?SetArrow@mmWaypoints@@QAEXXZ
-    0x42EFA0 | public: void __thiscall mmWaypoints::UpdateWPHUD(void) | ?UpdateWPHUD@mmWaypoints@@QAEXXZ
-    0x42F010 | public: void __thiscall mmWaypoints::ResetAllTags(void) | ?ResetAllTags@mmWaypoints@@QAEXXZ
-    0x42F050 | public: void __thiscall mmWaypoints::GetClosestWaypoint(void) | ?GetClosestWaypoint@mmWaypoints@@QAEXXZ
-    0x42F130 | public: void __thiscall mmWaypoints::CycleCurrentWaypoint(int) | ?CycleCurrentWaypoint@mmWaypoints@@QAEXH@Z
-    0x42F1A0 | public: void __thiscall mmWaypoints::GetNextWaypoint(void) | ?GetNextWaypoint@mmWaypoints@@QAEXXZ
-    0x42F1B0 | public: void __thiscall mmWaypoints::GetLastWaypoint(void) | ?GetLastWaypoint@mmWaypoints@@QAEXXZ
-    0x42F1C0 | public: void __thiscall mmWaypoints::SetCurrentGoals(int) | ?SetCurrentGoals@mmWaypoints@@QAEXH@Z
-    0x42F200 | public: int __thiscall mmWaypoints::AIWPHit(int,int,class Matrix34,class Vector3,float) | ?AIWPHit@mmWaypoints@@QAEHHHVMatrix34@@VVector3@@M@Z
-    0x42F4C0 | public: int __thiscall mmWaypoints::AnyAIWPHit(unsigned int &,int,class Matrix34,class Vector3,float) | ?AnyAIWPHit@mmWaypoints@@QAEHAAIHVMatrix34@@VVector3@@M@Z
-    0x42F820 | public: int __thiscall mmWaypoints::WPHit(int,class Vector3,int,int) | ?WPHit@mmWaypoints@@QAEHHVVector3@@HH@Z
-    0x42FAA0 | public: int __thiscall mmWaypoints::AnyWPHits(int) | ?AnyWPHits@mmWaypoints@@QAEHH@Z
-    0x42FD50 | public: int __thiscall mmWaypoints::LineIntersect(class Vector2,class Vector2,class Vector2,class Vector2,float) | ?LineIntersect@mmWaypoints@@QAEHVVector2@@000M@Z
-    0x42FF60 | public: void __thiscall mmWaypoints::ClearWaypoint(int) | ?ClearWaypoint@mmWaypoints@@QAEXH@Z
-    0x430020 | public: void __thiscall mmWaypoints::DisplayHUDMessage(int,int) | ?DisplayHUDMessage@mmWaypoints@@QAEXHH@Z
-    0x430170 | public: void __thiscall mmGate::Init(class Vector2,class Vector2) | ?Init@mmGate@@QAEXVVector2@@0@Z
-    0x4301F0 | public: float __thiscall mmGate::LineEq(float,float) | ?LineEq@mmGate@@QAEMMM@Z
-    0x430210 | public: int __thiscall mmGate::CloseEnough(float,float) | ?CloseEnough@mmGate@@QAEHMM@Z
-    0x430250 | public: int __thiscall mmGate::Check(class Vector2,class Vector2) | ?Check@mmGate@@QAEHVVector2@@0@Z
-    0x430320 | public: virtual void * __thiscall mmWaypoints::`scalar deleting destructor'(unsigned int) | ??_GmmWaypoints@@UAEPAXI@Z
-    0x430320 | public: virtual void * __thiscall mmWaypoints::`vector deleting destructor'(unsigned int) | ??_EmmWaypoints@@UAEPAXI@Z
-    0x430350 | public: __thiscall Vector2::Vector2(class Vector2 const &) | ??0Vector2@@QAE@ABV0@@Z
-    0x61AF78 | const mmWaypoints::`vftable' | ??_7mmWaypoints@@6B@
-    0x6A7788 | class Vector3 Size | ?Size@@3VVector3@@A
-*/
-
 #include "arts7/node.h"
 
 class mmPlayer;

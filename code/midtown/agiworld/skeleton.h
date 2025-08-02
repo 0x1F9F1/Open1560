@@ -18,23 +18,6 @@
 
 #pragma once
 
-/*
-    agiworld:skeleton
-
-    0x514C40 | public: __thiscall bnSkeleton::bnSkeleton(void) | ??0bnSkeleton@@QAE@XZ
-    0x514C50 | public: __thiscall bnSkeleton::~bnSkeleton(void) | ??1bnSkeleton@@QAE@XZ
-    0x514C70 | public: int __thiscall bnSkeleton::Load(char const *) | ?Load@bnSkeleton@@QAEHPBD@Z
-    0x514FA0 | public: int __thiscall bnSkeleton::Save(char const *) | ?Save@bnSkeleton@@QAEHPBD@Z
-    0x515050 | public: void __thiscall bnSkeleton::Transform(class Matrix34 *) | ?Transform@bnSkeleton@@QAEXPAVMatrix34@@@Z
-    0x515070 | public: void __thiscall bnSkeleton::Draw(void) | ?Draw@bnSkeleton@@QAEXXZ
-    0x515080 | public: void __thiscall bnSkeleton::Attach(class Matrix34 * const) | ?Attach@bnSkeleton@@QAEXQAVMatrix34@@@Z
-    0x5150B0 | public: void __thiscall bnSkeleton::Pose(class Vector3 const *) | ?Pose@bnSkeleton@@QAEXPBVVector3@@@Z
-    0x515100 | public: class bnBone * __thiscall bnSkeleton::FindBone(char *,int,char) | ?FindBone@bnSkeleton@@QAEPAVbnBone@@PADHD@Z
-    0x515220 | public: int __thiscall bnSkeleton::HowMany(char *,char) | ?HowMany@bnSkeleton@@QAEHPADD@Z
-    0x515260 | public: int __thiscall bnAnimation::Load(char *) | ?Load@bnAnimation@@QAEHPAD@Z
-    0x5153F0 | public: static class bnAnimation * __cdecl bnAnimation::Lookup(char *) | ?Lookup@bnAnimation@@SAPAV1@PAD@Z
-*/
-
 class bnBone;
 
 struct bnSkeleton

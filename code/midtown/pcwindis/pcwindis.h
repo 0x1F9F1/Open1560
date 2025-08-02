@@ -18,14 +18,6 @@
 
 #pragma once
 
-/*
-    pcwindis:pcwindis
-
-    0x5765F0 | long __stdcall MasterWindowProc(struct HWND__ *,unsigned int,unsigned int,long) | ?MasterWindowProc@@YGJPAUHWND__@@IIJ@Z
-    0x576670 | void __cdecl RegisterMap(char *,unsigned int *,int,class Dispatchable *) | ?RegisterMap@@YAXPADPAIHPAVDispatchable@@@Z
-    0x576750 | void __cdecl UnregisterMap(char *) | ?UnregisterMap@@YAXPAD@Z
-*/
-
 #include "core/minwin.h"
 
 class Dispatchable;

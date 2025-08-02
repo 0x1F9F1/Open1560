@@ -18,53 +18,6 @@
 
 #pragma once
 
-/*
-    mmai:aiaudiomanager
-
-    0x440070 | public: __thiscall aiAudioManager::aiAudioManager(void) | ??0aiAudioManager@@QAE@XZ
-    0x440390 | public: virtual __thiscall aiAudioManager::~aiAudioManager(void) | ??1aiAudioManager@@UAE@XZ
-    0x440790 | public: short __thiscall aiAudioManager::AddVehicle(class aiVehicleAmbient *) | ?AddVehicle@aiAudioManager@@QAEFPAVaiVehicleAmbient@@@Z
-    0x440840 | public: short __thiscall aiAudioManager::AddVehicle(class aiVehicleOpponent *) | ?AddVehicle@aiAudioManager@@QAEFPAVaiVehicleOpponent@@@Z
-    0x4408F0 | public: short __thiscall aiAudioManager::AddVehicle(class aiVehiclePolice *) | ?AddVehicle@aiAudioManager@@QAEFPAVaiVehiclePolice@@@Z
-    0x4409A0 | public: void __thiscall aiAudioManager::RemoveVehicle(class aiVehicleAmbient *,short) | ?RemoveVehicle@aiAudioManager@@QAEXPAVaiVehicleAmbient@@F@Z
-    0x440A10 | public: void __thiscall aiAudioManager::RemoveVehicle(class aiVehicleOpponent *,short) | ?RemoveVehicle@aiAudioManager@@QAEXPAVaiVehicleOpponent@@F@Z
-    0x440A80 | public: void __thiscall aiAudioManager::RemoveVehicle(class aiVehiclePolice *,short) | ?RemoveVehicle@aiAudioManager@@QAEXPAVaiVehiclePolice@@F@Z
-    0x440AF0 | public: short __thiscall aiAudioManager::FindGreatestDistance(class aiVehicleAmbient *) | ?FindGreatestDistance@aiAudioManager@@QAEFPAVaiVehicleAmbient@@@Z
-    0x440CE0 | public: short __thiscall aiAudioManager::FindGreatestDistance(class aiVehicleOpponent *) | ?FindGreatestDistance@aiAudioManager@@QAEFPAVaiVehicleOpponent@@@Z
-    0x440ED0 | public: short __thiscall aiAudioManager::FindGreatestDistance(class aiVehiclePolice *) | ?FindGreatestDistance@aiAudioManager@@QAEFPAVaiVehiclePolice@@@Z
-    0x441130 | public: short __thiscall aiAudioManager::UnassignFurthestAmbient(void) | ?UnassignFurthestAmbient@aiAudioManager@@QAEFXZ
-    0x4411F0 | public: short __thiscall aiAudioManager::UnassignFurthestOpponent(void) | ?UnassignFurthestOpponent@aiAudioManager@@QAEFXZ
-    0x4412C0 | public: short __thiscall aiAudioManager::FindUnusedSlot(void) | ?FindUnusedSlot@aiAudioManager@@QAEFXZ
-    0x441300 | public: virtual void __thiscall aiAudioManager::Update(void) | ?Update@aiAudioManager@@UAEXXZ
-    0x441670 | public: void __thiscall aiAudioManager::EchoOn(float) | ?EchoOn@aiAudioManager@@QAEXM@Z
-    0x4419C0 | public: void __thiscall aiAudioManager::EchoOff(void) | ?EchoOff@aiAudioManager@@QAEXXZ
-    0x441B60 | public: void __thiscall aiAudioManager::AssignSounds(class aiVehicleOpponent *,short) | ?AssignSounds@aiAudioManager@@QAEXPAVaiVehicleOpponent@@F@Z
-    0x441F50 | public: void __thiscall aiAudioManager::AssignAddOnSounds(class aiVehicleOpponent *,short) | ?AssignAddOnSounds@aiAudioManager@@QAEXPAVaiVehicleOpponent@@F@Z
-    0x442050 | public: void __thiscall aiAudioManager::AssignSounds(class aiVehiclePolice *,short) | ?AssignSounds@aiAudioManager@@QAEXPAVaiVehiclePolice@@F@Z
-    0x442630 | public: void __thiscall aiAudioManager::AssignSounds(class aiVehicleAmbient *,short) | ?AssignSounds@aiAudioManager@@QAEXPAVaiVehicleAmbient@@F@Z
-    0x442820 | public: void __thiscall aiAudioManager::AllocateAmbients(void) | ?AllocateAmbients@aiAudioManager@@QAEXXZ
-    0x442880 | public: void __thiscall aiAudioManager::AllocateOpponents(void) | ?AllocateOpponents@aiAudioManager@@QAEXXZ
-    0x4428D0 | public: void __thiscall aiAudioManager::AllocatePolice(void) | ?AllocatePolice@aiAudioManager@@QAEXXZ
-    0x442C10 | public: void __thiscall aiAudioManager::AllocateSkids(void) | ?AllocateSkids@aiAudioManager@@QAEXXZ
-    0x442EB0 | public: void __thiscall aiAudioManager::AllocateCopVoice(void) | ?AllocateCopVoice@aiAudioManager@@QAEXXZ
-    0x442F90 | public: void __thiscall aiAudioManager::LoadCopVoice(void) | ?LoadCopVoice@aiAudioManager@@QAEXXZ
-    0x4430C0 | private: char * __thiscall aiAudioManager::CatName(char *,int,int) | ?CatName@aiAudioManager@@AAEPADPADHH@Z
-    0x4432C0 | public: void __thiscall aiAudioManager::AllocateImpacts(void) | ?AllocateImpacts@aiAudioManager@@QAEXXZ
-    0x443370 | public: void __thiscall aiAudioManager::AllocateHorns(void) | ?AllocateHorns@aiAudioManager@@QAEXXZ
-    0x443550 | public: void __thiscall aiAudioManager::AllocateVoices(void) | ?AllocateVoices@aiAudioManager@@QAEXXZ
-    0x443720 | public: void __thiscall aiAudioManager::AllocateEngine(short,short) | ?AllocateEngine@aiAudioManager@@QAEXFF@Z
-    0x443930 | public: short __thiscall aiAudioManager::AllocateAddOnEngine(char *) | ?AllocateAddOnEngine@aiAudioManager@@QAEFPAD@Z
-    0x443B00 | public: class AudSound * * __thiscall aiAudioManager::AllocateEngine(char *) | ?AllocateEngine@aiAudioManager@@QAEPAPAVAudSound@@PAD@Z
-    0x443C50 | public: void __thiscall aiAudioManager::AllocateReverseBeep(void) | ?AllocateReverseBeep@aiAudioManager@@QAEXXZ
-    0x443DA0 | public: short __thiscall aiAudioManager::QueueInCopVoice(float) | ?QueueInCopVoice@aiAudioManager@@QAEFM@Z
-    0x443E00 | public: short __thiscall aiAudioManager::PlayCopVoice(void) | ?PlayCopVoice@aiAudioManager@@QAEFXZ
-    0x443E50 | public: short __thiscall aiAudioManager::GetClosestCop(void) | ?GetClosestCop@aiAudioManager@@QAEFXZ
-    0x443F30 | public: virtual void * __thiscall aiAudioManager::`scalar deleting destructor'(unsigned int) | ??_GaiAudioManager@@UAEPAXI@Z
-    0x443F30 | public: virtual void * __thiscall aiAudioManager::`vector deleting destructor'(unsigned int) | ??_EaiAudioManager@@UAEPAXI@Z
-    0x61B398 | const aiAudioManager::`vftable' | ??_7aiAudioManager@@6B@
-    0x6A796C | class aiAudioManager * AIAUDMGRPTR | ?AIAUDMGRPTR@@3PAVaiAudioManager@@A
-*/
-
 #include "arts7/node.h"
 
 class aiVehicleAmbient;

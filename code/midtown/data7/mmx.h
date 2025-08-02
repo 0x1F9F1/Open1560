@@ -18,18 +18,6 @@
 
 #pragma once
 
-/*
-    data7:mmx
-
-    0x57C400 | int __cdecl cpuid(void) | ?cpuid@@YAHXZ
-    0x57C410 | public: __thiscall initHaveMMX::initHaveMMX(void) | ??0initHaveMMX@@QAE@XZ
-    0x90B4A0 | int UseKNI | ?UseKNI@@3HA
-    0x90B4A4 | int UseMMX | ?UseMMX@@3HA
-    0x90B4A8 | int HavePPro | ?HavePPro@@3HA
-    0x90B4AC | int HaveKNI | ?HaveKNI@@3HA
-    0x90B4B0 | int HaveMMX | ?HaveMMX@@3HA
-*/
-
 // ?HaveKNI@@3HA
 ARTS_EXPORT extern b32 HaveKNI;
 

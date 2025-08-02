@@ -18,15 +18,6 @@
 
 #pragma once
 
-/*
-    mmdjpeg:jcomapi
-
-    0x580960 | void __cdecl jpeg_abort(struct jpeg_common_struct *) | ?jpeg_abort@@YAXPAUjpeg_common_struct@@@Z
-    0x5809B0 | void __cdecl jpeg_destroy(struct jpeg_common_struct *) | ?jpeg_destroy@@YAXPAUjpeg_common_struct@@@Z
-    0x5809E0 | struct JQUANT_TBL * __cdecl jpeg_alloc_quant_table(struct jpeg_common_struct *) | ?jpeg_alloc_quant_table@@YAPAUJQUANT_TBL@@PAUjpeg_common_struct@@@Z
-    0x580A00 | struct JHUFF_TBL * __cdecl jpeg_alloc_huff_table(struct jpeg_common_struct *) | ?jpeg_alloc_huff_table@@YAPAUJHUFF_TBL@@PAUjpeg_common_struct@@@Z
-*/
-
 struct JHUFF_TBL;
 struct jpeg_common_struct;
 struct JQUANT_TBL;

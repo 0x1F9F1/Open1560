@@ -18,23 +18,6 @@
 
 #pragma once
 
-/*
-    mmeffects:card2d
-
-    0x4FE150 | public: __thiscall Card2D::Card2D(void) | ??0Card2D@@QAE@XZ
-    0x4FE170 | public: void __thiscall Card2D::Init(class asCamera *,float,float,float,float,float) | ?Init@Card2D@@QAEXPAVasCamera@@MMMMM@Z
-    0x4FE1B0 | public: void __thiscall Card2D::SetDimensions(float,float,float,float) | ?SetDimensions@Card2D@@QAEXMMMM@Z
-    0x4FE2A0 | public: void __thiscall Card2D::SetPosition(float,float) | ?SetPosition@Card2D@@QAEXMM@Z
-    0x4FE2C0 | public: void __thiscall Card2D::SetAlpha(float) | ?SetAlpha@Card2D@@QAEXM@Z
-    0x4FE320 | public: virtual void __thiscall Card2D::Update(void) | ?Update@Card2D@@UAEXXZ
-    0x4FE330 | private: virtual void __thiscall Card2D::Cull(void) | ?Cull@Card2D@@EAEXXZ
-    0x4FE540 | private: virtual void __thiscall Card2D::AddWidgets(class Bank *) | ?AddWidgets@Card2D@@EAEXPAVBank@@@Z
-    0x4FE620 | public: virtual void * __thiscall Card2D::`scalar deleting destructor'(unsigned int) | ??_GCard2D@@UAEPAXI@Z
-    0x4FE620 | public: virtual void * __thiscall Card2D::`vector deleting destructor'(unsigned int) | ??_ECard2D@@UAEPAXI@Z
-    0x4FE650 | public: virtual __thiscall Card2D::~Card2D(void) | ??1Card2D@@UAE@XZ
-    0x6205B8 | const Card2D::`vftable' | ??_7Card2D@@6B@
-*/
-
 #include "arts7/node.h"
 
 class asCamera;

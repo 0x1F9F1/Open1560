@@ -18,42 +18,6 @@
 
 #pragma once
 
-/*
-    mmgame:gameman
-
-    0x403CE0 | public: virtual void __thiscall mmScreenClearFlunky::Update(void) | ?Update@mmScreenClearFlunky@@UAEXXZ
-    0x403D10 | public: virtual void __thiscall mmScreenClearFlunky::Cull(void) | ?Cull@mmScreenClearFlunky@@UAEXXZ
-    0x403E50 | public: __thiscall mmGameManager::mmGameManager(void) | ??0mmGameManager@@QAE@XZ
-    0x404390 | void __cdecl randcall(void) | ?randcall@@YAXXZ
-    0x4043B0 | public: virtual __thiscall mmGameManager::~mmGameManager(void) | ??1mmGameManager@@UAE@XZ
-    0x4044C0 | public: void __thiscall mmGameManager::BeDone(void) | ?BeDone@mmGameManager@@QAEXXZ
-    0x4044D0 | public: virtual void __thiscall mmGameManager::Update(void) | ?Update@mmGameManager@@UAEXXZ
-    0x4046D0 | void __cdecl DoScan(void *) | ?DoScan@@YAXPAX@Z
-    0x404750 | public: virtual void __thiscall mmGameManager::Cull(void) | ?Cull@mmGameManager@@UAEXXZ
-    0x404790 | public: void __thiscall mmGameManager::StartReplay(void) | ?StartReplay@mmGameManager@@QAEXXZ
-    0x4047B0 | public: void __thiscall mmGameManager::LoadReplay(char *) | ?LoadReplay@mmGameManager@@QAEXPAD@Z
-    0x404880 | public: void __thiscall mmGameManager::SaveReplay(char *) | ?SaveReplay@mmGameManager@@QAEXPAD@Z
-    0x404910 | public: virtual void __thiscall mmGameManager::Reset(void) | ?Reset@mmGameManager@@UAEXXZ
-    0x404920 | public: float __thiscall mmGameManager::GetBrakes(void) | ?GetBrakes@mmGameManager@@QAEMXZ
-    0x404950 | public: float __thiscall mmGameManager::GetSteering(void) | ?GetSteering@mmGameManager@@QAEMXZ
-    0x404980 | public: float __thiscall mmGameManager::GetThrottle(void) | ?GetThrottle@mmGameManager@@QAEMXZ
-    0x4049B0 | public: virtual void __thiscall mmGameManager::AddWidgets(class Bank *) | ?AddWidgets@mmGameManager@@UAEXPAVBank@@@Z
-    0x4049C0 | public: static void __cdecl mmGameManager::DeclareFields(void) | ?DeclareFields@mmGameManager@@SAXXZ
-    0x404B30 | public: virtual class MetaClass * __thiscall mmGameManager::GetClass(void) | ?GetClass@mmGameManager@@UAEPAVMetaClass@@XZ
-    0x404B70 | public: virtual void * __thiscall mmScreenClearFlunky::`scalar deleting destructor'(unsigned int) | ??_GmmScreenClearFlunky@@UAEPAXI@Z
-    0x404B70 | public: virtual void * __thiscall mmScreenClearFlunky::`vector deleting destructor'(unsigned int) | ??_EmmScreenClearFlunky@@UAEPAXI@Z
-    0x404BA0 | public: virtual __thiscall mmScreenClearFlunky::~mmScreenClearFlunky(void) | ??1mmScreenClearFlunky@@UAE@XZ
-    0x404BB0 | public: virtual void __thiscall asNode::UpdatePaused(void) | ?UpdatePaused@asNode@@UAEXXZ
-    0x404BC0 | public: virtual void * __thiscall mmGameManager::`vector deleting destructor'(unsigned int) | ??_EmmGameManager@@UAEPAXI@Z
-    0x61A0D8 | const mmScreenClearFlunky::`vftable' | ??_7mmScreenClearFlunky@@6B@
-    0x61A118 | const mmGameManager::`vftable' | ??_7mmGameManager@@6B@
-    0x67216C | unsigned char dummyGlobal2 | ?dummyGlobal2@@3EA
-    0x6A6D58 | int ScreenClearCount | ?ScreenClearCount@@3HA
-    0x6A6D60 | class Stream * ReplayLog | ?ReplayLog@@3PAVStream@@A
-    0x6A6D68 | class MetaClass mmGameManagerMetaClass | ?mmGameManagerMetaClass@@3VMetaClass@@A
-    0x6A6D94 | private: static class mmGameManager * mmGameManager::Instance | ?Instance@mmGameManager@@0PAV1@A
-*/
-
 #include "arts7/node.h"
 
 class mmGame;

@@ -18,45 +18,6 @@
 
 #pragma once
 
-/*
-    data7:str
-
-    0x5794E0 | public: __thiscall string::string(void) | ??0string@@QAE@XZ
-    0x579510 | public: class string __thiscall string::operator+(char const *) const | ??Hstring@@QBE?AV0@PBD@Z
-    0x579640 | class string __cdecl operator+(char const *,class string const &) | ??H@YA?AVstring@@PBDABV0@@Z
-    0x579770 | public: void __thiscall string::operator+=(char const *) | ??Ystring@@QAEXPBD@Z
-    0x579860 | public: void __thiscall string::operator+=(char) | ??Ystring@@QAEXD@Z
-    0x579900 | public: class string __thiscall string::operator-(char const *) const | ??Gstring@@QBE?AV0@PBD@Z
-    0x579A60 | public: void __thiscall string::operator-=(char const *) | ??Zstring@@QAEXPBD@Z
-    0x579B10 | public: void __thiscall string::MinusEqual(char) | ?MinusEqual@string@@QAEXD@Z
-    0x579C60 | public: int __thiscall string::Contains(class string &) const | ?Contains@string@@QBEHAAV1@@Z
-    0x579D00 | public: void __thiscall string::SaveName(class string const &,int,class string const &,class string const &) | ?SaveName@string@@QAEXABV1@H00@Z
-    0x579ED0 | public: int __thiscall string::FindFile(class string const &,int,class string const &,class string const &) | ?FindFile@string@@QAEHABV1@H00@Z
-    0x57A260 | public: int __thiscall string::FileExists(void) const | ?FileExists@string@@QBEHXZ
-    0x57A290 | public: void __thiscall string::DirFileExt(class string &,class string &,class string &) const | ?DirFileExt@string@@QBEXAAV1@00@Z
-    0x57A4A0 | public: int __thiscall string::CommaFile(void) const | ?CommaFile@string@@QBEHXZ
-    0x57A6A0 | public: class string __thiscall string::FileName(void) const | ?FileName@string@@QBE?AV1@XZ
-    0x57A800 | public: class string __thiscall string::Extension(void) const | ?Extension@string@@QBE?AV1@XZ
-    0x57A950 | public: void __thiscall string::ChangeExtension(class string const &) | ?ChangeExtension@string@@QAEXABV1@@Z
-    0x57AAD0 | public: void __thiscall string::RemoveExtension(void) | ?RemoveExtension@string@@QAEXXZ
-    0x57AB10 | public: void __thiscall string::ExpandEnvs(void) | ?ExpandEnvs@string@@QAEXXZ
-    0x57ACB0 | public: class string __thiscall string::SubString(int) const | ?SubString@string@@QBE?AV1@H@Z
-    0x57ADC0 | public: int __thiscall string::NumSubStrings(void) const | ?NumSubStrings@string@@QBEHXZ
-    0x57AE10 | public: int __thiscall string::IsNumeric(void) const | ?IsNumeric@string@@QBEHXZ
-    0x57AE60 | public: void __thiscall StringArray::Init(int) | ?Init@StringArray@@QAEXH@Z
-    0x57AED0 | public: void __thiscall StringArray::Delete(void) | ?Delete@StringArray@@QAEXXZ
-    0x57AF30 | private: void __thiscall StringArray::NewTable(int) | ?NewTable@StringArray@@AAEXH@Z
-    0x57AFA0 | public: class string & __thiscall StringArray::operator[](int) | ??AStringArray@@QAEAAVstring@@H@Z
-    0x57B050 | public: void __thiscall StringArray::operator=(class StringArray &) | ??4StringArray@@QAEXAAV0@@Z
-    0x57B1F0 | public: void __thiscall StringArray::BlockCopy(class StringArray &) | ?BlockCopy@StringArray@@QAEXAAV1@@Z
-    0x57B320 | public: void __thiscall string::operator=(char const *) | ??4string@@QAEXPBD@Z
-    0x57B380 | public: class string __thiscall string::operator+(class string const &) const | ??Hstring@@QBE?AV0@ABV0@@Z
-    0x57B3B0 | public: void * __thiscall string::`vector deleting destructor'(unsigned int) | ??_Estring@@QAEPAXI@Z
-    0x90B208 | char * ProjPath | ?ProjPath@@3PADA
-    0x90B288 | char * ImageExts | ?ImageExts@@3PADA
-    0x90B3D0 | char * ExecPath | ?ExecPath@@3PADA
-*/
-
 class string
 {
 public:

@@ -18,34 +18,6 @@
 
 #pragma once
 
-/*
-    mmcar:wheel
-
-    0x47D790 | public: __thiscall mmWheel::mmWheel(void) | ??0mmWheel@@QAE@XZ
-    0x47D950 | public: void __thiscall mmWheel::ComputeConstants(void) | ?ComputeConstants@mmWheel@@QAEXXZ
-    0x47DA10 | public: virtual void __thiscall mmWheel::AfterLoad(void) | ?AfterLoad@mmWheel@@UAEXXZ
-    0x47DA20 | public: void __thiscall mmWheel::Init(char *,char *,class Vector3,class asInertialCS *,int,class mmBoundTemplate *,int) | ?Init@mmWheel@@QAEXPAD0VVector3@@PAVasInertialCS@@HPAVmmBoundTemplate@@H@Z
-    0x47DBB0 | public: float __thiscall mmWheel::ComputeDwtdw(float,float *,float *,float *) | ?ComputeDwtdw@mmWheel@@QAEMMPAM00@Z
-    0x47E3E0 | public: virtual void __thiscall mmWheel::Update(void) | ?Update@mmWheel@@UAEXXZ
-    0x47F2D0 | public: virtual void __thiscall mmWheel::Reset(void) | ?Reset@mmWheel@@UAEXXZ
-    0x47F340 | public: void __thiscall mmWheel::GenerateSkidParticles(void) | ?GenerateSkidParticles@mmWheel@@QAEXXZ
-    0x47F360 | public: void __thiscall mmWheel::SetInputs(float,float) | ?SetInputs@mmWheel@@QAEXMM@Z
-    0x47F380 | public: void __thiscall mmWheel::SetFricMultiplier(float) | ?SetFricMultiplier@mmWheel@@QAEXM@Z
-    0x47F3A0 | public: void __thiscall mmWheel::SetSteerMultiplier(float) | ?SetSteerMultiplier@mmWheel@@QAEXM@Z
-    0x47F3B0 | public: void __thiscall mmWheel::Load(class Stream *) | ?Load@mmWheel@@QAEXPAVStream@@@Z
-    0x47F4B0 | public: void __thiscall mmWheel::Save(class Stream *) | ?Save@mmWheel@@QAEXPAVStream@@@Z
-    0x47F5F0 | public: void __thiscall mmWheel::CopyVars(class mmWheel *) | ?CopyVars@mmWheel@@QAEXPAV1@@Z
-    0x47F6B0 | public: int __thiscall mmWheel::GetSurfaceSound(void) | ?GetSurfaceSound@mmWheel@@QAEHXZ
-    0x47F6D0 | public: virtual void __thiscall mmWheel::AddWidgets(class Bank *) | ?AddWidgets@mmWheel@@UAEXPAVBank@@@Z
-    0x47FB00 | public: static void __cdecl mmWheel::DeclareFields(void) | ?DeclareFields@mmWheel@@SAXXZ
-    0x47FDC0 | public: virtual class MetaClass * __thiscall mmWheel::GetClass(void) | ?GetClass@mmWheel@@UAEPAVMetaClass@@XZ
-    0x47FE00 | public: virtual void * __thiscall mmWheel::`vector deleting destructor'(unsigned int) | ??_EmmWheel@@UAEPAXI@Z
-    0x61C740 | const mmWheel::`vftable' | ??_7mmWheel@@6B@
-    0x63C490 | public: static float mmWheel::PtxMaxSkidCount | ?PtxMaxSkidCount@mmWheel@@2MA
-    0x6A80B8 | class MetaClass mmWheelMetaClass | ?mmWheelMetaClass@@3VMetaClass@@A
-    0x6A80F4 | float DispLatZeroThresh | ?DispLatZeroThresh@@3MA
-*/
-
 #include "arts7/linear.h"
 #include "mmdyna/isect.h"
 

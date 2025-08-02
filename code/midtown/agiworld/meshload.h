@@ -18,16 +18,6 @@
 
 #pragma once
 
-/*
-    agiworld:meshload
-
-    0x502BD0 | public: void __thiscall agiMeshSet::BinaryLoad(class Stream *) | ?BinaryLoad@agiMeshSet@@QAEXPAVStream@@@Z
-    0x503180 | private: static void __cdecl agiMeshSet::PageOutCallback(void *,int) | ?PageOutCallback@agiMeshSet@@CAXPAXH@Z
-    0x5032A0 | private: void __thiscall agiMeshSet::DoPageIn(void) | ?DoPageIn@agiMeshSet@@AAEXXZ
-    0x719614 | int MeshBytesPaged | ?MeshBytesPaged@@3HA
-    0x719618 | int MeshesPaged | ?MeshesPaged@@3HA
-*/
-
 // ?MeshBytesPaged@@3HA
 ARTS_IMPORT extern i32 MeshBytesPaged;
 

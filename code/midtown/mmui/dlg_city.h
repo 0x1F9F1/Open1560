@@ -18,18 +18,6 @@
 
 #pragma once
 
-/*
-    mmui:dlg_city
-
-    0x49D730 | public: __thiscall Dialog_City::Dialog_City(int,float,float,float,float,char *) | ??0Dialog_City@@QAE@HMMMMPAD@Z
-    0x49D9B0 | public: virtual __thiscall Dialog_City::~Dialog_City(void) | ??1Dialog_City@@UAE@XZ
-    0x49DA10 | public: virtual void __thiscall Dialog_City::PreSetup(void) | ?PreSetup@Dialog_City@@UAEXXZ
-    0x49DA20 | public: void __thiscall Dialog_City::DoneCB(void) | ?DoneCB@Dialog_City@@QAEXXZ
-    0x49DA80 | public: virtual void * __thiscall Dialog_City::`vector deleting destructor'(unsigned int) | ??_EDialog_City@@UAEPAXI@Z
-    0x49DA80 | public: virtual void * __thiscall Dialog_City::`scalar deleting destructor'(unsigned int) | ??_GDialog_City@@UAEPAXI@Z
-    0x61D4E8 | const Dialog_City::`vftable' | ??_7Dialog_City@@6B@
-*/
-
 #include "pu_menu.h"
 
 class Dialog_City final : public PUMenuBase

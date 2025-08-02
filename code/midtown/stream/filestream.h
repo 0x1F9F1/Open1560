@@ -18,31 +18,6 @@
 
 #pragma once
 
-/*
-    stream:filestream
-
-    0x5617F0 | public: __thiscall FileStream::FileStream(void *,int,class FileSystem *) | ??0FileStream@@QAE@PAXHPAVFileSystem@@@Z
-    0x561830 | public: virtual unsigned int __thiscall FileStream::GetPagerHandle(void) | ?GetPagerHandle@FileStream@@UAEIXZ
-    0x561840 | public: int __thiscall FileStream::Create(char *) | ?Create@FileStream@@QAEHPAD@Z
-    0x561870 | public: int __thiscall FileStream::Open(char *,int) | ?Open@FileStream@@QAEHPADH@Z
-    0x5618E0 | public: __thiscall FileStream::FileStream(int) | ??0FileStream@@QAE@H@Z
-    0x561910 | public: int __thiscall FileStream::Stdin(void) | ?Stdin@FileStream@@QAEHXZ
-    0x561930 | public: int __thiscall FileStream::Stdout(void) | ?Stdout@FileStream@@QAEHXZ
-    0x561950 | public: int __thiscall FileStream::Stderr(void) | ?Stderr@FileStream@@QAEHXZ
-    0x561970 | public: virtual int __thiscall FileStream::RawRead(void *,int) | ?RawRead@FileStream@@UAEHPAXH@Z
-    0x561990 | public: virtual int __thiscall FileStream::RawWrite(void *,int) | ?RawWrite@FileStream@@UAEHPAXH@Z
-    0x5619B0 | public: virtual int __thiscall FileStream::RawSeek(int) | ?RawSeek@FileStream@@UAEHH@Z
-    0x5619D0 | public: virtual int __thiscall FileStream::RawTell(void) | ?RawTell@FileStream@@UAEHXZ
-    0x5619F0 | public: virtual int __thiscall FileStream::RawSize(void) | ?RawSize@FileStream@@UAEHXZ
-    0x561A20 | public: int __thiscall FileStream::Close(void) | ?Close@FileStream@@QAEHXZ
-    0x561A60 | public: virtual __thiscall FileStream::~FileStream(void) | ??1FileStream@@UAE@XZ
-    0x561B10 | public: virtual void * __thiscall FileStream::`scalar deleting destructor'(unsigned int) | ??_GFileStream@@UAEPAXI@Z
-    0x561B10 | public: virtual void * __thiscall FileStream::`vector deleting destructor'(unsigned int) | ??_EFileStream@@UAEPAXI@Z
-    0x6219F8 | const FileStream::`vftable' | ??_7FileStream@@6B@
-    0x908BE0 | class FileStream __stdout | ?__stdout@@3VFileStream@@A
-    0x908C08 | class FileStream __stdin | ?__stdin@@3VFileStream@@A
-*/
-
 #include "stream.h"
 
 class FileStream final : public Stream

@@ -18,13 +18,6 @@
 
 #pragma once
 
-/*
-    mmdjpeg:jdmaster
-
-    0x580A20 | void __cdecl jpeg_calc_output_dimensions(struct jpeg_decompress_struct *) | ?jpeg_calc_output_dimensions@@YAXPAUjpeg_decompress_struct@@@Z
-    0x580AE0 | void __cdecl jinit_master_decompress(struct jpeg_decompress_struct *) | ?jinit_master_decompress@@YAXPAUjpeg_decompress_struct@@@Z
-*/
-
 struct jpeg_decompress_struct;
 
 // ?jinit_master_decompress@@YAXPAUjpeg_decompress_struct@@@Z

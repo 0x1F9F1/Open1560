@@ -18,20 +18,6 @@
 
 #pragma once
 
-/*
-    memory:stack
-
-    0x520130 | void __cdecl LookupAddress(char *,int) | ?LookupAddress@@YAXPADH@Z
-    0x5201C0 | void __cdecl InitMap(void) | ?InitMap@@YAXXZ
-    0x5204C0 | void __cdecl DoStackTraceback(int,int *) | ?DoStackTraceback@@YAXHPAH@Z
-    0x520590 | void __cdecl StackTraceback(int) | ?StackTraceback@@YAXH@Z
-    0x5205B0 | int __cdecl LogStackTraceback(int *,int) | ?LogStackTraceback@@YAHPAHH@Z
-    0x520670 | void __cdecl DumpStackTraceback(int *,int) | ?DumpStackTraceback@@YAXPAHH@Z
-    0x5206C0 | void __cdecl DebugLogInit(int) | ?DebugLogInit@@YAXH@Z
-    0x520700 | void __cdecl DebugLogShutdown(void) | ?DebugLogShutdown@@YAXXZ
-    0x520720 | void __cdecl DebugLog(int,void *,int) | ?DebugLog@@YAXHPAXH@Z
-*/
-
 // #define ARTS_NO_EXCEPTION_CATCHING
 
 // ?DebugLog@@YAXHPAXH@Z

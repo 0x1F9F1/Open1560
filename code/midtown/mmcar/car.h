@@ -18,42 +18,6 @@
 
 #pragma once
 
-/*
-    mmcar:car
-
-    0x473380 | public: __thiscall mmCar::mmCar(void) | ??0mmCar@@QAE@XZ
-    0x4734A0 | public: void __thiscall mmCar::TranslateFlags(int) | ?TranslateFlags@mmCar@@QAEXH@Z
-    0x473500 | public: void __thiscall mmCar::ReleaseTrailer(void) | ?ReleaseTrailer@mmCar@@QAEXXZ
-    0x473530 | public: void __thiscall mmCar::Init(char *,int,int) | ?Init@mmCar@@QAEXPADHH@Z
-    0x473960 | public: void __thiscall mmCar::ReInit(char *,int) | ?ReInit@mmCar@@QAEXPADH@Z
-    0x473B90 | public: virtual void __thiscall mmCar::Reset(void) | ?Reset@mmCar@@UAEXXZ
-    0x473C40 | public: virtual void __thiscall mmCar::Update(void) | ?Update@mmCar@@UAEXXZ
-    0x473C80 | public: virtual void __thiscall mmCar::PostUpdate(void) | ?PostUpdate@mmCar@@UAEXXZ
-    0x473D70 | public: void __thiscall mmCar::EnableDriving(int) | ?EnableDriving@mmCar@@QAEXH@Z
-    0x473DE0 | public: int __thiscall mmCar::IsDrivingDisabled(void) | ?IsDrivingDisabled@mmCar@@QAEHXZ
-    0x473DF0 | public: void __thiscall mmCar::ToggleSiren(void) | ?ToggleSiren@mmCar@@QAEXXZ
-    0x473E20 | public: void __thiscall mmCar::StartSiren(void) | ?StartSiren@mmCar@@QAEXXZ
-    0x473E40 | public: void __thiscall mmCar::StopSiren(void) | ?StopSiren@mmCar@@QAEXXZ
-    0x473E60 | public: void __thiscall mmCar::RemoveVehicleAudio(void) | ?RemoveVehicleAudio@mmCar@@QAEXXZ
-    0x473E70 | public: void __thiscall mmCar::ClearDamage(void) | ?ClearDamage@mmCar@@QAEXXZ
-    0x473EB0 | public: void __thiscall mmCar::Impact(class mmIntersection *,class Vector3 *,float,int,class Vector3 *) | ?Impact@mmCar@@QAEXPAVmmIntersection@@PAVVector3@@MH1@Z
-    0x4742E0 | int __cdecl EggNameIndex(char *) | ?EggNameIndex@@YAHPAD@Z
-    0x474340 | public: char * __thiscall mmCar::VehNameRemap(char *,int) | ?VehNameRemap@mmCar@@QAEPADPADH@Z
-    0x4745E0 | public: virtual void __thiscall mmCar::AddWidgets(class Bank *) | ?AddWidgets@mmCar@@UAEXPAVBank@@@Z
-    0x474640 | public: static void __cdecl mmCar::DeclareFields(void) | ?DeclareFields@mmCar@@SAXXZ
-    0x4747C0 | public: virtual class MetaClass * __thiscall mmCar::GetClass(void) | ?GetClass@mmCar@@UAEPAVMetaClass@@XZ
-    0x474800 | public: virtual void * __thiscall mmCar::`vector deleting destructor'(unsigned int) | ??_EmmCar@@UAEPAXI@Z
-    0x474860 | public: virtual class asInertialCS * __thiscall mmCar::GetICS(void) | ?GetICS@mmCar@@UAEPAVasInertialCS@@XZ
-    0x474870 | public: virtual class asBound * __thiscall mmCar::GetBound(void) | ?GetBound@mmCar@@UAEPAVasBound@@XZ
-    0x61C0E8 | const mmCar::`vftable' | ??_7mmCar@@6B@
-    0x6A7E30 | public: static float mmCar::ProbeTime | ?ProbeTime@mmCar@@2MA
-    0x6A7E34 | public: static float mmCar::TotalUpdateTime | ?TotalUpdateTime@mmCar@@2MA
-    0x6A7E3C | float ffval | ?ffval@@3MA
-    0x6A7E40 | class MetaClass mmCarMetaClass | ?mmCarMetaClass@@3VMetaClass@@A
-    0x6A7E68 | public: static float mmCar::UpdateTime | ?UpdateTime@mmCar@@2MA
-    0x6A7E6C | public: static float mmCar::PostUpdateTime | ?PostUpdateTime@mmCar@@2MA
-*/
-
 #include "mmphysics/entity.h"
 #include "mmphysics/osample.h"
 

@@ -18,27 +18,6 @@
 
 #pragma once
 
-/*
-    mmui:pu_roster
-
-    0x4A8CA0 | public: __thiscall PURoster::PURoster(int,float,float,float,float) | ??0PURoster@@QAE@HMMMM@Z
-    0x4A8E10 | public: virtual __thiscall PURoster::~PURoster(void) | ??1PURoster@@UAE@XZ
-    0x4A8E20 | public: virtual void __thiscall PURoster::Reset(void) | ?Reset@PURoster@@UAEXXZ
-    0x4A8E30 | public: void __thiscall PURoster::BootButtonCB(void) | ?BootButtonCB@PURoster@@QAEXXZ
-    0x4A8E90 | public: void __thiscall PURoster::SetHost(int) | ?SetHost@PURoster@@QAEXH@Z
-    0x4A8F00 | public: void __thiscall PURoster::AddName(char *,unsigned long,int) | ?AddName@PURoster@@QAEXPADKH@Z
-    0x4A8FD0 | public: void __thiscall PURoster::RemoveName(char *,unsigned long) | ?RemoveName@PURoster@@QAEXPADK@Z
-    0x4A9110 | public: void __thiscall PURoster::RemoveName(unsigned long) | ?RemoveName@PURoster@@QAEXK@Z
-    0x4A9240 | public: void __thiscall PURoster::ClearNames(void) | ?ClearNames@PURoster@@QAEXXZ
-    0x4A92A0 | public: void __thiscall PURoster::PostNames(void) | ?PostNames@PURoster@@QAEXXZ
-    0x4A92D0 | public: void __thiscall PURoster::SetBootCB(class Callback) | ?SetBootCB@PURoster@@QAEXVCallback@@@Z
-    0x4A92F0 | public: int __thiscall PURoster::FindRosterName(char *) | ?FindRosterName@PURoster@@QAEHPAD@Z
-    0x4A9360 | public: int __thiscall PURoster::FindRosterName(unsigned long) | ?FindRosterName@PURoster@@QAEHK@Z
-    0x4A9390 | public: virtual void * __thiscall PURoster::`vector deleting destructor'(unsigned int) | ??_EPURoster@@UAEPAXI@Z
-    0x4A9390 | public: virtual void * __thiscall PURoster::`scalar deleting destructor'(unsigned int) | ??_GPURoster@@UAEPAXI@Z
-    0x61DE08 | const PURoster::`vftable' | ??_7PURoster@@6B@
-*/
-
 #include "pu_menu.h"
 
 class PURoster final : public PUMenuBase

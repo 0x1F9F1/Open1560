@@ -18,16 +18,6 @@
 
 #pragma once
 
-/*
-    mminput:spring
-
-    0x4E7D50 | public: virtual int __thiscall mmSpringFF::Init(struct IDirectInputDevice2A *) | ?Init@mmSpringFF@@UAEHPAUIDirectInputDevice2A@@@Z
-    0x4E7E50 | public: virtual int __thiscall mmSpringFF::SetValues(float,float) | ?SetValues@mmSpringFF@@UAEHMM@Z
-    0x4E7E80 | public: int __thiscall mmSpringFF::Assign(long) | ?Assign@mmSpringFF@@QAEHJ@Z
-    0x4E7F70 | public: virtual int __thiscall mmSpringFF::Play(void) | ?Play@mmSpringFF@@UAEHXZ
-    0x4E7FE0 | public: virtual int __thiscall mmSpringFF::Stop(void) | ?Stop@mmSpringFF@@UAEHXZ
-*/
-
 #include "effect.h"
 
 class mmSpringFF final : public mmEffectFF

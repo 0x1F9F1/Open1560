@@ -18,19 +18,6 @@
 
 #pragma once
 
-/*
-    mmcityinfo:infobase
-
-    0x4D12B0 | public: __thiscall mmInfoBase::mmInfoBase(void) | ??0mmInfoBase@@QAE@XZ
-    0x4D12E0 | public: int __thiscall mmInfoBase::Load(char *) | ?Load@mmInfoBase@@QAEHPAD@Z
-    0x4D1390 | public: int __thiscall mmInfoBase::Save(char *) | ?Save@mmInfoBase@@QAEHPAD@Z
-    0x4D1440 | public: void __thiscall mmInfoBase::SetIOPath(char *) | ?SetIOPath@mmInfoBase@@QAEXPAD@Z
-    0x4D1460 | public: static void __cdecl mmInfoBase::DeclareFields(void) | ?DeclareFields@mmInfoBase@@SAXXZ
-    0x4D15D0 | public: virtual class MetaClass * __thiscall mmInfoBase::GetClass(void) | ?GetClass@mmInfoBase@@UAEPAVMetaClass@@XZ
-    0x4D15E0 | public: virtual void * __thiscall mmInfoBase::`vector deleting destructor'(unsigned int) | ??_EmmInfoBase@@UAEPAXI@Z
-    0x7085C8 | class MetaClass mmInfoBaseMetaClass | ?mmInfoBaseMetaClass@@3VMetaClass@@A
-*/
-
 #include "data7/base.h"
 
 class mmInfoBase : public Base

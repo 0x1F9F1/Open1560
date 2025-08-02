@@ -18,19 +18,6 @@
 
 #pragma once
 
-/*
-    mmeffects:vehform
-
-    0x5026B0 | public: __thiscall mmVehicleForm::mmVehicleForm(void) | ??0mmVehicleForm@@QAE@XZ
-    0x502710 | public: void __thiscall mmVehicleForm::SetShape(char *,char *,char *,class Vector3 *) | ?SetShape@mmVehicleForm@@QAEXPAD00PAVVector3@@@Z
-    0x502780 | public: virtual void __thiscall mmVehicleForm::Update(void) | ?Update@mmVehicleForm@@UAEXXZ
-    0x5027A0 | public: virtual void __thiscall mmVehicleForm::Cull(void) | ?Cull@mmVehicleForm@@UAEXXZ
-    0x502900 | public: virtual void * __thiscall mmVehicleForm::`scalar deleting destructor'(unsigned int) | ??_GmmVehicleForm@@UAEPAXI@Z
-    0x6207A0 | const mmVehicleForm::`vftable' | ??_7mmVehicleForm@@6B@
-    0x64A348 | public: static void (__cdecl* mmVehicleForm::Lighter)(unsigned char *,unsigned int *,unsigned int *,class agiMeshSet *) | ?Lighter@mmVehicleForm@@2P6AXPAEPAI1PAVagiMeshSet@@@ZA
-    0x719610 | public: static class agiTexDef * mmVehicleForm::SphMapTex | ?SphMapTex@mmVehicleForm@@2PAVagiTexDef@@A
-*/
-
 #include "arts7/node.h"
 
 #include "damage.h"

@@ -18,12 +18,6 @@
 
 #pragma once
 
-/*
-    mmdjpeg:jmemmgr
-
-    0x57FD10 | void __cdecl jinit_memory_mgr(struct jpeg_common_struct *) | ?jinit_memory_mgr@@YAXPAUjpeg_common_struct@@@Z
-*/
-
 struct jpeg_common_struct;
 
 // ?jinit_memory_mgr@@YAXPAUjpeg_common_struct@@@Z

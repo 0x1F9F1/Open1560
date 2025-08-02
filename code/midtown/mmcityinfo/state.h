@@ -18,18 +18,6 @@
 
 #pragma once
 
-/*
-    mmcityinfo:state
-
-    0x4CBB40 | public: virtual __thiscall mmPlayerData::~mmPlayerData(void) | ??1mmPlayerData@@UAE@XZ
-    0x4CBBE0 | public: virtual void * __thiscall mmPlayerData::`scalar deleting destructor'(unsigned int) | ??_GmmPlayerData@@UAEPAXI@Z
-    0x61F898 | const mmPlayerData::`vftable' | ??_7mmPlayerData@@6B@
-    0x706068 | struct mmStatePack MMSTATE | ?MMSTATE@@3UmmStatePack@@A
-    0x706360 | int CHEATING | ?CHEATING@@3HA
-    0x706368 | class mmPlayerData MMCURRPLAYER | ?MMCURRPLAYER@@3VmmPlayerData@@A
-    0x7084E0 | int CHICAGO | ?CHICAGO@@3HA
-*/
-
 class mmPlayerData;
 
 // ?CHEATING@@3HA

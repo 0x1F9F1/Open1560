@@ -18,12 +18,6 @@
 
 #pragma once
 
-/*
-    mmdjpeg:jidctint
-
-    0x583790 | void __cdecl jpeg_idct_islow(struct jpeg_decompress_struct *,struct jpeg_component_info *,short *,unsigned char * *,unsigned int) | ?jpeg_idct_islow@@YAXPAUjpeg_decompress_struct@@PAUjpeg_component_info@@PAFPAPAEI@Z
-*/
-
 struct jpeg_component_info;
 struct jpeg_decompress_struct;
 

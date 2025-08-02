@@ -18,17 +18,6 @@
 
 #pragma once
 
-/*
-    agi:cmodel
-
-    0x55BB70 | protected: virtual __thiscall agiColorModel::~agiColorModel(void) | ??1agiColorModel@@MAE@XZ
-    0x55BB80 | public: unsigned int __thiscall agiColorModel::GetColor(int,int,int,int) | ?GetColor@agiColorModel@@QAEIHHHH@Z
-    0x55BBB0 | public: unsigned int __thiscall agiColorModel::FindColor(int,int,int,int) | ?FindColor@agiColorModel@@QAEIHHHH@Z
-    0x55BBE0 | public: unsigned int __thiscall agiColorModel::GetColor(class Vector3 const &) | ?GetColor@agiColorModel@@QAEIABVVector3@@@Z
-    0x55BC40 | public: unsigned int __thiscall agiColorModel::GetColor(class Vector4 const &) | ?GetColor@agiColorModel@@QAEIABVVector4@@@Z
-    0x621740 | const agiColorModel::`vftable' | ??_7agiColorModel@@6B@
-*/
-
 struct agiRgba;
 class agiSurfaceDesc;
 

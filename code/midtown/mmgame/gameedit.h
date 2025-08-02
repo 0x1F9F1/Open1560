@@ -18,34 +18,6 @@
 
 #pragma once
 
-/*
-    mmgame:gameedit
-
-    0x412150 | public: __thiscall mmGameEdit::mmGameEdit(void) | ??0mmGameEdit@@QAE@XZ
-    0x412220 | public: virtual __thiscall mmGameEdit::~mmGameEdit(void) | ??1mmGameEdit@@UAE@XZ
-    0x4122D0 | public: int __thiscall mmGameEdit::Init(void) | ?Init@mmGameEdit@@QAEHXZ
-    0x412380 | public: virtual void __thiscall mmGameEdit::InitMyPlayer(void) | ?InitMyPlayer@mmGameEdit@@UAEXXZ
-    0x4123F0 | public: virtual void __thiscall mmGameEdit::InitHUD(void) | ?InitHUD@mmGameEdit@@UAEXXZ
-    0x412430 | public: virtual void __thiscall mmGameEdit::InitGameObjects(void) | ?InitGameObjects@mmGameEdit@@UAEXXZ
-    0x412520 | public: void __thiscall mmGameEdit::RegisterMapObjects(void) | ?RegisterMapObjects@mmGameEdit@@QAEXXZ
-    0x412570 | public: virtual void __thiscall mmGameEdit::UpdateDebugKeyInput(int) | ?UpdateDebugKeyInput@mmGameEdit@@UAEXH@Z
-    0x412760 | public: virtual void __thiscall mmGameEdit::Reset(void) | ?Reset@mmGameEdit@@UAEXXZ
-    0x4127F0 | public: virtual void __thiscall mmGameEdit::Update(void) | ?Update@mmGameEdit@@UAEXXZ
-    0x412810 | public: virtual void __thiscall mmGameEdit::UpdateGameInput(int) | ?UpdateGameInput@mmGameEdit@@UAEXH@Z
-    0x412820 | public: virtual void __thiscall mmGameEdit::UpdateGame(void) | ?UpdateGame@mmGameEdit@@UAEXXZ
-    0x412860 | public: virtual void __thiscall mmGameEdit::AddWidgets(class Bank *) | ?AddWidgets@mmGameEdit@@UAEXPAVBank@@@Z
-    0x412A80 | public: void __thiscall mmGameEdit::SetWPCallback(void) | ?SetWPCallback@mmGameEdit@@QAEXXZ
-    0x412B20 | public: void __thiscall mmGameEdit::ChangeWPCallback(void) | ?ChangeWPCallback@mmGameEdit@@QAEXXZ
-    0x412B80 | public: static void __cdecl mmGameEdit::DeclareFields(void) | ?DeclareFields@mmGameEdit@@SAXXZ
-    0x412D00 | public: virtual class MetaClass * __thiscall mmGameEdit::GetClass(void) | ?GetClass@mmGameEdit@@UAEPAVMetaClass@@XZ
-    0x412E60 | public: virtual void * __thiscall mmGameEdit::`vector deleting destructor'(unsigned int) | ??_EmmGameEdit@@UAEPAXI@Z
-    0x412EC0 | public: virtual void __thiscall mmGameEdit::InitOtherPlayers(void) | ?InitOtherPlayers@mmGameEdit@@UAEXXZ
-    0x412ED0 | public: virtual void __thiscall mmGameEdit::NextRace(void) | ?NextRace@mmGameEdit@@UAEXXZ
-    0x412EE0 | public: virtual class mmWaypoints * __thiscall mmGameEdit::GetWaypoints(void) | ?GetWaypoints@mmGameEdit@@UAEPAVmmWaypoints@@XZ
-    0x61A4A0 | const mmGameEdit::`vftable' | ??_7mmGameEdit@@6B@
-    0x6A6FE0 | class MetaClass mmGameEditMetaClass | ?mmGameEditMetaClass@@3VMetaClass@@A
-*/
-
 #include "game.h"
 
 class mmGameEdit final : public mmGame

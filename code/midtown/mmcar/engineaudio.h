@@ -18,26 +18,6 @@
 
 #pragma once
 
-/*
-    mmcar:engineaudio
-
-    0x4864D0 | public: __thiscall EngineAudio::EngineAudio(void) | ??0EngineAudio@@QAE@XZ
-    0x486550 | public: void __thiscall EngineAudio::Init(class Vector3 *) | ?Init@EngineAudio@@QAEXPAVVector3@@@Z
-    0x4867A0 | public: void __thiscall EngineAudio::Init(char *,char *) | ?Init@EngineAudio@@QAEXPAD0@Z
-    0x486940 | public: virtual __thiscall EngineAudio::~EngineAudio(void) | ??1EngineAudio@@UAE@XZ
-    0x4869F0 | public: void __thiscall EngineAudio::EchoOn(float) | ?EchoOn@EngineAudio@@QAEXM@Z
-    0x486A40 | public: void __thiscall EngineAudio::EchoOff(void) | ?EchoOff@EngineAudio@@QAEXXZ
-    0x486A70 | public: void __thiscall EngineAudio::EnableClutch(char *,float) | ?EnableClutch@EngineAudio@@QAEXPADM@Z
-    0x486B30 | public: virtual void __thiscall EngineAudio::UpdateRPM(float) | ?UpdateRPM@EngineAudio@@UAEXM@Z
-    0x486D90 | public: void __thiscall EngineAudio::ResetVolume(void) | ?ResetVolume@EngineAudio@@QAEXXZ
-    0x486DB0 | public: void __thiscall EngineAudio::Stop(void) | ?Stop@EngineAudio@@QAEXXZ
-    0x486DF0 | public: static void __cdecl EngineAudio::DeclareFields(void) | ?DeclareFields@EngineAudio@@SAXXZ
-    0x4870A0 | public: virtual class MetaClass * __thiscall EngineAudio::GetClass(void) | ?GetClass@EngineAudio@@UAEPAVMetaClass@@XZ
-    0x4870B0 | public: virtual void * __thiscall EngineAudio::`vector deleting destructor'(unsigned int) | ??_EEngineAudio@@UAEPAXI@Z
-    0x61CAE8 | const EngineAudio::`vftable' | ??_7EngineAudio@@6B@
-    0x6A82A0 | class MetaClass EngineAudioMetaClass | ?EngineAudioMetaClass@@3VMetaClass@@A
-*/
-
 #include "arts7/node.h"
 
 class EngineAudio final : public asNode

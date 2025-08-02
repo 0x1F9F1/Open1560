@@ -18,18 +18,6 @@
 
 #pragma once
 
-/*
-    mmui:vshow
-
-    0x4A4F70 | public: __thiscall VehShowcase::VehShowcase(int) | ??0VehShowcase@@QAE@H@Z
-    0x4A50C0 | public: virtual __thiscall VehShowcase::~VehShowcase(void) | ??1VehShowcase@@UAE@XZ
-    0x4A5120 | public: virtual void __thiscall VehShowcase::PreSetup(void) | ?PreSetup@VehShowcase@@UAEXXZ
-    0x4A5190 | public: virtual void __thiscall VehShowcase::PostSetup(void) | ?PostSetup@VehShowcase@@UAEXXZ
-    0x4A51A0 | public: virtual void * __thiscall VehShowcase::`vector deleting destructor'(unsigned int) | ??_EVehShowcase@@UAEPAXI@Z
-    0x4A51A0 | public: virtual void * __thiscall VehShowcase::`scalar deleting destructor'(unsigned int) | ??_GVehShowcase@@UAEPAXI@Z
-    0x61DB20 | const VehShowcase::`vftable' | ??_7VehShowcase@@6B@
-*/
-
 #include "mmwidget/menu.h"
 
 class VehShowcase final : public UIMenu

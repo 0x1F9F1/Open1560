@@ -17,9 +17,3 @@
 */
 
 #pragma once
-
-/*
-    agiworld:meshsave
-
-    0x516B30 | public: void __thiscall agiMeshSet::BinarySave(class Stream *) | ?BinarySave@agiMeshSet@@QAEXPAVStream@@@Z
-*/

@@ -18,28 +18,6 @@
 
 #pragma once
 
-/*
-    memory:stub
-
-    0x5214F0 | _malloc
-    0x521510 | _realloc
-    0x521530 | _calloc
-    0x521570 | _free
-    0x521590 | __msize
-    0x5215A0 | void * __cdecl operator new(unsigned int) | ??2@YAPAXI@Z
-    0x5215C0 | void __cdecl operator delete(void *) | ??3@YAXPAX@Z
-    0x5215E0 | __realloc_dbg
-    0x521630 | __malloc_dbg
-    0x521670 | __free_dbg
-    0x5216B0 | __calloc_dbg
-    0x521710 | __msize_dbg
-    0x521730 | __CrtCheckMemory
-    0x521740 | __CrtSetDbgFlag
-    0x521750 | __CrtIsValidPointer
-    0x521790 | __CrtMemCheckpoint
-    0x5217D0 | __CrtDumpMemoryLeaks
-*/
-
 #include <intrin.h>
 
 #ifdef _MSC_VER

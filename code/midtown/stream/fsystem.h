@@ -18,31 +18,6 @@
 
 #pragma once
 
-/*
-    stream:fsystem
-
-    0x55F530 | public: __thiscall FileSystem::FileSystem(void) | ??0FileSystem@@QAE@XZ
-    0x55F5A0 | public: virtual __thiscall FileSystem::~FileSystem(void) | ??1FileSystem@@UAE@XZ
-    0x55F610 | protected: virtual void __thiscall FileSystem::NotifyDelete(void) | ?NotifyDelete@FileSystem@@MAEXXZ
-    0x55F620 | public: static class FileSystem * __cdecl FileSystem::SearchAll(char *,char *,char *,int,char *) | ?SearchAll@FileSystem@@SAPAV1@PAD00H0@Z
-    0x55F690 | public: int __thiscall FileSystem::Search(char *,char *,char *,int,char *) | ?Search@FileSystem@@QAEHPAD00H0@Z
-    0x55FAF0 | char * __cdecl SubString(int,char *) | ?SubString@@YAPADHPAD@Z
-    0x55FB70 | int __cdecl NumSubStrings(char *) | ?NumSubStrings@@YAHPAD@Z
-    0x55FBA0 | int __cdecl Contains(char *,char *) | ?Contains@@YAHPAD0@Z
-    0x55FC20 | void __cdecl ExpandEnvs(char *) | ?ExpandEnvs@@YAXPAD@Z
-    0x55FD30 | class FileSystem * __cdecl FindFile(char *,char *,char *,int,char *) | ?FindFile@@YAPAVFileSystem@@PAD00H0@Z
-    0x55FD60 | class Stream * __cdecl OpenFile(char *,char *,char *,int,char *,char *) | ?OpenFile@@YAPAVStream@@PAD00H00@Z
-    0x55FE60 | public: static class Stream * __cdecl FileSystem::OpenAny(char *,int,void *,int) | ?OpenAny@FileSystem@@SAPAVStream@@PADHPAXH@Z
-    0x55FEC0 | public: virtual int __thiscall FileSystem::PagerInfo(char *,struct PagerInfo_t &) | ?PagerInfo@FileSystem@@UAEHPADAAUPagerInfo_t@@@Z
-    0x55FED0 | public: static int __cdecl FileSystem::PagerInfoAny(char *,struct PagerInfo_t &) | ?PagerInfoAny@FileSystem@@SAHPADAAUPagerInfo_t@@@Z
-    0x55FF20 | public: virtual void * __thiscall FileSystem::`vector deleting destructor'(unsigned int) | ??_EFileSystem@@UAEPAXI@Z
-    0x55FF20 | public: virtual void * __thiscall FileSystem::`scalar deleting destructor'(unsigned int) | ??_GFileSystem@@UAEPAXI@Z
-    0x621928 | const FileSystem::`vftable' | ??_7FileSystem@@6B@
-    0x907A30 | public: static int FileSystem::FSCount | ?FSCount@FileSystem@@2HA
-    0x907A38 | public: static class FileSystem * * FileSystem::FS | ?FS@FileSystem@@2PAPAV1@A
-    0x907B38 | int fsVerbose | ?fsVerbose@@3HA
-*/
-
 #include "data7/base.h"
 
 #ifndef MAX_FILESYSTEMS

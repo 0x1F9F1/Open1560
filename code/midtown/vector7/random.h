@@ -18,14 +18,6 @@
 
 #pragma once
 
-/*
-    vector7:random
-
-    0x56D9F0 | public: void __thiscall Random::Seed(int) | ?Seed@Random@@QAEXH@Z
-    0x56DAB0 | public: float __thiscall Random::Number(void) | ?Number@Random@@QAEMXZ
-    0x56DB10 | public: float __thiscall Random::Normal(float,float) | ?Normal@Random@@QAEMMM@Z
-*/
-
 struct Random
 {
 public:

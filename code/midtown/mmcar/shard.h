@@ -18,39 +18,6 @@
 
 #pragma once
 
-/*
-    mmcar:shard
-
-    0x478560 | public: __thiscall mmShard::mmShard(void) | ??0mmShard@@QAE@XZ
-    0x4785A0 | public: void __thiscall mmShard::Init(char *,int) | ?Init@mmShard@@QAEXPADH@Z
-    0x4785D0 | public: virtual __thiscall mmShard::~mmShard(void) | ??1mmShard@@UAE@XZ
-    0x4785E0 | public: void __thiscall mmShard::AddShard(class Vector3,class Vector3,class Vector3,float) | ?AddShard@mmShard@@QAEXVVector3@@00M@Z
-    0x478640 | public: void __thiscall mmShard::Update(void) | ?Update@mmShard@@QAEXXZ
-    0x478730 | public: virtual void __fastcall mmShard::Draw(int) | ?Draw@mmShard@@UAIXH@Z
-    0x4787F0 | public: __thiscall mmShardManager::mmShardManager(void) | ??0mmShardManager@@QAE@XZ
-    0x478860 | public: virtual __thiscall mmShardManager::~mmShardManager(void) | ??1mmShardManager@@UAE@XZ
-    0x4788D0 | public: static class mmShardManager * __cdecl mmShardManager::GetInstance(int) | ?GetInstance@mmShardManager@@SAPAV1@H@Z
-    0x4788F0 | public: void __thiscall mmShardManager::Init(char *,int,class mmCarSim *) | ?Init@mmShardManager@@QAEXPADHPAVmmCarSim@@@Z
-    0x4789E0 | public: void __thiscall mmShardManager::ReInit(class mmCarSim *) | ?ReInit@mmShardManager@@QAEXPAVmmCarSim@@@Z
-    0x4789F0 | public: void __thiscall mmShardManager::EmitShards(class Vector3,float,float) | ?EmitShards@mmShardManager@@QAEXVVector3@@MM@Z
-    0x478A60 | public: void __thiscall mmShardManager::EmitAllShards(class Vector3,float) | ?EmitAllShards@mmShardManager@@QAEXVVector3@@M@Z
-    0x478AB0 | public: void __thiscall mmShardManager::EmitShard(class Vector3,float) | ?EmitShard@mmShardManager@@QAEXVVector3@@M@Z
-    0x478C60 | public: virtual void __thiscall mmShardManager::Update(void) | ?Update@mmShardManager@@UAEXXZ
-    0x478C90 | public: virtual void __thiscall mmShardManager::AddWidgets(class Bank *) | ?AddWidgets@mmShardManager@@UAEXPAVBank@@@Z
-    0x478E00 | public: static void __cdecl mmShard::DeclareFields(void) | ?DeclareFields@mmShard@@SAXXZ
-    0x478F80 | public: virtual class MetaClass * __thiscall mmShard::GetClass(void) | ?GetClass@mmShard@@UAEPAVMetaClass@@XZ
-    0x478F90 | public: static void __cdecl mmShardManager::DeclareFields(void) | ?DeclareFields@mmShardManager@@SAXXZ
-    0x479160 | public: virtual class MetaClass * __thiscall mmShardManager::GetClass(void) | ?GetClass@mmShardManager@@UAEPAVMetaClass@@XZ
-    0x479170 | public: virtual void * __thiscall mmShard::`vector deleting destructor'(unsigned int) | ??_EmmShard@@UAEPAXI@Z
-    0x4791D0 | public: virtual void * __thiscall mmShardManager::`vector deleting destructor'(unsigned int) | ??_EmmShardManager@@UAEPAXI@Z
-    0x61C2C0 | const mmShard::`vftable' | ??_7mmShard@@6B@
-    0x61C350 | const mmShardManager::`vftable' | ??_7mmShardManager@@6B@
-    0x6A7EF0 | class MetaClass mmShardManagerMetaClass | ?mmShardManagerMetaClass@@3VMetaClass@@A
-    0x6A7F18 | protected: static class mmShardManager * * mmShardManager::Instances | ?Instances@mmShardManager@@1PAPAV1@A
-    0x6A7F68 | class MetaClass mmShardMetaClass | ?mmShardMetaClass@@3VMetaClass@@A
-    0x6A7F90 | protected: static int mmShardManager::NumInstances | ?NumInstances@mmShardManager@@1HA
-*/
-
 #include "arts7/node.h"
 #include "mmcity/inst.h"
 

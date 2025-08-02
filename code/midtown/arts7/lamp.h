@@ -18,25 +18,6 @@
 
 #pragma once
 
-/*
-    arts7:lamp
-
-    0x526000 | public: __thiscall asLamp::asLamp(void) | ??0asLamp@@QAE@XZ
-    0x5260C0 | public: virtual __thiscall asLamp::~asLamp(void) | ??1asLamp@@UAE@XZ
-    0x526130 | public: void __thiscall asLamp::SetColor(class Vector3 const &,float) | ?SetColor@asLamp@@QAEXABVVector3@@M@Z
-    0x526170 | public: void __thiscall asLamp::SetDistant(void) | ?SetDistant@asLamp@@QAEXXZ
-    0x526180 | public: void __thiscall asLamp::SetPoint(void) | ?SetPoint@asLamp@@QAEXXZ
-    0x526190 | public: virtual void __thiscall asLamp::Update(void) | ?Update@asLamp@@UAEXXZ
-    0x526290 | public: virtual void __thiscall asLamp::Cull(void) | ?Cull@asLamp@@UAEXXZ
-    0x5262E0 | public: void __thiscall asLamp::FileIO(class MiniParser *) | ?FileIO@asLamp@@QAEXPAVMiniParser@@@Z
-    0x5262F0 | private: void __thiscall asLamp::Regen(void) | ?Regen@asLamp@@AAEXXZ
-    0x526310 | public: virtual void __thiscall asLamp::AddWidgets(class Bank *) | ?AddWidgets@asLamp@@UAEXPAVBank@@@Z
-    0x526680 | public: static void __cdecl asLamp::DeclareFields(void) | ?DeclareFields@asLamp@@SAXXZ
-    0x5267E0 | public: virtual class MetaClass * __thiscall asLamp::GetClass(void) | ?GetClass@asLamp@@UAEPAVMetaClass@@XZ
-    0x620B80 | const asLamp::`vftable' | ??_7asLamp@@6B@
-    0x790900 | class MetaClass asLampMetaClass | ?asLampMetaClass@@3VMetaClass@@A
-*/
-
 #include "node.h"
 
 class MiniParser;

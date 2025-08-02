@@ -18,38 +18,6 @@
 
 #pragma once
 
-/*
-    pcwindis:dxinit
-
-    0x573B80 | void __cdecl dxiWindowCreate(char *) | ?dxiWindowCreate@@YAXPAD@Z
-    0x573C60 | int __cdecl dxiChangeDisplaySettings(int,int,int) | ?dxiChangeDisplaySettings@@YAHHHH@Z
-    0x573CC0 | void __cdecl dxiDirectDrawCreate(void) | ?dxiDirectDrawCreate@@YAXXZ
-    0x573D80 | void __cdecl dxiSetDisplayMode(void) | ?dxiSetDisplayMode@@YAXXZ
-    0x573EC0 | void __cdecl dxiDirectDrawSurfaceCreate(void) | ?dxiDirectDrawSurfaceCreate@@YAXXZ
-    0x574190 | void __cdecl dxiDirectDrawSurfaceDestroy(void) | ?dxiDirectDrawSurfaceDestroy@@YAXXZ
-    0x574200 | void __cdecl dxiDirectInputCreate(void) | ?dxiDirectInputCreate@@YAXXZ
-    0x574240 | void __cdecl dxiShutdown(void) | ?dxiShutdown@@YAXXZ
-    0x5742C0 | void * __cdecl dxiMemoryAllocate(struct IDirectDrawSurface4 * *,unsigned int) | ?dxiMemoryAllocate@@YAPAXPAPAUIDirectDrawSurface4@@I@Z
-    0x5744E0 | void __cdecl dxiMemoryFree(struct IDirectDrawSurface4 *) | ?dxiMemoryFree@@YAXPAUIDirectDrawSurface4@@@Z
-    0x574550 | void __cdecl dxiInit(char *,int,char * *) | ?dxiInit@@YAXPADHPAPAD@Z
-    0x574690 | void __cdecl dxiScreenShot(char *) | ?dxiScreenShot@@YAXPAD@Z
-    0x5748D0 | void __cdecl translate565(unsigned char *,unsigned short *,unsigned int) | ?translate565@@YAXPAEPAGI@Z
-    0x574940 | void __cdecl translate555(unsigned char *,unsigned short *,unsigned int) | ?translate555@@YAXPAEPAGI@Z
-    0x660F10 | int dxiWidth | ?dxiWidth@@3HA
-    0x660F14 | int dxiHeight | ?dxiHeight@@3HA
-    0x660F18 | int dxiDepth | ?dxiDepth@@3HA
-    0x660F1C | int dxiFlags | ?dxiFlags@@3HA
-    0x909650 | int dxiIcon | ?dxiIcon@@3HA
-    0x909658 | struct IDirectDrawSurface4 * lpdsBack2 | ?lpdsBack2@@3PAUIDirectDrawSurface4@@A
-    0x90965C | struct IDirectInputA * lpDI | ?lpDI@@3PAUIDirectInputA@@A
-    0x909660 | struct IDirectDraw4 * lpDD4 | ?lpDD4@@3PAUIDirectDraw4@@A
-    0x909664 | struct IDirectDrawSurface4 * lpdsFront | ?lpdsFront@@3PAUIDirectDrawSurface4@@A
-    0x909668 | struct HWND__ * hwndMain | ?hwndMain@@3PAUHWND__@@A
-    0x909670 | struct IDirectDrawSurface4 * lpdsBack | ?lpdsBack@@3PAUIDirectDrawSurface4@@A
-    0x909674 | struct IDirectDrawClipper * lpClip | ?lpClip@@3PAUIDirectDrawClipper@@A
-    0x909678 | struct IDirectDrawSurface4 * lpdsRend | ?lpdsRend@@3PAUIDirectDrawSurface4@@A
-*/
-
 #include "setupdata.h"
 
 struct HWND__;

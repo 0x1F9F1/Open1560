@@ -18,19 +18,6 @@
 
 #pragma once
 
-/*
-    mmai:aiGoalCollision
-
-    0x46B2F0 | public: __thiscall aiGoalCollision::aiGoalCollision(class aiRailSet *,class aiVehicleSpline *) | ??0aiGoalCollision@@QAE@PAVaiRailSet@@PAVaiVehicleSpline@@@Z
-    0x46B320 | public: __thiscall aiGoalCollision::~aiGoalCollision(void) | ??1aiGoalCollision@@QAE@XZ
-    0x46B330 | public: virtual void __thiscall aiGoalCollision::Init(void) | ?Init@aiGoalCollision@@UAEXXZ
-    0x46B340 | public: virtual void __thiscall aiGoalCollision::Reset(void) | ?Reset@aiGoalCollision@@UAEXXZ
-    0x46B350 | public: virtual void __thiscall aiGoalCollision::Update(void) | ?Update@aiGoalCollision@@UAEXXZ
-    0x46B3D0 | public: virtual int __thiscall aiGoalCollision::Context(void) | ?Context@aiGoalCollision@@UAEHXZ
-    0x46B3F0 | public: virtual int __thiscall aiGoalCollision::Priority(void) | ?Priority@aiGoalCollision@@UAEHXZ
-    0x61BD48 | const aiGoalCollision::`vftable' | ??_7aiGoalCollision@@6B@
-*/
-
 #include "aiGoal.h"
 
 class aiRailSet;

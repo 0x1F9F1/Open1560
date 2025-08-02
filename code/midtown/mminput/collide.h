@@ -18,16 +18,6 @@
 
 #pragma once
 
-/*
-    mminput:collide
-
-    0x4E7470 | public: virtual int __thiscall mmCollideFF::Init(struct IDirectInputDevice2A *) | ?Init@mmCollideFF@@UAEHPAUIDirectInputDevice2A@@@Z
-    0x4E7630 | public: virtual int __thiscall mmCollideFF::SetValues(float,float) | ?SetValues@mmCollideFF@@UAEHMM@Z
-    0x4E7660 | public: int __thiscall mmCollideFF::Assign(long,long) | ?Assign@mmCollideFF@@QAEHJJ@Z
-    0x4E7760 | public: virtual int __thiscall mmCollideFF::Play(void) | ?Play@mmCollideFF@@UAEHXZ
-    0x4E77B0 | public: virtual int __thiscall mmCollideFF::Stop(void) | ?Stop@mmCollideFF@@UAEHXZ
-*/
-
 #include "effect.h"
 
 class mmCollideFF final : public mmEffectFF

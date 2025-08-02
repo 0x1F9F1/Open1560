@@ -18,11 +18,5 @@
 
 #pragma once
 
-/*
-    mmcityinfo:crc
-
-    0x4D3CC0 | unsigned long __cdecl UpdateCrc(unsigned char *,unsigned int) | ?UpdateCrc@@YAKPAEI@Z
-*/
-
 // ?UpdateCrc@@YAKPAEI@Z
 ARTS_IMPORT ulong UpdateCrc(u8* arg1, u32 arg2);

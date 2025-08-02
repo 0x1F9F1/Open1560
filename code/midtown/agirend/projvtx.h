@@ -18,39 +18,6 @@
 
 #pragma once
 
-/*
-    agirend:projvtx
-
-    0x5524F0 | public: static void __cdecl agiProjVtx::InitMtx(class Matrix34 &,float,float,float,float) | ?InitMtx@agiProjVtx@@SAXAAVMatrix34@@MMMM@Z
-    0x552630 | public: static void __cdecl agiProjVtx::SetOutcode(int) | ?SetOutcode@agiProjVtx@@SAXH@Z
-    0x552710 | public: static int __cdecl agiProjVtx::Project(int,struct agiLitVtx *) | ?Project@agiProjVtx@@SAHHPAUagiLitVtx@@@Z
-    0x552A20 | public: static void __cdecl agiProjVtx::ToScreen(int) | ?ToScreen@agiProjVtx@@SAXH@Z
-    0x552BA0 | public: static void __cdecl agiProjVtx::Init(int,class agiLighter *,unsigned int) | ?Init@agiProjVtx@@SAXHPAVagiLighter@@I@Z
-    0x656588 | float DepthOffset | ?DepthOffset@@3MA
-    0x65658C | float DepthScale | ?DepthScale@@3MA
-    0x7E02C8 | public: static float agiProjVtx::ProjZW | ?ProjZW@agiProjVtx@@2MA
-    0x7E02CC | public: static int agiProjVtx::NoModelView | ?NoModelView@agiProjVtx@@2HA
-    0x7E02D0 | public: static float agiProjVtx::OffsX | ?OffsX@agiProjVtx@@2MA
-    0x7E02D8 | public: static union agiVtx * agiProjVtx::Vtx | ?Vtx@agiProjVtx@@2PATagiVtx@@A
-    0x8B31D8 | public: static class Matrix34 agiProjVtx::M | ?M@agiProjVtx@@2VMatrix34@@A
-    0x8B3208 | public: static float agiProjVtx::ProjYZ | ?ProjYZ@agiProjVtx@@2MA
-    0x8B320C | int clip_pz | ?clip_pz@@3HA
-    0x8B3210 | public: static float agiProjVtx::HalfHeight | ?HalfHeight@agiProjVtx@@2MA
-    0x8B3214 | public: static float agiProjVtx::ProjX | ?ProjX@agiProjVtx@@2MA
-    0x8B3220 | public: static struct agiAdjunctData * agiProjVtx::Adj | ?Adj@agiProjVtx@@2PAUagiAdjunctData@@A
-    0x8B9B98 | public: static class agiLighter * agiProjVtx::LIGHTER | ?LIGHTER@agiProjVtx@@2PAVagiLighter@@A
-    0x8B9BA0 | public: static class Matrix34 agiProjVtx::M2 | ?M2@agiProjVtx@@2VMatrix34@@A
-    0x8B9BD0 | public: static float agiProjVtx::ProjXZ | ?ProjXZ@agiProjVtx@@2MA
-    0x8B9BD4 | public: static float agiProjVtx::ScreenHeight | ?ScreenHeight@agiProjVtx@@2MA
-    0x8B9BD8 | public: static int agiProjVtx::Orthographic | ?Orthographic@agiProjVtx@@2HA
-    0x8B9BDC | public: static float agiProjVtx::ProjY | ?ProjY@agiProjVtx@@2MA
-    0x8B9BE0 | public: static int agiProjVtx::NeedsClip | ?NeedsClip@agiProjVtx@@2HA
-    0x8B9BE4 | public: static float agiProjVtx::ProjZZ | ?ProjZZ@agiProjVtx@@2MA
-    0x8B9BE8 | public: static float agiProjVtx::OffsY | ?OffsY@agiProjVtx@@2MA
-    0x8BABF0 | public: static float agiProjVtx::ScreenWidth | ?ScreenWidth@agiProjVtx@@2MA
-    0x8BABF4 | public: static float agiProjVtx::HalfWidth | ?HalfWidth@agiProjVtx@@2MA
-*/
-
 struct agiAdjunctData;
 class agiLighter;
 struct agiLitVtx;

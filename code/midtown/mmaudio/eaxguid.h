@@ -18,13 +18,6 @@
 
 #pragma once
 
-/*
-    mmaudio:eaxguid
-
-    0x61FFA0 | _DSPROPSETID_EAX_ReverbProperties
-    0x61FFB0 | _DSPROPSETID_EAXBUFFER_ReverbProperties
-*/
-
 // _DSPROPSETID_EAXBUFFER_ReverbProperties | void
 
 // _DSPROPSETID_EAX_ReverbProperties | void

@@ -18,22 +18,6 @@
 
 #pragma once
 
-/*
-    mmcamcs:precamcs
-
-    0x4F99E0 | public: __thiscall PreCamCS::PreCamCS(void) | ??0PreCamCS@@QAE@XZ
-    0x4F9A30 | public: void __thiscall PreCamCS::Init(class mmCar *) | ?Init@PreCamCS@@QAEXPAVmmCar@@@Z
-    0x4F9A60 | public: virtual void __thiscall PreCamCS::Reset(void) | ?Reset@PreCamCS@@UAEXXZ
-    0x4F9A70 | public: virtual void __thiscall PreCamCS::MakeActive(void) | ?MakeActive@PreCamCS@@UAEXXZ
-    0x4F9AC0 | public: virtual void __thiscall PreCamCS::Update(void) | ?Update@PreCamCS@@UAEXXZ
-    0x4F9B20 | public: virtual void __thiscall PreCamCS::AddWidgets(class Bank *) | ?AddWidgets@PreCamCS@@UAEXPAVBank@@@Z
-    0x4F9C10 | public: static void __cdecl PreCamCS::DeclareFields(void) | ?DeclareFields@PreCamCS@@SAXXZ
-    0x4F9D80 | public: virtual class MetaClass * __thiscall PreCamCS::GetClass(void) | ?GetClass@PreCamCS@@UAEPAVMetaClass@@XZ
-    0x4F9DC0 | public: virtual void * __thiscall PreCamCS::`vector deleting destructor'(unsigned int) | ??_EPreCamCS@@UAEPAXI@Z
-    0x6201E8 | const PreCamCS::`vftable' | ??_7PreCamCS@@6B@
-    0x719400 | class MetaClass PreCamCSMetaClass | ?PreCamCSMetaClass@@3VMetaClass@@A
-*/
-
 #include "carcamcs.h"
 
 class PreCamCS final : public CarCamCS

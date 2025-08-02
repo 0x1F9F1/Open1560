@@ -18,21 +18,6 @@
 
 #pragma once
 
-/*
-    agi:lmodel
-
-    0x55BCA0 | public: __thiscall agiLightModelParameters::agiLightModelParameters(void) | ??0agiLightModelParameters@@QAE@XZ
-    0x55BCD0 | public: void __thiscall agiLightModelParameters::operator=(class agiLightModelParameters const &) | ??4agiLightModelParameters@@QAEXABV0@@Z
-    0x55BCF0 | public: __thiscall agiLightModelParameters::~agiLightModelParameters(void) | ??1agiLightModelParameters@@QAE@XZ
-    0x55BD00 | protected: __thiscall agiLightModel::agiLightModel(class agiPipeline *) | ??0agiLightModel@@IAE@PAVagiPipeline@@@Z
-    0x55BD50 | public: int __thiscall agiLightModel::Init(class agiLightModelParameters const &) | ?Init@agiLightModel@@QAEHABVagiLightModelParameters@@@Z
-    0x55BD80 | public: virtual __thiscall agiLightModel::~agiLightModel(void) | ??1agiLightModel@@UAE@XZ
-    0x55BDD0 | public: virtual char * __thiscall agiLightModel::GetName(void) | ?GetName@agiLightModel@@UAEPADXZ
-    0x55BDF0 | public: virtual void * __thiscall agiLightModel::`scalar deleting destructor'(unsigned int) | ??_GagiLightModel@@UAEPAXI@Z
-    0x55BDF0 | public: virtual void * __thiscall agiLightModel::`vector deleting destructor'(unsigned int) | ??_EagiLightModel@@UAEPAXI@Z
-    0x621760 | const agiLightModel::`vftable' | ??_7agiLightModel@@6B@
-*/
-
 #include "refresh.h"
 
 #include "vector7/vector4.h"

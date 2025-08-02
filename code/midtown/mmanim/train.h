@@ -18,38 +18,6 @@
 
 #pragma once
 
-/*
-    mmanim:train
-
-    0x4C5F20 | public: __thiscall mmAnimTrain::mmAnimTrain(void) | ??0mmAnimTrain@@QAE@XZ
-    0x4C6010 | public: __thiscall mmAnimTrain::~mmAnimTrain(void) | ??1mmAnimTrain@@QAE@XZ
-    0x4C6080 | public: void __thiscall mmAnimTrain::Init(int,char *,char *,class Vector3 *,int,int,float *) | ?Init@mmAnimTrain@@QAEXHPAD0PAVVector3@@HHPAM@Z
-    0x4C6350 | public: void __thiscall mmAnimTrain::Reset(void) | ?Reset@mmAnimTrain@@QAEXXZ
-    0x4C63C0 | public: void __thiscall mmAnimTrain::Update(void) | ?Update@mmAnimTrain@@QAEXXZ
-    0x4C6460 | public: void __thiscall mmAnimTrain::UpdatePathPosition(void) | ?UpdatePathPosition@mmAnimTrain@@QAEXXZ
-    0x4C65B0 | public: void __thiscall mmAnimTrain::SetPathSpeed(void) | ?SetPathSpeed@mmAnimTrain@@QAEXXZ
-    0x4C65C0 | public: void __thiscall mmAnimTrain::ReverseCalcPathSpeed(void) | ?ReverseCalcPathSpeed@mmAnimTrain@@QAEXXZ
-    0x4C65D0 | public: void __thiscall mmAnimTrain::SolvePosition(class Vector3 &,float &) | ?SolvePosition@mmAnimTrain@@QAEXAAVVector3@@AAM@Z
-    0x4C66D0 | public: void __thiscall mmAnimTrain::AdjustPhaseOffsets(void) | ?AdjustPhaseOffsets@mmAnimTrain@@QAEXXZ
-    0x4C6740 | public: void __thiscall mmAnimTrain::GetStart(float,int &,float &) | ?GetStart@mmAnimTrain@@QAEXMAAHAAM@Z
-    0x4C67C0 | public: void __thiscall mmAnimTrain::PreCalcCubics(void) | ?PreCalcCubics@mmAnimTrain@@QAEXXZ
-    0x4C6890 | public: void __thiscall mmAnimTrain::CalculateCubics(int,class Vector4 &,class Vector4 &,class Vector4 &) | ?CalculateCubics@mmAnimTrain@@QAEXHAAVVector4@@00@Z
-    0x4C6A90 | public: void __thiscall mmAnimTrain::ComputeXZCurve(class Vector3 &,class Vector3 &,class Vector3 &,class Vector3 &,class Vector4 &,class Vector4 &,class Vector4 &) | ?ComputeXZCurve@mmAnimTrain@@QAEXAAVVector3@@000AAVVector4@@11@Z
-    0x4C6B70 | public: void __thiscall mmAnimTrain::SolveXZCurve(class Vector3 &,class Vector3 &,float) | ?SolveXZCurve@mmAnimTrain@@QAEXAAVVector3@@0M@Z
-    0x4C6CA0 | private: void __thiscall mmAnimTrain::UpdateAudio(void) | ?UpdateAudio@mmAnimTrain@@AAEXXZ
-    0x4C6E00 | private: void __thiscall mmAnimTrain::CalculateDistToPlayer2(void) | ?CalculateDistToPlayer2@mmAnimTrain@@AAEXXZ
-    0x4C6ED0 | private: void __thiscall mmAnimTrain::CalculateAudioPanning(void) | ?CalculateAudioPanning@mmAnimTrain@@AAEXXZ
-    0x4C6F20 | private: float __thiscall mmAnimTrain::CalculateDoppler(float) | ?CalculateDoppler@mmAnimTrain@@AAEMM@Z
-    0x4C7060 | public: virtual void * __thiscall mmAnimTrainCar::`vector deleting destructor'(unsigned int) | ??_EmmAnimTrainCar@@UAEPAXI@Z
-    0x642780 | private: static float mmAnimTrain::s_fAudioMinDistance | ?s_fAudioMinDistance@mmAnimTrain@@0MA
-    0x642784 | private: static float mmAnimTrain::s_fCloserMinDistMult | ?s_fCloserMinDistMult@mmAnimTrain@@0MA
-    0x642788 | private: static float mmAnimTrain::s_fAudioMaxDistance | ?s_fAudioMaxDistance@mmAnimTrain@@0MA
-    0x64278C | private: static float mmAnimTrain::s_fAudioVolume | ?s_fAudioVolume@mmAnimTrain@@0MA
-    0x705E70 | class Matrix44 TrainHermite | ?TrainHermite@@3VMatrix44@@A
-    0x705EB0 | class Matrix44 SplineBasis | ?SplineBasis@@3VMatrix44@@A
-    0x705EFC | private: static float mmAnimTrain::s_fAudioAttenuationMult | ?s_fAudioAttenuationMult@mmAnimTrain@@0MA
-*/
-
 class mmAnimTrain
 {
 public:

@@ -18,12 +18,6 @@
 
 #pragma once
 
-/*
-    mmdjpeg:jdpostct
-
-    0x582840 | void __cdecl jinit_d_post_controller(struct jpeg_decompress_struct *,unsigned char) | ?jinit_d_post_controller@@YAXPAUjpeg_decompress_struct@@E@Z
-*/
-
 struct jpeg_decompress_struct;
 
 // ?jinit_d_post_controller@@YAXPAUjpeg_decompress_struct@@E@Z

@@ -18,11 +18,5 @@
 
 #pragma once
 
-/*
-    pcwindis:dxmovie
-
-    0x575100 | void __cdecl dxiPlayMovie(char *) | ?dxiPlayMovie@@YAXPAD@Z
-*/
-
 // ?dxiPlayMovie@@YAXPAD@Z
 ARTS_EXPORT void dxiPlayMovie(const char* path);

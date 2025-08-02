@@ -21,51 +21,6 @@
 #include "data7/pager.h"
 #include "vector7/vector3.h"
 
-/*
-    mmdyna:bndtmpl
-
-    0x51D2E0 | public: static class mmBoundTemplate * __cdecl mmBoundTemplate::GetBoundTemplate(char *,char *,class Vector3 *,int,int,int,int,int) | ?GetBoundTemplate@mmBoundTemplate@@SAPAV1@PAD0PAVVector3@@HHHHH@Z
-    0x51D3F0 | public: static class mmBoundTemplate * __cdecl mmBoundTemplate::MakeBox(char *,char *,int,class Vector3 *,class Vector3 *) | ?MakeBox@mmBoundTemplate@@SAPAV1@PAD0HPAVVector3@@1@Z
-    0x51D8F0 | public: void __thiscall mmBoundTemplate::AddRef(void) | ?AddRef@mmBoundTemplate@@QAEXXZ
-    0x51D910 | public: int __thiscall mmBoundTemplate::Release(void) | ?Release@mmBoundTemplate@@QAEHXZ
-    0x51D940 | public: void __thiscall mmBoundTemplate::ValidatePtr(char *) | ?ValidatePtr@mmBoundTemplate@@QAEXPAD@Z
-    0x51D9A0 | public: __thiscall mmBoundTemplate::mmBoundTemplate(void) | ??0mmBoundTemplate@@QAE@XZ
-    0x51DA60 | public: __thiscall mmBoundTemplate::~mmBoundTemplate(void) | ??1mmBoundTemplate@@QAE@XZ
-    0x51DB20 | public: void __thiscall mmBoundTemplate::Reset(void) | ?Reset@mmBoundTemplate@@QAEXXZ
-    0x51DB70 | public: int __thiscall mmBoundTemplate::Collide(class mmBoundTemplate *,class Matrix34 &,class Matrix34 &,class Matrix34 &,class mmEdgeBodyIsect *,int,int,class asInertialCS *,class asInertialCS *,class Vector3 *,class Vector3 *) | ?Collide@mmBoundTemplate@@QAEHPAV1@AAVMatrix34@@11PAVmmEdgeBodyIsect@@HHPAVasInertialCS@@3PAVVector3@@4@Z
-    0x51E240 | public: int __thiscall mmBoundTemplate::CollideTerrains(class mmBoundTemplate * *,class Matrix34 &,class mmEdgeBodyIsect *,int,int) | ?CollideTerrains@mmBoundTemplate@@QAEHPAPAV1@AAVMatrix34@@PAVmmEdgeBodyIsect@@HH@Z
-    0x51E4F0 | public: int __thiscall mmBoundTemplate::Collide(class mmEdgeBodyIsect *,int) | ?Collide@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@H@Z
-    0x51E550 | public: int __thiscall mmBoundTemplate::Collide(class mmIntersection *) | ?Collide@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
-    0x51E620 | public: int __thiscall mmBoundTemplate::QuickSphereSphere(class mmIntersection *) | ?QuickSphereSphere@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
-    0x51E6C0 | public: int __thiscall mmBoundTemplate::QuickLineSphere(class mmEdgeBodyIsect *) | ?QuickLineSphere@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@@Z
-    0x51E820 | public: int __thiscall mmBoundTemplate::QuickLineSphere(class mmIntersection *) | ?QuickLineSphere@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
-    0x51E940 | public: int __thiscall mmBoundTemplate::QuickSphereBox(class mmIntersection *) | ?QuickSphereBox@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
-    0x51EA00 | public: int __thiscall mmBoundTemplate::QuickLineBox(class mmEdgeBodyIsect *) | ?QuickLineBox@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@@Z
-    0x51EAF0 | public: int __thiscall mmBoundTemplate::QuickLineBox(class mmIntersection *) | ?QuickLineBox@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
-    0x51EBE0 | public: int __thiscall mmBoundTemplate::SphereSphere(class mmIntersection *) | ?SphereSphere@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
-    0x51ED80 | public: int __thiscall mmBoundTemplate::SphereGeometry(class mmIntersection *) | ?SphereGeometry@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
-    0x51EEB0 | public: int __thiscall mmBoundTemplate::SphereTable(class mmIntersection *) | ?SphereTable@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
-    0x51F110 | public: int __thiscall mmBoundTemplate::LineSphere(class mmIntersection *) | ?LineSphere@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
-    0x51F120 | public: int __thiscall mmBoundTemplate::LineGeometry(class mmEdgeBodyIsect *,int) | ?LineGeometry@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@H@Z
-    0x51F1E0 | public: int __thiscall mmBoundTemplate::LineTable(class mmEdgeBodyIsect *,int) | ?LineTable@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@H@Z
-    0x51F500 | public: int __thiscall mmBoundTemplate::LineSpan(class mmEdgeBodyIsect *,int,int,int,int) | ?LineSpan@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@HHHH@Z
-    0x51F670 | public: int __thiscall mmBoundTemplate::LineGeometry(class mmIntersection *) | ?LineGeometry@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
-    0x51F7A0 | public: int __thiscall mmBoundTemplate::LineTable(class mmIntersection *) | ?LineTable@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
-    0x51FB20 | public: int __thiscall mmBoundTemplate::LineSpan(class mmIntersection *,int,int,int) | ?LineSpan@mmBoundTemplate@@QAEHPAVmmIntersection@@HHH@Z
-    0x51FCF0 | public: void __thiscall mmBoundTemplate::Draw(void) | ?Draw@mmBoundTemplate@@QAEXXZ
-    0x51FD30 | public: void __thiscall mmBoundTemplate::DrawSphere(void) | ?DrawSphere@mmBoundTemplate@@QAEXXZ
-    0x51FD70 | public: void __thiscall mmBoundTemplate::DrawBox(void) | ?DrawBox@mmBoundTemplate@@QAEXXZ
-    0x51FD90 | public: void __thiscall mmBoundTemplate::DrawGeometry(void) | ?DrawGeometry@mmBoundTemplate@@QAEXXZ
-    0x51FE00 | public: void __thiscall mmBoundTemplate::DrawTable(void) | ?DrawTable@mmBoundTemplate@@QAEXXZ
-    0x520000 | public: void __thiscall mmBoundTemplate::DrawGraph(void) | ?DrawGraph@mmBoundTemplate@@QAEXXZ
-    0x77F498 | public: static unsigned short * mmBoundTemplate::LastIsect | ?LastIsect@mmBoundTemplate@@2PAGA
-    0x77F4A0 | int * * CollidedLines | ?CollidedLines@@3PAPAHA
-    0x77F518 | int * InsideVerts | ?InsideVerts@@3PAHA
-    0x77F590 | public: static unsigned short mmBoundTemplate::IsectCount | ?IsectCount@mmBoundTemplate@@2GA
-    0x77F594 | public: static class Vector3 * mmBoundTemplate::VertPtr | ?VertPtr@mmBoundTemplate@@2PAVVector3@@A
-    0x77F598 | public: static class mmBoundTemplate * mmBoundTemplate::BoundPtr | ?BoundPtr@mmBoundTemplate@@2PAV1@A
-*/
-
 class asInertialCS;
 class mmEdgeBodyIsect;
 class mmIntersection;

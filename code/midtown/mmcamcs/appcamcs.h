@@ -18,23 +18,6 @@
 
 #pragma once
 
-/*
-    mmcamcs:appcamcs
-
-    0x4FC330 | public: __thiscall AppCamCS::AppCamCS(void) | ??0AppCamCS@@QAE@XZ
-    0x4FC420 | public: virtual __thiscall AppCamCS::~AppCamCS(void) | ??1AppCamCS@@UAE@XZ
-    0x4FC430 | protected: void __thiscall AppCamCS::ApproachIt(void) | ?ApproachIt@AppCamCS@@IAEXXZ
-    0x4FC460 | private: void __thiscall AppCamCS::UpdateApproach(void) | ?UpdateApproach@AppCamCS@@AAEXXZ
-    0x4FC9D0 | private: void __thiscall AppCamCS::UpdateMaxDist(void) | ?UpdateMaxDist@AppCamCS@@AAEXXZ
-    0x4FCC60 | private: int __thiscall AppCamCS::DApproach(float &,float,float,float,float &,float) | ?DApproach@AppCamCS@@AAEHAAMMMM0M@Z
-    0x4FCDB0 | public: virtual void __thiscall AppCamCS::AddWidgets(class Bank *) | ?AddWidgets@AppCamCS@@UAEXPAVBank@@@Z
-    0x4FD0D0 | public: static void __cdecl AppCamCS::DeclareFields(void) | ?DeclareFields@AppCamCS@@SAXXZ
-    0x4FD380 | public: virtual class MetaClass * __thiscall AppCamCS::GetClass(void) | ?GetClass@AppCamCS@@UAEPAVMetaClass@@XZ
-    0x4FD390 | public: virtual void * __thiscall AppCamCS::`vector deleting destructor'(unsigned int) | ??_EAppCamCS@@UAEPAXI@Z
-    0x6204D8 | const AppCamCS::`vftable' | ??_7AppCamCS@@6B@
-    0x719520 | class MetaClass AppCamCSMetaClass | ?AppCamCSMetaClass@@3VMetaClass@@A
-*/
-
 #include "basecamcs.h"
 
 class AppCamCS : public BaseCamCS

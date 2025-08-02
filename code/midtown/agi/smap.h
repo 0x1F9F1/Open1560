@@ -18,12 +18,6 @@
 
 #pragma once
 
-/*
-    agi:smap
-
-    0x6573E0 | private: static double agiShadowMap::Converter | ?Converter@agiShadowMap@@0NA
-*/
-
 class agiShadowMap
 {
 private:

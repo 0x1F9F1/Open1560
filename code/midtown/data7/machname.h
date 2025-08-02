@@ -18,11 +18,5 @@
 
 #pragma once
 
-/*
-    data7:machname
-
-    0x57CDC0 | void __cdecl GetMachineName(char *,int) | ?GetMachineName@@YAXPADH@Z
-*/
-
 // ?GetMachineName@@YAXPADH@Z
 ARTS_EXPORT void GetMachineName(char* buffer, isize buffer_len);

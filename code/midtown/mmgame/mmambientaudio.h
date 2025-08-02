@@ -18,14 +18,6 @@
 
 #pragma once
 
-/*
-    mmgame:mmambientaudio
-
-    0x427DB0 | public: __thiscall mmAmbientAudio::mmAmbientAudio(class mmPlayer *) | ??0mmAmbientAudio@@QAE@PAVmmPlayer@@@Z
-    0x427E50 | public: __thiscall mmAmbientAudio::~mmAmbientAudio(void) | ??1mmAmbientAudio@@QAE@XZ
-    0x427E60 | public: void __thiscall mmAmbientAudio::Update(void) | ?Update@mmAmbientAudio@@QAEXXZ
-*/
-
 class mmPlayer;
 
 class mmAmbientAudio

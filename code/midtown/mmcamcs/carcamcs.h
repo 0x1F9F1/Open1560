@@ -18,21 +18,6 @@
 
 #pragma once
 
-/*
-    mmcamcs:carcamcs
-
-    0x4FB220 | public: __thiscall CarCamCS::CarCamCS(void) | ??0CarCamCS@@QAE@XZ
-    0x4FB240 | public: virtual __thiscall CarCamCS::~CarCamCS(void) | ??1CarCamCS@@UAE@XZ
-    0x4FB250 | public: void __thiscall CarCamCS::Init(class mmCar *,char *) | ?Init@CarCamCS@@QAEXPAVmmCar@@PAD@Z
-    0x4FB280 | public: virtual void __thiscall CarCamCS::AddWidgets(class Bank *) | ?AddWidgets@CarCamCS@@UAEXPAVBank@@@Z
-    0x4FB290 | public: static void __cdecl CarCamCS::DeclareFields(void) | ?DeclareFields@CarCamCS@@SAXXZ
-    0x4FB400 | public: virtual class MetaClass * __thiscall CarCamCS::GetClass(void) | ?GetClass@CarCamCS@@UAEPAVMetaClass@@XZ
-    0x4FB440 | public: virtual void * __thiscall CarCamCS::`vector deleting destructor'(unsigned int) | ??_ECarCamCS@@UAEPAXI@Z
-    0x4FB4A0 | public: virtual void __thiscall BaseCamCS::MakeActive(void) | ?MakeActive@BaseCamCS@@UAEXXZ
-    0x6203A0 | const CarCamCS::`vftable' | ??_7CarCamCS@@6B@
-    0x7194C8 | class MetaClass CarCamCSMetaClass | ?CarCamCSMetaClass@@3VMetaClass@@A
-*/
-
 #include "appcamcs.h"
 
 class mmCar;

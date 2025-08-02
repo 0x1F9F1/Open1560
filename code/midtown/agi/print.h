@@ -18,22 +18,6 @@
 
 #pragma once
 
-/*
-    agi:print
-
-    0x557E70 | void __cdecl agiPrint(int,int,int,char const *) | ?agiPrint@@YAXHHHPBD@Z
-    0x557E90 | void __cdecl agiPrintf(int,int,int,char const *,...) | ?agiPrintf@@YAXHHHPBDZZ
-    0x557EF0 | int __cdecl agiPrintIs3D(void) | ?agiPrintIs3D@@YAHXZ
-    0x557F00 | void __cdecl agiPrintInit(void) | ?agiPrintInit@@YAXXZ
-    0x557F10 | void __cdecl agiPrintShutdown(void) | ?agiPrintShutdown@@YAXXZ
-    0x557F20 | public: virtual void __thiscall agiPipeline::Print(int,int,int,char const *) | ?Print@agiPipeline@@UAEXHHHPBD@Z
-    0x557FE0 | void __cdecl InitBuiltin(void) | ?InitBuiltin@@YAXXZ
-    0x558110 | public: virtual int __thiscall agiPipeline::PrintIs3D(void) | ?PrintIs3D@agiPipeline@@UAEHXZ
-    0x558130 | public: virtual void __thiscall agiPipeline::PrintInit(void) | ?PrintInit@agiPipeline@@UAEXXZ
-    0x558140 | public: virtual void __thiscall agiPipeline::PrintShutdown(void) | ?PrintShutdown@agiPipeline@@UAEXXZ
-    0x656C30 | unsigned char * CharSet | ?CharSet@@3PAEA
-*/
-
 extern i32 agiFontWidth;
 extern i32 agiFontHeight;
 

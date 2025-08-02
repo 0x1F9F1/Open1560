@@ -18,22 +18,6 @@
 
 #pragma once
 
-/*
-    mmui:pu_graphics
-
-    0x4A9960 | public: __thiscall PUGraphics::PUGraphics(int,float,float,float,float) | ??0PUGraphics@@QAE@HMMMM@Z
-    0x4A9E70 | void __cdecl toggle_interlace(void) | ?toggle_interlace@@YAXXZ
-    0x4A9E90 | void __cdecl toggle_filter(void) | ?toggle_filter@@YAXXZ
-    0x4A9EC0 | void __cdecl fix_lighting_lame(void) | ?fix_lighting_lame@@YAXXZ
-    0x4A9EE0 | public: virtual __thiscall PUGraphics::~PUGraphics(void) | ??1PUGraphics@@UAE@XZ
-    0x4A9EF0 | public: virtual void __thiscall PUGraphics::PreSetup(void) | ?PreSetup@PUGraphics@@UAEXXZ
-    0x4A9F00 | public: void __thiscall PUGraphics::CancelAction(void) | ?CancelAction@PUGraphics@@QAEXXZ
-    0x4A9F10 | public: virtual void * __thiscall PUGraphics::`vector deleting destructor'(unsigned int) | ??_EPUGraphics@@UAEPAXI@Z
-    0x4A9F10 | public: virtual void * __thiscall PUGraphics::`scalar deleting destructor'(unsigned int) | ??_GPUGraphics@@UAEPAXI@Z
-    0x4A9F40 | public: static class mmCullCity * __cdecl mmCullCity::GetInstance(void) | ?GetInstance@mmCullCity@@SAPAV1@XZ
-    0x61DF48 | const PUGraphics::`vftable' | ??_7PUGraphics@@6B@
-*/
-
 #include "pu_menu.h"
 
 class PUGraphics final : public PUMenuBase

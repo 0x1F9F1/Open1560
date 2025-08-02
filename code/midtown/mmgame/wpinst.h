@@ -18,28 +18,6 @@
 
 #pragma once
 
-/*
-    mmgame:wpinst
-
-    0x433730 | public: __thiscall mmWaypointInstance::mmWaypointInstance(int,float,float) | ??0mmWaypointInstance@@QAE@HMM@Z
-    0x433780 | public: virtual __thiscall mmWaypointInstance::~mmWaypointInstance(void) | ??1mmWaypointInstance@@UAE@XZ
-    0x433790 | public: virtual float __fastcall mmWaypointInstance::GetScale(void) | ?GetScale@mmWaypointInstance@@UAIMXZ
-    0x4337A0 | public: virtual int __thiscall mmWaypointInstance::ComputeLod(float,float) | ?ComputeLod@mmWaypointInstance@@UAEHMM@Z
-    0x4337C0 | public: virtual void __fastcall mmWaypointInstance::Draw(int) | ?Draw@mmWaypointInstance@@UAIXH@Z
-    0x433B90 | public: virtual void __thiscall mmWaypointInstance::AddWidgets(class Bank *) | ?AddWidgets@mmWaypointInstance@@UAEXPAVBank@@@Z
-    0x433BA0 | public: static void __cdecl mmWaypointInstance::DeclareFields(void) | ?DeclareFields@mmWaypointInstance@@SAXXZ
-    0x433D20 | public: virtual class MetaClass * __thiscall mmWaypointInstance::GetClass(void) | ?GetClass@mmWaypointInstance@@UAEPAVMetaClass@@XZ
-    0x433D30 | public: virtual void * __thiscall mmWaypointInstance::`vector deleting destructor'(unsigned int) | ??_EmmWaypointInstance@@UAEPAXI@Z
-    0x433D90 | public: void __thiscall mmWaypointInstance::`default constructor closure'(void) | ??_FmmWaypointInstance@@QAEXXZ
-    0x433DB0 | public: virtual class mmPhysEntity * __thiscall mmInstance::GetEntity(void) | ?GetEntity@mmInstance@@UAEPAVmmPhysEntity@@XZ
-    0x433DC0 | public: virtual class mmPhysEntity * __thiscall mmInstance::AttachEntity(void) | ?AttachEntity@mmInstance@@UAEPAVmmPhysEntity@@XZ
-    0x433DD0 | public: virtual class Vector3 __thiscall mmInstance::GetVelocity(void) | ?GetVelocity@mmInstance@@UAE?AVVector3@@XZ
-    0x433DF0 | public: virtual void __thiscall mmInstance::Impact(class mmInstance *,class Vector3 *) | ?Impact@mmInstance@@UAEXPAV1@PAVVector3@@@Z
-    0x433E00 | public: virtual void __thiscall mmInstance::Detach(void) | ?Detach@mmInstance@@UAEXXZ
-    0x61B168 | const mmWaypointInstance::`vftable' | ??_7mmWaypointInstance@@6B@
-    0x6A7800 | class MetaClass mmWaypointInstanceMetaClass | ?mmWaypointInstanceMetaClass@@3VMetaClass@@A
-*/
-
 #include "mmcity/inst.h"
 
 class mmWaypointInstance final : public mmStaticInstance

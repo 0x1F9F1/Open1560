@@ -18,18 +18,6 @@
 
 #pragma once
 
-/*
-    mmui:dlg_newp
-
-    0x49F4B0 | public: __thiscall Dialog_NewPlayer::Dialog_NewPlayer(int,float,float,float,float,char *) | ??0Dialog_NewPlayer@@QAE@HMMMMPAD@Z
-    0x49F7D0 | public: virtual __thiscall Dialog_NewPlayer::~Dialog_NewPlayer(void) | ??1Dialog_NewPlayer@@UAE@XZ
-    0x49F7E0 | public: void __thiscall Dialog_NewPlayer::EnterNewPlayer(void) | ?EnterNewPlayer@Dialog_NewPlayer@@QAEXXZ
-    0x49F7F0 | public: virtual void __thiscall Dialog_NewPlayer::PreSetup(void) | ?PreSetup@Dialog_NewPlayer@@UAEXXZ
-    0x49F820 | public: virtual void * __thiscall Dialog_NewPlayer::`scalar deleting destructor'(unsigned int) | ??_GDialog_NewPlayer@@UAEPAXI@Z
-    0x49F820 | public: virtual void * __thiscall Dialog_NewPlayer::`vector deleting destructor'(unsigned int) | ??_EDialog_NewPlayer@@UAEPAXI@Z
-    0x61D710 | const Dialog_NewPlayer::`vftable' | ??_7Dialog_NewPlayer@@6B@
-*/
-
 #include "pu_menu.h"
 
 class Dialog_NewPlayer final : public PUMenuBase

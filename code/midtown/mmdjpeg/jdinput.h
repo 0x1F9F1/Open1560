@@ -18,12 +18,6 @@
 
 #pragma once
 
-/*
-    mmdjpeg:jdinput
-
-    0x57DB10 | void __cdecl jinit_input_controller(struct jpeg_decompress_struct *) | ?jinit_input_controller@@YAXPAUjpeg_decompress_struct@@@Z
-*/
-
 struct jpeg_decompress_struct;
 
 // ?jinit_input_controller@@YAXPAUjpeg_decompress_struct@@@Z

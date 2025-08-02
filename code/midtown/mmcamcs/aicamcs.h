@@ -18,21 +18,6 @@
 
 #pragma once
 
-/*
-    mmcamcs:aicamcs
-
-    0x4FA490 | public: __thiscall AICamCS::AICamCS(void) | ??0AICamCS@@QAE@XZ
-    0x4FA4C0 | public: void __thiscall AICamCS::Init(class mmCar *) | ?Init@AICamCS@@QAEXPAVmmCar@@@Z
-    0x4FA4D0 | public: virtual void __thiscall AICamCS::Reset(void) | ?Reset@AICamCS@@UAEXXZ
-    0x4FA4E0 | public: virtual void __thiscall AICamCS::MakeActive(void) | ?MakeActive@AICamCS@@UAEXXZ
-    0x4FA5F0 | public: virtual void __thiscall AICamCS::Update(void) | ?Update@AICamCS@@UAEXXZ
-    0x4FA950 | public: static void __cdecl AICamCS::DeclareFields(void) | ?DeclareFields@AICamCS@@SAXXZ
-    0x4FAAC0 | public: virtual class MetaClass * __thiscall AICamCS::GetClass(void) | ?GetClass@AICamCS@@UAEPAVMetaClass@@XZ
-    0x4FAB00 | public: virtual void * __thiscall AICamCS::`vector deleting destructor'(unsigned int) | ??_EAICamCS@@UAEPAXI@Z
-    0x6202B8 | const AICamCS::`vftable' | ??_7AICamCS@@6B@
-    0x719468 | class MetaClass AICamCSMetaClass | ?AICamCSMetaClass@@3VMetaClass@@A
-*/
-
 #include "carcamcs.h"
 
 class mmCar;

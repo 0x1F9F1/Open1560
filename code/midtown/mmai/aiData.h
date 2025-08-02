@@ -18,13 +18,6 @@
 
 #pragma once
 
-/*
-    mmai:aiData
-
-    0x446630 | public: __thiscall aiRaceData::aiRaceData(char *,char *) | ??0aiRaceData@@QAE@PAD0@Z
-    0x446B10 | public: __thiscall aiRaceData::~aiRaceData(void) | ??1aiRaceData@@QAE@XZ
-*/
-
 #include "data7/list.h"
 #include "vector7/vector3.h"
 

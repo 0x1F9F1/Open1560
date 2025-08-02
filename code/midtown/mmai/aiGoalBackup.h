@@ -18,20 +18,6 @@
 
 #pragma once
 
-/*
-    mmai:aiGoalBackup
-
-    0x45F830 | public: __thiscall aiGoalBackup::aiGoalBackup(class aiRailSet *,class mmCar *,short *) | ??0aiGoalBackup@@QAE@PAVaiRailSet@@PAVmmCar@@PAF@Z
-    0x45F860 | public: __thiscall aiGoalBackup::~aiGoalBackup(void) | ??1aiGoalBackup@@QAE@XZ
-    0x45F870 | public: virtual void __thiscall aiGoalBackup::Init(void) | ?Init@aiGoalBackup@@UAEXXZ
-    0x45F880 | public: virtual int __thiscall aiGoalBackup::Context(void) | ?Context@aiGoalBackup@@UAEHXZ
-    0x45F890 | public: virtual int __thiscall aiGoalBackup::Priority(void) | ?Priority@aiGoalBackup@@UAEHXZ
-    0x45F8A0 | public: virtual void __thiscall aiGoalBackup::Reset(void) | ?Reset@aiGoalBackup@@UAEXXZ
-    0x45F8D0 | public: virtual void __thiscall aiGoalBackup::Update(void) | ?Update@aiGoalBackup@@UAEXXZ
-    0x45FC10 | private: void __thiscall aiGoalBackup::FinishedBackingUp(void) | ?FinishedBackingUp@aiGoalBackup@@AAEXXZ
-    0x61BB50 | const aiGoalBackup::`vftable' | ??_7aiGoalBackup@@6B@
-*/
-
 #include "aiGoal.h"
 
 class aiRailSet;

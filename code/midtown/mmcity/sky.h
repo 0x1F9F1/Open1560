@@ -18,21 +18,6 @@
 
 #pragma once
 
-/*
-    mmcity:sky
-
-    0x4955D0 | public: __thiscall mmSky::mmSky(void) | ??0mmSky@@QAE@XZ
-    0x495610 | public: __thiscall mmSky::~mmSky(void) | ??1mmSky@@QAE@XZ
-    0x495650 | public: void __thiscall mmSky::Init(char *) | ?Init@mmSky@@QAEXPAD@Z
-    0x495680 | public: void __thiscall mmSky::SetTexture(class agiTexDef *) | ?SetTexture@mmSky@@QAEXPAVagiTexDef@@@Z
-    0x4956A0 | public: void __thiscall mmSky::Draw(class Matrix34 &) | ?Draw@mmSky@@QAEXAAVMatrix34@@@Z
-    0x63FC50 | public: static unsigned int mmSky::Color | ?Color@mmSky@@2IA
-    0x63FC54 | float SkyScale | ?SkyScale@@3MA
-    0x7056FC | private: static int mmSky::DoFlash | ?DoFlash@mmSky@@0HA
-    0x705700 | class agiTexDef * FlashTex | ?FlashTex@@3PAVagiTexDef@@A
-    0x705704 | private: static class mmSky * mmSky::Instance | ?Instance@mmSky@@0PAV1@A
-*/
-
 class agiTexDef;
 
 class mmSky

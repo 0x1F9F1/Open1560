@@ -18,29 +18,6 @@
 
 #pragma once
 
-/*
-    mminput:iodev
-
-    0x4E5060 | public: __thiscall mmIODev::mmIODev(void) | ??0mmIODev@@QAE@XZ
-    0x4E50A0 | public: virtual __thiscall mmIODev::~mmIODev(void) | ??1mmIODev@@UAE@XZ
-    0x4E50B0 | public: void __thiscall mmIODev::Init(int,__int64) | ?Init@mmIODev@@QAEXH_J@Z
-    0x4E50E0 | public: void __thiscall mmIODev::Assign(int,int,int) | ?Assign@mmIODev@@QAEXHHH@Z
-    0x4E5200 | public: int __thiscall mmIODev::operator==(union eqEvent *) | ??8mmIODev@@QAEHPATeqEvent@@@Z
-    0x4E5260 | int __cdecl ConvertDItoString(int,char *,int) | ?ConvertDItoString@@YAHHPADH@Z
-    0x4E52C0 | public: void __thiscall mmIODev::GetDescription(char *) | ?GetDescription@mmIODev@@QAEXPAD@Z
-    0x4E5580 | public: int __thiscall mmIODev::GetComponentType(int,int) | ?GetComponentType@mmIODev@@QAEHHH@Z
-    0x4E55F0 | public: int __thiscall mmIODev::SanityCheckioType(int,int,int) | ?SanityCheckioType@mmIODev@@QAEHHHH@Z
-    0x4E5670 | public: void __thiscall mmIODev::Print(int) | ?Print@mmIODev@@QAEXH@Z
-    0x4E5740 | public: int __thiscall mmIODev::Write(class Stream *) | ?Write@mmIODev@@QAEHPAVStream@@@Z
-    0x4E57A0 | public: int __thiscall mmIODev::WriteBinary(class Stream *) | ?WriteBinary@mmIODev@@QAEHPAVStream@@@Z
-    0x4E57F0 | public: int __thiscall mmIODev::Read(class Stream *) | ?Read@mmIODev@@QAEHPAVStream@@@Z
-    0x4E5850 | public: int __thiscall mmIODev::ReadBinary(class Stream *) | ?ReadBinary@mmIODev@@QAEHPAVStream@@@Z
-    0x4E58A0 | public: static void __cdecl mmIODev::DeclareFields(void) | ?DeclareFields@mmIODev@@SAXXZ
-    0x4E5A50 | public: virtual class MetaClass * __thiscall mmIODev::GetClass(void) | ?GetClass@mmIODev@@UAEPAVMetaClass@@XZ
-    0x61FCA8 | const mmIODev::`vftable' | ??_7mmIODev@@6B@
-    0x719288 | class MetaClass mmIODevMetaClass | ?mmIODevMetaClass@@3VMetaClass@@A
-*/
-
 #include "mmcityinfo/infobase.h"
 
 union eqEvent;

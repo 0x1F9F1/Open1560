@@ -18,46 +18,6 @@
 
 #pragma once
 
-/*
-    arts7:camera
-
-    0x528BB0 | public: virtual __thiscall asCamera::~asCamera(void) | ??1asCamera@@UAE@XZ
-    0x528C40 | public: __thiscall asCamera::asCamera(void) | ??0asCamera@@QAE@XZ
-    0x528DF0 | public: virtual void __thiscall asCamera::Update(void) | ?Update@asCamera@@UAEXXZ
-    0x529100 | public: void __thiscall asCamera::SetClipArea(float,float,float,float) | ?SetClipArea@asCamera@@QAEXMMMM@Z
-    0x529230 | public: void __thiscall asCamera::SetLighting(int) | ?SetLighting@asCamera@@QAEXH@Z
-    0x529250 | public: void __thiscall asCamera::SetWorld(class Matrix34 &) | ?SetWorld@asCamera@@QAEXAAVMatrix34@@@Z
-    0x529270 | public: void __thiscall asCamera::GetNearClip(class Vector3 *,class Matrix34 &,enum asCamera::kNearClip) | ?GetNearClip@asCamera@@QAEXPAVVector3@@AAVMatrix34@@W4kNearClip@1@@Z
-    0x5297D0 | public: void __thiscall asCamera::DrawBegin(void) | ?DrawBegin@asCamera@@QAEXXZ
-    0x5299C0 | public: void __thiscall asCamera::DrawEnd(void) | ?DrawEnd@asCamera@@QAEXXZ
-    0x529B70 | public: void __thiscall asCamera::SetViewport(float,float,float,float,int) | ?SetViewport@asCamera@@QAEXMMMMH@Z
-    0x529BC0 | public: void __thiscall asCamera::SetView(float,float,float,float) | ?SetView@asCamera@@QAEXMMMM@Z
-    0x529C10 | public: void __thiscall asCamera::SetFog(float,float,float,float) | ?SetFog@asCamera@@QAEXMMMM@Z
-    0x529C40 | public: void __thiscall asCamera::SetUnderlay(char *) | ?SetUnderlay@asCamera@@QAEXPAD@Z
-    0x529C80 | public: void __thiscall asCamera::SetUnderlayCB(class agiBitmap *,class Callback *) | ?SetUnderlayCB@asCamera@@QAEXPAVagiBitmap@@PAVCallback@@@Z
-    0x529CA0 | public: int __thiscall asCamera::GetViewportWidth(void) | ?GetViewportWidth@asCamera@@QAEHXZ
-    0x529CC0 | public: int __thiscall asCamera::GetViewportHeight(void) | ?GetViewportHeight@asCamera@@QAEHXZ
-    0x529CE0 | public: void __thiscall asCamera::FadeOut(float,int) | ?FadeOut@asCamera@@QAEXMH@Z
-    0x529D40 | public: void __thiscall asCamera::FadeIn(float,int) | ?FadeIn@asCamera@@QAEXMH@Z
-    0x529DA0 | public: void __thiscall asCamera::FileIO(class MiniParser *) | ?FileIO@asCamera@@QAEXPAVMiniParser@@@Z
-    0x529DB0 | public: float __thiscall asCamera::SphereVisible(class Vector3 const &,float,float *) | ?SphereVisible@asCamera@@QAEMABVVector3@@MPAM@Z
-    0x529F50 | public: void __thiscall asCamera::SetAmbient(class Vector3 const &) | ?SetAmbient@asCamera@@QAEXABVVector3@@@Z
-    0x529F90 | public: void __thiscall asCamera::SetMonochrome(int) | ?SetMonochrome@asCamera@@QAEXH@Z
-    0x529FB0 | private: void __thiscall asCamera::Regen(void) | ?Regen@asCamera@@AAEXXZ
-    0x529FD0 | void __cdecl FadeItOut(class asCamera *) | ?FadeItOut@@YAXPAVasCamera@@@Z
-    0x529FF0 | void __cdecl FadeItIn(class asCamera *) | ?FadeItIn@@YAXPAVasCamera@@@Z
-    0x52A010 | void __cdecl FritzIt(class asCamera *) | ?FritzIt@@YAXPAVasCamera@@@Z
-    0x52A020 | void __cdecl ViewIt(class asCamera *) | ?ViewIt@@YAXPAVasCamera@@@Z
-    0x52A040 | public: virtual void __thiscall asCamera::AddWidgets(class Bank *) | ?AddWidgets@asCamera@@UAEXPAVBank@@@Z
-    0x52A6A0 | public: static void __cdecl asCamera::DeclareFields(void) | ?DeclareFields@asCamera@@SAXXZ
-    0x52A810 | public: virtual class MetaClass * __thiscall asCamera::GetClass(void) | ?GetClass@asCamera@@UAEPAVMetaClass@@XZ
-    0x52A820 | public: virtual void * __thiscall asCamera::`vector deleting destructor'(unsigned int) | ??_EasCamera@@UAEPAXI@Z
-    0x620D50 | const asCamera::`vftable' | ??_7asCamera@@6B@
-    0x64DF5C | float Duration | ?Duration@@3MA
-    0x790958 | class MetaClass asCameraMetaClass | ?asCameraMetaClass@@3VMetaClass@@A
-    0x790980 | class agiViewport * VW | ?VW@@3PAVagiViewport@@A
-*/
-
 #include "node.h"
 
 #include "data7/callback.h"

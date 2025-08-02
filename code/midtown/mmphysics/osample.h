@@ -18,21 +18,6 @@
 
 #pragma once
 
-/*
-    mmphysics:osample
-
-    0x4DED20 | public: __thiscall asOverSample::asOverSample(void) | ??0asOverSample@@QAE@XZ
-    0x4DED50 | public: void __thiscall asOverSample::RealTime(float) | ?RealTime@asOverSample@@QAEXM@Z
-    0x4DED70 | public: virtual void __thiscall asOverSample::Update(void) | ?Update@asOverSample@@UAEXXZ
-    0x4DEE30 | public: virtual void __thiscall asOverSample::AddWidgets(class Bank *) | ?AddWidgets@asOverSample@@UAEXPAVBank@@@Z
-    0x4DEEE0 | public: static void __cdecl asOverSample::DeclareFields(void) | ?DeclareFields@asOverSample@@SAXXZ
-    0x4DF060 | public: virtual class MetaClass * __thiscall asOverSample::GetClass(void) | ?GetClass@asOverSample@@UAEPAVMetaClass@@XZ
-    0x4DF070 | public: virtual void * __thiscall asOverSample::`vector deleting destructor'(unsigned int) | ??_EasOverSample@@UAEPAXI@Z
-    0x61FB28 | const asOverSample::`vftable' | ??_7asOverSample@@6B@
-    0x719160 | class MetaClass asOverSampleMetaClass | ?asOverSampleMetaClass@@3VMetaClass@@A
-    0x719188 | int BenchOSample | ?BenchOSample@@3HA
-*/
-
 #include "arts7/node.h"
 
 class asOverSample final : public asNode

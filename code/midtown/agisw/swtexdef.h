@@ -18,31 +18,6 @@
 
 #pragma once
 
-/*
-    agisw:swtexdef
-
-    0x5376D0 | public: __thiscall agiSWTexDef::agiSWTexDef(class agiSWPipeline *) | ??0agiSWTexDef@@QAE@PAVagiSWPipeline@@@Z
-    0x537700 | public: virtual __thiscall agiSWTexDef::~agiSWTexDef(void) | ??1agiSWTexDef@@UAE@XZ
-    0x537710 | public: virtual void __thiscall agiSWTexDef::Set(class Vector2 &,class Vector2 &) | ?Set@agiSWTexDef@@UAEXAAVVector2@@0@Z
-    0x537730 | public: virtual int __thiscall agiSWTexDef::BeginGfx(void) | ?BeginGfx@agiSWTexDef@@UAEHXZ
-    0x537810 | public: virtual int __thiscall agiSWTexDef::IsAvailable(void) | ?IsAvailable@agiSWTexDef@@UAEHXZ
-    0x537820 | public: virtual void __thiscall agiSWTexDef::EndGfx(void) | ?EndGfx@agiSWTexDef@@UAEXXZ
-    0x537870 | public: virtual int __thiscall agiSWTexDef::Lock(struct agiTexLock &) | ?Lock@agiSWTexDef@@UAEHAAUagiTexLock@@@Z
-    0x5378C0 | public: virtual void __thiscall agiSWTexDef::Unlock(struct agiTexLock &) | ?Unlock@agiSWTexDef@@UAEXAAUagiTexLock@@@Z
-    0x5378D0 | public: virtual void __thiscall agiSWTexDef::Request(void) | ?Request@agiSWTexDef@@UAEXXZ
-    0x537930 | public: __thiscall agiSWTexLut::agiSWTexLut(class agiSWPipeline *) | ??0agiSWTexLut@@QAE@PAVagiSWPipeline@@@Z
-    0x537950 | public: virtual int __thiscall agiSWTexLut::BeginGfx(void) | ?BeginGfx@agiSWTexLut@@UAEHXZ
-    0x537B30 | public: virtual void __thiscall agiSWTexLut::EndGfx(void) | ?EndGfx@agiSWTexLut@@UAEXXZ
-    0x537B40 | public: virtual void * __thiscall agiSWTexDef::`vector deleting destructor'(unsigned int) | ??_EagiSWTexDef@@UAEPAXI@Z
-    0x537B40 | public: virtual void * __thiscall agiSWTexDef::`scalar deleting destructor'(unsigned int) | ??_GagiSWTexDef@@UAEPAXI@Z
-    0x537B70 | public: virtual void * __thiscall agiSWTexLut::`vector deleting destructor'(unsigned int) | ??_EagiSWTexLut@@UAEPAXI@Z
-    0x537B70 | public: virtual void * __thiscall agiSWTexLut::`scalar deleting destructor'(unsigned int) | ??_GagiSWTexLut@@UAEPAXI@Z
-    0x537BA0 | public: virtual __thiscall agiSWTexLut::~agiSWTexLut(void) | ??1agiSWTexLut@@UAE@XZ
-    0x6212D8 | const agiSWTexDef::`vftable' | ??_7agiSWTexDef@@6B@
-    0x621308 | const agiSWTexLut::`vftable' | ??_7agiSWTexLut@@6B@
-    0x652304 | float swLutInvGamma | ?swLutInvGamma@@3MA
-*/
-
 #include "agi/texdef.h"
 
 class agiSWTexDef final : public agiTexDef

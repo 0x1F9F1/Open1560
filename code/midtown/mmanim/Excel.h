@@ -18,21 +18,6 @@
 
 #pragma once
 
-/*
-    mmanim:Excel
-
-    0x4C34D0 | public: __thiscall mmAnimExcel::mmAnimExcel(void) | ??0mmAnimExcel@@QAE@XZ
-    0x4C34F0 | public: virtual __thiscall mmAnimExcel::~mmAnimExcel(void) | ??1mmAnimExcel@@UAE@XZ
-    0x4C3530 | public: int __thiscall mmAnimExcel::Init(char *,char *) | ?Init@mmAnimExcel@@QAEHPAD0@Z
-    0x4C35C0 | public: char * __thiscall mmAnimExcel::GetNextName(void) | ?GetNextName@mmAnimExcel@@QAEPADXZ
-    0x4C3600 | public: void __thiscall mmAnimExcel::AddFile(char *,char *) | ?AddFile@mmAnimExcel@@QAEXPAD0@Z
-    0x4C3740 | public: char * __thiscall mmAnimExcel::GetPriorName(void) | ?GetPriorName@mmAnimExcel@@QAEPADXZ
-    0x4C3770 | public: char * __thiscall mmAnimExcel::GetName(int) | ?GetName@mmAnimExcel@@QAEPADH@Z
-    0x4C37A0 | public: virtual void * __thiscall mmAnimExcel::`scalar deleting destructor'(unsigned int) | ??_GmmAnimExcel@@UAEPAXI@Z
-    0x4C37A0 | public: virtual void * __thiscall mmAnimExcel::`vector deleting destructor'(unsigned int) | ??_EmmAnimExcel@@UAEPAXI@Z
-    0x61F3EC | const mmAnimExcel::`vftable' | ??_7mmAnimExcel@@6B@
-*/
-
 class mmAnimExcel final
 {
 public:

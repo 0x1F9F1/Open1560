@@ -18,63 +18,6 @@
 
 #pragma once
 
-/*
-    mmgame:multicr
-
-    0x41BFB0 | public: __thiscall mmMultiCR::mmMultiCR(void) | ??0mmMultiCR@@QAE@XZ
-    0x41C070 | public: virtual __thiscall mmMultiCR::~mmMultiCR(void) | ??1mmMultiCR@@UAE@XZ
-    0x41C140 | public: int __thiscall mmMultiCR::Init(void) | ?Init@mmMultiCR@@QAEHXZ
-    0x41C2A0 | public: virtual void __thiscall mmMultiCR::InitMyPlayer(void) | ?InitMyPlayer@mmMultiCR@@UAEXXZ
-    0x41C3A0 | public: virtual void __thiscall mmMultiCR::InitHUD(void) | ?InitHUD@mmMultiCR@@UAEXXZ
-    0x41C4E0 | public: virtual void __thiscall mmMultiCR::InitGameObjects(void) | ?InitGameObjects@mmMultiCR@@UAEXXZ
-    0x41C940 | public: virtual void __thiscall mmMultiCR::InitNetworkPlayers(void) | ?InitNetworkPlayers@mmMultiCR@@UAEXXZ
-    0x41CCC0 | public: virtual void __thiscall mmMultiCR::Reset(void) | ?Reset@mmMultiCR@@UAEXXZ
-    0x41CEA0 | public: int __thiscall mmMultiCR::LoadSets(char *) | ?LoadSets@mmMultiCR@@QAEHPAD@Z
-    0x41CF40 | public: int __thiscall mmMultiCR::LoadCSV(char *) | ?LoadCSV@mmMultiCR@@QAEHPAD@Z
-    0x41D090 | public: void __thiscall mmMultiCR::ImpactCallback(void) | ?ImpactCallback@mmMultiCR@@QAEXXZ
-    0x41D180 | public: void __thiscall mmMultiCR::FondleCarMass(class mmCar *,float) | ?FondleCarMass@mmMultiCR@@QAEXPAVmmCar@@M@Z
-    0x41D1A0 | public: void __thiscall mmMultiCR::ChangePlayerData(void) | ?ChangePlayerData@mmMultiCR@@QAEXXZ
-    0x41D1F0 | private: int __thiscall mmMultiCR::GetRandomIndex(void) | ?GetRandomIndex@mmMultiCR@@AAEHXZ
-    0x41D210 | public: void __thiscall mmMultiCR::ResetPositions(int) | ?ResetPositions@mmMultiCR@@QAEXH@Z
-    0x41D330 | private: int __thiscall mmMultiCR::SelectTeams(void) | ?SelectTeams@mmMultiCR@@AAEHXZ
-    0x41D340 | public: virtual void __thiscall mmMultiCR::UpdateGameInput(int) | ?UpdateGameInput@mmMultiCR@@UAEXH@Z
-    0x41D380 | public: virtual void __thiscall mmMultiCR::UpdateGame(void) | ?UpdateGame@mmMultiCR@@UAEXXZ
-    0x41D760 | public: virtual void __thiscall mmMultiCR::HitWaterHandler(void) | ?HitWaterHandler@mmMultiCR@@UAEXXZ
-    0x41D810 | public: virtual void __thiscall mmMultiCR::DropThruCityHandler(void) | ?DropThruCityHandler@mmMultiCR@@UAEXXZ
-    0x41D8C0 | private: void __thiscall mmMultiCR::StealGold(class mmCar *) | ?StealGold@mmMultiCR@@AAEXPAVmmCar@@@Z
-    0x41D900 | private: void __thiscall mmMultiCR::OppStealGold(int) | ?OppStealGold@mmMultiCR@@AAEXH@Z
-    0x41D970 | private: void __thiscall mmMultiCR::FindGround(class Vector3,class Vector3 &) | ?FindGround@mmMultiCR@@AAEXVVector3@@AAV2@@Z
-    0x41DA30 | private: void __thiscall mmMultiCR::DropGold(class Vector3,int) | ?DropGold@mmMultiCR@@AAEXVVector3@@H@Z
-    0x41DC20 | private: void __thiscall mmMultiCR::UpdateGold(void) | ?UpdateGold@mmMultiCR@@AAEXXZ
-    0x41DE50 | private: void __thiscall mmMultiCR::UpdateHideout(void) | ?UpdateHideout@mmMultiCR@@AAEXXZ
-    0x41DFA0 | private: void __thiscall mmMultiCR::UpdateBank(void) | ?UpdateBank@mmMultiCR@@AAEXXZ
-    0x41E0F0 | private: void __thiscall mmMultiCR::UpdateLimit(void) | ?UpdateLimit@mmMultiCR@@AAEXXZ
-    0x41E290 | private: void __thiscall mmMultiCR::FillResults(void) | ?FillResults@mmMultiCR@@AAEXXZ
-    0x41E490 | public: virtual void __thiscall mmMultiCR::SystemMessage(struct NETSYS_MSG *) | ?SystemMessage@mmMultiCR@@UAEXPAUNETSYS_MSG@@@Z
-    0x41E6E0 | public: virtual void __thiscall mmMultiCR::GameMessage(struct NETGAME_MSG *) | ?GameMessage@mmMultiCR@@UAEXPAUNETGAME_MSG@@@Z
-    0x41EFC0 | private: void __thiscall mmMultiCR::UpdateTimeWarning(void) | ?UpdateTimeWarning@mmMultiCR@@AAEXXZ
-    0x41F130 | private: void __thiscall mmMultiCR::DisplayTimeWarning(int) | ?DisplayTimeWarning@mmMultiCR@@AAEXH@Z
-    0x41F1C0 | private: void __thiscall mmMultiCR::SendGameState(unsigned long) | ?SendGameState@mmMultiCR@@AAEXK@Z
-    0x41F260 | private: void __thiscall mmMultiCR::SendSetup(unsigned long) | ?SendSetup@mmMultiCR@@AAEXK@Z
-    0x41F270 | private: void __thiscall mmMultiCR::SendGoldDrop(class Vector3) | ?SendGoldDrop@mmMultiCR@@AAEXVVector3@@@Z
-    0x41F2C0 | private: void __thiscall mmMultiCR::SendGoldAck(unsigned long) | ?SendGoldAck@mmMultiCR@@AAEXK@Z
-    0x41F300 | private: void __thiscall mmMultiCR::SendGoldDeliver(void) | ?SendGoldDeliver@mmMultiCR@@AAEXXZ
-    0x41F350 | private: void __thiscall mmMultiCR::SendChangeSet(int) | ?SendChangeSet@mmMultiCR@@AAEXH@Z
-    0x41F390 | private: void __thiscall mmMultiCR::SendLimitReached(int) | ?SendLimitReached@mmMultiCR@@AAEXH@Z
-    0x41F3D0 | private: void __thiscall mmMultiCR::SendTimeWarning(int) | ?SendTimeWarning@mmMultiCR@@AAEXH@Z
-    0x41F410 | private: void __thiscall mmMultiCR::UpdateHUD(void) | ?UpdateHUD@mmMultiCR@@AAEXXZ
-    0x41F530 | private: void __thiscall mmMultiCR::Score(int) | ?Score@mmMultiCR@@AAEXH@Z
-    0x41F560 | public: virtual void __thiscall mmMultiCR::UpdateDebugKeyInput(int) | ?UpdateDebugKeyInput@mmMultiCR@@UAEXH@Z
-    0x41F570 | private: void __thiscall mmMultiCR::CycleInterest(int) | ?CycleInterest@mmMultiCR@@AAEXH@Z
-    0x41F5E0 | public: static void __cdecl mmMultiCR::DeclareFields(void) | ?DeclareFields@mmMultiCR@@SAXXZ
-    0x41F760 | public: virtual class MetaClass * __thiscall mmMultiCR::GetClass(void) | ?GetClass@mmMultiCR@@UAEPAVMetaClass@@XZ
-    0x41F8C0 | public: virtual void * __thiscall mmMultiCR::`vector deleting destructor'(unsigned int) | ??_EmmMultiCR@@UAEPAXI@Z
-    0x41F920 | public: virtual class mmWaypoints * __thiscall mmMultiCR::GetWaypoints(void) | ?GetWaypoints@mmMultiCR@@UAEPAVmmWaypoints@@XZ
-    0x61A960 | const mmMultiCR::`vftable' | ??_7mmMultiCR@@6B@
-    0x6A7210 | class MetaClass mmMultiCRMetaClass | ?mmMultiCRMetaClass@@3VMetaClass@@A
-    0x6A7240 | int TwoPlayers | ?TwoPlayers@@3HA
-*/
-
 #include "gamemulti.h"
 
 class mmCar;

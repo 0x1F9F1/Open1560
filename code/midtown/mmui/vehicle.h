@@ -18,20 +18,6 @@
 
 #pragma once
 
-/*
-    mmui:vehicle
-
-    0x4A51D0 | public: __thiscall Vehicle::Vehicle(int) | ??0Vehicle@@QAE@H@Z
-    0x4A52B0 | public: virtual __thiscall Vehicle::~Vehicle(void) | ??1Vehicle@@UAE@XZ
-    0x4A52C0 | public: void __thiscall Vehicle::SetSubMenu(int) | ?SetSubMenu@Vehicle@@QAEXH@Z
-    0x4A52E0 | public: void __thiscall Vehicle::SetSubMenuButtons(void) | ?SetSubMenuButtons@Vehicle@@QAEXXZ
-    0x4A5300 | public: virtual void __thiscall Vehicle::PreSetup(void) | ?PreSetup@Vehicle@@UAEXXZ
-    0x4A5310 | public: virtual void __thiscall Vehicle::PostSetup(void) | ?PostSetup@Vehicle@@UAEXXZ
-    0x4A5320 | public: virtual void * __thiscall Vehicle::`scalar deleting destructor'(unsigned int) | ??_GVehicle@@UAEPAXI@Z
-    0x4A5320 | public: virtual void * __thiscall Vehicle::`vector deleting destructor'(unsigned int) | ??_EVehicle@@UAEPAXI@Z
-    0x61DB70 | const Vehicle::`vftable' | ??_7Vehicle@@6B@
-*/
-
 #include "vselect.h"
 
 class Vehicle final : public VehicleSelectBase

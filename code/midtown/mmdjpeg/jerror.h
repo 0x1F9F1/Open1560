@@ -18,12 +18,6 @@
 
 #pragma once
 
-/*
-    mmdjpeg:jerror
-
-    0x57D930 | struct jpeg_error_mgr * __cdecl jpeg_std_error(struct jpeg_error_mgr *) | ?jpeg_std_error@@YAPAUjpeg_error_mgr@@PAU1@@Z
-*/
-
 struct jpeg_error_mgr;
 
 // ?jpeg_std_error@@YAPAUjpeg_error_mgr@@PAU1@@Z

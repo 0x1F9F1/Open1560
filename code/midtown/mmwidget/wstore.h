@@ -18,20 +18,6 @@
 
 #pragma once
 
-/*
-    mmwidget:wstore
-
-    0x4ABE40 | public: __thiscall WArray::WArray(void) | ??0WArray@@QAE@XZ
-    0x4ABE50 | public: __thiscall WArray::~WArray(void) | ??1WArray@@QAE@XZ
-    0x4ABE60 | public: void __thiscall WArray::Init(int) | ?Init@WArray@@QAEXH@Z
-    0x4ABEA0 | public: void __thiscall WArray::Write(char *) | ?Write@WArray@@QAEXPAD@Z
-    0x4AC0C0 | public: void __thiscall WArray::DumpMenu(class Stream *,class UIMenu *) | ?DumpMenu@WArray@@QAEXPAVStream@@PAVUIMenu@@@Z
-    0x4AC320 | public: void __thiscall WArray::Flush(void) | ?Flush@WArray@@QAEXXZ
-    0x4AC330 | public: void __thiscall WArray::Read(char *) | ?Read@WArray@@QAEXPAD@Z
-    0x4AC510 | public: void __thiscall WArray::AddWidgetData(int,int,class Vector4 &,char *) | ?AddWidgetData@WArray@@QAEXHHAAVVector4@@PAD@Z
-    0x4AC590 | public: int __thiscall WArray::RetrieveWidgetData(int,int,float &,float &,float &,float &) | ?RetrieveWidgetData@WArray@@QAEHHHAAM000@Z
-*/
-
 class Stream;
 class UIMenu;
 

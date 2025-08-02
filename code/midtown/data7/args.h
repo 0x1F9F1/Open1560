@@ -18,17 +18,6 @@
 
 #pragma once
 
-/*
-    data7:args
-
-    0x578C30 | public: __thiscall asArg::asArg(char,char *) | ??0asArg@@QAE@DPAD@Z
-    0x578C80 | public: void __thiscall asArg::Print(char *) | ?Print@asArg@@QAEXPAD@Z
-    0x578D80 | public: void __thiscall ArgSet::Print(char *) | ?Print@ArgSet@@QAEXPAD@Z
-    0x578DD0 | public: void __thiscall ArgSet::ParseArgs(int,char * *) | ?ParseArgs@ArgSet@@QAEXHPAPAD@Z
-    0x579010 | public: void __thiscall ArgSet::Usage(void) | ?Usage@ArgSet@@QAEXXZ
-    0x90AEF0 | class ArgSet GBArgs | ?GBArgs@@3VArgSet@@A
-*/
-
 struct asArg
 {
 public:

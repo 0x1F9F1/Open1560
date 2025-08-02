@@ -18,17 +18,6 @@
 
 #pragma once
 
-/*
-    mmui:pu_debug
-
-    0x4AA3F0 | public: __thiscall PUDebug::PUDebug(int,float,float,float,float) | ??0PUDebug@@QAE@HMMMM@Z
-    0x4AA590 | public: virtual __thiscall PUDebug::~PUDebug(void) | ??1PUDebug@@UAE@XZ
-    0x4AA5A0 | public: void __thiscall PUDebug::RecordCB(void) | ?RecordCB@PUDebug@@QAEXXZ
-    0x4AA5B0 | public: virtual void * __thiscall PUDebug::`scalar deleting destructor'(unsigned int) | ??_GPUDebug@@UAEPAXI@Z
-    0x4AA5B0 | public: virtual void * __thiscall PUDebug::`vector deleting destructor'(unsigned int) | ??_EPUDebug@@UAEPAXI@Z
-    0x61E000 | const PUDebug::`vftable' | ??_7PUDebug@@6B@
-*/
-
 #include "pu_menu.h"
 
 class PUDebug final : public PUMenuBase

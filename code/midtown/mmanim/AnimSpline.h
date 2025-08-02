@@ -18,26 +18,6 @@
 
 #pragma once
 
-/*
-    mmanim:AnimSpline
-
-    0x4C37D0 | public: __thiscall mmAnimSpline::mmAnimSpline(void) | ??0mmAnimSpline@@QAE@XZ
-    0x4C37F0 | public: virtual __thiscall mmAnimSpline::~mmAnimSpline(void) | ??1mmAnimSpline@@UAE@XZ
-    0x4C3850 | public: int __thiscall mmAnimSpline::Init(char *,int) | ?Init@mmAnimSpline@@QAEHPADH@Z
-    0x4C38F0 | public: int __thiscall mmAnimSpline::LoadFile(char *) | ?LoadFile@mmAnimSpline@@QAEHPAD@Z
-    0x4C39D0 | public: void __thiscall mmAnimSpline::ClearVectors(void) | ?ClearVectors@mmAnimSpline@@QAEXXZ
-    0x4C39F0 | public: void __thiscall mmAnimSpline::AddVector(class Vector3 &) | ?AddVector@mmAnimSpline@@QAEXAAVVector3@@@Z
-    0x4C3A90 | public: int __thiscall mmAnimSpline::InitBoat(void) | ?InitBoat@mmAnimSpline@@QAEHXZ
-    0x4C3AA0 | public: int __thiscall mmAnimSpline::InitPlane(void) | ?InitPlane@mmAnimSpline@@QAEHXZ
-    0x4C3B40 | public: int __thiscall mmAnimSpline::InitTrain(void) | ?InitTrain@mmAnimSpline@@QAEHXZ
-    0x4C3BC0 | public: virtual void __thiscall mmAnimSpline::Update(void) | ?Update@mmAnimSpline@@UAEXXZ
-    0x4C3BF0 | public: virtual void __thiscall mmAnimSpline::Reset(void) | ?Reset@mmAnimSpline@@UAEXXZ
-    0x4C3C10 | public: void __thiscall mmAnimSpline::AirlinerSwap(void) | ?AirlinerSwap@mmAnimSpline@@QAEXXZ
-    0x4C3CC0 | public: void __thiscall mmAnimSpline::UFOSwap(void) | ?UFOSwap@mmAnimSpline@@QAEXXZ
-    0x4C3CE0 | public: virtual void * __thiscall mmAnimSpline::`scalar deleting destructor'(unsigned int) | ??_GmmAnimSpline@@UAEPAXI@Z
-    0x61F3F0 | const mmAnimSpline::`vftable' | ??_7mmAnimSpline@@6B@
-*/
-
 #include "arts7/node.h"
 
 class mmAnimSpline final : public asNode

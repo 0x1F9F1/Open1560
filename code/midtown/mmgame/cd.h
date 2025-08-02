@@ -18,24 +18,6 @@
 
 #pragma once
 
-/*
-    mmgame:cd
-
-    0x422FF0 | public: __thiscall mmCDPlayer::mmCDPlayer(void) | ??0mmCDPlayer@@QAE@XZ
-    0x423080 | public: void __thiscall mmCDPlayer::Init(class mmHUD *) | ?Init@mmCDPlayer@@QAEXPAVmmHUD@@@Z
-    0x423190 | public: virtual void __thiscall mmCDPlayer::Reset(void) | ?Reset@mmCDPlayer@@UAEXXZ
-    0x4231A0 | public: virtual void __thiscall mmCDPlayer::Update(void) | ?Update@mmCDPlayer@@UAEXXZ
-    0x423210 | public: virtual void __thiscall mmCDPlayer::Cull(void) | ?Cull@mmCDPlayer@@UAEXXZ
-    0x423400 | public: void __thiscall mmCDPlayer::PlayStop(void) | ?PlayStop@mmCDPlayer@@QAEXXZ
-    0x423450 | public: void __thiscall mmCDPlayer::NextTrack(void) | ?NextTrack@mmCDPlayer@@QAEXXZ
-    0x4234C0 | public: virtual void __thiscall mmCDPlayer::AddWidgets(class Bank *) | ?AddWidgets@mmCDPlayer@@UAEXPAVBank@@@Z
-    0x423750 | public: void __thiscall mmCDPlayer::PrevTrack(void) | ?PrevTrack@mmCDPlayer@@QAEXXZ
-    0x4237C0 | public: void __thiscall mmCDPlayer::Toggle(void) | ?Toggle@mmCDPlayer@@QAEXXZ
-    0x423810 | public: virtual void * __thiscall mmCDPlayer::`vector deleting destructor'(unsigned int) | ??_EmmCDPlayer@@UAEPAXI@Z
-    0x423810 | public: virtual void * __thiscall mmCDPlayer::`scalar deleting destructor'(unsigned int) | ??_GmmCDPlayer@@UAEPAXI@Z
-    0x61AB40 | const mmCDPlayer::`vftable' | ??_7mmCDPlayer@@6B@
-*/
-
 #include "arts7/node.h"
 
 class mmHUD;

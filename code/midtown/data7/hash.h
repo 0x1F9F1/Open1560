@@ -18,26 +18,6 @@
 
 #pragma once
 
-/*
-    data7:hash
-
-    0x578040 | public: void __thiscall HashIterator::Begin(void) | ?Begin@HashIterator@@QAEXXZ
-    0x578050 | public: int __thiscall HashIterator::Next(void) | ?Next@HashIterator@@QAEHXZ
-    0x5780A0 | public: void __thiscall HashTable::Init(int) | ?Init@HashTable@@QAEXH@Z
-    0x578110 | public: void __thiscall HashTable::Kill(void) | ?Kill@HashTable@@QAEXXZ
-    0x578180 | public: void __thiscall HashTable::operator=(class HashTable &) | ??4HashTable@@QAEXAAV0@@Z
-    0x5781D0 | public: int __thiscall HashTable::Insert(char *,void *) | ?Insert@HashTable@@QAEHPADPAX@Z
-    0x5782B0 | public: int __thiscall HashTable::Delete(char *) | ?Delete@HashTable@@QAEHPAD@Z
-    0x5783F0 | public: int __thiscall HashTable::Change(char *,char *) | ?Change@HashTable@@QAEHPAD0@Z
-    0x578430 | public: void * __thiscall HashTable::Access(char *) | ?Access@HashTable@@QAEPAXPAD@Z
-    0x5784C0 | private: int __thiscall HashTable::Hash(char *) | ?Hash@HashTable@@AAEHPAD@Z
-    0x578500 | private: int __thiscall HashTable::ComputePrime(int) | ?ComputePrime@HashTable@@AAEHH@Z
-    0x578550 | private: void __thiscall HashTable::Recompute(int) | ?Recompute@HashTable@@AAEXH@Z
-    0x578610 | public: static void __cdecl HashTable::KillAll(void) | ?KillAll@HashTable@@SAXXZ
-    0x578630 | private: void __thiscall HashTable::RemoveMe(void) | ?RemoveMe@HashTable@@AAEXXZ
-    0x90AE5C | private: static class HashTable * HashTable::First | ?First@HashTable@@0PAV1@A
-*/
-
 struct HashEntry
 {
     ConstString Key;

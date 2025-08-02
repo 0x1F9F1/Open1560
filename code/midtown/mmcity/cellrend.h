@@ -18,25 +18,6 @@
 
 #pragma once
 
-/*
-    mmcity:cellrend
-
-    0x498970 | public: __thiscall mmCellRenderer::mmCellRenderer(void) | ??0mmCellRenderer@@QAE@XZ
-    0x4989A0 | public: __thiscall mmCellRenderer::~mmCellRenderer(void) | ??1mmCellRenderer@@QAE@XZ
-    0x4989E0 | public: void __thiscall mmCellRenderer::Init(char *,int,int,int,int,int *) | ?Init@mmCellRenderer@@QAEXPADHHHHPAH@Z
-    0x498F90 | public: void __thiscall mmCellRenderer::Relight(void) | ?Relight@mmCellRenderer@@QAEXXZ
-    0x498FA0 | public: virtual void __thiscall mmCellRenderer::Cull(int) | ?Cull@mmCellRenderer@@UAEXH@Z
-    0x61D320 | const mmCellRenderer::`vftable' | ??_7mmCellRenderer@@6B@
-    0x6401C0 | float (* StaticTerrainLodTable)[2] | ?StaticTerrainLodTable@@3PAY01MA
-    0x6401E0 | float ObjectMaxDist | ?ObjectMaxDist@@3MA
-    0x6401E4 | int EnableSlide | ?EnableSlide@@3HA
-    0x7057B8 | int CRPassBoth | ?CRPassBoth@@3HA
-    0x7057BC | int CRPass1Only | ?CRPass1Only@@3HA
-    0x7057C0 | int * CellTriCount | ?CellTriCount@@3PAHA
-    0x7057D0 | int * CellTypeCount | ?CellTypeCount@@3PAHA
-    0x7057DC | int CRPass3Only | ?CRPass3Only@@3HA
-*/
-
 #include "portal.h"
 
 #include "vector7/vector3.h"

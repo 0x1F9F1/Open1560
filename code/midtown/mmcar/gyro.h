@@ -18,21 +18,6 @@
 
 #pragma once
 
-/*
-    mmcar:gyro
-
-    0x480660 | public: __thiscall VehGyro::VehGyro(void) | ??0VehGyro@@QAE@XZ
-    0x480690 | public: void __thiscall VehGyro::Load(class Stream *) | ?Load@VehGyro@@QAEXPAVStream@@@Z
-    0x480700 | public: void __thiscall VehGyro::Save(class Stream *) | ?Save@VehGyro@@QAEXPAVStream@@@Z
-    0x480780 | public: virtual void __thiscall VehGyro::Update(void) | ?Update@VehGyro@@UAEXXZ
-    0x480930 | public: virtual void __thiscall VehGyro::AddWidgets(class Bank *) | ?AddWidgets@VehGyro@@UAEXPAVBank@@@Z
-    0x4809E0 | public: static void __cdecl VehGyro::DeclareFields(void) | ?DeclareFields@VehGyro@@SAXXZ
-    0x480B70 | public: virtual class MetaClass * __thiscall VehGyro::GetClass(void) | ?GetClass@VehGyro@@UAEPAVMetaClass@@XZ
-    0x480B80 | public: virtual void * __thiscall VehGyro::`vector deleting destructor'(unsigned int) | ??_EVehGyro@@UAEPAXI@Z
-    0x61C810 | const VehGyro::`vftable' | ??_7VehGyro@@6B@
-    0x6A8120 | class MetaClass VehGyroMetaClass | ?VehGyroMetaClass@@3VMetaClass@@A
-*/
-
 #include "arts7/node.h"
 
 class VehGyro final : public asNode

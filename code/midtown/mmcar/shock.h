@@ -18,20 +18,6 @@
 
 #pragma once
 
-/*
-    mmcar:shock
-
-    0x47D1F0 | public: __thiscall mmShock::mmShock(void) | ??0mmShock@@QAE@XZ
-    0x47D210 | public: void __thiscall mmShock::Init(char *,char *,class mmWheel *) | ?Init@mmShock@@QAEXPAD0PAVmmWheel@@@Z
-    0x47D270 | public: virtual void __thiscall mmShock::Update(void) | ?Update@mmShock@@UAEXXZ
-    0x47D280 | public: virtual void __thiscall mmShock::AddWidgets(class Bank *) | ?AddWidgets@mmShock@@UAEXPAVBank@@@Z
-    0x47D2A0 | public: static void __cdecl mmShock::DeclareFields(void) | ?DeclareFields@mmShock@@SAXXZ
-    0x47D410 | public: virtual class MetaClass * __thiscall mmShock::GetClass(void) | ?GetClass@mmShock@@UAEPAVMetaClass@@XZ
-    0x47D420 | public: virtual void * __thiscall mmShock::`vector deleting destructor'(unsigned int) | ??_EmmShock@@UAEPAXI@Z
-    0x61C640 | const mmShock::`vftable' | ??_7mmShock@@6B@
-    0x6A8058 | class MetaClass mmShockMetaClass | ?mmShockMetaClass@@3VMetaClass@@A
-*/
-
 #include "arts7/linear.h"
 
 class mmWheel;

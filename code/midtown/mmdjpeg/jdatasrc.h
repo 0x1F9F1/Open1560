@@ -18,12 +18,6 @@
 
 #pragma once
 
-/*
-    mmdjpeg:jdatasrc
-
-    0x57D7E0 | void __cdecl jpeg_stdio_src(struct jpeg_decompress_struct *,class Stream *) | ?jpeg_stdio_src@@YAXPAUjpeg_decompress_struct@@PAVStream@@@Z
-*/
-
 struct jpeg_decompress_struct;
 
 // ?jpeg_stdio_src@@YAXPAUjpeg_decompress_struct@@PAVStream@@@Z

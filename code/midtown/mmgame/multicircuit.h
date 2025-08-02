@@ -18,31 +18,6 @@
 
 #pragma once
 
-/*
-    mmgame:multicircuit
-
-    0x41A8B0 | public: __thiscall mmMultiCircuit::mmMultiCircuit(void) | ??0mmMultiCircuit@@QAE@XZ
-    0x41A920 | public: virtual __thiscall mmMultiCircuit::~mmMultiCircuit(void) | ??1mmMultiCircuit@@UAE@XZ
-    0x41A9E0 | public: int __thiscall mmMultiCircuit::Init(void) | ?Init@mmMultiCircuit@@QAEHXZ
-    0x41AB00 | public: virtual void __thiscall mmMultiCircuit::InitMyPlayer(void) | ?InitMyPlayer@mmMultiCircuit@@UAEXXZ
-    0x41AB70 | public: virtual void __thiscall mmMultiCircuit::InitHUD(void) | ?InitHUD@mmMultiCircuit@@UAEXXZ
-    0x41ABC0 | public: virtual void __thiscall mmMultiCircuit::InitGameObjects(void) | ?InitGameObjects@mmMultiCircuit@@UAEXXZ
-    0x41AE30 | public: virtual void __thiscall mmMultiCircuit::InitNetworkPlayers(void) | ?InitNetworkPlayers@mmMultiCircuit@@UAEXXZ
-    0x41B190 | public: virtual void __thiscall mmMultiCircuit::Reset(void) | ?Reset@mmMultiCircuit@@UAEXXZ
-    0x41B230 | public: virtual void __thiscall mmMultiCircuit::UpdateGameInput(int) | ?UpdateGameInput@mmMultiCircuit@@UAEXH@Z
-    0x41B270 | public: virtual void __thiscall mmMultiCircuit::UpdateGame(void) | ?UpdateGame@mmMultiCircuit@@UAEXXZ
-    0x41B820 | public: virtual void __thiscall mmMultiCircuit::UpdateDebugKeyInput(int) | ?UpdateDebugKeyInput@mmMultiCircuit@@UAEXH@Z
-    0x41B830 | public: virtual void __thiscall mmMultiCircuit::SystemMessage(struct NETSYS_MSG *) | ?SystemMessage@mmMultiCircuit@@UAEXPAUNETSYS_MSG@@@Z
-    0x41B9C0 | public: virtual void __thiscall mmMultiCircuit::GameMessage(struct NETGAME_MSG *) | ?GameMessage@mmMultiCircuit@@UAEXPAUNETGAME_MSG@@@Z
-    0x41BC20 | private: void __thiscall mmMultiCircuit::SendPlayerFinish(void) | ?SendPlayerFinish@mmMultiCircuit@@AAEXXZ
-    0x41BC60 | public: static void __cdecl mmMultiCircuit::DeclareFields(void) | ?DeclareFields@mmMultiCircuit@@SAXXZ
-    0x41BDE0 | public: virtual class MetaClass * __thiscall mmMultiCircuit::GetClass(void) | ?GetClass@mmMultiCircuit@@UAEPAVMetaClass@@XZ
-    0x41BF40 | public: virtual void * __thiscall mmMultiCircuit::`vector deleting destructor'(unsigned int) | ??_EmmMultiCircuit@@UAEPAXI@Z
-    0x41BFA0 | public: virtual class mmWaypoints * __thiscall mmMultiCircuit::GetWaypoints(void) | ?GetWaypoints@mmMultiCircuit@@UAEPAVmmWaypoints@@XZ
-    0x61A890 | const mmMultiCircuit::`vftable' | ??_7mmMultiCircuit@@6B@
-    0x6A71B8 | class MetaClass mmMultiCircuitMetaClass | ?mmMultiCircuitMetaClass@@3VMetaClass@@A
-*/
-
 #include "gamemulti.h"
 
 class mmMultiCircuit final : public mmGameMulti

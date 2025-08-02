@@ -18,13 +18,6 @@
 
 #pragma once
 
-/*
-    agi:physdef
-
-    0x556F90 | public: void __thiscall agiPhysParameters::Load(class Stream *) | ?Load@agiPhysParameters@@QAEXPAVStream@@@Z
-    0x557040 | public: void __thiscall agiPhysParameters::Save(class Stream *) | ?Save@agiPhysParameters@@QAEXPAVStream@@@Z
-*/
-
 #include "vector7/vector2.h"
 #include "vector7/vector3.h"
 

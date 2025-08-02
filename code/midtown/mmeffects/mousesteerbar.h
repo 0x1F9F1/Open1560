@@ -18,20 +18,6 @@
 
 #pragma once
 
-/*
-    mmeffects:mousesteerbar
-
-    0x502930 | public: __thiscall mmMouseSteerBar::mmMouseSteerBar(void) | ??0mmMouseSteerBar@@QAE@XZ
-    0x502950 | public: virtual __thiscall mmMouseSteerBar::~mmMouseSteerBar(void) | ??1mmMouseSteerBar@@UAE@XZ
-    0x502960 | public: void __thiscall mmMouseSteerBar::Init(float,float,float *) | ?Init@mmMouseSteerBar@@QAEXMMPAM@Z
-    0x502A00 | public: virtual void __thiscall mmMouseSteerBar::Update(void) | ?Update@mmMouseSteerBar@@UAEXXZ
-    0x502A30 | public: virtual void __thiscall mmMouseSteerBar::Cull(void) | ?Cull@mmMouseSteerBar@@UAEXXZ
-    0x502AB0 | public: virtual void __thiscall mmMouseSteerBar::AddWidgets(class Bank *) | ?AddWidgets@mmMouseSteerBar@@UAEXPAVBank@@@Z
-    0x502BA0 | public: virtual void * __thiscall mmMouseSteerBar::`vector deleting destructor'(unsigned int) | ??_EmmMouseSteerBar@@UAEPAXI@Z
-    0x502BA0 | public: virtual void * __thiscall mmMouseSteerBar::`scalar deleting destructor'(unsigned int) | ??_GmmMouseSteerBar@@UAEPAXI@Z
-    0x6207E0 | const mmMouseSteerBar::`vftable' | ??_7mmMouseSteerBar@@6B@
-*/
-
 #include "arts7/node.h"
 
 class mmMouseSteerBar final : public asNode

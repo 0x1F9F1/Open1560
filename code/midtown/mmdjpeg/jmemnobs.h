@@ -18,20 +18,6 @@
 
 #pragma once
 
-/*
-    mmdjpeg:jmemnobs
-
-    0x580FA0 | void * __cdecl jpeg_get_small(struct jpeg_common_struct *,unsigned int) | ?jpeg_get_small@@YAPAXPAUjpeg_common_struct@@I@Z
-    0x580FC0 | void __cdecl jpeg_free_small(struct jpeg_common_struct *,void *,unsigned int) | ?jpeg_free_small@@YAXPAUjpeg_common_struct@@PAXI@Z
-    0x580FE0 | void * __cdecl jpeg_get_large(struct jpeg_common_struct *,unsigned int) | ?jpeg_get_large@@YAPAXPAUjpeg_common_struct@@I@Z
-    0x581000 | void __cdecl jpeg_free_large(struct jpeg_common_struct *,void *,unsigned int) | ?jpeg_free_large@@YAXPAUjpeg_common_struct@@PAXI@Z
-    0x581020 | long __cdecl jpeg_mem_available(struct jpeg_common_struct *,long,long,long) | ?jpeg_mem_available@@YAJPAUjpeg_common_struct@@JJJ@Z
-    0x581030 | void __cdecl jpeg_open_backing_store(struct jpeg_common_struct *,struct backing_store_struct *,long) | ?jpeg_open_backing_store@@YAXPAUjpeg_common_struct@@PAUbacking_store_struct@@J@Z
-    0x581050 | long __cdecl jpeg_mem_init(struct jpeg_common_struct *) | ?jpeg_mem_init@@YAJPAUjpeg_common_struct@@@Z
-    0x581060 | void __cdecl jpeg_mem_term(struct jpeg_common_struct *) | ?jpeg_mem_term@@YAXPAUjpeg_common_struct@@@Z
-    0x90B4C0 | int jpeg_allocated | ?jpeg_allocated@@3HA
-*/
-
 struct backing_store_struct;
 struct jpeg_common_struct;
 

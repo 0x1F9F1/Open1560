@@ -18,19 +18,6 @@
 
 #pragma once
 
-/*
-    mmdjpeg:jdapimin
-
-    0x57D000 | void __cdecl jpeg_CreateDecompress(struct jpeg_decompress_struct *,int,unsigned int) | ?jpeg_CreateDecompress@@YAXPAUjpeg_decompress_struct@@HI@Z
-    0x57D0E0 | void __cdecl jpeg_destroy_decompress(struct jpeg_decompress_struct *) | ?jpeg_destroy_decompress@@YAXPAUjpeg_decompress_struct@@@Z
-    0x57D100 | void __cdecl jpeg_abort_decompress(struct jpeg_decompress_struct *) | ?jpeg_abort_decompress@@YAXPAUjpeg_decompress_struct@@@Z
-    0x57D120 | int __cdecl jpeg_read_header(struct jpeg_decompress_struct *,unsigned char) | ?jpeg_read_header@@YAHPAUjpeg_decompress_struct@@E@Z
-    0x57D1A0 | int __cdecl jpeg_consume_input(struct jpeg_decompress_struct *) | ?jpeg_consume_input@@YAHPAUjpeg_decompress_struct@@@Z
-    0x57D420 | unsigned char __cdecl jpeg_input_complete(struct jpeg_decompress_struct *) | ?jpeg_input_complete@@YAEPAUjpeg_decompress_struct@@@Z
-    0x57D460 | unsigned char __cdecl jpeg_has_multiple_scans(struct jpeg_decompress_struct *) | ?jpeg_has_multiple_scans@@YAEPAUjpeg_decompress_struct@@@Z
-    0x57D4A0 | unsigned char __cdecl jpeg_finish_decompress(struct jpeg_decompress_struct *) | ?jpeg_finish_decompress@@YAEPAUjpeg_decompress_struct@@@Z
-*/
-
 struct jpeg_decompress_struct;
 
 // ?jpeg_CreateDecompress@@YAXPAUjpeg_decompress_struct@@HI@Z

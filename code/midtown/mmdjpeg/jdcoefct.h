@@ -18,12 +18,6 @@
 
 #pragma once
 
-/*
-    mmdjpeg:jdcoefct
-
-    0x581730 | void __cdecl jinit_d_coef_controller(struct jpeg_decompress_struct *,unsigned char) | ?jinit_d_coef_controller@@YAXPAUjpeg_decompress_struct@@E@Z
-*/
-
 struct jpeg_decompress_struct;
 
 // ?jinit_d_coef_controller@@YAXPAUjpeg_decompress_struct@@E@Z

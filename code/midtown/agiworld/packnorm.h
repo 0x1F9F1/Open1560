@@ -18,15 +18,6 @@
 
 #pragma once
 
-/*
-    agiworld:packnorm
-
-    0x516400 | unsigned char __cdecl PackNormalSlow(class Vector3 &) | ?PackNormalSlow@@YAEAAVVector3@@@Z
-    0x5164B0 | unsigned char __cdecl PackNormal(class Vector3 &) | ?PackNormal@@YAEAAVVector3@@@Z
-    0x64B6A0 | class Vector3 * UnpackNormal | ?UnpackNormal@@3PAVVector3@@A
-    0x73E738 | union mmx * UnpackNormalMMX | ?UnpackNormalMMX@@3PATmmx@@A
-*/
-
 union mmx;
 
 // ?PackNormal@@YAEAAVVector3@@@Z

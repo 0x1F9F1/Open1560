@@ -18,31 +18,6 @@
 
 #pragma once
 
-/*
-    mmcity:loader
-
-    0x48B530 | public: __thiscall mmLoader::mmLoader(void) | ??0mmLoader@@QAE@XZ
-    0x48B680 | public: virtual __thiscall mmLoader::~mmLoader(void) | ??1mmLoader@@UAE@XZ
-    0x48B720 | public: void __thiscall mmLoader::Init(char *,float,float) | ?Init@mmLoader@@QAEXPADMM@Z
-    0x48B810 | public: void __thiscall mmLoader::Shutdown(void) | ?Shutdown@mmLoader@@QAEXXZ
-    0x48B820 | public: void __thiscall mmLoader::SetIntroText(struct LocString *) | ?SetIntroText@mmLoader@@QAEXPAULocString@@@Z
-    0x48B850 | public: void __thiscall mmLoader::BeginTask(struct LocString *,float) | ?BeginTask@mmLoader@@QAEXPAULocString@@M@Z
-    0x48B8D0 | public: void __thiscall mmLoader::EndTask(float) | ?EndTask@mmLoader@@QAEXM@Z
-    0x48B970 | public: void __thiscall mmLoader::Percent(int) | ?Percent@mmLoader@@QAEXH@Z
-    0x48B9C0 | public: void __thiscall mmLoader::Reset(void) | ?Reset@mmLoader@@QAEXXZ
-    0x48B9E0 | public: void __thiscall mmLoader::Update(void) | ?Update@mmLoader@@QAEXXZ
-    0x48BA70 | public: virtual void __thiscall mmLoader::Cull(void) | ?Cull@mmLoader@@UAEXXZ
-    0x48BB20 | public: virtual void * __thiscall mmLoader::`scalar deleting destructor'(unsigned int) | ??_GmmLoader@@UAEPAXI@Z
-    0x48BB20 | public: virtual void * __thiscall mmLoader::`vector deleting destructor'(unsigned int) | ??_EmmLoader@@UAEPAXI@Z
-    0x48BB50 | public: virtual void * __thiscall asCullable::`scalar deleting destructor'(unsigned int) | ??_GasCullable@@UAEPAXI@Z
-    0x48BB80 | public: virtual __thiscall asCullable::~asCullable(void) | ??1asCullable@@UAE@XZ
-    0x61CBC8 | const mmLoader::`vftable' | ??_7mmLoader@@6B@
-    0x61CBE0 | const asCullable::`vftable' | ??_7asCullable@@6B@
-    0x6A8DA4 | private: static class mmLoader * mmLoader::Current | ?Current@mmLoader@@0PAV1@A
-    0x6A8DA8 | void * IntroFont | ?IntroFont@@3PAXA
-    0x6A8DAC | void * myFont | ?myFont@@3PAXA
-*/
-
 #include "arts7/camera.h"
 #include "arts7/cullable.h"
 #include "data7/timer.h"

@@ -18,17 +18,6 @@
 
 #pragma once
 
-/*
-    mmai:addoncaraudio
-
-    0x45C560 | public: __thiscall AddOnCarAudio::AddOnCarAudio(char *,short) | ??0AddOnCarAudio@@QAE@PADF@Z
-    0x45C690 | public: __thiscall AddOnCarAudio::~AddOnCarAudio(void) | ??1AddOnCarAudio@@QAE@XZ
-    0x45C6E0 | public: class AudSound * __thiscall AddOnCarAudio::GetEngineSoundPtr(short) | ?GetEngineSoundPtr@AddOnCarAudio@@QAEPAVAudSound@@F@Z
-    0x45C700 | public: void __thiscall AddOnCarAudio::EchoOn(float) | ?EchoOn@AddOnCarAudio@@QAEXM@Z
-    0x45C750 | public: void __thiscall AddOnCarAudio::EchoOff(void) | ?EchoOff@AddOnCarAudio@@QAEXXZ
-    0x45C780 | public: void __thiscall AddOnCarAudio::Update(void) | ?Update@AddOnCarAudio@@QAEXXZ
-*/
-
 class AudSound;
 
 struct AddOnCarAudio

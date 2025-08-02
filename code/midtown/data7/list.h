@@ -18,16 +18,6 @@
 
 #pragma once
 
-/*
-    data7:list
-
-    0x57C280 | public: __thiscall List::~List(void) | ??1List@@QAE@XZ
-    0x57C290 | public: void __thiscall List::Kill(void) | ?Kill@List@@QAEXXZ
-    0x57C2B0 | public: int __thiscall List::Insert(int,void *) | ?Insert@List@@QAEHHPAX@Z
-    0x57C330 | public: void * __thiscall List::Access(int) | ?Access@List@@QAEPAXH@Z
-    0x57C360 | public: int __thiscall List::Delete(int) | ?Delete@List@@QAEHH@Z
-*/
-
 struct List
 {
 public:

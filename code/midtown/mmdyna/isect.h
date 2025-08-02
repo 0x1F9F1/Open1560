@@ -18,23 +18,6 @@
 
 #pragma once
 
-/*
-    mmdyna:isect
-
-    0x51A1B0 | public: __thiscall mmIntersection::mmIntersection(void) | ??0mmIntersection@@QAE@XZ
-    0x51A1C0 | public: void __thiscall mmIntersection::InitSegment(class Vector3 const &,class Vector3 const &,class mmBoundTemplate *,int,int) | ?InitSegment@mmIntersection@@QAEXABVVector3@@0PAVmmBoundTemplate@@HH@Z
-    0x51A2D0 | public: void __thiscall mmIntersection::InitTransformedSegment(class Vector3 const &,class Vector3 const &,class mmBoundTemplate *,int,int) | ?InitTransformedSegment@mmIntersection@@QAEXABVVector3@@0PAVmmBoundTemplate@@HH@Z
-    0x51A3B0 | public: void __thiscall mmIntersection::InitSphere(class Vector3 const &,float,class mmBoundTemplate *,int) | ?InitSphere@mmIntersection@@QAEXABVVector3@@MPAVmmBoundTemplate@@H@Z
-    0x51A410 | public: void __thiscall mmIntersection::InitTransformedSphere(class Vector3 const &,float,class mmBoundTemplate *,int) | ?InitTransformedSphere@mmIntersection@@QAEXABVVector3@@MPAVmmBoundTemplate@@H@Z
-    0x51A470 | public: void __thiscall mmIntersection::Reset(void) | ?Reset@mmIntersection@@QAEXXZ
-    0x51A4D0 | public: void __thiscall mmIntersection::Transform(class Matrix34 const *) | ?Transform@mmIntersection@@QAEXPBVMatrix34@@@Z
-    0x51A5A0 | public: void __thiscall mmIntersection::Draw(void) | ?Draw@mmIntersection@@QAEXXZ
-    0x51A650 | public: __thiscall mmEdgeBodyIsect::mmEdgeBodyIsect(void) | ??0mmEdgeBodyIsect@@QAE@XZ
-    0x51A660 | public: void __thiscall mmEdgeBodyIsect::Reset(void) | ?Reset@mmEdgeBodyIsect@@QAEXXZ
-    0x51A680 | public: void __thiscall mmEdgeBodyIsect::InitSegment(class Vector3 const &,class Vector3 const &,int,int,class Vector3 const &,float) | ?InitSegment@mmEdgeBodyIsect@@QAEXABVVector3@@0HH0M@Z
-    0x51A720 | public: void __thiscall mmEdgeBodyIsect::Draw(void) | ?Draw@mmEdgeBodyIsect@@QAEXXZ
-*/
-
 #include "vector7/vector3.h"
 
 class mmBoundTemplate;

@@ -18,15 +18,6 @@
 
 #pragma once
 
-/*
-    arts7:benchstats
-
-    0x52CE60 | public: void __thiscall asBenchStats::Reset(void) | ?Reset@asBenchStats@@QAEXXZ
-    0x52CEA0 | public: void __thiscall asBenchStats::Print(void) | ?Print@asBenchStats@@QAEXXZ
-    0x52CEB0 | public: void __thiscall asBenchStats::Average(class asBenchStats *,float,int) | ?Average@asBenchStats@@QAEXPAV1@MH@Z
-    0x52CFD0 | public: void __thiscall asBenchStats::Current(class asBenchStats *) | ?Current@asBenchStats@@QAEXPAV1@@Z
-*/
-
 class asBenchStats
 {
 public:

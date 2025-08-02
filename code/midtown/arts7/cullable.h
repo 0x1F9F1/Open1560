@@ -18,18 +18,6 @@
 
 #pragma once
 
-/*
-    arts7:cullable
-
-    0x5258C0 | public: virtual void __thiscall asCullable::Cull(void) | ?Cull@asCullable@@UAEXXZ
-    0x5258D0 | public: void __thiscall asCullable::AddWidgets(class Bank *) | ?AddWidgets@asCullable@@QAEXPAVBank@@@Z
-    0x5258E0 | public: static void __cdecl asCullable::DeclareFields(void) | ?DeclareFields@asCullable@@SAXXZ
-    0x525A30 | public: virtual class MetaClass * __thiscall asCullable::GetClass(void) | ?GetClass@asCullable@@UAEPAVMetaClass@@XZ
-    0x525A40 | public: virtual void * __thiscall asCullable::`vector deleting destructor'(unsigned int) | ??_EasCullable@@UAEPAXI@Z
-    0x525AA0 | public: __thiscall asCullable::asCullable(void) | ??0asCullable@@QAE@XZ
-    0x7908B0 | class MetaClass asCullableMetaClass | ?asCullableMetaClass@@3VMetaClass@@A
-*/
-
 #include "data7/base.h"
 
 #include "bank.h"

@@ -18,27 +18,6 @@
 
 #pragma once
 
-/*
-    mmcamcs:pointcamcs
-
-    0x4F9E20 | public: __thiscall PointCamCS::PointCamCS(void) | ??0PointCamCS@@QAE@XZ
-    0x4F9E50 | public: void __thiscall PointCamCS::Init(class mmCar *) | ?Init@PointCamCS@@QAEXPAVmmCar@@@Z
-    0x4F9E80 | public: virtual void __thiscall PointCamCS::Reset(void) | ?Reset@PointCamCS@@UAEXXZ
-    0x4F9E90 | public: virtual void __thiscall PointCamCS::MakeActive(void) | ?MakeActive@PointCamCS@@UAEXXZ
-    0x4F9EC0 | public: void __thiscall PointCamCS::SetPos(class Vector3 &) | ?SetPos@PointCamCS@@QAEXAAVVector3@@@Z
-    0x4F9F00 | public: void __thiscall PointCamCS::SetMaxDist(float) | ?SetMaxDist@PointCamCS@@QAEXM@Z
-    0x4F9F20 | public: void __thiscall PointCamCS::SetMinDist(float) | ?SetMinDist@PointCamCS@@QAEXM@Z
-    0x4F9F40 | public: void __thiscall PointCamCS::SetAppRate(float) | ?SetAppRate@PointCamCS@@QAEXM@Z
-    0x4F9F50 | public: void __thiscall PointCamCS::SetVel(class Vector3 &) | ?SetVel@PointCamCS@@QAEXAAVVector3@@@Z
-    0x4F9F70 | public: class Vector3 __thiscall PointCamCS::GetPos(void) | ?GetPos@PointCamCS@@QAE?AVVector3@@XZ
-    0x4F9FA0 | public: virtual void __thiscall PointCamCS::Update(void) | ?Update@PointCamCS@@UAEXXZ
-    0x4FA280 | public: static void __cdecl PointCamCS::DeclareFields(void) | ?DeclareFields@PointCamCS@@SAXXZ
-    0x4FA3F0 | public: virtual class MetaClass * __thiscall PointCamCS::GetClass(void) | ?GetClass@PointCamCS@@UAEPAVMetaClass@@XZ
-    0x4FA430 | public: virtual void * __thiscall PointCamCS::`vector deleting destructor'(unsigned int) | ??_EPointCamCS@@UAEPAXI@Z
-    0x620248 | const PointCamCS::`vftable' | ??_7PointCamCS@@6B@
-    0x719438 | class MetaClass PointCamCSMetaClass | ?PointCamCSMetaClass@@3VMetaClass@@A
-*/
-
 #include "carcamcs.h"
 
 class PointCamCS final : public CarCamCS

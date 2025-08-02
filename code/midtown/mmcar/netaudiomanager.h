@@ -18,36 +18,6 @@
 
 #pragma once
 
-/*
-    mmcar:netaudiomanager
-
-    0x4751D0 | public: __thiscall NetAudioManager::NetAudioManager(void) | ??0NetAudioManager@@QAE@XZ
-    0x4753B0 | public: virtual __thiscall NetAudioManager::~NetAudioManager(void) | ??1NetAudioManager@@UAE@XZ
-    0x475770 | public: short __thiscall NetAudioManager::AddVehicle(class mmNetworkCarAudio *) | ?AddVehicle@NetAudioManager@@QAEFPAVmmNetworkCarAudio@@@Z
-    0x475800 | public: void __thiscall NetAudioManager::RemoveVehicle(class mmNetworkCarAudio *,short) | ?RemoveVehicle@NetAudioManager@@QAEXPAVmmNetworkCarAudio@@F@Z
-    0x475860 | public: short __thiscall NetAudioManager::FindGreatestDistance(class mmNetworkCarAudio *) | ?FindGreatestDistance@NetAudioManager@@QAEFPAVmmNetworkCarAudio@@@Z
-    0x475900 | public: short __thiscall NetAudioManager::FindUnusedSlot(void) | ?FindUnusedSlot@NetAudioManager@@QAEFXZ
-    0x475940 | public: virtual void __thiscall NetAudioManager::Update(void) | ?Update@NetAudioManager@@UAEXXZ
-    0x475B00 | public: void __thiscall NetAudioManager::EchoOn(float) | ?EchoOn@NetAudioManager@@QAEXM@Z
-    0x475E70 | public: void __thiscall NetAudioManager::EchoOff(void) | ?EchoOff@NetAudioManager@@QAEXXZ
-    0x476000 | public: void __thiscall NetAudioManager::AssignSounds(class mmNetworkCarAudio *,short) | ?AssignSounds@NetAudioManager@@QAEXPAVmmNetworkCarAudio@@F@Z
-    0x476940 | private: void __thiscall NetAudioManager::AssignAddOnSounds(class mmNetworkCarAudio *,short) | ?AssignAddOnSounds@NetAudioManager@@AAEXPAVmmNetworkCarAudio@@F@Z
-    0x476B60 | public: float __thiscall NetAudioManager::GetAvailableDistance(void) | ?GetAvailableDistance@NetAudioManager@@QAEMXZ
-    0x476BA0 | public: void __thiscall NetAudioManager::AllocateEngine(short) | ?AllocateEngine@NetAudioManager@@QAEXF@Z
-    0x476D20 | public: short __thiscall NetAudioManager::AllocateAddOnEngine(char *) | ?AllocateAddOnEngine@NetAudioManager@@QAEFPAD@Z
-    0x476EF0 | public: class AudSound * * __thiscall NetAudioManager::AllocateEngine(char *) | ?AllocateEngine@NetAudioManager@@QAEPAPAVAudSound@@PAD@Z
-    0x477020 | public: void __thiscall NetAudioManager::AllocateReverseBeep(void) | ?AllocateReverseBeep@NetAudioManager@@QAEXXZ
-    0x477170 | public: void __thiscall NetAudioManager::AllocateHorn(short) | ?AllocateHorn@NetAudioManager@@QAEXF@Z
-    0x477360 | public: void __thiscall NetAudioManager::AllocateSkids(void) | ?AllocateSkids@NetAudioManager@@QAEXXZ
-    0x4775E0 | public: void __thiscall NetAudioManager::AllocateImpacts(void) | ?AllocateImpacts@NetAudioManager@@QAEXXZ
-    0x477670 | public: void __thiscall NetAudioManager::AllocatePoliceSiren(void) | ?AllocatePoliceSiren@NetAudioManager@@QAEXXZ
-    0x4777E0 | public: virtual void * __thiscall NetAudioManager::`scalar deleting destructor'(unsigned int) | ??_GNetAudioManager@@UAEPAXI@Z
-    0x4777E0 | public: virtual void * __thiscall NetAudioManager::`vector deleting destructor'(unsigned int) | ??_ENetAudioManager@@UAEPAXI@Z
-    0x477810 | public: void __thiscall EngineAudioOpponent::SetSoundPtr(class AudSound *) | ?SetSoundPtr@EngineAudioOpponent@@QAEXPAVAudSound@@@Z
-    0x61C1C8 | const NetAudioManager::`vftable' | ??_7NetAudioManager@@6B@
-    0x6A7E98 | class NetAudioManager * NETAUDMGRPTR | ?NETAUDMGRPTR@@3PAVNetAudioManager@@A
-*/
-
 #include "arts7/node.h"
 
 class AudSound;

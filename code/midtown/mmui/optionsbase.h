@@ -18,18 +18,6 @@
 
 #pragma once
 
-/*
-    mmui:optionsbase
-
-    0x4AB4C0 | public: __thiscall OptionsBase::OptionsBase(int) | ??0OptionsBase@@QAE@H@Z
-    0x4AB620 | public: void __thiscall OptionsBase::CreateTitle(struct LocString *) | ?CreateTitle@OptionsBase@@QAEXPAULocString@@@Z
-    0x4AB650 | public: virtual __thiscall OptionsBase::~OptionsBase(void) | ??1OptionsBase@@UAE@XZ
-    0x4AB6A0 | public: virtual void * __thiscall OptionsBase::`vector deleting destructor'(unsigned int) | ??_EOptionsBase@@UAEPAXI@Z
-    0x4AB6A0 | public: virtual void * __thiscall OptionsBase::`scalar deleting destructor'(unsigned int) | ??_GOptionsBase@@UAEPAXI@Z
-    0x4AB6F0 | public: virtual void __thiscall OptionsBase::ResetDefaultAction(void) | ?ResetDefaultAction@OptionsBase@@UAEXXZ
-    0x61E250 | const OptionsBase::`vftable' | ??_7OptionsBase@@6B@
-*/
-
 #include "mmwidget/menu.h"
 
 class OptionsBase : public UIMenu

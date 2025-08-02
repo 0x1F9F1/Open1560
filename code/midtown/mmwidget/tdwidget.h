@@ -18,34 +18,6 @@
 
 #pragma once
 
-/*
-    mmwidget:tdwidget
-
-    0x4BDF90 | public: __thiscall TextDropWidget::TextDropWidget(void) | ??0TextDropWidget@@QAE@XZ
-    0x4BE040 | public: virtual __thiscall TextDropWidget::~TextDropWidget(void) | ??1TextDropWidget@@UAE@XZ
-    0x4BE0B0 | public: void __thiscall TextDropWidget::Init(class asCamera *,void *,float,float,float,float,float,class string,int) | ?Init@TextDropWidget@@QAEXPAVasCamera@@PAXMMMMMVstring@@H@Z
-    0x4BE1A0 | public: int __thiscall TextDropWidget::GetCount(void) | ?GetCount@TextDropWidget@@QAEHXZ
-    0x4BE1B0 | public: void __thiscall TextDropWidget::SetString(class string) | ?SetString@TextDropWidget@@QAEXVstring@@@Z
-    0x4BE270 | public: int __thiscall TextDropWidget::SetValue(int) | ?SetValue@TextDropWidget@@QAEHH@Z
-    0x4BE310 | public: int __thiscall TextDropWidget::SetHighlight(int) | ?SetHighlight@TextDropWidget@@QAEHH@Z
-    0x4BE380 | public: int __thiscall TextDropWidget::Inc(void) | ?Inc@TextDropWidget@@QAEHXZ
-    0x4BE390 | public: int __thiscall TextDropWidget::Dec(void) | ?Dec@TextDropWidget@@QAEHXZ
-    0x4BE3A0 | public: int __thiscall TextDropWidget::IncDrop(void) | ?IncDrop@TextDropWidget@@QAEHXZ
-    0x4BE3D0 | public: int __thiscall TextDropWidget::DecDrop(void) | ?DecDrop@TextDropWidget@@QAEHXZ
-    0x4BE400 | public: int __thiscall TextDropWidget::Capture(float,float) | ?Capture@TextDropWidget@@QAEHMM@Z
-    0x4BE440 | public: void __thiscall TextDropWidget::Switch(int,class Vector4 &) | ?Switch@TextDropWidget@@QAEXHAAVVector4@@@Z
-    0x4BE460 | public: virtual void __thiscall TextDropWidget::Update(void) | ?Update@TextDropWidget@@UAEXXZ
-    0x4BE470 | public: int __thiscall TextDropWidget::IsActive(void) | ?IsActive@TextDropWidget@@QAEHXZ
-    0x4BE480 | public: void __thiscall TextDropWidget::SetActive(int) | ?SetActive@TextDropWidget@@QAEXH@Z
-    0x4BE490 | public: void __thiscall TextDropWidget::SetDisabledMask(long) | ?SetDisabledMask@TextDropWidget@@QAEXJ@Z
-    0x4BE4B0 | public: long __thiscall TextDropWidget::GetDisabledMask(void) | ?GetDisabledMask@TextDropWidget@@QAEJXZ
-    0x4BE4C0 | public: static void __cdecl TextDropWidget::DeclareFields(void) | ?DeclareFields@TextDropWidget@@SAXXZ
-    0x4BE630 | public: virtual class MetaClass * __thiscall TextDropWidget::GetClass(void) | ?GetClass@TextDropWidget@@UAEPAVMetaClass@@XZ
-    0x4BE640 | public: virtual void * __thiscall TextDropWidget::`vector deleting destructor'(unsigned int) | ??_ETextDropWidget@@UAEPAXI@Z
-    0x61F0F8 | const TextDropWidget::`vftable' | ??_7TextDropWidget@@6B@
-    0x705C78 | class MetaClass TextDropWidgetMetaClass | ?TextDropWidgetMetaClass@@3VMetaClass@@A
-*/
-
 #include "arts7/node.h"
 
 class asCamera;

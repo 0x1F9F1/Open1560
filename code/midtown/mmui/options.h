@@ -18,18 +18,6 @@
 
 #pragma once
 
-/*
-    mmui:options
-
-    0x4A3950 | public: __thiscall OptionsMenu::OptionsMenu(int) | ??0OptionsMenu@@QAE@H@Z
-    0x4A3B10 | public: virtual __thiscall OptionsMenu::~OptionsMenu(void) | ??1OptionsMenu@@UAE@XZ
-    0x4A3B20 | public: virtual void __thiscall OptionsMenu::PreSetup(void) | ?PreSetup@OptionsMenu@@UAEXXZ
-    0x4A3B50 | public: virtual void __thiscall OptionsMenu::PostSetup(void) | ?PostSetup@OptionsMenu@@UAEXXZ
-    0x4A3B70 | public: virtual void * __thiscall OptionsMenu::`scalar deleting destructor'(unsigned int) | ??_GOptionsMenu@@UAEPAXI@Z
-    0x4A3B70 | public: virtual void * __thiscall OptionsMenu::`vector deleting destructor'(unsigned int) | ??_EOptionsMenu@@UAEPAXI@Z
-    0x61DA00 | const OptionsMenu::`vftable' | ??_7OptionsMenu@@6B@
-*/
-
 #include "mmwidget/menu.h"
 
 class OptionsMenu final : public UIMenu

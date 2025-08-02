@@ -18,24 +18,6 @@
 
 #pragma once
 
-/*
-    eventq7:eventq
-
-    0x5639F0 | public: __thiscall eqEventQ::eqEventQ(int,int,int) | ??0eqEventQ@@QAE@HHH@Z
-    0x563A80 | public: virtual __thiscall eqEventQ::~eqEventQ(void) | ??1eqEventQ@@UAE@XZ
-    0x563AF0 | public: virtual void __thiscall eqEventQ::Redraw(void *,int,int,int,int) | ?Redraw@eqEventQ@@UAEXPAXHHHH@Z
-    0x563B50 | public: virtual void __thiscall eqEventQ::Refocus(void *,int) | ?Refocus@eqEventQ@@UAEXPAXH@Z
-    0x563B90 | public: virtual void __thiscall eqEventQ::Mouse(void *,int,int,int,int,int,int,int) | ?Mouse@eqEventQ@@UAEXPAXHHHHHHH@Z
-    0x563C20 | public: virtual void __thiscall eqEventQ::Keyboard(void *,int,int,int,int) | ?Keyboard@eqEventQ@@UAEXPAXHHHH@Z
-    0x563C80 | public: virtual void __thiscall eqEventQ::Destroy(void *) | ?Destroy@eqEventQ@@UAEXPAX@Z
-    0x563CC0 | public: virtual void __thiscall eqEventQ::Activate(void *,int) | ?Activate@eqEventQ@@UAEXPAXH@Z
-    0x563D00 | private: void __thiscall eqEventQ::Queue(union eqEvent &) | ?Queue@eqEventQ@@AAEXAATeqEvent@@@Z
-    0x563D40 | public: int __thiscall eqEventQ::Pop(union eqEvent *) | ?Pop@eqEventQ@@QAEHPATeqEvent@@@Z
-    0x563DB0 | public: virtual void * __thiscall eqEventQ::`vector deleting destructor'(unsigned int) | ??_EeqEventQ@@UAEPAXI@Z
-    0x563DB0 | public: virtual void * __thiscall eqEventQ::`scalar deleting destructor'(unsigned int) | ??_GeqEventQ@@UAEPAXI@Z
-    0x621B00 | const eqEventQ::`vftable' | ??_7eqEventQ@@6B@
-*/
-
 #include "event.h"
 
 enum class eqEventType : u32

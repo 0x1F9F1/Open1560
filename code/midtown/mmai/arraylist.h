@@ -18,13 +18,6 @@
 
 #pragma once
 
-/*
-    mmai:arraylist
-
-    0x446C00 | public: __thiscall CArrayList::~CArrayList(void) | ??1CArrayList@@QAE@XZ
-    0x446C20 | public: void __thiscall CArrayList::Append(int) | ?Append@CArrayList@@QAEXH@Z
-*/
-
 class CArrayList final
 {
 public:

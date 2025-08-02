@@ -18,19 +18,6 @@
 
 #pragma once
 
-/*
-    mmcar:opponentsurfaceaudio
-
-    0x485E00 | public: __thiscall mmOpponentSurfaceAudio::mmOpponentSurfaceAudio(void) | ??0mmOpponentSurfaceAudio@@QAE@XZ
-    0x485E30 | public: __thiscall mmOpponentSurfaceAudio::~mmOpponentSurfaceAudio(void) | ??1mmOpponentSurfaceAudio@@QAE@XZ
-    0x485E40 | public: void __thiscall mmOpponentSurfaceAudio::SetWheelPointers(class mmWheel *,class mmWheel *,class mmWheel *,class mmWheel *) | ?SetWheelPointers@mmOpponentSurfaceAudio@@QAEXPAVmmWheel@@000@Z
-    0x485E60 | public: void __thiscall mmOpponentSurfaceAudio::Update(float) | ?Update@mmOpponentSurfaceAudio@@QAEXM@Z
-    0x485EA0 | public: void __thiscall mmOpponentSurfaceAudio::UpdateSkid(float) | ?UpdateSkid@mmOpponentSurfaceAudio@@QAEXM@Z
-    0x486120 | public: void __thiscall mmOpponentSurfaceAudio::UpdateSkidSnow(float) | ?UpdateSkidSnow@mmOpponentSurfaceAudio@@QAEXM@Z
-    0x486380 | public: void __thiscall mmOpponentSurfaceAudio::Enable3DMode(class Vector3 *) | ?Enable3DMode@mmOpponentSurfaceAudio@@QAEXPAVVector3@@@Z
-    0x4863A0 | public: void __thiscall mmOpponentSurfaceAudio::Disable3DMode(void) | ?Disable3DMode@mmOpponentSurfaceAudio@@QAEXXZ
-*/
-
 class mmWheel;
 
 struct mmOpponentSurfaceAudio

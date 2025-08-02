@@ -18,30 +18,6 @@
 
 #pragma once
 
-/*
-    stream:hfsystem
-
-    0x55FF50 | public: __thiscall HierFileSystem::HierFileSystem(void) | ??0HierFileSystem@@QAE@XZ
-    0x55FF70 | public: virtual __thiscall HierFileSystem::~HierFileSystem(void) | ??1HierFileSystem@@UAE@XZ
-    0x55FF80 | public: virtual int __thiscall HierFileSystem::ValidPath(char *) | ?ValidPath@HierFileSystem@@UAEHPAD@Z
-    0x55FF90 | char * __cdecl FQN(char *) | ?FQN@@YAPADPAD@Z
-    0x560040 | public: virtual int __thiscall HierFileSystem::QueryOn(char *) | ?QueryOn@HierFileSystem@@UAEHPAD@Z
-    0x560100 | public: virtual class Stream * __thiscall HierFileSystem::OpenOn(char *,int,void *,int) | ?OpenOn@HierFileSystem@@UAEPAVStream@@PADHPAXH@Z
-    0x5602A0 | public: virtual class Stream * __thiscall HierFileSystem::CreateOn(char *,void *,int) | ?CreateOn@HierFileSystem@@UAEPAVStream@@PADPAXH@Z
-    0x560380 | public: virtual int __thiscall HierFileSystem::ChangeDir(char *) | ?ChangeDir@HierFileSystem@@UAEHPAD@Z
-    0x5603A0 | public: virtual int __thiscall HierFileSystem::GetDir(char *,int) | ?GetDir@HierFileSystem@@UAEHPADH@Z
-    0x5603C0 | public: virtual struct FileInfo * __thiscall HierFileSystem::FirstEntry(char *) | ?FirstEntry@HierFileSystem@@UAEPAUFileInfo@@PAD@Z
-    0x560500 | public: virtual struct FileInfo * __thiscall HierFileSystem::NextEntry(struct FileInfo *) | ?NextEntry@HierFileSystem@@UAEPAUFileInfo@@PAU2@@Z
-    0x5605D0 | public: void __thiscall PagerInfo_t::Read(void *,unsigned int,unsigned int) | ?Read@PagerInfo_t@@QAEXPAXII@Z
-    0x560620 | public: virtual void * __thiscall HierFileSystem::`vector deleting destructor'(unsigned int) | ??_EHierFileSystem@@UAEPAXI@Z
-    0x560620 | public: virtual void * __thiscall HierFileSystem::`scalar deleting destructor'(unsigned int) | ??_GHierFileSystem@@UAEPAXI@Z
-    0x621968 | const HierFileSystem::`vftable' | ??_7HierFileSystem@@6B@
-    0x907B40 | char * HierPrefix | ?HierPrefix@@3PADA
-    0x907BC8 | class HierFileSystem HFS | ?HFS@@3VHierFileSystem@@A
-    0x907BD0 | char * HierAllowPath | ?HierAllowPath@@3PADA
-    0x907BD4 | int LogOpenOn | ?LogOpenOn@@3HA
-*/
-
 #include "fsystem.h"
 
 class HierFileSystem final : public FileSystem

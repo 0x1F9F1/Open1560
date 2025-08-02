@@ -18,23 +18,6 @@
 
 #pragma once
 
-/*
-    mmwidget:toggle
-
-    0x4C0370 | public: __thiscall mmToggle::mmToggle(void) | ??0mmToggle@@QAE@XZ
-    0x4C0390 | public: virtual __thiscall mmToggle::~mmToggle(void) | ??1mmToggle@@UAE@XZ
-    0x4C03F0 | public: void __thiscall mmToggle::Init(char *,float,float,float,float) | ?Init@mmToggle@@QAEXPADMMMM@Z
-    0x4C0490 | private: void __thiscall mmToggle::LoadBitmap(char *) | ?LoadBitmap@mmToggle@@AAEXPAD@Z
-    0x4C04E0 | private: void __thiscall mmToggle::SetSize(float,float) | ?SetSize@mmToggle@@AAEXMM@Z
-    0x4C0590 | public: virtual void __thiscall mmToggle::Update(void) | ?Update@mmToggle@@UAEXXZ
-    0x4C05B0 | public: virtual void __thiscall mmToggle::Cull(void) | ?Cull@mmToggle@@UAEXXZ
-    0x4C0630 | public: static void __cdecl mmToggle::DeclareFields(void) | ?DeclareFields@mmToggle@@SAXXZ
-    0x4C07A0 | public: virtual class MetaClass * __thiscall mmToggle::GetClass(void) | ?GetClass@mmToggle@@UAEPAVMetaClass@@XZ
-    0x4C07B0 | public: virtual void * __thiscall mmToggle::`vector deleting destructor'(unsigned int) | ??_EmmToggle@@UAEPAXI@Z
-    0x61F270 | const mmToggle::`vftable' | ??_7mmToggle@@6B@
-    0x705D18 | class MetaClass mmToggleMetaClass | ?mmToggleMetaClass@@3VMetaClass@@A
-*/
-
 #include "arts7/node.h"
 
 class mmToggle final : public asNode

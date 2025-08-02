@@ -18,36 +18,6 @@
 
 #pragma once
 
-/*
-    mmanim:boat
-
-    0x4C7120 | public: __thiscall mmBoat::mmBoat(void) | ??0mmBoat@@QAE@XZ
-    0x4C7200 | public: virtual __thiscall mmBoat::~mmBoat(void) | ??1mmBoat@@UAE@XZ
-    0x4C7270 | public: void __thiscall mmBoat::Init(int,char *,char *,class Vector3 *,int,int,float *) | ?Init@mmBoat@@QAEXHPAD0PAVVector3@@HHPAM@Z
-    0x4C7570 | public: virtual void __thiscall mmBoat::Reset(void) | ?Reset@mmBoat@@UAEXXZ
-    0x4C75D0 | public: virtual void __thiscall mmBoat::Update(void) | ?Update@mmBoat@@UAEXXZ
-    0x4C7600 | public: void __thiscall mmBoat::UpdatePathPosition(void) | ?UpdatePathPosition@mmBoat@@QAEXXZ
-    0x4C7650 | public: void __thiscall mmBoat::SetPathSpeed(void) | ?SetPathSpeed@mmBoat@@QAEXXZ
-    0x4C7670 | public: void __thiscall mmBoat::SetRock(float,float) | ?SetRock@mmBoat@@QAEXMM@Z
-    0x4C76A0 | public: void __thiscall mmBoat::ReverseCalcPathSpeed(void) | ?ReverseCalcPathSpeed@mmBoat@@QAEXXZ
-    0x4C76C0 | public: void __thiscall mmBoat::SolvePosition(class Vector3 &,float &) | ?SolvePosition@mmBoat@@QAEXAAVVector3@@AAM@Z
-    0x4C77A0 | public: void __thiscall mmBoat::AdjustPhaseOffsets(void) | ?AdjustPhaseOffsets@mmBoat@@QAEXXZ
-    0x4C7820 | public: virtual void __thiscall mmBoat::AddWidgets(class Bank *) | ?AddWidgets@mmBoat@@UAEXPAVBank@@@Z
-    0x4C7910 | public: void __thiscall mmBoat::CalculateCubics(int) | ?CalculateCubics@mmBoat@@QAEXH@Z
-    0x4C7B20 | public: void __thiscall mmBoat::SolveVector(float,class Vector3 &,class Vector3 &) | ?SolveVector@mmBoat@@QAEXMAAVVector3@@0@Z
-    0x4C7C90 | public: void __thiscall mmBoat::ComputeXZCurve(class Vector3 &,class Vector3 &,class Vector3 &,class Vector3 &) | ?ComputeXZCurve@mmBoat@@QAEXAAVVector3@@000@Z
-    0x4C7D80 | public: void __thiscall mmBoat::SolveXZCurve(class Vector3 &,class Vector3 &,float) | ?SolveXZCurve@mmBoat@@QAEXAAVVector3@@0M@Z
-    0x4C7E50 | public: static void __cdecl mmBoat::DeclareFields(void) | ?DeclareFields@mmBoat@@SAXXZ
-    0x4C7FC0 | public: virtual class MetaClass * __thiscall mmBoat::GetClass(void) | ?GetClass@mmBoat@@UAEPAVMetaClass@@XZ
-    0x4C7FD0 | public: virtual void * __thiscall mmBoat::`vector deleting destructor'(unsigned int) | ??_EmmBoat@@UAEPAXI@Z
-    0x61F5F8 | const mmBoat::`vftable' | ??_7mmBoat@@6B@
-    0x642808 | float * cb | ?cb@@3PAMA
-    0x642848 | float GSFDef | ?GSFDef@@3MA
-    0x705F08 | class MetaClass mmBoatMetaClass | ?mmBoatMetaClass@@3VMetaClass@@A
-    0x705F30 | class Matrix44 _Hermite | ?_Hermite@@3VMatrix44@@A
-    0x705F70 | class Matrix44 CatmullBasis | ?CatmullBasis@@3VMatrix44@@A
-*/
-
 #include "arts7/node.h"
 
 class mmBoat final : public asNode

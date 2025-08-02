@@ -18,29 +18,6 @@
 
 #pragma once
 
-/*
-    arts7:form
-
-    0x528390 | public: __thiscall asForm::asForm(void) | ??0asForm@@QAE@XZ
-    0x5283C0 | public: virtual __thiscall asForm::~asForm(void) | ??1asForm@@UAE@XZ
-    0x528420 | public: void __thiscall asForm::SetDLP(class DLP *) | ?SetDLP@asForm@@QAEXPAVDLP@@@Z
-    0x528450 | public: void __thiscall asForm::SetShape(char *,char *,class Vector3 *,int,int) | ?SetShape@asForm@@QAEXPAD0PAVVector3@@HH@Z
-    0x5284D0 | public: void __thiscall asForm::SetCull(int,float) | ?SetCull@asForm@@QAEXHM@Z
-    0x5284F0 | public: virtual void __thiscall asForm::Update(void) | ?Update@asForm@@UAEXXZ
-    0x528520 | public: virtual void __thiscall asForm::Cull(void) | ?Cull@asForm@@UAEXXZ
-    0x528600 | public: int __thiscall asForm::Visible(class asCamera *,class Matrix34 const &) const | ?Visible@asForm@@QBEHPAVasCamera@@ABVMatrix34@@@Z
-    0x5287D0 | public: class Vector3 __thiscall asForm::GetBoundMin(void) | ?GetBoundMin@asForm@@QAE?AVVector3@@XZ
-    0x528820 | public: class Vector3 __thiscall asForm::GetBoundMax(void) | ?GetBoundMax@asForm@@QAE?AVVector3@@XZ
-    0x528870 | public: class Vector4 __thiscall asForm::GetBoundSphere(void) | ?GetBoundSphere@asForm@@QAE?AVVector4@@XZ
-    0x5288D0 | public: void __thiscall asForm::FileIO(class MiniParser *) | ?FileIO@asForm@@QAEXPAVMiniParser@@@Z
-    0x5288E0 | public: virtual void __thiscall asForm::AddWidgets(class Bank *) | ?AddWidgets@asForm@@UAEXPAVBank@@@Z
-    0x5289D0 | public: static void __cdecl asForm::DeclareFields(void) | ?DeclareFields@asForm@@SAXXZ
-    0x528B40 | public: virtual class MetaClass * __thiscall asForm::GetClass(void) | ?GetClass@asForm@@UAEPAVMetaClass@@XZ
-    0x528B50 | public: virtual void * __thiscall asForm::`vector deleting destructor'(unsigned int) | ??_EasForm@@UAEPAXI@Z
-    0x620D10 | const asForm::`vftable' | ??_7asForm@@6B@
-    0x790930 | class MetaClass asFormMetaClass | ?asFormMetaClass@@3VMetaClass@@A
-*/
-
 #include "node.h"
 
 class asCamera;

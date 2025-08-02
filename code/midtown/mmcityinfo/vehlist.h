@@ -18,24 +18,6 @@
 
 #pragma once
 
-/*
-    mmcityinfo:vehlist
-
-    0x4CC080 | public: __thiscall mmVehList::mmVehList(void) | ??0mmVehList@@QAE@XZ
-    0x4CC0A0 | public: virtual __thiscall mmVehList::~mmVehList(void) | ??1mmVehList@@UAE@XZ
-    0x4CC100 | public: void __thiscall mmVehList::Init(int) | ?Init@mmVehList@@QAEXH@Z
-    0x4CC110 | public: class mmVehInfo * __thiscall mmVehList::GetVehicleInfo(int) | ?GetVehicleInfo@mmVehList@@QAEPAVmmVehInfo@@H@Z
-    0x4CC140 | public: class mmVehInfo * __thiscall mmVehList::GetVehicleInfo(char *) | ?GetVehicleInfo@mmVehList@@QAEPAVmmVehInfo@@PAD@Z
-    0x4CC1C0 | public: int __thiscall mmVehList::GetVehicleID(char *) | ?GetVehicleID@mmVehList@@QAEHPAD@Z
-    0x4CC240 | public: void __thiscall mmVehList::Load(char *) | ?Load@mmVehList@@QAEXPAD@Z
-    0x4CC370 | public: void __thiscall mmVehList::Print(void) | ?Print@mmVehList@@QAEXXZ
-    0x4CC3C0 | public: void __thiscall mmVehList::LoadAll(void) | ?LoadAll@mmVehList@@QAEXXZ
-    0x4CC460 | public: virtual void * __thiscall mmVehList::`vector deleting destructor'(unsigned int) | ??_EmmVehList@@UAEPAXI@Z
-    0x4CC460 | public: virtual void * __thiscall mmVehList::`scalar deleting destructor'(unsigned int) | ??_GmmVehList@@UAEPAXI@Z
-    0x61F8B0 | const mmVehList::`vftable' | ??_7mmVehList@@6B@
-    0x7084EC | class mmVehList * VehicleListPtr | ?VehicleListPtr@@3PAVmmVehList@@A
-*/
-
 #include "vehinfo.h"
 
 class mmVehList final

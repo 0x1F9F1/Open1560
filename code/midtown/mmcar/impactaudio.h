@@ -18,28 +18,6 @@
 
 #pragma once
 
-/*
-    mmcar:impactaudio
-
-    0x484750 | public: __thiscall mmImpactAudio::mmImpactAudio(class mmCarSim *,class Vector3 *) | ??0mmImpactAudio@@QAE@PAVmmCarSim@@PAVVector3@@@Z
-    0x484D80 | public: __thiscall mmImpactAudio::~mmImpactAudio(void) | ??1mmImpactAudio@@QAE@XZ
-    0x484E60 | public: void __thiscall mmImpactAudio::EchoOn(class mmCarSim *) | ?EchoOn@mmImpactAudio@@QAEXPAVmmCarSim@@@Z
-    0x484E70 | public: void __thiscall mmImpactAudio::EchoOff(class mmCarSim *) | ?EchoOff@mmImpactAudio@@QAEXPAVmmCarSim@@@Z
-    0x484E80 | public: void __thiscall mmImpactAudio::Play(float,short,float,float) | ?Play@mmImpactAudio@@QAEXMFMM@Z
-    0x484F10 | public: void __thiscall mmImpactAudio::PlayWall(float,float,float) | ?PlayWall@mmImpactAudio@@QAEXMMM@Z
-    0x485010 | public: void __thiscall mmImpactAudio::PlayCar(float) | ?PlayCar@mmImpactAudio@@QAEXM@Z
-    0x485020 | public: void __thiscall mmImpactAudio::GetBangerPtrs(short,class AudSound * *,class AudSound * *) | ?GetBangerPtrs@mmImpactAudio@@QAEXFPAPAVAudSound@@0@Z
-    0x4852A0 | public: void __thiscall mmImpactAudio::PlayBanger(float,short) | ?PlayBanger@mmImpactAudio@@QAEXMF@Z
-    0x4853E0 | public: void __thiscall mmImpactAudio::SetWallSoftVolumeRange(float,float) | ?SetWallSoftVolumeRange@mmImpactAudio@@QAEXMM@Z
-    0x485400 | public: void __thiscall mmImpactAudio::SetWallSoftVolumeMultiplier(float) | ?SetWallSoftVolumeMultiplier@mmImpactAudio@@QAEXM@Z
-    0x485420 | public: void __thiscall mmImpactAudio::SetWallMedVolumeRange(float,float) | ?SetWallMedVolumeRange@mmImpactAudio@@QAEXMM@Z
-    0x485440 | public: void __thiscall mmImpactAudio::SetWallMedVolumeMultiplier(float) | ?SetWallMedVolumeMultiplier@mmImpactAudio@@QAEXM@Z
-    0x485460 | public: void __thiscall mmImpactAudio::SetWallHugeVolumeRange(float,float) | ?SetWallHugeVolumeRange@mmImpactAudio@@QAEXMM@Z
-    0x485480 | public: void __thiscall mmImpactAudio::SetWallHugeVolumeMultiplier(float) | ?SetWallHugeVolumeMultiplier@mmImpactAudio@@QAEXM@Z
-    0x4854A0 | public: void __thiscall mmImpactAudio::SetBangerVolumeRange(float,float,float,short) | ?SetBangerVolumeRange@mmImpactAudio@@QAEXMMMF@Z
-    0x485530 | public: void __thiscall mmImpactAudio::Update(void) | ?Update@mmImpactAudio@@QAEXXZ
-*/
-
 class AudSound;
 class mmCarSim;
 

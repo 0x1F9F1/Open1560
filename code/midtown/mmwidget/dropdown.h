@@ -18,27 +18,6 @@
 
 #pragma once
 
-/*
-    mmwidget:dropdown
-
-    0x4C0810 | public: __thiscall mmDropDown::mmDropDown(void) | ??0mmDropDown@@QAE@XZ
-    0x4C0870 | public: virtual __thiscall mmDropDown::~mmDropDown(void) | ??1mmDropDown@@UAE@XZ
-    0x4C08F0 | public: void __thiscall mmDropDown::Init(class asCamera *,void *,float,float,float,float,class string,int) | ?Init@mmDropDown@@QAEXPAVasCamera@@PAXMMMMVstring@@H@Z
-    0x4C09F0 | public: void __thiscall mmDropDown::InitString(class string) | ?InitString@mmDropDown@@QAEXVstring@@@Z
-    0x4C0C70 | private: void __thiscall mmDropDown::SetString(class string) | ?SetString@mmDropDown@@AAEXVstring@@@Z
-    0x4C0D60 | public: void __thiscall mmDropDown::GetCurrentString(char *,int) | ?GetCurrentString@mmDropDown@@QAEXPADH@Z
-    0x4C0DB0 | public: void __thiscall mmDropDown::SetDisabledColors(void) | ?SetDisabledColors@mmDropDown@@QAEXXZ
-    0x4C0E30 | public: int __thiscall mmDropDown::FindFirstEnabled(void) | ?FindFirstEnabled@mmDropDown@@QAEHXZ
-    0x4C0E60 | public: void __thiscall mmDropDown::SetHighlight(int) | ?SetHighlight@mmDropDown@@QAEXH@Z
-    0x4C0EC0 | public: int __thiscall mmDropDown::GetHit(float,float) | ?GetHit@mmDropDown@@QAEHMM@Z
-    0x4C0F20 | public: virtual void __thiscall mmDropDown::Update(void) | ?Update@mmDropDown@@UAEXXZ
-    0x4C0F30 | public: static void __cdecl mmDropDown::DeclareFields(void) | ?DeclareFields@mmDropDown@@SAXXZ
-    0x4C10A0 | public: virtual class MetaClass * __thiscall mmDropDown::GetClass(void) | ?GetClass@mmDropDown@@UAEPAVMetaClass@@XZ
-    0x4C10B0 | public: virtual void * __thiscall mmDropDown::`vector deleting destructor'(unsigned int) | ??_EmmDropDown@@UAEPAXI@Z
-    0x61F2B8 | const mmDropDown::`vftable' | ??_7mmDropDown@@6B@
-    0x705D40 | class MetaClass mmDropDownMetaClass | ?mmDropDownMetaClass@@3VMetaClass@@A
-*/
-
 #include "arts7/node.h"
 #include "data7/str.h"
 

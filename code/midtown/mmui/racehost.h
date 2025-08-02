@@ -18,19 +18,6 @@
 
 #pragma once
 
-/*
-    mmui:racehost
-
-    0x4A2B60 | public: __thiscall HostRaceMenu::HostRaceMenu(int) | ??0HostRaceMenu@@QAE@H@Z
-    0x4A2C30 | public: virtual __thiscall HostRaceMenu::~HostRaceMenu(void) | ??1HostRaceMenu@@UAE@XZ
-    0x4A2C40 | public: void __thiscall HostRaceMenu::EnableStart(void) | ?EnableStart@HostRaceMenu@@QAEXXZ
-    0x4A2C50 | public: void __thiscall HostRaceMenu::DisableStart(void) | ?DisableStart@HostRaceMenu@@QAEXXZ
-    0x4A2C60 | public: virtual void __thiscall HostRaceMenu::UsesLobby(int) | ?UsesLobby@HostRaceMenu@@UAEXH@Z
-    0x4A2C70 | public: virtual void * __thiscall HostRaceMenu::`scalar deleting destructor'(unsigned int) | ??_GHostRaceMenu@@UAEPAXI@Z
-    0x4A2C70 | public: virtual void * __thiscall HostRaceMenu::`vector deleting destructor'(unsigned int) | ??_EHostRaceMenu@@UAEPAXI@Z
-    0x61D930 | const HostRaceMenu::`vftable' | ??_7HostRaceMenu@@6B@
-*/
-
 #include "racebase.h"
 
 class HostRaceMenu final : public RaceMenuBase

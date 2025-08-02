@@ -18,13 +18,6 @@
 
 #pragma once
 
-/*
-    agi:mtllib
-
-    0x55B9B0 | public: __thiscall agiLib<class agiMtlParameters,class agiMtlDef>::agiLib<class agiMtlParameters,class agiMtlDef>(void) | ??0?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAE@XZ
-    0x903198 | class agiLib<class agiMtlParameters,class agiMtlDef> agiMtlLib | ?agiMtlLib@@3V?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@A
-*/
-
 #include "agilib.h"
 
 #include "mtldef.h"

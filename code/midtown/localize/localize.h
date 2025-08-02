@@ -18,13 +18,6 @@
 
 #pragma once
 
-/*
-    localize:localize
-
-    0x520010 | char * __cdecl GetLocTime(float) | ?GetLocTime@@YAPADM@Z
-    0x5200D0 | struct LocString * __cdecl AngelReadString(unsigned int) | ?AngelReadString@@YAPAULocString@@I@Z
-*/
-
 #include "string_ids.h"
 
 // 0 | Use builtin strings

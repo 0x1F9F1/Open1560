@@ -18,12 +18,6 @@
 
 #pragma once
 
-/*
-    mmdjpeg:jddctmgr
-
-    0x5825E0 | void __cdecl jinit_inverse_dct(struct jpeg_decompress_struct *) | ?jinit_inverse_dct@@YAXPAUjpeg_decompress_struct@@@Z
-*/
-
 struct jpeg_decompress_struct;
 
 // ?jinit_inverse_dct@@YAXPAUjpeg_decompress_struct@@@Z

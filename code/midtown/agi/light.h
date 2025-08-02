@@ -18,21 +18,6 @@
 
 #pragma once
 
-/*
-    agi:light
-
-    0x55B9E0 | public: __thiscall agiLightParameters::agiLightParameters(void) | ??0agiLightParameters@@QAE@XZ
-    0x55BA60 | public: void __thiscall agiLightParameters::operator=(class agiLightParameters const &) | ??4agiLightParameters@@QAEXABV0@@Z
-    0x55BA80 | public: __thiscall agiLight::agiLight(class agiPipeline *) | ??0agiLight@@QAE@PAVagiPipeline@@@Z
-    0x55BAD0 | public: int __thiscall agiLight::Init(class agiLightParameters const &) | ?Init@agiLight@@QAEHABVagiLightParameters@@@Z
-    0x55BB00 | public: virtual void __thiscall agiLight::Remove(void) | ?Remove@agiLight@@UAEXXZ
-    0x55BB10 | public: virtual __thiscall agiLight::~agiLight(void) | ??1agiLight@@UAE@XZ
-    0x55BB20 | public: virtual char * __thiscall agiLight::GetName(void) | ?GetName@agiLight@@UAEPADXZ
-    0x55BB40 | public: virtual void * __thiscall agiLight::`scalar deleting destructor'(unsigned int) | ??_GagiLight@@UAEPAXI@Z
-    0x55BB40 | public: virtual void * __thiscall agiLight::`vector deleting destructor'(unsigned int) | ??_EagiLight@@UAEPAXI@Z
-    0x621720 | const agiLight::`vftable' | ??_7agiLight@@6B@
-*/
-
 #include "refresh.h"
 
 #include "vector7/vector3.h"

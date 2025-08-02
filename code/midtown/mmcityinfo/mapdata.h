@@ -18,23 +18,6 @@
 
 #pragma once
 
-/*
-    mmcityinfo:mapdata
-
-    0x4D3270 | public: __thiscall mmMapData::mmMapData(void) | ??0mmMapData@@QAE@XZ
-    0x4D3290 | public: virtual __thiscall mmMapData::~mmMapData(void) | ??1mmMapData@@UAE@XZ
-    0x4D32F0 | public: void __thiscall mmMapData::NewItems(int) | ?NewItems@mmMapData@@QAEXH@Z
-    0x4D3320 | public: void __thiscall mmMapData::SetItem(int,char *) | ?SetItem@mmMapData@@QAEXHPAD@Z
-    0x4D3340 | public: char * __thiscall mmMapData::GetItem(int) | ?GetItem@mmMapData@@QAEPADH@Z
-    0x4D3370 | public: int __thiscall mmMapData::GetNumItems(void) | ?GetNumItems@mmMapData@@QAEHXZ
-    0x4D3380 | public: void __thiscall mmMapData::Append(char *) | ?Append@mmMapData@@QAEXPAD@Z
-    0x4D3400 | public: static void __cdecl mmMapData::DeclareFields(void) | ?DeclareFields@mmMapData@@SAXXZ
-    0x4D35B0 | public: virtual class MetaClass * __thiscall mmMapData::GetClass(void) | ?GetClass@mmMapData@@UAEPAVMetaClass@@XZ
-    0x4D35C0 | public: virtual void * __thiscall mmMapData::`vector deleting destructor'(unsigned int) | ??_EmmMapData@@UAEPAXI@Z
-    0x61F930 | const mmMapData::`vftable' | ??_7mmMapData@@6B@
-    0x708690 | class MetaClass mmMapDataMetaClass | ?mmMapDataMetaClass@@3VMetaClass@@A
-*/
-
 #include "infobase.h"
 
 class mmMapData final : public mmInfoBase

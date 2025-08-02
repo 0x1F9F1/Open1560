@@ -18,26 +18,6 @@
 
 #pragma once
 
-/*
-    mmwidget:compcr
-
-    0x4B7310 | public: __thiscall mmCompCRPlayer::mmCompCRPlayer(void) | ??0mmCompCRPlayer@@QAE@XZ
-    0x4B7340 | public: virtual __thiscall mmCompCRPlayer::~mmCompCRPlayer(void) | ??1mmCompCRPlayer@@UAE@XZ
-    0x4B73D0 | public: void __thiscall mmCompCRPlayer::Init(char *,int,char *,int,int) | ?Init@mmCompCRPlayer@@QAEXPADH0HH@Z
-    0x4B7500 | public: void __thiscall mmCompCRPlayer::InitTitle(float,float,float,float,struct LocString *,struct LocString *,struct LocString *,struct LocString *,int) | ?InitTitle@mmCompCRPlayer@@QAEXMMMMPAULocString@@000H@Z
-    0x4B7510 | public: void __thiscall mmCompCRPlayer::LoadBitmap(char *) | ?LoadBitmap@mmCompCRPlayer@@QAEXPAD@Z
-    0x4B7570 | public: virtual void __thiscall mmCompCRPlayer::Reset(void) | ?Reset@mmCompCRPlayer@@UAEXXZ
-    0x4B7580 | public: virtual void __thiscall mmCompCRPlayer::Update(void) | ?Update@mmCompCRPlayer@@UAEXXZ
-    0x4B7590 | public: void __thiscall mmCompCRPlayer::SetPoints(int) | ?SetPoints@mmCompCRPlayer@@QAEXH@Z
-    0x4B75B0 | public: void __thiscall mmCompCRPlayer::SetSubwidgetGeometry(void) | ?SetSubwidgetGeometry@mmCompCRPlayer@@QAEXXZ
-    0x4B76B0 | public: virtual void __thiscall mmCompCRPlayer::SetPosition(class mmTextNode *,int,float) | ?SetPosition@mmCompCRPlayer@@UAEXPAVmmTextNode@@HM@Z
-    0x4B7740 | public: virtual void __thiscall mmCompCRPlayer::SetGeometry(float,float,float,float) | ?SetGeometry@mmCompCRPlayer@@UAEXMMMM@Z
-    0x4B7770 | public: virtual void __thiscall mmCompCRPlayer::Cull(void) | ?Cull@mmCompCRPlayer@@UAEXXZ
-    0x4B7810 | public: virtual void * __thiscall mmCompCRPlayer::`scalar deleting destructor'(unsigned int) | ??_GmmCompCRPlayer@@UAEPAXI@Z
-    0x4B7810 | public: virtual void * __thiscall mmCompCRPlayer::`vector deleting destructor'(unsigned int) | ??_EmmCompCRPlayer@@UAEPAXI@Z
-    0x61E8F8 | const mmCompCRPlayer::`vftable' | ??_7mmCompCRPlayer@@6B@
-*/
-
 #include "compbase.h"
 
 class mmCompCRPlayer final : public mmCompBase

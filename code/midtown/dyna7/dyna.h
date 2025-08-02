@@ -18,34 +18,6 @@
 
 #pragma once
 
-/*
-    dyna7:dyna
-
-    0x64E358 | int DynaDrawMode | ?DynaDrawMode@@3HA
-    0x64E35C | float DynaDrawScale | ?DynaDrawScale@@3MA
-    0x790CD8 | class Vector3 CollTestColor | ?CollTestColor@@3VVector3@@A
-    0x790CE8 | class Vector3 PushColor | ?PushColor@@3VVector3@@A
-    0x790CF8 | class Vector3 NormalColor | ?NormalColor@@3VVector3@@A
-    0x790D08 | class Vector3 TestColor | ?TestColor@@3VVector3@@A
-    0x790D18 | class Vector3 CloseColor | ?CloseColor@@3VVector3@@A
-    0x790D28 | class Vector3 SpringColor | ?SpringColor@@3VVector3@@A
-    0x790D38 | class Vector3 TorqueColor | ?TorqueColor@@3VVector3@@A
-    0x790D48 | class Vector3 ForceColor | ?ForceColor@@3VVector3@@A
-    0x790D58 | class Vector3 HitColor | ?HitColor@@3VVector3@@A
-    0x790D68 | class Vector3 FluidColor | ?FluidColor@@3VVector3@@A
-    0x790D78 | class Vector3 ImpulseColor | ?ImpulseColor@@3VVector3@@A
-    0x790D88 | class Vector3 MissColor | ?MissColor@@3VVector3@@A
-    0x790D98 | class Vector3 VolumeColor | ?VolumeColor@@3VVector3@@A
-    0x790DA4 | int SphVSph | ?SphVSph@@3HA
-    0x790DA8 | int SphVCyl | ?SphVCyl@@3HA
-    0x790DAC | int SphVPoly | ?SphVPoly@@3HA
-    0x790DB0 | int SphVCPoly | ?SphVCPoly@@3HA
-    0x790DB4 | int SegVSph | ?SegVSph@@3HA
-    0x790DB8 | int SegVCyl | ?SegVCyl@@3HA
-    0x790DBC | int SegVPoly | ?SegVPoly@@3HA
-    0x790DC0 | int SegVCPoly | ?SegVCPoly@@3HA
-*/
-
 // ?CloseColor@@3VVector3@@A
 ARTS_IMPORT extern Vector3 CloseColor;
 

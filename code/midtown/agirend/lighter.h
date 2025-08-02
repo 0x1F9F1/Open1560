@@ -18,49 +18,6 @@
 
 #pragma once
 
-/*
-    agirend:lighter
-
-    0x551740 | public: __thiscall agiLighter::agiLighter(void) | ??0agiLighter@@QAE@XZ
-    0x551750 | protected: virtual __thiscall agiLighter::~agiLighter(void) | ??1agiLighter@@MAE@XZ
-    0x551760 | public: static void __cdecl agiLighter::BeginScene(void) | ?BeginScene@agiLighter@@SAXXZ
-    0x551780 | public: static void __cdecl agiLighter::DeclareLight(class agiLight *) | ?DeclareLight@agiLighter@@SAXPAVagiLight@@@Z
-    0x5517A0 | public: static void __cdecl agiLighter::RemoveLight(class agiLight *) | ?RemoveLight@agiLighter@@SAXPAVagiLight@@@Z
-    0x551800 | public: virtual void __thiscall agiLighter::TransformAll(class Matrix34 *,class Vector3 *,unsigned int) | ?TransformAll@agiLighter@@UAEXPAVMatrix34@@PAVVector3@@I@Z
-    0x5519F0 | public: __thiscall agiMonoLighter::agiMonoLighter(void) | ??0agiMonoLighter@@QAE@XZ
-    0x551A10 | public: virtual __thiscall agiMonoLighter::~agiMonoLighter(void) | ??1agiMonoLighter@@UAE@XZ
-    0x551A20 | public: virtual unsigned int __thiscall agiMonoLighter::LightVertex(unsigned int,struct agiLitVtx *,class Vector3 *) | ?LightVertex@agiMonoLighter@@UAEIIPAUagiLitVtx@@PAVVector3@@@Z
-    0x551E40 | public: __thiscall agiRGBLighter::agiRGBLighter(void) | ??0agiRGBLighter@@QAE@XZ
-    0x551E60 | public: virtual __thiscall agiRGBLighter::~agiRGBLighter(void) | ??1agiRGBLighter@@UAE@XZ
-    0x551E70 | public: virtual unsigned int __thiscall agiRGBLighter::LightVertex(unsigned int,struct agiLitVtx *,class Vector3 *) | ?LightVertex@agiRGBLighter@@UAEIIPAUagiLitVtx@@PAVVector3@@@Z
-    0x552420 | protected: virtual void * __thiscall agiLighter::`scalar deleting destructor'(unsigned int) | ??_GagiLighter@@MAEPAXI@Z
-    0x552420 | protected: virtual void * __thiscall agiLighter::`vector deleting destructor'(unsigned int) | ??_EagiLighter@@MAEPAXI@Z
-    0x552450 | public: virtual void * __thiscall agiMonoLighter::`vector deleting destructor'(unsigned int) | ??_EagiMonoLighter@@UAEPAXI@Z
-    0x552450 | public: virtual void * __thiscall agiMonoLighter::`scalar deleting destructor'(unsigned int) | ??_GagiMonoLighter@@UAEPAXI@Z
-    0x552480 | public: virtual void * __thiscall agiRGBLighter::`vector deleting destructor'(unsigned int) | ??_EagiRGBLighter@@UAEPAXI@Z
-    0x552480 | public: virtual void * __thiscall agiRGBLighter::`scalar deleting destructor'(unsigned int) | ??_GagiRGBLighter@@UAEPAXI@Z
-    0x621458 | const agiLighter::`vftable' | ??_7agiLighter@@6B@
-    0x621468 | const agiMonoLighter::`vftable' | ??_7agiMonoLighter@@6B@
-    0x621478 | const agiRGBLighter::`vftable' | ??_7agiRGBLighter@@6B@
-    0x7E0020 | class agiRGBLighter RGBLIGHTER | ?RGBLIGHTER@@3VagiRGBLighter@@A
-    0x7E0028 | public: static char * agiLighter::Positional | ?Positional@agiLighter@@2PADA
-    0x7E0038 | public: static class agiShadowMap * agiLighter::ShadowMap | ?ShadowMap@agiLighter@@2PAVagiShadowMap@@A
-    0x7E0040 | public: static class agiLight * * agiLighter::LIGHTS | ?LIGHTS@agiLighter@@2PAPAVagiLight@@A
-    0x7E0080 | public: static char * agiLighter::Attenuate | ?Attenuate@agiLighter@@2PADA
-    0x7E0090 | public: static class Vector3 agiLighter::Eye | ?Eye@agiLighter@@2VVector3@@A
-    0x7E009C | public: static int agiLighter::Current | ?Current@agiLighter@@2HA
-    0x7E00A0 | public: static int agiLighter::SceneCurrent | ?SceneCurrent@agiLighter@@2HA
-    0x7E00A4 | public: static class agiLightModel * agiLighter::LMODEL | ?LMODEL@agiLighter@@2PAVagiLightModel@@A
-    0x7E00A8 | public: static int agiLighter::LocalViewer | ?LocalViewer@agiLighter@@2HA
-    0x7E00B0 | public: static class Vector3 * agiLighter::Pos | ?Pos@agiLighter@@2PAVVector3@@A
-    0x7E0170 | public: static class agiLight * * agiLighter::ACTIVELIGHTS | ?ACTIVELIGHTS@agiLighter@@2PAPAVagiLight@@A
-    0x7E01B0 | public: static class Vector3 * agiLighter::Dir | ?Dir@agiLighter@@2PAVVector3@@A
-    0x7E0270 | public: static float * agiLighter::CosSpread | ?CosSpread@agiLighter@@2PAMA
-    0x7E02B0 | public: static int agiLighter::SceneActive | ?SceneActive@agiLighter@@2HA
-    0x7E02B4 | class agiMonoLighter MONOLIGHTER | ?MONOLIGHTER@@3VagiMonoLighter@@A
-    0x7E02B8 | public: static class Vector3 agiLighter::SceneAmbient | ?SceneAmbient@agiLighter@@2VVector3@@A
-*/
-
 class agiLight;
 class agiLightModel;
 struct agiLitVtx;

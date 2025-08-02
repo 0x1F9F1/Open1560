@@ -18,30 +18,6 @@
 
 #pragma once
 
-/*
-    mmcar:policecaraudio
-
-    0x47A800 | public: __thiscall mmPoliceCarAudio::mmPoliceCarAudio(class mmCarSim *,float) | ??0mmPoliceCarAudio@@QAE@PAVmmCarSim@@M@Z
-    0x47A8E0 | public: virtual __thiscall mmPoliceCarAudio::~mmPoliceCarAudio(void) | ??1mmPoliceCarAudio@@UAE@XZ
-    0x47A8F0 | public: int __thiscall mmPoliceCarAudio::ExplosionIsPlaying(void) | ?ExplosionIsPlaying@mmPoliceCarAudio@@QAEHXZ
-    0x47A910 | public: void __thiscall mmPoliceCarAudio::StartSiren(void) | ?StartSiren@mmPoliceCarAudio@@QAEXXZ
-    0x47A9C0 | public: void __thiscall mmPoliceCarAudio::StopSiren(void) | ?StopSiren@mmPoliceCarAudio@@QAEXXZ
-    0x47AA20 | public: void __thiscall mmPoliceCarAudio::PlayExplosion(void) | ?PlayExplosion@mmPoliceCarAudio@@QAEXXZ
-    0x47AAD0 | public: void __thiscall mmPoliceCarAudio::DamageSiren(void) | ?DamageSiren@mmPoliceCarAudio@@QAEXXZ
-    0x47AC30 | public: void __thiscall mmPoliceCarAudio::Update(int,float,float) | ?Update@mmPoliceCarAudio@@QAEXHMM@Z
-    0x47AD50 | private: void __thiscall mmPoliceCarAudio::FluctuateSlowSiren(void) | ?FluctuateSlowSiren@mmPoliceCarAudio@@AAEXXZ
-    0x47AFE0 | private: void __thiscall mmPoliceCarAudio::FluctuateFastSiren(void) | ?FluctuateFastSiren@mmPoliceCarAudio@@AAEXXZ
-    0x47B400 | public: void __thiscall mmPoliceCarAudio::UpdateDoppler(void) | ?UpdateDoppler@mmPoliceCarAudio@@QAEXXZ
-    0x47B410 | public: void __thiscall mmPoliceCarAudio::UpdateDoppler(float) | ?UpdateDoppler@mmPoliceCarAudio@@QAEXM@Z
-    0x47B600 | public: void __thiscall mmPoliceCarAudio::PlayVoice(void) | ?PlayVoice@mmPoliceCarAudio@@QAEXXZ
-    0x47B6A0 | public: void __thiscall mmPoliceCarAudio::AssignSounds(class AudSound *,class AudSound *,class AudSound *,class AudSound *,class mmOpponentImpactAudio *,class AudSound *) | ?AssignSounds@mmPoliceCarAudio@@QAEXPAVAudSound@@000PAVmmOpponentImpactAudio@@0@Z
-    0x47B770 | public: void __thiscall mmPoliceCarAudio::UnAssignSounds(void) | ?UnAssignSounds@mmPoliceCarAudio@@QAEXXZ
-    0x47B920 | public: virtual void * __thiscall mmPoliceCarAudio::`scalar deleting destructor'(unsigned int) | ??_GmmPoliceCarAudio@@UAEPAXI@Z
-    0x47B920 | public: virtual void * __thiscall mmPoliceCarAudio::`vector deleting destructor'(unsigned int) | ??_EmmPoliceCarAudio@@UAEPAXI@Z
-    0x61C4A0 | const mmPoliceCarAudio::`vftable' | ??_7mmPoliceCarAudio@@6B@
-    0x6A7FE8 | private: static short mmPoliceCarAudio::s_iPlayingFluctuator | ?s_iPlayingFluctuator@mmPoliceCarAudio@@0FA
-*/
-
 #include "opponentcaraudio.h"
 
 class mmPoliceCarAudio final : public mmOpponentCarAudio

@@ -18,20 +18,6 @@
 
 #pragma once
 
-/*
-    mmcamtour:gamerecord
-
-    0x4FDD70 | public: __thiscall mmGameRecord::mmGameRecord(float) | ??0mmGameRecord@@QAE@M@Z
-    0x4FDDA0 | public: __thiscall mmGameRecord::~mmGameRecord(void) | ??1mmGameRecord@@QAE@XZ
-    0x4FDDE0 | public: void __thiscall mmGameRecord::Init(int) | ?Init@mmGameRecord@@QAEXH@Z
-    0x4FDE50 | public: int __thiscall mmGameRecord::GetCount(void) | ?GetCount@mmGameRecord@@QAEHXZ
-    0x4FDE60 | public: class Vector4 & __thiscall mmGameRecord::GetVector4(int) | ?GetVector4@mmGameRecord@@QAEAAVVector4@@H@Z
-    0x4FDE90 | public: void __thiscall mmGameRecord::Dump(char *) | ?Dump@mmGameRecord@@QAEXPAD@Z
-    0x4FDF90 | public: int __thiscall mmGameRecord::Register(class Vector4 &,float,float,float,float,float,float,float,float) | ?Register@mmGameRecord@@QAEHAAVVector4@@MMMMMMMM@Z
-    0x4FE070 | public: void __thiscall mmGameRecord::DoScan(class Vector4 &) | ?DoScan@mmGameRecord@@QAEXAAVVector4@@@Z
-    0x4FE140 | public: void __thiscall mmGameRecord::Sim(void) | ?Sim@mmGameRecord@@QAEXXZ
-*/
-
 class mmGameRecord
 {
 public:

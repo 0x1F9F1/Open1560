@@ -18,18 +18,6 @@
 
 #pragma once
 
-/*
-    agi:dyndlp
-
-    0x55E5B0 | public: __thiscall DynamicDLP::DynamicDLP(int) | ??0DynamicDLP@@QAE@H@Z
-    0x55E5E0 | protected: virtual __thiscall DynamicDLP::~DynamicDLP(void) | ??1DynamicDLP@@MAE@XZ
-    0x55E600 | public: int __thiscall DynamicDLP::Release(void) | ?Release@DynamicDLP@@QAEHXZ
-    0x55E620 | public: int __thiscall DynamicDLP::InitOffsets(class DLP *,char *) | ?InitOffsets@DynamicDLP@@QAEHPAVDLP@@PAD@Z
-    0x55E880 | protected: virtual void * __thiscall DynamicDLP::`scalar deleting destructor'(unsigned int) | ??_GDynamicDLP@@MAEPAXI@Z
-    0x55E880 | protected: virtual void * __thiscall DynamicDLP::`vector deleting destructor'(unsigned int) | ??_EDynamicDLP@@MAEPAXI@Z
-    0x6218D0 | const DynamicDLP::`vftable' | ??_7DynamicDLP@@6B@
-*/
-
 class DLP;
 
 class DynamicDLP

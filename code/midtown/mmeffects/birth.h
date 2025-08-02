@@ -18,19 +18,6 @@
 
 #pragma once
 
-/*
-    mmeffects:birth
-
-    0x500A00 | public: __thiscall asBirthRule::asBirthRule(void) | ??0asBirthRule@@QAE@XZ
-    0x500AB0 | public: void __thiscall asBirthRule::InitSpark(struct asSparkInfo *,struct asSparkPos *) | ?InitSpark@asBirthRule@@QAEXPAUasSparkInfo@@PAUasSparkPos@@@Z
-    0x500D30 | public: virtual void __thiscall asBirthRule::AddWidgets(class Bank *) | ?AddWidgets@asBirthRule@@UAEXPAVBank@@@Z
-    0x5012A0 | public: static void __cdecl asBirthRule::DeclareFields(void) | ?DeclareFields@asBirthRule@@SAXXZ
-    0x501620 | public: virtual class MetaClass * __thiscall asBirthRule::GetClass(void) | ?GetClass@asBirthRule@@UAEPAVMetaClass@@XZ
-    0x501630 | public: virtual void * __thiscall asBirthRule::`vector deleting destructor'(unsigned int) | ??_EasBirthRule@@UAEPAXI@Z
-    0x620740 | const asBirthRule::`vftable' | ??_7asBirthRule@@6B@
-    0x7195D8 | class MetaClass asBirthRuleMetaClass | ?asBirthRuleMetaClass@@3VMetaClass@@A
-*/
-
 #include "arts7/node.h"
 
 #include "vector7/vector3.h"

@@ -18,45 +18,6 @@
 
 #pragma once
 
-/*
-    mmaudio:audstream
-
-    0x4F35A0 | public: __thiscall AudStream::AudStream(unsigned long,int,short) | ??0AudStream@@QAE@KHF@Z
-    0x4F36E0 | public: virtual __thiscall AudStream::~AudStream(void) | ??1AudStream@@UAE@XZ
-    0x4F37E0 | public: void __thiscall AudStream::SetPriority(int) | ?SetPriority@AudStream@@QAEXH@Z
-    0x4F3800 | public: void __thiscall AudStream::DeallocateStreamObjs(void) | ?DeallocateStreamObjs@AudStream@@QAEXXZ
-    0x4F3890 | public: void __thiscall AudStream::ReallocateStreamObjs(void) | ?ReallocateStreamObjs@AudStream@@QAEXXZ
-    0x4F3910 | public: int __thiscall AudStream::Load(char *,int) | ?Load@AudStream@@QAEHPADH@Z
-    0x4F3AB0 | public: void __thiscall AudStream::Enable(void) | ?Enable@AudStream@@QAEXXZ
-    0x4F3AC0 | public: void __thiscall AudStream::Disable(void) | ?Disable@AudStream@@QAEXXZ
-    0x4F3AE0 | public: virtual void __thiscall AudStream::Reset(void) | ?Reset@AudStream@@UAEXXZ
-    0x4F3B00 | public: virtual void __thiscall AudStream::Update(void) | ?Update@AudStream@@UAEXXZ
-    0x4F3B50 | public: void __thiscall AudStream::SetPlayPosition(unsigned long) | ?SetPlayPosition@AudStream@@QAEXK@Z
-    0x4F3B60 | public: void __thiscall AudStream::PlayOnce(float,float) | ?PlayOnce@AudStream@@QAEXMM@Z
-    0x4F3C10 | public: void __thiscall AudStream::PlayOnce(char *,float,float) | ?PlayOnce@AudStream@@QAEXPADMM@Z
-    0x4F3D20 | public: void __thiscall AudStream::PlayLoop(char *,float,float) | ?PlayLoop@AudStream@@QAEXPADMM@Z
-    0x4F3E40 | public: void __thiscall AudStream::PlayLoop(float,float) | ?PlayLoop@AudStream@@QAEXMM@Z
-    0x4F3EF0 | public: void __thiscall AudStream::Stop(void) | ?Stop@AudStream@@QAEXXZ
-    0x4F3F10 | public: void __thiscall AudStream::StopNow(void) | ?StopNow@AudStream@@QAEXXZ
-    0x4F3F30 | public: void __thiscall AudStream::SetFrequency(float,int) | ?SetFrequency@AudStream@@QAEXMH@Z
-    0x4F3FA0 | public: float __thiscall AudStream::GetFrequency(int) | ?GetFrequency@AudStream@@QAEMH@Z
-    0x4F3FE0 | public: void __thiscall AudStream::SetVolume(float,int) | ?SetVolume@AudStream@@QAEXMH@Z
-    0x4F4050 | public: void __thiscall AudStream::SetPan(float,int) | ?SetPan@AudStream@@QAEXMH@Z
-    0x4F40E0 | public: int __thiscall AudStream::IsPlaying(void) | ?IsPlaying@AudStream@@QAEHXZ
-    0x4F4100 | public: static unsigned long const __cdecl AudStream::Get2DFlags(void) | ?Get2DFlags@AudStream@@SA?BKXZ
-    0x4F4120 | public: static unsigned long const __cdecl AudStream::GetFreqChange2DFlags(void) | ?GetFreqChange2DFlags@AudStream@@SA?BKXZ
-    0x4F4140 | public: class StreamObj * __thiscall AudStream::GetCurrentSoundObj(void) | ?GetCurrentSoundObj@AudStream@@QAEPAVStreamObj@@XZ
-    0x4F4150 | public: void __thiscall AudStream::SetNumLoopIndices(short) | ?SetNumLoopIndices@AudStream@@QAEXF@Z
-    0x4F4180 | public: void __thiscall AudStream::SetLoopIndex(short) | ?SetLoopIndex@AudStream@@QAEXF@Z
-    0x4F41B0 | public: void __thiscall AudStream::SetLoopPointInfo(unsigned long,unsigned long,unsigned int,short,short) | ?SetLoopPointInfo@AudStream@@QAEXKKIFF@Z
-    0x4F41F0 | public: void __thiscall AudStream::SetupNotifications(void) | ?SetupNotifications@AudStream@@QAEXXZ
-    0x4F4210 | public: virtual void * __thiscall AudStream::`scalar deleting destructor'(unsigned int) | ??_GAudStream@@UAEPAXI@Z
-    0x4F4210 | public: virtual void * __thiscall AudStream::`vector deleting destructor'(unsigned int) | ??_EAudStream@@UAEPAXI@Z
-    0x61FF24 | private: static unsigned long const AudStream::s_DWDefault2DCtrlFlags | ?s_DWDefault2DCtrlFlags@AudStream@@0KB
-    0x61FF28 | private: static unsigned long const AudStream::s_DWFreqChange2DCtrlFlags | ?s_DWFreqChange2DCtrlFlags@AudStream@@0KB
-    0x61FF40 | const AudStream::`vftable' | ??_7AudStream@@6B@
-*/
-
 #include "arts7/node.h"
 
 class StreamObj;

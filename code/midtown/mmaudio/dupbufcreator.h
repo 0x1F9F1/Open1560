@@ -18,19 +18,6 @@
 
 #pragma once
 
-/*
-    mmaudio:dupbufcreator
-
-    0x4EEBC0 | public: __thiscall DupBuffCreator::DupBuffCreator(void) | ??0DupBuffCreator@@QAE@XZ
-    0x4EEC00 | public: __thiscall DupBuffCreator::~DupBuffCreator(void) | ??1DupBuffCreator@@QAE@XZ
-    0x4EEC60 | public: struct IDirectSoundBuffer * __thiscall DupBuffCreator::Create(char *,short *,int *) | ?Create@DupBuffCreator@@QAEPAUIDirectSoundBuffer@@PADPAFPAH@Z
-    0x4EED60 | public: void __thiscall DupBuffCreator::Add(char *,struct IDirectSoundBuffer *) | ?Add@DupBuffCreator@@QAEXPADPAUIDirectSoundBuffer@@@Z
-    0x4EEF00 | public: struct IDirectSoundBuffer * __thiscall DupBuffCreator::FindOriginal(char *,short *) | ?FindOriginal@DupBuffCreator@@QAEPAUIDirectSoundBuffer@@PADPAF@Z
-    0x4EEF90 | private: struct tWAVEFORMATEX * __thiscall DupBuffCreator::GetWAVEFORMATEX(struct IDirectSoundBuffer *) | ?GetWAVEFORMATEX@DupBuffCreator@@AAEPAUtWAVEFORMATEX@@PAUIDirectSoundBuffer@@@Z
-    0x4EF010 | private: int __thiscall DupBuffCreator::IntegrityCheck(struct IDirectSoundBuffer *,struct IDirectSoundBuffer *,int *) | ?IntegrityCheck@DupBuffCreator@@AAEHPAUIDirectSoundBuffer@@0PAH@Z
-    0x719330 | class DupBuffCreator * DUPBUFCREATORPTR | ?DUPBUFCREATORPTR@@3PAVDupBuffCreator@@A
-*/
-
 struct IDirectSoundBuffer;
 struct tWAVEFORMATEX;
 

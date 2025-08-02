@@ -18,16 +18,6 @@
 
 #pragma once
 
-/*
-    mminput:road
-
-    0x4E77C0 | public: virtual int __thiscall mmRoadFF::Init(struct IDirectInputDevice2A *) | ?Init@mmRoadFF@@UAEHPAUIDirectInputDevice2A@@@Z
-    0x4E78C0 | public: virtual int __thiscall mmRoadFF::SetValues(float,float) | ?SetValues@mmRoadFF@@UAEHMM@Z
-    0x4E78F0 | public: int __thiscall mmRoadFF::Assign(long,long) | ?Assign@mmRoadFF@@QAEHJJ@Z
-    0x4E79E0 | public: virtual int __thiscall mmRoadFF::Play(void) | ?Play@mmRoadFF@@UAEHXZ
-    0x4E7A50 | public: virtual int __thiscall mmRoadFF::Stop(void) | ?Stop@mmRoadFF@@UAEHXZ
-*/
-
 #include "effect.h"
 
 class mmRoadFF final : public mmEffectFF

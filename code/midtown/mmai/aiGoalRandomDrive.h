@@ -18,31 +18,6 @@
 
 #pragma once
 
-/*
-    mmai:aiGoalRandomDrive
-
-    0x45C7E0 | public: __thiscall aiGoalRandomDrive::aiGoalRandomDrive(class aiRailSet *,class aiVehicleSpline *) | ??0aiGoalRandomDrive@@QAE@PAVaiRailSet@@PAVaiVehicleSpline@@@Z
-    0x45C8A0 | public: __thiscall aiGoalRandomDrive::~aiGoalRandomDrive(void) | ??1aiGoalRandomDrive@@QAE@XZ
-    0x45C8B0 | public: virtual void __thiscall aiGoalRandomDrive::Init(void) | ?Init@aiGoalRandomDrive@@UAEXXZ
-    0x45C8D0 | public: virtual void __thiscall aiGoalRandomDrive::Reset(void) | ?Reset@aiGoalRandomDrive@@UAEXXZ
-    0x45D320 | public: virtual void __thiscall aiGoalRandomDrive::Update(void) | ?Update@aiGoalRandomDrive@@UAEXXZ
-    0x45D440 | public: virtual int __thiscall aiGoalRandomDrive::Context(void) | ?Context@aiGoalRandomDrive@@UAEHXZ
-    0x45D460 | public: virtual int __thiscall aiGoalRandomDrive::Priority(void) | ?Priority@aiGoalRandomDrive@@UAEHXZ
-    0x45D470 | private: void __thiscall aiGoalRandomDrive::SolveVelocity(void) | ?SolveVelocity@aiGoalRandomDrive@@AAEXXZ
-    0x45DC00 | private: int __thiscall aiGoalRandomDrive::OkayToEnterIntersection(void) | ?OkayToEnterIntersection@aiGoalRandomDrive@@AAEHXZ
-    0x45DE10 | private: int __thiscall aiGoalRandomDrive::AnyVehiclesComingThisWay(void) | ?AnyVehiclesComingThisWay@aiGoalRandomDrive@@AAEHXZ
-    0x45E020 | private: void __thiscall aiGoalRandomDrive::AvoidCollision(class aiVehicleSpline *,float) | ?AvoidCollision@aiGoalRandomDrive@@AAEXPAVaiVehicleSpline@@M@Z
-    0x45E250 | public: void __thiscall aiGoalRandomDrive::SolvePosition(class Vector3 &,float) | ?SolvePosition@aiGoalRandomDrive@@QAEXAAVVector3@@M@Z
-    0x45E2A0 | private: void __thiscall aiGoalRandomDrive::SolveRailType(void) | ?SolveRailType@aiGoalRandomDrive@@AAEXXZ
-    0x45F0B0 | private: void __thiscall aiGoalRandomDrive::SolveLane(void) | ?SolveLane@aiGoalRandomDrive@@AAEXXZ
-    0x45F1A0 | private: void __thiscall aiGoalRandomDrive::ChangeLanes(void) | ?ChangeLanes@aiGoalRandomDrive@@AAEXXZ
-    0x45F690 | public: void __thiscall aiGoalRandomDrive::Dump(void) | ?Dump@aiGoalRandomDrive@@QAEXXZ
-    0x45F6F0 | public: __thiscall aiGoal::~aiGoal(void) | ??1aiGoal@@QAE@XZ
-    0x45F700 | public: virtual void __thiscall aiGoal::Update(void) | ?Update@aiGoal@@UAEXXZ
-    0x61BAE0 | const aiGoalRandomDrive::`vftable' | ??_7aiGoalRandomDrive@@6B@
-    0x61BAF8 | const aiGoal::`vftable' | ??_7aiGoal@@6B@
-*/
-
 #include "aiGoal.h"
 
 class aiRailSet;

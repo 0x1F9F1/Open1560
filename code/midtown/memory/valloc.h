@@ -18,19 +18,6 @@
 
 #pragma once
 
-/*
-    memory:valloc
-
-    0x521390 | public: __thiscall asSafeHeap::asSafeHeap(void) | ??0asSafeHeap@@QAE@XZ
-    0x5213A0 | public: __thiscall asSafeHeap::~asSafeHeap(void) | ??1asSafeHeap@@QAE@XZ
-    0x5213B0 | public: void __thiscall asSafeHeap::Init(int,int) | ?Init@asSafeHeap@@QAEXHH@Z
-    0x521420 | public: void __thiscall asSafeHeap::Restart(void) | ?Restart@asSafeHeap@@QAEXXZ
-    0x521450 | public: void __thiscall asSafeHeap::Kill(void) | ?Kill@asSafeHeap@@QAEXXZ
-    0x521480 | protected: void __thiscall asSafeHeap::Activate(void) | ?Activate@asSafeHeap@@IAEXXZ
-    0x5214C0 | protected: void __thiscall asSafeHeap::Deactivate(void) | ?Deactivate@asSafeHeap@@IAEXXZ
-    0x790730 | class asSafeHeap SAFEHEAP | ?SAFEHEAP@@3VasSafeHeap@@A
-*/
-
 class asSafeHeap
 {
 public:

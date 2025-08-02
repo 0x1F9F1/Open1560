@@ -18,18 +18,6 @@
 
 #pragma once
 
-/*
-    stream:sparser
-
-    0x561370 | public: __thiscall StreamMiniParser::StreamMiniParser(char *,class Stream *) | ??0StreamMiniParser@@QAE@PADPAVStream@@@Z
-    0x5613A0 | public: __thiscall StreamMiniParser::~StreamMiniParser(void) | ??1StreamMiniParser@@QAE@XZ
-    0x561400 | public: virtual void __thiscall StreamMiniParser::RawPutCh(int) | ?RawPutCh@StreamMiniParser@@UAEXH@Z
-    0x561440 | public: virtual int __thiscall StreamMiniParser::RawGetCh(void) | ?RawGetCh@StreamMiniParser@@UAEHXZ
-    0x561470 | public: static void __cdecl StreamMiniParser::Load(class MetaClass *,char *,void *) | ?Load@StreamMiniParser@@SAXPAVMetaClass@@PADPAX@Z
-    0x561520 | public: static void __cdecl StreamMiniParser::Save(class MetaClass *,char *,void *) | ?Save@StreamMiniParser@@SAXPAVMetaClass@@PADPAX@Z
-    0x6219E8 | const StreamMiniParser::`vftable' | ??_7StreamMiniParser@@6B@
-*/
-
 #include "data7/miniparser.h"
 
 class Stream;

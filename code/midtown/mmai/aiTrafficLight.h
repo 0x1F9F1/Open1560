@@ -18,32 +18,6 @@
 
 #pragma once
 
-/*
-    mmai:aiTrafficLight
-
-    0x443F60 | public: __thiscall aiTrafficLightSet::aiTrafficLightSet(class aiIntersection *) | ??0aiTrafficLightSet@@QAE@PAVaiIntersection@@@Z
-    0x444150 | public: virtual __thiscall aiTrafficLightSet::~aiTrafficLightSet(void) | ??1aiTrafficLightSet@@UAE@XZ
-    0x4441B0 | public: virtual void __thiscall aiTrafficLightSet::Reset(void) | ?Reset@aiTrafficLightSet@@UAEXXZ
-    0x444250 | public: virtual void __thiscall aiTrafficLightSet::Update(void) | ?Update@aiTrafficLightSet@@UAEXXZ
-    0x444330 | public: virtual int __thiscall aiTrafficLightInstance::Init(char *,class Vector3 &,class Vector3 &,int,char *) | ?Init@aiTrafficLightInstance@@UAEHPADAAVVector3@@1H0@Z
-    0x444530 | public: virtual void __fastcall aiTrafficLightInstance::Draw(int) | ?Draw@aiTrafficLightInstance@@UAIXH@Z
-    0x4446C0 | public: virtual void * __thiscall aiTrafficLightSet::`vector deleting destructor'(unsigned int) | ??_EaiTrafficLightSet@@UAEPAXI@Z
-    0x4446C0 | public: virtual void * __thiscall aiTrafficLightSet::`scalar deleting destructor'(unsigned int) | ??_GaiTrafficLightSet@@UAEPAXI@Z
-    0x4446F0 | public: __thiscall mmBangerInstance::mmBangerInstance(void) | ??0mmBangerInstance@@QAE@XZ
-    0x444710 | public: virtual void __thiscall mmBangerInstance::AddWidgets(class Bank *) | ?AddWidgets@mmBangerInstance@@UAEXPAVBank@@@Z
-    0x444720 | public: virtual void * __thiscall mmBangerInstance::`scalar deleting destructor'(unsigned int) | ??_GmmBangerInstance@@UAEPAXI@Z
-    0x444720 | public: virtual void * __thiscall mmBangerInstance::`vector deleting destructor'(unsigned int) | ??_EmmBangerInstance@@UAEPAXI@Z
-    0x444740 | public: virtual __thiscall mmBangerInstance::~mmBangerInstance(void) | ??1mmBangerInstance@@UAE@XZ
-    0x444750 | public: virtual unsigned int __thiscall mmUnhitBangerInstance::SizeOf(void) | ?SizeOf@mmUnhitBangerInstance@@UAEIXZ
-    0x444760 | public: virtual void * __thiscall aiTrafficLightInstance::`scalar deleting destructor'(unsigned int) | ??_GaiTrafficLightInstance@@UAEPAXI@Z
-    0x444760 | public: virtual void * __thiscall aiTrafficLightInstance::`vector deleting destructor'(unsigned int) | ??_EaiTrafficLightInstance@@UAEPAXI@Z
-    0x444780 | public: virtual __thiscall aiTrafficLightInstance::~aiTrafficLightInstance(void) | ??1aiTrafficLightInstance@@UAE@XZ
-    0x61B3D8 | const aiTrafficLightInstance::`vftable' | ??_7aiTrafficLightInstance@@6B@
-    0x61B438 | const aiTrafficLightSet::`vftable' | ??_7aiTrafficLightSet@@6B@
-    0x61B480 | const mmBangerInstance::`vftable' | ??_7mmBangerInstance@@6B@
-    0x6A7970 | private: static short aiTrafficLightSet::ObjCount | ?ObjCount@aiTrafficLightSet@@0FA
-*/
-
 #include "arts7/node.h"
 #include "mmbangers/banger.h"
 

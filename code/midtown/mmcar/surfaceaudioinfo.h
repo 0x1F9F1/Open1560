@@ -18,15 +18,6 @@
 
 #pragma once
 
-/*
-    mmcar:surfaceaudioinfo
-
-    0x470D50 | void __cdecl SetClearSurfaceAudioInfos(void) | ?SetClearSurfaceAudioInfos@@YAXXZ
-    0x470FB0 | void __cdecl SetRainSurfaceAudioInfos(void) | ?SetRainSurfaceAudioInfos@@YAXXZ
-    0x471210 | void __cdecl SetSnowSurfaceAudioInfos(void) | ?SetSnowSurfaceAudioInfos@@YAXXZ
-    0x6A7CE0 | struct tagSurfaceAudioInfo * SURFACEAUDIOINFO | ?SURFACEAUDIOINFO@@3PAUtagSurfaceAudioInfo@@A
-*/
-
 struct tagSurfaceAudioInfo;
 
 // ?SetClearSurfaceAudioInfos@@YAXXZ

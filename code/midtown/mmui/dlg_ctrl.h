@@ -18,17 +18,6 @@
 
 #pragma once
 
-/*
-    mmui:dlg_ctrl
-
-    0x4A0230 | public: __thiscall Dialog_ControlAssign::Dialog_ControlAssign(int,float,float,float,float,char *) | ??0Dialog_ControlAssign@@QAE@HMMMMPAD@Z
-    0x4A0330 | public: virtual __thiscall Dialog_ControlAssign::~Dialog_ControlAssign(void) | ??1Dialog_ControlAssign@@UAE@XZ
-    0x4A0340 | public: virtual void __thiscall Dialog_ControlAssign::PreSetup(void) | ?PreSetup@Dialog_ControlAssign@@UAEXXZ
-    0x4A0350 | public: virtual void * __thiscall Dialog_ControlAssign::`vector deleting destructor'(unsigned int) | ??_EDialog_ControlAssign@@UAEPAXI@Z
-    0x4A0350 | public: virtual void * __thiscall Dialog_ControlAssign::`scalar deleting destructor'(unsigned int) | ??_GDialog_ControlAssign@@UAEPAXI@Z
-    0x61D7B8 | const Dialog_ControlAssign::`vftable' | ??_7Dialog_ControlAssign@@6B@
-*/
-
 #include "pu_menu.h"
 
 class Dialog_ControlAssign final : public PUMenuBase

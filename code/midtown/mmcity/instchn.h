@@ -18,26 +18,6 @@
 
 #pragma once
 
-/*
-    mmcity:instchn
-
-    0x492280 | public: __thiscall mmInstChain::mmInstChain(void) | ??0mmInstChain@@QAE@XZ
-    0x492290 | public: __thiscall mmInstChain::~mmInstChain(void) | ??1mmInstChain@@QAE@XZ
-    0x4922B0 | public: void __thiscall mmInstChain::Init(int) | ?Init@mmInstChain@@QAEXH@Z
-    0x492310 | public: void __thiscall mmInstChain::Parent(class mmInstance *,short) | ?Parent@mmInstChain@@QAEXPAVmmInstance@@F@Z
-    0x4923A0 | public: void __thiscall mmInstChain::Unparent(class mmInstance *) | ?Unparent@mmInstChain@@QAEXPAVmmInstance@@@Z
-    0x492440 | public: void __thiscall mmInstChain::Reparent(class mmInstance *,short) | ?Reparent@mmInstChain@@QAEXPAVmmInstance@@F@Z
-    0x492470 | public: void __thiscall mmInstChain::RelightEverything(void) | ?RelightEverything@mmInstChain@@QAEXXZ
-    0x492490 | public: void __thiscall mmInstChain::Relight(short) | ?Relight@mmInstChain@@QAEXF@Z
-    0x4924C0 | public: void __thiscall mmInstChain::Draw(short,short,unsigned int,int,float) | ?Draw@mmInstChain@@QAEXFFIHM@Z
-    0x492980 | public: void __thiscall mmInstChain::AddWidgets(class Bank *) | ?AddWidgets@mmInstChain@@QAEXPAVBank@@@Z
-    0x63F6B4 | int EnableSphereCull | ?EnableSphereCull@@3HA
-    0x6ED4E4 | int WorstRoom | ?WorstRoom@@3HA
-    0x6ED4E8 | int LabelInstances | ?LabelInstances@@3HA
-    0x6ED4EC | int WorstCount | ?WorstCount@@3HA
-    0x6ED4F0 | int NormalsOnInstances | ?NormalsOnInstances@@3HA
-*/
-
 class mmInstance;
 
 class mmInstChain

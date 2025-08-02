@@ -18,22 +18,6 @@
 
 #pragma once
 
-/*
-    agi:bitmap
-
-    0x55A3B0 | public: __thiscall agiBitmap::agiBitmap(class agiPipeline *) | ??0agiBitmap@@QAE@PAVagiPipeline@@@Z
-    0x55A3F0 | public: int __thiscall agiBitmap::Init(char *,float,float,int) | ?Init@agiBitmap@@QAEHPADMMH@Z
-    0x55A600 | public: void __thiscall agiBitmap::SetTransparency(int) | ?SetTransparency@agiBitmap@@QAEXH@Z
-    0x55A630 | public: virtual void __thiscall agiBitmap::UpdateFlags(void) | ?UpdateFlags@agiBitmap@@UAEXXZ
-    0x55A640 | protected: virtual __thiscall agiBitmap::~agiBitmap(void) | ??1agiBitmap@@MAE@XZ
-    0x55A6D0 | public: virtual char * __thiscall agiBitmap::GetName(void) | ?GetName@agiBitmap@@UAEPADXZ
-    0x55A6F0 | protected: virtual void * __thiscall agiBitmap::`vector deleting destructor'(unsigned int) | ??_EagiBitmap@@MAEPAXI@Z
-    0x55A6F0 | protected: virtual void * __thiscall agiBitmap::`scalar deleting destructor'(unsigned int) | ??_GagiBitmap@@MAEPAXI@Z
-    0x6216F0 | const agiBitmap::`vftable' | ??_7agiBitmap@@6B@
-    0x6570F0 | char * BitmapSearchPath | ?BitmapSearchPath@@3PADA
-    0x903140 | class HashTable BitmapHash | ?BitmapHash@@3VHashTable@@A
-*/
-
 #include "refresh.h"
 
 #include "surface.h"

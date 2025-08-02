@@ -18,19 +18,6 @@
 
 #pragma once
 
-/*
-    mmui:about
-
-    0x4A5E30 | public: __thiscall AboutMenu::AboutMenu(int) | ??0AboutMenu@@QAE@H@Z
-    0x4A6050 | public: virtual __thiscall AboutMenu::~AboutMenu(void) | ??1AboutMenu@@UAE@XZ
-    0x4A6060 | public: virtual void __thiscall AboutMenu::PreSetup(void) | ?PreSetup@AboutMenu@@UAEXXZ
-    0x4A6080 | public: virtual void __thiscall AboutMenu::Update(void) | ?Update@AboutMenu@@UAEXXZ
-    0x4A6100 | public: virtual void __thiscall AboutMenu::Cull(void) | ?Cull@AboutMenu@@UAEXXZ
-    0x4A61C0 | public: virtual void * __thiscall AboutMenu::`scalar deleting destructor'(unsigned int) | ??_GAboutMenu@@UAEPAXI@Z
-    0x4A61C0 | public: virtual void * __thiscall AboutMenu::`vector deleting destructor'(unsigned int) | ??_EAboutMenu@@UAEPAXI@Z
-    0x61DC40 | const AboutMenu::`vftable' | ??_7AboutMenu@@6B@
-*/
-
 #include "mmwidget/menu.h"
 
 void GetMidtownRegString(char* buffer, i32 buffer_len, char* key, char* default_value);

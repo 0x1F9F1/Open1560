@@ -18,18 +18,6 @@
 
 #pragma once
 
-/*
-    mmui:dlg_tcpip
-
-    0x4A0380 | public: __thiscall Dialog_TCPIP::Dialog_TCPIP(int,float,float,float,float,char *) | ??0Dialog_TCPIP@@QAE@HMMMMPAD@Z
-    0x4A04F0 | public: virtual __thiscall Dialog_TCPIP::~Dialog_TCPIP(void) | ??1Dialog_TCPIP@@UAE@XZ
-    0x4A0500 | public: virtual void __thiscall Dialog_TCPIP::PreSetup(void) | ?PreSetup@Dialog_TCPIP@@UAEXXZ
-    0x4A0510 | public: void __thiscall Dialog_TCPIP::IPAddressCallback(void) | ?IPAddressCallback@Dialog_TCPIP@@QAEXXZ
-    0x4A0520 | public: virtual void * __thiscall Dialog_TCPIP::`vector deleting destructor'(unsigned int) | ??_EDialog_TCPIP@@UAEPAXI@Z
-    0x4A0520 | public: virtual void * __thiscall Dialog_TCPIP::`scalar deleting destructor'(unsigned int) | ??_GDialog_TCPIP@@UAEPAXI@Z
-    0x61D808 | const Dialog_TCPIP::`vftable' | ??_7Dialog_TCPIP@@6B@
-*/
-
 #include "pu_menu.h"
 
 class Dialog_TCPIP final : public PUMenuBase

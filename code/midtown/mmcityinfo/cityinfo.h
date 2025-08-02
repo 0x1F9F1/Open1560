@@ -18,17 +18,6 @@
 
 #pragma once
 
-/*
-    mmcityinfo:cityinfo
-
-    0x4D3620 | public: __thiscall mmCityInfo::mmCityInfo(void) | ??0mmCityInfo@@QAE@XZ
-    0x4D3640 | public: virtual __thiscall mmCityInfo::~mmCityInfo(void) | ??1mmCityInfo@@UAE@XZ
-    0x4D3650 | public: int __thiscall mmCityInfo::Load(char *) | ?Load@mmCityInfo@@QAEHPAD@Z
-    0x4D39A0 | public: virtual void * __thiscall mmCityInfo::`scalar deleting destructor'(unsigned int) | ??_GmmCityInfo@@UAEPAXI@Z
-    0x4D39A0 | public: virtual void * __thiscall mmCityInfo::`vector deleting destructor'(unsigned int) | ??_EmmCityInfo@@UAEPAXI@Z
-    0x61F944 | const mmCityInfo::`vftable' | ??_7mmCityInfo@@6B@
-*/
-
 class mmCityInfo final
 {
 public:

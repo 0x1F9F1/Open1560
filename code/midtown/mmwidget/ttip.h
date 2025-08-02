@@ -18,20 +18,6 @@
 
 #pragma once
 
-/*
-    mmwidget:ttip
-
-    0x4BF0E0 | public: __thiscall mmToolTip::mmToolTip(void) | ??0mmToolTip@@QAE@XZ
-    0x4BF150 | public: virtual __thiscall mmToolTip::~mmToolTip(void) | ??1mmToolTip@@UAE@XZ
-    0x4BF1B0 | public: void __thiscall mmToolTip::Init(class UIMenu *,struct LocString *) | ?Init@mmToolTip@@QAEXPAVUIMenu@@PAULocString@@@Z
-    0x4BF260 | public: void __thiscall mmToolTip::SetText(struct LocString *) | ?SetText@mmToolTip@@QAEXPAULocString@@@Z
-    0x4BF280 | public: void __thiscall mmToolTip::Switch(int) | ?Switch@mmToolTip@@QAEXH@Z
-    0x4BF290 | public: virtual void __thiscall mmToolTip::Update(void) | ?Update@mmToolTip@@UAEXXZ
-    0x4BF2A0 | public: virtual void * __thiscall mmToolTip::`vector deleting destructor'(unsigned int) | ??_EmmToolTip@@UAEPAXI@Z
-    0x4BF2A0 | public: virtual void * __thiscall mmToolTip::`scalar deleting destructor'(unsigned int) | ??_GmmToolTip@@UAEPAXI@Z
-    0x61F190 | const mmToolTip::`vftable' | ??_7mmToolTip@@6B@
-*/
-
 #include "arts7/node.h"
 
 class UIMenu;

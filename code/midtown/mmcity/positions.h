@@ -18,20 +18,6 @@
 
 #pragma once
 
-/*
-    mmcity:positions
-
-    0x491900 | void __cdecl InitPositions(void) | ?InitPositions@@YAXXZ
-    0x491940 | void __cdecl LoadPositions(char *) | ?LoadPositions@@YAXPAD@Z
-    0x491B00 | int __cdecl GetPositionCount(void) | ?GetPositionCount@@YAHXZ
-    0x491B10 | class Vector4 & __cdecl GetPositionVector4(int) | ?GetPositionVector4@@YAAAVVector4@@H@Z
-    0x491B40 | void __cdecl DumpPositions(char *) | ?DumpPositions@@YAXPAD@Z
-    0x491C00 | int __cdecl RecallPosition(int,class Matrix34 *,int *,char *) | ?RecallPosition@@YAHHPAVMatrix34@@PAHPAD@Z
-    0x491C90 | int __cdecl RegisterPosition(class Vector4 &,int,int,int,int,char *) | ?RegisterPosition@@YAHAAVVector4@@HHHHPAD@Z
-    0x491DF0 | public: __thiscall position_t::~position_t(void) | ??1position_t@@QAE@XZ
-    0x6A8F18 | int DontClearPositions | ?DontClearPositions@@3HA
-*/
-
 // ?DumpPositions@@YAXPAD@Z
 ARTS_IMPORT void DumpPositions(aconst char* arg1);
 

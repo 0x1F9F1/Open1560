@@ -18,28 +18,6 @@
 
 #pragma once
 
-/*
-    stream:vfsystem
-
-    0x560650 | public: __thiscall VirtualFileSystem::VirtualFileSystem(class Stream *) | ??0VirtualFileSystem@@QAE@PAVStream@@@Z
-    0x560710 | public: virtual __thiscall VirtualFileSystem::~VirtualFileSystem(void) | ??1VirtualFileSystem@@UAE@XZ
-    0x560780 | public: virtual int __thiscall VirtualFileSystem::ValidPath(char *) | ?ValidPath@VirtualFileSystem@@UAEHPAD@Z
-    0x560790 | public: static void __cdecl VirtualFileSystem::NormalizeName(char *,char *) | ?NormalizeName@VirtualFileSystem@@SAXPAD0@Z
-    0x560800 | public: static void __cdecl VirtualFileSystem::ExpandName(char *,struct VirtualFileInode *,char *) | ?ExpandName@VirtualFileSystem@@SAXPADPAUVirtualFileInode@@0@Z
-    0x560920 | public: static struct VirtualFileInode * __cdecl VirtualFileSystem::Lookup(struct VirtualFileInode *,int,char *,char *) | ?Lookup@VirtualFileSystem@@SAPAUVirtualFileInode@@PAU2@HPAD1@Z
-    0x560A00 | public: virtual int __thiscall VirtualFileSystem::QueryOn(char *) | ?QueryOn@VirtualFileSystem@@UAEHPAD@Z
-    0x560A50 | public: virtual int __thiscall VirtualFileSystem::PagerInfo(char *,struct PagerInfo_t &) | ?PagerInfo@VirtualFileSystem@@UAEHPADAAUPagerInfo_t@@@Z
-    0x560AD0 | public: virtual class Stream * __thiscall VirtualFileSystem::OpenOn(char *,int,void *,int) | ?OpenOn@VirtualFileSystem@@UAEPAVStream@@PADHPAXH@Z
-    0x560B80 | public: virtual class Stream * __thiscall VirtualFileSystem::CreateOn(char *,void *,int) | ?CreateOn@VirtualFileSystem@@UAEPAVStream@@PADPAXH@Z
-    0x560B90 | public: virtual int __thiscall VirtualFileSystem::ChangeDir(char *) | ?ChangeDir@VirtualFileSystem@@UAEHPAD@Z
-    0x560BA0 | public: virtual int __thiscall VirtualFileSystem::GetDir(char *,int) | ?GetDir@VirtualFileSystem@@UAEHPADH@Z
-    0x560BB0 | public: virtual struct FileInfo * __thiscall VirtualFileSystem::FirstEntry(char *) | ?FirstEntry@VirtualFileSystem@@UAEPAUFileInfo@@PAD@Z
-    0x560D00 | public: virtual struct FileInfo * __thiscall VirtualFileSystem::NextEntry(struct FileInfo *) | ?NextEntry@VirtualFileSystem@@UAEPAUFileInfo@@PAU2@@Z
-    0x560D80 | public: virtual void * __thiscall VirtualFileSystem::`scalar deleting destructor'(unsigned int) | ??_GVirtualFileSystem@@UAEPAXI@Z
-    0x560D80 | public: virtual void * __thiscall VirtualFileSystem::`vector deleting destructor'(unsigned int) | ??_EVirtualFileSystem@@UAEPAXI@Z
-    0x6219A8 | const VirtualFileSystem::`vftable' | ??_7VirtualFileSystem@@6B@
-*/
-
 #include "fsystem.h"
 
 static constexpr u32 AresMagic = 0x53455241;

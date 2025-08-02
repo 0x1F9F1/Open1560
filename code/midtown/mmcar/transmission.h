@@ -18,31 +18,6 @@
 
 #pragma once
 
-/*
-    mmcar:transmission
-
-    0x470430 | public: __thiscall mmTransmission::mmTransmission(void) | ??0mmTransmission@@QAE@XZ
-    0x470500 | public: void __thiscall mmTransmission::Init(class mmCarSim *) | ?Init@mmTransmission@@QAEXPAVmmCarSim@@@Z
-    0x470540 | public: virtual void __thiscall mmTransmission::Reset(void) | ?Reset@mmTransmission@@UAEXXZ
-    0x470570 | public: int __thiscall mmTransmission::Upshift(void) | ?Upshift@mmTransmission@@QAEHXZ
-    0x4705A0 | public: int __thiscall mmTransmission::Downshift(void) | ?Downshift@mmTransmission@@QAEHXZ
-    0x4705C0 | public: virtual void __thiscall mmTransmission::Update(void) | ?Update@mmTransmission@@UAEXXZ
-    0x4706C0 | public: void __thiscall mmTransmission::CopyTrans(void) | ?CopyTrans@mmTransmission@@QAEXXZ
-    0x4706F0 | public: void __thiscall mmTransmission::Automatic(int) | ?Automatic@mmTransmission@@QAEXH@Z
-    0x470710 | public: void __thiscall mmTransmission::SetReverse(void) | ?SetReverse@mmTransmission@@QAEXXZ
-    0x470720 | public: void __thiscall mmTransmission::SetDrive(void) | ?SetDrive@mmTransmission@@QAEXXZ
-    0x470740 | public: int __thiscall mmTransmission::GetCurrentGear(void) | ?GetCurrentGear@mmTransmission@@QAEHXZ
-    0x470750 | public: int __thiscall mmTransmission::SetCurrentGear(int) | ?SetCurrentGear@mmTransmission@@QAEHH@Z
-    0x470790 | public: virtual void __thiscall mmTransmission::AddWidgets(class Bank *) | ?AddWidgets@mmTransmission@@UAEXPAVBank@@@Z
-    0x470A30 | public: static void __cdecl mmTransmission::DeclareFields(void) | ?DeclareFields@mmTransmission@@SAXXZ
-    0x470C80 | public: virtual class MetaClass * __thiscall mmTransmission::GetClass(void) | ?GetClass@mmTransmission@@UAEPAVMetaClass@@XZ
-    0x470CC0 | struct MetaType * __cdecl ArrayOf(struct MetaType *,int) | ?ArrayOf@@YAPAUMetaType@@PAU1@H@Z
-    0x470CF0 | public: virtual void * __thiscall mmTransmission::`vector deleting destructor'(unsigned int) | ??_EmmTransmission@@UAEPAXI@Z
-    0x61BF18 | const mmTransmission::`vftable' | ??_7mmTransmission@@6B@
-    0x61BF58 | const ArrayOfType::`vftable' | ??_7ArrayOfType@@6B@
-    0x6A7CB8 | class MetaClass mmTransmissionMetaClass | ?mmTransmissionMetaClass@@3VMetaClass@@A
-*/
-
 #include "arts7/node.h"
 
 class mmCarSim;

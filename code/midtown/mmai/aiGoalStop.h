@@ -18,19 +18,6 @@
 
 #pragma once
 
-/*
-    mmai:aiGoalStop
-
-    0x45F710 | public: __thiscall aiGoalStop::aiGoalStop(class mmCar *,short *) | ??0aiGoalStop@@QAE@PAVmmCar@@PAF@Z
-    0x45F740 | public: __thiscall aiGoalStop::~aiGoalStop(void) | ??1aiGoalStop@@QAE@XZ
-    0x45F750 | public: virtual void __thiscall aiGoalStop::Init(void) | ?Init@aiGoalStop@@UAEXXZ
-    0x45F760 | public: virtual void __thiscall aiGoalStop::Reset(void) | ?Reset@aiGoalStop@@UAEXXZ
-    0x45F770 | public: virtual void __thiscall aiGoalStop::Update(void) | ?Update@aiGoalStop@@UAEXXZ
-    0x45F7D0 | public: virtual int __thiscall aiGoalStop::Context(void) | ?Context@aiGoalStop@@UAEHXZ
-    0x45F7F0 | public: virtual int __thiscall aiGoalStop::Priority(void) | ?Priority@aiGoalStop@@UAEHXZ
-    0x61BB18 | const aiGoalStop::`vftable' | ??_7aiGoalStop@@6B@
-*/
-
 #include "aiGoal.h"
 
 class mmCar;

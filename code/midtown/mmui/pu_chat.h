@@ -18,18 +18,6 @@
 
 #pragma once
 
-/*
-    mmui:pu_chat
-
-    0x4A9780 | public: __thiscall PUChat::PUChat(int,float,float,float,float,char *) | ??0PUChat@@QAE@HMMMMPAD@Z
-    0x4A9880 | public: virtual __thiscall PUChat::~PUChat(void) | ??1PUChat@@UAE@XZ
-    0x4A9890 | public: void __thiscall PUChat::ClearChat(void) | ?ClearChat@PUChat@@QAEXXZ
-    0x4A98D0 | public: void __thiscall PUChat::ChatEntry(void) | ?ChatEntry@PUChat@@QAEXXZ
-    0x4A9930 | public: virtual void * __thiscall PUChat::`scalar deleting destructor'(unsigned int) | ??_GPUChat@@UAEPAXI@Z
-    0x4A9930 | public: virtual void * __thiscall PUChat::`vector deleting destructor'(unsigned int) | ??_EPUChat@@UAEPAXI@Z
-    0x61DED8 | const PUChat::`vftable' | ??_7PUChat@@6B@
-*/
-
 #include "pu_menu.h"
 
 class PUChat final : public PUMenuBase
