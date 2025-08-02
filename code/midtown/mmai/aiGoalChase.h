@@ -19,6 +19,8 @@
 #pragma once
 
 #include "aiGoal.h"
+#include "aiPoliceForce.h"
+#include "aiStuck.h"
 
 class aiIntersection;
 class aiPath;
@@ -39,13 +41,13 @@ public:
     ARTS_IMPORT b32 Context() override;
 
     // ?Dump@aiGoalChase@@QAEXXZ
-    ARTS_IMPORT void Dump();
+    ARTS_EXPORT void Dump();
 
     // ?Init@aiGoalChase@@UAEXXZ
     ARTS_IMPORT void Init() override;
 
     // ?Priority@aiGoalChase@@UAEHXZ
-    ARTS_IMPORT i32 Priority() override;
+    ARTS_EXPORT b32 Priority() override;
 
     // ?Reset@aiGoalChase@@UAEXXZ
     ARTS_IMPORT void Reset() override;
@@ -79,7 +81,7 @@ private:
     ARTS_IMPORT void CloseInRoad();
 
     // ?Collision@aiGoalChase@@AAEHPAVmmCar@@@Z
-    ARTS_IMPORT i32 Collision(mmCar* arg1);
+    ARTS_EXPORT b32 Collision(mmCar* perp);
 
     // ?DetectAmbientCollision@aiGoalChase@@AAEHPAH@Z
     ARTS_IMPORT i32 DetectAmbientCollision(i32* arg1);
@@ -91,7 +93,7 @@ private:
     ARTS_IMPORT i32 FindPerp(i32 arg1, i32 arg2, aiPath* arg3);
 
     // ?Follow@aiGoalChase@@AAEXXZ
-    ARTS_IMPORT void Follow();
+    ARTS_EXPORT void Follow();
 
     // ?Fov@aiGoalChase@@AAEHPAVmmCar@@@Z
     ARTS_IMPORT i32 Fov(mmCar* arg1);
@@ -121,12 +123,62 @@ private:
     ARTS_IMPORT void Push();
 
     // ?Speeding@aiGoalChase@@AAEHPAVmmCar@@@Z
-    ARTS_IMPORT i32 Speeding(mmCar* arg1);
+    ARTS_EXPORT b32 Speeding(mmCar* perp);
 
     // ?Stopped@aiGoalChase@@AAEHPAVmmCar@@@Z
-    ARTS_IMPORT i32 Stopped(mmCar* arg1);
+    ARTS_EXPORT b32 Stopped(mmCar* perp);
 
-    u8 gap8[0x1A4];
+public:
+    aiVehiclePolice* PoliceVehicle;
+    aiRailSet* RailSet;
+    mmCar* PoliceCar;
+    mmCar* TargetCar;
+    aiPoliceForce* PoliceForce;
+    aiStuck Stuck;
+    Vector3* TargetPos;
+    Timer WaitTimer;
+    i16 PerpMapCompIdx;
+    i16 PerpMapCompType;
+    i16 PerpRdVertIdx;
+    i16 PerpCullRoom;
+    f32 PerpRoadDist;
+    f32 PerpDistToSide;
+    i16 CurMapCompIdx;
+    i16 PrevMapCompIdx;
+    i16 CurMapCompType;
+    i16 PrevMapCompType;
+    i16 CurRdVertIdx;
+    i16 CurCullRoom;
+    f32 ForwardDist;
+    f32 SideDist;
+    f32 TargetOffset;
+    i16 ApprehendState;
+    i16 State;
+    i32* StopId;
+    i16* TargetPt;
+    i16 LastState;
+    b16 StartedChase;
+    f32 Angle;
+    f32 SteerVal;
+    f32 SeparationDist;
+    f32 RotAngle;
+    f32 Throttle;
+    f32 Brake;
+    f32 Dist2Perp;
+    f32 DistToSide;
+    f32 WaitTime;
+    f32 Offset;
+    i16 NumBehaviors;
+    i16 BehaviourStates[4];
+    i16 NumCloseObs;
+    i16 NumFarObs;
+    u16 field_EA;
+    i32 field_EC;
+    i32 field_F0;
+    u8 field_F4[0xAC];
+    i32 field_1A0;
+    i32 field_1A4;
+    i32 field_1A8;
 };
 
 check_size(aiGoalChase, 0x1AC);

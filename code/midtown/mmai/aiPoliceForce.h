@@ -22,7 +22,7 @@
 
 class mmCar;
 
-struct aiPoliceForce final
+class aiPoliceForce final
 {
 public:
     // ??0aiPoliceForce@@QAE@XZ

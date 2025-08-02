@@ -246,7 +246,7 @@ public:
     f32 DriftTorque;
     i32 field_1828;
     f32 Mass;
-    f32 Speed;
+    f32 Speed; // Meters per second
     f32 SpeedMPH;
     f32 TBWidth;
     f32 TBHeight;
