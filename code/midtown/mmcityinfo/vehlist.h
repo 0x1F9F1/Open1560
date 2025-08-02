@@ -77,7 +77,7 @@ public:
     mmVehInfo* DefaultVehicle {};
 };
 
-// check_size(mmVehList, 0xC);
+check_size(mmVehList, 0x10);
 
 // ?VehicleListPtr@@3PAVmmVehList@@A
 ARTS_IMPORT extern mmVehList* VehicleListPtr;

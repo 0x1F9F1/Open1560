@@ -34,6 +34,9 @@
 
 #include "aiGoal.h"
 
+class aiRailSet;
+class mmCar;
+
 class aiGoalBackup final : public aiGoal
 {
 public:

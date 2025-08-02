@@ -50,7 +50,7 @@ public:
 
     // ??_EmmWaypointInstance@@UAEPAXI@Z
     // ??1mmWaypointInstance@@UAE@XZ
-    ARTS_IMPORT ~mmWaypointInstance() override = default;
+    ARTS_EXPORT ~mmWaypointInstance() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmWaypointInstance@@UAEXPAVBank@@@Z

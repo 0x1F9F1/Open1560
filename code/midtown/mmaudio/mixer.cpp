@@ -93,9 +93,9 @@ const char* MixerCTL::GetErrorMessage(ulong error)
 {
     // FIXME: These strings as used as the format strings when calling Errorf
 
+    // clang-format off
     switch (error)
     {
-        // clang-format off
         case MMSYSERR_NOERROR:      return "MMSYSERR_NOERROR";
         case MMSYSERR_ERROR:        return "MMSYSERR_ERROR";
         case MMSYSERR_BADDEVICEID:  return "MMSYSERR_BADDEVICEID The uMxId parameter specifies an invalid device identifier.";
@@ -124,28 +124,11 @@ const char* MixerCTL::GetErrorMessage(ulong error)
         case MIXERR_INVALVALUE:     return "MIXERR_INVALVALUE";
 
         default:                    return "Unknown Mixer Error";
-        // clang-forat on
     }
+    // clang-format on
 }
 
 LRESULT MixerCTL::WindowProc(HWND /*hwnd*/, UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
     return 0;
 }
-
-hook_func(INIT_main, [] {
-    for (mem::pointer address : {0x4EE463, 0x4EE697, 0x4EE9A3})
-    {
-        // The code writes to the first 2 channels, even when there are less.
-        // operator new(4 * pmxl.cChannels) -> operator new(4 * (pmxl.cChannels + 2))
-        create_patch("MixerCTL", "Fix paDetails allocation", address + 3, "\x08", 1);
-    }
-
-    create_patch("AudioOptions::AudioOptions", "Fix Device Name Truncation", 0x49C889,
-        "\x83\xC4\x0C\x52\x90\x90\x90\x90\x90\x90\x90\x90", 12);
-
-    create_patch(
-        "AudioOptions::AudioOptions", "Fix Device Name Truncation", 0x49C7ED, "\x89\xD7\x90\x90\x90\x90\x90\x90", 8);
-
-    create_patch("AudioOptions::AudioOptions", "Fix Device Name Truncation", 0x49C846, "\x89\xD6\x89\xCA\x90", 5);
-});

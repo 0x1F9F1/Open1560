@@ -36,7 +36,7 @@ public:
     // ??_GmmCompBase@@UAEPAXI@Z
     // ??_EmmCompBase@@UAEPAXI@Z
     // ??1mmCompBase@@UAE@XZ | inline
-    ARTS_IMPORT ~mmCompBase() override = default;
+    ARTS_EXPORT ~mmCompBase() override = default;
 
     // ?DisableBlt@mmCompBase@@UAEXXZ | inline
     ARTS_IMPORT virtual void DisableBlt();

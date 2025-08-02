@@ -54,7 +54,7 @@ public:
 
     // ??_EmmViewCS@@UAEPAXI@Z
     // ??1mmViewCS@@UAE@XZ
-    ARTS_IMPORT ~mmViewCS() override = default;
+    ARTS_EXPORT ~mmViewCS() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmViewCS@@UAEXPAVBank@@@Z | inline

@@ -33,6 +33,9 @@
 
 #include "aiGoal.h"
 
+class aiRailSet;
+class aiVehicleSpline;
+
 class aiGoalCollision final : public aiGoal
 {
 public:
@@ -40,7 +43,7 @@ public:
     ARTS_IMPORT aiGoalCollision(aiRailSet* arg1, aiVehicleSpline* arg2);
 
     // ??1aiGoalCollision@@QAE@XZ
-    ARTS_IMPORT ~aiGoalCollision() = default;
+    ARTS_EXPORT ~aiGoalCollision() = default;
 
     // ?Context@aiGoalCollision@@UAEHXZ
     ARTS_IMPORT b32 Context() override;

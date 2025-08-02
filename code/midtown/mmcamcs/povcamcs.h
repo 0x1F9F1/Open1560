@@ -48,7 +48,7 @@ public:
 
     // ??_EPovCamCS@@UAEPAXI@Z
     // ??1PovCamCS@@UAE@XZ
-    ARTS_IMPORT ~PovCamCS() override = default;
+    ARTS_EXPORT ~PovCamCS() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@PovCamCS@@UAEXPAVBank@@@Z

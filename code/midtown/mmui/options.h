@@ -41,7 +41,7 @@ public:
     // ??_EOptionsMenu@@UAEPAXI@Z
     // ??_GOptionsMenu@@UAEPAXI@Z
     // ??1OptionsMenu@@UAE@XZ
-    ARTS_IMPORT ~OptionsMenu() override = default;
+    ARTS_EXPORT ~OptionsMenu() override = default;
 
     // ?PostSetup@OptionsMenu@@UAEXXZ
     ARTS_IMPORT void PostSetup() override;

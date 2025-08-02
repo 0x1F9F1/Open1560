@@ -46,7 +46,7 @@ public:
     // ??_GmmSplash@@UAEPAXI@Z
     // ??_EmmSplash@@UAEPAXI@Z
     // ??1mmSplash@@UAE@XZ | inline
-    ARTS_IMPORT ~mmSplash() override = default;
+    ARTS_EXPORT ~mmSplash() override = default;
 
     // ?Activate@mmSplash@@QAEXM@Z
     ARTS_IMPORT void Activate(f32 arg1);

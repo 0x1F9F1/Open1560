@@ -62,6 +62,12 @@ Callback::Callback(Member2 func, Base* this_ptr, void* param1, void* param2) noe
         Quitf("Can't have callback to member function with nil 'this'");
 }
 
+void Callback::Call(void* param)
+{
+    if (invoke_)
+        invoke_(data_, param);
+}
+
 CallbackArray::CallbackArray(Callback* callbacks, usize capacity)
     : callbacks_(callbacks)
     , capacity_(static_cast<u16>(capacity))

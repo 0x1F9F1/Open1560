@@ -78,7 +78,7 @@ public:
 
     // ??_EJoint3Dof@@UAEPAXI@Z
     // ??1Joint3Dof@@UAE@XZ | inline
-    ARTS_IMPORT ~Joint3Dof() override = default;
+    ARTS_EXPORT ~Joint3Dof() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@Joint3Dof@@UAEXPAVBank@@@Z

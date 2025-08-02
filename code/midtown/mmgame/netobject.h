@@ -74,7 +74,7 @@ public:
     // ??_GmmNetObject@@UAEPAXI@Z
     // ??_EmmNetObject@@UAEPAXI@Z
     // ??1mmNetObject@@UAE@XZ
-    ARTS_IMPORT ~mmNetObject() override = default;
+    ARTS_EXPORT ~mmNetObject() override = default;
 
     // ?Activate@mmNetObject@@QAEXXZ
     ARTS_IMPORT void Activate();

@@ -44,7 +44,7 @@ public:
     ARTS_IMPORT mmAnimTrigger();
 
     // ??1mmAnimTrigger@@QAE@XZ
-    ARTS_IMPORT ~mmAnimTrigger() = default;
+    ARTS_EXPORT ~mmAnimTrigger() = default;
 
     // ?CheckCondition@mmAnimTrigger@@QAEHXZ
     ARTS_IMPORT i32 CheckCondition();

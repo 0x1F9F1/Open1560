@@ -108,6 +108,7 @@ static void InitMap()
 
         bool in_publics = false;
         usize symbols_size = 0;
+        usize addr_delta = 0;
         MapSymbolCount = 0;
 
         for (char* line_end = nullptr;; map_data = line_end + 1)
@@ -117,16 +118,26 @@ static void InitMap()
             if (line_end == nullptr)
                 break;
 
-            char line_buffer[256];
+            char line_buffer[1024];
             arts_strncpy(line_buffer, map_data, line_end - map_data);
 
             if (std::strstr(line_buffer, "Publics by Value"))
                 in_publics = true;
 
             if (!in_publics)
-                continue;
+            {
+                if (auto base = std::strstr(line_buffer, "Preferred load address is "))
+                {
+                    if (usize base_addr = 0; arts_sscanf(base + 26, "%zx", &base_addr))
+                    {
+                        addr_delta = reinterpret_cast<usize>(GetModuleHandleA(NULL)) - base_addr;
+                    }
+                }
 
-            char sym_name[256];
+                continue;
+            }
+
+            char sym_name[1024];
             usize sym_addr = 0;
 
             if (!std::strncmp(line_buffer, " 0001:", 6) &&
@@ -140,7 +151,7 @@ static void InitMap()
                     std::memcpy(symbol, sym_name, sym_len + 1);
 
                     MapSymbols[MapSymbolCount].Name = symbol;
-                    MapSymbols[MapSymbolCount].Address = sym_addr;
+                    MapSymbols[MapSymbolCount].Address = sym_addr + addr_delta;
                 }
 
                 symbols_size += sym_len + 1;
@@ -241,12 +252,10 @@ void LookupAddress(char* buffer, usize buflen, usize address)
         if (SymFromAddr(GetCurrentProcess(), address, &dwDisplacement, pSymbol) &&
             SymGetModuleInfo(GetCurrentProcess(), address, &module))
         {
-            bool hide_module = (module.BaseOfImage == 0x400000) || !arts_stricmp(module.ModuleName, "Hook1560");
-
             if (pSymbol->NameLen > 64)
                 arts_strcpy(pSymbol->Name + 61, 4, "...");
 
-            if (hide_module)
+            if (!arts_stricmp(module.ModuleName, "Open1560"))
             {
                 arts_sprintf(
                     buffer, buflen, "0x%08zX (%s + 0x%X)", address, pSymbol->Name, static_cast<u32>(dwDisplacement));
@@ -268,6 +277,9 @@ void LookupAddress(char* buffer, usize buflen, usize address)
         const char* function_name =
             UnDecorateSymbolName(entry->Name, undec_name, ARTS_SSIZE32(undec_name), UNDNAME_NAME_ONLY) ? undec_name
                                                                                                        : entry->Name;
+
+        if (std::strlen(undec_name) > 64)
+            arts_strcpy(undec_name + 61, 4, "...");
 
         arts_sprintf(buffer, buflen, "0x%08zX (%s + 0x%zX)", address, function_name, address - entry->Address);
 

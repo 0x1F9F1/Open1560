@@ -35,6 +35,7 @@
 
 #include "aiGoal.h"
 
+class aiRailSet;
 class aiVehicleAmbient;
 
 class aiGoalAvoidPlayer final : public aiGoal
@@ -44,7 +45,7 @@ public:
     ARTS_IMPORT aiGoalAvoidPlayer(aiRailSet* arg1, aiVehicleAmbient* arg2);
 
     // ??1aiGoalAvoidPlayer@@QAE@XZ
-    ARTS_IMPORT ~aiGoalAvoidPlayer() = default;
+    ARTS_EXPORT ~aiGoalAvoidPlayer() = default;
 
     // ?Context@aiGoalAvoidPlayer@@UAEHXZ
     ARTS_IMPORT b32 Context() override;

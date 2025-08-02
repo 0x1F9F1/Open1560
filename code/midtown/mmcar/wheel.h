@@ -63,7 +63,7 @@ public:
 
     // ??_EmmWheel@@UAEPAXI@Z
     // ??1mmWheel@@UAE@XZ | inline
-    ARTS_IMPORT ~mmWheel() override = default;
+    ARTS_EXPORT ~mmWheel() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmWheel@@UAEXPAVBank@@@Z

@@ -50,7 +50,7 @@ public:
     // ??_EuiNavBar@@UAEPAXI@Z
     // ??_GuiNavBar@@UAEPAXI@Z
     // ??1uiNavBar@@UAE@XZ
-    ARTS_IMPORT ~uiNavBar() override = default;
+    ARTS_EXPORT ~uiNavBar() override = default;
 
     // ?BackUp@uiNavBar@@UAEXXZ | inline
     ARTS_EXPORT void BackUp() override;

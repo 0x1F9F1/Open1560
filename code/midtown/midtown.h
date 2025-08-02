@@ -138,12 +138,6 @@ ARTS_IMPORT extern i32 SampleStats;
 // ?SystemStatsRecord@@3PAVmmGameRecord@@A
 ARTS_IMPORT extern mmGameRecord* SystemStatsRecord;
 
-// ?__VtPauseSampling@@3P6AHXZA
-ARTS_IMPORT extern i32 (*__VtPauseSampling)(void);
-
-// ?__VtResumeSampling@@3P6AHXZA
-ARTS_IMPORT extern i32 (*__VtResumeSampling)(void);
-
 // ?bHaveIME@@3HA
 ARTS_IMPORT extern i32 bHaveIME;
 

@@ -171,7 +171,7 @@ public:
     ARTS_IMPORT void GetPolar(Vector4* arg1, Vector3* arg2, f32 arg3) const;
 
     // ?Identity@Matrix34@@QAEXXZ
-    constexpr void Identity();
+    ARTS_EXPORT constexpr void Identity();
 
     // ?Interpolate@Matrix34@@QAEXABV1@0M@Z | unused
     ARTS_IMPORT void Interpolate(const Matrix34& arg1, const Matrix34& arg2, f32 arg3);

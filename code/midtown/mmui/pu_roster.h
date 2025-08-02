@@ -50,7 +50,7 @@ public:
     // ??_GPURoster@@UAEPAXI@Z
     // ??_EPURoster@@UAEPAXI@Z
     // ??1PURoster@@UAE@XZ
-    ARTS_IMPORT ~PURoster() override = default;
+    ARTS_EXPORT ~PURoster() override = default;
 
     // ?AddName@PURoster@@QAEXPADKH@Z
     ARTS_IMPORT void AddName(char* arg1, ulong arg2, i32 arg3);

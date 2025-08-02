@@ -20,11 +20,11 @@ define_dummy_symbol(stream_problems);
 
 #include "problems.h"
 
-static constexpr usize MAX_PROBLEMS = 4096;
-
 #include "data7/str.h"
 #include "hfsystem.h"
 #include "stream.h"
+
+static constexpr usize MAX_PROBLEMS = 4096;
 
 struct problem_t
 {
@@ -33,6 +33,9 @@ public:
     ConstString Target;
     ConstString Location;
     i32 Count {1};
+
+    ARTS_EXPORT problem_t() = default;
+    ARTS_EXPORT ~problem_t() = default;
 };
 
 check_size(problem_t, 0x10);
@@ -123,6 +126,9 @@ void InitProblems()
 
 void RegisterProblem(const char* message, const char* target, const char* location)
 {
+    if (!DevelopmentMode)
+        return;
+
     if (NumProblems == MAX_PROBLEMS)
         return;
 

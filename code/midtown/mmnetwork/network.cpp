@@ -26,7 +26,7 @@ static mem::cmd_param PARAM_dplay {"dplay"};
 
 static HRESULT(WINAPI* Orig_DirectPlayCreate)(LPGUID lpGUID, LPDIRECTPLAY* lplpDP, IUnknown* pUnk);
 
-static HRESULT WINAPI Hook_DirectPlayCreate(LPGUID lpGUID, LPDIRECTPLAY* lplpDP, IUnknown* pUnk)
+HRESULT WINAPI netDirectPlayCreate(LPGUID lpGUID, LPDIRECTPLAY* lplpDP, IUnknown* pUnk)
 {
     return Orig_DirectPlayCreate ? Orig_DirectPlayCreate(lpGUID, lplpDP, pUnk) : ERROR_INVALID_FUNCTION;
 }
@@ -312,8 +312,6 @@ void asNetwork::Disconnect()
 }
 
 hook_func(INIT_main, [] {
-    create_hook("DirectPlayCreate", "Dynamically load DPLAYX", 0x5A429A, &Hook_DirectPlayCreate, hook_type::jmp);
-
     // DPLAYX on Wine uses a shared memory allocation at a fixed address (see DPLAYX_ConstructData).
     // Load the DLL early to improve the chance it can use that adddress.
     LoadDirectPlay();

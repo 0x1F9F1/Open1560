@@ -20,6 +20,8 @@ define_dummy_symbol(agi_texlib);
 
 #include "texlib.h"
 
-agiLib<agiTexParameters, agiTexDef> agiTexLib {"agiTexLib"};
+#ifndef ARTS_STANDALONE // Generate all functions for use with asm
+template class agiLib<agiTexParameters, agiTexDef>;
+#endif
 
-patch_static_ctors(0x558160);
+agiLib<agiTexParameters, agiTexDef> agiTexLib {"agiTexLib"};

@@ -26,10 +26,8 @@ arts_component "mmeffects"
 
     if ARTS_USE_FREETYPE then
         files { "mmtext_freetype.cpp" }
-
         includeFreetype()
-        links { "freetype" }
-        copyToGameDir(path.join(FREETYPE_DIR, "bin/freetype.dll"))
+        linkFreetype()
     else
         files { "mmtext_win32.cpp" }
     end

@@ -142,7 +142,7 @@ public:
 #ifdef ARTS_STANDALONE
     i16 OppFinishPositions[MaxOpponents] {};
 #else
-    static i16 OppFinishPositions[MaxOpponents];
+    ARTS_EXPORT static i16 OppFinishPositions[MaxOpponents];
     i16 OldOppFinishPositions[8] {};
 #endif
 
@@ -151,7 +151,7 @@ public:
 #ifdef ARTS_STANDALONE
     i32 OppNumCheck[MaxOpponents] {};
 #else
-    static i32 OppNumCheck[MaxOpponents];
+    ARTS_EXPORT static i32 OppNumCheck[MaxOpponents];
     i32 OldOppNumCheck[8] {};
 #endif
 

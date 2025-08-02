@@ -45,6 +45,9 @@
 
 #include "aiGoal.h"
 
+class aiRailSet;
+class aiVehicleSpline;
+
 class aiGoalRandomDrive final : public aiGoal
 {
 public:
@@ -52,7 +55,7 @@ public:
     ARTS_IMPORT aiGoalRandomDrive(aiRailSet* arg1, aiVehicleSpline* arg2);
 
     // ??1aiGoalRandomDrive@@QAE@XZ
-    ARTS_IMPORT ~aiGoalRandomDrive() = default;
+    ARTS_EXPORT ~aiGoalRandomDrive() = default;
 
     // ?Context@aiGoalRandomDrive@@UAEHXZ
     ARTS_IMPORT b32 Context() override;

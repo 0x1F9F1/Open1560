@@ -43,7 +43,7 @@ public:
     // ??_EmmAnimTrainCar@@UAEPAXI@Z
     // ??_GmmAnimTrainCar@@UAEPAXI@Z | unused
     // ??1mmAnimTrainCar@@UAE@XZ
-    ARTS_IMPORT ~mmAnimTrainCar() override = default;
+    ARTS_EXPORT ~mmAnimTrainCar() override = default;
 
     // ?Draw@mmAnimTrainCar@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;

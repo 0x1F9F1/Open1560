@@ -43,7 +43,7 @@ public:
 
     // ??_EasAero@@UAEPAXI@Z
     // ??1asAero@@UAE@XZ | inline
-    ARTS_IMPORT ~asAero() override = default;
+    ARTS_EXPORT ~asAero() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@asAero@@UAEXPAVBank@@@Z

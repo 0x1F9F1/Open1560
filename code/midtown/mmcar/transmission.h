@@ -55,7 +55,7 @@ public:
 
     // ??_EmmTransmission@@UAEPAXI@Z
     // ??1mmTransmission@@UAE@XZ | inline
-    ARTS_IMPORT ~mmTransmission() override = default;
+    ARTS_EXPORT ~mmTransmission() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmTransmission@@UAEXPAVBank@@@Z

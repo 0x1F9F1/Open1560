@@ -40,7 +40,7 @@ public:
 protected:
     // ??_GagiRenderer@@MAEPAXI@Z
     // ??_EagiRenderer@@MAEPAXI@Z
-    ARTS_IMPORT virtual ~agiRenderer();
+    ARTS_EXPORT virtual ~agiRenderer() = default;
 
 public:
     virtual void BeginGroup() = 0;

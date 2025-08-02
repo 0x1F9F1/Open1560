@@ -45,7 +45,7 @@ public:
 
     // ??_EmmForce@@UAEPAXI@Z
     // ??1mmForce@@UAE@XZ | inline
-    ARTS_IMPORT ~mmForce() override = default;
+    ARTS_EXPORT ~mmForce() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmForce@@UAEXPAVBank@@@Z

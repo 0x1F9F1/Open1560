@@ -58,6 +58,7 @@ workspace "Open1560"
     -- debugformat "c7"
     inlining "Auto"
     intrinsics "On"
+    staticruntime  "On"
 
     filter "kind:*App or SharedLib"
         targetdir "bin/%{prj.name}/%{cfg.platform}_%{cfg.buildcfg}"
@@ -72,7 +73,7 @@ workspace "Open1560"
     filter "configurations:Final"
         optimize "Full"
         defines { "NDEBUG", "ARTS_FINAL" }
-        flags { "LinkTimeOptimization", "NoIncrementalLink" }
+        flags { "NoIncrementalLink" }
         functionlevellinking "On"
 
     filter "platforms:Win32"

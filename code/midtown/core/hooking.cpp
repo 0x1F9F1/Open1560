@@ -23,7 +23,6 @@
 #include <mem/module.h>
 #include <mem/protect.h>
 
-mem::static_function* INIT_early {};
 mem::static_function* INIT_main {};
 mem::static_function* FRAME_pre_update {};
 

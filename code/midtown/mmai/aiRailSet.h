@@ -57,7 +57,7 @@ public:
     ARTS_IMPORT aiRailSet();
 
     // ??1aiRailSet@@QAE@XZ
-    ARTS_IMPORT ~aiRailSet() = default;
+    ARTS_EXPORT ~aiRailSet() = default;
 
     // ?CalcCopRailPosition@aiRailSet@@QAEHAAVVector3@@0MM@Z
     ARTS_IMPORT i32 CalcCopRailPosition(Vector3& arg1, Vector3& arg2, f32 arg3, f32 arg4);

@@ -95,7 +95,7 @@ protected:
     // ??_EagiSurfRenderer@@MAEPAXI@Z
     // ??_GagiSurfRenderer@@MAEPAXI@Z
     // ??1agiSurfRenderer@@MAE@XZ
-    ARTS_IMPORT ~agiSurfRenderer() override = default;
+    ARTS_EXPORT ~agiSurfRenderer() override = default;
 
     // ?SurfaceCount@agiSurfRenderer@@1HA
     ARTS_IMPORT static i32 SurfaceCount;

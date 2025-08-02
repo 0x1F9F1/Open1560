@@ -41,14 +41,14 @@ class agiD3DViewport final : public agiViewport
 {
 public:
     // ??0agiD3DViewport@@QAE@PAVagiPipeline@@@Z
-    ARTS_IMPORT agiD3DViewport(agiPipeline* pipe)
+    ARTS_EXPORT agiD3DViewport(agiPipeline* pipe)
         : agiViewport(pipe)
     {}
 
     // ??_EagiD3DViewport@@UAEPAXI@Z
     // ??_GagiD3DViewport@@UAEPAXI@Z
     // ??1agiD3DViewport@@UAE@XZ
-    ARTS_IMPORT ~agiD3DViewport() override = default;
+    ARTS_EXPORT ~agiD3DViewport() override = default;
 
     // ?Activate@agiD3DViewport@@UAEXXZ
     ARTS_EXPORT void Activate() override;

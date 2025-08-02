@@ -27,16 +27,16 @@ template <typename Param, typename Def>
 class agiLib
 {
 public:
-    agiLib(const char* name)
+    ARTS_EXPORT agiLib(const char* name)
         : lookup_(name)
     {}
 
-    ~agiLib()
+    ARTS_EXPORT ~agiLib()
     {
         Kill();
     }
 
-    void Init(i32 count)
+    ARTS_EXPORT void Init(i32 count)
     {
         ArAssert(count <= agiLibMax, "Too many values");
 
@@ -77,7 +77,7 @@ public:
         return static_cast<i32>(reinterpret_cast<isize>(lookup_.Access(buffer)));
     }
 
-    i32 Add(Param& param)
+    ARTS_EXPORT i32 Add(Param& param)
     {
         i32 index = Lookup(param.Name);
 

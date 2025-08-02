@@ -20,7 +20,6 @@
 
 #include <mem/cmd_param.h>
 #include <mem/macros.h>
-#include <mem/stub.h>
 
 #define Ty(...) __VA_ARGS__
 
@@ -71,59 +70,6 @@ inline void create_packed_patch(
     ((std::memcpy(here, &args, sizeof(args)), here += sizeof(args)), ...);
     create_patch(name, description, dest, buffer, sizeof(buffer));
 }
-
-#define auto_hook(ADDRESS, FUNC) create_hook(#FUNC, "", ADDRESS, &FUNC)
-#define auto_hook_typed(ADDRESS, FUNC, TYPE) create_hook(#FUNC, "", ADDRESS, static_cast<TYPE>(&FUNC))
-
-template <typename Class>
-struct class_proxy
-{
-    template <typename... Args>
-    Class* ctor(Args... args)
-    {
-        return new (this) Class(std::forward<Args>(args)...);
-    }
-
-    void dtor()
-    {
-        reinterpret_cast<Class*>(this)->~Class();
-    }
-
-    template <typename... Args, typename F>
-    static constexpr auto func(F) -> std::invoke_result_t<F, Args...> (F::*)(Args...)
-    {
-        return &F::operator();
-    }
-};
-
-template <typename T>
-inline void* alloc_proxy(std::size_t /*size*/)
-{
-    return operator new(sizeof(T));
-}
-
-template <std::size_t N>
-inline void* alloc_proxy(std::size_t /*size*/)
-{
-    return operator new(N);
-}
-
-#define auto_hook_ctor(ADDRESS, TYPE, ...) \
-    create_hook(#TYPE "::" #TYPE, "", ADDRESS, &class_proxy<TYPE>::ctor<__VA_ARGS__>)
-
-#define auto_hook_dtor(ADDRESS, TYPE) create_hook(#TYPE "::~" #TYPE, "", ADDRESS, &class_proxy<TYPE>::dtor)
-
-#define auto_hook_mfunc(ADDRESS, TYPE, NAME, ...)                                                      \
-    create_hook(#TYPE "::" #NAME, "", ADDRESS,                                                         \
-        class_proxy<TYPE>::func<__VA_ARGS__>([self = char()](auto... args) mutable -> decltype(auto) { \
-            return reinterpret_cast<TYPE*>(&self)->TYPE::NAME(std::forward<decltype(args)>(args)...);  \
-        }))
-
-#define patch_static_ctors(...)                                                                \
-    hook_func(INIT_early, [] {                                                                 \
-        for (usize addr : {__VA_ARGS__})                                                       \
-            create_patch("Static Constructor", "Disable static constructor", addr, "\xC3", 1); \
-    });
 
 #define mem_offset_field(OFFSET, TYPE, NAME)                                              \
     MEM_STRONG_INLINE typename std::add_lvalue_reference<TYPE>::type Get##NAME() noexcept \
@@ -195,6 +141,5 @@ ARTS_FORCEINLINE char* operator""_xconst(const char* str, std::size_t)
 }
 #endif
 
-extern mem::static_function* INIT_early;
 extern mem::static_function* INIT_main;
 extern mem::static_function* FRAME_pre_update;

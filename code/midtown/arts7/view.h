@@ -51,7 +51,7 @@ public:
 
     // ??_EasViewCS@@UAEPAXI@Z
     // ??1asViewCS@@UAE@XZ | inline
-    ARTS_IMPORT ~asViewCS() override = default;
+    ARTS_EXPORT ~asViewCS() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@asViewCS@@UAEXPAVBank@@@Z

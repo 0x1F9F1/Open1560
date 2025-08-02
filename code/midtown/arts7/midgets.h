@@ -258,8 +258,7 @@ private:
     i32 section_count_ {};
     eqEventQ event_queue_;
 };
-
-// check_size(asMidgets, 0x87C);
+check_size(asMidgets, 0x898);
 
 // ?MIDGETSPTR@@3PAVasMidgets@@A
 ARTS_EXPORT extern asMidgets* MIDGETSPTR;

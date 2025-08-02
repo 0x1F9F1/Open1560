@@ -836,6 +836,3 @@ void asMidgets::PushColumn(i32 /*arg1*/)
 
 void asMidgets::PopColumn()
 {}
-
-hook_func(INIT_main,
-    [] { create_hook("new asMidgets", "Size of asMidgets", 0x521A1C, alloc_proxy<asMidgets>, hook_type::call); });

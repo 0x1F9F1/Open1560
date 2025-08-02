@@ -234,15 +234,3 @@ i32 MenuManager::MenuState(i32 menu)
 
     return 0;
 }
-
-hook_func(INIT_main, [] {
-    for (usize addr : {
-             0x4086B4,
-             0x4086D7,
-             0x40870A,
-             0x408722,
-         })
-    {
-        create_hook("mmInterface::ShowMain", "Menu Switching", addr, &MenuManager::Switch, hook_type::call);
-    }
-});

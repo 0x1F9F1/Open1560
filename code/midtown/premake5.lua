@@ -64,13 +64,29 @@ end
 project "*"
     includeSDL2()
 
-arts_component "midtown"
+project "Open1560"
+    kind "WindowedApp"
+    language "C++"
+    cppdialect "C++17"
+    warnings "Extra"
+
+    filter "toolset:msc-v*"
+        flags { "FatalWarnings", "Maps" }
+    filter {}
+
+    includeARTS()
+
+    targetname "Open1560"
+
     files {
         "midtown.cpp",
         "midtown.h",
 
         "patches.cpp",
         "patches.h",
+
+        "game.asm",
+        "midtown.rc",
     }
 
     links {
@@ -107,7 +123,6 @@ arts_component "midtown"
         "arts_stream",
         "arts_vector7",
 
-
         -- "lua",
         "SDL2",
         "SDL2main",
@@ -126,4 +141,30 @@ arts_component "midtown"
             "arts_agigl",
             "arts_agisdl",
         }
+    end
+
+    links { "DbgHelp", "Winmm" }
+
+    linkoptions { "/SAFESEH:NO", path.join(os.getcwd(), "NoExports.exp") }
+    -- linkoptions { "/PDBALTPATH:%_PDB%" } -- Remove full PDB path
+
+    copyToGameDir ("%{cfg.buildtarget.abspath}")
+    -- copyToGameDir ("%{cfg.buildtarget.directory}%{cfg.buildtarget.basename}.pdb")
+    copyToGameDir ("%{cfg.buildtarget.directory}%{cfg.buildtarget.basename}.map")
+    copyToGameDir (path.join(ROOT_DIR, "game"))
+    copyToGameDir (path.join(SDL2_DIR, "lib/x86/SDL2.dll"))
+
+    if MM1_GAME_DIRECTORY ~= nil then
+        for _, path in ipairs(GAME_FILES) do
+            postbuildcommands {
+                '{COPY} "' .. path .. '" "' .. MM1_GAME_DIRECTORY .. '"',
+            }
+        end
+
+        debugdir (MM1_GAME_DIRECTORY)
+        debugcommand (MM1_GAME_DIRECTORY .. 'Open1560.exe')
+
+        if MM1_COMMAND_LINE ~= nil then
+            debugargs (MM1_COMMAND_LINE)
+        end
     end

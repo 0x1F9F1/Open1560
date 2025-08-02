@@ -430,6 +430,3 @@ void mmInput::SetDefaultConfig(i32 config)
 
     InputConfiguration = old_config;
 }
-
-hook_func(INIT_main,
-    [] { create_patch("mmInput::BuildCaptureIO", "Fix controller button mask", 0x4E1F56, "\x83\xE6\x7F", 3); });

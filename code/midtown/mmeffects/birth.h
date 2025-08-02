@@ -46,7 +46,7 @@ public:
 
     // ??_EasBirthRule@@UAEPAXI@Z
     // ??1asBirthRule@@UAE@XZ | inline
-    ARTS_IMPORT ~asBirthRule() override = default;
+    ARTS_EXPORT ~asBirthRule() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@asBirthRule@@UAEXPAVBank@@@Z

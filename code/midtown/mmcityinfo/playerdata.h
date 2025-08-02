@@ -78,7 +78,7 @@ public:
     // ??_EmmPlayerRecord@@UAEPAXI@Z
     // ??_GmmPlayerRecord@@UAEPAXI@Z | unused
     // ??1mmPlayerRecord@@UAE@XZ
-    ARTS_IMPORT ~mmPlayerRecord() override = default;
+    ARTS_EXPORT ~mmPlayerRecord() override = default;
 
     // ??4mmPlayerRecord@@QAEXAAV0@@Z
     ARTS_IMPORT void operator=(mmPlayerRecord& arg1);

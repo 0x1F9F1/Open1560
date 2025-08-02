@@ -45,7 +45,7 @@ public:
 
     // ??_ECarCamCS@@UAEPAXI@Z
     // ??1CarCamCS@@UAE@XZ
-    ARTS_IMPORT ~CarCamCS() override = default;
+    ARTS_EXPORT ~CarCamCS() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@CarCamCS@@UAEXPAVBank@@@Z

@@ -305,9 +305,3 @@ i32 EggNameIndex(char* name)
 
     return -1;
 }
-
-hook_func(INIT_main, [] {
-    static const f32 spark_multiplier = 16.0f / 30.0f;
-    create_patch("mmCar::Impact", "Spark Count", 0x47422C, "\xD9\xE8\x90\x90\x90\x90", 6);
-    create_packed_patch<const void*>("mmCar::Impact", "Spark Count", 0x474235 + 2, &spark_multiplier);
-});

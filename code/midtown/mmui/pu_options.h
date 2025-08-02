@@ -39,7 +39,7 @@ public:
     // ??_GPUOptions@@UAEPAXI@Z
     // ??_EPUOptions@@UAEPAXI@Z
     // ??1PUOptions@@UAE@XZ
-    ARTS_IMPORT ~PUOptions() override = default;
+    ARTS_EXPORT ~PUOptions() override = default;
 };
 
 check_size(PUOptions, 0xC0);

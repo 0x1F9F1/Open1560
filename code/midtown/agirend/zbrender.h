@@ -42,7 +42,7 @@ public:
     // ??_EagiZBufRenderer@@UAEPAXI@Z
     // ??_GagiZBufRenderer@@UAEPAXI@Z
     // ??1agiZBufRenderer@@UAE@XZ
-    ARTS_IMPORT ~agiZBufRenderer() override = default;
+    ARTS_EXPORT ~agiZBufRenderer() override = default;
 
     // ?EndGroup@agiZBufRenderer@@UAEXXZ
     ARTS_IMPORT void EndGroup() override;

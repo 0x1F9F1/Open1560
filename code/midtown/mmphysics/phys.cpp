@@ -98,5 +98,3 @@ b32 mmPhysicsMGR::CollideProbe(i16 room, mmIntersection* isect, i32 flags)
 
     return false;
 }
-
-hook_func(INIT_main, [] { patch_jmp("mmPhysicsMGR::Cull", "Always Reset MoverCount", 0x4D54F5, jump_type::never); });

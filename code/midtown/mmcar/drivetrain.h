@@ -49,7 +49,7 @@ public:
 
     // ??_EmmDrivetrain@@UAEPAXI@Z
     // ??1mmDrivetrain@@UAE@XZ | inline
-    ARTS_IMPORT ~mmDrivetrain() override = default;
+    ARTS_EXPORT ~mmDrivetrain() override = default;
 
     // ?AddWheel@mmDrivetrain@@QAEHPAVmmWheel@@@Z
     ARTS_IMPORT i32 AddWheel(mmWheel* arg1);

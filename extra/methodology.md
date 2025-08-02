@@ -1,6 +1,7 @@
 # Versions
 Build | Build Date | Name | Details
 --- | --- | --- | ---
+`1427` | `Mar  1 1999 18:23:06` | midtown.exe | Beta, Symbols, Debug
 `1549` | `Mar 31 1999 17:02:43` | midtown.exe | Beta, Executable Only, SafeDisc
 `1560` | `Apr  2 1999 19:09:02` | midtown.exe | Beta, Symbols
 `1560` | `Apr  2 1999 19:10:27` | test1560.exe | Beta, Sybmols, Debug
@@ -8,6 +9,9 @@ Build | Build Date | Name | Details
 `1532 / NET DEMO` | `Jul 26 1999 18:50:44` | midtrial.exe | Trial
 `1532 / VW DEMO`  | `Jul 29 1999 15:03:55` | midvwtrial.exe | Trial
 `1589` | `Sep 16 1999 11:00:21` | midtown.exe | Retail, SafeDisc + Clean
+
+## 1427
+Earliest known build. Probably the one seen in GDC, March 1999.
 
 ## 1549
 Found in an old .icd alongside the 1560 builds. Needs a custom mmlang.dll to run.
@@ -31,26 +35,21 @@ Has a few interesting changes, but not good for modding (no debug symbols, no ex
 Debug executables with optimisation disabled. Good for research.
 
 # Debug Symbols (Linker Map)
-There are 4 known linker maps: 1560 Debug, 1560 Release, 1588 Release, 1589 Debug Trial.\
+There are 4 known linker maps: 1427, 1560 Debug, 1560 Release, 1588 Release, 1589 Debug Trial.\
 Comparisons can be found [here](https://github.com/0x1F9F1/Open1560/issues/46#issuecomment-697062680).
 
-# Imports
-"Fake" imports are used to reference game symbols. Allows almost seamless interop between game and hook.
+# Disassembly
+The game has been fully disassembled into `game.asm`, making it much easier to replace symbols and patch functions.
 
-# Exports
-Exports are used to hook game symbols. Avoids problems introduced by C++ address-of semantics.
+# ARTS_IMPORT
+Currently does nothing, apart from signaling that a function is not yet implemented.
 
-# Hooking
-## Functions
-Functions are hooked by replacing the original function with a `JMP rel32` to the new function.\
-Because all the functions are 16 byte aligned, and there was no identical COMDAT folding, this is safe to do.
+# ARTS_EXPORT
+Marks the function as dllexport, to force the compiler to generate a definition for it.
 
-## Variables
-Variables are hooked by replacing all pointers to them with pointers to the new variable.\
-The table of pointers to replace is stored in `xrefs.json`/`symbols.cpp`.\
-Because x86 does not use rip-relative addressing, this was generated using the relocation table along with some manual analysis to find the size of each variable and fixup any special cases.\
-Most notably was dealing with indexing by some negative offset i.e `mmInstance::MeshSetTable[MeshIndex - 1]`, since this would be optimised to `(mmInstance::MeshSetTable - 1)[MeshIndex]`, such that the pointer would point before the variable.
-If the variable type is not trivially constructible and destructible, the original static initializer also must be disabled.
+`Open1560.exp` (generated from an empty .def file) is used to disable actually exporting any functions from the exe.
+
+If replacing a variable is not trivially constructible and destructible, make sure to also remove the original static initializer.
 
 # IDA
 ## Offset (user-defined) - Ctrl+R
@@ -165,6 +164,13 @@ Name | Hash | Length
 `test1560.exe` | `755C24140088FD479BAB040A216038A88A55DBAB` | 2782208
 `ui.ar` | `A7B682DC63C869AA997B0D427B8AFE432A7D9727` | 18844304
 `vpdisco.ar` | `63FCCF9EC7871E6C32098FE53195A1845AE2D6D9` | 177776
+
+# 1427 Beta
+Name | Hash | Length
+--- | --- | ---:
+`midtown.ar` | `302403895A39FB31FDED5CEBD798A9FCA0A4B1AA` | 156897280
+`midtown.exe` | `D7FE4C77FB4707C5F302D778B2AB64849AEBEEF0` | 2655744
+
 
 ```ps
 Get-ChildItem | Foreach-Object { New-Object PSObject -Property @{ Name=$_.Name.ToLower(); Length=$_.Length; Hash=(Get-FileHash -Algorithm SHA1 $_.FullName).Hash } } | Format-Table -Auto

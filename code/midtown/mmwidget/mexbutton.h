@@ -45,7 +45,7 @@ public:
     // ??_EUIMexButton@@UAEPAXI@Z
     // ??_GUIMexButton@@UAEPAXI@Z
     // ??1UIMexButton@@UAE@XZ
-    ARTS_IMPORT ~UIMexButton() override = default;
+    ARTS_EXPORT ~UIMexButton() override = default;
 
     // ?Action@UIMexButton@@UAEXTeqEvent@@@Z
     ARTS_IMPORT void Action(eqEvent arg1) override;

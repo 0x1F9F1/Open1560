@@ -44,7 +44,7 @@ public:
 
     // ??_EmmShock@@UAEPAXI@Z
     // ??1mmShock@@UAE@XZ | inline
-    ARTS_IMPORT ~mmShock() override = default;
+    ARTS_EXPORT ~mmShock() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmShock@@UAEXPAVBank@@@Z

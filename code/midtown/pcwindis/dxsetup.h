@@ -45,7 +45,6 @@
 
 extern HRESULT(WINAPI* agiDirectDrawCreate)(GUID FAR* lpGUID, LPDIRECTDRAW FAR* lplpDD, IUnknown FAR* pUnkOuter);
 extern HRESULT(WINAPI* agiDirectDrawEnumerateA)(LPDDENUMCALLBACKA lpCallback, LPVOID lpContext);
-extern HRESULT(WINAPI* agiDirectDrawEnumerateExA)(LPDDENUMCALLBACKEXA lpCallback, LPVOID lpContext, DWORD dwFlags);
 
 // ?MultiMonCallback@@YGHPAU_GUID@@PAD1PAX2@Z
 ARTS_IMPORT i32 ARTS_STDCALL MultiMonCallback(_GUID* arg1, char* arg2, char* arg3, void* arg4, void* arg5);

@@ -213,7 +213,7 @@ public:
 #ifdef ARTS_STANDALONE
     OppIconInfo OppIcons[MaxOpponents] {};
 #else
-    static OppIconInfo OppIcons[MaxOpponents];
+    ARTS_EXPORT static OppIconInfo OppIcons[MaxOpponents];
     OppIconInfo OldOppIcons[8] {};
 #endif
 
@@ -241,7 +241,7 @@ public:
     // ??_Gfoobar@@UAEPAXI@Z
     // ??_Efoobar@@UAEPAXI@Z
     // ??1foobar@@UAE@XZ | inline
-    ARTS_IMPORT ~foobar() override = default;
+    ARTS_EXPORT ~foobar() override = default;
 
 private:
     // ?Update@foobar@@EAEXXZ

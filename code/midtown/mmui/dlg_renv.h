@@ -44,7 +44,7 @@ public:
     // ??_GDialog_RaceEnvironment@@UAEPAXI@Z
     // ??_EDialog_RaceEnvironment@@UAEPAXI@Z
     // ??1Dialog_RaceEnvironment@@UAE@XZ
-    ARTS_IMPORT ~Dialog_RaceEnvironment() override = default;
+    ARTS_EXPORT ~Dialog_RaceEnvironment() override = default;
 
     // ?CancelCallback@Dialog_RaceEnvironment@@QAEXXZ | unused
     ARTS_EXPORT void CancelCallback();

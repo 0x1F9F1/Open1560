@@ -247,7 +247,8 @@ void asCullManager::PrintStats()
     Statsf("CULLMGR 3D:%4.1f/2D:%4.1f/Updt:%4.1fms", UpdateTime3D * 1000.0f, (UpdateTime2D - UpdateTime3D) * 1000.0f,
         (CurrentFrameTime - UpdateTime2D) * 1000.0f);
     Statsf("DLPs Drawn:%-3d Clipped:%-3d", stats.DlpDrawn, stats.DlpClipped);
-    Statsf("Verts Xfrm:%-5d Lit:%-5d OutC:%-5d Clip:%-5d", stats.VertsXfrm, stats.VertsLit, stats.VertsOut, stats.VertsClip);
+    Statsf("Verts Xfrm:%-5d Lit:%-5d OutC:%-5d Clip:%-5d", stats.VertsXfrm, stats.VertsLit, stats.VertsOut,
+        stats.VertsClip);
     Statsf("Tris:%-4d Lines:%-4d Cards:%-4d", stats.Tris, stats.Lines, stats.Cards);
     Statsf("St.Chg:%-3d TexChg:%-3d St.Call:%-3d Geom.Call:%-3d", stats.StateChanges, stats.TextureChanges,
         stats.StateChangeCalls, stats.GeomCalls);
@@ -292,5 +293,3 @@ void Statsf(ARTS_FORMAT_STRING const char* format, ...)
 
 META_DEFINE_CHILD("asCullManager", asCullManager, asNode)
 {}
-
-hook_func(INIT_main, [] { patch_jmp("asCullManager::Update", "Don't set colors", 0x5250A4, jump_type::always); });

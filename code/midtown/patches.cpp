@@ -42,12 +42,6 @@ static mem::cmd_param PARAM_rv3 {"rv3"};
 
     // create_patch("MultiTexture", "Enable D3D MultiTexture", 0x530788 + 6, "\x02", 1);
 
-    patch_jmp("sfPointer::Update", "Enable cursor in windowed mode", 0x4BDAA4, jump_type::never);
-
-    patch_jmp("PolarCamCS", "No Collision", 0x4FAFF4, jump_type::always);
-
-    create_packed_patch<f32>("PolarCamCS", "Increase Max XCAM Distance", 0x620340, 250.0f);
-
     patch_jmp("mmMultiBlitz::Reset", "Always allow resetting", 0x41982D, jump_type::never);
     patch_jmp("mmMultiCircuit::Reset", "Always allow resetting", 0x41B19D, jump_type::never);
     patch_jmp("mmMultiRace::Reset", "Always allow resetting", 0x4203EF, jump_type::never);
@@ -58,11 +52,6 @@ static mem::cmd_param PARAM_rv3 {"rv3"};
     create_patch(
         "aiVehiclePolice::Reset", "Fix List::Clear memory leak", 0x44511C, "\x89\xF9\xE8\x6D\x71\x13\x00\x90", 8);
 
-    create_patch("agiSWTexLut::BeginGfx", "Fixed Fog Calculation", 0x5379F2,
-        "\xB8\x00\x01\x00\x00\x89\x45\xE4\x46\xC1\xE6\x05\x29\xF0\x90\x90\x90", 0x11);
-
-    create_patch("swComputeIntensity", "Fixed Fog Calculation", 0x536857, "\xB8\x00\x07\x00\x00\x5D\xC3", 7);
-
     patch_jmp("VehShowcase::PreSetup", "Fix showcase with addon cars", 0x4A5146, jump_type::never);
 
     patch_jmp("mmInterface::PlayerFillStats", "Always Show Score", 0x40C414, jump_type::never);
@@ -72,31 +61,7 @@ static mem::cmd_param PARAM_rv3 {"rv3"};
     patch_jmp("mmCullCity::Init", "DevelopmentMode", 0x48C851, jump_type::always);
     patch_jmp("mmCullCity::Init", "DevelopmentMode", 0x4908DC, jump_type::always);
 
-    patch_jmp("GetMeshSet", "Pager address check", 0x512AD5, jump_type::always);
-    patch_jmp("mmBoundTemplate::LockIfResident", "Pager address check", 0x519329, jump_type::always);
-
     // create_patch("AudManager::Disable", "Actually disable sfx/music", 0x4E9098 + 1, "\x00\x00\x00\x00", 4);
-
-    create_patch("mmWheel::Update", "Wheel Speed", 0x47F179, "\xDD\xD8\x90\x90\x90\x90", 6);
-
-    create_packed_patch<f32>("SkidRotationThresh", "Fix skids", 0x63C014, 0.5f);
-
-    for (usize addr : {
-             0x4F5B6E, // ?SetupNotifications@StreamObj@@QAEHXZ
-             0x4F5C15, // ?HandleNotifications@@YAKPAX@Z
-             0x4F5E2C, // ?HandleNotifications@@YAKPAX@Z
-             0x4F4CD6, // ??1StreamObj@@QAE@XZ
-             0x4F52E2, // ?Play@StreamObj@@QAEHXZ
-             0x4F533C, // ?SetPlayOneShotEvent@StreamObj@@QAEXPAD@Z
-             0x4F5397, // ?SetStopEvent@StreamObj@@QAEXXZ
-             0x4F53BA, // ?SetVolumeEvent@StreamObj@@QAEXM@Z
-             0x4F53EA, // ?SetFrequencyEvent@StreamObj@@QAEXM@Z
-             0x4F541A, // ?SetPanEvent@StreamObj@@QAEXM@Z
-             0x4F54D3, // ?Play@StreamObj@@QAEHPAD@Z
-         })
-    {
-        create_patch("StreamObj", "Disable Thread Suspend", addr, "\x58\x31\xC0\x90\x90\x90", 6);
-    }
 
     constexpr u32 pxt_checks[][2] {
         {0x444609, 0x444642}, // ?Draw@aiTrafficLightInstance@@UAIXH@Z
@@ -124,11 +89,6 @@ static mem::cmd_param PARAM_rv3 {"rv3"};
     create_packed_patch<u8>(
         "MenuManager::ScanGlobalKeys", "Debug Text Alignment", 0x4B11DA + 1, 0x7); // CENTER | VCENTER | BORDER
 
-    for (usize addr : {0x413BC0, 0x415D72, 0x417A90})
-    {
-        create_patch("LocPlayerName", "lea don't mov", addr, "\x8D", 1);
-    }
-
     patch_jmp("mmPlayer::Init", "Enable FreeCam when not in DevelopmentMode", 0x42A8E8, jump_type::never);
 
     create_packed_patch<u8, f32, u8, u8, u8>(
@@ -136,12 +96,6 @@ static mem::cmd_param PARAM_rv3 {"rv3"};
 
     create_packed_patch<const char*>(
         "mmGameEdit::InitGameObjects", "Use a valid waypoint object", 0x4124A7 + 1, "pt_check");
-
-    create_packed_patch<f32>("Vehicle::Vehicle", "Camera Viewport X", 0x4A522E + 1, 34.0f / 640.0f);
-    create_packed_patch<f32>("Vehicle::Vehicle", "Camera Viewport Y", 0x4A5229 + 1, 175.0f / 480.0f);
-    create_packed_patch<f32>("Vehicle::Vehicle", "Camera Viewport W", 0x4A5224 + 1, 290.0f / 640.0f);
-    create_packed_patch<f32>("Vehicle::Vehicle", "Camera Viewport H", 0x4A521F + 1, 216.0f / 480.0f);
-    create_packed_patch<f32>("VehicleSelectBase::InitCarSelection", "Camera Viewport Offset", 0x49B043 + 3, 2.3f);
 
     {
         // sw[Tri/Quad/Poly] uses Q12.10 for casting vertices to integers
@@ -318,11 +272,12 @@ static mem::cmd_param PARAM_rv3 {"rv3"};
          })
     {
         create_patch("VecDelDtor", "Avoid using vector deleting destructors", addr, "\x90\x90\x90\x90\x90\x90", 6);
-        create_hook("VecDelDtor", "Avoid using vector deleting destructors", addr, &VecDelDtor::Destruct, hook_type::call);
+        create_hook(
+            "VecDelDtor", "Avoid using vector deleting destructors", addr, &VecDelDtor::Destruct, hook_type::call);
     }
 #endif
 
-#ifndef ARTS_FINAL
+#if !defined(ARTS_FINAL) && 0
     {
         for (usize addr : {
                  0x4743C9,
@@ -362,5 +317,3 @@ static mem::cmd_param PARAM_rv3 {"rv3"};
     patch_jmp("mmCar::VehNameRemap", "Work in all game modes", 0x474371, jump_type::never);
 #endif
 }
-
-hook_func(INIT_main, [] { InitPatches(); });

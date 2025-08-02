@@ -99,7 +99,7 @@ public:
     // ??_GagiSWTexLut@@UAEPAXI@Z
     // ??_EagiSWTexLut@@UAEPAXI@Z
     // ??1agiSWTexLut@@UAE@XZ | inline
-    ARTS_IMPORT ~agiSWTexLut() override = default;
+    ARTS_EXPORT ~agiSWTexLut() override = default;
 
     // ?BeginGfx@agiSWTexLut@@UAEHXZ
     ARTS_IMPORT i32 BeginGfx() override;

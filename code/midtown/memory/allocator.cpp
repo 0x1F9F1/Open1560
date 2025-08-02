@@ -1015,8 +1015,6 @@ asMemoryAllocator* StaticAllocator()
     return allocator;
 }
 
-patch_static_ctors(0x520970);
-
 ARTS_MSVC_DIAGNOSTIC_IGNORED(4073);
 ARTS_PRAGMA(init_seg(lib));
 asMemoryAllocator* CURHEAP = StaticAllocator();

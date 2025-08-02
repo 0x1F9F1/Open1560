@@ -30,7 +30,6 @@ define_dummy_symbol(pcwindis_dxsetup);
 
 HRESULT(WINAPI* agiDirectDrawCreate)(GUID FAR* lpGUID, LPDIRECTDRAW FAR* lplpDD, IUnknown FAR* pUnkOuter);
 HRESULT(WINAPI* agiDirectDrawEnumerateA)(LPDDENUMCALLBACKA lpCallback, LPVOID lpContext);
-HRESULT(WINAPI* agiDirectDrawEnumerateExA)(LPDDENUMCALLBACKEXA lpCallback, LPVOID lpContext, DWORD dwFlags);
 
 bool agiLoadDirectDraw()
 {
@@ -44,8 +43,6 @@ bool agiLoadDirectDraw()
                 mem::bit_cast<decltype(agiDirectDrawCreate)>(GetProcAddress(hddraw, "DirectDrawCreate"));
             agiDirectDrawEnumerateA =
                 mem::bit_cast<decltype(agiDirectDrawEnumerateA)>(GetProcAddress(hddraw, "DirectDrawEnumerateA"));
-            agiDirectDrawEnumerateExA =
-                mem::bit_cast<decltype(agiDirectDrawEnumerateExA)>(GetProcAddress(hddraw, "DirectDrawEnumerateExA"));
         }
     }
 
@@ -64,16 +61,14 @@ ARTS_IMPORT /*static*/ i32 ARTS_STDCALL EnumCounter(_GUID* arg1, char* arg2, cha
 // ?EnumTextures@@YGJPAU_DDPIXELFORMAT@@PAX@Z
 ARTS_IMPORT /*static*/ ilong ARTS_STDCALL EnumTextures(_DDPIXELFORMAT* arg1, void* arg2);
 
-#ifndef ARTS_STANDALONE // Just to shut up warnings
-// ?EnumZ@@YGJPAU_DDPIXELFORMAT@@PAX@Z
-static long WINAPI EnumZ(DDPIXELFORMAT* ddpf, void* ctx)
+// ?EnumZ_DXSetup@@YGJPAU_DDPIXELFORMAT@@PAX@Z
+long WINAPI EnumZ_DXSetup(DDPIXELFORMAT* ddpf, void* ctx)
 {
     if (ddpf->dwRGBBitCount == 16)
         std::memcpy(ctx, ddpf, sizeof(*ddpf));
 
     return 1;
 }
-#endif
 
 // ?EnumerateRenderers2@@YAXXZ
 ARTS_IMPORT /*static*/ void EnumerateRenderers2();
@@ -264,19 +259,3 @@ void dxiConfig([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
         }
     }
 }
-
-hook_func(INIT_main, [] {
-    auto_hook(0x575FD0, EnumZ);
-
-    create_patch("TestResolution", "Unsigned Comparison", 0x575E34, "\x72", 1);
-    create_patch("TestResolution", "Unsigned Comparison", 0x575E38, "\x72", 1);
-
-    create_patch("Res String", "Unsigned Printf", 0x661890, "res %d x %d: %u %u / %u %u", 27);
-
-    create_patch(
-        "EliminatingRes String", "Unsigned Printf", 0x6618AC, "Eliminating res %d x %d; texmem=%u, vidmem=%u", 46);
-
-    create_hook("DirectDrawCreate", "Dynamically load DDRAW", 0x5A2EF0 + 2, &agiDirectDrawCreate, hook_type::pointer);
-    create_hook(
-        "DirectDrawEnumerateA", "Dynamically load DDRAW", 0x5A2EF6 + 2, &agiDirectDrawEnumerateA, hook_type::pointer);
-});

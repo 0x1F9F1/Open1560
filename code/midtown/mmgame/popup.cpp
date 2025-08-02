@@ -68,6 +68,7 @@ void mmPopup::DisablePU(b32 resume_cd)
         PopupEnabled = false;
     }
 
+    // FIXME: Should this check resume_cd? Our old patch removed it.
     if (resume_cd && MMSTATE.HasMidtownCD)
     {
         AudMgr()->PlayCDTrack(PopupCDTrack, PopupCDMinute, PopupCDSecond, PopupCDFrame, true);

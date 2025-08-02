@@ -228,7 +228,7 @@ public:
     // ??_EaiPedestrianInstance@@UAEPAXI@Z
     // ??_GaiPedestrianInstance@@UAEPAXI@Z
     // ??1aiPedestrianInstance@@UAE@XZ | inline
-    ARTS_IMPORT ~aiPedestrianInstance() override = default;
+    ARTS_EXPORT ~aiPedestrianInstance() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@aiPedestrianInstance@@UAEXPAVBank@@@Z | inline

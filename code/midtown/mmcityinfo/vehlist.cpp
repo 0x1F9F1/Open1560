@@ -124,10 +124,3 @@ void mmVehList::SetDefaultVehicle(const char* name)
 
     ArAssert(DefaultVehicle, "Invalid Default Vehicle");
 }
-
-hook_func(INIT_main, [] {
-    for (usize addr : {0x403EEC, 0x406B8B})
-    {
-        create_hook("mmVehList", "Size of mmVehList", addr, alloc_proxy<mmVehList>, hook_type::call);
-    }
-});

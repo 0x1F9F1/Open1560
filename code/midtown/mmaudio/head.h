@@ -48,7 +48,7 @@ public:
     // ??_EAudHead@@UAEPAXI@Z
     // ??_GAudHead@@UAEPAXI@Z
     // ??1AudHead@@UAE@XZ
-    ARTS_IMPORT ~AudHead() override = default;
+    ARTS_EXPORT ~AudHead() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@AudHead@@UAEXPAVBank@@@Z

@@ -141,7 +141,7 @@ public:
 
     // ??_EaiMap@@UAEPAXI@Z
     // ??1aiMap@@UAE@XZ
-    ARTS_IMPORT ~aiMap() override = default;
+    ARTS_EXPORT ~aiMap() override = default;
 
     // ?AddAmbient@aiMap@@QAEXPAVaiVehicleSpline@@@Z
     ARTS_IMPORT void AddAmbient(aiVehicleSpline* arg1);

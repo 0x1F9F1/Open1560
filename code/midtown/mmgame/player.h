@@ -88,7 +88,7 @@ public:
 
     // ??_EmmPlayer@@UAEPAXI@Z
     // ??1mmPlayer@@UAE@XZ | inline
-    ARTS_IMPORT ~mmPlayer() override;
+    ARTS_EXPORT ~mmPlayer() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmPlayer@@UAEXPAVBank@@@Z

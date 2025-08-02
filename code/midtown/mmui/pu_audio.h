@@ -47,7 +47,7 @@ public:
     // ??_GPUAudioOptions@@UAEPAXI@Z
     // ??_EPUAudioOptions@@UAEPAXI@Z
     // ??1PUAudioOptions@@UAE@XZ
-    ARTS_IMPORT ~PUAudioOptions() override = default;
+    ARTS_EXPORT ~PUAudioOptions() override = default;
 
     // ?CancelAction@PUAudioOptions@@QAEXXZ
     ARTS_IMPORT void CancelAction();

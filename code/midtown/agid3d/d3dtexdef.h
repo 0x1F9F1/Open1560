@@ -117,7 +117,7 @@ public:
     // ??_GagiD3DTexLut@@UAEPAXI@Z
     // ??_EagiD3DTexLut@@UAEPAXI@Z
     // ??1agiD3DTexLut@@UAE@XZ | inline
-    ARTS_IMPORT ~agiD3DTexLut() override = default;
+    ARTS_EXPORT ~agiD3DTexLut() override = default;
 
     // ?BeginGfx@agiD3DTexLut@@UAEHXZ
     ARTS_IMPORT i32 BeginGfx() override;

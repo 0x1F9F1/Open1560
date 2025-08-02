@@ -46,7 +46,7 @@ public:
 
     // ??_EasDofCS@@UAEPAXI@Z
     // ??1asDofCS@@UAE@XZ | inline
-    ARTS_IMPORT ~asDofCS() override = default;
+    ARTS_EXPORT ~asDofCS() override = default;
 
     // ??4asDofCS@@QAEXABV0@@Z | unused
     ARTS_IMPORT void operator=(const asDofCS& arg1);

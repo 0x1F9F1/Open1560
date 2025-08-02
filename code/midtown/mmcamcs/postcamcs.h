@@ -45,7 +45,7 @@ public:
 
     // ??_EPostCamCS@@UAEPAXI@Z
     // ??1PostCamCS@@UAE@XZ | inline
-    ARTS_IMPORT ~PostCamCS() override = default;
+    ARTS_EXPORT ~PostCamCS() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@PostCamCS@@UAEXPAVBank@@@Z

@@ -54,7 +54,7 @@ public:
     // ??_EmmVehInfo@@UAEPAXI@Z
     // ??_GmmVehInfo@@UAEPAXI@Z
     // ??1mmVehInfo@@UAE@XZ
-    ARTS_IMPORT virtual ~mmVehInfo() = default;
+    ARTS_EXPORT virtual ~mmVehInfo() = default;
 
     // ?HasColorVariations@mmVehInfo@@QAEHXZ | unused
     ARTS_IMPORT i32 HasColorVariations();

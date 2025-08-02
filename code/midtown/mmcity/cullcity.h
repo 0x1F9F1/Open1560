@@ -246,7 +246,7 @@ public:
     // ??_GmmUpperInstance@@UAEPAXI@Z
     // ??_EmmUpperInstance@@UAEPAXI@Z
     // ??1mmUpperInstance@@UAE@XZ | inline
-    ARTS_IMPORT ~mmUpperInstance() override = default;
+    ARTS_EXPORT ~mmUpperInstance() override = default;
 
 private:
     // ?Draw@mmUpperInstance@@EAIXH@Z
@@ -264,7 +264,7 @@ public:
     // ??_EmmRunwayLight@@UAEPAXI@Z
     // ??_GmmRunwayLight@@UAEPAXI@Z
     // ??1mmRunwayLight@@UAE@XZ | inline
-    ARTS_IMPORT ~mmRunwayLight() override = default;
+    ARTS_EXPORT ~mmRunwayLight() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmRunwayLight@@UAEXPAVBank@@@Z | inline

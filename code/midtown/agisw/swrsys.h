@@ -51,7 +51,7 @@ public:
     // ??_GagiSWRasterizer@@UAEPAXI@Z
     // ??_EagiSWRasterizer@@UAEPAXI@Z
     // ??1agiSWRasterizer@@UAE@XZ
-    ARTS_IMPORT ~agiSWRasterizer() override = default;
+    ARTS_EXPORT ~agiSWRasterizer() override = default;
 
     // ?BeginGfx@agiSWRasterizer@@UAEHXZ
     ARTS_EXPORT i32 BeginGfx() override;

@@ -33,12 +33,12 @@
 
 #define ARTS_RESTRICT HEDLEY_RESTRICT
 
+#define ARTS_IMPORT
+
 #ifdef ARTS_STANDALONE
-#    define ARTS_IMPORT
 #    define ARTS_EXPORT
 #else
-#    define ARTS_IMPORT HEDLEY_IMPORT
-#    define ARTS_EXPORT HEDLEY_PUBLIC
+#    define ARTS_EXPORT __declspec(dllexport)
 #endif
 
 #ifndef ARTS_FUNCTION

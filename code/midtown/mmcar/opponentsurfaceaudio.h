@@ -40,7 +40,7 @@ public:
     ARTS_IMPORT mmOpponentSurfaceAudio();
 
     // ??1mmOpponentSurfaceAudio@@QAE@XZ
-    ARTS_IMPORT ~mmOpponentSurfaceAudio() = default;
+    ARTS_EXPORT ~mmOpponentSurfaceAudio() = default;
 
     // ?Disable3DMode@mmOpponentSurfaceAudio@@QAEXXZ
     ARTS_IMPORT void Disable3DMode();

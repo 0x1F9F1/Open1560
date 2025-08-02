@@ -43,9 +43,16 @@ void mmLoader::Init(aconst char* underlay_name, f32 bar_x, f32 bar_y)
     Update();
 }
 
+static mem::cmd_param PARAM_loadingscreen {"loadingscreen", "Show loading screens"};
+
 void mmLoader::Update()
 {
     eqEventHandler::SuperQ->Update();
+
+    if (!PARAM_loadingscreen.get_or(true))
+    {
+        return;
+    }
 
     camera_.Update();
 

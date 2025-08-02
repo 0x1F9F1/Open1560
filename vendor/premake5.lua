@@ -22,6 +22,22 @@ function includeFreetype()
     libdirs { path.join(FREETYPE_DIR, "bin") }
 end
 
+-- Compiled with:
+-- cmake --fresh -B build -A Win32 -T v141 -DFT_DISABLE_ZLIB=ON -DFT_DISABLE_BZIP2=ON -DFT_DISABLE_PNG=ON -DFT_DISABLE_HARFBUZZ=ON -DFT_DISABLE_BROTLI=ON
+--
+-- And override CRT:
+-- cmake_policy(SET CMP0091 NEW)
+-- set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+function linkFreetype()
+    local libdir = path.join(FREETYPE_DIR, "bin")
+
+    filter "configurations:Debug"
+        links { path.join(libdir, "freetyped.lib") }
+    filter "configurations:not Debug"
+        links { path.join(libdir, "freetype.lib") }
+    filter {}
+end
+
 function includeGlad()
     includedirs { path.join(GLAD_DIR, "include") }
 end

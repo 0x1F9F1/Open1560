@@ -41,6 +41,7 @@
 #define INITGUID
 
 #include <algorithm>
+#include <cmath>
 
 #include "core/defines.h"
 #include "core/primitives.h"
@@ -67,6 +68,6 @@ ARTS_CLANG_DIAGNOSTIC_IGNORED("-Wswitch");
 ARTS_CLANG_DIAGNOSTIC_IGNORED("-Winvalid-offsetof");
 
 // The <mm3dnow.h> header is deprecated, and 3dNow! intrinsics are unsupported.
-#define _MM3DNOW_H_INCLUDED
+#    define _MM3DNOW_H_INCLUDED
 
 #endif

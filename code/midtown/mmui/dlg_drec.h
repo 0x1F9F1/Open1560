@@ -45,7 +45,7 @@ public:
     // ??_GDialog_DriverRec@@UAEPAXI@Z
     // ??_EDialog_DriverRec@@UAEPAXI@Z
     // ??1Dialog_DriverRec@@UAE@XZ
-    ARTS_IMPORT ~Dialog_DriverRec() override = default;
+    ARTS_EXPORT ~Dialog_DriverRec() override = default;
 
     // ?AddDriverRecord@Dialog_DriverRec@@QAEHHPADHM0H@Z
     ARTS_IMPORT i32 AddDriverRecord(i32 arg1, char* arg2, i32 arg3, f32 arg4, char* arg5, i32 arg6);

@@ -43,12 +43,6 @@ static HANDLE CopyIoHandle(i32 handle)
         : INVALID_HANDLE_VALUE;
 }
 
-FileStream::FileStream(i32 handle)
-    : Stream(nullptr, 0, nullptr)
-    , file_handle_(CopyIoHandle(handle))
-    , pager_handle_(INVALID_HANDLE_VALUE)
-{}
-
 FileStream::FileStream(void* buffer, isize buffer_size, FileSystem* file_system)
     : Stream(buffer, buffer_size, file_system)
     , file_handle_(INVALID_HANDLE_VALUE)
@@ -211,16 +205,6 @@ i32 FileStream::GetError(char* buf, isize buf_len)
     return static_cast<i32>(error);
 }
 
-FileStream __stdin(0);
-FileStream __stdout(1);
-
 static mem::cmd_param PARAM_mapping {"mapping"};
 
-hook_func(INIT_main, [] {
-    EnableBinaryFileMapping = PARAM_mapping.get_or(false);
-
-    if (EnableBinaryFileMapping) // Sliding modifies TexCoords inplace, which crashes when read-only mapping
-        patch_jmp("mmCellRenderer::Cull", "No Sliding", 0x4990FF, jump_type::always);
-});
-
-patch_static_ctors(0x561AB0);
+hook_func(INIT_main, [] { EnableBinaryFileMapping = PARAM_mapping.get_or(false); });

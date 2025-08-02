@@ -66,7 +66,7 @@ public:
 
     // ??_EmmSkid@@UAEPAXI@Z
     // ??1mmSkid@@UAE@XZ
-    ARTS_IMPORT ~mmSkid() override = default;
+    ARTS_EXPORT ~mmSkid() override = default;
 
     // ?AddSkid@mmSkid@@QAEXAAVMatrix34@@PAVVector3@@PAVagiPhysParameters@@M@Z
     ARTS_IMPORT void AddSkid(Matrix34& arg1, Vector3* arg2, agiPhysParameters* arg3, f32 arg4);

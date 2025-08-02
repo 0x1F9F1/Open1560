@@ -39,7 +39,7 @@ public:
     // ??_GPUQuit@@UAEPAXI@Z
     // ??_EPUQuit@@UAEPAXI@Z
     // ??1PUQuit@@UAE@XZ
-    ARTS_IMPORT ~PUQuit() override = default;
+    ARTS_EXPORT ~PUQuit() override = default;
 };
 
 check_size(PUQuit, 0xC0);

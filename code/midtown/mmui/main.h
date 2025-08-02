@@ -40,7 +40,7 @@ public:
     // ??_GMainMenu@@UAEPAXI@Z
     // ??_EMainMenu@@UAEPAXI@Z
     // ??1MainMenu@@UAE@XZ
-    ARTS_IMPORT ~MainMenu() override = default;
+    ARTS_EXPORT ~MainMenu() override = default;
 
     // ?PreSetup@MainMenu@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;

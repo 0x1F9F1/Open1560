@@ -49,7 +49,7 @@ public:
     // ??_GasMeshSetForm@@UAEPAXI@Z
     // ??_EasMeshSetForm@@UAEPAXI@Z
     // ??1asMeshSetForm@@UAE@XZ | inline
-    ARTS_IMPORT ~asMeshSetForm() override = default;
+    ARTS_EXPORT ~asMeshSetForm() override = default;
 
     // ?Cull@asMeshSetForm@@UAEXXZ
     ARTS_IMPORT void Cull() override;

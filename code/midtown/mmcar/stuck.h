@@ -50,7 +50,7 @@ public:
     // ??_GmmStuck@@UAEPAXI@Z
     // ??_EmmStuck@@UAEPAXI@Z
     // ??1mmStuck@@UAE@XZ | inline
-    ARTS_IMPORT ~mmStuck() override = default;
+    ARTS_EXPORT ~mmStuck() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmStuck@@UAEXPAVBank@@@Z

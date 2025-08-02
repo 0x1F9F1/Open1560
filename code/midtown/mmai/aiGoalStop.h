@@ -33,6 +33,8 @@
 
 #include "aiGoal.h"
 
+class mmCar;
+
 class aiGoalStop final : public aiGoal
 {
 public:
@@ -40,7 +42,7 @@ public:
     ARTS_IMPORT aiGoalStop(mmCar* arg1, b16* arg2);
 
     // ??1aiGoalStop@@QAE@XZ
-    ARTS_IMPORT ~aiGoalStop() = default;
+    ARTS_EXPORT ~aiGoalStop() = default;
 
     // ?Context@aiGoalStop@@UAEHXZ
     ARTS_IMPORT b32 Context() override;

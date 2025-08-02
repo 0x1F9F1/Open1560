@@ -45,7 +45,7 @@ public:
 
     // ??_EAppCamCS@@UAEPAXI@Z
     // ??1AppCamCS@@UAE@XZ
-    ARTS_IMPORT ~AppCamCS() override = default;
+    ARTS_EXPORT ~AppCamCS() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@AppCamCS@@UAEXPAVBank@@@Z

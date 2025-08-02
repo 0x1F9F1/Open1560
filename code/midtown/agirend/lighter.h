@@ -76,7 +76,7 @@ protected:
     // ??_EagiLighter@@MAEPAXI@Z
     // ??_GagiLighter@@MAEPAXI@Z
     // ??1agiLighter@@MAE@XZ
-    ARTS_IMPORT virtual ~agiLighter() = default;
+    ARTS_EXPORT virtual ~agiLighter() = default;
 
 public:
     // ?TransformAll@agiLighter@@UAEXPAVMatrix34@@PAVVector3@@I@Z
@@ -150,7 +150,7 @@ public:
     // ??_GagiMonoLighter@@UAEPAXI@Z
     // ??_EagiMonoLighter@@UAEPAXI@Z
     // ??1agiMonoLighter@@UAE@XZ
-    ARTS_IMPORT ~agiMonoLighter() override = default;
+    ARTS_EXPORT ~agiMonoLighter() override = default;
 
     // ?LightVertex@agiMonoLighter@@UAEIIPAUagiLitVtx@@PAVVector3@@@Z
     ARTS_IMPORT u32 LightVertex(u32 arg1, agiLitVtx* arg2, Vector3* arg3) override;
@@ -167,7 +167,7 @@ public:
     // ??_GagiRGBLighter@@UAEPAXI@Z
     // ??_EagiRGBLighter@@UAEPAXI@Z
     // ??1agiRGBLighter@@UAE@XZ
-    ARTS_IMPORT ~agiRGBLighter() override = default;
+    ARTS_EXPORT ~agiRGBLighter() override = default;
 
     // ?LightVertex@agiRGBLighter@@UAEIIPAUagiLitVtx@@PAVVector3@@@Z
     ARTS_IMPORT u32 LightVertex(u32 arg1, agiLitVtx* arg2, Vector3* arg3) override;

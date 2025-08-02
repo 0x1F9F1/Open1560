@@ -43,7 +43,7 @@ public:
 
     // ??_EPolarCamCS@@UAEPAXI@Z
     // ??1PolarCamCS@@UAE@XZ | inline
-    ARTS_IMPORT ~PolarCamCS() override = default;
+    ARTS_EXPORT ~PolarCamCS() override = default;
 
     // ?GetClass@PolarCamCS@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;

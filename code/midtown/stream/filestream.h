@@ -48,9 +48,6 @@
 class FileStream final : public Stream
 {
 public:
-    // ??0FileStream@@QAE@H@Z
-    ARTS_EXPORT FileStream(i32 handle);
-
     // ??0FileStream@@QAE@PAXHPAVFileSystem@@@Z
     ARTS_EXPORT FileStream(void* buffer, isize buffer_size, FileSystem* file_system);
 
@@ -106,9 +103,3 @@ private:
 };
 
 // check_size(FileStream, 0x28);
-
-// ?__stdin@@3VFileStream@@A
-ARTS_EXPORT extern FileStream __stdin;
-
-// ?__stdout@@3VFileStream@@A
-ARTS_EXPORT extern FileStream __stdout;

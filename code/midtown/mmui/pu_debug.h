@@ -40,7 +40,7 @@ public:
     // ??_EPUDebug@@UAEPAXI@Z
     // ??_GPUDebug@@UAEPAXI@Z
     // ??1PUDebug@@UAE@XZ
-    ARTS_IMPORT ~PUDebug() override = default;
+    ARTS_EXPORT ~PUDebug() override = default;
 
     // ?RecordCB@PUDebug@@QAEXXZ
     ARTS_IMPORT void RecordCB();

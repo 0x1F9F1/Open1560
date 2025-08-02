@@ -46,7 +46,7 @@ public:
     // ??_GasBound@@UAEPAXI@Z
     // ??_EasBound@@UAEPAXI@Z
     // ??1asBound@@UAE@XZ | inline
-    ARTS_IMPORT ~asBound() override = default;
+    ARTS_EXPORT ~asBound() override = default;
 
     // ?GetPhysMtl@asBound@@QAEAAVagiPhysParameters@@ABVmmPolygon@@@Z
     ARTS_IMPORT agiPhysParameters& GetPhysMtl(const mmPolygon& arg1);

@@ -41,7 +41,7 @@ public:
     // ??_EDialog_NewPlayer@@UAEPAXI@Z
     // ??_GDialog_NewPlayer@@UAEPAXI@Z
     // ??1Dialog_NewPlayer@@UAE@XZ
-    ARTS_IMPORT ~Dialog_NewPlayer() override = default;
+    ARTS_EXPORT ~Dialog_NewPlayer() override = default;
 
     // ?EnterNewPlayer@Dialog_NewPlayer@@QAEXXZ
     ARTS_IMPORT void EnterNewPlayer();

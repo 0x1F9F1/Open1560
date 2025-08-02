@@ -179,5 +179,3 @@ void ArgSet::Usage()
 }
 
 ArgSet GBArgs {};
-
-patch_static_ctors(0x578D10);

@@ -49,7 +49,7 @@ public:
 
     // ??_ESpline@@UAEPAXI@Z
     // ??1Spline@@UAE@XZ | inline
-    ARTS_IMPORT ~Spline() override = default;
+    ARTS_EXPORT ~Spline() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@Spline@@UAEXPAVBank@@@Z

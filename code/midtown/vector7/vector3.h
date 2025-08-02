@@ -84,7 +84,7 @@ public:
     constexpr inline Vector3() noexcept = default;
 
     // ??0Vector3@@QAE@MMM@Z | inline
-    constexpr inline Vector3(f32 x, f32 y, f32 z) noexcept
+    ARTS_EXPORT constexpr inline Vector3(f32 x, f32 y, f32 z) noexcept
         : x(x)
         , y(y)
         , z(z)
@@ -158,7 +158,7 @@ public:
 
     // ??TVector3@@QBEMABV0@@Z | inline
     // Dot Product
-    ARTS_IMPORT inline f32 operator^(const Vector3& other) const
+    ARTS_EXPORT inline f32 operator^(const Vector3& other) const
     {
         return (x * other.x) + (y * other.y) + (z * other.z);
     }

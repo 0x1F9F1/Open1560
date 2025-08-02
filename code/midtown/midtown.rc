@@ -1,0 +1,38 @@
+#include <winver.h>
+
+#ifdef _DEBUG
+#define VER_DEBUG VS_FF_DEBUG
+#else
+#define VER_DEBUG 0
+#endif
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION 	1,0,0,1
+PRODUCTVERSION 	1,0,0,1
+FILEFLAGSMASK   VS_FFI_FILEFLAGSMASK
+FILEFLAGS       VER_DEBUG
+FILEOS          VOS_NT_WINDOWS32
+FILETYPE		VFT_APP
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904E4"
+        BEGIN
+            VALUE "CompanyName", "Angel Studios"
+            VALUE "FileDescription", "Midtown Madness! Executable"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "InternalName", "Open1560"
+            VALUE "LegalCopyright", "Copyright \xA9 2025"
+            VALUE "OriginalFilename", "Open1560.exe"
+            VALUE "ProductName", "Midtown Madness!"
+            VALUE "ProductVersion", "1, 0, 0, 1"
+        END
+    END
+
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+111 ICON "midtown.ico"

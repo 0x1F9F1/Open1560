@@ -44,7 +44,7 @@ public:
     // ??_GagiD3DMtlDef@@UAEPAXI@Z
     // ??_EagiD3DMtlDef@@UAEPAXI@Z
     // ??1agiD3DMtlDef@@UAE@XZ
-    ARTS_IMPORT ~agiD3DMtlDef() override = default;
+    ARTS_EXPORT ~agiD3DMtlDef() override = default;
 
     // ?Activate@agiD3DMtlDef@@QAEXXZ
     ARTS_IMPORT void Activate();

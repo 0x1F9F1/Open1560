@@ -44,7 +44,7 @@ public:
     // ??_EAboutMenu@@UAEPAXI@Z
     // ??_GAboutMenu@@UAEPAXI@Z
     // ??1AboutMenu@@UAE@XZ
-    ARTS_IMPORT ~AboutMenu() override = default;
+    ARTS_EXPORT ~AboutMenu() override = default;
 
     // ?Cull@AboutMenu@@UAEXXZ
     ARTS_IMPORT void Cull() override;

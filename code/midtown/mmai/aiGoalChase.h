@@ -59,7 +59,11 @@
 
 #include "aiGoal.h"
 
+class aiIntersection;
+class aiPath;
+class aiRailSet;
 class aiVehiclePolice;
+class mmCar;
 
 class aiGoalChase final : public aiGoal
 {

@@ -78,7 +78,7 @@ public:
 
     // ??_EmmAnimDOF@@QAEPAXI@Z | unused
     // ??1mmAnimDOF@@QAE@XZ
-    ARTS_IMPORT ~mmAnimDOF() = default;
+    ARTS_EXPORT ~mmAnimDOF() = default;
 
     // ?GetClass@mmAnimDOF@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT virtual MetaClass* GetClass();

@@ -22,12 +22,6 @@
     mmai:aiGoal
 */
 
-class aiIntersection;
-class aiPath;
-class aiRailSet;
-class aiVehicleSpline;
-class mmCar;
-
 class aiGoal
 {
 public:

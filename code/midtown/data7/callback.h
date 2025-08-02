@@ -143,12 +143,6 @@ inline Callback::Callback(Func func) noexcept
     new (data_) Func(func);
 }
 
-inline void Callback::Call(void* param)
-{
-    if (invoke_)
-        invoke_(data_, param);
-}
-
 inline bool Callback::operator==(const Callback& other) const
 {
     return !std::memcmp(this, &other, sizeof(*this));

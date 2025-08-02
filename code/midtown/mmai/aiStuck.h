@@ -47,7 +47,7 @@ public:
     // ??_GaiStuck@@UAEPAXI@Z
     // ??_EaiStuck@@UAEPAXI@Z
     // ??1aiStuck@@UAE@XZ | inline
-    ARTS_IMPORT ~aiStuck() override = default;
+    ARTS_EXPORT ~aiStuck() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@aiStuck@@UAEXPAVBank@@@Z

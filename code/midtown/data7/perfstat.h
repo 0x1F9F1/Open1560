@@ -29,12 +29,3 @@
 
 // ?PerfGetValue@@YAIH@Z
 ARTS_IMPORT u32 PerfGetValue(i32 arg1);
-
-// ?PerfInit@@YAXXZ | unused
-ARTS_IMPORT void PerfInit();
-
-// ?PerfLookup@@YAHPAD@Z | unused
-ARTS_IMPORT i32 PerfLookup(char* arg1);
-
-// ?PerfShutdown@@YAXXZ | unused
-ARTS_IMPORT void PerfShutdown();

@@ -47,7 +47,7 @@ public:
     ARTS_IMPORT mmRaceData();
 
     // ??1mmRaceData@@QAE@XZ
-    ARTS_IMPORT ~mmRaceData() = default;
+    ARTS_EXPORT ~mmRaceData() = default;
 
     // ?GetAmbientDensity@mmRaceData@@QAEMHW4mmSkillLevel@@@Z
     ARTS_IMPORT f32 GetAmbientDensity(i32 arg1, mmSkillLevel arg2);

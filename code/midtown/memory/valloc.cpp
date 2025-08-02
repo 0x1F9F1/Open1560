@@ -110,5 +110,3 @@ void asSafeHeap::Deactivate()
 
     current_heap_ = 0;
 }
-
-patch_static_ctors(0x521350);

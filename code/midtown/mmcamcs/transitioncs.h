@@ -48,7 +48,7 @@ public:
     // ??_GTransitionCS@@UAEPAXI@Z
     // ??_ETransitionCS@@UAEPAXI@Z
     // ??1TransitionCS@@UAE@XZ
-    ARTS_IMPORT ~TransitionCS() override = default;
+    ARTS_EXPORT ~TransitionCS() override = default;
 
     // ?ForceMatrixDelta@TransitionCS@@UAEXABVVector3@@@Z
     ARTS_IMPORT void ForceMatrixDelta(const Vector3& arg1) override;

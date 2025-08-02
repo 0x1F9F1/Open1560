@@ -53,7 +53,7 @@ public:
     // ??_EmmPoliceCarAudio@@UAEPAXI@Z
     // ??_GmmPoliceCarAudio@@UAEPAXI@Z
     // ??1mmPoliceCarAudio@@UAE@XZ
-    ARTS_IMPORT ~mmPoliceCarAudio() override = default;
+    ARTS_EXPORT ~mmPoliceCarAudio() override = default;
 
     // ?AssignSounds@mmPoliceCarAudio@@QAEXPAVAudSound@@000PAVmmOpponentImpactAudio@@0@Z
     ARTS_IMPORT void AssignSounds(

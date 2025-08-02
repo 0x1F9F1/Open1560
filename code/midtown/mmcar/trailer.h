@@ -76,7 +76,7 @@ public:
     // ??_GmmTrailerInstance@@UAEPAXI@Z
     // ??_EmmTrailerInstance@@UAEPAXI@Z
     // ??1mmTrailerInstance@@UAE@XZ | inline
-    ARTS_IMPORT ~mmTrailerInstance() override = default;
+    ARTS_EXPORT ~mmTrailerInstance() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmTrailerInstance@@UAEXPAVBank@@@Z | inline

@@ -372,7 +372,7 @@ public:
     ARTS_IMPORT artsReplayChannel();
 
     // ??1artsReplayChannel@@QAE@XZ | inline
-    ARTS_IMPORT ~artsReplayChannel() = default;
+    ARTS_EXPORT ~artsReplayChannel() = default;
 
     // ?DoPlayback@artsReplayChannel@@UAEXPAVStream@@@Z | inline
     ARTS_IMPORT void DoPlayback(Stream* arg1) override;

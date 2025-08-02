@@ -45,7 +45,7 @@ public:
 
     // ??_EBaseCamCS@@UAEPAXI@Z
     // ??1BaseCamCS@@UAE@XZ
-    ARTS_IMPORT ~BaseCamCS() override = default;
+    ARTS_EXPORT ~BaseCamCS() override = default;
 
     // ?MakeActive@BaseCamCS@@UAEXXZ | inline
     ARTS_EXPORT virtual void MakeActive();

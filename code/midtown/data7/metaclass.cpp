@@ -24,10 +24,7 @@ define_dummy_symbol(data7_metaclass);
 #include "metadefine.h"
 #include "miniparser.h"
 
-#include <mem/module.h>
-
-#include "../../loader/symbols.h"
-
+#include <string_view>
 #include <unordered_map>
 
 struct MetaField
@@ -69,7 +66,6 @@ MetaClass::~MetaClass()
 ARTS_NOINLINE void MetaClass::Register()
 {
     ArAssert(NextSerial < ARTS_SSIZE(ClassIndex), "Too many classes, raise MAX_CLASSES");
-
     ClassIndex[NextSerial] = this;
     index_ = NextSerial;
     ++NextSerial;
@@ -277,17 +273,14 @@ void MetaClass::SkipBlock(MiniParser* parser)
 
 void MetaClass::FixupClasses()
 {
-    mem::module main_module = mem::module::main();
+    std::unordered_map<std::string_view, MetaClass*> seen;
 
-    std::unordered_map<std::string_view, MetaClass*> fixups;
-
-    // Find classes registered by Open1560
     for (i32 i = 0; i < NextSerial; ++i)
     {
+        // We run our static init before the game's, so preserve the first instance.
         MetaClass* cls = ClassIndex[i];
-
-        if (!main_module.contains(cls))
-            fixups.emplace(cls->name_, cls);
+        ArAssert(cls->index_ == i, "Metaclass registered twice");
+        seen.emplace(cls->name_, cls);
     }
 
     // Replace original parent pointers with our new ones
@@ -300,14 +293,11 @@ void MetaClass::FixupClasses()
         if (cls->parent_ == nullptr)
             continue;
 
-        if (auto find = fixups.find(cls->parent_->name_); find != fixups.end())
-            cls->parent_ = find->second;
+        cls->parent_ = seen.at(cls->parent_->name_);
     }
 
     // Remove replaced classes from ClassIndex
     i32 total = 0;
-
-    LogHooks = false;
 
     for (i32 i = 0; i < NextSerial; ++i)
     {
@@ -315,25 +305,11 @@ void MetaClass::FixupClasses()
 
         cls->index_ = -1;
 
-        if (auto find = fixups.find(cls->name_); find != fixups.end() && find->second != cls)
+        if (auto replace = seen.at(cls->name_); cls != replace)
         {
-            // NOTE: This will cause the MetaClass destructor to be called twice
-            if (auto symbol = LookupBaseSymbolAddress(reinterpret_cast<usize>(cls)))
-            {
-                symbol->Hook(find->second);
-            }
-            else
-            {
-                Errorf("Unrecognized MetaClass %s", cls->name_);
-            }
-
-            if (cls->declare_ && find->second->declare_)
-                create_hook("DeclareFields", cls->name_, cls->declare_, find->second->declare_, hook_type::jmp);
-
-            cls->allocate_ = find->second->allocate_;
-            cls->free_ = find->second->free_;
-            cls->declare_ = find->second->declare_;
-
+            cls->allocate_ = replace->allocate_;
+            cls->free_ = replace->free_;
+            cls->declare_ = replace->declare_;
             continue;
         }
 
@@ -341,8 +317,6 @@ void MetaClass::FixupClasses()
         ClassIndex[total] = cls;
         ++total;
     }
-
-    LogHooks = true;
 
     NextSerial = total;
 
@@ -402,5 +376,3 @@ void __BadSafeCall(const char* name, Base* ptr)
 {
     Quitf("SafeCall failed: '%s' is not a '%s'.", ptr->GetTypeName(), name);
 }
-
-hook_func(INIT_main, [] { MetaClass::FixupClasses(); });

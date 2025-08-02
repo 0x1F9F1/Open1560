@@ -20,6 +20,8 @@ define_dummy_symbol(agi_physlib);
 
 #include "physlib.h"
 
-agiLib<agiPhysParameters, agiPhysDef> agiPhysLib {"agiPhysLib"};
+#ifndef ARTS_STANDALONE // Generate all functions for use with asm
+template class agiLib<agiPhysParameters, agiPhysDef>;
+#endif
 
-patch_static_ctors(0x5570E0);
+agiLib<agiPhysParameters, agiPhysDef> agiPhysLib {"agiPhysLib"};

@@ -43,7 +43,7 @@ public:
     // ??_GuiWidget@@UAEPAXI@Z
     // ??_EuiWidget@@UAEPAXI@Z
     // ??1uiWidget@@UAE@XZ | inline
-    ARTS_IMPORT ~uiWidget() override = default;
+    ARTS_EXPORT ~uiWidget() override = default;
 
     void SetEnabled(bool enabled);
 

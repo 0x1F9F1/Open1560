@@ -122,7 +122,7 @@ public:
     // ??_GaiVehicleInstance@@UAEPAXI@Z
     // ??_EaiVehicleInstance@@UAEPAXI@Z
     // ??1aiVehicleInstance@@UAE@XZ | inline
-    ARTS_IMPORT ~aiVehicleInstance() override = default;
+    ARTS_EXPORT ~aiVehicleInstance() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@aiVehicleInstance@@UAEXPAVBank@@@Z | inline
@@ -299,7 +299,7 @@ public:
 
     // ??_EaiVehicleData@@UAEPAXI@Z
     // ??1aiVehicleData@@UAE@XZ | inline
-    ARTS_IMPORT ~aiVehicleData() override = default;
+    ARTS_EXPORT ~aiVehicleData() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@aiVehicleData@@UAEXPAVBank@@@Z

@@ -34,6 +34,9 @@
 
 #include "aiGoal.h"
 
+class aiRailSet;
+class aiVehicleSpline;
+
 class aiGoalRegainRail final : public aiGoal
 {
 public:
@@ -41,7 +44,7 @@ public:
     ARTS_IMPORT aiGoalRegainRail(aiRailSet* arg1, aiVehicleSpline* arg2);
 
     // ??1aiGoalRegainRail@@QAE@XZ
-    ARTS_IMPORT ~aiGoalRegainRail() = default;
+    ARTS_EXPORT ~aiGoalRegainRail() = default;
 
     // ?Context@aiGoalRegainRail@@UAEHXZ
     ARTS_IMPORT b32 Context() override;

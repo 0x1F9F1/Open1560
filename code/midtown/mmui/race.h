@@ -48,7 +48,7 @@ public:
     // ??_ERaceMenu@@UAEPAXI@Z
     // ??_GRaceMenu@@UAEPAXI@Z
     // ??1RaceMenu@@UAE@XZ
-    ARTS_IMPORT ~RaceMenu() override = default;
+    ARTS_EXPORT ~RaceMenu() override = default;
 
     // ?GetRaceID@RaceMenu@@QAEHXZ | unused
     ARTS_IMPORT i32 GetRaceID();

@@ -32,8 +32,8 @@ define_dummy_symbol(agiworld_texsort);
 // Note: codes/fogout/nextFactet/out are limited to 16384
 
 // Default: 3000
-static constexpr i32 BigVtxSize = 16384;
-static constexpr i32 BigIdxSize = BigVtxSize * 3;
+extern constexpr i32 BigVtxSize = 16384;
+extern constexpr i32 BigIdxSize = BigVtxSize * 3;
 
 // Default: 1024
 static constexpr i32 EnvVtxSize = 16384;
@@ -354,11 +354,3 @@ RcOwner<agiTexDef> GetPackedTexture(aconst char* name, i32 variation)
 
     return as_owner texture;
 }
-
-hook_func(INIT_main, [] {
-    create_patch("BigVtxSize", "agiTexSorter::BeginVerts2", 0x503D79 + 2, &BigVtxSize, 4);
-    create_patch("BigIdxSize", "agiTexSorter::BeginVerts2", 0x503D81 + 3, &BigIdxSize, 4);
-
-    // for (usize addr : {0x499281, 0x4991B9})
-    //     create_patch("mmCellRenderer::Cull", "Don't flush TexSorter", addr, "\x83\xC4\x04\x90\x90", 5);
-});

@@ -43,7 +43,7 @@ public:
     // ??_EVehicle@@UAEPAXI@Z
     // ??_GVehicle@@UAEPAXI@Z
     // ??1Vehicle@@UAE@XZ
-    ARTS_IMPORT ~Vehicle() override = default;
+    ARTS_EXPORT ~Vehicle() override = default;
 
     // ?PostSetup@Vehicle@@UAEXXZ
     ARTS_IMPORT void PostSetup() override;

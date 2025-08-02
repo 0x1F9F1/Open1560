@@ -86,43 +86,6 @@ ARTS_NOINLINE void* arts_realloc(void* ptr, std::size_t size)
     return CURHEAP->Reallocate(ptr, size, ArReturnAddress());
 }
 
-static asMemoryAllocator* GetDbgHeap(int block_type)
-{
-    return block_type ? StaticAllocator() : &ALLOCATOR;
-}
-
-ARTS_EXPORT ARTS_NOINLINE void* arts_calloc_dbg(std::size_t num, std::size_t size, int block_type, const char*, int)
-{
-    std::size_t len = num * size;
-
-    void* ptr = GetDbgHeap(block_type)->Allocate(len, DefaultNewAlignment, ArReturnAddress());
-
-    if (ptr)
-        std::memset(ptr, 0, len);
-
-    return ptr;
-}
-
-ARTS_EXPORT ARTS_NOINLINE void arts_free_dbg(void* ptr, int block_type, const char*, int)
-{
-    GetDbgHeap(block_type)->Free(ptr);
-}
-
-ARTS_EXPORT ARTS_NOINLINE void* arts_malloc_dbg(std::size_t size, int block_type, const char*, int)
-{
-    return GetDbgHeap(block_type)->Allocate(size, DefaultNewAlignment, ArReturnAddress());
-}
-
-ARTS_EXPORT std::size_t arts_msize_dbg(void* ptr, int block_type)
-{
-    return GetDbgHeap(block_type)->SizeOf(ptr);
-}
-
-ARTS_EXPORT ARTS_NOINLINE void* arts_realloc_dbg(void* ptr, std::size_t size, int block_type, const char*, int)
-{
-    return GetDbgHeap(block_type)->Reallocate(ptr, size, ArReturnAddress());
-}
-
 ARTS_EXPORT ARTS_NOINLINE void* arts_operator_new(std::size_t size)
 {
     void* result = CURHEAP->Allocate(size, DefaultNewAlignment, ArReturnAddress());

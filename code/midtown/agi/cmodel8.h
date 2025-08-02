@@ -46,7 +46,7 @@ public:
     // ??_EagiColorModel8@@UAEPAXI@Z
     // ??_GagiColorModel8@@UAEPAXI@Z
     // ??1agiColorModel8@@UAE@XZ
-    ARTS_IMPORT ~agiColorModel8() override = default;
+    ARTS_EXPORT ~agiColorModel8() override = default;
 
     // ?Filter@agiColorModel8@@UAEIIIII@Z
     ARTS_IMPORT u32 Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4) override;

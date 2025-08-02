@@ -42,7 +42,7 @@ public:
     // ??_EHostRaceMenu@@UAEPAXI@Z
     // ??_GHostRaceMenu@@UAEPAXI@Z
     // ??1HostRaceMenu@@UAE@XZ
-    ARTS_IMPORT ~HostRaceMenu() override = default;
+    ARTS_EXPORT ~HostRaceMenu() override = default;
 
     // ?DisableStart@HostRaceMenu@@QAEXXZ | unused
     ARTS_IMPORT void DisableStart();

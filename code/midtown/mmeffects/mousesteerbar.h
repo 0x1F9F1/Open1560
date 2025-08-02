@@ -43,7 +43,7 @@ public:
     // ??_GmmMouseSteerBar@@UAEPAXI@Z
     // ??_EmmMouseSteerBar@@UAEPAXI@Z
     // ??1mmMouseSteerBar@@UAE@XZ
-    ARTS_IMPORT ~mmMouseSteerBar() override = default;
+    ARTS_EXPORT ~mmMouseSteerBar() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmMouseSteerBar@@UAEXPAVBank@@@Z

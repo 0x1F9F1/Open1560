@@ -56,7 +56,11 @@
 #include "aiGoal.h"
 #include "aiStuck.h"
 
+class aiIntersection;
+class aiPath;
+class aiRailSet;
 class aiVehicleOpponent;
+class mmCar;
 
 class aiGoalFollowWayPts final : public aiGoal
 {

@@ -54,7 +54,7 @@ public:
 
     // ??_EmmEngine@@UAEPAXI@Z
     // ??1mmEngine@@UAE@XZ
-    ARTS_IMPORT ~mmEngine() override = default;
+    ARTS_EXPORT ~mmEngine() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmEngine@@UAEXPAVBank@@@Z

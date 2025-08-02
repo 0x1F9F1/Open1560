@@ -43,7 +43,7 @@ public:
     // ??_GasNetObject@@UAEPAXI@Z
     // ??_EasNetObject@@UAEPAXI@Z
     // ??1asNetObject@@UAE@XZ
-    ARTS_IMPORT ~asNetObject() override = default;
+    ARTS_EXPORT ~asNetObject() override = default;
 
     virtual void SetLocalData() = 0;
 

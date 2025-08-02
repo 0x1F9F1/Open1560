@@ -141,9 +141,6 @@ static void TogglePipelineWindow()
 }
 #endif
 
-// ?IsValidPointer@@YAHPAXIH@Z
-ARTS_IMPORT /*static*/ i32 IsValidPointer(void* address, usize size, i32 access);
-
 // ?QuietPrinter@@YAXHPBDPAD@Z
 ARTS_EXPORT /*static*/ void QuietPrinter(i32 level, const char* format, std::va_list args)
 {
@@ -914,6 +911,33 @@ void asSimulation::SmoothDelta(f32& delta)
 
     target_delta_ += (delta - target_delta_) * 0.2f;
     delta_drift_ += raw_delta - delta;
+}
+
+static ARTS_NOINLINE bool IsValidPointer(void* address, usize size, bool access)
+{
+    volatile char* volatile addr = static_cast<volatile char*>(address);
+
+    if (addr == nullptr)
+        return false;
+
+    __try
+    {
+        for (usize i = 0; i < size; ++i)
+        {
+            volatile char v = addr[i];
+
+            if (access)
+            {
+                addr[i] = v;
+            }
+        }
+    }
+    __except (1)
+    {
+        return false;
+    }
+
+    return true;
 }
 
 const char* asNode::VerifyTree()

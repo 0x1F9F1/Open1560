@@ -60,7 +60,7 @@ public:
     // ??_GUICWArray@@UAEPAXI@Z
     // ??_EUICWArray@@UAEPAXI@Z
     // ??1UICWArray@@UAE@XZ
-    ARTS_IMPORT ~UICWArray() override = default;
+    ARTS_EXPORT ~UICWArray() override = default;
 
     // ?AcceptCapture@UICWArray@@QAEXXZ
     ARTS_IMPORT void AcceptCapture();

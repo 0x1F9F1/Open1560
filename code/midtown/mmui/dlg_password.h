@@ -41,7 +41,7 @@ public:
     // ??_GDialog_Password@@UAEPAXI@Z
     // ??_EDialog_Password@@UAEPAXI@Z
     // ??1Dialog_Password@@UAE@XZ
-    ARTS_IMPORT ~Dialog_Password() override = default;
+    ARTS_EXPORT ~Dialog_Password() override = default;
 
     // ?PasswordCallback@Dialog_Password@@QAEXXZ
     ARTS_IMPORT void PasswordCallback();

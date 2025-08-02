@@ -73,7 +73,7 @@ public:
     // ??_EmmScreenClearFlunky@@UAEPAXI@Z
     // ??_GmmScreenClearFlunky@@UAEPAXI@Z
     // ??1mmScreenClearFlunky@@UAE@XZ | inline
-    ARTS_IMPORT ~mmScreenClearFlunky() override = default;
+    ARTS_EXPORT ~mmScreenClearFlunky() override = default;
 
     // ?Cull@mmScreenClearFlunky@@UAEXXZ
     ARTS_IMPORT void Cull() override;

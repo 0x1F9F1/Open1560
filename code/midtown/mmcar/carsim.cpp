@@ -20,6 +20,9 @@ define_dummy_symbol(mmcar_carsim);
 
 #include "carsim.h"
 
+b32 EnableSmoke = true;
+b32 ForceSmoke = false;
+
 void mmCarSim::RestoreImpactParams()
 {
     ICS.Elasticity = BoundElasticity;
@@ -45,15 +48,5 @@ b32 mmCarSim::ShouldSkid()
     return (Speed > 7.0f) || (Engine.Throttle > 0.5f) || (Brakes > 0.7f);
 }
 
-b32 EnableSmoke = true;
-b32 ForceSmoke = false;
-
 void mmCarSim::SetGlobalTuning(f32 /*arg1*/, f32 /*arg2*/)
 {}
-
-hook_func(INIT_main, [] {
-    create_packed_patch<u8, u8, b32*, u8, u8, u8>(
-        "mmCarSim::UpdateDamage", "Use EnableSmoke", 0x46E3F4, 0x8B, 0x0D, &EnableSmoke, 0x85, 0xC9, 0x74);
-    create_packed_patch<u8, b32*, u8, u8, u8, u8>(
-        "mmWheel::Update", "Use EnableSmoke", 0x47EFC9, 0xA1, &EnableSmoke, 0x85, 0xC0, 0x0F, 0x84);
-});

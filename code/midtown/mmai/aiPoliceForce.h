@@ -76,5 +76,4 @@ private:
     i32 FindPerp(mmCar* perp);
     i32 FindCop(i32 index, mmCar* cop);
 };
-
-// check_size(aiPoliceForce, 0x3C);
+check_size(aiPoliceForce, 0xDC);

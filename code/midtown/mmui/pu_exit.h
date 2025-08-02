@@ -39,7 +39,7 @@ public:
     // ??_GPUExit@@UAEPAXI@Z
     // ??_EPUExit@@UAEPAXI@Z
     // ??1PUExit@@UAE@XZ
-    ARTS_IMPORT ~PUExit() override = default;
+    ARTS_EXPORT ~PUExit() override = default;
 };
 
 check_size(PUExit, 0xC0);

@@ -41,7 +41,7 @@ public:
     // ??_GDialog_TCPIP@@UAEPAXI@Z
     // ??_EDialog_TCPIP@@UAEPAXI@Z
     // ??1Dialog_TCPIP@@UAE@XZ
-    ARTS_IMPORT ~Dialog_TCPIP() override = default;
+    ARTS_EXPORT ~Dialog_TCPIP() override = default;
 
     // ?IPAddressCallback@Dialog_TCPIP@@QAEXXZ
     ARTS_IMPORT void IPAddressCallback();

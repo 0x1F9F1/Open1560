@@ -400,7 +400,7 @@ public:
 
     // ??_EmmMatrixInstance@@UAEPAXI@Z
     // ??1mmMatrixInstance@@UAE@XZ
-    ARTS_IMPORT ~mmMatrixInstance() override = default;
+    ARTS_EXPORT ~mmMatrixInstance() override = default;
 
     // ?Hit@mmMatrixInstance@@UAEXPAVmmInstance@@@Z
     ARTS_EXPORT virtual void Hit(mmInstance* arg1);
@@ -445,7 +445,7 @@ public:
     // ??_EmmShearInstance@@UAEPAXI@Z
     // ??_GmmShearInstance@@UAEPAXI@Z | unused
     // ??1mmShearInstance@@UAE@XZ | inline
-    ARTS_IMPORT ~mmShearInstance() override = default;
+    ARTS_EXPORT ~mmShearInstance() override = default;
 
     // ?Draw@mmShearInstance@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
@@ -479,7 +479,7 @@ public:
     // ??_EmmBuildingInstance@@UAEPAXI@Z
     // ??_GmmBuildingInstance@@UAEPAXI@Z | unused
     // ??1mmBuildingInstance@@UAE@XZ | inline
-    ARTS_IMPORT ~mmBuildingInstance() override = default;
+    ARTS_EXPORT ~mmBuildingInstance() override = default;
 
     // ?Draw@mmBuildingInstance@@UAIXH@Z
     ARTS_EXPORT void ARTS_FASTCALL Draw(i32 lod) override;
@@ -524,7 +524,7 @@ public:
     // ??_EmmYInstance@@UAEPAXI@Z
     // ??_GmmYInstance@@UAEPAXI@Z
     // ??1mmYInstance@@UAE@XZ
-    ARTS_IMPORT ~mmYInstance() override = default;
+    ARTS_EXPORT ~mmYInstance() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmYInstance@@UAEXPAVBank@@@Z
@@ -562,7 +562,7 @@ public:
 
     // ??_EmmStaticInstance@@UAEPAXI@Z
     // ??1mmStaticInstance@@UAE@XZ
-    ARTS_IMPORT ~mmStaticInstance() override = default;
+    ARTS_EXPORT ~mmStaticInstance() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmStaticInstance@@UAEXPAVBank@@@Z
@@ -600,7 +600,7 @@ public:
 
     // ??_EmmFacadeInstance@@UAEPAXI@Z
     // ??1mmFacadeInstance@@UAE@XZ
-    ARTS_IMPORT ~mmFacadeInstance() override = default;
+    ARTS_EXPORT ~mmFacadeInstance() override = default;
 
     // ?Draw@mmFacadeInstance@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;

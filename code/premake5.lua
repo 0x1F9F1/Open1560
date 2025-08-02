@@ -35,4 +35,3 @@ function arts_component(name)
 end
 
 include "midtown"
-include "loader"

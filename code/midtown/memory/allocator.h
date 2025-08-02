@@ -70,8 +70,10 @@ class asMemoryAllocator
 {
 public:
     // ??0asMemoryAllocator@@QAE@XZ
+    ARTS_EXPORT asMemoryAllocator() = default;
 
     // ??1asMemoryAllocator@@QAE@XZ
+    ARTS_EXPORT ~asMemoryAllocator() = default;
 
     // ?Allocate@asMemoryAllocator@@QAEPAXI@Z
     ARTS_EXPORT void* Allocate(usize size);
@@ -192,10 +194,6 @@ private:
 
 // ?ALLOCATOR@@3VasMemoryAllocator@@A
 ARTS_EXPORT extern asMemoryAllocator ALLOCATOR;
-
-// ?CRTALLOCATOR@@3VasMemoryAllocator@@A
-
-// ?CRTHEAP@@3PAEA
 
 // ?CURHEAP@@3PAVasMemoryAllocator@@A
 ARTS_EXPORT extern asMemoryAllocator* CURHEAP;

@@ -43,7 +43,7 @@ public:
 
     // ??_EVehGyro@@UAEPAXI@Z
     // ??1VehGyro@@UAE@XZ | inline
-    ARTS_IMPORT ~VehGyro() override = default;
+    ARTS_EXPORT ~VehGyro() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@VehGyro@@UAEXPAVBank@@@Z

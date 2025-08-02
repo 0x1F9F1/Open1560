@@ -39,6 +39,7 @@ define_dummy_symbol(pcwindis_dxinit);
 
 #include <ddraw.h>
 #include <dinput.h>
+
 SDL_Window* g_MainWindow = nullptr;
 
 template <typename T>
@@ -126,19 +127,10 @@ void dxiDirectInputCreate()
         }
     }
 
-#if DIRECTINPUT_VERSION == 0x0800
-    create_patch("CLSID_IDirectInputDevice2A", "Replace with IID_IDirectInputDevice8A", 0x624A58,
-        &IID_IDirectInputDevice8A, sizeof(IID_IDirectInputDevice8A));
+#if DIRECTINPUT_VERSION != 0x0500
+#    error Unsupported
+#endif
 
-    HMODULE hdinput8 = LoadLibraryA("dinput8.dll");
-
-    HRESULT(WINAPI * pDirectInput8Create)
-    (HINSTANCE hinst, DWORD dwVersion, REFIID riidltf, LPVOID * ppvOut, LPUNKNOWN punkOuter) =
-        mem::bit_cast<decltype(pDirectInput8Create)>(GetProcAddress(hdinput8, "DirectInput8Create"));
-
-    HRESULT err =
-        pDirectInput8Create(GetModuleHandle(NULL), DIRECTINPUT_VERSION, IID_IDirectInput8A, (void**) &lpDI, NULL);
-#else
     HMODULE hdinput = LoadLibraryA("dinput.dll");
 
     HRESULT(WINAPI * pDirectInputCreateA)
@@ -146,7 +138,6 @@ void dxiDirectInputCreate()
         mem::bit_cast<decltype(pDirectInputCreateA)>(GetProcAddress(hdinput, "DirectInputCreateA"));
 
     HRESULT err = pDirectInputCreateA(GetModuleHandleA(NULL), DIRECTINPUT_VERSION, &lpDI, 0);
-#endif
 
     if (err != 0)
         Quitf("DirectInputCreate failed, code %x", err);
@@ -241,7 +232,7 @@ Ptr<agiSurfaceDesc> dxiScreenShot()
     Ptr<agiSurfaceDesc> surface =
         as_ptr agiSurfaceDesc::Init(width, height, agiSurfaceDesc::FromFormat(PixelFormat_B8G8R8));
 
-    void (*translate)(u8* output, u16* input, u32 width) = nullptr;
+    void (*translate)(u8 * output, u16 * input, u32 width) = nullptr;
 
     switch (sd.ddpfPixelFormat.dwRBitMask)
     {
@@ -407,6 +398,11 @@ void dxiWindowCreate(const char* title, dxiRendererType type)
 
     g_MainWindow = SDL_CreateWindow(title, 0, 0, 0, 0, window_flags);
 
+    if (!g_MainWindow)
+    {
+        Quitf("Failed to create main window: %s", SDL_GetError());
+    }
+
     SDL_SysWMinfo wm_info {};
     SDL_VERSION(&wm_info.version);
     ArAssert(SDL_GetWindowWMInfo(g_MainWindow, &wm_info), "Failed to get native window handle");
@@ -434,42 +430,3 @@ void dxiWindowDestroy()
 
     s_WindowType = dxiRendererType::Invalid;
 }
-
-#include <mem/module.h>
-#include <mem/pattern.h>
-
-static mem::cmd_param PARAM_res_hack {"reshack"};
-
-hook_func(INIT_main, [] {
-    if (PARAM_res_hack.get_or(false))
-    {
-        wchar_t d3dim_path[MAX_PATH];
-        GetSystemDirectoryW(d3dim_path, ARTS_SIZE(d3dim_path));
-        wcscat_s(d3dim_path, L"\\d3dim.dll");
-
-        HMODULE d3dim = LoadLibraryW(d3dim_path);
-
-        if (d3dim)
-        {
-            mem::pattern res_pattern("B8 00 08 00 00 39");
-            mem::default_scanner res_scanner(res_pattern);
-
-            mem::module::nt(d3dim).enum_segments([&res_scanner](mem::region segment, mem::prot_flags prot) {
-                if (prot & mem::prot_flags::X)
-                {
-                    res_scanner(segment, [](mem::pointer addr) {
-                        create_patch("ResHack", "Removes 2048x2048 res limit", addr + 1, "\xFF\xFF\xFF\xFF", 4);
-
-                        return false;
-                    });
-                }
-
-                return false;
-            });
-        }
-        else
-        {
-            Displayf("ResHack - d3dim not found");
-        }
-    }
-});
