@@ -64,17 +64,11 @@ public:
     // ??1mmPlayerConfig@@UAE@XZ
     ARTS_IMPORT ~mmPlayerConfig() override;
 
-    // ??4mmPlayerConfig@@QAEXAAV0@@Z | unused
-    ARTS_IMPORT void operator=(mmPlayerConfig& arg1);
-
     // ?DefaultAudio@mmPlayerConfig@@QAEXXZ
     ARTS_IMPORT void DefaultAudio();
 
     // ?DefaultControls@mmPlayerConfig@@QAEXXZ
     ARTS_IMPORT void DefaultControls();
-
-    // ?DefaultGraphics@mmPlayerConfig@@QAEXXZ | unused
-    ARTS_IMPORT void DefaultGraphics();
 
     // ?DefaultViewSettings@mmPlayerConfig@@QAEXXZ
     ARTS_IMPORT void DefaultViewSettings();
@@ -114,9 +108,6 @@ public:
 
     // ?SetControls@mmPlayerConfig@@QAEXXZ
     ARTS_IMPORT void SetControls();
-
-    // ?SetDefaults@mmPlayerConfig@@QAEXXZ | unused
-    ARTS_IMPORT void SetDefaults();
 
     // ?SetGraphics@mmPlayerConfig@@QAEXXZ
     ARTS_IMPORT void SetGraphics();

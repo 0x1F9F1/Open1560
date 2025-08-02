@@ -79,9 +79,6 @@ public:
     // ??1NetSelectMenu@@UAE@XZ
     ARTS_IMPORT ~NetSelectMenu() override;
 
-    // ?AddModem@NetSelectMenu@@QAEXPADH@Z | unused
-    ARTS_IMPORT void AddModem(char* arg1, i32 arg2);
-
     // ?AddWidgetToList@NetSelectMenu@@QAEXHPAVuiWidget@@@Z | unused
     ARTS_EXPORT void AddWidgetToList(i32 arg1, uiWidget* arg2);
 

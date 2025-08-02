@@ -55,9 +55,6 @@ public:
     // ?EndGfx@agiD3DMtlDef@@UAEXXZ
     ARTS_IMPORT void EndGfx() override;
 
-    // ?GetHandle@agiD3DMtlDef@@QAEKXZ | unused
-    ARTS_IMPORT ulong GetHandle();
-
     u8 gap80[0x8];
 };
 

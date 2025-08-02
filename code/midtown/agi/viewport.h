@@ -53,17 +53,8 @@ public:
     // ??0agiViewParameters@@QAE@XZ
     ARTS_IMPORT agiViewParameters();
 
-    // ?Frustum@agiViewParameters@@QAEXMMMMMM@Z | unused
-    ARTS_IMPORT void Frustum(f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6);
-
-    // ?Ortho@agiViewParameters@@QAEXMMMM@Z | unused
-    ARTS_IMPORT void Ortho(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
-
     // ?Perspective@agiViewParameters@@QAEXMMMM@Z
     ARTS_IMPORT void Perspective(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
-
-    // ?Project@agiViewParameters@@QAEXAAVVector3@@0@Z | unused
-    ARTS_IMPORT void Project(Vector3& arg1, Vector3& arg2);
 
     // ?SetBill@agiViewParameters@@QAEXAAVVector3@@@Z
     ARTS_IMPORT void SetBill(Vector3& arg1);

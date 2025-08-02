@@ -575,9 +575,6 @@ public:
     // ?GetClass@mmStaticInstance@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
 
-    // ?Init@mmStaticInstance@@QAEHPADAAVVector3@@1MH0@Z | unused
-    ARTS_IMPORT i32 Init(char* arg1, Vector3& arg2, Vector3& arg3, f32 arg4, i32 arg5, char* arg6);
-
     // ?Relight@mmStaticInstance@@UAIXXZ
     ARTS_EXPORT void ARTS_FASTCALL Relight() override;
 

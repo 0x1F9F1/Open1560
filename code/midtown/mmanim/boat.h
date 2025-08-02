@@ -77,9 +77,6 @@ public:
     // ?GetClass@mmBoat@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
 
-    // ?Init@mmBoat@@QAEXHPAD0PAVVector3@@HHPAM@Z | unused
-    ARTS_IMPORT void Init(i32 arg1, char* arg2, char* arg3, Vector3* arg4, i32 arg5, i32 arg6, f32* arg7);
-
     // ?Reset@mmBoat@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
@@ -89,14 +86,8 @@ public:
     // ?SetPathSpeed@mmBoat@@QAEXXZ
     ARTS_IMPORT void SetPathSpeed();
 
-    // ?SetRock@mmBoat@@QAEXMM@Z | unused
-    ARTS_IMPORT void SetRock(f32 arg1, f32 arg2);
-
     // ?SolvePosition@mmBoat@@QAEXAAVVector3@@AAM@Z
     ARTS_IMPORT void SolvePosition(Vector3& arg1, f32& arg2);
-
-    // ?SolveVector@mmBoat@@QAEXMAAVVector3@@0@Z | unused
-    ARTS_IMPORT void SolveVector(f32 arg1, Vector3& arg2, Vector3& arg3);
 
     // ?SolveXZCurve@mmBoat@@QAEXAAVVector3@@0M@Z
     ARTS_IMPORT void SolveXZCurve(Vector3& arg1, Vector3& arg2, f32 arg3);

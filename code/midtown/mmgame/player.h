@@ -128,9 +128,6 @@ public:
     // ?SetCamInterest@mmPlayer@@QAEXPAVasInertialCS@@@Z
     ARTS_IMPORT void SetCamInterest(asInertialCS* arg1);
 
-    // ?SetMirrorFOV@mmPlayer@@QAEXXZ | unused
-    ARTS_IMPORT void SetMirrorFOV();
-
     // ?SetPostRaceCam@mmPlayer@@QAEXXZ
     ARTS_IMPORT void SetPostRaceCam();
 

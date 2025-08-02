@@ -87,9 +87,6 @@ public:
     // ?Play@StreamObj@@QAEHPAD@Z
     ARTS_IMPORT i32 Play(char* arg1);
 
-    // ?ReadInLoopIndex@StreamObj@@QAEXF@Z | unused
-    ARTS_IMPORT void ReadInLoopIndex(i16 arg1);
-
     // ?SetFrequency@StreamObj@@QAEXM@Z
     ARTS_IMPORT void SetFrequency(f32 arg1);
 
@@ -110,9 +107,6 @@ public:
 
     // ?SetPlayOneShotEvent@StreamObj@@QAEXPAD@Z
     ARTS_IMPORT void SetPlayOneShotEvent(char* arg1);
-
-    // ?SetPlayPosition@StreamObj@@QAEXK@Z | unused
-    ARTS_IMPORT void SetPlayPosition(ulong arg1);
 
     // ?SetPlayingFlag@StreamObj@@QAEXF@Z
     ARTS_IMPORT void SetPlayingFlag(i16 arg1);

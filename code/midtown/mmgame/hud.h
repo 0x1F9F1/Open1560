@@ -276,17 +276,11 @@ public:
     // ?SetWPCleared@mmHUD@@QAEXHH@Z
     ARTS_IMPORT void SetWPCleared(i32 arg1, i32 arg2);
 
-    // ?ShowClockTime@mmHUD@@QAEXXZ | unused
-    ARTS_IMPORT void ShowClockTime();
-
     // ?StartTimers@mmHUD@@QAEXXZ
     ARTS_IMPORT void StartTimers();
 
     // ?StopTimers@mmHUD@@QAEXXZ
     ARTS_IMPORT void StopTimers();
-
-    // ?Toggle@mmHUD@@QAEXXZ | unused
-    ARTS_IMPORT void Toggle();
 
     // ?ToggleDash@mmHUD@@QAEXXZ
     ARTS_IMPORT void ToggleDash();

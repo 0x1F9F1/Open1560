@@ -67,12 +67,6 @@ public:
     // ?OptionInActive@uiNavBar@@QAEXXZ
     ARTS_IMPORT void OptionInActive();
 
-    // ?ResetState@uiNavBar@@QAEXXZ | unused
-    ARTS_IMPORT void ResetState();
-
-    // ?SetPrevBitmap@uiNavBar@@QAEXPAD@Z | unused
-    ARTS_IMPORT void SetPrevBitmap(char* arg1);
-
     // ?SetPrevPos@uiNavBar@@QAEXMM@Z
     ARTS_IMPORT void SetPrevPos(f32 arg1, f32 arg2);
 

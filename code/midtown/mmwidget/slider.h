@@ -69,15 +69,9 @@ public:
     // ?GetScreenHeight@UISlider@@UAEMXZ | inline
     ARTS_IMPORT f32 GetScreenHeight() override;
 
-    // ?GetValue@UISlider@@QAEMXZ | unused
-    ARTS_IMPORT f32 GetValue();
-
     // ?Init@UISlider@@QAEXPAULocString@@PAMMMMMMMHHHHVCallback@@PAVUIMenu@@@Z
     ARTS_IMPORT void Init(LocString* arg1, f32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, f32 arg8,
         i32 arg9, i32 arg10, i32 arg11, i32 arg12, Callback arg13, UIMenu* arg14);
-
-    // ?IsReadWrite@UISlider@@QAEHXZ | unused
-    ARTS_IMPORT i32 IsReadWrite();
 
     // ?SetData@UISlider@@QAEXM@Z
     ARTS_IMPORT void SetData(f32 arg1);

@@ -85,14 +85,8 @@ public:
     // ?PlayHorn@mmPlayerCarAudio@@QAEXXZ
     ARTS_IMPORT void PlayHorn();
 
-    // ?PlayReverseBeep@mmPlayerCarAudio@@QAEXXZ | unused
-    ARTS_IMPORT void PlayReverseBeep();
-
     // ?Reset@mmPlayerCarAudio@@UAEXXZ
     ARTS_IMPORT void Reset() override;
-
-    // ?SetUpDefault@mmPlayerCarAudio@@QAEXPAVmmCarSim@@@Z | unused
-    ARTS_IMPORT void SetUpDefault(mmCarSim* arg1);
 
     // ?StartSiren@mmPlayerCarAudio@@QAEXXZ
     ARTS_IMPORT void StartSiren();

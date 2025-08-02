@@ -57,17 +57,11 @@ public:
     // ??1mmSurfaceAudio@@QAE@XZ
     ARTS_IMPORT ~mmSurfaceAudio();
 
-    // ?DisableSurface@mmSurfaceAudio@@QAEXXZ | unused
-    ARTS_IMPORT void DisableSurface();
-
     // ?EchoOff@mmSurfaceAudio@@QAEXPAVmmCarSim@@@Z
     ARTS_IMPORT void EchoOff(mmCarSim* arg1);
 
     // ?EchoOn@mmSurfaceAudio@@QAEXPAVmmCarSim@@M@Z
     ARTS_IMPORT void EchoOn(mmCarSim* arg1, f32 arg2);
-
-    // ?EnableAir@mmSurfaceAudio@@QAEHPAVmmCarSim@@@Z | unused
-    ARTS_IMPORT i32 EnableAir(mmCarSim* arg1);
 
     // ?EnableSurface@mmSurfaceAudio@@QAEHPAVmmCarSim@@@Z
     ARTS_IMPORT i32 EnableSurface(mmCarSim* arg1);
@@ -77,9 +71,6 @@ public:
 
     // ?EnableTireWobble@mmSurfaceAudio@@QAEXXZ
     ARTS_IMPORT void EnableTireWobble();
-
-    // ?OnTwoWheels@mmSurfaceAudio@@QAEFXZ | unused
-    ARTS_IMPORT i16 OnTwoWheels();
 
     // ?SetWheelPointers@mmSurfaceAudio@@QAEXPAVmmWheel@@000@Z
     ARTS_IMPORT void SetWheelPointers(mmWheel* arg1, mmWheel* arg2, mmWheel* arg3, mmWheel* arg4);

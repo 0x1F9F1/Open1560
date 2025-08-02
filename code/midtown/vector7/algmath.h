@@ -30,18 +30,6 @@
     0x571090 | float __cdecl expf_faster(float) | ?expf_faster@@YAMM@Z
 */
 
-// ?Bias@@YAMMM@Z | unused
-ARTS_IMPORT f32 Bias(f32 arg1, f32 arg2);
-
-// ?Gain@@YAMMM@Z | unused
-ARTS_IMPORT f32 Gain(f32 arg1, f32 arg2);
-
-// ?expf_fast@@YAMM@Z | unused
-ARTS_IMPORT f32 expf_fast(f32 arg1);
-
-// ?expf_faster@@YAMM@Z | unused
-ARTS_IMPORT f32 expf_faster(f32 arg1);
-
 // ?invsqrtf_fast@@YAMM@Z
 ARTS_IMPORT f32 invsqrtf_fast(f32 arg1);
 

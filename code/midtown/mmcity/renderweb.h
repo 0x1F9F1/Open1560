@@ -136,8 +136,8 @@ public:
     // ?InvLodFactor@asRenderWeb@@2MA
     ARTS_IMPORT static f32 InvLodFactor;
 
-    // ?PassMask@asRenderWeb@@2HA
     // RENDER_PASS_*
+    // ?PassMask@asRenderWeb@@2HA
     ARTS_IMPORT static i32 PassMask;
 
     asPortalCell** CellArray;

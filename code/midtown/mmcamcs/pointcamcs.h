@@ -54,9 +54,6 @@ public:
     // ?GetClass@PointCamCS@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
 
-    // ?GetPos@PointCamCS@@QAE?AVVector3@@XZ | unused
-    ARTS_IMPORT Vector3 GetPos();
-
     // ?Init@PointCamCS@@QAEXPAVmmCar@@@Z
     ARTS_IMPORT void Init(mmCar* arg1);
 

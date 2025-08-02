@@ -54,9 +54,6 @@ public:
     ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
-    // ?Impact@aiStuck@@QAEXXZ | unused
-    ARTS_IMPORT void Impact();
-
     // ?Init@aiStuck@@QAEXPAVmmCarSim@@@Z
     ARTS_IMPORT void Init(mmCarSim* arg1);
 

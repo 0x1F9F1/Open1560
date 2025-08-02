@@ -95,14 +95,8 @@ public:
     ARTS_IMPORT void Init(
         char* arg1, char* arg2, Vector3 arg3, asInertialCS* arg4, i32 arg5, mmBoundTemplate* arg6, i32 arg7);
 
-    // ?Load@mmWheel@@QAEXPAVStream@@@Z | unused
-    ARTS_IMPORT void Load(Stream* arg1);
-
     // ?Reset@mmWheel@@UAEXXZ
     ARTS_IMPORT void Reset() override;
-
-    // ?Save@mmWheel@@QAEXPAVStream@@@Z | unused
-    ARTS_IMPORT void Save(Stream* arg1);
 
     // ?SetFricMultiplier@mmWheel@@QAEXM@Z
     ARTS_IMPORT void SetFricMultiplier(f32 arg1);

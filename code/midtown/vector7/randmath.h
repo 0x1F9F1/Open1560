@@ -34,9 +34,6 @@
 // ?frand@@YAMXZ
 ARTS_IMPORT f32 frand();
 
-// ?frand@@YAMH@Z | unused
-ARTS_IMPORT f32 frand(i32 arg1);
-
 // ?irand@@YAHXZ
 ARTS_IMPORT i32 irand();
 

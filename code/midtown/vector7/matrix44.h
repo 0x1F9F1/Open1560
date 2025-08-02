@@ -83,21 +83,6 @@ public:
     // ??0Matrix44@@QAE@ABV0@@Z | inline
     ARTS_IMPORT Matrix44(const Matrix44& arg1);
 
-    // ??DMatrix44@@QBE?AV0@M@Z | unused
-    ARTS_IMPORT Matrix44 operator*(f32 arg1) const;
-
-    // ??HMatrix44@@QBE?AV0@ABV0@@Z | unused
-    ARTS_IMPORT Matrix44 operator+(const Matrix44& arg1) const;
-
-    // ??GMatrix44@@QBE?AV0@XZ | unused
-    ARTS_IMPORT Matrix44 operator-() const;
-
-    // ??GMatrix44@@QBE?AV0@ABV0@@Z | unused
-    ARTS_IMPORT Matrix44 operator-(const Matrix44& arg1) const;
-
-    // ??KMatrix44@@QBE?AV0@M@Z | unused
-    ARTS_IMPORT Matrix44 operator/(f32 arg1) const;
-
     // ??TMatrix44@@QBE?AV0@ABV0@@Z
     ARTS_IMPORT Matrix44 operator^(const Matrix44& arg1) const;
 
@@ -116,35 +101,11 @@ public:
     // ?Identity@Matrix44@@QAEXXZ
     ARTS_IMPORT void Identity();
 
-    // ?Inverse@Matrix44@@QBE?AV1@XZ | unused
-    ARTS_IMPORT Matrix44 Inverse() const;
-
-    // ?Ortho@Matrix44@@QAEXMMMMMM@Z | unused
-    ARTS_IMPORT void Ortho(f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6);
-
-    // ?Perspective@Matrix44@@QAEXMMMM@Z | unused
-    ARTS_IMPORT void Perspective(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
-
-    // ?Print@Matrix44@@QBEXXZ | unused
-    ARTS_IMPORT void Print() const;
-
-    // ?Rotate@Matrix44@@QAEXDM@Z | unused
-    ARTS_IMPORT void Rotate(char arg1, f32 arg2);
-
     // ?Rotate@Matrix44@@QAEXABVVector3@@0@Z
     ARTS_IMPORT void Rotate(const Vector3& arg1, const Vector3& arg2);
 
-    // ?Rotate@Matrix44@@QAEXABVVector3@@M@Z | unused
-    ARTS_IMPORT void Rotate(const Vector3& arg1, f32 arg2);
-
-    // ?Scale@Matrix44@@QAEXABVVector3@@M@Z | unused
-    ARTS_IMPORT void Scale(const Vector3& arg1, f32 arg2);
-
     // ?Scale@Matrix44@@QAEXMMM@Z
     ARTS_IMPORT void Scale(f32 arg1, f32 arg2, f32 arg3);
-
-    // ?Translate@Matrix44@@QAEXMMM@Z | unused
-    ARTS_IMPORT void Translate(f32 arg1, f32 arg2, f32 arg3);
 
     // ?Transpose@Matrix44@@QBE?AV1@XZ
     ARTS_IMPORT Matrix44 Transpose() const;
@@ -156,12 +117,6 @@ public:
 };
 
 check_size(Matrix44, 0x40);
-
-// ??D@YA?AVMatrix44@@MABV0@@Z | unused
-ARTS_IMPORT Matrix44 operator*(f32 arg1, const Matrix44& arg2);
-
-// ??T@YA?AVVector3@@ABV0@ABVMatrix44@@@Z | unused
-ARTS_IMPORT Vector3 operator^(const Vector3& arg1, const Matrix44& arg2);
 
 // ??T@YA?AVVector4@@ABV0@ABVMatrix44@@@Z
 ARTS_IMPORT Vector4 operator^(const Vector4& arg1, const Matrix44& arg2);

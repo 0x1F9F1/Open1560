@@ -132,17 +132,8 @@
 
 #include "vector7/vector4.h"
 
-// ?EyePlaneOutcode@@YAIPAEEAAVVector4@@PAVVector3@@H@Z | unused
-ARTS_IMPORT u32 EyePlaneOutcode(u8* arg1, u8 arg2, Vector4& arg3, Vector3* arg4, i32 arg5);
-
 // ?SetClipMode@@YAXH@Z | unused
 ARTS_EXPORT void SetClipMode(b32 mask_only_z);
-
-// ?begin_invert@@YIXPAVVector4@@@Z | unused
-ARTS_IMPORT void ARTS_FASTCALL begin_invert(Vector4* arg1);
-
-// ?end_invert@@YIXPAVVector4@@@Z | unused
-ARTS_IMPORT void ARTS_FASTCALL end_invert(Vector4* arg1);
 
 // ?MaxCardSize@@3MA
 ARTS_IMPORT extern f32 MaxCardSize;

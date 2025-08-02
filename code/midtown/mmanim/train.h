@@ -59,9 +59,6 @@ public:
     // ??1mmAnimTrain@@QAE@XZ
     ARTS_IMPORT ~mmAnimTrain();
 
-    // ?AdjustPhaseOffsets@mmAnimTrain@@QAEXXZ | unused
-    ARTS_IMPORT void AdjustPhaseOffsets();
-
     // ?CalculateCubics@mmAnimTrain@@QAEXHAAVVector4@@00@Z
     ARTS_IMPORT void CalculateCubics(i32 arg1, Vector4& arg2, Vector4& arg3, Vector4& arg4);
 
@@ -80,9 +77,6 @@ public:
 
     // ?Reset@mmAnimTrain@@QAEXXZ
     ARTS_IMPORT void Reset();
-
-    // ?ReverseCalcPathSpeed@mmAnimTrain@@QAEXXZ | unused
-    ARTS_IMPORT void ReverseCalcPathSpeed();
 
     // ?SetPathSpeed@mmAnimTrain@@QAEXXZ
     ARTS_IMPORT void SetPathSpeed();

@@ -35,9 +35,6 @@ public:
     // ??0mmRainAudio@@QAE@XZ
     ARTS_IMPORT mmRainAudio();
 
-    // ??1mmRainAudio@@QAE@XZ | unused
-    ARTS_IMPORT ~mmRainAudio();
-
     // ?SetInterior@mmRainAudio@@QAEXE@Z
     ARTS_IMPORT void SetInterior(u8 arg1);
 

@@ -48,9 +48,6 @@ public:
     // ??1asDofCS@@UAE@XZ | inline
     ARTS_EXPORT ~asDofCS() override = default;
 
-    // ??4asDofCS@@QAEXABV0@@Z | unused
-    ARTS_IMPORT void operator=(const asDofCS& arg1);
-
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@asDofCS@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(Bank* arg1) override;
@@ -64,9 +61,6 @@ public:
 
     // ?Reset@asDofCS@@UAEXXZ
     ARTS_IMPORT void Reset() override;
-
-    // ?SetTime@asDofCS@@QAEXMMH@Z | unused
-    ARTS_IMPORT void SetTime(f32 arg1, f32 arg2, i32 arg3);
 
     // ?Update@asDofCS@@UAEXXZ
     ARTS_IMPORT void Update() override;

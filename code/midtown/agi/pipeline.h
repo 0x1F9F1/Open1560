@@ -219,9 +219,6 @@ public:
     // ?GetDLP@agiPipeline@@QAEPAVDLP@@PAD0PAVVector3@@HH@Z
     ARTS_IMPORT RcOwner<DLP> GetDLP(aconst char* arg1, aconst char* arg2, Vector3* arg3, i32 arg4, i32 arg5);
 
-    // ?GetMaterial@agiPipeline@@QAEPAVagiMtlDef@@PAD@Z | unused
-    ARTS_IMPORT RcOwner<agiMtlDef> GetMaterial(aconst char* arg1);
-
     // ?GetMaterial@agiPipeline@@QAEPAVagiMtlDef@@H@Z
     ARTS_IMPORT RcOwner<agiMtlDef> GetMaterial(i32 arg1);
 

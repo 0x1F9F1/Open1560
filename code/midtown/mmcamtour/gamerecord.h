@@ -47,12 +47,6 @@ public:
     // ?Dump@mmGameRecord@@QAEXPAD@Z
     ARTS_IMPORT void Dump(char* arg1);
 
-    // ?GetCount@mmGameRecord@@QAEHXZ | unused
-    ARTS_IMPORT i32 GetCount();
-
-    // ?GetVector4@mmGameRecord@@QAEAAVVector4@@H@Z | unused
-    ARTS_IMPORT Vector4& GetVector4(i32 arg1);
-
     // ?Init@mmGameRecord@@QAEXH@Z
     ARTS_IMPORT void Init(i32 arg1);
 

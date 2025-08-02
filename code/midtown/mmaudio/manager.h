@@ -174,9 +174,6 @@ public:
     // ?AssignWaveVolume@AudManager@@QAEXM@Z
     ARTS_IMPORT void AssignWaveVolume(f32 arg1);
 
-    // ?AttenuateAudSounds@AudManager@@QAEXM@Z | unused
-    ARTS_IMPORT void AttenuateAudSounds(f32 arg1);
-
     // ?AttenuateCDVolume@AudManager@@QAEXM@Z
     ARTS_IMPORT void AttenuateCDVolume(f32 arg1);
 
@@ -195,12 +192,6 @@ public:
     // ?DSound3DEnabled@AudManager@@QAEIXZ
     ARTS_IMPORT u32 DSound3DEnabled();
 
-    // ?DeallocateADFRecord@AudManager@@QAEXH@Z | unused
-    ARTS_IMPORT void DeallocateADFRecord(i32 arg1);
-
-    // ?DeallocateCityADF@AudManager@@QAEXXZ | unused
-    ARTS_IMPORT void DeallocateCityADF();
-
     // ?DeallocateDSound@AudManager@@QAEXFF@Z
     ARTS_IMPORT void DeallocateDSound(i16 arg1, i16 arg2);
 
@@ -209,9 +200,6 @@ public:
 
     // ?Disable@AudManager@@QAEXFF@Z
     ARTS_IMPORT void Disable(i16 sfx_mode, i16 cd_mode);
-
-    // ?DisableCD@AudManager@@QAEXXZ | unused
-    ARTS_IMPORT void DisableCD();
 
     // ?EAXEnabled@AudManager@@QAEIXZ
     ARTS_IMPORT u32 EAXEnabled();
@@ -225,38 +213,17 @@ public:
     // ?GetActiveDeviceName@AudManager@@QAEPADXZ
     ARTS_IMPORT char* GetActiveDeviceName();
 
-    // ?GetCDBalance@AudManager@@QAEMXZ | unused
-    ARTS_IMPORT f32 GetCDBalance();
-
     // ?GetCDPosition@AudManager@@QAEKPAE000@Z
     ARTS_IMPORT u32 GetCDPosition(u8* arg1, u8* arg2, u8* arg3, u8* arg4);
 
     // ?GetCDTrackNum@AudManager@@QAEEXZ
     ARTS_IMPORT u8 GetCDTrackNum();
 
-    // ?GetCDVolume@AudManager@@QAEMXZ | unused
-    ARTS_IMPORT f32 GetCDVolume();
-
     // ?GetClass@AudManager@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetDeviceNames@AudManager@@QAEPAPADXZ
     ARTS_IMPORT char** GetDeviceNames();
-
-    // ?GetEAXAll@AudManager@@QAEXPAUEAX_REVERBPROPERTIES@@@Z | unused
-    ARTS_IMPORT void GetEAXAll(EAX_REVERBPROPERTIES* arg1);
-
-    // ?GetEAXDamping@AudManager@@QAEMXZ | unused
-    ARTS_IMPORT f32 GetEAXDamping();
-
-    // ?GetEAXDecayTime@AudManager@@QAEMXZ | unused
-    ARTS_IMPORT f32 GetEAXDecayTime();
-
-    // ?GetEAXEnvironmet@AudManager@@QAEKXZ | unused
-    ARTS_IMPORT u32 GetEAXEnvironmet();
-
-    // ?GetEAXReverbVolume@AudManager@@QAEMXZ | unused
-    ARTS_IMPORT f32 GetEAXReverbVolume();
 
     // ?GetMixerPtr@AudManager@@QAEPAVMixerCTL@@XZ
     ARTS_IMPORT MixerCTL* GetMixerPtr();
@@ -273,32 +240,14 @@ public:
     // ?GetVoiceCommentaryPtr@AudManager@@QAEPAVmmVoiceCommentary@@XZ
     ARTS_IMPORT mmVoiceCommentary* GetVoiceCommentaryPtr();
 
-    // ?GetWaveBalance@AudManager@@QAEMXZ | unused
-    ARTS_IMPORT f32 GetWaveBalance();
-
-    // ?GetWaveVolume@AudManager@@QAEMXZ | unused
-    ARTS_IMPORT f32 GetWaveVolume();
-
     // ?Init@AudManager@@QAEXHIPADFF@Z
     ARTS_IMPORT void Init(i32 arg1, u32 arg2, char* arg3, i16 arg4, i16 arg5);
-
-    // ?InitCityADF@AudManager@@QAEXHK@Z | unused
-    ARTS_IMPORT void InitCityADF(i32 arg1, u32 arg2);
-
-    // ?InitUIADF@AudManager@@QAEXHK@Z | unused
-    ARTS_IMPORT void InitUIADF(i32 arg1, u32 arg2);
 
     // ?IsAlwaysEAX@AudManager@@QAEIXZ
     ARTS_IMPORT u32 IsAlwaysEAX();
 
     // ?IsStereo@AudManager@@QAEHXZ
     ARTS_IMPORT i32 IsStereo();
-
-    // ?LoadCityADF@AudManager@@QAEXHK@Z | unused
-    ARTS_IMPORT void LoadCityADF(i32 arg1, u32 arg2);
-
-    // ?LoadUIADF@AudManager@@QAEXXZ | unused
-    ARTS_IMPORT void LoadUIADF();
 
     // ?PlayCDTrack@AudManager@@QAEHHH@Z
     ARTS_IMPORT i32 PlayCDTrack(i32 track, b32 restart);
@@ -324,9 +273,6 @@ public:
     // ?Reset@AudManager@@UAEXXZ
     ARTS_EXPORT void Reset() override;
 
-    // ?ResumeCDPlay@AudManager@@QAEHXZ | unused
-    ARTS_IMPORT i32 ResumeCDPlay();
-
     // ?SetBitDepthAndSampleRate@AudManager@@QAEXHK@Z
     ARTS_IMPORT void SetBitDepthAndSampleRate(i32 arg1, ulong arg2);
 
@@ -336,29 +282,14 @@ public:
     // ?SetDeviceName@AudManager@@QAEXPAD@Z
     ARTS_IMPORT void SetDeviceName(char* arg1);
 
-    // ?SetEAXDamping@AudManager@@QAEHM@Z | unused
-    ARTS_IMPORT i32 SetEAXDamping(f32 arg1);
-
-    // ?SetEAXDecayTime@AudManager@@QAEHM@Z | unused
-    ARTS_IMPORT i32 SetEAXDecayTime(f32 arg1);
-
-    // ?SetEAXEnvironmet@AudManager@@QAEHK@Z | unused
-    ARTS_IMPORT i32 SetEAXEnvironmet(u32 arg1);
-
     // ?SetEAXPreset@AudManager@@QAEHPAUEAX_REVERBPROPERTIES@@@Z
     ARTS_IMPORT i32 SetEAXPreset(EAX_REVERBPROPERTIES* arg1);
 
     // ?SetEAXPreset@AudManager@@QAEHKMMM@Z
     ARTS_IMPORT i32 SetEAXPreset(ulong environment, f32 volume, f32 decay_time, f32 damping);
 
-    // ?SetEAXReverbVolume@AudManager@@QAEHM@Z | unused
-    ARTS_IMPORT i32 SetEAXReverbVolume(f32 arg1);
-
     // ?SetNumChannels@AudManager@@QAEXH@Z
     ARTS_IMPORT void SetNumChannels(i32 arg1);
-
-    // ?SetStereo@AudManager@@QAEXH@Z | unused
-    ARTS_IMPORT void SetStereo(i32 arg1);
 
     // ?SetVoiceCommentaryPtr@AudManager@@QAEXPAVmmVoiceCommentary@@@Z
     ARTS_IMPORT void SetVoiceCommentaryPtr(mmVoiceCommentary* arg1);

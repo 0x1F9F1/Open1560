@@ -1,5 +1,9 @@
 from pathlib import Path
+
 import re
+import json
+import glob
+import os
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 GAME_DIR = ROOT_DIR / 'code' / 'midtown'
@@ -47,6 +51,26 @@ def set_sym(value, line):
 
     current_sym = value
     current_start = line
+
+def get_used_syms():
+    paths = ['code']
+    exts = ['cpp', 'h']
+
+    files = []
+
+    for path in paths:
+        for ext in exts:
+            files.extend(glob.glob(os.path.join(ROOT_DIR, path, '**', f'*.{ext}'), recursive = True))
+
+    used_syms = set()
+
+    for file in files:
+        with open(file, 'r', encoding='utf-8') as f:
+            data = f.read()
+        found = re.findall(r'// (\S+).*\n.*ARTS_IMPORT', data)
+        used_syms.update(found)
+
+    return used_syms
 
 for i, line in enumerate(lines):
     if not line:
@@ -97,6 +121,16 @@ for i, line in enumerate(lines):
     end_of_branch = None
 
 set_sym(None, len(lines))
+
+used_syms = get_used_syms()
+
+for sym in used_syms:
+    if sym not in public_syms:
+        print('Missing', sym)
+
+public_syms = public_syms & used_syms
+
+print('Public Syms', len(public_syms))
 
 for sym_name, (start, end, sym_refs) in all_syms.items():
     done_directives = False

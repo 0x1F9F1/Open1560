@@ -157,9 +157,6 @@ public:
     ARTS_IMPORT static void DeclareFields();
 
 private:
-    // ?CycleInterest@mmMultiCR@@AAEXH@Z | unused
-    ARTS_IMPORT void CycleInterest(i32 arg1);
-
     // ?DisplayTimeWarning@mmMultiCR@@AAEXH@Z
     ARTS_IMPORT void DisplayTimeWarning(i32 arg1);
 
@@ -183,9 +180,6 @@ private:
 
     // ?SelectTeams@mmMultiCR@@AAEHXZ | unused
     ARTS_EXPORT i32 SelectTeams();
-
-    // ?SendChangeSet@mmMultiCR@@AAEXH@Z | unused
-    ARTS_IMPORT void SendChangeSet(i32 arg1);
 
     // ?SendGameState@mmMultiCR@@AAEXK@Z
     ARTS_IMPORT void SendGameState(ulong arg1);

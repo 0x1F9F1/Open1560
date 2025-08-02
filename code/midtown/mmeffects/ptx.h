@@ -127,8 +127,5 @@ private:
 
 check_size(asParticles, 0x6C);
 
-// ?cmpPtx@@YAHPBX0@Z | unused
-ARTS_IMPORT i32 cmpPtx(const void* arg1, const void* arg2);
-
 // ?EnablePtxSorting@@3HA
 ARTS_IMPORT extern i32 EnablePtxSorting;

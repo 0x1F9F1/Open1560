@@ -116,9 +116,6 @@ public:
     // ?ApplyForce@asInertialCS@@QAEXABVVector3@@0@Z
     ARTS_IMPORT void ApplyForce(const Vector3& arg1, const Vector3& arg2);
 
-    // ?ApplyImpulse@asInertialCS@@QAEXABVVector3@@@Z | unused
-    ARTS_IMPORT void ApplyImpulse(const Vector3& arg1);
-
     // ?ApplyImpulse@asInertialCS@@QAEXABVVector3@@0@Z
     ARTS_IMPORT void ApplyImpulse(const Vector3& arg1, const Vector3& arg2);
 
@@ -127,9 +124,6 @@ public:
 
     // ?ApplyTorque@asInertialCS@@QAEXABVVector3@@@Z
     ARTS_IMPORT void ApplyTorque(const Vector3& arg1);
-
-    // ?ApplyTurn@asInertialCS@@QAEXABVVector3@@@Z | unused
-    ARTS_IMPORT void ApplyTurn(const Vector3& arg1);
 
     // ?CalcCMatrix@asInertialCS@@QBEXAAVMatrix34@@ABVVector3@@@Z
     ARTS_IMPORT void CalcCMatrix(Matrix34& arg1, const Vector3& arg2) const;
@@ -152,9 +146,6 @@ public:
     // ?GetVelocity@asInertialCS@@QAE?AVVector3@@PBV2@@Z
     ARTS_IMPORT Vector3 GetVelocity(const Vector3* arg1 = nullptr);
 
-    // ?MatricesToMomenta@asInertialCS@@QAEXABVMatrix34@@0M@Z | unused
-    ARTS_IMPORT void MatricesToMomenta(const Matrix34& arg1, const Matrix34& arg2, f32 arg3);
-
     // ?MoveICS@asInertialCS@@QAEXXZ
     ARTS_IMPORT void MoveICS();
 
@@ -167,14 +158,8 @@ public:
     // ?SetMass@asInertialCS@@QAEXMMMM@Z
     ARTS_EXPORT void SetMass(f32 size_x, f32 size_y, f32 size_z, f32 mass);
 
-    // ?SetZeroDOF@asInertialCS@@QAEXMM@Z | unused
-    ARTS_IMPORT void SetZeroDOF(f32 arg1, f32 arg2);
-
     // ?Update@asInertialCS@@UAEXXZ
     ARTS_IMPORT void Update() override;
-
-    // ?UpdateKids@asInertialCS@@QAEXXZ | unused
-    ARTS_IMPORT void UpdateKids();
 
     // ?Zero@asInertialCS@@QAEXXZ
     ARTS_IMPORT void Zero();
@@ -229,11 +214,5 @@ private:
 
 check_size(asInertialCS, 0x1A8);
 
-// ?InertiaAxis@@YAMABVVector3@@0@Z | unused
-ARTS_IMPORT f32 InertiaAxis(const Vector3& arg1, const Vector3& arg2);
-
 // ?MatrixToAngVelocity@@YA?AVVector3@@ABVMatrix34@@M@Z
 ARTS_IMPORT Vector3 MatrixToAngVelocity(const Matrix34& arg1, f32 arg2);
-
-// ?MatrixToAngVelocity@@YA?AVVector3@@ABVMatrix34@@0M@Z | unused
-ARTS_IMPORT Vector3 MatrixToAngVelocity(const Matrix34& arg1, const Matrix34& arg2, f32 arg3);

@@ -32,9 +32,6 @@ union mmx;
 // ?PackNormal@@YAEAAVVector3@@@Z
 ARTS_IMPORT u8 PackNormal(Vector3& normal);
 
-// ?PackNormalSlow@@YAEAAVVector3@@@Z | unused
-ARTS_IMPORT u8 PackNormalSlow(Vector3& normal);
-
 // ?UnpackNormal@@3PAVVector3@@A
 ARTS_EXPORT extern Vector3 UnpackNormal[198];
 

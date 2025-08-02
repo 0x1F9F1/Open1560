@@ -88,9 +88,6 @@ check_size(agiTexProp, 0x20);
 class agiTexSheet
 {
 public:
-    // ?Add@agiTexSheet@@QAEXPAD@Z | unused
-    ARTS_IMPORT void Add(aconst char* arg1);
-
     // ?GetVariationCount@agiTexSheet@@QAEHPAD@Z
     ARTS_IMPORT i32 GetVariationCount(aconst char* arg1);
 
@@ -103,14 +100,8 @@ public:
     // ?Lookup@agiTexSheet@@QAEPAUagiTexProp@@PADH@Z
     ARTS_IMPORT agiTexProp* Lookup(aconst char* name, i32 variation = 0);
 
-    // ?LookupAlternate@agiTexSheet@@QAEPAUagiTexProp@@PAD@Z | unused
-    ARTS_IMPORT agiTexProp* LookupAlternate(aconst char* arg1);
-
     // ?RemapName@agiTexSheet@@QAEPADPADH@Z
     ARTS_IMPORT char* RemapName(aconst char* arg1, i32 arg2);
-
-    // ?Save@agiTexSheet@@QAEXPAD@Z | unused
-    ARTS_IMPORT void Save(aconst char* arg1);
 
     i32 GetPropCount() const
     {

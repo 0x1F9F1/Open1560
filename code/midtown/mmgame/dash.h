@@ -145,9 +145,6 @@ public:
     // ?Reset@mmDashView@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // ?TempDeactivate@mmDashView@@QAEXXZ | unused
-    ARTS_IMPORT void TempDeactivate();
-
     // ?Update@mmDashView@@UAEXXZ
     ARTS_IMPORT void Update() override;
 

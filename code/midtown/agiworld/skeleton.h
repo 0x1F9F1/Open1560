@@ -43,29 +43,14 @@ public:
     // ??0bnSkeleton@@QAE@XZ
     ARTS_IMPORT bnSkeleton();
 
-    // ??1bnSkeleton@@QAE@XZ | unused
-    ARTS_IMPORT ~bnSkeleton();
-
-    // ?Attach@bnSkeleton@@QAEXQAVMatrix34@@@Z | unused
-    ARTS_IMPORT void Attach(Matrix34* const arg1);
-
-    // ?Draw@bnSkeleton@@QAEXXZ | unused
-    ARTS_IMPORT void Draw();
-
     // ?FindBone@bnSkeleton@@QAEPAVbnBone@@PADHD@Z
     ARTS_IMPORT bnBone* FindBone(char* arg1, i32 arg2, char arg3);
-
-    // ?HowMany@bnSkeleton@@QAEHPADD@Z | unused
-    ARTS_IMPORT i32 HowMany(char* arg1, char arg2);
 
     // ?Load@bnSkeleton@@QAEHPBD@Z
     ARTS_IMPORT i32 Load(const char* arg1);
 
     // ?Pose@bnSkeleton@@QAEXPBVVector3@@@Z
     ARTS_IMPORT void Pose(const Vector3* arg1);
-
-    // ?Save@bnSkeleton@@QAEHPBD@Z | unused
-    ARTS_IMPORT i32 Save(const char* arg1);
 
     // ?Transform@bnSkeleton@@QAEXPAVMatrix34@@@Z
     ARTS_IMPORT void Transform(Matrix34* arg1);
@@ -80,9 +65,6 @@ class bnAnimation
 public:
     // ?Load@bnAnimation@@QAEHPAD@Z
     ARTS_IMPORT i32 Load(char* arg1);
-
-    // ?Lookup@bnAnimation@@SAPAV1@PAD@Z | unused
-    ARTS_IMPORT static bnAnimation* Lookup(char* arg1);
 
     u8 gap0[0xC];
 };

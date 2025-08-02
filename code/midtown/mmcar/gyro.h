@@ -53,12 +53,6 @@ public:
     // ?GetClass@VehGyro@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
 
-    // ?Load@VehGyro@@QAEXPAVStream@@@Z | unused
-    ARTS_IMPORT void Load(Stream* arg1);
-
-    // ?Save@VehGyro@@QAEXPAVStream@@@Z | unused
-    ARTS_IMPORT void Save(Stream* arg1);
-
     // ?Update@VehGyro@@UAEXXZ
     ARTS_IMPORT void Update() override;
 

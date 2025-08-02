@@ -85,14 +85,8 @@ public:
     ARTS_IMPORT void AssignSounds(
         AudSound* arg1, AudSound* arg2, AudSound* arg3, AudSound* arg4, mmOpponentImpactAudio* arg5, AudSound* arg6);
 
-    // ?Backup@aiVehiclePolice@@QAEXXZ | unused
-    ARTS_IMPORT void Backup();
-
     // ?ConfigCar@aiVehiclePolice@@QAEXXZ
     ARTS_IMPORT void ConfigCar();
-
-    // ?DrawDamage@aiVehiclePolice@@QAEXXZ | unused
-    ARTS_IMPORT void DrawDamage();
 
     // ?DrawId@aiVehiclePolice@@UAEXXZ
     ARTS_IMPORT void DrawId() override;
@@ -120,9 +114,6 @@ public:
 
     // ?Init@aiVehiclePolice@@QAEXHPAVaiRaceData@@@Z
     ARTS_IMPORT void Init(i32 arg1, aiRaceData* arg2);
-
-    // ?IsPerpInRange@aiVehiclePolice@@QAEHPAVmmCar@@@Z | unused
-    ARTS_IMPORT i32 IsPerpInRange(mmCar* arg1);
 
     // ?PerpEscapes@aiVehiclePolice@@QAEXE@Z
     ARTS_IMPORT void PerpEscapes(u8 arg1);

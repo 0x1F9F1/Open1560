@@ -53,9 +53,6 @@
 
 #include "game.h"
 
-// ?ThreadFunc@@YGKPAX@Z | unused
-ARTS_IMPORT ulong ARTS_STDCALL ThreadFunc(void* arg1);
-
 class mmGameSingle final : public mmGame
 {
 public:

@@ -74,9 +74,6 @@ public:
     // ?SetDistant@asLamp@@QAEXXZ
     ARTS_IMPORT void SetDistant();
 
-    // ?SetPoint@asLamp@@QAEXXZ | unused
-    ARTS_IMPORT void SetPoint();
-
     // ?Update@asLamp@@UAEXXZ
     ARTS_IMPORT void Update() override;
 

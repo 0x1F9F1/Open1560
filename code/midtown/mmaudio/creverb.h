@@ -69,9 +69,6 @@ public:
     // ?PropertySetOk@CReverb@@QAEHXZ
     ARTS_IMPORT i32 PropertySetOk();
 
-    // ?SetAll@CReverb@@QAEXPAUEAX_REVERBPROPERTIES@@@Z | unused
-    ARTS_IMPORT void SetAll(EAX_REVERBPROPERTIES* arg1);
-
     // ?SetDamping@CReverb@@QAEXM@Z
     ARTS_IMPORT void SetDamping(f32 arg1);
 

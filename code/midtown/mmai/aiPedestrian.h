@@ -96,17 +96,8 @@ public:
     // ?CalculateAudioPanning@aiPedestrian@@QAEXXZ
     ARTS_IMPORT void CalculateAudioPanning();
 
-    // ?CalculateDistToPlayer2@aiPedestrian@@QAEXXZ | unused
-    ARTS_IMPORT void CalculateDistToPlayer2();
-
     // ?DrawDebug@aiPedestrian@@QAEXXZ
     ARTS_IMPORT void DrawDebug();
-
-    // ?Dump@aiPedestrian@@QAEXXZ | unused
-    ARTS_IMPORT void Dump();
-
-    // ?Go@aiPedestrian@@QAEXXZ | unused
-    ARTS_IMPORT void Go();
 
     // ?Init@aiPedestrian@@QAEXPADHH@Z
     ARTS_IMPORT void Init(char* arg1, i32 arg2, i32 arg3);
@@ -122,9 +113,6 @@ public:
 
     // ?SetVoiceSoundPtr@aiPedestrian@@QAEXPAVAudSound@@@Z
     ARTS_IMPORT void SetVoiceSoundPtr(AudSound* arg1);
-
-    // ?Stop@aiPedestrian@@QAEXXZ | unused
-    ARTS_IMPORT void Stop();
 
     // ?UnAssignSounds@aiPedestrian@@QAEXXZ
     ARTS_IMPORT void UnAssignSounds();
@@ -163,14 +151,8 @@ private:
     // ?DetectBangerCollision@aiPedestrian@@AAEHPAPAVmmInstance@@PAMM@Z
     ARTS_IMPORT i32 DetectBangerCollision(mmInstance** arg1, f32* arg2, f32 arg3);
 
-    // ?DetectBangerObstacle@aiPedestrian@@AAEPAVmmInstance@@XZ | unused
-    ARTS_IMPORT mmInstance* DetectBangerObstacle();
-
     // ?DetectPedCollision@aiPedestrian@@AAEHMPAPAV1@PAM@Z
     ARTS_IMPORT i32 DetectPedCollision(f32 arg1, aiPedestrian** arg2, f32* arg3);
-
-    // ?DetectPedObstacle@aiPedestrian@@AAEPAV1@XZ | unused
-    ARTS_IMPORT aiPedestrian* DetectPedObstacle();
 
     // ?DetectPlayerAnticipate@aiPedestrian@@AAEHPAM0@Z
     ARTS_IMPORT i32 DetectPlayerAnticipate(f32* arg1, f32* arg2);

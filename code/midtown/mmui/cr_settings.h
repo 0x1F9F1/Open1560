@@ -71,9 +71,6 @@ public:
     // ?EncodeCRData@CRSettings@@QAEHXZ
     ARTS_IMPORT i32 EncodeCRData();
 
-    // ?GetGoldMass@CRSettings@@QAEHXZ | unused
-    ARTS_IMPORT i32 GetGoldMass();
-
     // ?GetGoldMassVal@CRSettings@@QAEHXZ
     ARTS_IMPORT i32 GetGoldMassVal();
 
@@ -91,9 +88,6 @@ public:
 
     // ?SetGameClassCallback@CRSettings@@QAEXXZ
     ARTS_IMPORT void SetGameClassCallback();
-
-    // ?SetGoldMass@CRSettings@@QAEXH@Z | unused
-    ARTS_IMPORT void SetGoldMass(i32 arg1);
 
     // ?SetHost@CRSettings@@QAEXH@Z
     ARTS_IMPORT void SetHost(i32 arg1);

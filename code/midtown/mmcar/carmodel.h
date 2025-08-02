@@ -150,9 +150,6 @@ public:
     // ?GetEntity@mmCarModel@@UAEPAVmmPhysEntity@@XZ | inline
     ARTS_IMPORT mmPhysEntity* GetEntity() override;
 
-    // ?GetPart@mmCarModel@@QAEPAVmmHitBangerInstance@@H@Z | unused
-    ARTS_IMPORT mmHitBangerInstance* GetPart(i32 arg1);
-
     // ?GetPos@mmCarModel@@UAIAAVVector3@@XZ
     ARTS_IMPORT Vector3& ARTS_FASTCALL GetPos() override;
 
@@ -167,9 +164,6 @@ public:
 
     // ?InitDamage@mmCarModel@@QAEXXZ
     ARTS_IMPORT void InitDamage();
-
-    // ?Kill@mmCarModel@@QAEXXZ | unused
-    ARTS_IMPORT void Kill();
 
     // ?Reset@mmCarModel@@UAEXXZ | inline
     ARTS_IMPORT void Reset() override;

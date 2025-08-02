@@ -37,9 +37,6 @@ public:
     // ??0MArray@@QAE@XZ
     ARTS_IMPORT MArray();
 
-    // ??1MArray@@QAE@XZ | unused
-    ARTS_IMPORT ~MArray();
-
     // ?AddMenuData@MArray@@QAEXHAAVVector4@@PAD@Z
     ARTS_IMPORT void AddMenuData(i32 arg1, Vector4& arg2, char* arg3);
 
@@ -51,9 +48,6 @@ public:
 
     // ?Read@MArray@@QAEXPAD@Z
     ARTS_EXPORT void Read(char* name);
-
-    // ?RetrieveMenuData@MArray@@QAEHHAAM000@Z | unused
-    ARTS_IMPORT i32 RetrieveMenuData(i32 arg1, f32& arg2, f32& arg3, f32& arg4, f32& arg5);
 
     // ?Write@MArray@@QAEXPAD@Z
     ARTS_IMPORT void Write(char* arg1);

@@ -103,8 +103,8 @@ ARTS_EXPORT void DeallocateEventQueue();
 // ?InitEventQueue@@YAXXZ
 ARTS_EXPORT void InitEventQueue();
 
-// ?ActiveFlag@@3HA
 // 0x1 | Focused/Active
+// ?ActiveFlag@@3HA
 ARTS_IMPORT extern i32 ActiveFlag;
 
 // ?CloseCallback@@3P6AXXZA

@@ -84,12 +84,6 @@ public:
     ARTS_IMPORT void Update() override;
 
 private:
-    // ?DrawOff@UIButton@@AAEXXZ | unused
-    ARTS_IMPORT void DrawOff();
-
-    // ?DrawOn@UIButton@@AAEXXZ | unused
-    ARTS_IMPORT void DrawOn();
-
     u8 gap74[0x40];
 };
 

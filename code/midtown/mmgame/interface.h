@@ -393,9 +393,6 @@ private:
     // ?RequestProverb@mmInterface@@AAEXXZ
     ARTS_IMPORT void RequestProverb();
 
-    // ?SendBootMsg@mmInterface@@AAEXK@Z | unused
-    ARTS_IMPORT void SendBootMsg(ulong arg1);
-
     // ?SendChatMessage@mmInterface@@AAEXPAX@Z
     ARTS_IMPORT void SendChatMessage(void* arg1);
 

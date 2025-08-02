@@ -61,17 +61,8 @@ public:
     // ?CheckTimeDelay@mmAnimTrigger@@QAEHXZ
     ARTS_IMPORT i32 CheckTimeDelay();
 
-    // ?Init@mmAnimTrigger@@QAEXM@Z | unused
-    ARTS_IMPORT void Init(f32 arg1);
-
     // ?Init@mmAnimTrigger@@QAEXPAVVector3@@PAM@Z
     ARTS_IMPORT void Init(Vector3* arg1, f32* arg2);
-
-    // ?Init@mmAnimTrigger@@QAEXPAVmmInstance@@H@Z | unused
-    ARTS_IMPORT void Init(mmInstance* arg1, i32 arg2);
-
-    // ?Init@mmAnimTrigger@@QAEXPAHM@Z | unused
-    ARTS_IMPORT void Init(i32* arg1, f32 arg2);
 
     // ?Reset@mmAnimTrigger@@QAEXXZ
     ARTS_IMPORT void Reset();

@@ -184,28 +184,13 @@ public:
     // ?Area@Vector3@@QBEMABV1@0@Z
     ARTS_IMPORT f32 Area(const Vector3& arg1, const Vector3& arg2) const;
 
-    // ?Atan3@Vector3@@QBEMDD@Z | unused
-    ARTS_IMPORT f32 Atan3(char arg1, char arg2) const;
-
     // ?Bilinear@Vector3@@QAEXMMABV1@000@Z | unused
     ARTS_IMPORT void Bilinear(
         f32 arg1, f32 arg2, const Vector3& arg3, const Vector3& arg4, const Vector3& arg5, const Vector3& arg6);
 
-    // ?Bounce@Vector3@@QAEXABV1@M@Z | unused
-    ARTS_IMPORT void Bounce(const Vector3& arg1, f32 arg2);
-
     // ?CatmullRom@Vector3@@QAEXMABV1@000@Z | unused
     ARTS_IMPORT void CatmullRom(
         f32 arg1, const Vector3& arg2, const Vector3& arg3, const Vector3& arg4, const Vector3& arg5);
-
-    // ?Clamp@Vector3@@QAEXABV1@0@Z | unused
-    ARTS_IMPORT void Clamp(const Vector3& arg1, const Vector3& arg2);
-
-    // ?Clamp@Vector3@@QAEXMM@Z | unused
-    ARTS_IMPORT void Clamp(f32 arg1, f32 arg2);
-
-    // ?Cos@Vector3@@QBEMABV1@@Z | unused
-    ARTS_IMPORT f32 Cos(const Vector3& arg1) const;
 
     // ?Cross@Vector3@@QAEXABV1@0@Z | inline
     ARTS_EXPORT inline void Cross(const Vector3& lhs, const Vector3& rhs)
@@ -228,9 +213,6 @@ public:
     // ?GetPolar@Vector3@@QBEXABV1@PAVVector4@@PAV1@@Z
     ARTS_IMPORT void GetPolar(const Vector3& arg1, Vector4* arg2, Vector3* arg3) const;
 
-    // ?HalfSpace@Vector3@@QBEHABVVector4@@@Z | unused
-    ARTS_IMPORT i32 HalfSpace(const Vector4& arg1) const;
-
     // ?Hermite@Vector3@@QAEXMABV1@000M@Z | unused
     ARTS_IMPORT void Hermite(
         f32 arg1, const Vector3& arg2, const Vector3& arg3, const Vector3& arg4, const Vector3& arg5, f32 arg6);
@@ -244,27 +226,9 @@ public:
     // ?Neg@Vector3@@QAEXABV1@@Z | inline
     ARTS_IMPORT void Neg(const Vector3& arg1);
 
-    // ?PointToLine@Vector3@@QBEMABV1@0@Z | unused
-    ARTS_IMPORT f32 PointToLine(const Vector3& arg1, const Vector3& arg2) const;
-
-    // ?PointToSegment@Vector3@@QBEMABV1@0AAV1@AAHPAM@Z | unused
-    ARTS_IMPORT f32 PointToSegment(const Vector3& arg1, const Vector3& arg2, Vector3& arg3, i32& arg4, f32* arg5) const;
-
     // ?PointToSegment2@Vector3@@QBEMABV1@0AAV1@AAHPAM@Z | unused
     ARTS_IMPORT f32 PointToSegment2(
         const Vector3& arg1, const Vector3& arg2, Vector3& arg3, i32& arg4, f32* arg5) const;
-
-    // ?Project@Vector3@@QAE?AV1@AAV1@@Z | unused
-    ARTS_IMPORT Vector3 Project(Vector3& arg1);
-
-    // ?RayIntersectPlane@Vector3@@QAEHABV1@0ABVVector4@@M@Z | unused
-    ARTS_IMPORT i32 RayIntersectPlane(const Vector3& arg1, const Vector3& arg2, const Vector4& arg3, f32 arg4);
-
-    // ?Rebound@Vector3@@QAEXABV1@M@Z | unused
-    ARTS_IMPORT void Rebound(const Vector3& arg1, f32 arg2);
-
-    // ?Reflect@Vector3@@QBE?AV1@ABV1@@Z | unused
-    ARTS_IMPORT Vector3 Reflect(const Vector3& arg1) const;
 
     // ?Rotate@Vector3@@QAEXMH@Z
     ARTS_IMPORT void Rotate(f32 arg1, i32 arg2);
@@ -279,15 +243,6 @@ public:
         y = y_;
         z = z_;
     }
-
-    // ?Slerp@Vector3@@QAEXMABV1@0@Z | unused
-    ARTS_IMPORT void Slerp(f32 arg1, const Vector3& arg2, const Vector3& arg3);
-
-    // ?hsvtorgb@Vector3@@QAEXXZ | unused
-    ARTS_IMPORT void hsvtorgb();
-
-    // ?rgbtohsv@Vector3@@QAEXXZ | unused
-    ARTS_IMPORT void rgbtohsv();
 
     inline f32 Mag2() const
     {
@@ -323,17 +278,8 @@ inline Vector3 operator/(f32 lhs, const Vector3& rhs)
     return {lhs / rhs.x, lhs / rhs.y, lhs / rhs.z};
 }
 
-// ?TransformNormalList@@YAXPAVVector3@@PBV1@HABVMatrix34@@@Z | unused
-ARTS_IMPORT void TransformNormalList(Vector3* arg1, const Vector3* arg2, i32 arg3, const Matrix34& arg4);
-
-// ?TransformNormalList@@YAXPAPAVVector3@@PAPBV1@HABVMatrix34@@@Z | unused
-ARTS_IMPORT void TransformNormalList(Vector3** arg1, const Vector3** arg2, i32 arg3, const Matrix34& arg4);
-
 // ?TransformVertList@@YAXPAVVector3@@PBV1@HABVMatrix34@@@Z
 ARTS_IMPORT void TransformVertList(Vector3* arg1, const Vector3* arg2, i32 arg3, const Matrix34& arg4);
-
-// ?TransformVertList@@YAXPAPAVVector3@@PAPBV1@HABVMatrix34@@@Z | unused
-ARTS_IMPORT void TransformVertList(Vector3** arg1, const Vector3** arg2, i32 arg3, const Matrix34& arg4);
 
 // ?TransformVertNorm@@YAXAAVVector3@@0ABV1@0ABVMatrix34@@@Z | unused
 ARTS_IMPORT void TransformVertNorm(
@@ -353,33 +299,6 @@ ARTS_IMPORT extern Vector3 YAXIS;
 
 // ?ZAXIS@@3VVector3@@A
 ARTS_IMPORT extern Vector3 ZAXIS;
-
-#if 0
-class Vector3Array
-{
-public:
-    // ??4Vector3Array@@QAEXAAV0@@Z | unused
-    ARTS_IMPORT void operator=(Vector3Array& arg1);
-
-    // ??AVector3Array@@QAEAAVVector3@@H@Z | unused
-    ARTS_IMPORT Vector3& operator[](i32 arg1);
-
-    // ?BlockCopy@Vector3Array@@QAEXAAV1@@Z | unused
-    ARTS_IMPORT void BlockCopy(Vector3Array& arg1);
-
-    // ?Delete@Vector3Array@@QAEXXZ
-    ARTS_IMPORT void Delete();
-
-    // ?Init@Vector3Array@@QAEXH@Z | unused
-    ARTS_IMPORT void Init(i32 arg1);
-
-private:
-    // ?NewTable@Vector3Array@@AAEXH@Z
-    ARTS_IMPORT void NewTable(i32 arg1);
-};
-
-check_size(Vector3Array, 0x14);
-#endif
 
 template <>
 const MetaType* CreateMetaType_<Vector3>();

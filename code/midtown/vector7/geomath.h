@@ -36,18 +36,12 @@
 ARTS_IMPORT i32 CollideTri(const Vector3& arg1, const Vector3& arg2, const Vector3& arg3, const Vector3& arg4,
     const Vector3& arg5, f32& arg6, Vector3& arg7, Vector3& arg8);
 
-// ?ComputeMirrorMatrix@@YAXAAVMatrix34@@AAVVector4@@@Z | unused
-ARTS_IMPORT void ComputeMirrorMatrix(Matrix34& arg1, Vector4& arg2);
-
 // ?ComputeShadowMatrix@@YAXAAVMatrix34@@AAVVector4@@@Z
 ARTS_EXPORT void ComputeShadowMatrix(Matrix34& matrix, Vector4& normal);
 
 // ?GetBoundInfo@@YAXHPAVVector3@@000PAM@Z
 ARTS_IMPORT void GetBoundInfo(
     i32 vert_count, Vector3* vertices, Vector3* out_min, Vector3* out_max, Vector3* out_center, f32* out_mag);
-
-// ?GetBoundSphere@@YA?AVVector4@@HPAVVector3@@@Z | unused
-ARTS_IMPORT Vector4 GetBoundSphere(i32 arg1, Vector3* arg2);
 
 // ?IsQuadCoplanar@@YAHAAVVector3@@000@Z
 ARTS_IMPORT i32 IsQuadCoplanar(Vector3& arg1, Vector3& arg2, Vector3& arg3, Vector3& arg4);

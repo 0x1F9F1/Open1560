@@ -112,12 +112,6 @@ check_size(mmLinearGauge, 0x34);
 struct mmRadGauge
 {
 public:
-    // ?Draw@mmRadGauge@@QAEXXZ | unused
-    ARTS_IMPORT void Draw();
-
-    // ?Init@mmRadGauge@@QAEXPAM0PAVmmExternalView@@HI@Z | unused
-    ARTS_IMPORT void Init(f32* arg1, f32* arg2, mmExternalView* arg3, i32 arg4, u32 arg5);
-
     // ?ResChange@mmRadGauge@@QAEXXZ
     ARTS_IMPORT void ResChange();
 

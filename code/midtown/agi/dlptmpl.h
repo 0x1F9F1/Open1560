@@ -108,12 +108,6 @@ public:
     // ?GetCentroid@DLPTemplate@@QAEHAAVVector3@@PAD@Z
     ARTS_IMPORT i32 GetCentroid(Vector3& arg1, aconst char* arg2);
 
-    // ?GetGroupVertex@DLPTemplate@@QAEPAVVector3@@PAD@Z | unused
-    ARTS_IMPORT Vector3* GetGroupVertex(aconst char* arg1);
-
-    // ?GetVertexCentroid@DLPTemplate@@QAEHAAVVector3@@PAD@Z | unused
-    ARTS_IMPORT i32 GetVertexCentroid(Vector3& arg1, aconst char* arg2);
-
     // ?GroupExists@DLPTemplate@@QAEPAVDLPGroup@@PAD@Z
     ARTS_IMPORT DLPGroup* GroupExists(aconst char* arg1);
 
@@ -130,17 +124,11 @@ public:
     // ?Load@DLPTemplate@@QAEXPAVStream@@@Z
     ARTS_EXPORT void Load(Stream* file);
 
-    // ?Print@DLPTemplate@@QAEXPAVStream@@@Z | unused
-    ARTS_IMPORT void Print(Stream* arg1);
-
     // ?Release@DLPTemplate@@QAEHXZ
     ARTS_IMPORT i32 Release();
 
     // ?Restrict@DLPTemplate@@QAEHPAD@Z
     ARTS_IMPORT i32 Restrict(aconst char* arg1);
-
-    // ?Save@DLPTemplate@@QAEXPAVStream@@@Z | unused
-    ARTS_IMPORT void Save(Stream* arg1);
 
 private:
     // ??1DLPTemplate@@AAE@XZ
@@ -181,9 +169,6 @@ public:
     // ??_EDLPPatch@@QAEPAXI@Z | unused
     // ??1DLPPatch@@QAE@XZ | inline
     ARTS_EXPORT ~DLPPatch() = default;
-
-    // ?GetProp@DLPPatch@@QAEPADPAD@Z | unused
-    ARTS_IMPORT char* GetProp(aconst char* arg1);
 
     // ?Load@DLPPatch@@QAEXPAVStream@@@Z
     ARTS_EXPORT void Load(Stream* file);
@@ -276,14 +261,8 @@ check_size(DLPGroup, 0x30);
 // ?PackAngle@@YAIM@Z
 ARTS_IMPORT u32 PackAngle(f32 arg1);
 
-// ?PackNormal@@YAXAAGAAVVector3@@@Z | unused
-ARTS_IMPORT void PackNormal(u16& arg1, Vector3& arg2);
-
 // ?UnpackAngle@@YAME@Z
 ARTS_IMPORT f32 UnpackAngle(u8 arg1);
-
-// ?UnpackNormal@@YAXAAVVector3@@AAG@Z | unused
-ARTS_IMPORT void UnpackNormal(Vector3& arg1, u16& arg2);
 
 // ?DLPTemplateHash@@3VHashTable@@A
 ARTS_IMPORT extern HashTable DLPTemplateHash;

@@ -68,9 +68,6 @@ public:
     // ?BeginGfx@DLP@@UAEHXZ
     ARTS_IMPORT i32 BeginGfx() override;
 
-    // ?Clone@DLP@@QAEPAV1@XZ | unused
-    ARTS_IMPORT DLP* Clone();
-
     // ?EndGfx@DLP@@UAEXXZ
     ARTS_EXPORT void EndGfx() override;
 

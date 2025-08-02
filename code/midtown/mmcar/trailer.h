@@ -169,9 +169,6 @@ public:
     // ?Update@mmTrailer@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // ?UpdateICSParams@mmTrailer@@QAEXXZ | unused
-    ARTS_IMPORT void UpdateICSParams();
-
     // ?DeclareFields@mmTrailer@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 

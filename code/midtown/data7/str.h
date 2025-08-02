@@ -116,15 +116,6 @@ public:
     // ??Gstring@@QBE?AV0@PBD@Z
     ARTS_IMPORT string operator-(const char* arg1) const;
 
-    // ??Zstring@@QAEXPBD@Z | unused
-    ARTS_IMPORT void operator-=(const char* arg1);
-
-    // ?ChangeExtension@string@@QAEXABV1@@Z | unused
-    ARTS_IMPORT void ChangeExtension(const string& arg1);
-
-    // ?CommaFile@string@@QBEHXZ | unused
-    ARTS_IMPORT i32 CommaFile() const;
-
     // ?Contains@string@@QBEHAAV1@@Z
     ARTS_IMPORT i32 Contains(string& arg1) const;
 
@@ -134,32 +125,14 @@ public:
     // ?ExpandEnvs@string@@QAEXXZ
     ARTS_IMPORT void ExpandEnvs();
 
-    // ?Extension@string@@QBE?AV1@XZ | unused
-    ARTS_IMPORT string Extension() const;
-
     // ?FileExists@string@@QBEHXZ
     ARTS_IMPORT i32 FileExists() const;
-
-    // ?FileName@string@@QBE?AV1@XZ | unused
-    ARTS_IMPORT string FileName() const;
-
-    // ?FindFile@string@@QAEHABV1@H00@Z | unused
-    ARTS_IMPORT i32 FindFile(const string& arg1, i32 arg2, const string& arg3, const string& arg4);
 
     // ?Init@string@@QAEXH@Z | inline
     ARTS_IMPORT void Init(i32 arg1);
 
-    // ?IsNumeric@string@@QBEHXZ | unused
-    ARTS_IMPORT i32 IsNumeric() const;
-
-    // ?MinusEqual@string@@QAEXD@Z | unused
-    ARTS_IMPORT void MinusEqual(char arg1);
-
     // ?NumSubStrings@string@@QBEHXZ
     ARTS_IMPORT i32 NumSubStrings() const;
-
-    // ?RemoveExtension@string@@QAEXXZ | unused
-    ARTS_IMPORT void RemoveExtension();
 
     // ?SaveName@string@@QAEXABV1@H00@Z
     ARTS_IMPORT void SaveName(const string& arg1, i32 arg2, const string& arg3, const string& arg4);
@@ -189,9 +162,6 @@ private:
 
 check_size(string, 0x8);
 
-// ??H@YA?AVstring@@PBDABV0@@Z | unused
-ARTS_IMPORT string operator+(const char* arg1, const string& arg2);
-
 // ?ExecPath@@3PADA
 ARTS_IMPORT extern char ExecPath[128];
 
@@ -200,30 +170,3 @@ ARTS_IMPORT extern char ImageExts[128];
 
 // ?ProjPath@@3PADA
 ARTS_IMPORT extern char ProjPath[128];
-
-#if 0
-class StringArray
-{
-public:
-    // ??4StringArray@@QAEXAAV0@@Z | unused
-    ARTS_IMPORT void operator=(StringArray& arg1);
-
-    // ??AStringArray@@QAEAAVstring@@H@Z | unused
-    ARTS_IMPORT string& operator[](i32 arg1);
-
-    // ?BlockCopy@StringArray@@QAEXAAV1@@Z | unused
-    ARTS_IMPORT void BlockCopy(StringArray& arg1);
-
-    // ?Delete@StringArray@@QAEXXZ
-    ARTS_IMPORT void Delete();
-
-    // ?Init@StringArray@@QAEXH@Z | unused
-    ARTS_IMPORT void Init(i32 arg1);
-
-private:
-    // ?NewTable@StringArray@@AAEXH@Z
-    ARTS_IMPORT void NewTable(i32 arg1);
-};
-
-check_size(StringArray, 0x14);
-#endif

@@ -126,9 +126,6 @@ public:
     // ?DisableEffect@AudSound@@QAEXH@Z
     ARTS_IMPORT void DisableEffect(i32 arg1);
 
-    // ?EchoPending@AudSound@@QAEEXZ | unused
-    ARTS_IMPORT u8 EchoPending();
-
     // ?Enable@AudSound@@QAEXXZ
     ARTS_IMPORT void Enable();
 
@@ -138,20 +135,8 @@ public:
     // ?EnabledAction@AudSound@@QAEXXZ
     ARTS_IMPORT void EnabledAction();
 
-    // ?GetCurrentSoundObj@AudSound@@QAEPAVSoundObj@@XZ | unused
-    ARTS_IMPORT SoundObj* GetCurrentSoundObj();
-
-    // ?GetEAXReverbMix@AudSound@@QAEMH@Z | unused
-    ARTS_IMPORT f32 GetEAXReverbMix(i32 arg1);
-
     // ?GetEffect@AudSound@@QAEHXZ
     ARTS_IMPORT i32 GetEffect();
-
-    // ?GetFrequency@AudSound@@QAEMH@Z | unused
-    ARTS_IMPORT f32 GetFrequency(i32 arg1);
-
-    // ?GetSampleTime@AudSound@@QAEMXZ | unused
-    ARTS_IMPORT f32 GetSampleTime();
 
     // ?GetSecondaryEAXObj@AudSound@@QAEPAVCReverbBuffer@@H@Z
     ARTS_IMPORT CReverbBuffer* GetSecondaryEAXObj(i32 arg1);
@@ -183,27 +168,6 @@ public:
     // ?Reset@AudSound@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // ?Set3DMode@AudSound@@QAEXK@Z | unused
-    ARTS_IMPORT void Set3DMode(ulong arg1);
-
-    // ?SetChorusAttenuation@AudSound@@QAEXM@Z | unused
-    ARTS_IMPORT void SetChorusAttenuation(f32 arg1);
-
-    // ?SetChorusPitchMult@AudSound@@QAEXM@Z | unused
-    ARTS_IMPORT void SetChorusPitchMult(f32 arg1);
-
-    // ?SetChorusPitchMult@AudSound@@QAEXMM@Z | unused
-    ARTS_IMPORT void SetChorusPitchMult(f32 arg1, f32 arg2);
-
-    // ?SetConeAngles@AudSound@@QAEXKK@Z | unused
-    ARTS_IMPORT void SetConeAngles(ulong arg1, ulong arg2);
-
-    // ?SetConeOrientation@AudSound@@QAEXPAVVector3@@@Z | unused
-    ARTS_IMPORT void SetConeOrientation(Vector3* arg1);
-
-    // ?SetConeOutsideVolume@AudSound@@QAEXJ@Z | unused
-    ARTS_IMPORT void SetConeOutsideVolume(ilong arg1);
-
     // ?SetDelayTime@AudSound@@QAEXM@Z
     ARTS_IMPORT void SetDelayTime(f32 arg1);
 
@@ -215,9 +179,6 @@ public:
 
     // ?SetEchoFrequency@AudSound@@QAEXMH@Z
     ARTS_IMPORT void SetEchoFrequency(f32 arg1, i32 arg2);
-
-    // ?SetEchoPan@AudSound@@QAEXM@Z | unused
-    ARTS_IMPORT void SetEchoPan(f32 arg1);
 
     // ?SetEffect@AudSound@@QAEXH@Z
     ARTS_IMPORT void SetEffect(i32 arg1);
@@ -272,9 +233,6 @@ public:
 
     // ?GetSoft2DFlags@AudSound@@SA?BKXZ
     ARTS_IMPORT static const ulong GetSoft2DFlags();
-
-    // ?GetSoftFreqChange2DFlags@AudSound@@SA?BKXZ | unused
-    ARTS_IMPORT static const ulong GetSoftFreqChange2DFlags();
 
 private:
     // ?s_DWDefault2DCtrlFlags@AudSound@@0KB

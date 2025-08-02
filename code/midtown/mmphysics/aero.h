@@ -53,12 +53,6 @@ public:
     // ?GetClass@asAero@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
 
-    // ?Load@asAero@@QAEXPAVStream@@@Z | unused
-    ARTS_IMPORT void Load(Stream* arg1);
-
-    // ?Save@asAero@@QAEXPAVStream@@@Z | unused
-    ARTS_IMPORT void Save(Stream* arg1);
-
     // ?Update@asAero@@UAEXXZ
     ARTS_IMPORT void Update() override;
 

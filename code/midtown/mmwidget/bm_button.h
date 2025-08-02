@@ -115,9 +115,6 @@ public:
     // ?MexOn@UIBMButton@@QAEXXZ
     ARTS_IMPORT void MexOn();
 
-    // ?MexToggle@UIBMButton@@QAEXXZ | unused
-    ARTS_IMPORT void MexToggle();
-
     // ?ReturnDescription@UIBMButton@@UAEPADXZ
     ARTS_IMPORT char* ReturnDescription() override;
 

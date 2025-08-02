@@ -100,18 +100,6 @@ public:
     ARTS_EXPORT void AddWidgets(Bank* arg1);
 #endif
 
-    // ?AvoidPlayerCollision@aiVehicleSpline@@QAEXXZ | unused
-    ARTS_IMPORT void AvoidPlayerCollision();
-
-    // ?DetectPlayerCollision@aiVehicleSpline@@QAEHHM@Z | unused
-    ARTS_IMPORT i32 DetectPlayerCollision(i32 arg1, f32 arg2);
-
-    // ?DetectPlayerForwardCollision@aiVehicleSpline@@QAEHXZ | unused
-    ARTS_IMPORT i32 DetectPlayerForwardCollision();
-
-    // ?DetectPlayerTargetPtCollision@aiVehicleSpline@@QAEHXZ | unused
-    ARTS_IMPORT i32 DetectPlayerTargetPtCollision();
-
     // ?DetectPlayerZoneCollision@aiVehicleSpline@@QAEHXZ
     ARTS_IMPORT i32 DetectPlayerZoneCollision();
 
@@ -156,9 +144,6 @@ public:
 
     // ?Update@aiVehicleSpline@@UAEXXZ
     ARTS_IMPORT void Update() override;
-
-    // ?WaitTime@aiVehicleSpline@@QAEHXZ | unused
-    ARTS_IMPORT i32 WaitTime();
 
     // ?DeclareFields@aiVehicleSpline@@SAXXZ
     ARTS_IMPORT static void DeclareFields();

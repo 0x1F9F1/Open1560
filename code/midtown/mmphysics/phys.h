@@ -145,8 +145,8 @@ public:
     ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
-    // ?Collide@mmPhysicsMGR@@QAEHPAVmmIntersection@@HFF@Z
     // type = PHYS_COLLIDE_*
+    // ?Collide@mmPhysicsMGR@@QAEHPAVmmIntersection@@HFF@Z
     ARTS_IMPORT i32 Collide(mmIntersection* isect, i32 type, i16 room_id = 0, i16 arg4 = 0);
 
     // ?CollideLOS@mmPhysicsMGR@@QAEHPAVmmIntersection@@HFF@Z

@@ -80,7 +80,7 @@ public:
     // ?Lock@DataCache@@QAEHPAH@Z
     ARTS_EXPORT b32 Lock(i32* handle);
 
-    // ?Shutdown@DataCache@@QAEXXZ | unused
+    // ?Shutdown@DataCache@@QAEXXZ
     ARTS_EXPORT void Shutdown();
 
     // ?Unlock@DataCache@@QAEXH@Z

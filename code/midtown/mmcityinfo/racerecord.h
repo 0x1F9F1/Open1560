@@ -71,9 +71,6 @@ public:
     // ?GetName@mmRecord@@QAEPADXZ
     ARTS_IMPORT char* GetName();
 
-    // ?GetPassed@mmRecord@@QAEHXZ | unused
-    ARTS_IMPORT i32 GetPassed();
-
     // ?GetScore@mmRecord@@QAEHXZ
     ARTS_IMPORT i32 GetScore();
 

@@ -159,9 +159,6 @@ public:
     // ?SetIconsState@mmGame@@QAEXXZ
     ARTS_IMPORT void SetIconsState();
 
-    // ?Stats@mmGame@@QAEXXZ | unused
-    ARTS_IMPORT void Stats();
-
     // ?Update@mmGame@@UAEXXZ
     ARTS_IMPORT void Update() override;
 

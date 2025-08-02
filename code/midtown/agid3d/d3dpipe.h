@@ -184,9 +184,6 @@ protected:
 
 check_size(agiD3DPipeline, 0x49C);
 
-// ?RestoreCallback@@YGJPAUIDirectDrawSurface4@@PAU_DDSURFACEDESC2@@PAX@Z | unused
-ARTS_IMPORT i32 ARTS_STDCALL RestoreCallback(IDirectDrawSurface4* arg1, _DDSURFACEDESC2* arg2, void* arg3);
-
 // ?callb@@YGJPAUIDirectDrawSurface4@@PAU_DDSURFACEDESC2@@PAX@Z
 ARTS_IMPORT long ARTS_STDCALL callb(IDirectDrawSurface4* arg1, _DDSURFACEDESC2* arg2, void* arg3);
 

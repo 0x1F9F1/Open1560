@@ -39,9 +39,6 @@ ARTS_IMPORT void CheckLibraries();
 // ?GetDLPTemplate@@YAPAVDLPTemplate@@PAD@Z
 ARTS_IMPORT DLPTemplate* GetDLPTemplate(char* arg1);
 
-// ?GetGroupVerts@@YAHPAD0PAVVector3@@H@Z | unused
-ARTS_IMPORT i32 GetGroupVerts(char* arg1, char* arg2, Vector3* arg3, i32 arg4);
-
 // ?OutOfDate@@YAHPAD0@Z
 ARTS_EXPORT b32 OutOfDate(char* dst_file, char* src_file);
 

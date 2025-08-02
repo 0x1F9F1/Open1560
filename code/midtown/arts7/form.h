@@ -68,23 +68,11 @@ public:
     // ?FileIO@asForm@@QAEXPAVMiniParser@@@Z | unused
     ARTS_EXPORT void FileIO(MiniParser* arg1);
 
-    // ?GetBoundMax@asForm@@QAE?AVVector3@@XZ | unused
-    ARTS_IMPORT Vector3 GetBoundMax();
-
-    // ?GetBoundMin@asForm@@QAE?AVVector3@@XZ | unused
-    ARTS_IMPORT Vector3 GetBoundMin();
-
-    // ?GetBoundSphere@asForm@@QAE?AVVector4@@XZ | unused
-    ARTS_IMPORT Vector4 GetBoundSphere();
-
     // ?GetClass@asForm@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?SetCull@asForm@@QAEXHM@Z
     ARTS_IMPORT void SetCull(i32 arg1, f32 arg2);
-
-    // ?SetDLP@asForm@@QAEXPAVDLP@@@Z | unused
-    ARTS_IMPORT void SetDLP(DLP* arg1);
 
     // ?SetShape@asForm@@QAEXPAD0PAVVector3@@HH@Z
     ARTS_IMPORT void SetShape(char* arg1, char* arg2, Vector3* arg3, i32 arg4, i32 arg5);

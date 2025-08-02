@@ -138,18 +138,6 @@ public:
     // ?InputStopEffect@mmJoystick@@QAEXXZ
     ARTS_IMPORT void InputStopEffect();
 
-    // ?PlayCollision@mmJoystick@@QAEHXZ | unused
-    ARTS_IMPORT i32 PlayCollision();
-
-    // ?PlayFriction@mmJoystick@@QAEHXZ | unused
-    ARTS_IMPORT i32 PlayFriction();
-
-    // ?PlayShake@mmJoystick@@QAEHXZ | unused
-    ARTS_IMPORT i32 PlayShake();
-
-    // ?PlaySteer@mmJoystick@@QAEHXZ | unused
-    ARTS_IMPORT i32 PlaySteer();
-
     // ?Poll@mmJoystick@@QAEKXZ
     ARTS_EXPORT ulong Poll();
 
@@ -161,24 +149,6 @@ public:
 
     // ?SetDeadZone@mmJoystick@@QAEHM@Z
     ARTS_IMPORT i32 SetDeadZone(f32 arg1);
-
-    // ?SetFriction@mmJoystick@@QAEHJ@Z | unused
-    ARTS_IMPORT i32 SetFriction(ilong arg1);
-
-    // ?SetShake@mmJoystick@@QAEHKK@Z | unused
-    ARTS_IMPORT i32 SetShake(ulong arg1, ulong arg2);
-
-    // ?SetSteer@mmJoystick@@QAEHJ@Z | unused
-    ARTS_IMPORT i32 SetSteer(ilong arg1);
-
-    // ?StopFriction@mmJoystick@@QAEHXZ | unused
-    ARTS_IMPORT i32 StopFriction();
-
-    // ?StopShake@mmJoystick@@QAEHXZ | unused
-    ARTS_IMPORT i32 StopShake();
-
-    // ?StopSteer@mmJoystick@@QAEHXZ | unused
-    ARTS_IMPORT i32 StopSteer();
 
     // ?Update@mmJoystick@@QAEXXZ
     ARTS_EXPORT void Update();

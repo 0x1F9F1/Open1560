@@ -23,9 +23,13 @@ define_dummy_symbol(eventq7_geinputLib);
 #include "pcwindis/dxinit.h"
 #include "winevent.h"
 
+// ?MouseDevice@@3PAUIDirectInputDeviceA@@A
 ARTS_IMPORT extern IDirectInputDeviceA* MouseDevice;
+
+// ?KeyboardDevice@@3PAUIDirectInputDeviceA@@A
 ARTS_IMPORT extern IDirectInputDeviceA* KeyboardDevice;
 
+// ?MouseEvent@@3PAXA
 ARTS_IMPORT extern HANDLE MouseEvent;
 
 void geinputAcquireMouse()
@@ -123,7 +127,11 @@ static ilong MouseRawStartX = 0;
 static ilong MouseRawStartY = 0;
 
 // FIXME: These are 640 x 480 even ingame
+
+// ?InputWndWidth@@3JA
 ARTS_IMPORT extern ilong InputWndWidth;
+
+// ?InputWndHeight@@3JA
 ARTS_IMPORT extern ilong InputWndHeight;
 
 void geinputGetMouse(ilong* mouse_x, ilong* mouse_y, i8* l_button, i8* r_button, ilong* mouse_raw_x, ilong* mouse_raw_y,

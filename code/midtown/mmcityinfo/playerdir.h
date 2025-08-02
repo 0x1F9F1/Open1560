@@ -85,9 +85,6 @@ public:
     // ?GetPlayer@mmPlayerDirectory@@QAEPADH@Z
     ARTS_IMPORT char* GetPlayer(i32 arg1);
 
-    // ?GetPlayerName@mmPlayerDirectory@@QAEPADPAD@Z | unused
-    ARTS_IMPORT char* GetPlayerName(char* arg1);
-
     // ?Load@mmPlayerDirectory@@QAEHPAD@Z
     ARTS_IMPORT i32 Load(char* arg1);
 
@@ -116,9 +113,6 @@ public:
     ARTS_IMPORT static void DeclareFields();
 
 private:
-    // ?CreatePlayer@mmPlayerDirectory@@AAEXPAD0@Z | unused
-    ARTS_IMPORT void CreatePlayer(char* arg1, char* arg2);
-
     // ?MakeFileName@mmPlayerDirectory@@AAEPADXZ
     ARTS_IMPORT char* MakeFileName();
 

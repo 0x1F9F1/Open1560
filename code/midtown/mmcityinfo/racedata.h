@@ -52,9 +52,6 @@ public:
     // ?GetAmbientDensity@mmRaceData@@QAEMHW4mmSkillLevel@@@Z
     ARTS_IMPORT f32 GetAmbientDensity(i32 arg1, mmSkillLevel arg2);
 
-    // ?GetCarType@mmRaceData@@QAEHHW4mmSkillLevel@@@Z | unused
-    ARTS_IMPORT i32 GetCarType(i32 arg1, mmSkillLevel arg2);
-
     // ?GetDifficulty@mmRaceData@@QAEMHW4mmSkillLevel@@@Z
     ARTS_IMPORT f32 GetDifficulty(i32 arg1, mmSkillLevel arg2);
 

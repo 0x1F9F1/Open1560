@@ -28,9 +28,6 @@
 
 struct jpeg_decompress_struct;
 
-// ?jpeg_read_raw_data@@YAIPAUjpeg_decompress_struct@@PAPAPAEI@Z | unused
-ARTS_IMPORT u32 jpeg_read_raw_data(jpeg_decompress_struct* arg1, u8*** arg2, u32 arg3);
-
 // ?jpeg_read_scanlines@@YAIPAUjpeg_decompress_struct@@PAPAEI@Z
 ARTS_IMPORT u32 jpeg_read_scanlines(jpeg_decompress_struct* arg1, u8** arg2, u32 arg3);
 

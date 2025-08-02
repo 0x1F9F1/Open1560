@@ -65,9 +65,7 @@ public:
     // ??0nbuf@?EN@??GetMeshSet@@YAPAVagiMeshSet@@PAD0PAVVector3@@H@Z@QAE@XZ
     ARTS_IMPORT ARTS_CDECL nbuf(char* arg1, char* arg2,  Vector3* arg3, i32 arg4);
 
-    // ??0nbuf@?EN@??GetMeshSet@@YAPAVagiMeshSet@@PAD0PAVVector3@@H@Z@QAE@ABU0@@Z | unused
-    ARTS_IMPORT ARTS_CDECL nbuf(char* arg1, char* arg2,  Vector3* arg3, i32 arg4);
-};
+    };
 
 check_size(GetMeshSet_nbuf, 0x0);
 #endif

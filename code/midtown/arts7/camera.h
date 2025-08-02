@@ -98,9 +98,6 @@ public:
     // ?FadeOut@asCamera@@QAEXMH@Z
     ARTS_IMPORT void FadeOut(f32 arg1, i32 arg2);
 
-    // ?FileIO@asCamera@@QAEXPAVMiniParser@@@Z | unused
-    ARTS_IMPORT void FileIO(MiniParser* arg1);
-
     // ?GetClass@asCamera@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
 
@@ -113,18 +110,6 @@ public:
         kNearClip4,
     };
 
-    // ?GetNearClip@asCamera@@QAEXPAVVector3@@AAVMatrix34@@W4kNearClip@1@@Z | unused
-    ARTS_IMPORT void GetNearClip(Vector3* arg1, Matrix34& arg2, asCamera::kNearClip arg3);
-
-    // ?GetViewportHeight@asCamera@@QAEHXZ | unused
-    ARTS_IMPORT i32 GetViewportHeight();
-
-    // ?GetViewportWidth@asCamera@@QAEHXZ | unused
-    ARTS_IMPORT i32 GetViewportWidth();
-
-    // ?SetAmbient@asCamera@@QAEXABVVector3@@@Z | unused
-    ARTS_IMPORT void SetAmbient(const Vector3& arg1);
-
     // ?SetClipArea@asCamera@@QAEXMMMM@Z
     ARTS_IMPORT void SetClipArea(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
@@ -133,9 +118,6 @@ public:
 
     // ?SetLighting@asCamera@@QAEXH@Z
     ARTS_IMPORT void SetLighting(i32 arg1);
-
-    // ?SetMonochrome@asCamera@@QAEXH@Z | unused
-    ARTS_IMPORT void SetMonochrome(i32 arg1);
 
     // ?SetUnderlay@asCamera@@QAEXPAD@Z
     ARTS_IMPORT void SetUnderlay(aconst char* arg1);
@@ -151,9 +133,6 @@ public:
 
     // ?SetWorld@asCamera@@QAEXAAVMatrix34@@@Z
     ARTS_IMPORT void SetWorld(Matrix34& arg1);
-
-    // ?SphereVisible@asCamera@@QAEMABVVector3@@MPAM@Z | unused
-    ARTS_IMPORT f32 SphereVisible(const Vector3& arg1, f32 arg2, f32* arg3);
 
     // ?Update@asCamera@@UAEXXZ
     ARTS_IMPORT void Update() override;

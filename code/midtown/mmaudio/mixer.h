@@ -56,12 +56,6 @@ public:
     // ??1VolumeDW@@QAE@XZ | inline
     ARTS_EXPORT ~VolumeDW() = default;
 
-    // ?Set@VolumeDW@@QAEXMM@Z | unused
-    ARTS_IMPORT void Set(f32 arg1, f32 arg2);
-
-    // ?Value@VolumeDW@@QAEKXZ | unused
-    ARTS_IMPORT ulong Value();
-
     u8 gap0[0xC];
 };
 

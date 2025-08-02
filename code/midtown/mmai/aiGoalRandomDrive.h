@@ -72,9 +72,6 @@ public:
     // ?Reset@aiGoalRandomDrive@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // ?SolvePosition@aiGoalRandomDrive@@QAEXAAVVector3@@M@Z | unused
-    ARTS_IMPORT void SolvePosition(Vector3& arg1, f32 arg2);
-
     // ?Update@aiGoalRandomDrive@@UAEXXZ
     ARTS_IMPORT void Update() override;
 

@@ -71,9 +71,6 @@ public:
     // ?Switch@UIToggleButton2@@UAEXH@Z
     ARTS_IMPORT void Switch(i32 arg1) override;
 
-    // ?Unkill@UIToggleButton2@@QAEXXZ | unused
-    ARTS_IMPORT void Unkill();
-
     // ?Update@UIToggleButton2@@UAEXXZ | inline
     ARTS_IMPORT void Update() override;
 

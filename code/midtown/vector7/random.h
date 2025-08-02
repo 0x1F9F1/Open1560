@@ -29,9 +29,6 @@
 struct Random
 {
 public:
-    // ?Normal@Random@@QAEMMM@Z | unused
-    ARTS_IMPORT f32 Normal(f32 arg1, f32 arg2);
-
     // ?Number@Random@@QAEMXZ
     ARTS_IMPORT f32 Number();
 

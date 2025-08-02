@@ -56,9 +56,6 @@ public:
     // ??1mmVehInfo@@UAE@XZ
     ARTS_EXPORT virtual ~mmVehInfo() = default;
 
-    // ?HasColorVariations@mmVehInfo@@QAEHXZ | unused
-    ARTS_IMPORT i32 HasColorVariations();
-
     // ?IsValid@mmVehInfo@@QAEHXZ | inline
     ARTS_IMPORT i32 IsValid();
 

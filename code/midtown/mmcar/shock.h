@@ -54,9 +54,6 @@ public:
     // ?GetClass@mmShock@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
 
-    // ?Init@mmShock@@QAEXPAD0PAVmmWheel@@@Z | unused
-    ARTS_IMPORT void Init(char* arg1, char* arg2, mmWheel* arg3);
-
     // ?Update@mmShock@@UAEXXZ
     ARTS_IMPORT void Update() override;
 

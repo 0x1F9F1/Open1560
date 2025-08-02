@@ -131,9 +131,6 @@ public:
     // ?Reset@aiVehicleAmbient@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // ?StopHorn@aiVehicleAmbient@@QAEXXZ | unused
-    ARTS_IMPORT void StopHorn();
-
     // ?StopVoice@aiVehicleAmbient@@UAEXXZ
     ARTS_IMPORT void StopVoice() override;
 

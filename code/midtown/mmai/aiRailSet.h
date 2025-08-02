@@ -102,17 +102,11 @@ public:
     // ?Dump@aiRailSet@@QAEXXZ
     ARTS_IMPORT void Dump();
 
-    // ?SolveNextLane@aiRailSet@@QAEXXZ | unused
-    ARTS_IMPORT void SolveNextLane();
-
     // ?SolveTurnType@aiRailSet@@QAEHPAVaiPath@@0@Z
     ARTS_IMPORT i32 SolveTurnType(aiPath* arg1, aiPath* arg2);
 
     // ?SolveXZCurve@aiRailSet@@QAEXAAVVector3@@0M@Z
     ARTS_IMPORT void SolveXZCurve(Vector3& arg1, Vector3& arg2, f32 arg3);
-
-    // ?SolveXZPosition@aiRailSet@@QAEXAAVVector3@@M@Z | unused
-    ARTS_IMPORT void SolveXZPosition(Vector3& arg1, f32 arg2);
 
     f32 BackBumperDist;
     f32 FrontBumperDist;

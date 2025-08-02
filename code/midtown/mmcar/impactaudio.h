@@ -52,12 +52,6 @@ public:
     // ??1mmImpactAudio@@QAE@XZ
     ARTS_IMPORT ~mmImpactAudio();
 
-    // ?EchoOff@mmImpactAudio@@QAEXPAVmmCarSim@@@Z | unused
-    ARTS_IMPORT void EchoOff(mmCarSim* arg1);
-
-    // ?EchoOn@mmImpactAudio@@QAEXPAVmmCarSim@@@Z | unused
-    ARTS_IMPORT void EchoOn(mmCarSim* arg1);
-
     // ?GetBangerPtrs@mmImpactAudio@@QAEXFPAPAVAudSound@@0@Z
     ARTS_IMPORT void GetBangerPtrs(i16 arg1, AudSound** arg2, AudSound** arg3);
 

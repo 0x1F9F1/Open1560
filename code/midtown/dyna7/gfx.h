@@ -71,12 +71,6 @@ ARTS_IMPORT void DrawColor(aconst Vector3& arg1);
 // ?DrawColor@@YAXAAVVector4@@@Z
 ARTS_IMPORT void DrawColor(aconst Vector4& arg1);
 
-// ?DrawColor2@@YAXAAVVector3@@@Z | unused
-ARTS_IMPORT void DrawColor2(aconst Vector3& arg1);
-
-// ?DrawColor2@@YAXAAVVector4@@@Z | unused
-ARTS_IMPORT void DrawColor2(aconst Vector4& arg1);
-
 // ?DrawEnd@@YAXXZ
 ARTS_IMPORT void DrawEnd();
 

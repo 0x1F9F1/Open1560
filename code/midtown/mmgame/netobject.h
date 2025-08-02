@@ -106,9 +106,6 @@ public:
     // ?SetLocalData@mmNetObject@@UAEXXZ
     ARTS_IMPORT void SetLocalData() override;
 
-    // ?SetScore@mmNetObject@@QAEXH@Z | unused
-    ARTS_IMPORT void SetScore(i32 arg1);
-
     // ?Update@mmNetObject@@UAEXXZ
     ARTS_IMPORT void Update() override;
 

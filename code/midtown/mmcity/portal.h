@@ -136,9 +136,6 @@ public:
     // ?Cull@asPortalWeb@@QAEXH@Z
     ARTS_EXPORT void Cull(b32 front_to_back);
 
-    // ?DeleteCell@asPortalWeb@@QAEXPAUasPortalCell@@@Z | unused
-    ARTS_IMPORT void DeleteCell(asPortalCell* arg1);
-
     // ?DeleteEdge@asPortalWeb@@QAEXPAUasPortalEdge@@@Z | unused
     ARTS_EXPORT void DeleteEdge(asPortalEdge* arg1);
 
@@ -196,9 +193,6 @@ public:
 
     // ?SetVisible@asPortalPVS@@QAEXI@Z
     ARTS_IMPORT void SetVisible(u32 arg1);
-
-    // ?Create@asPortalPVS@@SAPAU1@HZZ | unused
-    ARTS_IMPORT static asPortalPVS* Create(i32 arg1, ...);
 
     u8 gap0[0x8];
 };

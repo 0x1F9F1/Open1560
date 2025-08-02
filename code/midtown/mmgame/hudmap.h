@@ -181,9 +181,6 @@ private:
     // ?BitmapToScreen@mmHudMap@@AAEHPAUPoint@@U2@@Z
     ARTS_IMPORT i32 BitmapToScreen(Point* arg1, Point arg2);
 
-    // ?DrawCentered@mmHudMap@@AAEXPAVagiBitmap@@UPoint@@@Z | unused
-    ARTS_IMPORT void DrawCentered(agiBitmap* arg1, Point arg2);
-
     // ?DrawClipped@mmHudMap@@AAEXPAVagiBitmap@@UPoint@@MMMM@Z
     ARTS_IMPORT void DrawClipped(agiBitmap* arg1, Point arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6);
 
@@ -196,17 +193,11 @@ private:
     // ?DrawOpponents@mmHudMap@@AAEXXZ
     ARTS_EXPORT void DrawOpponents();
 
-    // ?DrawOriented@mmHudMap@@AAEXPAVMatrix34@@I@Z | unused
-    ARTS_IMPORT void DrawOriented(Matrix34* arg1, u32 arg2);
-
     // ?DrawOrientedBitmap@mmHudMap@@AAEXPAVMatrix34@@PAVagiBitmap@@@Z
     ARTS_IMPORT void DrawOrientedBitmap(Matrix34* arg1, agiBitmap* arg2);
 
     // ?DrawWaypoints@mmHudMap@@AAEXXZ
     ARTS_IMPORT void DrawWaypoints();
-
-    // ?FlushVerts@mmHudMap@@AAEXXZ | unused
-    ARTS_IMPORT void FlushVerts();
 
     // ?GetCurrentMap@mmHudMap@@AAEPAVagiBitmap@@XZ
     ARTS_IMPORT agiBitmap* GetCurrentMap();

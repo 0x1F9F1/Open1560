@@ -107,7 +107,6 @@ private:
 };
 
 // ?NullCallback@@3VCallback@@A
-// ARTS_IMPORT extern Callback NullCallback;
 [[deprecated]] ARTS_EXPORT extern Callback NullCallback;
 
 inline Callback::Callback(std::nullptr_t) noexcept

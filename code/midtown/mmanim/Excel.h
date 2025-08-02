@@ -50,12 +50,6 @@ public:
     // ?GetName@mmAnimExcel@@QAEPADH@Z
     ARTS_IMPORT char* GetName(i32 arg1);
 
-    // ?GetNextName@mmAnimExcel@@QAEPADXZ | unused
-    ARTS_IMPORT char* GetNextName();
-
-    // ?GetPriorName@mmAnimExcel@@QAEPADXZ | unused
-    ARTS_IMPORT char* GetPriorName();
-
     // ?Init@mmAnimExcel@@QAEHPAD0@Z
     ARTS_IMPORT i32 Init(char* arg1, char* arg2);
 

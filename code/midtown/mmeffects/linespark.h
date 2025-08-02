@@ -62,8 +62,6 @@ struct asLineSparks
 {
 public:
 #ifdef ARTS_DEV_BUILD
-    // ?AddWidgets@asLineSparks@@QAEXPAVBank@@@Z | unused
-    ARTS_IMPORT void AddWidgets(Bank* bank);
 #endif
 
     // ?Draw@asLineSparks@@QAEXXZ

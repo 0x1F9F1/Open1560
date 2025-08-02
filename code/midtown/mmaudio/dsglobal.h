@@ -157,9 +157,6 @@ public:
 
     const char* GetDeviceName(u32 index);
 
-    // ?GetNum3DHallBufs@DSGlobal@@QAEKXZ | unused
-    ARTS_IMPORT ulong GetNum3DHallBufs();
-
     // ?Init@DSGlobal@@QAEHKEPAIPADFF@Z
     ARTS_IMPORT i32 Init(ulong arg1, u8 arg2, u32* arg3, char* arg4, i16 arg5, i16 arg6);
 
@@ -183,9 +180,6 @@ public:
 
     // ?LoadUIADF@DSGlobal@@QAEHPAD@Z
     ARTS_IMPORT i32 LoadUIADF(char* arg1);
-
-    // ?ScanAvailableDSFormats@DSGlobal@@QAEXXZ | unused
-    ARTS_IMPORT void ScanAvailableDSFormats();
 
     // ?SetBitDepth@DSGlobal@@QAEXH@Z
     ARTS_IMPORT void SetBitDepth(i32 arg1);

@@ -51,6 +51,7 @@ define_dummy_symbol(arts7_sim);
 #include <crtdbg.h>
 #include <cstdlib>
 
+// ?PipelineInitialized@@3HA
 ARTS_IMPORT extern b32 PipelineInitialized;
 
 i32 InitPipeline(char* title, i32 argc, char** argv)
@@ -85,7 +86,10 @@ i32 InitPipeline(char* title, i32 argc, char** argv)
     return error;
 }
 
+// ?SunParams@@3VagiLightParameters@@A
 ARTS_IMPORT extern agiLightParameters SunParams;
+
+// ?SunLight@@3PAVagiLight@@A
 ARTS_IMPORT extern agiLight* SunLight;
 
 void ShutdownPipeline()

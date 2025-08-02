@@ -61,12 +61,6 @@ public:
     ARTS_EXPORT void AddWidgets(Bank* arg1) override;
 #endif
 
-    // ?ForceMatrixDelta@mmViewCS@@QAEXABVMatrix34@@@Z | unused
-    ARTS_IMPORT void ForceMatrixDelta(const Matrix34& arg1);
-
-    // ?ForceMatrixDelta@mmViewCS@@QAEXABVVector3@@@Z | unused
-    ARTS_IMPORT void ForceMatrixDelta(const Vector3& arg1);
-
     // ?GetClass@mmViewCS@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
 
@@ -75,9 +69,6 @@ public:
 
     // ?NewCam@mmViewCS@@QAEHPAVCarCamCS@@HMVCallback@@@Z
     ARTS_IMPORT i32 NewCam(CarCamCS* arg1, i32 arg2, f32 arg3, Callback arg4);
-
-    // ?OneShot@mmViewCS@@QAEXXZ | unused
-    ARTS_IMPORT void OneShot();
 
     // ?Reset@mmViewCS@@UAEXXZ
     ARTS_IMPORT void Reset() override;

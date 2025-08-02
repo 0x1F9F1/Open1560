@@ -53,9 +53,6 @@ public:
         , y(y)
     {}
 
-    // ??KVector2@@QBE?AV0@M@Z | unused
-    ARTS_IMPORT Vector2 operator/(f32 arg1) const;
-
     inline Vector2 operator*(f32 value) const
     {
         return {x * value, y * value};
@@ -90,33 +87,6 @@ public:
 check_size(Vector2, 0x8);
 
 #if 0
-class Vector2Array
-{
-public:
-    // ??4Vector2Array@@QAEXAAV0@@Z | unused
-    ARTS_IMPORT void operator=(Vector2Array& arg1);
-
-    // ??AVector2Array@@QAEAAVVector2@@H@Z | unused
-    ARTS_IMPORT Vector2& operator[](i32 arg1);
-
-    // ?BlockCopy@Vector2Array@@QAEXAAV1@@Z | unused
-    ARTS_IMPORT void BlockCopy(Vector2Array& arg1);
-
-    // ?Delete@Vector2Array@@QAEXXZ
-    ARTS_IMPORT void Delete();
-
-    // ?Init@Vector2Array@@QAEXH@Z | unused
-    ARTS_IMPORT void Init(i32 arg1);
-
-private:
-    // ?NewTable@Vector2Array@@AAEXH@Z
-    ARTS_IMPORT void NewTable(i32 arg1);
-
-    u8 gap0[0x14];
-};
-
-check_size(Vector2Array, 0x14);
-
 struct Vector2Type final : MetaType
 {
     public:

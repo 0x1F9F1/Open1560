@@ -75,32 +75,11 @@ public:
     // ?DeallocateStreamObjs@AudStream@@QAEXXZ
     ARTS_IMPORT void DeallocateStreamObjs();
 
-    // ?Disable@AudStream@@QAEXXZ | unused
-    ARTS_IMPORT void Disable();
-
-    // ?Enable@AudStream@@QAEXXZ | unused
-    ARTS_IMPORT void Enable();
-
-    // ?GetCurrentSoundObj@AudStream@@QAEPAVStreamObj@@XZ | unused
-    ARTS_IMPORT StreamObj* GetCurrentSoundObj();
-
-    // ?GetFrequency@AudStream@@QAEMH@Z | unused
-    ARTS_IMPORT f32 GetFrequency(i32 arg1);
-
     // ?IsPlaying@AudStream@@QAEHXZ
     ARTS_IMPORT i32 IsPlaying();
 
     // ?Load@AudStream@@QAEHPADH@Z
     ARTS_IMPORT i32 Load(char* arg1, i32 arg2);
-
-    // ?PlayLoop@AudStream@@QAEXMM@Z | unused
-    ARTS_IMPORT void PlayLoop(f32 arg1, f32 arg2);
-
-    // ?PlayLoop@AudStream@@QAEXPADMM@Z | unused
-    ARTS_IMPORT void PlayLoop(char* arg1, f32 arg2, f32 arg3);
-
-    // ?PlayOnce@AudStream@@QAEXMM@Z | unused
-    ARTS_IMPORT void PlayOnce(f32 arg1, f32 arg2);
 
     // ?PlayOnce@AudStream@@QAEXPADMM@Z
     ARTS_IMPORT void PlayOnce(char* arg1, f32 arg2, f32 arg3);
@@ -114,15 +93,6 @@ public:
     // ?SetFrequency@AudStream@@QAEXMH@Z
     ARTS_IMPORT void SetFrequency(f32 arg1, i32 arg2);
 
-    // ?SetLoopIndex@AudStream@@QAEXF@Z | unused
-    ARTS_IMPORT void SetLoopIndex(i16 arg1);
-
-    // ?SetLoopPointInfo@AudStream@@QAEXKKIFF@Z | unused
-    ARTS_IMPORT void SetLoopPointInfo(ulong arg1, ulong arg2, u32 arg3, i16 arg4, i16 arg5);
-
-    // ?SetNumLoopIndices@AudStream@@QAEXF@Z | unused
-    ARTS_IMPORT void SetNumLoopIndices(i16 arg1);
-
     // ?SetPan@AudStream@@QAEXMH@Z
     ARTS_IMPORT void SetPan(f32 arg1, i32 arg2);
 
@@ -135,23 +105,14 @@ public:
     // ?SetVolume@AudStream@@QAEXMH@Z
     ARTS_IMPORT void SetVolume(f32 arg1, i32 arg2);
 
-    // ?SetupNotifications@AudStream@@QAEXXZ | unused
-    ARTS_IMPORT void SetupNotifications();
-
     // ?Stop@AudStream@@QAEXXZ
     ARTS_IMPORT void Stop();
-
-    // ?StopNow@AudStream@@QAEXXZ | unused
-    ARTS_IMPORT void StopNow();
 
     // ?Update@AudStream@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     ARTS_DIAGNOSTIC_PUSH;
     ARTS_CLANG_DIAGNOSTIC_IGNORED("-Wignored-qualifiers");
-
-    // ?Get2DFlags@AudStream@@SA?BKXZ | unused
-    ARTS_IMPORT static const ulong Get2DFlags();
 
     // ?GetFreqChange2DFlags@AudStream@@SA?BKXZ
     ARTS_IMPORT static const ulong GetFreqChange2DFlags();

@@ -334,15 +334,10 @@ ARTS_EXPORT void InitBank(i32 argc, char** argv);
 // ?InitPipeline@@YAHPADHPAPAD@Z
 ARTS_EXPORT i32 InitPipeline(char* title, i32 argc, char** argv);
 
-// ?RestartPipeline@@YAHHHHHH@Z | unused
-ARTS_IMPORT i32 RestartPipeline(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
-
 // ?ShutdownPipeline@@YAXXZ
 ARTS_EXPORT void ShutdownPipeline();
 
 #ifdef ARTS_DEV_BUILD
-// ?invert@@YANN@Z | unused
-ARTS_IMPORT f64 invert(f64 arg1);
 #endif
 
 // ?ARTSPTR@@3PAVasSimulation@@A

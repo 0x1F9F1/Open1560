@@ -115,10 +115,19 @@ check_size(CT, 0x18);
 
 static u32 ClippedVertCount = 0;
 static u32 ClippedTriCount = 0;
+
+// ?ClippedVerts@@3PAUCV@@A
 ARTS_IMPORT extern CV ClippedVerts[2048];
+
+// ?ClippedTris@@3PAUCT@@A
 ARTS_IMPORT extern CT ClippedTris[512];
+
+// ?ClippedTextures@@3PAPAUCT@@A
 ARTS_IMPORT extern CT* ClippedTextures[256];
+
 static bool OnlyZClip = false;
+
+// ?ShadowMatrix@@3VMatrix44@@A
 ARTS_IMPORT extern Matrix44 ShadowMatrix;
 
 u32 ClipMask = MESH_CLIP_ANY;

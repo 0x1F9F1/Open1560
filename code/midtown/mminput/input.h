@@ -117,9 +117,6 @@
 struct IDirectInputA;
 class mmIODev;
 
-// ?testsuperq@@YAXXZ | unused
-ARTS_IMPORT void testsuperq();
-
 // mmIO Flags
 #define IO_FLAG_EVENT 0x1
 #define IO_FLAG_DISCRETE 0x2
@@ -409,12 +406,6 @@ public:
     // ?JoystickHasCoolie@mmInput@@QAEHXZ
     ARTS_IMPORT b32 JoystickHasCoolie();
 
-    // ?JoystickHasThrottle@mmInput@@QAEHXZ | unused
-    ARTS_IMPORT b32 JoystickHasThrottle();
-
-    // ?LoadConfig@mmInput@@QAEHPAVStream@@@Z | unused
-    ARTS_IMPORT i32 LoadConfig(Stream* arg1);
-
     // ?PollStates@mmInput@@QAEHXZ
     ARTS_IMPORT i32 PollStates();
 
@@ -423,9 +414,6 @@ public:
 
     // ?PopEvent@mmInput@@QAEHPAH@Z
     ARTS_IMPORT i32 PopEvent(i32* arg1);
-
-    // ?PrintIODev@mmInput@@QAEXXZ | unused
-    ARTS_IMPORT void PrintIODev();
 
     // ?Reset@mmInput@@UAEXXZ
     ARTS_IMPORT void Reset() override;
@@ -445,20 +433,8 @@ public:
     // ?SaveCodeConfig@mmInput@@QAEHPAVStream@@@Z
     ARTS_IMPORT i32 SaveCodeConfig(Stream* arg1);
 
-    // ?SaveConfig@mmInput@@QAEHPAVStream@@@Z | unused
-    ARTS_IMPORT i32 SaveConfig(Stream* arg1);
-
-    // ?SetDeadZone@mmInput@@QAEXM@Z | unused
-    ARTS_IMPORT void SetDeadZone(f32 arg1);
-
     // ?SetDefaultConfig@mmInput@@QAEXH@Z
     ARTS_EXPORT void SetDefaultConfig(i32 config);
-
-    // ?SetForceFeedbackScale@mmInput@@QAEXM@Z | unused
-    ARTS_IMPORT void SetForceFeedbackScale(f32 arg1);
-
-    // ?SetRoadForceScale@mmInput@@QAEXM@Z | unused
-    ARTS_IMPORT void SetRoadForceScale(f32 arg1);
 
     // ?StopAllFF@mmInput@@QAEXXZ
     ARTS_IMPORT void StopAllFF();
@@ -471,9 +447,6 @@ public:
 
     // ?WheelConnected@mmInput@@QAEHXZ
     ARTS_EXPORT b32 WheelConnected();
-
-    // ?WheelHas3Axis@mmInput@@QAEHXZ | unused
-    ARTS_IMPORT b32 WheelHas3Axis();
 
     // ?DeclareFields@mmInput@@SAXXZ
     ARTS_IMPORT static void DeclareFields();

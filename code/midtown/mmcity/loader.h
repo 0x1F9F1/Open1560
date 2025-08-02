@@ -70,17 +70,11 @@ public:
     // ?Init@mmLoader@@QAEXPADMM@Z
     ARTS_EXPORT void Init(aconst char* underlay_name, f32 bar_x, f32 bar_y);
 
-    // ?Percent@mmLoader@@QAEXH@Z | unused
-    ARTS_IMPORT void Percent(i32 arg1);
-
     // ?Reset@mmLoader@@QAEXXZ
     ARTS_IMPORT void Reset();
 
     // ?SetIntroText@mmLoader@@QAEXPAULocString@@@Z
     ARTS_IMPORT void SetIntroText(LocString* arg1);
-
-    // ?Shutdown@mmLoader@@QAEXXZ | unused
-    ARTS_IMPORT void Shutdown();
 
     // ?Update@mmLoader@@QAEXXZ
     ARTS_EXPORT void Update();

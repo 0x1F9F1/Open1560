@@ -37,14 +37,8 @@
 class Quaternion
 {
 public:
-    // ??SQuaternion@@QBE?AV0@XZ | unused
-    ARTS_IMPORT Quaternion operator~() const;
-
     // ?Angle@Quaternion@@QBEMABV1@@Z
     ARTS_IMPORT f32 Angle(const Quaternion& arg1) const;
-
-    // ?Approach@Quaternion@@QAEHABV1@MM@Z | unused
-    ARTS_IMPORT i32 Approach(const Quaternion& arg1, f32 arg2, f32 arg3);
 
     // ?CatmullRom@Quaternion@@QAEXMABV1@000@Z | unused
     ARTS_IMPORT void CatmullRom(
@@ -64,12 +58,6 @@ public:
 
     // ?Normalize@Quaternion@@QAEXXZ
     ARTS_IMPORT void Normalize();
-
-    // ?Slerp@Quaternion@@QAEXMABV1@0@Z | unused
-    ARTS_IMPORT void Slerp(f32 arg1, const Quaternion& arg2, const Quaternion& arg3);
-
-    // ?TrackBall@Quaternion@@QAEXMMMMM@Z | unused
-    ARTS_IMPORT void TrackBall(f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
     u8 gap0[0x10];
 };

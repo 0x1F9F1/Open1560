@@ -232,9 +232,6 @@ public:
     // ?InitLocalize@agiMeshSet@@SAXXZ | agiworld:meshrend
     ARTS_IMPORT static void InitLocalize();
 
-    // ?Localize@agiMeshSet@@SAXAAVVector3@@0@Z | agiworld:meshrend | unused
-    ARTS_IMPORT static void Localize(Vector3& arg1, Vector3& arg2);
-
     // ?LocalizeDirection@agiMeshSet@@SAXAAVVector3@@0@Z | agiworld:meshrend
     ARTS_IMPORT static void LocalizeDirection(Vector3& arg1, Vector3& arg2);
 
@@ -378,9 +375,6 @@ protected:
     ARTS_EXPORT static i16 vertCounts[256];
 
 private:
-    // ?BeginGfx@agiMeshSet@@AAEXXZ | agiworld:meshrend | unused
-    ARTS_IMPORT void BeginGfx();
-
     // ?DoPageIn@agiMeshSet@@AAEXXZ | agiworld:meshload
     ARTS_EXPORT void DoPageIn();
 

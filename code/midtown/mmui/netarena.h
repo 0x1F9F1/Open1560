@@ -63,20 +63,11 @@ public:
     // ?AddGameChatLine@NetArena@@QAEXPAD@Z
     ARTS_IMPORT void AddGameChatLine(char* arg1);
 
-    // ?AddRosterName@NetArena@@QAEXPAD@Z | unused
-    ARTS_IMPORT void AddRosterName(char* arg1);
-
     // ?AddRosterName@NetArena@@QAEXPAULocString@@00K@Z
     ARTS_IMPORT void AddRosterName(LocString* arg1, LocString* arg2, LocString* arg3, ulong arg4);
 
     // ?ChatEntry@NetArena@@QAEXXZ
     ARTS_IMPORT void ChatEntry();
-
-    // ?DisablePlayButton@NetArena@@QAEXXZ | unused
-    ARTS_IMPORT void DisablePlayButton();
-
-    // ?EnablePlayButton@NetArena@@QAEXXZ | unused
-    ARTS_IMPORT void EnablePlayButton();
 
     // ?FindRosterName@NetArena@@QAEHPAD@Z
     ARTS_IMPORT i32 FindRosterName(char* arg1);
@@ -98,9 +89,6 @@ public:
 
     // ?RemoveRosterEntry@NetArena@@QAEXH@Z
     ARTS_IMPORT void RemoveRosterEntry(i32 arg1);
-
-    // ?RemoveRosterName@NetArena@@QAEXPAD@Z | unused
-    ARTS_IMPORT void RemoveRosterName(char* arg1);
 
     // ?ResetGameChat@NetArena@@QAEXXZ
     ARTS_IMPORT void ResetGameChat();

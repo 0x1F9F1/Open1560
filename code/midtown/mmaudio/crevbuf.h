@@ -43,17 +43,11 @@ public:
     // ??1CReverbBuffer@@QAE@XZ
     ARTS_IMPORT ~CReverbBuffer();
 
-    // ?GetAll@CReverbBuffer@@QAEXPAUEAXBUFFER_REVERBPROPERTIES@@@Z | unused
-    ARTS_IMPORT void GetAll(EAXBUFFER_REVERBPROPERTIES* arg1);
-
     // ?GetReverbMix@CReverbBuffer@@QAEMXZ
     ARTS_IMPORT f32 GetReverbMix();
 
     // ?PropertySetOk@CReverbBuffer@@QAEHXZ
     ARTS_IMPORT i32 PropertySetOk();
-
-    // ?SetAll@CReverbBuffer@@QAEXPAUEAXBUFFER_REVERBPROPERTIES@@@Z | unused
-    ARTS_IMPORT void SetAll(EAXBUFFER_REVERBPROPERTIES* arg1);
 
     // ?SetReverbMix@CReverbBuffer@@QAEXM@Z
     ARTS_IMPORT void SetReverbMix(f32 arg1);

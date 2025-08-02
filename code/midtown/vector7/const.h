@@ -41,74 +41,8 @@
     0x90964C | int OldMathSpeed | ?OldMathSpeed@@3HA
 */
 
-// ?ResetMathSpeed@@YAXXZ | unused
-ARTS_IMPORT void ResetMathSpeed();
-
-// ?SetMathSpeedFast@@YAXXZ | unused
-ARTS_IMPORT void SetMathSpeedFast();
-
-// ?SetMathSpeedMed@@YAXXZ | unused
-ARTS_IMPORT void SetMathSpeedMed();
-
-// ?SetMathSpeedSlow@@YAXXZ | unused
-ARTS_IMPORT void SetMathSpeedSlow();
-
 // ?MathSpeed@@3HA
 ARTS_IMPORT extern i32 MathSpeed;
 
 // ?OldMathSpeed@@3HA
 ARTS_IMPORT extern i32 OldMathSpeed;
-
-class IntArray
-{
-public:
-    // ??4IntArray@@QAEXAAV0@@Z | unused
-    ARTS_IMPORT void operator=(IntArray& arg1);
-
-    // ??AIntArray@@QAEAAHH@Z | unused
-    ARTS_IMPORT i32& operator[](i32 arg1);
-
-    // ?BlockCopy@IntArray@@QAEXAAV1@@Z | unused
-    ARTS_IMPORT void BlockCopy(IntArray& arg1);
-
-    // ?Delete@IntArray@@QAEXXZ
-    ARTS_IMPORT void Delete();
-
-    // ?Init@IntArray@@QAEXH@Z | unused
-    ARTS_IMPORT void Init(i32 arg1);
-
-private:
-    // ?NewTable@IntArray@@AAEXH@Z
-    ARTS_IMPORT void NewTable(i32 arg1);
-
-    u8 gap0[0x14];
-};
-
-check_size(IntArray, 0x14);
-
-class FloatArray
-{
-public:
-    // ??4FloatArray@@QAEXAAV0@@Z | unused
-    ARTS_IMPORT void operator=(FloatArray& arg1);
-
-    // ??AFloatArray@@QAEAAMH@Z | unused
-    ARTS_IMPORT f32& operator[](i32 arg1);
-
-    // ?BlockCopy@FloatArray@@QAEXAAV1@@Z | unused
-    ARTS_IMPORT void BlockCopy(FloatArray& arg1);
-
-    // ?Delete@FloatArray@@QAEXXZ
-    ARTS_IMPORT void Delete();
-
-    // ?Init@FloatArray@@QAEXH@Z | unused
-    ARTS_IMPORT void Init(i32 arg1);
-
-private:
-    // ?NewTable@FloatArray@@AAEXH@Z
-    ARTS_IMPORT void NewTable(i32 arg1);
-
-    u8 gap0[0x14];
-};
-
-check_size(FloatArray, 0x14);

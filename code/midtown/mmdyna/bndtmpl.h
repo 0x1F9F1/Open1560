@@ -169,9 +169,6 @@ public:
     // ?PageIn@mmBoundTemplate@@QAEXXZ | mmdyna:bndtmpl2
     ARTS_IMPORT void PageIn();
 
-    // ?PlotLine@mmBoundTemplate@@QAEXVVector3@@0@Z | mmdyna:bndtmpl2 | unused
-    ARTS_IMPORT void PlotLine(Vector3 arg1, Vector3 arg2);
-
     // ?PlotSpan@mmBoundTemplate@@QAEXHHH@Z | mmdyna:bndtmpl2
     ARTS_EXPORT void PlotSpan(i32 arg1, i32 arg2, i32 arg3);
 
@@ -190,14 +187,8 @@ public:
     // ?QuickSphereBox@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
     ARTS_IMPORT i32 QuickSphereBox(mmIntersection* arg1);
 
-    // ?QuickSphereSphere@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z | unused
-    ARTS_IMPORT i32 QuickSphereSphere(mmIntersection* arg1);
-
     // ?Release@mmBoundTemplate@@QAEHXZ
     ARTS_IMPORT i32 Release();
-
-    // ?Reset@mmBoundTemplate@@QAEXXZ | unused
-    ARTS_IMPORT void Reset();
 
     // ?SphereGeometry@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
     ARTS_IMPORT i32 SphereGeometry(mmIntersection* arg1);

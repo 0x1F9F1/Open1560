@@ -60,23 +60,11 @@ public:
     // ?AddPlayer@DriverMenu@@QAEXPAD@Z
     ARTS_IMPORT void AddPlayer(char* arg1);
 
-    // ?DecPlayer@DriverMenu@@QAEXXZ | unused
-    ARTS_IMPORT void DecPlayer();
-
     // ?DeleteCB@DriverMenu@@QAEXXZ
     ARTS_IMPORT void DeleteCB();
 
     // ?DisplayDriverInfo@DriverMenu@@QAEXPAD0000H@Z
     ARTS_IMPORT void DisplayDriverInfo(char* arg1, char* arg2, char* arg3, char* arg4, char* arg5, i32 arg6);
-
-    // ?EnterNewPlayer@DriverMenu@@QAEXXZ | unused
-    ARTS_IMPORT void EnterNewPlayer();
-
-    // ?GetNewDriverName@DriverMenu@@QAEPADXZ | unused
-    ARTS_IMPORT char* GetNewDriverName();
-
-    // ?IncPlayer@DriverMenu@@QAEXXZ | unused
-    ARTS_IMPORT void IncPlayer();
 
     // ?InitPlayerSelection@DriverMenu@@QAEXXZ
     ARTS_IMPORT void InitPlayerSelection();

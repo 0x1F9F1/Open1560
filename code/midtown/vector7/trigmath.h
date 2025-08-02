@@ -57,9 +57,6 @@ ARTS_IMPORT f32 atanf_fast_large_values(f32 arg1);
 // ?atanf_faster@@YAMM@Z
 ARTS_IMPORT f32 atanf_faster(f32 arg1);
 
-// ?tanf_fast@@YAMM@Z | unused
-ARTS_IMPORT f32 tanf_fast(f32 arg1);
-
 // ?TRIGMATH_ATANTABLE@@3PAMA
 ARTS_IMPORT extern f32 TRIGMATH_ATANTABLE[401];
 

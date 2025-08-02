@@ -61,9 +61,6 @@ public:
     ARTS_EXPORT void InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, LocString* arg5, LocString* arg6,
         LocString* arg7, LocString* arg8, i32 arg9);
 
-    // ?LoadBitmap@mmCompCRPlayer@@QAEXPAD@Z | unused
-    ARTS_IMPORT void LoadBitmap(char* arg1);
-
     // ?Reset@mmCompCRPlayer@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 

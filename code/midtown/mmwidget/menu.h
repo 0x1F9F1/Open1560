@@ -170,9 +170,6 @@ public:
     // ?AddHotSpot@UIMenu@@QAEPAVuiWidget@@HPADMMMMVCallback@@@Z
     ARTS_IMPORT uiWidget* AddHotSpot(i32 arg1, char* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, Callback arg7);
 
-    // ?AddIcon@UIMenu@@QAEPAVUIIcon@@HPADMM@Z | unused
-    ARTS_IMPORT UIIcon* AddIcon(i32 arg1, char* arg2, f32 arg3, f32 arg4);
-
     // ?AddIconW@UIMenu@@QAEPAVUIIconW@@HPAULocString@@PADMMMMVCallback@@@Z | unused
     ARTS_IMPORT UIIconW* AddIconW(
         i32 arg1, LocString* arg2, char* arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, Callback arg8);
@@ -263,9 +260,6 @@ public:
 
     // ?FindTheFirstFocusWidget@UIMenu@@QAEHXZ
     ARTS_IMPORT i32 FindTheFirstFocusWidget();
-
-    // ?ForceWidgetAction@UIMenu@@QAEXH@Z | unused
-    ARTS_IMPORT void ForceWidgetAction(i32 arg1);
 
     // ?GetBstate@UIMenu@@QAEHXZ
     ARTS_IMPORT i32 GetBstate();

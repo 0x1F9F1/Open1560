@@ -33,6 +33,3 @@ ARTS_IMPORT void jinit_marker_reader(jpeg_decompress_struct* arg1);
 
 // ?jpeg_resync_to_restart@@YAEPAUjpeg_decompress_struct@@H@Z
 ARTS_IMPORT u8 jpeg_resync_to_restart(jpeg_decompress_struct* arg1, i32 arg2);
-
-// ?jpeg_set_marker_processor@@YAXPAUjpeg_decompress_struct@@HP6AE0@Z@Z | unused
-ARTS_IMPORT void jpeg_set_marker_processor(jpeg_decompress_struct* arg1, i32 arg2, u8 (*arg3)(jpeg_decompress_struct*));

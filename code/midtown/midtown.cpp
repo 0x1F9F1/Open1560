@@ -947,7 +947,8 @@ static char** GetCommandFileUTF8(int* pNumArgs)
 static mem::cmd_param PARAM_clean_dir {"cleandir"};
 static mem::cmd_param PARAM_console {"console"};
 
-extern void GameStaticInit();
+// ?GameStaticInit@@YAXXZ
+ARTS_IMPORT extern void GameStaticInit();
 
 int main(int argc, char** argv)
 {

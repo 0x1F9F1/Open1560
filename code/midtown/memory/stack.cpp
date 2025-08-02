@@ -425,7 +425,10 @@ i32 ExceptionFilter(_EXCEPTION_POINTERS* exception)
     return EXCEPTION_EXECUTE_HANDLER;
 }
 
+// ?DebugLogStream@@3PAVStream@@A
 ARTS_IMPORT extern Stream* DebugLogStream;
+
+// ?DebugLogReading@@3HA
 ARTS_IMPORT extern b32 DebugLogReading;
 
 void DebugLogInit(b32 reading)

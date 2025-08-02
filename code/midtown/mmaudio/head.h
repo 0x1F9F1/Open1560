@@ -67,9 +67,6 @@ public:
     // ?SetDoppler@AudHead@@QAEXM@Z
     ARTS_IMPORT void SetDoppler(f32 arg1);
 
-    // ?SetHeadPtr@AudHead@@QAEXPAVMatrix34@@@Z | unused
-    ARTS_IMPORT void SetHeadPtr(Matrix34* arg1);
-
     // ?SetRolloff@AudHead@@QAEXM@Z
     ARTS_IMPORT void SetRolloff(f32 arg1);
 

@@ -118,9 +118,6 @@ public:
     // ??1MenuManager@@UAE@XZ
     ARTS_IMPORT ~MenuManager() override;
 
-    // ?ActionID@MenuManager@@QAEHH@Z | unused
-    ARTS_IMPORT i32 ActionID(i32 arg1);
-
     // ?AddBrackets@MenuManager@@QAEXPAVUIIcon@@0PAVuiWidget@@MM@Z
     ARTS_IMPORT void AddBrackets(UIIcon* arg1, UIIcon* arg2, uiWidget* arg3, f32 arg4, f32 arg5);
 
@@ -158,9 +155,6 @@ public:
 
     // ?DeclareLastDrawn@MenuManager@@QAEXPAVasNode@@@Z
     ARTS_IMPORT void DeclareLastDrawn(asNode* arg1);
-
-    // ?DeleteMenu@MenuManager@@QAEXPAVUIMenu@@@Z | unused
-    ARTS_IMPORT void DeleteMenu(UIMenu* arg1);
 
     // ?Disable@MenuManager@@QAEXH@Z
     ARTS_EXPORT void Disable(i32 id);
@@ -275,9 +269,6 @@ public:
 
     // ?ToggleFocus@MenuManager@@QAEXH@Z
     ARTS_IMPORT void ToggleFocus(i32 arg1);
-
-    // ?TogglePU@MenuManager@@QAEXXZ | unused
-    ARTS_IMPORT void TogglePU();
 
     // ?Update@MenuManager@@UAEXXZ
     ARTS_EXPORT void Update() override;

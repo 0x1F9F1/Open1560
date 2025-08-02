@@ -92,9 +92,6 @@ public:
     // ?GetClass@mmPedManager@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
 
-    // ?Init@mmPedManager@@QAEXH@Z | unused
-    ARTS_IMPORT void Init(i32 arg1);
-
     // ?Update@mmPedManager@@UAEXXZ
     ARTS_IMPORT void Update() override;
 

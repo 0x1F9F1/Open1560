@@ -139,9 +139,6 @@ public:
     // ?FreeOneShotLayerBuffers@SoundObj@@QAEXXZ
     ARTS_IMPORT void FreeOneShotLayerBuffers();
 
-    // ?GetFormat@SoundObj@@QAEPAUtWAVEFORMATEX@@XZ | unused
-    ARTS_IMPORT tWAVEFORMATEX* GetFormat();
-
     // ?Init@SoundObj@@QAEHPBDKF@Z
     ARTS_IMPORT i32 Init(const char* arg1, ulong arg2, i16 arg3);
 
@@ -207,9 +204,6 @@ public:
 
     // ?SetVolume@SoundObj@@QAEXM@Z
     ARTS_IMPORT void SetVolume(f32 arg1);
-
-    // ?SetupDuplicateBuffer@SoundObj@@QAEPAUIDirectSoundBuffer@@PAD@Z | unused
-    ARTS_IMPORT IDirectSoundBuffer* SetupDuplicateBuffer(char* arg1);
 
     // ?SetupEchoBuffer@SoundObj@@QAEXPAD@Z
     ARTS_IMPORT void SetupEchoBuffer(char* arg1);

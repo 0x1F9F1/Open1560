@@ -77,12 +77,6 @@ ARTS_EXPORT void dxiDirectInputCreate();
 // ?dxiInit@@YAXPADHPAPAD@Z
 ARTS_EXPORT void dxiInit(char* title, i32 argc, char** argv);
 
-// ?dxiMemoryAllocate@@YAPAXPAPAUIDirectDrawSurface4@@I@Z | unused
-ARTS_IMPORT void* dxiMemoryAllocate(IDirectDrawSurface4** arg1, u32 arg2);
-
-// ?dxiMemoryFree@@YAXPAUIDirectDrawSurface4@@@Z | unused
-ARTS_IMPORT void dxiMemoryFree(IDirectDrawSurface4* arg1);
-
 // ?dxiScreenShot@@YAXPAD@Z
 ARTS_EXPORT void dxiScreenShot(char* file_name);
 

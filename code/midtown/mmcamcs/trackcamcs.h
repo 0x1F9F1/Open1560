@@ -98,9 +98,6 @@ private:
     // ?Collide@TrackCamCS@@AAEXVVector3@@@Z
     ARTS_IMPORT void Collide(Vector3 arg1);
 
-    // ?Front@TrackCamCS@@AAEXM@Z | unused
-    ARTS_IMPORT void Front(f32 arg1);
-
     // ?MinMax@TrackCamCS@@AAEXVMatrix34@@@Z
     ARTS_IMPORT void MinMax(Matrix34 arg1);
 

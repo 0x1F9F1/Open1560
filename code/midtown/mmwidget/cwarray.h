@@ -74,9 +74,6 @@ public:
     // ?CheckCapture@UICWArray@@QAEXXZ
     ARTS_IMPORT void CheckCapture();
 
-    // ?DebugForceSetting@UICWArray@@QAEXXZ | unused
-    ARTS_IMPORT void DebugForceSetting();
-
     // ?DefaultCFG@UICWArray@@QAEXXZ
     ARTS_EXPORT void DefaultCFG();
 
@@ -89,9 +86,6 @@ public:
     // ?Init@UICWArray@@QAEXMMMMHVCallback@@@Z
     ARTS_IMPORT void Init(f32 arg1, f32 arg2, f32 arg3, f32 arg4, i32 arg5, Callback arg6);
 
-    // ?LoadCFG@UICWArray@@QAEXXZ | unused
-    ARTS_IMPORT void LoadCFG();
-
     // ?Redraw@UICWArray@@QAEXXZ
     ARTS_IMPORT void Redraw();
 
@@ -100,12 +94,6 @@ public:
 
     // ?ResetCapture@UICWArray@@QAEXXZ
     ARTS_IMPORT void ResetCapture();
-
-    // ?SaveCFG@UICWArray@@QAEXXZ | unused
-    ARTS_IMPORT void SaveCFG();
-
-    // ?SetStartOffset@UICWArray@@QAEXH@Z | unused
-    ARTS_IMPORT void SetStartOffset(i32 arg1);
 
     // ?SetVScrollPos@UICWArray@@QAEXXZ
     ARTS_IMPORT void SetVScrollPos();

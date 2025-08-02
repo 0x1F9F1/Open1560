@@ -130,14 +130,8 @@ public:
     // ?CenterLength@aiPath@@QAEMHH@Z
     ARTS_IMPORT f32 CenterLength(i32 arg1, i32 arg2);
 
-    // ?CenterPosition@aiPath@@QAEXMAAVVector3@@@Z | unused
-    ARTS_IMPORT void CenterPosition(f32 arg1, Vector3& arg2);
-
     // ?CenterVertice@aiPath@@QAEPAVVector3@@H@Z | inline
     ARTS_IMPORT Vector3* CenterVertice(i32 arg1);
-
-    // ?ContinuityError@aiPath@@QAEHH@Z | unused
-    ARTS_IMPORT i32 ContinuityError(i32 arg1);
 
 #ifdef ARTS_DEV_BUILD
     // ?Draw@aiPath@@QAEXXZ
@@ -149,8 +143,6 @@ public:
     // ?DrawNormals@aiPath@@QAEXXZ
     ARTS_IMPORT void DrawNormals();
 
-    // ?DrawVehicleIds@aiPath@@QAEXXZ | unused
-    ARTS_IMPORT void DrawVehicleIds();
 #endif
 
     // ?Dump@aiPath@@QAEXXZ | unused
@@ -212,9 +204,6 @@ public:
 
     // ?StopDestinationSources@aiPath@@QAEXH@Z
     ARTS_IMPORT void StopDestinationSources(i32 arg1);
-
-    // ?StopIncomingRoads@aiPath@@QAEXH@Z | unused
-    ARTS_IMPORT void StopIncomingRoads(i32 arg1);
 
     // ?SubSectionDir@aiPath@@QAEXAAVVector3@@HHM@Z
     ARTS_IMPORT void SubSectionDir(Vector3& arg1, i32 arg2, i32 arg3, f32 arg4);

@@ -60,9 +60,6 @@ public:
     // ??7Vector4@@QBE?AV0@XZ
     ARTS_IMPORT Vector4 operator!() const;
 
-    // ??KVector4@@QBE?AV0@M@Z | unused
-    ARTS_IMPORT Vector4 operator/(f32 arg1) const;
-
     // ??TVector4@@QBEMABV0@@Z | inline
     ARTS_IMPORT f32 operator^(const Vector4& arg1) const;
 
@@ -73,14 +70,8 @@ public:
     // ?CalculatePlane@Vector4@@QAEXABVVector3@@00@Z
     ARTS_EXPORT void CalculatePlane(const Vector3& arg1, const Vector3& arg2, const Vector3& arg3);
 
-    // ?GetLookAt@Vector4@@QBEXABVVector3@@PAV2@1@Z | unused
-    ARTS_IMPORT void GetLookAt(const Vector3& arg1, Vector3* arg2, Vector3* arg3) const;
-
     // ?Lerp@Vector4@@QAEXMABV1@0@Z
     ARTS_IMPORT void Lerp(f32 arg1, const Vector4& arg2, const Vector4& arg3);
-
-    // ?Mag@Vector4@@QBEMXZ | unused
-    ARTS_IMPORT f32 Mag() const;
 
     // ?Set@Vector4@@QAEXMMMM@Z | inline
     ARTS_EXPORT void Set(f32 x_, f32 y_, f32 z_, f32 w_)
@@ -110,33 +101,6 @@ public:
 check_size(Vector4, 0x10);
 
 #if 0
-class Vector4Array
-{
-public:
-    // ??4Vector4Array@@QAEXAAV0@@Z | unused
-    ARTS_IMPORT void operator=(Vector4Array& arg1);
-
-    // ??AVector4Array@@QAEAAVVector4@@H@Z | unused
-    ARTS_IMPORT Vector4& operator[](i32 arg1);
-
-    // ?BlockCopy@Vector4Array@@QAEXAAV1@@Z | unused
-    ARTS_IMPORT void BlockCopy(Vector4Array& arg1);
-
-    // ?Delete@Vector4Array@@QAEXXZ
-    ARTS_IMPORT void Delete();
-
-    // ?Init@Vector4Array@@QAEXH@Z | unused
-    ARTS_IMPORT void Init(i32 arg1);
-
-private:
-    // ?NewTable@Vector4Array@@AAEXH@Z
-    ARTS_IMPORT void NewTable(i32 arg1);
-
-    u8 gap0[0x14];
-};
-
-check_size(Vector4Array, 0x14);
-
 struct Vector4Type final : MetaType
 {
     public:

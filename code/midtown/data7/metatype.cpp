@@ -164,31 +164,31 @@ struct FloatType final : MetaType
 {
 public:
     // ?Delete@FloatType@@UAEXPAXH@Z
-    ARTS_IMPORT void Delete(void* ptr, i32 len) override
+    ARTS_EXPORT void Delete(void* ptr, i32 len) override
     {
         MetaDelete<f32>(ptr, len);
     }
 
     // ?Load@FloatType@@UAEXPAVMiniParser@@PAX@Z
-    ARTS_IMPORT void Load(MiniParser* parser, void* ptr) override
+    ARTS_EXPORT void Load(MiniParser* parser, void* ptr) override
     {
         *static_cast<f32*>(ptr) = parser->FloatVal();
     }
 
     // ?New@FloatType@@UAEPAXH@Z
-    ARTS_IMPORT void* New(i32 count) override
+    ARTS_EXPORT void* New(i32 count) override
     {
         return MetaNew<f32>(count);
     }
 
     // ?Save@FloatType@@UAEXPAVMiniParser@@PAX@Z
-    ARTS_IMPORT void Save(MiniParser* parser, void* ptr) override
+    ARTS_EXPORT void Save(MiniParser* parser, void* ptr) override
     {
         parser->Printf("%g ", *static_cast<f32*>(ptr));
     }
 
     // ?SizeOf@FloatType@@UAEIXZ
-    ARTS_IMPORT usize SizeOf() override
+    ARTS_EXPORT usize SizeOf() override
     {
         return sizeof(f32);
     }

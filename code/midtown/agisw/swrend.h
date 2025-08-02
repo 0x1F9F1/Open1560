@@ -127,9 +127,6 @@ struct swr_sizes_t;
 struct swRastInfo;
 struct swSurface;
 
-// ?__emitDebug@@YIXPAUswSurface@@H@Z | unused
-ARTS_IMPORT void ARTS_FASTCALL __emitDebug(swSurface* arg1, i32 arg2);
-
 // ?__emitDepthComplexity@@YIXH@Z
 ARTS_IMPORT void ARTS_FASTCALL __emitDepthComplexity(i32 arg1);
 
@@ -147,12 +144,6 @@ ARTS_EXPORT void ARTS_FASTCALL __setupNone(swSurface* arg1);
 
 // ?__setupUV@@YIXPAUswSurface@@@Z
 ARTS_IMPORT void ARTS_FASTCALL __setupUV(swSurface* arg1);
-
-// ?__setupUVI@@YIXPAUswSurface@@@Z | unused
-ARTS_IMPORT void ARTS_FASTCALL __setupUVI(swSurface* arg1);
-
-// ?__setupUVIZ@@YIXPAUswSurface@@@Z | unused
-ARTS_IMPORT void ARTS_FASTCALL __setupUVIZ(swSurface* arg1);
 
 // ?__setupUVZ@@YIXPAUswSurface@@@Z
 ARTS_IMPORT void ARTS_FASTCALL __setupUVZ(swSurface* arg1);

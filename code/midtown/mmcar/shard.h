@@ -123,9 +123,6 @@ public:
     // ?Init@mmShardManager@@QAEXPADHPAVmmCarSim@@@Z
     ARTS_IMPORT void Init(char* arg1, i32 arg2, mmCarSim* arg3);
 
-    // ?ReInit@mmShardManager@@QAEXPAVmmCarSim@@@Z | unused
-    ARTS_IMPORT void ReInit(mmCarSim* arg1);
-
     // ?Update@mmShardManager@@UAEXXZ
     ARTS_IMPORT void Update() override;
 

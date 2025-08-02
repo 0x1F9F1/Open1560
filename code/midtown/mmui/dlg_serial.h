@@ -53,9 +53,6 @@ public:
     // ?GetCommPack@Dialog_Serial@@QAEPAUNETCOMMPACK@@XZ
     ARTS_IMPORT NETCOMMPACK* GetCommPack();
 
-    // ?IPAddressCallback@Dialog_Serial@@QAEXXZ | unused
-    ARTS_IMPORT void IPAddressCallback();
-
     // ?PreSetup@Dialog_Serial@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;
 

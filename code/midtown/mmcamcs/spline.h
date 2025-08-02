@@ -68,12 +68,6 @@ public:
     // ?InRange@Spline@@QAEHXZ
     ARTS_IMPORT i32 InRange();
 
-    // ?Init@Spline@@QAEXPAMH@Z | unused
-    ARTS_IMPORT void Init(f32* arg1, i32 arg2);
-
-    // ?Print@Spline@@QAEXH@Z | unused
-    ARTS_IMPORT void Print(i32 arg1);
-
     // ?SetGoal@Spline@@QAEXPAMM@Z
     ARTS_IMPORT void SetGoal(f32* arg1, f32 arg2);
 

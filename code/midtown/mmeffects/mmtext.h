@@ -156,14 +156,8 @@ public:
     // ?Init@mmTextNode@@QAEXMMMMHH@Z
     ARTS_EXPORT void Init(f32 x, f32 y, f32 width, f32 height, i32 num_lines, i32 flags);
 
-    // ?Printf@mmTextNode@@QAAXPBDZZ | unused
-    ARTS_IMPORT void Printf(const char* arg1, ...);
-
     // ?RenderText@mmTextNode@@QAEXPAVagiSurfaceDesc@@PAUmmTextData@@HI@Z
     ARTS_EXPORT void RenderText(agiSurfaceDesc* surface, mmTextData* lines, i32 num_lines, u32 enabled_lines);
-
-    // ?SetBGColor@mmTextNode@@QAEXAAVVector4@@@Z | unused
-    ARTS_IMPORT void SetBGColor(Vector4& arg1);
 
     // ?SetEffects@mmTextNode@@QAEXHH@Z
     ARTS_IMPORT void SetEffects(i32 line, i32 effects);
@@ -222,9 +216,6 @@ struct mmLocFontInfo
 private:
     char* Context;
 };
-
-// ?ddGDIFlip@@YAXXZ | unused
-ARTS_IMPORT void ddGDIFlip();
 
 // RGBA <-> BGRA
 inline u32 TwiddleColor(u32 color)

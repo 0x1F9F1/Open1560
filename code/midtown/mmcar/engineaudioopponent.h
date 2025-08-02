@@ -65,9 +65,6 @@ public:
     // ?Init@EngineAudioOpponent@@QAEXXZ
     ARTS_IMPORT void Init();
 
-    // ?Init@EngineAudioOpponent@@QAEXF@Z | unused
-    ARTS_IMPORT void Init(i16 arg1);
-
     // ?SetSoundPtr@EngineAudioOpponent@@QAEXPAVAudSound@@@Z | inline
     ARTS_IMPORT void SetSoundPtr(AudSound* arg1);
 

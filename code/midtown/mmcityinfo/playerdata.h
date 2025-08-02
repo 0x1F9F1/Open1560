@@ -117,9 +117,6 @@ public:
     // ??1mmPlayerData@@UAE@XZ | inline
     ARTS_IMPORT ~mmPlayerData() override;
 
-    // ??4mmPlayerData@@QAEXAAV0@@Z | unused
-    ARTS_IMPORT void operator=(mmPlayerData& arg1);
-
     // ?ComputeCRC@mmPlayerData@@QAEIXZ
     ARTS_IMPORT u32 ComputeCRC();
 

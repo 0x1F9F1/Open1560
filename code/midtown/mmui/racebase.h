@@ -68,9 +68,6 @@ public:
     // ?ChangeLocalVals@RaceMenuBase@@QAEXXZ
     ARTS_IMPORT void ChangeLocalVals();
 
-    // ?CheatCallback@RaceMenuBase@@QAEXXZ | unused
-    ARTS_IMPORT void CheatCallback();
-
     // ?CityChange@RaceMenuBase@@QAEXXZ
     ARTS_IMPORT void CityChange();
 
@@ -98,14 +95,8 @@ public:
     // ?SyncRaceState@RaceMenuBase@@QAEXXZ
     ARTS_IMPORT void SyncRaceState();
 
-    // ?TimeCallback@RaceMenuBase@@QAEXXZ | unused
-    ARTS_IMPORT void TimeCallback();
-
     // ?WPCallback@RaceMenuBase@@QAEXXZ
     ARTS_IMPORT void WPCallback();
-
-    // ?WeatherCallback@RaceMenuBase@@QAEXXZ | unused
-    ARTS_IMPORT void WeatherCallback();
 
     // ?WidgetOnOff@RaceMenuBase@@QAEXHPAVuiWidget@@@Z
     ARTS_IMPORT void WidgetOnOff(i32 arg1, uiWidget* arg2);

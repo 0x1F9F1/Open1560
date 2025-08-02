@@ -84,9 +84,6 @@ public:
     // ?LoadSucessful@mmOpponentCarAudio@@QAEXPAVmmCarSim@@@Z
     ARTS_IMPORT void LoadSucessful(mmCarSim* arg1);
 
-    // ?PlayReverseBeep@mmOpponentCarAudio@@QAEXXZ | unused
-    ARTS_IMPORT void PlayReverseBeep();
-
     // ?Reset@mmOpponentCarAudio@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 

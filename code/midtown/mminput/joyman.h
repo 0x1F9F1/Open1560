@@ -106,9 +106,6 @@ public:
     // ?PollJoyButtons@mmJoyMan@@QAEHXZ
     ARTS_IMPORT i32 PollJoyButtons();
 
-    // ?QJoystick@mmJoyMan@@QAEHXZ | unused
-    ARTS_IMPORT i32 QJoystick();
-
     // ?SetCapture@mmJoyMan@@QAEXH@Z
     ARTS_IMPORT void SetCapture(i32 arg1);
 

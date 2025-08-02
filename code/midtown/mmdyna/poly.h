@@ -83,9 +83,6 @@ private:
     ARTS_IMPORT i32 GetCorner(
         Vector3& arg1, Vector3& arg2, Vector3& arg3, Vector3& arg4, Vector3& arg5, Vector3& arg6, f32& arg7);
 
-    // ?GetST@mmPolygon@@AAEXPAVVector3@@0PAVmmBoundTemplate@@@Z | unused
-    ARTS_IMPORT void GetST(Vector3* arg1, Vector3* arg2, mmBoundTemplate* arg3);
-
     // ?Init@mmPolygon@@AAEXXZ
     ARTS_IMPORT void Init();
 

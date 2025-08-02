@@ -50,9 +50,6 @@ public:
     // ??0mmCellRenderer@@QAE@XZ
     ARTS_IMPORT mmCellRenderer();
 
-    // ??1mmCellRenderer@@QAE@XZ | unused
-    ARTS_IMPORT ~mmCellRenderer();
-
     // ?Cull@mmCellRenderer@@UAEXH@Z
     ARTS_IMPORT void Cull(b32 sub_cull) override;
 

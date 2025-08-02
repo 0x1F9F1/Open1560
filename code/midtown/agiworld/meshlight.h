@@ -68,17 +68,11 @@ ARTS_IMPORT void agiConeLighter(u8* arg1, u32* arg2, u32* arg3, agiMeshSet* arg4
 ARTS_IMPORT void agiDeclareCone(
     Vector3& arg1, Vector3& arg2, Vector3& arg3, f32 arg4, f32 arg5, Vector3& arg6, i32 arg7);
 
-// ?agiDrawCones@@YAXXZ | unused
-ARTS_IMPORT void agiDrawCones();
-
 // ?agiMeshLighterQuarter@@YAXPAEPAI1PAVagiMeshSet@@@Z
 ARTS_IMPORT void agiMeshLighterQuarter(u8* arg1, u32* arg2, u32* arg3, agiMeshSet* arg4);
 
 // ?agiMeshLighterReset@@YAXXZ
 ARTS_IMPORT void agiMeshLighterReset();
-
-// ?agiMeshLighterSpecular@@YAXPAEPAI1PAVagiMeshSet@@@Z | unused
-ARTS_IMPORT void agiMeshLighterSpecular(u8* arg1, u32* arg2, u32* arg3, agiMeshSet* arg4);
 
 // ?agiMeshLighterTriple@@YAXPAEPAI1PAVagiMeshSet@@@Z
 ARTS_EXPORT void agiMeshLighterTriple(
@@ -86,9 +80,6 @@ ARTS_EXPORT void agiMeshLighterTriple(
 
 // ?agiMeshLighterUpdateColors@@YAXXZ
 ARTS_IMPORT void agiMeshLighterUpdateColors();
-
-// ?agiMeshPrelight@@YAXPAIPAVagiMeshSet@@AAVMatrix34@@@Z | unused
-ARTS_IMPORT void agiMeshPrelight(u32* arg1, agiMeshSet* arg2, Matrix34& arg3);
 
 // ?agiMeshLighterAmbient@@3VVector3@@A
 ARTS_IMPORT extern Vector3 agiMeshLighterAmbient;

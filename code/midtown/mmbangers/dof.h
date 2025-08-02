@@ -62,12 +62,8 @@ check_size(mmDofBangerInstance, 0x34);
 class mmFacadeBangerInstance final : public mmBangerInstance
 {
 public:
-    // ?GetPos@mmFacadeBangerInstance@@UAIAAVVector3@@XZ | unused
-    ARTS_IMPORT Vector3& ARTS_FASTCALL GetPos();
-
-    // ?ToMatrix@mmFacadeBangerInstance@@UAIAAVMatrix34@@AAV2@@Z | unused
-    ARTS_IMPORT Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& arg1);
-
+    
+    
     u8 gap1C[0x14];
 };
 
@@ -76,9 +72,7 @@ check_size(mmFacadeBangerInstance, 0x30);
 class mmGlassBangerInstance final : public mmBangerInstance
 {
 private:
-    // ?Draw@mmGlassBangerInstance@@EAIXH@Z | unused
-    ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1);
-};
+    };
 
 check_size(mmGlassBangerInstance, 0x1C);
 #endif

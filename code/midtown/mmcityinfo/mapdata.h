@@ -47,9 +47,6 @@ public:
     // ??1mmMapData@@UAE@XZ
     ARTS_IMPORT ~mmMapData() override;
 
-    // ?Append@mmMapData@@QAEXPAD@Z | unused
-    ARTS_IMPORT void Append(char* arg1);
-
     // ?GetClass@mmMapData@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
 

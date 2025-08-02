@@ -118,9 +118,6 @@ public:
     // ?GetNormal@mmRoadSect@@QAEPAVVector3@@H@Z
     ARTS_IMPORT Vector3* GetNormal(i32 arg1);
 
-    // ?GetRoomId@mmRoadSect@@QAEHH@Z | unused
-    ARTS_IMPORT i32 GetRoomId(i32 arg1);
-
     // ?GetSidewalkVertex@mmRoadSect@@QAEPAVVector3@@HHH@Z
     ARTS_IMPORT Vector3* GetSidewalkVertex(i32 arg1, i32 arg2, i32 arg3);
 
@@ -145,54 +142,6 @@ public:
     // ?IsPedBlocked@mmRoadSect@@QAEHH@Z
     ARTS_IMPORT i32 IsPedBlocked(i32 arg1);
 
-    // ?NewVertexs@mmRoadSect@@QAEXHHHHH@Z | unused
-    ARTS_IMPORT void NewVertexs(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
-
-    // ?SetAlley@mmRoadSect@@QAEXH@Z | unused
-    ARTS_IMPORT void SetAlley(i32 arg1);
-
-    // ?SetBlocked@mmRoadSect@@QAEXHH@Z | unused
-    ARTS_IMPORT void SetBlocked(i32 arg1, i32 arg2);
-
-    // ?SetDivided@mmRoadSect@@QAEXH@Z | unused
-    ARTS_IMPORT void SetDivided(i32 arg1);
-
-    // ?SetIntersectionType@mmRoadSect@@QAEXHH@Z | unused
-    ARTS_IMPORT void SetIntersectionType(i32 arg1, i32 arg2);
-
-    // ?SetLSidewalk@mmRoadSect@@QAEXMM@Z | unused
-    ARTS_IMPORT void SetLSidewalk(f32 arg1, f32 arg2);
-
-    // ?SetPedBlocked@mmRoadSect@@QAEXHH@Z | unused
-    ARTS_IMPORT void SetPedBlocked(i32 arg1, i32 arg2);
-
-    // ?SetRSidewalk@mmRoadSect@@QAEXMM@Z | unused
-    ARTS_IMPORT void SetRSidewalk(f32 arg1, f32 arg2);
-
-    // ?SetRoadNormal@mmRoadSect@@QAEXHAAVVector3@@@Z | unused
-    ARTS_IMPORT void SetRoadNormal(i32 arg1, Vector3& arg2);
-
-    // ?SetRoadVertex@mmRoadSect@@QAEXHHHAAVVector3@@@Z | unused
-    ARTS_IMPORT void SetRoadVertex(i32 arg1, i32 arg2, i32 arg3, Vector3& arg4);
-
-    // ?SetRoomId@mmRoadSect@@QAEXHH@Z | unused
-    ARTS_IMPORT void SetRoomId(i32 arg1, i32 arg2);
-
-    // ?SetSidewalkVertex@mmRoadSect@@QAEXHHHAAVVector3@@@Z | unused
-    ARTS_IMPORT void SetSidewalkVertex(i32 arg1, i32 arg2, i32 arg3, Vector3& arg4);
-
-    // ?SetStopLightName@mmRoadSect@@QAEXHPAD@Z | unused
-    ARTS_IMPORT void SetStopLightName(i32 arg1, char* arg2);
-
-    // ?SetStopLightPos@mmRoadSect@@QAEXHABVVector3@@0@Z | unused
-    ARTS_IMPORT void SetStopLightPos(i32 arg1, const Vector3& arg2, const Vector3& arg3);
-
-    // ?SetStreetType@mmRoadSect@@QAEXPAD@Z | unused
-    ARTS_IMPORT void SetStreetType(char* arg1);
-
-    // ?SetStreetWidth@mmRoadSect@@QAEXM@Z | unused
-    ARTS_IMPORT void SetStreetWidth(f32 arg1);
-
     // ?DeclareFields@mmRoadSect@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
@@ -211,29 +160,14 @@ public:
     // ??1mmPropInfo@@UAE@XZ
     ARTS_IMPORT ~mmPropInfo() override;
 
-    // ?Append@mmPropInfo@@QAEXPAD@Z | unused
-    ARTS_IMPORT void Append(char* arg1);
-
     // ?GetClass@mmPropInfo@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
-
-    // ?GetItem@mmPropInfo@@QAEPADH@Z | unused
-    ARTS_IMPORT char* GetItem(i32 arg1);
-
-    // ?GetNumItems@mmPropInfo@@QAEHXZ | unused
-    ARTS_IMPORT i32 GetNumItems();
-
-    // ?GetSpacing@mmPropInfo@@QAEMXZ | unused
-    ARTS_IMPORT f32 GetSpacing();
 
     // ?NewItems@mmPropInfo@@QAEXH@Z
     ARTS_IMPORT void NewItems(i32 arg1);
 
     // ?SetItem@mmPropInfo@@QAEXHPAD@Z
     ARTS_IMPORT void SetItem(i32 arg1, char* arg2);
-
-    // ?SetSpacing@mmPropInfo@@QAEXM@Z | unused
-    ARTS_IMPORT void SetSpacing(f32 arg1);
 
     // ?DeclareFields@mmPropInfo@@SAXXZ
     ARTS_IMPORT static void DeclareFields();

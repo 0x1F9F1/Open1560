@@ -74,9 +74,6 @@ public:
     // ?ResetVolume@EngineAudio@@QAEXXZ
     ARTS_IMPORT void ResetVolume();
 
-    // ?Stop@EngineAudio@@QAEXXZ | unused
-    ARTS_IMPORT void Stop();
-
     // ?DeclareFields@EngineAudio@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 

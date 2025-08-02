@@ -199,9 +199,6 @@ public:
     // ?SetScore@mmCRHUD@@QAEXKH@Z
     ARTS_IMPORT void SetScore(ulong arg1, i32 arg2);
 
-    // ?ToggleScores@mmCRHUD@@QAEXXZ | unused
-    ARTS_IMPORT void ToggleScores();
-
     // ?UnPackColor@mmCRHUD@@QAEXIAAVVector4@@@Z
     ARTS_IMPORT void UnPackColor(u32 arg1, Vector4& arg2);
 

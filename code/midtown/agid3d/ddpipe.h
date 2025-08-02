@@ -115,15 +115,6 @@ protected:
 
 check_size(agiDDPipeline, 0x32C);
 
-// ?DDCallback@@YGHPAU_GUID@@PAD1PAX@Z | unused
-ARTS_IMPORT i32 ARTS_STDCALL DDCallback(_GUID* arg1, char* arg2, char* arg3, void* arg4);
-
-// ?EnumModesCallback@@YGJPAU_DDSURFACEDESC2@@PAX@Z | unused
-ARTS_IMPORT ilong ARTS_STDCALL EnumModesCallback(_DDSURFACEDESC2* arg1, void* arg2);
-
-// ?EnumSurfsCallback@@YGJPAUIDirectDrawSurface@@PAU_DDSURFACEDESC@@PAX@Z | unused
-ARTS_IMPORT ilong ARTS_STDCALL EnumSurfsCallback(IDirectDrawSurface* arg1, _DDSURFACEDESC* arg2, void* arg3);
-
 template <typename T>
 inline void SafeRelease(T*& ptr)
 {

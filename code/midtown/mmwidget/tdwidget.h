@@ -63,23 +63,14 @@ public:
     // ?Capture@TextDropWidget@@QAEHMM@Z
     ARTS_IMPORT i32 Capture(f32 arg1, f32 arg2);
 
-    // ?Dec@TextDropWidget@@QAEHXZ | unused
-    ARTS_IMPORT i32 Dec();
-
     // ?DecDrop@TextDropWidget@@QAEHXZ
     ARTS_IMPORT i32 DecDrop();
 
     // ?GetClass@TextDropWidget@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
 
-    // ?GetCount@TextDropWidget@@QAEHXZ | unused
-    ARTS_IMPORT i32 GetCount();
-
     // ?GetDisabledMask@TextDropWidget@@QAEJXZ
     ARTS_IMPORT ilong GetDisabledMask();
-
-    // ?Inc@TextDropWidget@@QAEHXZ | unused
-    ARTS_IMPORT i32 Inc();
 
     // ?IncDrop@TextDropWidget@@QAEHXZ
     ARTS_IMPORT i32 IncDrop();

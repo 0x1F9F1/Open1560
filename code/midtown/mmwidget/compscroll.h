@@ -69,17 +69,11 @@ public:
     // ?AddComponent@UICompositeScroll@@QAEXPAVmmCompBase@@@Z
     ARTS_IMPORT void AddComponent(mmCompBase* arg1);
 
-    // ?AddTitle@UICompositeScroll@@QAEXPAVmmCompBase@@@Z | unused
-    ARTS_IMPORT void AddTitle(mmCompBase* arg1);
-
     // ?CaptureAction@UICompositeScroll@@UAEXTeqEvent@@@Z
     ARTS_IMPORT void CaptureAction(eqEvent arg1) override;
 
     // ?Clear@UICompositeScroll@@QAEXXZ
     ARTS_IMPORT void Clear();
-
-    // ?GetHeight@UICompositeScroll@@QAEMXZ | unused
-    ARTS_IMPORT f32 GetHeight();
 
     // ?GetHit@UICompositeScroll@@QAEHMM@Z
     ARTS_IMPORT i32 GetHit(f32 arg1, f32 arg2);

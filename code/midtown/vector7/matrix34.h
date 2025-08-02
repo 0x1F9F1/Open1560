@@ -100,41 +100,14 @@ public:
         , m3(m3)
     {}
 
-    // ??0Matrix34@@QAE@ABVMatrix44@@@Z | unused
-    ARTS_IMPORT Matrix34(const Matrix44& arg1);
-
-    // ??DMatrix34@@QBE?AV0@M@Z | unused
-    ARTS_IMPORT Matrix34 operator*(f32 arg1) const;
-
-    // ??HMatrix34@@QAE?AV0@ABV0@@Z | unused
-    ARTS_IMPORT Matrix34 operator+(const Matrix34& arg1);
-
-    // ??GMatrix34@@QAE?AV0@ABV0@@Z | unused
-    ARTS_IMPORT Matrix34 operator-(const Matrix34& arg1);
-
-    // ?Approach@Matrix34@@QAEHABV1@MM@Z | unused
-    ARTS_IMPORT i32 Approach(const Matrix34& arg1, f32 arg2, f32 arg3);
-
     // ?Approach@Matrix34@@QAEHABV1@MMM@Z
     ARTS_IMPORT i32 Approach(const Matrix34& arg1, f32 arg2, f32 arg3, f32 arg4);
-
-    // ?Atan3@Matrix34@@QBEMDD@Z | unused
-    ARTS_IMPORT f32 Atan3(char arg1, char arg2) const;
-
-    // ?CalcAppRates@Matrix34@@QAEXAAM0ABV1@MM@Z | unused
-    ARTS_IMPORT void CalcAppRates(f32& arg1, f32& arg2, const Matrix34& arg3, f32 arg4, f32 arg5);
-
-    // ?Determinant@Matrix34@@QBEMXZ | unused
-    ARTS_IMPORT f32 Determinant() const;
 
     // ?Dot@Matrix34@@QAEXABV1@0@Z
     ARTS_IMPORT void Dot(const Matrix34& arg1, const Matrix34& arg2);
 
     // ?Dot3x3@Matrix34@@QAEXABV1@0@Z
     ARTS_IMPORT void Dot3x3(const Matrix34& arg1, const Matrix34& arg2);
-
-    // ?Equal@Matrix34@@QBEIABV1@M@Z | unused
-    ARTS_IMPORT u32 Equal(const Matrix34& arg1, f32 arg2) const;
 
     // ?FastInverse@Matrix34@@QAEXABV1@@Z
     ARTS_IMPORT void FastInverse(const Matrix34& arg1);
@@ -145,9 +118,6 @@ public:
         result.FastInverse(*this);
         return result;
     }
-
-    // ?FastInverseFull@Matrix34@@QAEXABV1@@Z | unused
-    ARTS_IMPORT void FastInverseFull(const Matrix34& arg1);
 
     // ?FromEulers@Matrix34@@QAEXABVVector3@@@Z
     ARTS_IMPORT void FromEulers(const Vector3& arg1);
@@ -173,9 +143,6 @@ public:
     // ?Identity@Matrix34@@QAEXXZ
     ARTS_EXPORT constexpr void Identity();
 
-    // ?Interpolate@Matrix34@@QAEXABV1@0M@Z | unused
-    ARTS_IMPORT void Interpolate(const Matrix34& arg1, const Matrix34& arg2, f32 arg3);
-
     // ?Inverse@Matrix34@@QBE?AV1@XZ
     ARTS_IMPORT Matrix34 Inverse() const;
 
@@ -190,12 +157,6 @@ public:
 
     // ?PolarView@Matrix34@@QAEXMMMM@Z
     ARTS_IMPORT void PolarView(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
-
-    // ?PolarView2@Matrix34@@QAEXMMMM@Z | unused
-    ARTS_IMPORT void PolarView2(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
-
-    // ?Print@Matrix34@@QBEXXZ | unused
-    ARTS_IMPORT void Print() const;
 
     // ?RotEqual@Matrix34@@QBEIABV1@M@Z
     ARTS_IMPORT u32 RotEqual(const Matrix34& arg1, f32 arg2) const;
@@ -218,47 +179,20 @@ public:
     // ?RotateToAbs@Matrix34@@QAEXABVVector3@@0M@Z
     ARTS_IMPORT void RotateToAbs(const Vector3& arg1, const Vector3& arg2, f32 arg3);
 
-    // ?RotateToFull@Matrix34@@QAEXABVVector3@@0M@Z | unused
-    ARTS_IMPORT void RotateToFull(const Vector3& arg1, const Vector3& arg2, f32 arg3);
-
     // ?Scale@Matrix34@@QAEXM@Z
     ARTS_IMPORT void Scale(f32 arg1);
 
     // ?Scale@Matrix34@@QAEXMMM@Z
     ARTS_IMPORT void Scale(f32 arg1, f32 arg2, f32 arg3);
 
-    // ?ScaleAbs@Matrix34@@QAEXM@Z | unused
-    ARTS_IMPORT void ScaleAbs(f32 arg1);
-
     // ?ScaleAbs@Matrix34@@QAEXMMM@Z
     ARTS_IMPORT void ScaleAbs(f32 arg1, f32 arg2, f32 arg3);
-
-    // ?ScaleFull@Matrix34@@QAEXM@Z | unused
-    ARTS_IMPORT void ScaleFull(f32 arg1);
-
-    // ?ScaleFull@Matrix34@@QAEXMMM@Z | unused
-    ARTS_IMPORT void ScaleFull(f32 arg1, f32 arg2, f32 arg3);
-
-    // ?ScaleFullAbs@Matrix34@@QAEXM@Z | unused
-    ARTS_IMPORT void ScaleFullAbs(f32 arg1);
 
     // ?ScaleFullAbs@Matrix34@@QAEXMMM@Z
     ARTS_IMPORT void ScaleFullAbs(f32 arg1, f32 arg2, f32 arg3);
 
-    // ?ScaleVolume@Matrix34@@QAEXMD@Z | unused
-    ARTS_IMPORT void ScaleVolume(f32 arg1, char arg2);
-
-    // ?ScaleVolumeAbs@Matrix34@@QAEXMD@Z | unused
-    ARTS_IMPORT void ScaleVolumeAbs(f32 arg1, char arg2);
-
     // ?SolveSVD@Matrix34@@QBE?AVVector3@@ABV2@@Z
     ARTS_IMPORT Vector3 SolveSVD(const Vector3& arg1) const;
-
-    // ?TrackBall@Matrix34@@QAEXMMMMM@Z | unused
-    ARTS_IMPORT void TrackBall(f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
-
-    // ?Transform@Matrix34@@QAEXABVVector3@@0M@Z | unused
-    ARTS_IMPORT void Transform(const Vector3& arg1, const Vector3& arg2, f32 arg3);
 
     // ?Transpose@Matrix34@@QBE?AV1@XZ | inline
     ARTS_IMPORT Matrix34 Transpose() const;
@@ -279,9 +213,6 @@ private:
 };
 
 check_size(Matrix34, 0x30);
-
-// ??D@YA?AVMatrix34@@MABV0@@Z | unused
-ARTS_IMPORT Matrix34 operator*(f32 arg1, const Matrix34& arg2);
 
 // ?IDENTITY@@3VMatrix34@@A
 inline constexpr const Matrix34 IDENTITY {

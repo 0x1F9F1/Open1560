@@ -139,9 +139,6 @@ public:
     // ??1asNetwork@@QAE@XZ
     ARTS_IMPORT ~asNetwork();
 
-    // ?ChatMessage@asNetwork@@QAEXKPAD@Z | unused
-    ARTS_IMPORT void ChatMessage(ulong arg1, char* arg2);
-
     // ?CloseSession@asNetwork@@QAEXXZ
     ARTS_IMPORT void CloseSession();
 
@@ -163,35 +160,20 @@ public:
     // ?Disconnect@asNetwork@@QAEXXZ
     ARTS_EXPORT void Disconnect();
 
-    // ?GetEnumModem@asNetwork@@QAEPADH@Z | unused
-    ARTS_IMPORT char* GetEnumModem(i32 arg1);
-
     // ?GetEnumPlayer@asNetwork@@QAEPADH@Z
     ARTS_IMPORT char* GetEnumPlayer(i32 arg1);
 
     // ?GetEnumPlayerData@asNetwork@@QAEHHPAXH@Z
     ARTS_IMPORT i32 GetEnumPlayerData(i32 arg1, void* arg2, i32 arg3);
 
-    // ?GetEnumProtocol@asNetwork@@QAEPADH@Z | unused
-    ARTS_IMPORT char* GetEnumProtocol(i32 arg1);
-
     // ?GetEnumSession@asNetwork@@QAEPADH@Z
     ARTS_IMPORT char* GetEnumSession(i32 arg1);
-
-    // ?GetEnumSessionID@asNetwork@@QAEHH@Z | unused
-    ARTS_IMPORT i32 GetEnumSessionID(i32 arg1);
 
     // ?GetEnumSessionLock@asNetwork@@QAEHH@Z
     ARTS_IMPORT i32 GetEnumSessionLock(i32 arg1);
 
-    // ?GetEnumSessionStatus@asNetwork@@QAEHH@Z | unused
-    ARTS_IMPORT i32 GetEnumSessionStatus(i32 arg1);
-
     // ?GetGameVersion@asNetwork@@QAEHH@Z
     ARTS_IMPORT i32 GetGameVersion(i32 arg1);
-
-    // ?GetMyLogicalIndex@asNetwork@@QAEHXZ | unused
-    ARTS_IMPORT i32 GetMyLogicalIndex();
 
     // ?GetNetworkCaps@asNetwork@@QAEHXZ
     ARTS_IMPORT i32 GetNetworkCaps();
@@ -201,9 +183,6 @@ public:
 
     // ?GetNumPlayers@asNetwork@@QAEHXZ
     ARTS_IMPORT i32 GetNumPlayers();
-
-    // ?GetNumProtocols@asNetwork@@QAEHXZ | unused
-    ARTS_IMPORT i32 GetNumProtocols();
 
     // ?GetNumSessions@asNetwork@@QAEHXZ
     ARTS_IMPORT i32 GetNumSessions();
@@ -259,9 +238,6 @@ public:
     // ?Logout@asNetwork@@QAEXXZ
     ARTS_EXPORT void Logout();
 
-    // ?Ping@asNetwork@@QAEKK@Z | unused
-    ARTS_IMPORT ulong Ping(ulong arg1);
-
     // ?PollLobby@asNetwork@@QAEHXZ
     ARTS_IMPORT i32 PollLobby();
 
@@ -273,9 +249,6 @@ public:
 
     // ?Send@asNetwork@@QAEXKPAXKH@Z
     ARTS_IMPORT void Send(ulong arg1, void* arg2, ulong arg3, i32 arg4);
-
-    // ?SendLobbyProperty@asNetwork@@QAEXPAXH@Z | unused
-    ARTS_IMPORT void SendLobbyProperty(void* arg1, i32 arg2);
 
     // ?SetEnumSessionLock@asNetwork@@QAEXHH@Z
     ARTS_IMPORT void SetEnumSessionLock(i32 arg1, i32 arg2);

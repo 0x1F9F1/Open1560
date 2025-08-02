@@ -64,17 +64,11 @@ public:
     // ??1mmAnimPlane@@UAE@XZ
     ARTS_IMPORT ~mmAnimPlane() override;
 
-    // ?Activate@mmAnimPlane@@QAEXXZ | unused
-    ARTS_IMPORT void Activate();
-
     // ?AdjustPhaseOffsets@mmAnimPlane@@QAEXXZ
     ARTS_IMPORT void AdjustPhaseOffsets();
 
     // ?CalculateCubics@mmAnimPlane@@QAEXHAAVVector4@@00@Z
     ARTS_IMPORT void CalculateCubics(i32 arg1, Vector4& arg2, Vector4& arg3, Vector4& arg4);
-
-    // ?Deactivate@mmAnimPlane@@QAEXXZ | unused
-    ARTS_IMPORT void Deactivate();
 
     // ?Draw@mmAnimPlane@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
@@ -87,9 +81,6 @@ public:
 
     // ?Reset@mmAnimPlane@@UAEXXZ
     ARTS_IMPORT void Reset() override;
-
-    // ?ReverseCalcPathSpeed@mmAnimPlane@@QAEXXZ | unused
-    ARTS_IMPORT void ReverseCalcPathSpeed();
 
     // ?SetPathSpeed@mmAnimPlane@@QAEXXZ
     ARTS_IMPORT void SetPathSpeed();

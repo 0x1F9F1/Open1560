@@ -38,9 +38,6 @@ public:
     // ??0agiPalette@@QAE@XZ
     ARTS_IMPORT agiPalette();
 
-    // ?Cube@agiPalette@@QAEXXZ | unused
-    ARTS_IMPORT void Cube();
-
     // ?FindColor@agiPalette@@QAEIUagiRgba@@@Z
     ARTS_IMPORT u32 FindColor(agiRgba arg1);
 
@@ -49,9 +46,6 @@ public:
 
     // ?Kill@agiPalette@@QAEXXZ
     ARTS_IMPORT void Kill();
-
-    // ?Load@agiPalette@@QAEXPAD@Z | unused
-    ARTS_IMPORT void Load(char* arg1);
 
     u32 Colors[256] {};
     i32 field_400 {}; // StartIndex ?

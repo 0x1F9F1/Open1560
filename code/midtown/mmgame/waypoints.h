@@ -173,14 +173,8 @@ check_size(mmWaypoints, 0xAC);
 struct mmGate
 {
 public:
-    // ?Check@mmGate@@QAEHVVector2@@0@Z | unused
-    ARTS_IMPORT i32 Check(Vector2 arg1, Vector2 arg2);
-
     // ?CloseEnough@mmGate@@QAEHMM@Z
     ARTS_IMPORT i32 CloseEnough(f32 arg1, f32 arg2);
-
-    // ?Init@mmGate@@QAEXVVector2@@0@Z | unused
-    ARTS_IMPORT void Init(Vector2 arg1, Vector2 arg2);
 
     // ?LineEq@mmGate@@QAEMMM@Z
     ARTS_IMPORT f32 LineEq(f32 arg1, f32 arg2);

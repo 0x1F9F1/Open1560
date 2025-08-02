@@ -49,17 +49,11 @@ public:
     // ??0mmPositions@@QAE@XZ
     ARTS_IMPORT mmPositions();
 
-    // ?Dump@mmPositions@@QAEXPAD@Z | unused
-    ARTS_IMPORT void Dump(aconst char* arg1);
-
     // ?GetCount@mmPositions@@QAEHXZ
     ARTS_EXPORT i32 GetCount()
     {
         return NumPositions;
     }
-
-    // ?GetVector4@mmPositions@@QAEAAVVector4@@H@Z | unused
-    ARTS_IMPORT Vector4& GetVector4(i32 arg1);
 
     // ?Init@mmPositions@@QAEXH@Z
     ARTS_IMPORT void Init(i32 arg1);

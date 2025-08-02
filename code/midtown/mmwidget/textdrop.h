@@ -62,9 +62,6 @@ public:
     // ?Action@UITextDropdown@@UAEXTeqEvent@@@Z
     ARTS_IMPORT void Action(eqEvent arg1) override;
 
-    // ?AnyEnabled@UITextDropdown@@QAEHXZ | unused
-    ARTS_IMPORT i32 AnyEnabled();
-
     // ?AssignString@UITextDropdown@@QAEXVstring@@@Z
     ARTS_EXPORT void AssignString(string options);
 
@@ -76,9 +73,6 @@ public:
 
     // ?GetScreenHeight@UITextDropdown@@UAEMXZ
     ARTS_IMPORT f32 GetScreenHeight() override;
-
-    // ?GetValue@UITextDropdown@@QAEHXZ | unused
-    ARTS_IMPORT i32 GetValue();
 
     // ?Init@UITextDropdown@@QAEXPAULocString@@PAHMMMMVstring@@HHHVCallback@@PAD@Z
     ARTS_IMPORT void Init(LocString* arg1, i32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, string arg7, i32 arg8,

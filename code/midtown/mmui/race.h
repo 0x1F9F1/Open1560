@@ -50,12 +50,6 @@ public:
     // ??1RaceMenu@@UAE@XZ
     ARTS_EXPORT ~RaceMenu() override = default;
 
-    // ?GetRaceID@RaceMenu@@QAEHXZ | unused
-    ARTS_IMPORT i32 GetRaceID();
-
-    // ?GetRaceName@RaceMenu@@QAEPADW4mmGameMode@@H@Z | unused
-    ARTS_IMPORT char* GetRaceName(mmGameMode arg1, i32 arg2);
-
     // ?SetBlitzMask@RaceMenu@@QAEXH@Z
     ARTS_IMPORT void SetBlitzMask(i32 arg1);
 

@@ -39,6 +39,7 @@ ARTS_IMPORT extern f32 UpdateTime3D;
 ARTS_IMPORT extern i32 StatsTextOffset;
 
 #ifdef ARTS_DEV_BUILD
+// ?PrintRenderPerf@@YAXXZ
 ARTS_IMPORT void PrintRenderPerf();
 
 static void PrintMessages()

@@ -61,9 +61,6 @@ public:
     // ?ClearNames@PURoster@@QAEXXZ
     ARTS_IMPORT void ClearNames();
 
-    // ?FindRosterName@PURoster@@QAEHPAD@Z | unused
-    ARTS_IMPORT i32 FindRosterName(char* arg1);
-
     // ?FindRosterName@PURoster@@QAEHK@Z
     ARTS_IMPORT i32 FindRosterName(ulong arg1);
 
@@ -81,9 +78,6 @@ public:
 
     // ?SetBootCB@PURoster@@QAEXVCallback@@@Z
     ARTS_IMPORT void SetBootCB(Callback arg1);
-
-    // ?SetHost@PURoster@@QAEXH@Z | unused
-    ARTS_IMPORT void SetHost(i32 arg1);
 
     u8 gapC0[0x180];
 };

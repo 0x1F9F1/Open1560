@@ -118,9 +118,6 @@ public:
     // ?Reset@Joint3Dof@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // ?SetForceLimit@Joint3Dof@@QAEXM@Z | unused
-    ARTS_IMPORT void SetForceLimit(f32 arg1);
-
     // ?SetFrictionLean@Joint3Dof@@QAEXMMM@Z
     ARTS_IMPORT void SetFrictionLean(f32 arg1, f32 arg2, f32 arg3);
 
@@ -142,17 +139,8 @@ public:
     // ?SetRestOrientMat@Joint3Dof@@QAEXABVMatrix34@@0@Z
     ARTS_IMPORT void SetRestOrientMat(const Matrix34& arg1, const Matrix34& arg2);
 
-    // ?SetRestOrientation@Joint3Dof@@QAEXXZ | unused
-    ARTS_IMPORT void SetRestOrientation();
-
     // ?SetRollLimit@Joint3Dof@@QAEXMMM@Z
     ARTS_IMPORT void SetRollLimit(f32 arg1, f32 arg2, f32 arg3);
-
-    // ?SetRotate1@Joint3Dof@@QAEXABVMatrix34@@@Z | unused
-    ARTS_IMPORT void SetRotate1(const Matrix34& arg1);
-
-    // ?SetRotate2@Joint3Dof@@QAEXABVMatrix34@@@Z | unused
-    ARTS_IMPORT void SetRotate2(const Matrix34& arg1);
 
     // ?UnbreakJoint@Joint3Dof@@QAEXXZ
     ARTS_IMPORT void UnbreakJoint();

@@ -79,14 +79,8 @@ public:
     // ??0mmVoiceCommentary@@QAE@XZ
     ARTS_IMPORT mmVoiceCommentary();
 
-    // ??1mmVoiceCommentary@@QAE@XZ | unused
-    ARTS_IMPORT ~mmVoiceCommentary();
-
     // ?CatName@mmVoiceCommentary@@QAEPADPADHH@Z
     ARTS_IMPORT char* CatName(char* arg1, i32 arg2, i32 arg3);
-
-    // ?GetLapName@mmVoiceCommentary@@QAEPADF@Z | unused
-    ARTS_IMPORT char* GetLapName(i16 arg1);
 
     // ?GetRandomBlueCR@mmVoiceCommentary@@QAEPADF@Z
     ARTS_IMPORT char* GetRandomBlueCR(i16 arg1);
@@ -136,9 +130,6 @@ public:
     // ?Play@mmVoiceCommentary@@QAEXPAD@Z
     ARTS_IMPORT void Play(char* arg1);
 
-    // ?PlayAirBorne@mmVoiceCommentary@@QAEXXZ | unused
-    ARTS_IMPORT void PlayAirBorne();
-
     // ?PlayBulletUnlocked@mmVoiceCommentary@@QAEXXZ
     ARTS_IMPORT void PlayBulletUnlocked();
 
@@ -150,12 +141,6 @@ public:
 
     // ?PlayCRPreRace@mmVoiceCommentary@@QAEXXZ
     ARTS_IMPORT void PlayCRPreRace();
-
-    // ?PlayCheckPoint@mmVoiceCommentary@@QAEXXZ | unused
-    ARTS_IMPORT void PlayCheckPoint();
-
-    // ?PlayCollision@mmVoiceCommentary@@QAEXXZ | unused
-    ARTS_IMPORT void PlayCollision();
 
     // ?PlayCopCarUnlocked@mmVoiceCommentary@@QAEXXZ
     ARTS_IMPORT void PlayCopCarUnlocked();
@@ -175,17 +160,8 @@ public:
     // ?PlayLap@mmVoiceCommentary@@QAEXF@Z | unused
     ARTS_EXPORT void PlayLap(i16 arg1);
 
-    // ?PlayMidResults@mmVoiceCommentary@@QAEXXZ | unused
-    ARTS_IMPORT void PlayMidResults();
-
-    // ?PlayNetworkPreRace@mmVoiceCommentary@@QAEXXZ | unused
-    ARTS_IMPORT void PlayNetworkPreRace();
-
     // ?PlayNextRacesUnlocked@mmVoiceCommentary@@QAEXXZ
     ARTS_IMPORT void PlayNextRacesUnlocked();
-
-    // ?PlayOpponentFinish@mmVoiceCommentary@@QAEXF@Z | unused
-    ARTS_IMPORT void PlayOpponentFinish(i16 arg1);
 
     // ?PlayPreRace@mmVoiceCommentary@@QAEXXZ
     ARTS_IMPORT void PlayPreRace();
@@ -213,9 +189,6 @@ public:
 
     // ?SetFrequency@mmVoiceCommentary@@QAEXM@Z
     ARTS_IMPORT void SetFrequency(f32 arg1);
-
-    // ?Stop@mmVoiceCommentary@@QAEXXZ | unused
-    ARTS_IMPORT void Stop();
 
     // ?StopNow@mmVoiceCommentary@@QAEXXZ
     ARTS_IMPORT void StopNow();

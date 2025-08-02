@@ -157,10 +157,10 @@ public:
     ARTS_EXPORT void AddWidgets(Bank* bank) override;
 #endif
 
-    // ?AllwaysGreen@aiMap@@QAEXXZ | unused
+    // ?AllwaysGreen@aiMap@@QAEXXZ
     ARTS_IMPORT void AllwaysGreen();
 
-    // ?AllwaysRed@aiMap@@QAEXXZ | unused
+    // ?AllwaysRed@aiMap@@QAEXXZ
     ARTS_IMPORT void AllwaysRed();
 
     // ?ChooseNextFreewayLink@aiMap@@QAEHPAVaiRailSet@@@Z
@@ -189,9 +189,6 @@ public:
 
     // ?Cull@aiMap@@UAEXXZ
     ARTS_IMPORT void Cull() override;
-
-    // ?DetRdSegBetweenInts@aiMap@@QAEPAVaiPath@@PAVaiIntersection@@0@Z | unused
-    ARTS_IMPORT aiPath* DetRdSegBetweenInts(aiIntersection* arg1, aiIntersection* arg2);
 
     // ?DetermineOppMapComponent@aiMap@@QAEHAAVMatrix34@@PAVaiRailSet@@PAF2PAM323MFF@Z
     ARTS_IMPORT i32 DetermineOppMapComponent(Matrix34& arg1, aiRailSet* arg2, i16* arg3, i16* arg4, f32* arg5,
@@ -228,9 +225,6 @@ public:
     // ?FindPedAppRoad@aiMap@@QAEHH@Z
     ARTS_IMPORT i32 FindPedAppRoad(i32 arg1);
 
-    // ?GetCameraPos@aiMap@@QAEXXZ | unused
-    ARTS_IMPORT void GetCameraPos();
-
     // ?GetClass@aiMap@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
 
@@ -251,12 +245,6 @@ public:
 
     // ?Path@aiMap@@QAEPAVaiPath@@H@Z
     ARTS_IMPORT aiPath* Path(i32 arg1);
-
-    // ?Pedestrian@aiMap@@QAEPAVaiPedestrian@@H@Z | unused
-    ARTS_IMPORT aiPedestrian* Pedestrian(i32 arg1);
-
-    // ?PlayerPos@aiMap@@QAEAAVVector3@@XZ | unused
-    ARTS_IMPORT Vector3& PlayerPos();
 
     // ?Police@aiMap@@QAEPAVaiVehiclePolice@@H@Z
     ARTS_IMPORT aiVehiclePolice* Police(i32 arg1);
@@ -289,9 +277,6 @@ public:
 
     // ?UpdatePaused@aiMap@@UAEXXZ
     ARTS_EXPORT void UpdatePaused() override;
-
-    // ?Vehicle@aiMap@@QAEPAVaiVehicleAmbient@@H@Z | unused
-    ARTS_IMPORT aiVehicleAmbient* Vehicle(i32 arg1);
 
     // ?DeclareFields@aiMap@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
@@ -379,9 +364,6 @@ private:
 
     // ?ReadBinary@aiMap@@AAEXPAD@Z
     ARTS_IMPORT void ReadBinary(char* arg1);
-
-    // ?RoadDensity@aiMap@@AAEMHMH@Z | unused
-    ARTS_IMPORT f32 RoadDensity(i32 arg1, f32 arg2, i32 arg3);
 
     // ?SaveBinary@aiMap@@AAEXPAD@Z
     ARTS_IMPORT void SaveBinary(char* arg1);

@@ -76,9 +76,6 @@ public:
     // ?CaptureAction@UITextField@@UAEXTeqEvent@@@Z
     ARTS_IMPORT void CaptureAction(eqEvent arg1) override;
 
-    // ?ClearField@UITextField@@QAEXXZ | unused
-    ARTS_IMPORT void ClearField();
-
     // ?Init@UITextField@@QAEXPAULocString@@PADMMMMHHHHHVCallback@@PAVUIMenu@@@Z
     ARTS_IMPORT void Init(LocString* arg1, char* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, i32 arg8,
         i32 arg9, i32 arg10, i32 arg11, Callback arg12, UIMenu* arg13);
@@ -94,9 +91,6 @@ public:
 
     // ?SetField@UITextField@@QAEXPAD@Z
     ARTS_IMPORT void SetField(char* arg1);
-
-    // ?SetText@UITextField@@QAEXPAULocString@@@Z | unused
-    ARTS_IMPORT void SetText(LocString* arg1);
 
     // ?SetTextField@UITextField@@QAEXXZ
     ARTS_IMPORT void SetTextField();

@@ -44,12 +44,6 @@ public:
     // ??1HostRaceMenu@@UAE@XZ
     ARTS_EXPORT ~HostRaceMenu() override = default;
 
-    // ?DisableStart@HostRaceMenu@@QAEXXZ | unused
-    ARTS_IMPORT void DisableStart();
-
-    // ?EnableStart@HostRaceMenu@@QAEXXZ | unused
-    ARTS_IMPORT void EnableStart();
-
     // ?UsesLobby@HostRaceMenu@@UAEXH@Z
     ARTS_EXPORT void UsesLobby(i32 arg1) override;
 

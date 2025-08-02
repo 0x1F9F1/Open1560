@@ -56,9 +56,6 @@ public:
     // ?InitOffsets@DynamicDLP@@QAEHPAVDLP@@PAD@Z
     ARTS_IMPORT i32 InitOffsets(DLP* arg1, char* arg2);
 
-    // ?Release@DynamicDLP@@QAEHXZ | unused
-    ARTS_IMPORT i32 Release();
-
     u8 gap4[0x20];
 };
 
