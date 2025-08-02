@@ -44,6 +44,7 @@
     0x90AE60 | int SynchronousMessageQueues | ?SynchronousMessageQueues@@3HA
 */
 
+#include "callback.h"
 #include "mutex.h"
 
 #include <atomic>
@@ -97,8 +98,6 @@ ARTS_EXPORT void ipcYield();
 // ?SynchronousMessageQueues@@3HA
 ARTS_IMPORT extern b32 SynchronousMessageQueues;
 
-struct ipcMessage;
-
 #define IPC_QUEUE_MODE_ASYNC 0
 #define IPC_QUEUE_MODE_BLOCKING 1
 #define IPC_QUEUE_MODE_SYNC 2
@@ -116,7 +115,9 @@ public:
     ARTS_EXPORT void Init(i32 max_messages, i32 mode);
 
     // ?Send@ipcMessageQueue@@QAEXP6AXPAX@Z0@Z
-    ARTS_EXPORT void Send(void (*func)(void*), void* param);
+    [[deprecated]] ARTS_EXPORT void Send(void (*func)(void*), void* param);
+
+    void Send(Callback cb);
 
     // ?Shutdown@ipcMessageQueue@@QAEXXZ
     ARTS_EXPORT void Shutdown();
@@ -133,7 +134,7 @@ private:
     u32 read_index_ {};
     u32 max_messages_ {};
     b32 blocking_ {};
-    Ptr<ipcMessage[]> messages_;
+    Ptr<Callback[]> messages_;
     Condvar send_event_ {};
     Condvar done_event_ {};
     Mutex mutex_ {};

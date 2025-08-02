@@ -246,13 +246,12 @@ void asCullManager::PrintStats()
     Statsf("Sim Delta:%5.2f TSC Speed:%2.2f GHz", Sim()->GetUpdateDelta() * 1000.0f, 0.000001f / ut2float);
     Statsf("CULLMGR 3D:%4.1f/2D:%4.1f/Updt:%4.1fms", UpdateTime3D * 1000.0f, (UpdateTime2D - UpdateTime3D) * 1000.0f,
         (CurrentFrameTime - UpdateTime2D) * 1000.0f);
-    Statsf("DLPs Drawn:%-3dClipped:%-3d", stats.DlpDrawn, stats.DlpClipped);
-    Statsf(
-        "Verts Xfrm:%-5dLit:%-5dOutC:%-5dClip:%-5d", stats.VertsXfrm, stats.VertsLit, stats.VertsOut, stats.VertsClip);
-    Statsf("Tris:%-4dLines:%-4dCards:%-4d", stats.Tris, stats.Lines, stats.Cards);
-    Statsf("St.Chg:%-3dTexChg:%-3dSt.Call:%-3dGeom.Call:%-3d", stats.StateChanges, stats.TextureChanges,
+    Statsf("DLPs Drawn:%-3d Clipped:%-3d", stats.DlpDrawn, stats.DlpClipped);
+    Statsf("Verts Xfrm:%-5d Lit:%-5d OutC:%-5d Clip:%-5d", stats.VertsXfrm, stats.VertsLit, stats.VertsOut, stats.VertsClip);
+    Statsf("Tris:%-4d Lines:%-4d Cards:%-4d", stats.Tris, stats.Lines, stats.Cards);
+    Statsf("St.Chg:%-3d TexChg:%-3d St.Call:%-3d Geom.Call:%-3d", stats.StateChanges, stats.TextureChanges,
         stats.StateChangeCalls, stats.GeomCalls);
-    Statsf("TxlsXfrd:%-4dKXtraTex:%-3d", (stats.TxlsXrfd + 1023) >> 10, stats.XtraTex);
+    Statsf("TxlsXfrd:%-4d KXtraTex:%-3d", (stats.TxlsXrfd + 1023) >> 10, stats.XtraTex);
 }
 
 extern const char* PrinterPrefixes[5];

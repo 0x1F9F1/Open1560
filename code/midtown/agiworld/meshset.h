@@ -388,7 +388,7 @@ private:
     ARTS_IMPORT void EndGfx();
 
     // ?PageInCallback@agiMeshSet@@CAXPAX@Z
-    ARTS_EXPORT static void PageInCallback(void* param);
+    [[deprecated]] ARTS_EXPORT static void PageInCallback(void* param);
 
     // ?PageOutCallback@agiMeshSet@@CAXPAXH@Z | agiworld:meshload
     ARTS_EXPORT static void PageOutCallback(void* param, isize delta);

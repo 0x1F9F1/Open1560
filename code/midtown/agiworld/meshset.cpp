@@ -112,7 +112,8 @@ void agiMeshSet::PageIn()
     if (!Resident)
     {
         ++Resident;
-        PAGER.Send(PageInCallback, this);
+
+        PAGER.Send([this] { DoPageIn(); });
     }
 }
 

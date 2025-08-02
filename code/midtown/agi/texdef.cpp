@@ -233,7 +233,7 @@ void agiTexDef::PageInSurface()
     {
         ++page_state_;
 
-        PAGER.Send(PageInCallback, this);
+        PAGER.Send([this] { DoPageIn(); });
     }
 }
 

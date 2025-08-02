@@ -492,10 +492,12 @@ void agiMeshSet::InitViewport(agiViewParameters& params)
         // TODO: Allow custom [Min/Max]Z
         if (MinX <= 0.0f && MaxX >= pipe_width && MinY <= 0.0f && MaxY >= pipe_height)
         {
-            MinX = -INFINITY;
-            MaxX = +INFINITY;
-            MinY = -INFINITY;
-            MaxY = +INFINITY;
+            constexpr float HugeVal = 1e10f;
+
+            MinX = -HugeVal;
+            MaxX = +HugeVal;
+            MinY = -HugeVal;
+            MaxY = +HugeVal;
 
             OnlyZClip = true;
             ClipMask = MESH_CLIP_NZ | MESH_CLIP_PZ;
@@ -707,7 +709,7 @@ void agiMeshSet::DrawShadow(u32 flags, const Vector4& plane, const Vector3& ligh
     }
 }
 
-static void (agiMeshSet::*const FirstPassFunctions[2][2][2][2])(u32* colors, Vector2* tex_coords, u32 color) {
+static void (agiMeshSet::* const FirstPassFunctions[2][2][2][2])(u32* colors, Vector2* tex_coords, u32 color) {
     {
         {
             {&agiMeshSet::FirstPass_HW_UV_CPV_noDYNTEX, &agiMeshSet::FirstPass_HW_UV_CPV_DYNTEX},

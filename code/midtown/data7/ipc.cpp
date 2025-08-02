@@ -123,12 +123,6 @@ void ipcYield()
     Sleep(0);
 }
 
-struct ipcMessage
-{
-    void (*Function)(void*) {};
-    void* Param {};
-};
-
 ipcMessageQueue::ipcMessageQueue() = default;
 
 ipcMessageQueue::~ipcMessageQueue()
@@ -156,7 +150,7 @@ void ipcMessageQueue::Init(i32 max_messages, i32 mode)
 
     blocking_ = blocking;
     max_messages_ = max_messages;
-    messages_ = arnewa ipcMessage[max_messages] {};
+    messages_ = arnewa Callback[max_messages] {};
 
     send_event_.init();
     done_event_.init();
@@ -170,9 +164,14 @@ void ipcMessageQueue::Init(i32 max_messages, i32 mode)
 
 void ipcMessageQueue::Send(void (*func)(void*), void* param)
 {
+    Send([func, param] { func(param); });
+}
+
+void ipcMessageQueue::Send(Callback cb)
+{
     if (!initialized_)
     {
-        func(param);
+        cb.Call();
 
         return;
     }
@@ -200,7 +199,7 @@ void ipcMessageQueue::Send(void (*func)(void*), void* param)
     bool trigger_send = read_index_ == send_index_;
 
     send_index_ = send_index;
-    messages_[send_index_] = {func, param};
+    messages_[send_index_] = cb;
 
     // If necessary, wake up the worker thread
     if (trigger_send)
@@ -244,11 +243,11 @@ i32 ipcMessageQueue::MessageLoop()
                     read_index_ = 0;
 
                 // Copy the message
-                ipcMessage msg = messages_[read_index_];
+                Callback msg = messages_[read_index_];
 
                 // Process the message, temporarily unlocking the mutex
                 lock.unlock();
-                msg.Function(msg.Param);
+                msg.Call();
                 lock.lock();
 
                 // Notify that a message has been processed

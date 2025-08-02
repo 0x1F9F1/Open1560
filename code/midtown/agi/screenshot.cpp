@@ -45,9 +45,8 @@ bool agiPipeline::ScreenShotRequested()
     return ScreenShotStage == 1;
 }
 
-static void SaveScreenShotWorker(void* ctx)
+static void SaveScreenShotWorker(agiSurfaceDesc* surface)
 {
-    agiSurfaceDesc* surface = static_cast<agiSurfaceDesc*>(ctx);
     ArAssert(surface->PixelFormat.RGBBitCount == 24, "Invalid Screenshot Format");
 
     i32 width = surface->Width;
@@ -166,5 +165,6 @@ void agiPipeline::SaveScreenShot(Ptr<agiSurfaceDesc> surface)
     }
 
     ScreenShotStage = 2;
-    GFXPAGER.Send(SaveScreenShotWorker, surface.release());
+
+    GFXPAGER.Send([surface = surface.release()] { SaveScreenShotWorker(surface); });
 }
