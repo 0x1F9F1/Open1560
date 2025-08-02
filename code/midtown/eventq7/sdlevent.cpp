@@ -18,14 +18,17 @@
 
 #include "sdlevent.h"
 
+#include "active.h"
+#include "event.h"
 #include "keys.h"
 #include "mmaudio/manager.h"
 #include "pcwindis/dxinit.h"
-#include "winevent.h"
 
 #include <SDL_events.h>
 #include <SDL_hints.h>
 #include <SDL_video.h>
+
+#include "core/minwin.h"
 
 void DeallocateEventQueue()
 {
@@ -39,10 +42,7 @@ void InitEventQueue()
     if (eqEventHandler::SuperQ)
         return;
 
-    if (g_MainWindow && !(SDL_GetWindowFlags(g_MainWindow) & SDL_WINDOW_FOREIGN))
-        eqEventHandler::SuperQ = new SDLEventHandler();
-    else
-        eqEventHandler::SuperQ = new WINEventHandler();
+    eqEventHandler::SuperQ = new SDLEventHandler();
 }
 
 static mem::cmd_param PARAM_mousemode {"mousemode"};

@@ -201,6 +201,15 @@ public:
 
 check_size(eqEventReplayChannelClass, 0x638);
 
+// ?DeallocateEventQueue@@YAXXZ
+ARTS_EXPORT void DeallocateEventQueue();
+
+// ?InitEventQueue@@YAXXZ
+ARTS_EXPORT void InitEventQueue();
+
+// ?CloseCallback@@3P6AXXZA
+ARTS_IMPORT extern void (*CloseCallback)(void);
+
 // ?eqEventReplayChannel@@3VeqEventReplayChannelClass@@A
 ARTS_IMPORT extern eqEventReplayChannelClass eqEventReplayChannel;
 

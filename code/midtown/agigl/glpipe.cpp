@@ -27,7 +27,7 @@
 #include "agirend/rdlp.h"
 #include "agirend/zbrender.h"
 #include "data7/utimer.h"
-#include "eventq7/winevent.h"
+#include "eventq7/active.h"
 #include "mmcityinfo/state.h"
 #include "pcwindis/dxinit.h"
 #include "pcwindis/setupdata.h"

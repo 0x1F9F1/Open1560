@@ -43,9 +43,6 @@ class agiTexLut;
 class agiTexParameters;
 class agiColorModel;
 
-typedef struct _DDPIXELFORMAT DDPIXELFORMAT;
-typedef struct _DDSURFACEDESC2 DDSURFACEDESC2;
-
 struct agiColorKey // DDCOLORKEY
 {
     u32 Low {};
@@ -70,9 +67,6 @@ struct agiPixelFormat // DDPIXELFORMAT
     u32 GBitMask {};
     u32 BBitMask {};
     u32 RGBAlphaBitMask {};
-
-    DDPIXELFORMAT ToDD();
-    static agiPixelFormat FromDD(const DDPIXELFORMAT& sd);
 };
 
 extern const agiPixelFormat PixelFormat_A8R8G8B8;
@@ -141,9 +135,6 @@ public:
     void FixPitch();
 
     static agiSurfaceDesc FromFormat(const agiPixelFormat& format);
-
-    DDSURFACEDESC2 ToDD();
-    static agiSurfaceDesc FromDD(const DDSURFACEDESC2& sd);
 
     Rc<agiColorModel> GetColorModel();
 

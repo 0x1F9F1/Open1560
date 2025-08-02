@@ -28,163 +28,12 @@ define_dummy_symbol(pcwindis_dxsetup);
 #include "mmui/graphics.h"
 #include "setupdata.h"
 
-HRESULT(WINAPI* agiDirectDrawCreate)(GUID FAR* lpGUID, LPDIRECTDRAW FAR* lplpDD, IUnknown FAR* pUnkOuter);
-HRESULT(WINAPI* agiDirectDrawEnumerateA)(LPDDENUMCALLBACKA lpCallback, LPVOID lpContext);
-
-bool agiLoadDirectDraw()
-{
-    if (!agiDirectDrawCreate || !agiDirectDrawEnumerateA)
-    {
-        HMODULE hddraw = LoadLibraryA("DDRAW.DLL");
-
-        if (hddraw)
-        {
-            agiDirectDrawCreate =
-                mem::bit_cast<decltype(agiDirectDrawCreate)>(GetProcAddress(hddraw, "DirectDrawCreate"));
-            agiDirectDrawEnumerateA =
-                mem::bit_cast<decltype(agiDirectDrawEnumerateA)>(GetProcAddress(hddraw, "DirectDrawEnumerateA"));
-        }
-    }
-
-    return agiDirectDrawCreate && agiDirectDrawEnumerateA;
-}
-
-// ?AddRenderer@@YAXPAUIDirectDraw4@@PAU_GUID@@PAD@Z
-ARTS_IMPORT /*static*/ void AddRenderer(IDirectDraw4* arg1, _GUID* arg2, char* arg3);
-
-// ?CheckSoftwareRenderer@@YAHPAUIDirectDraw4@@PAU_GUID@@@Z
-ARTS_IMPORT /*static*/ i32 CheckSoftwareRenderer(IDirectDraw4* arg1, _GUID* arg2);
-
-// ?EnumCounter@@YGHPAU_GUID@@PAD1PAX@Z
-ARTS_IMPORT /*static*/ i32 ARTS_STDCALL EnumCounter(_GUID* arg1, char* arg2, char* arg3, void* arg4);
-
-// ?EnumTextures@@YGJPAU_DDPIXELFORMAT@@PAX@Z
-ARTS_IMPORT /*static*/ ilong ARTS_STDCALL EnumTextures(_DDPIXELFORMAT* arg1, void* arg2);
-
-// ?EnumZ_DXSetup@@YGJPAU_DDPIXELFORMAT@@PAX@Z
-long WINAPI EnumZ_DXSetup(DDPIXELFORMAT* ddpf, void* ctx)
-{
-    if (ddpf->dwRGBBitCount == 16)
-        std::memcpy(ctx, ddpf, sizeof(*ddpf));
-
-    return 1;
-}
-
-// ?EnumerateRenderers2@@YAXXZ
-ARTS_IMPORT /*static*/ void EnumerateRenderers2();
-
-static void EnumerateRenderersDX6()
-{
-    EnumerateRenderers2();
-}
-
-// ?Enumerator@@YGHPAU_GUID@@PAD1PAX@Z
-ARTS_IMPORT /*static*/ i32 ARTS_STDCALL Enumerator(_GUID* arg1, char* arg2, char* arg3, void* arg4);
-
-// ?GetSpecialFlags@@YAIKK@Z
-ARTS_IMPORT /*static*/ u32 GetSpecialFlags(ulong arg1, ulong arg2);
-
-// ?LockScreen@@YAJPAUIDirectDraw4@@@Z
-ARTS_IMPORT /*static*/ ilong LockScreen(IDirectDraw4* arg1);
-
-static mem::cmd_param PARAM_min_aspect {"minaspect"};
-static mem::cmd_param PARAM_max_aspect {"maxaspect"};
-
-static bool IsGoodResolution(i32 width, i32 height, dxiRendererType type)
-{
-    if (width < 640 || height < 480)
-        return false;
-
-    if ((type == dxiRendererType::DX6_Soft) && (width >= 4096 || height >= 4096))
-        return false;
-
-    if (height <= 720)
-        return true;
-
-    f32 ar = static_cast<f32>(width) / static_cast<f32>(height);
-
-    return ar >= PARAM_min_aspect.get_or<f32>(1.6f) && ar <= PARAM_max_aspect.get_or<f32>(2.4f);
-}
-
-// ?ModeCallback@@YGJPAU_DDSURFACEDESC2@@PAX@Z
-ARTS_EXPORT /*static*/ long WINAPI ModeCallback(DDSURFACEDESC2* sd, void* ctx)
-{
-    dxiRendererInfo_t* info = static_cast<dxiRendererInfo_t*>(ctx);
-
-    if (info->ResCount < 32)
-    {
-        if (IsGoodResolution(sd->dwWidth, sd->dwHeight, info->Type) && (sd->ddpfPixelFormat.dwRGBBitCount == 16))
-        {
-            info->Resolutions[info->ResCount].uWidth = static_cast<u16>(sd->dwWidth);
-            info->Resolutions[info->ResCount].uHeight = static_cast<u16>(sd->dwHeight);
-
-            info->ResCount++;
-        }
-    }
-
-    return 1;
-}
-
-// ?MyDirectDrawEnumerate@@YAXP6GHPAU_GUID@@PAD1PAX@Z2@Z
-ARTS_IMPORT /*static*/ void MyDirectDrawEnumerate(i32(ARTS_STDCALL* arg1)(_GUID*, char*, char*, void*), void* arg2);
-
-// ?NeedDX6@@YAXXZ
-ARTS_IMPORT /*static*/ void NeedDX6();
-
-// ?NotLameChipset@@YAHKK@Z
-ARTS_IMPORT /*static*/ i32 NotLameChipset(ulong arg1, ulong arg2);
-
-// ?TestResolution@@YAHPAUIDirectDraw4@@AAUdxiRendererInfo_t@@@Z
-ARTS_IMPORT /*static*/ i32 TestResolution(IDirectDraw4* arg1, dxiRendererInfo_t& arg2);
-
-// ?UnlockScreen@@YAXXZ
-ARTS_EXPORT /*static*/ void UnlockScreen()
-{
-    dxiWindowDestroy();
-}
-
-static bool ValidateRenderersDX6()
-{
-    i32 count = 0;
-
-    for (i32 i = 0; i < dxiRendererCount; ++i)
-    {
-        dxiRendererInfo_t& info = dxiInfo[i];
-
-        if (!IsDX6Renderer(info.Type))
-            return false;
-
-        IDirectDraw* ddraw = nullptr;
-
-        if (agiDirectDrawCreate((info.Type == dxiRendererType::DX6) ? &info.DX6.Interface : nullptr, &ddraw, NULL))
-            return false;
-
-        IDirectDraw4* ddraw4 = nullptr;
-        DDDEVICEIDENTIFIER ident;
-
-        if (ddraw->QueryInterface(IID_IDirectDraw4, (LPVOID*) &ddraw4))
-            NeedDX6();
-
-        if (!ddraw4->GetDeviceIdentifier(&ident, 0) &&
-            !std::memcmp(&ident.guidDeviceIdentifier, &info.DX6.Driver, sizeof(GUID)))
-        {
-            ++count;
-        }
-
-        ddraw4->Release();
-        ddraw->Release();
-    }
-
-    return count == dxiRendererCount;
-}
-
 #ifdef ARTS_ENABLE_OPENGL
 #    include "agisdl/sdlsetup.h"
-
-static mem::cmd_param PARAM_opengl {"opengl"};
 #endif
 
-static mem::cmd_param PARAM_d3d {"d3d"};
+#include "core/minwin.h"
+
 static mem::cmd_param PARAM_config {"config"};
 static mem::cmd_param PARAM_sw {"sw"};
 
@@ -196,24 +45,15 @@ void dxiConfig([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
     void (*enumerate)() = nullptr;
     bool show_message = false;
 
-    if (PARAM_d3d && agiLoadDirectDraw())
-    {
-        validate = ValidateRenderersDX6;
-        enumerate = EnumerateRenderersDX6;
-        show_message = true;
-    }
 #ifdef ARTS_ENABLE_OPENGL
-    else if (PARAM_opengl.get_or(true))
     {
         validate = ValidateRenderersSDL;
         enumerate = EnumerateRenderersSDL;
         show_message = false;
     }
+#else
+#    error No valid renderer backends
 #endif
-    else
-    {
-        Quitf("No valid renderer backends");
-    }
 
     if (PARAM_config.get_or(false) || !dxiReadConfigFile() || !validate())
     {

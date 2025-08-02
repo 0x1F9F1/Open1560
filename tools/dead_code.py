@@ -124,9 +124,8 @@ set_sym(None, len(lines))
 
 used_syms = get_used_syms()
 
-for sym in used_syms:
-    if sym not in public_syms:
-        print('Missing', sym)
+for sym in used_syms - public_syms:
+    raise Exception(f'Missing {sym}')
 
 public_syms = public_syms & used_syms
 

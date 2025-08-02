@@ -22,7 +22,7 @@
 #include "agi/pipeline.h"
 #include "agi/texdef.h"
 #include "data7/utimer.h"
-#include "eventq7/winevent.h"
+#include "eventq7/active.h"
 #include "pcwindis/setupdata.h"
 #include "stream/stream.h"
 

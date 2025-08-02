@@ -45,13 +45,10 @@
 
 #include "agi/texdef.h"
 
-#include "swpipe.h"
-
 class agiSWTexDef final : public agiTexDef
 {
 public:
-    // ??0agiSWTexDef@@QAE@PAVagiSWPipeline@@@Z
-    ARTS_EXPORT agiSWTexDef(agiSWPipeline* pipe)
+    agiSWTexDef(agiPipeline* pipe)
         : agiTexDef(pipe)
     {}
 
@@ -93,8 +90,9 @@ check_size(agiSWTexDef, 0x9C);
 class agiSWTexLut final : public agiTexLut
 {
 public:
-    // ??0agiSWTexLut@@QAE@PAVagiSWPipeline@@@Z
-    ARTS_IMPORT agiSWTexLut(agiSWPipeline* arg1);
+    agiSWTexLut(agiPipeline* pipe)
+        : agiTexLut(pipe)
+    {}
 
     // ??_GagiSWTexLut@@UAEPAXI@Z
     // ??_EagiSWTexLut@@UAEPAXI@Z

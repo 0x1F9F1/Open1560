@@ -16,15 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-define_dummy_symbol(agid3d_pcpipe);
+#pragma once
 
-#include "pcpipe.h"
+// 0x1 | Focused/Active
+// ?ActiveFlag@@3HA
+ARTS_IMPORT extern i32 ActiveFlag;
 
-#include "d3drpipe.h"
-
-Owner<agiPipeline> d3dCreatePipeline([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
+inline bool IsAppActive()
 {
-    Ptr<agiD3DRPipeline> result = arnew agiD3DRPipeline();
-    result->Init();
-    return as_owner result;
+    return ActiveFlag & 0x1;
 }

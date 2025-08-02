@@ -36,7 +36,7 @@
 #include "agisw/swtexdef.h"
 #include "core/minwin.h"
 #include "data7/utimer.h"
-#include "eventq7/winevent.h"
+#include "eventq7/active.h"
 #include "pcwindis/dxinit.h"
 
 #include <SDL_hints.h>
@@ -464,14 +464,12 @@ RcOwner<agiMtlDef> agiSDLSWPipeline::CreateMtlDef()
 
 RcOwner<agiTexDef> agiSDLSWPipeline::CreateTexDef()
 {
-    // FIXME: Reinterpreting pipeline
-    return as_owner arnewr agiSWTexDef(reinterpret_cast<agiSWPipeline*>(this));
+    return as_owner arnewr agiSWTexDef(this);
 }
 
 RcOwner<agiTexLut> agiSDLSWPipeline::CreateTexLut()
 {
-    // FIXME: Reinterpreting pipeline
-    return as_owner arnewr agiSWTexLut(reinterpret_cast<agiSWPipeline*>(this));
+    return as_owner arnewr agiSWTexLut(this);
 }
 
 RcOwner<agiViewport> agiSDLSWPipeline::CreateViewport()

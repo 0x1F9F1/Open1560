@@ -1,18 +1,7 @@
-newoption {
-   trigger     = "ARTS_DISABLE_OPENGL",
-   description = "Compile OpenGL Renderer",
-}
-
-newoption {
-   trigger     = "ARTS_ENABLE_DX6",
-   description = "Compile OpenGL Renderer",
-}
-
 ARTS_TARGET_BUILD = 1560
 ARTS_DEV_BUILD = true
 
-ARTS_ENABLE_OPENGL = not (_OPTIONS['ARTS_DISABLE_OPENGL'] or false)
-ARTS_ENABLE_DX6 = _OPTIONS['ARTS_ENABLE_DX6'] or false
+ARTS_ENABLE_OPENGL = true
 
 include "core"
 
@@ -57,13 +46,6 @@ if ARTS_DEV_BUILD then
 
     project "*"
         defines { "ARTS_DEV_BUILD" }
-end
-
-if ARTS_ENABLE_DX6 then
-    include "agid3d"
-
-    project "*"
-        defines { "ARTS_ENABLE_DX6" }
 end
 
 if ARTS_ENABLE_OPENGL then
@@ -145,12 +127,6 @@ project "Open1560"
             "arts_agirend",
             "arts_mmcamtour",
             "arts_toolmgr",
-        }
-    end
-
-    if ARTS_ENABLE_DX6 then
-        links {
-            "arts_agid3d"
         }
     end
 

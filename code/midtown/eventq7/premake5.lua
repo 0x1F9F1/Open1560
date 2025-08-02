@@ -1,5 +1,6 @@
 arts_component "eventq7"
     files {
+        "active.h",
         "dispatchable.cpp",
         "dispatchable.h",
         "event.cpp",
@@ -10,8 +11,6 @@ arts_component "eventq7"
         "geinputLib.h",
         "replay.cpp",
         "replay.h",
-        "winevent.cpp",
-        "winevent.h",
         "sdlevent.cpp",
         "sdlevent.h",
 

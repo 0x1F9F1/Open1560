@@ -46,11 +46,11 @@ check_size(dxiResolution, 8);
 enum class dxiRendererType : i32
 {
     Invalid = -1,
-    DX6_Soft = 0, // DX6 Software
-    DX6_GDI = 1,  // DX6 Hardware (Primary Surface)
-    DX6 = 2,      // DX6 Hardware
-    OpenGL = 3,   // OpenGL Hardware
-    SDL2 = 4,     // SDL_Renderer Software
+    Removed_DX6_Soft = 0, // DX6 Software
+    Removed_DX6_GDI = 1,  // DX6 Hardware (Primary Surface)
+    Removed_DX6 = 2,      // DX6 Hardware
+    OpenGL = 3,           // OpenGL Hardware
+    SDL2 = 4,             // SDL_Renderer Software
 };
 
 struct dxiRendererInfo_t
@@ -137,12 +137,7 @@ inline dxiRendererInfo_t& GetRendererInfo()
 
 inline bool IsSoftwareRenderer(dxiRendererType type)
 {
-    return (type == dxiRendererType::DX6_Soft) || (type == dxiRendererType::SDL2);
-}
-
-inline bool IsDX6Renderer(dxiRendererType type)
-{
-    return (type == dxiRendererType::DX6_Soft) || (type == dxiRendererType::DX6_GDI) || (type == dxiRendererType::DX6);
+    return (type == dxiRendererType::SDL2);
 }
 
 inline bool IsSDLRenderer(dxiRendererType type)

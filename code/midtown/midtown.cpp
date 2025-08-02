@@ -20,12 +20,11 @@ define_dummy_symbol(midtown);
 
 #include "midtown.h"
 
+#include "agi/bitmap.h"
 #include "agi/physlib.h"
 #include "agi/pipeline.h"
 #include "agi/texdef.h"
 #include "agisdl/sdlswpipe.h"
-#include "agisw/swddraw.h"
-#include "agisw/swpipe.h"
 #include "arts7/sim.h"
 #include "data7/args.h"
 #include "data7/cache.h"
@@ -35,7 +34,6 @@ define_dummy_symbol(midtown);
 #include "data7/metaclass.h"
 #include "data7/pager.h"
 #include "data7/timer.h"
-#include "eventq7/winevent.h"
 #include "localize/localize.h"
 #include "memory/allocator.h"
 #include "memory/stack.h"
@@ -75,10 +73,6 @@ define_dummy_symbol(midtown);
 
 #ifdef ARTS_ENABLE_OPENGL
 #    include "agigl/glpipe.h"
-#endif
-
-#ifdef ARTS_ENABLE_DX6
-#    include "agid3d/pcpipe.h"
 #endif
 
 #include <shellapi.h>
@@ -704,7 +698,6 @@ void ApplicationHelper(i32 argc, char** argv)
 
     dxiConfig(argc, argv);
     SDL_ShowCursor(0);
-    InitialCursorState = 0;
 
     dxiInit(APPTITLE, argc, argv);
     Displayf("dxiInit returned.");
@@ -771,7 +764,6 @@ void ApplicationHelper(i32 argc, char** argv)
 
     SAFEHEAP.Kill();
     dxiShutdown();
-    dxiChangeDisplaySettings(0, 0, 0);
 }
 
 #undef ARG
@@ -788,19 +780,10 @@ Owner<agiPipeline> CreatePipeline(i32 argc, char** argv)
         if (MMSTATE.GameState != mmGameState::Menus)
         {
             dxiFlags = (dxiFlags & ~DXI_FLAG_SYSTEM_MEMORY) | DXI_FLAG_FULL_SCREEN | DXI_FLAG_DOUBLE_BUFFER;
-            InitialCursorState = -1;
         }
         else
         {
             dxiFlags = (dxiFlags & ~(DXI_FLAG_FULL_SCREEN | DXI_FLAG_DOUBLE_BUFFER)) | DXI_FLAG_SYSTEM_MEMORY;
-
-            if (dxiChangeDisplaySettings(640, 480, 16))
-            {
-                MessageBoxA(NULL, LOC_STR(MM_IDS_USE_HIGH_COLOR), APPTITLE, MB_ICONERROR);
-                Quit();
-            }
-
-            InitialCursorState = 0;
         }
 
         dxiInit(APPTITLE, 0, 0);
@@ -811,16 +794,9 @@ Owner<agiPipeline> CreatePipeline(i32 argc, char** argv)
     if (MMSTATE.GameState != mmGameState::Menus)
     {
         i32 res_choice = info.ResChoice;
-        bRenderToSystem = RenderToSystemMemory;
 
         switch (info.Type)
         {
-#ifdef ARTS_ENABLE_DX6
-            case dxiRendererType::DX6_Soft: pipe = as_ptr swCreatePipeline(argc, argv); break;
-            case dxiRendererType::DX6_GDI:
-            case dxiRendererType::DX6: pipe = as_ptr d3dCreatePipeline(argc, argv); break;
-#endif
-
 #ifdef ARTS_ENABLE_OPENGL
             case dxiRendererType::OpenGL: pipe = as_ptr glCreatePipeline(argc, argv); break;
             case dxiRendererType::SDL2: pipe = as_ptr sdlCreatePipeline(argc, argv); break;
@@ -856,16 +832,8 @@ Owner<agiPipeline> CreatePipeline(i32 argc, char** argv)
     }
     else
     {
-        bRenderToSystem = true;
-
-        switch (bHaveIME ? dxiRendererType::DX6_Soft : info.Type)
+        switch (info.Type)
         {
-#ifdef ARTS_ENABLE_DX6
-            case dxiRendererType::DX6_Soft: pipe = as_ptr swCreatePipeline(argc, argv); break;
-            case dxiRendererType::DX6_GDI:
-            case dxiRendererType::DX6: pipe = as_ptr d3dCreatePipeline(argc, argv); break;
-#endif
-
 #ifdef ARTS_ENABLE_OPENGL
             case dxiRendererType::OpenGL: pipe = as_ptr glCreatePipeline(argc, argv); break;
             case dxiRendererType::SDL2: pipe = as_ptr sdlCreatePipeline(argc, argv); break;
@@ -1319,23 +1287,7 @@ include_dummy_symbol(agi_texdef);
 include_dummy_symbol(agi_texlib);
 include_dummy_symbol(agi_viewport);
 
-#ifdef ARTS_ENABLE_DX6
-include_dummy_symbol(agid3d_d3dlight);
-include_dummy_symbol(agid3d_d3dmtldef);
-include_dummy_symbol(agid3d_d3dpipe);
-include_dummy_symbol(agid3d_d3drpipe);
-include_dummy_symbol(agid3d_d3drsys);
-include_dummy_symbol(agid3d_d3dtexdef);
-include_dummy_symbol(agid3d_d3dview);
-include_dummy_symbol(agid3d_ddbitmap);
-include_dummy_symbol(agid3d_dderror);
-include_dummy_symbol(agid3d_ddpipe);
-include_dummy_symbol(agid3d_pcpipe);
-#endif
-
-include_dummy_symbol(agisw_swddraw);
 include_dummy_symbol(agisw_swemitrunall);
-include_dummy_symbol(agisw_swpipe);
 include_dummy_symbol(agisw_swrend);
 include_dummy_symbol(agisw_swrsys);
 include_dummy_symbol(agisw_swtexdef);
@@ -1405,7 +1357,6 @@ include_dummy_symbol(eventq7_event);
 include_dummy_symbol(eventq7_eventq);
 include_dummy_symbol(eventq7_geinputLib);
 include_dummy_symbol(eventq7_replay);
-include_dummy_symbol(eventq7_winevent);
 
 include_dummy_symbol(localize_localize);
 

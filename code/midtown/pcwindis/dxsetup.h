@@ -41,14 +41,6 @@
     0x90A560 | int dxiCpuSpeed | ?dxiCpuSpeed@@3HA
 */
 
-#include <ddraw.h>
-
-extern HRESULT(WINAPI* agiDirectDrawCreate)(GUID FAR* lpGUID, LPDIRECTDRAW FAR* lplpDD, IUnknown FAR* pUnkOuter);
-extern HRESULT(WINAPI* agiDirectDrawEnumerateA)(LPDDENUMCALLBACKA lpCallback, LPVOID lpContext);
-
-// ?MultiMonCallback@@YGHPAU_GUID@@PAD1PAX2@Z
-ARTS_IMPORT i32 ARTS_STDCALL MultiMonCallback(_GUID* arg1, char* arg2, char* arg3, void* arg4, void* arg5);
-
 // ?dxiConfig@@YAXHPAPAD@Z
 ARTS_EXPORT void dxiConfig(i32 argc, char** argv);
 

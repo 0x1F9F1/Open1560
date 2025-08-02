@@ -25,7 +25,6 @@ define_dummy_symbol(agi_surface);
 #include "cmodel.h"
 #include "texdef.h"
 
-#include <ddraw.h>
 #include <emmintrin.h>
 
 struct jpeg_decompress_struct;
@@ -450,26 +449,6 @@ agiSurfaceDesc agiSurfaceDesc::FromFormat(const agiPixelFormat& format)
     result.Flags = AGISD_PIXELFORMAT;
     result.PixelFormat = format;
     return result;
-}
-
-DDPIXELFORMAT agiPixelFormat::ToDD()
-{
-    return mem::bit_cast<DDPIXELFORMAT>(*this);
-}
-
-agiPixelFormat agiPixelFormat::FromDD(const DDPIXELFORMAT& sd)
-{
-    return mem::bit_cast<agiPixelFormat>(sd);
-}
-
-DDSURFACEDESC2 agiSurfaceDesc::ToDD()
-{
-    return mem::bit_cast<DDSURFACEDESC2>(*this); // FIXME: 64-bit incompatible
-}
-
-agiSurfaceDesc agiSurfaceDesc::FromDD(const DDSURFACEDESC2& sd)
-{
-    return mem::bit_cast<agiSurfaceDesc>(sd); // FIXME: 64-bit incompatible
 }
 
 Rc<agiColorModel> agiSurfaceDesc::GetColorModel()

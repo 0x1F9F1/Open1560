@@ -37,11 +37,6 @@ define_dummy_symbol(pcwindis_dxinit);
 #include <SDL_syswm.h>
 #include <SDL_video.h>
 
-#ifdef ARTS_ENABLE_DX6
-#    include <ddraw.h>
-#    include <dinput.h>
-#endif
-
 SDL_Window* g_MainWindow = nullptr;
 
 template <typename T>
@@ -53,52 +48,6 @@ inline void SafeRelease(T*& ptr)
         ptr = nullptr;
     }
 }
-
-i32 dxiChangeDisplaySettings(i32 /*width*/, i32 /*height*/, i32 /*bpp*/)
-{
-    return 0;
-}
-
-#ifdef ARTS_ENABLE_DX6
-static inline GUID* dxiGetInterfaceGUID()
-{
-    dxiRendererInfo_t& info = GetRendererInfo();
-
-    return ((info.Type == dxiRendererType::DX6) && dxiIsFullScreen()) ? &info.DX6.Interface : nullptr;
-}
-
-static GUID* dxiCurrentInterfaceGUID = nullptr;
-
-void dxiDirectDrawCreate()
-{
-    dxiCurrentInterfaceGUID = dxiGetInterfaceGUID();
-
-    IDirectDraw* lpDD = nullptr;
-
-    if (agiDirectDrawCreate(dxiCurrentInterfaceGUID, &lpDD, NULL) != 0)
-        Quitf("dxiDirectDrawCreate: DirectDrawCreate failed.");
-
-    if (lpDD->QueryInterface(IID_IDirectDraw4, (void**) &lpDD4) != 0)
-        Quitf("dxiDirectDrawCreate: QI DD4 failed.");
-
-    lpDD->Release();
-
-    if (lpDD4->SetCooperativeLevel(
-            hwndMain, dxiIsFullScreen() ? (DDSCL_FULLSCREEN | DDSCL_ALLOWREBOOT | DDSCL_EXCLUSIVE) : DDSCL_NORMAL) != 0)
-    {
-        Quitf("dxiDirectDrawCreate: SetCooperativeLevel failed.");
-    }
-}
-
-void dxiDirectDrawSurfaceDestroy()
-{
-    SafeRelease(lpClip);
-    SafeRelease(lpdsRend);
-    SafeRelease(lpdsBack2);
-    SafeRelease(lpdsBack);
-    SafeRelease(lpdsFront);
-}
-#endif
 
 static mem::cmd_param PARAM_sdljoy {"sdljoy"};
 
@@ -202,14 +151,6 @@ void dxiInit(char* title, i32 argc, char** argv)
 
     dxiWindowCreate(title, type);
 
-#ifdef ARTS_ENABLE_DX6
-    if (IsDX6Renderer(type))
-    {
-        dxiDirectDrawCreate();
-        dxiSetDisplayMode();
-    }
-#endif
-
     dxiDirectInputCreate();
 }
 
@@ -218,155 +159,9 @@ void dxiScreenShot(char* file_name)
     agiPipeline::RequestScreenShot(ConstString(file_name));
 }
 
-// ?translate555@@YAXPAEPAGI@Z
-ARTS_IMPORT /*static*/ void translate555(u8* output, u16* input, u32 width);
-
-// ?translate565@@YAXPAEPAGI@Z
-ARTS_IMPORT /*static*/ void translate565(u8* output, u16* input, u32 width);
-
-#ifdef ARTS_ENABLE_DX6
-Ptr<agiSurfaceDesc> dxiScreenShot()
-{
-    if (lpdsRend == nullptr)
-        return nullptr;
-
-    DDSURFACEDESC2 sd {sizeof(sd)};
-
-    if (lpdsRend->Lock(NULL, &sd, DDLOCK_WAIT, NULL))
-    {
-        Errorf("Error locking surface for screenshot.");
-        return nullptr;
-    }
-
-    i32 width = static_cast<i32>(sd.dwWidth);
-    i32 height = static_cast<i32>(sd.dwHeight);
-
-    Ptr<agiSurfaceDesc> surface =
-        as_ptr agiSurfaceDesc::Init(width, height, agiSurfaceDesc::FromFormat(PixelFormat_B8G8R8));
-
-    void (*translate)(u8* output, u16* input, u32 width) = nullptr;
-
-    switch (sd.ddpfPixelFormat.dwRBitMask)
-    {
-        case 0x7C00: translate = translate555; break;
-        case 0xF800: translate = translate565; break;
-    }
-
-    if (translate)
-    {
-        // Translate and flip horizontally
-        for (i32 i = 0; i < height; ++i)
-        {
-            translate(static_cast<u8*>(surface->Surface) + (i * surface->Pitch),
-                reinterpret_cast<u16*>(static_cast<u8*>(sd.lpSurface) + (sd.lPitch * (height - i - 1))), sd.dwWidth);
-        }
-    }
-    else
-    {
-        Errorf("Unknown framebuffer format %X %X %X", sd.ddpfPixelFormat.dwRBitMask, sd.ddpfPixelFormat.dwGBitMask,
-            sd.ddpfPixelFormat.dwBBitMask);
-    }
-
-    lpdsRend->Unlock(NULL);
-
-    return surface;
-}
-
-static inline void dxiRestoreDisplayMode()
-{
-    if (dxiIsFullScreen() && lpDD4)
-    {
-        lpDD4->RestoreDisplayMode();
-        lpDD4->SetCooperativeLevel(hwndMain, DDSCL_NORMAL);
-    }
-}
-
-void dxiSetDisplayMode()
-{
-    dxiDirectDrawSurfaceDestroy();
-
-    if (dxiCurrentInterfaceGUID != dxiGetInterfaceGUID())
-    {
-        dxiRestoreDisplayMode();
-        SafeRelease(lpDD4);
-        dxiDirectDrawCreate();
-    }
-
-    if (g_MainWindow)
-    {
-        SDL_SetWindowResizable(g_MainWindow, dxiIsFullScreen() ? SDL_TRUE : SDL_FALSE);
-        SDL_SetWindowPosition(g_MainWindow, 0, 0);
-    }
-
-    if (dxiIsFullScreen())
-    {
-        Displayf("dxiSetDisplayMode(%d,%d,%d)", dxiWidth, dxiHeight, dxiDepth);
-
-        u32 err = lpDD4->SetDisplayMode(dxiWidth, dxiHeight, dxiDepth, 0, 0);
-
-        if (err)
-        {
-            Quitf(
-                "dxiDirectDrawCreate: SetDisplayMode(%d,%d,%d) failed: code %08X.", dxiWidth, dxiHeight, dxiDepth, err);
-        }
-    }
-    else
-    {
-        if (g_MainWindow)
-            SDL_SetWindowSize(g_MainWindow, dxiWidth, dxiHeight);
-        else
-            SetWindowPos(hwndMain, 0, 0, 0, dxiWidth, dxiHeight, SWP_NOMOVE | SWP_NOZORDER);
-    }
-
-    dxiDirectDrawSurfaceCreate();
-}
-#endif
-
-void dxiWindowCreate([[maybe_unused]] const char* title)
-{
-#ifdef ARTS_ENABLE_DX6
-    if (hwndMain != NULL)
-        return;
-
-    HINSTANCE hInstance = GetModuleHandle(NULL);
-
-    if (static ATOM agiWindowClass = 0; agiWindowClass == 0)
-    {
-        WNDCLASSA wc {};
-
-        wc.style = CS_OWNDC;
-        wc.lpfnWndProc = &MasterWindowProc;
-        wc.cbClsExtra = 0;
-        wc.cbWndExtra = 0;
-        wc.hInstance = hInstance;
-        wc.hIcon = dxiIcon ? LoadIcon(hInstance, MAKEINTRESOURCE(dxiIcon)) : LoadIcon(NULL, IDI_APPLICATION);
-        wc.hCursor = LoadCursor(NULL, IDC_ARROW);
-        wc.hbrBackground = (HBRUSH) GetStockObject(BLACK_BRUSH);
-        wc.lpszMenuName = NULL;
-        wc.lpszClassName = "agiwindow";
-
-        agiWindowClass = RegisterClassA(&wc);
-    }
-
-    hwndMain = CreateWindowExA(WS_EX_APPWINDOW, "agiwindow", title, WS_POPUP, 0, 0, 0, 0, NULL, NULL, hInstance, NULL);
-
-    ShowWindow(hwndMain, SW_SHOWNORMAL);
-    UpdateWindow(hwndMain);
-#else
-    Abortf("DirectX 6 is disabled!");
-#endif
-}
-
 void dxiShutdown()
 {
     SafeRelease(lpDI);
-
-#ifdef ARTS_ENABLE_DX6
-    dxiDirectDrawSurfaceDestroy();
-    dxiRestoreDisplayMode();
-
-    SafeRelease(lpDD4);
-#endif
 
     dxiWindowDestroy();
 }
@@ -378,11 +173,6 @@ static dxiRendererType s_WindowType = dxiRendererType::Invalid;
 
 void dxiWindowCreate(const char* title, dxiRendererType type)
 {
-#ifdef ARTS_ENABLE_DX6
-    if (!IsSDLRenderer(type) && !PARAM_sdlwindow.get_or(false))
-        return dxiWindowCreate(title);
-#endif
-
     if (g_MainWindow != NULL)
     {
         if (s_WindowType == type)
@@ -406,11 +196,6 @@ void dxiWindowCreate(const char* title, dxiRendererType type)
         window_flags |= SDL_WINDOW_OPENGL /*| SDL_WINDOW_FULLSCREEN_DESKTOP*/;
 #endif
     }
-    else if (IsDX6Renderer(type))
-    {
-        // DDRAW will likely try and change the window size
-        window_flags |= SDL_WINDOW_RESIZABLE;
-    }
 
     g_MainWindow = SDL_CreateWindow(title, 0, 0, 0, 0, window_flags);
 
@@ -431,18 +216,10 @@ void dxiWindowDestroy()
 {
     if (g_MainWindow)
     {
-        if (!(SDL_GetWindowFlags(g_MainWindow) & SDL_WINDOW_FOREIGN))
-            hwndMain = NULL;
-
         SDL_DestroyWindow(g_MainWindow);
         g_MainWindow = nullptr;
     }
 
-    if (hwndMain)
-    {
-        DestroyWindow(hwndMain);
-        hwndMain = NULL;
-    }
-
+    hwndMain = NULL;
     s_WindowType = dxiRendererType::Invalid;
 }

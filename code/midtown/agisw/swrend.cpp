@@ -23,7 +23,7 @@ define_dummy_symbol(agisw_swrend);
 #include "agi/pipeline.h"
 #include "agi/rsys.h"
 #include "data7/utimer.h"
-#include "eventq7/winevent.h"
+#include "eventq7/active.h"
 
 struct swEdge;
 

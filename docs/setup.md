@@ -50,17 +50,13 @@ For a tutorial on how to use command line arguments, click [here](https://www.bl
 | cdid       | false | Enables CD music in the menu when using a virtual CD |
 | config     | false | Forces redetection of graphics modes |
 | console    | false | Enables console logging |
-| d3d        | false | Use the D3D renderer |
 | fovfix     | true  | Enables FOV scaling based on resolution |
 | heapsize   | 64    | The size in MB of the game heap |
 | legacygl   | false | Uses a legacy/compatibility OpenGL context |
-| maxaspect  |       | Maximum aspect ratio of available resolutions |
 | maxfps     | 0     | Limits the max fps |
-| minaspect  |       | Minimum aspect ratio of available resolutions |
 | mousemode  | 0     | Mouse mode. 0 = Relative (Raw Input), 1 = Relative (Mouse Warping), 2 = Absolute |
 | msaa       | 0     | Sets the anti-aliasing level (does not work with legacy OpenGL) |
 | nativeres  | true  | Enables rendering internally at the native window resolution (enabled when using -msaa or -legacygl) |
-| opengl     | true  | Use the OpenGL renderer |
 | prio       | 2     | Sets the process priority |
 | scaling    | 0     | Sets the scaling mode. 0 = Stretched (Keep Aspect), 1 = Stretched, 2 = Centered, 3 = Centered (Integer Scaling) |
 | smoothstep | true  | Smoothes out the time between frames to avoid stutter |
@@ -81,13 +77,6 @@ For a tutorial on how to use command line arguments, click [here](https://www.bl
 | gldebug     | -1    | Sets the OpenGL debug output level |
 | glstream    |       | Sets the mode for streaming data to the GPU |
 | sync        | true  | Disables multi-threading |
-
-## DirectDraw
-
-| Name       | Value | Description |
-| ---------- | ---   | --- |
-| reshack    | true  | Enables resolutions above 2048x2048 when using MS ddraw |
-| voodooaa   | false | Fixes text rendering when using dgVodooo's anti aliasing |
 
 # Dev/Debug Functions
 

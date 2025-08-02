@@ -20,8 +20,8 @@ define_dummy_symbol(eventq7_geinputLib);
 
 #include "geinputLib.h"
 
+#include "active.h"
 #include "pcwindis/dxinit.h"
-#include "winevent.h"
 
 // ?MouseDevice@@3PAUIDirectInputDeviceA@@A
 ARTS_IMPORT extern IDirectInputDeviceA* MouseDevice;
