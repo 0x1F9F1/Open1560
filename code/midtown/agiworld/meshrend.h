@@ -52,7 +52,8 @@ struct agiMeshCardInfo
 {
 public:
     // ?Init@agiMeshCardInfo@@QAEXHPAUagiMeshCardVertex@@HHH@Z
-    ARTS_IMPORT void Init(i32 arg1, agiMeshCardVertex* arg2, i32 arg3, i32 arg4, i32 arg5);
+    ARTS_IMPORT void Init(
+        i32 vertex_count, agiMeshCardVertex* verts, i32 rotation_count, i32 frames_width, i32 frames_height);
 
     i32 VertCount {};
     i32 PointCount {};

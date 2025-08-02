@@ -45,8 +45,7 @@ static mem::cmd_param PARAM_rv3 {"rv3"};
 
     patch_jmp("mmInterface::PlayerFillStats", "Always Show Score", 0x40C414, jump_type::never);
 
-    patch_jmp("mmCullCity::Init", "DevelopmentMode", 0x48C851, jump_type::always);
-    patch_jmp("mmCullCity::Init", "DevelopmentMode", 0x4908DC, jump_type::always);
+    patch_jmp("asRenderWeb::Load", "DevelopmentMode", 0x4908DC, jump_type::always);
 
     // create_patch("AudManager::Disable", "Actually disable sfx/music", 0x4E9098 + 1, "\x00\x00\x00\x00", 4);
 

@@ -70,14 +70,15 @@ void asParticles::Reset()
 
 static mem::cmd_param PARAM_max_particles {"maxptx"};
 
-void asParticles::Init(i32 max_particles, i32 arg2, i32 arg3, i32 vert_count, agiMeshCardVertex* vertices)
+void asParticles::Init(
+    i32 max_particles, i32 frames_width, i32 frames_height, i32 vert_count, agiMeshCardVertex* vertices)
 {
     max_particles = static_cast<i32>(max_particles * PARAM_max_particles.get_or<f32>(2.0f));
 
     SparkCapacity = max_particles;
     Sparks = arnewa asSparkInfo[max_particles] {};
     SparkPositions = arnewa asSparkPos[max_particles] {};
-    MeshCard.Init(vert_count, vertices, 32, arg2, arg3);
+    MeshCard.Init(vert_count, vertices, 32, frames_width, frames_height);
 }
 
 #ifdef ARTS_DEV_BUILD

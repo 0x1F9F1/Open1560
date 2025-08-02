@@ -92,10 +92,15 @@ public:
         return prop_count_;
     }
 
+    void SetUseAlternate(bool enabled)
+    {
+        use_alternate_ = enabled;
+    }
+
 private:
     agiTexProp* props_ {};
     i32 prop_count_ {};
-    b32 allow_remapping_ {}; // UseAlternate
+    b32 use_alternate_ {}; // UseAlternate
 };
 
 check_size(agiTexSheet, 0xC);

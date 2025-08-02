@@ -24,12 +24,6 @@
 template <typename T>
 class mmHeap
 {
-private:
-    u8* HeapBase {};
-    u8* HeapEnd {};
-    u8* HeapHead {};
-    u8* HeapTop {};
-
 public:
     void* Allocate(usize size)
     {
@@ -46,4 +40,15 @@ public:
 
     void Free([[maybe_unused]] void* ptr)
     {}
+
+    void* GetHead() const
+    {
+        return HeapHead;
+    }
+
+private:
+    u8* HeapBase {};
+    u8* HeapEnd {};
+    u8* HeapHead {};
+    u8* HeapTop {};
 };

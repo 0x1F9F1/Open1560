@@ -18,12 +18,17 @@
 
 #pragma once
 
+#include "agiworld/texsort.h"
 #include "arts7/node.h"
+#include "mmbangers/active.h"
+#include "mmbangers/banger.h"
+#include "mmbangers/data.h"
 #include "vector7/matrix34.h"
 
 #include "inst.h"
 #include "instchn.h"
 #include "renderweb.h"
+#include "sky.h"
 
 class agiTexDef;
 class asCamera;
@@ -50,6 +55,8 @@ public:
     // ??1mmCullCity@@UAE@XZ
     ARTS_IMPORT ~mmCullCity() override;
 
+    ARTS_ZEROED;
+
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmCullCity@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(Bank* arg1) override;
@@ -68,7 +75,7 @@ public:
     ARTS_IMPORT i16 GetRoomFlags(i16 arg1);
 
     // ?Init@mmCullCity@@QAEXPADPAVasCamera@@@Z
-    ARTS_IMPORT void Init(char* arg1, asCamera* arg2);
+    ARTS_EXPORT void Init(char* name, asCamera* camera);
 
     // ?InitObjectDetail@mmCullCity@@QAEXXZ
     ARTS_IMPORT void InitObjectDetail();
@@ -103,26 +110,6 @@ public:
     // ?GetInstance@mmCullCity@@SAPAV1@XZ | inline
     ARTS_IMPORT static mmCullCity* GetInstance();
 
-    offset_field(0x20, asCamera*, Camera);
-
-    offset_field(0x2B950, asRenderWeb, RenderWeb);
-
-    offset_field(0x34ACC, mmInstChain, BuildingChain); // StaticChain?
-    offset_field(0x34AD8, mmInstChain, ObjectsChain);  // DynamicChain?
-    offset_field(0x34AE4, mmInstChain, ShadowChain);
-
-    offset_field(0x34B30, f32, WeatherFriction);
-
-    offset_field(0x34B48, agiTexDef*, ShadowMap);
-    offset_field(0x34B50, Matrix34, EnvMatrix);
-
-    offset_field(0x34D54, u32, SkyColor);
-    offset_field(0x34D58, b32, UseFogEnd2);
-    offset_field(0x34D5C, f32, FogEnd);
-    offset_field(0x34D60, f32, FogEnd2);
-
-    ARTS_ZEROED;
-
 private:
     // ?AddInstance@mmCullCity@@AAEXHPAD0HPAVVector3@@11M@Z
     ARTS_IMPORT void AddInstance(
@@ -142,7 +129,47 @@ private:
     // ?Instance@mmCullCity@@0PAV1@A
     ARTS_IMPORT static mmCullCity* Instance;
 
-    u8 gap20[0x34D4C];
+public:
+    asCamera* Camera;
+    mmBoundTemplate* HitIdBound;
+    mmBangerDataManager BangerDataManager;
+    mmBangerActiveManager BangerActiveManager;
+    mmBangerManager BangerManager;
+    mmSky Sky;
+    asRenderWeb RenderWeb;
+    agiTexSorter TexSorter;
+    mmInstChain BuildingChain;
+    mmInstChain ObjectsChain;
+    mmInstChain ShadowChain;
+    asNode field_34AF0;
+    i32 field_34B10;
+    ConstString CityName;
+    i32 SnowTextureCount;
+    i32 CurrentSnowTexture;
+    agiTexDef** SnowTexturesDst;
+    agiTexDef** SnowTexturesSrc;
+    i8* ShowTextureWidthRatios;
+    i8* SnowTextureHeightRatios;
+    f32 WeatherFriction;
+    f32 RainFriction;
+    f32 SnowFrictionStart;
+    f32 SnowFrictionMin;
+    f32 SnowFrictionTime;
+    f32 SnowTotalElapsed;
+    agiTexDef* ShadowMap;
+    agiTexDef* SphereMap;
+    Matrix34 EnvMatrix;
+    asParticles Particles;
+    asBirthRule* BirthRule;
+    asBirthRule SnowBirthRule;
+    asBirthRule RainBirthRule;
+    i32 field_34D50;
+    u32 SkyColor;
+    b32 UseFogEnd2;
+    f32 FogEnd;
+    f32 FogEnd2;
+    mmInstance* StartOfBangers;
+    mmInstance* EndOfBangers;
 };
 
 check_size(mmCullCity, 0x34D6C);
@@ -201,7 +228,14 @@ public:
     // ?Phase@mmRunwayLight@@2MA
     ARTS_IMPORT static f32 Phase;
 
-    u8 gap14[0x4C];
+    Vector3 Start;
+    Vector3 End;
+    Vector3 Step;
+    Vector3 Center;
+    f32 Scale;
+    i32 NumLights;
+    i32 Texture;
+    agiMeshCardInfo MeshCard;
 };
 
 check_size(mmRunwayLight, 0x60);

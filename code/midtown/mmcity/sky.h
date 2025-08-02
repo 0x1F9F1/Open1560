@@ -48,7 +48,9 @@ private:
     // ?Instance@mmSky@@0PAV1@A
     ARTS_IMPORT static mmSky* Instance;
 
-    u8 gap0[0x8];
+public:
+    f32 RotationSpeed;
+    f32 Mesh;
 };
 
 check_size(mmSky, 0x8);

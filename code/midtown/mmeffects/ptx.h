@@ -50,7 +50,8 @@ public:
     ARTS_EXPORT void Cull() override;
 
     // ?Init@asParticles@@QAEXHHHHPAUagiMeshCardVertex@@@Z
-    ARTS_EXPORT void Init(i32 max_particles, i32 arg2, i32 arg3, i32 vert_count, agiMeshCardVertex* vertices);
+    ARTS_EXPORT void Init(
+        i32 max_particles, i32 frames_width, i32 frames_height, i32 vert_count, agiMeshCardVertex* vertices);
 
     // ?Reset@asParticles@@UAEXXZ
     ARTS_EXPORT void Reset() override;
