@@ -28,11 +28,47 @@ define_dummy_symbol(mmai_aiVehicleOpponent);
 #include "agi/dlptmpl.h"
 #include "agi/getdlp.h"
 #include "agiworld/quality.h"
+#include "dyna7/gfx.h"
 #include "mmai/aiaudiomanager.h"
+#include "mmdyna/poly.h"
 #include "mmphysics/joint3dof.h"
+#include "mmphysics/phys.h"
 
 void aiVehicleOpponent::DrawDamage()
 {}
+
+void aiVehicleOpponent::DrawTargetPt()
+{
+    DrawColor(ColPurple);
+
+    Vector3 car_pos = Car.Sim.ICS.Matrix.m3;
+    Vector3 target_pt = WayPts->TargetPt;
+    target_pt.y = car_pos.y;
+
+    mmIntersection isect;
+    isect.InitSegment(target_pt + Vector3(0.0f, 5.0f, 0.0f), target_pt - Vector3(0.0f, 5.0f, 0.0f), nullptr, 2, 0);
+    PHYS.Collide(&isect, PHYS_COLLIDE_ROOM);
+
+    if (isect.HitPoly)
+    {
+        target_pt.y = isect.HitPoly->GetPlaneY(target_pt.x, target_pt.z) + 0.5f;
+    }
+
+    Vector3 line_pos = car_pos + Vector3(0.0f, 0.5f, 0.0f);
+    DrawLine(line_pos, target_pt);
+
+    Vector3 label_pos = car_pos + Vector3(0.0f, 0.5f, 0.0f);
+    DrawLabelf(label_pos,
+        "MPH:      %.2f\n"
+        "Steering: %.2f\n"
+        "Throttle: %.2f\n"
+        "Brakes:   %.2f"_xconst,
+        Car.Sim.SpeedMPH, Car.Sim.Steering, Car.Sim.Engine.Throttle, Car.Sim.Brakes);
+
+    DrawColor(ColLightCyan);
+
+    RailSet.DrawTurn(WayPts->DistToSide);
+}
 
 void aiVehicleOpponent::Init(i32 opp_id, aiRaceData* race_data, char* race_name)
 {

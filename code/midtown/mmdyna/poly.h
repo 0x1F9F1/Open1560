@@ -31,6 +31,11 @@ public:
     // ??0mmPolygon@@QAE@XZ
     ARTS_IMPORT mmPolygon();
 
+    f32 GetPlaneY(f32 x, f32 z) const
+    {
+        return -((PlaneN.x * x) + (PlaneN.z * z) + PlaneD) / PlaneN.y;
+    }
+
 private:
     // ?CheckCellXSide@mmPolygon@@AAEMMMM@Z
     ARTS_IMPORT f32 CheckCellXSide(f32 arg1, f32 arg2, f32 arg3);

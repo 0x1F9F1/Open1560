@@ -227,6 +227,8 @@ void agiPipeline::Print(i32 x, i32 y, i32 color, const char* text)
     if (BuiltinFontTexture == nullptr)
         InitBuiltin();
 
+    i32 start_x = x;
+
     // RAST->BeginGroup();
 
     f32 const inv_font_w = 1.0f / BuiltinFontTexture->GetWidth();
@@ -254,6 +256,13 @@ void agiPipeline::Print(i32 x, i32 y, i32 color, const char* text)
     while (*text)
     {
         u8 value = *text++;
+
+        if (value == '\n')
+        {
+            x = start_x;
+            y += agiFontWidth;
+            continue;
+        }
 
         if (value >= 0x20 && value <= 0x7F)
             value -= 0x20;
