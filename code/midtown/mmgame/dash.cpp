@@ -20,8 +20,12 @@ define_dummy_symbol(mmgame_dash);
 
 #include "dash.h"
 
+#include "agi/dlptmpl.h"
+#include "agi/getdlp.h"
 #include "agi/rsys.h"
 #include "agi/viewport.h"
+#include "agiworld/getmesh.h"
+#include "agiworld/meshset.h"
 #include "agiworld/texsort.h"
 #include "mmcity/cullcity.h"
 #include "mmgame/player.h"
@@ -37,9 +41,45 @@ ARTS_IMPORT extern f32 DashColorScale;
 
 // Gear variation (implement using tex-sheet siblings): N,1,2,3,4,5,6,7,8,R,P,D
 #define DASH_GEAR_NEUTRAL 0
+#define DASH_GEAR_1 1
+#define DASH_GEAR_2 2
+#define DASH_GEAR_3 3
+#define DASH_GEAR_4 4
+#define DASH_GEAR_5 5
+#define DASH_GEAR_6 6
+#define DASH_GEAR_7 7
+#define DASH_GEAR_8 8
 #define DASH_GEAR_REVERSE 9
 #define DASH_GEAR_PARK 10
 #define DASH_GEAR_DRIVE 11
+
+void mmDashView::Init(char* name, mmPlayer* player)
+{
+    auto file = arts_formatf<128>("%s_dash", name);
+
+    SetName(name);
+    Load();
+    Player = player;
+
+    RPMGuage.Init(file, "TACH"_xconst, &player->Car.Sim.Engine.RPM, &MaxRPM, 800.0f);
+    SpeedGuage.Init(file, "SPEED"_xconst, &Player->Speed, &MaxSpeed, MinSpeed);
+    DamageGuage.Init(file, "DAMAGE"_xconst, &Player->Car.Sim.CurrentDamage, &Player->Car.Sim.MaxDamageScaled, 0.0f);
+
+    Vector3 center {};
+
+    if (auto dlp = GetDLPTemplate(file))
+    {
+        dlp->GetCentroid(center, "WHEEL"_xconst);
+        dlp->Release();
+    }
+
+    WheelMesh = GetMeshSet(file, "WHEEL"_xconst, &center);
+    DashMesh = GetMeshSet(file, "DASH"_xconst);
+    RoofMesh = GetMeshSet(file, "ROOF"_xconst);
+    GearMesh = GetMeshSet(file, "GEAR_INDICATOR"_xconst);
+
+    DashCamOffset = Player->PovCam.Offset;
+}
 
 void mmDashView::Cull()
 {

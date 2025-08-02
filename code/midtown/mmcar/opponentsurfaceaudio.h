@@ -27,7 +27,7 @@ public:
     ARTS_IMPORT mmOpponentSurfaceAudio();
 
     // ??1mmOpponentSurfaceAudio@@QAE@XZ
-    ARTS_EXPORT ~mmOpponentSurfaceAudio() = default;
+    ARTS_EXPORT ~mmOpponentSurfaceAudio();
 
     // ?Disable3DMode@mmOpponentSurfaceAudio@@QAEXXZ
     ARTS_IMPORT void Disable3DMode();
@@ -51,3 +51,5 @@ public:
 };
 
 check_size(mmOpponentSurfaceAudio, 0x2C);
+
+inline mmOpponentSurfaceAudio::~mmOpponentSurfaceAudio() = default;

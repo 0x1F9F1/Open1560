@@ -20,32 +20,29 @@ define_dummy_symbol(mmai_aiVehicleOpponent);
 
 #include "aiVehicleOpponent.h"
 
-#include "agi/dlptmpl.h"
-#include "agi/getdlp.h"
-#include "agiworld/quality.h"
-
 #include "aiData.h"
 #include "aiGoalBackup.h"
 #include "aiGoalFollowWayPts.h"
 #include "aiGoalStop.h"
+
+#include "agi/dlptmpl.h"
+#include "agi/getdlp.h"
+#include "agiworld/quality.h"
+#include "mmai/aiaudiomanager.h"
+#include "mmphysics/joint3dof.h"
 
 void aiVehicleOpponent::DrawDamage()
 {}
 
 void aiVehicleOpponent::Init(i32 opp_id, aiRaceData* race_data, char* race_name)
 {
-    i32 tex_quality = agiRQ.TextureQuality;
-    if (agiRQ.TextureQuality)
-        --agiRQ.TextureQuality;
-
+    // TODO: Use all paint jobs
     i32 paint_job = opp_id & 3;
     i32 index = opp_id + 1;
 
     OpponentRaceData* opp = static_cast<OpponentRaceData*>(race_data->Opponents.Access(index));
 
     Car.Init(opp->Model, CAR_TYPE_OPPONENT, paint_job);
-
-    agiRQ.TextureQuality = tex_quality;
 
     aiVehicle::Init(opp_id);
     Car.Reset();
@@ -71,5 +68,35 @@ void aiVehicleOpponent::Init(i32 opp_id, aiRaceData* race_data, char* race_name)
         RailSet.BackBumperDist = max.z;
         RailSet.RSideDist = max.x;
     }
+
     AudIndexNumber = -1;
+}
+
+void aiVehicleOpponent::Reset()
+{
+    IsBackup = false;
+    IsStopped = false;
+    IsFinished = false;
+
+    WayPts->Init();
+    BackupGoal->Init();
+    StopGoal->Init();
+
+    Goals.Kill();
+    Goals.Append(WayPts.get());
+    Goals.Append(StopGoal.get());
+    Goals.Append(BackupGoal.get());
+
+    if (AudIndexNumber != -1)
+    {
+        AiAudMgr()->RemoveVehicle(this, AudIndexNumber);
+        AudIndexNumber = -1;
+    }
+
+    if (Car.Model.HasTrailer())
+        Car.TrailerJoint->UnbreakJoint();
+
+    Car.Reset();
+
+    aiVehicle::Reset();
 }

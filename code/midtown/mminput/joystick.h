@@ -33,7 +33,7 @@ public:
     ARTS_IMPORT mmJaxis();
 
     // ??1mmJaxis@@QAE@XZ
-    ARTS_EXPORT ~mmJaxis() = default;
+    ARTS_EXPORT ~mmJaxis();
 
     // ?Capture@mmJaxis@@QAEHXZ
     ARTS_IMPORT i32 Capture();
@@ -138,3 +138,5 @@ check_size(mmJoystick, 0x3A8);
 
 // ?DecodeDIErrorMFlag@@YAXJ@Z
 ARTS_IMPORT void DecodeDIErrorMFlag(ilong arg1);
+
+inline mmJaxis::~mmJaxis() = default;

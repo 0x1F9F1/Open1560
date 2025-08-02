@@ -25,12 +25,14 @@ struct VolumeDW
 {
 public:
     // ??1VolumeDW@@QAE@XZ | inline
-    ARTS_EXPORT ~VolumeDW() = default;
+    ARTS_EXPORT ~VolumeDW();
 
     u8 gap0[0xC];
 };
 
 check_size(VolumeDW, 0xC);
+
+inline VolumeDW::~VolumeDW() = default;
 
 class MixerCTL final
     : public Dispatchable

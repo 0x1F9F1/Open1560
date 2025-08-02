@@ -19,6 +19,7 @@
 #pragma once
 
 #include "carcamcs.h"
+#include "vector7/vector3.h"
 
 class PovCamCS final : public CarCamCS
 {
@@ -56,11 +57,13 @@ public:
     // ?DeclareFields@PovCamCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
+    Vector3 Offset {0.0f, 1.6f, 0.7f};
+
 private:
     // ?UpdatePOV@PovCamCS@@AAEXXZ
     ARTS_IMPORT void UpdatePOV();
 
-    u8 gap118[0x2C];
+    u8 gap124[0x20];
 };
 
 check_size(PovCamCS, 0x144);

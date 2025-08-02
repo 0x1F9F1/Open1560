@@ -103,7 +103,7 @@ public:
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@mmDashView@@QAEXPADPAVmmPlayer@@@Z
-    ARTS_IMPORT void Init(char* arg1, mmPlayer* arg2);
+    ARTS_EXPORT void Init(char* name, mmPlayer* player);
 
     // ?Reset@mmDashView@@UAEXXZ
     ARTS_IMPORT void Reset() override;
@@ -114,7 +114,7 @@ public:
     // ?DeclareFields@mmDashView@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-private:
+public:
     mmPlayer* Player;
     u8 gap_8C[12];
     RadialGauge RPMGuage;
@@ -151,8 +151,7 @@ private:
     i32 field_840;
     i32 field_844;
     i32 field_848;
-    u16 NeutralTexture;
-    u16 GearTextures[11];
+    [[deprecated]] u16 GearTextures[12]; // Unused, see DASH_GEAR_* for indices
     i32 field_864;
     f32 DashJitterAmp;
     f32 CollisionJitterAmp;
@@ -160,9 +159,7 @@ private:
     f32 MaxRPM;
     f32 MinSpeed;
     u16 InTransition;
-
-public:
-    i16 Active;
+    b16 Active;
 };
 
 check_size(mmDashView, 0x880);

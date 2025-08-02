@@ -25,7 +25,7 @@ public:
     ARTS_IMPORT ControlBase();
 
     // ??1ControlBase@@QAE@XZ
-    ARTS_EXPORT ~ControlBase() = default;
+    ARTS_EXPORT ~ControlBase();
 
     // ?InitSensitivity@ControlBase@@QAEXXZ
     ARTS_IMPORT void InitSensitivity();
@@ -37,3 +37,5 @@ public:
 };
 
 check_size(ControlBase, 0x14);
+
+inline ControlBase::~ControlBase() = default;

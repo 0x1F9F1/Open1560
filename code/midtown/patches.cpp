@@ -18,6 +18,7 @@
 
 define_dummy_symbol(midtown_patches);
 
+#if 0 // TODO: Port remaining patches
 #include "patches.h"
 
 static mem::cmd_param PARAM_rv3 {"rv3"};
@@ -42,21 +43,7 @@ static mem::cmd_param PARAM_rv3 {"rv3"};
 
     // create_patch("MultiTexture", "Enable D3D MultiTexture", 0x530788 + 6, "\x02", 1);
 
-    patch_jmp("mmMultiBlitz::Reset", "Always allow resetting", 0x41982D, jump_type::never);
-    patch_jmp("mmMultiCircuit::Reset", "Always allow resetting", 0x41B19D, jump_type::never);
-    patch_jmp("mmMultiRace::Reset", "Always allow resetting", 0x4203EF, jump_type::never);
-
-    create_patch("aiVehicleOpponent::Reset", "Fix List::Clear memory leak", 0x44DE4D,
-        "\x89\xF9\xE8\x3C\xE4\x12\x00\x90\x8B\xD3\x42", 11);
-
-    create_patch(
-        "aiVehiclePolice::Reset", "Fix List::Clear memory leak", 0x44511C, "\x89\xF9\xE8\x6D\x71\x13\x00\x90", 8);
-
-    patch_jmp("VehShowcase::PreSetup", "Fix showcase with addon cars", 0x4A5146, jump_type::never);
-
     patch_jmp("mmInterface::PlayerFillStats", "Always Show Score", 0x40C414, jump_type::never);
-
-    create_patch("DriverMenu::DisplayDriverInfo", "Fix score alignment", 0x6410E0, "%d", 3);
 
     patch_jmp("mmCullCity::Init", "DevelopmentMode", 0x48C851, jump_type::always);
     patch_jmp("mmCullCity::Init", "DevelopmentMode", 0x4908DC, jump_type::always);
@@ -85,17 +72,6 @@ static mem::cmd_param PARAM_rv3 {"rv3"};
     {
         create_hook("PtxCount", "Avoid particle limit crash", from, to, hook_type::jmp);
     }
-
-    create_packed_patch<u8>(
-        "MenuManager::ScanGlobalKeys", "Debug Text Alignment", 0x4B11DA + 1, 0x7); // CENTER | VCENTER | BORDER
-
-    patch_jmp("mmPlayer::Init", "Enable FreeCam when not in DevelopmentMode", 0x42A8E8, jump_type::never);
-
-    create_packed_patch<u8, f32, u8, u8, u8>(
-        "mmGameEdit::InitGameObjects", "Use a valid waypoint object", 0x412495, 0x68, 7.5f, 0x6A, 0x03, 0x90);
-
-    create_packed_patch<const char*>(
-        "mmGameEdit::InitGameObjects", "Use a valid waypoint object", 0x4124A7 + 1, "pt_check");
 
     {
         // sw[Tri/Quad/Poly] uses Q12.10 for casting vertices to integers
@@ -175,13 +151,6 @@ static mem::cmd_param PARAM_rv3 {"rv3"};
         create_packed_patch<u16>(
             "TestResolution", "Max Software Resolution", 0x575E73 + 2, static_cast<u16>(1 << whole_bits));
     }
-
-    // Declare car mover before trailer mover
-    // TODO: Also patch mmNetObject::Update?
-    create_patch("mmPlayer::Update", "DeclareMover Order", 0x42C096,
-        "\x8D\xB3\x34\x20\x00\x00\x6A\x0B\x6A\x01\x56\xB9\x98\x86\x71\x00\xE8\x95\x84\x0A\x00\xF6\x83\x50\x20\x00\x00"
-        "\x80\x74\x18\x8B\x8B\x40\x23\x00\x00\x6A\x0A\x83\xC1\x24\x6A\x01\x51\xB9\x98\x86\x71\x00\xE8\x74\x84\x0A\x00",
-        0x36);
 
     if (PARAM_rv3)
     {
@@ -317,3 +286,4 @@ static mem::cmd_param PARAM_rv3 {"rv3"};
     patch_jmp("mmCar::VehNameRemap", "Work in all game modes", 0x474371, jump_type::never);
 #endif
 }
+#endif

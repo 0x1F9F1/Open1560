@@ -47,7 +47,7 @@ public:
 
     // ??_EmmAnimDOF@@QAEPAXI@Z | unused
     // ??1mmAnimDOF@@QAE@XZ
-    ARTS_EXPORT ~mmAnimDOF() = default;
+    ARTS_EXPORT ~mmAnimDOF();
 
     // ?GetClass@mmAnimDOF@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT virtual MetaClass* GetClass();
@@ -74,3 +74,5 @@ public:
 };
 
 check_size(mmAnimDOF, 0x98);
+
+inline mmAnimDOF::~mmAnimDOF() = default;

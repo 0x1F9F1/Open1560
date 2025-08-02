@@ -74,7 +74,7 @@ public:
     ARTS_EXPORT void Init(i32 opp_id, aiRaceData* race_data, char* race_name);
 
     // ?Reset@aiVehicleOpponent@@UAEXXZ
-    ARTS_IMPORT void Reset() override;
+    ARTS_EXPORT void Reset() override;
 
     // ?SetAudioCloserMinDistMult@aiVehicleOpponent@@QAEXM@Z
     ARTS_IMPORT void SetAudioCloserMinDistMult(f32 arg1);

@@ -40,6 +40,11 @@ public:
     // ?Kill@List@@QAEXXZ
     ARTS_EXPORT void Kill();
 
+    void Append(void* value)
+    {
+        Insert(size_ + 1, value);
+    }
+
 private:
     struct Entry;
 

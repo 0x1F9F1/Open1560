@@ -29,7 +29,7 @@ public:
     ARTS_IMPORT aiRailSet();
 
     // ??1aiRailSet@@QAE@XZ
-    ARTS_EXPORT ~aiRailSet() = default;
+    ARTS_EXPORT ~aiRailSet();
 
     // ?CalcCopRailPosition@aiRailSet@@QAEHAAVVector3@@0MM@Z
     ARTS_IMPORT i32 CalcCopRailPosition(Vector3& arg1, Vector3& arg2, f32 arg3, f32 arg4);
@@ -117,3 +117,5 @@ check_size(aiRailSet, 0x80);
 
 // ??D@YA?AVVector3@@MABV0@@Z | inline
 ARTS_IMPORT Vector3 operator*(f32 arg1, const Vector3& arg2);
+
+inline aiRailSet::~aiRailSet() = default;

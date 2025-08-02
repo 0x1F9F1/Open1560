@@ -18,14 +18,16 @@
 
 #pragma once
 
+#include "data7/list.h"
+
 class aiVehicle
 {
 public:
     // ??0aiVehicle@@QAE@XZ
-    ARTS_IMPORT aiVehicle();
+    ARTS_EXPORT aiVehicle() = default;
 
     // ??1aiVehicle@@QAE@XZ
-    ARTS_IMPORT ~aiVehicle();
+    ARTS_EXPORT ~aiVehicle() = default;
 
     // ?Update@aiVehicle@@UAEXXZ
     ARTS_IMPORT virtual void Update();
@@ -40,7 +42,9 @@ public:
     // ?Init@aiVehicle@@QAEXH@Z
     ARTS_IMPORT void Init(i32 arg1);
 
-    u8 gap4[0x10];
+    List Goals {};
+    i16 OppId {};
+    u16 UpdateGroup {};
 };
 
 check_size(aiVehicle, 0x14);

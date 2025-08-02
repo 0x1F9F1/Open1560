@@ -27,7 +27,7 @@ public:
     ARTS_IMPORT mmAnimTrigger();
 
     // ??1mmAnimTrigger@@QAE@XZ
-    ARTS_EXPORT ~mmAnimTrigger() = default;
+    ARTS_EXPORT ~mmAnimTrigger();
 
     // ?CheckCondition@mmAnimTrigger@@QAEHXZ
     ARTS_IMPORT i32 CheckCondition();
@@ -54,3 +54,5 @@ public:
 };
 
 check_size(mmAnimTrigger, 0x24);
+
+inline mmAnimTrigger::~mmAnimTrigger() = default;

@@ -29,7 +29,7 @@ public:
     ARTS_EXPORT aiPoliceForce();
 
     // ??1aiPoliceForce@@QAE@XZ
-    ARTS_EXPORT ~aiPoliceForce() = default;
+    ARTS_EXPORT ~aiPoliceForce();
 
     // ?Find@aiPoliceForce@@QAEHPAVmmCar@@0@Z
     ARTS_EXPORT i32 Find(mmCar* cop, mmCar* perp);
@@ -63,4 +63,7 @@ private:
     i32 FindPerp(mmCar* perp);
     i32 FindCop(i32 index, mmCar* cop);
 };
+
 check_size(aiPoliceForce, 0xDC);
+
+inline aiPoliceForce::~aiPoliceForce() = default;

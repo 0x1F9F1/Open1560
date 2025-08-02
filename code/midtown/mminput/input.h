@@ -234,7 +234,7 @@ public:
     ARTS_IMPORT i32 BinarySaveConfig(Stream* arg1);
 
     // ?BuildCaptureIO@mmInput@@QAEHHPAVmmIO@@TeqEvent@@@Z
-    ARTS_EXPORT i32 BuildCaptureIO(i32 button, mmIO* io, eqEvent event);
+    ARTS_IMPORT i32 BuildCaptureIO(i32 button, mmIO* io, eqEvent event);
 
     // ?CaptureState@mmInput@@QAEXH@Z
     ARTS_IMPORT void CaptureState(i32 arg1);

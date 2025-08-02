@@ -26,7 +26,7 @@ class aiGoal
 {
 public:
     // ??1aiGoal@@QAE@XZ | inline
-    ARTS_EXPORT ~aiGoal() = default;
+    ARTS_EXPORT ~aiGoal();
 
     virtual void Init() = 0;
 
@@ -46,3 +46,5 @@ public:
 };
 
 check_size(aiGoal, 0x8);
+
+inline aiGoal::~aiGoal() = default;

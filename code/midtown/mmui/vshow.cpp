@@ -20,5 +20,14 @@ define_dummy_symbol(mmui_vshow);
 
 #include "vshow.h"
 
+#include "mmcityinfo/state.h"
+
+void VehShowcase::PreSetup()
+{
+    auto bg = Showcases.SubString(MMSTATE.CurrentCar + 1);
+
+    AssignBackground(bg.get());
+}
+
 void VehShowcase::PostSetup()
 {}

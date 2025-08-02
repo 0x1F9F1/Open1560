@@ -29,7 +29,7 @@ public:
     ARTS_IMPORT agiLightModelParameters();
 
     // ??1agiLightModelParameters@@QAE@XZ
-    ARTS_EXPORT ~agiLightModelParameters() = default;
+    ARTS_EXPORT ~agiLightModelParameters();
 
     // ??4agiLightModelParameters@@QAEXABV0@@Z
     ARTS_IMPORT void operator=(const agiLightModelParameters& arg1);
@@ -44,6 +44,8 @@ public:
 };
 
 check_size(agiLightModelParameters, 0x28);
+
+inline agiLightModelParameters::~agiLightModelParameters() = default;
 
 class agiLightModel : public agiRefreshable
 {

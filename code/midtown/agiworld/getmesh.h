@@ -18,6 +18,8 @@
 
 #pragma once
 
+#include "meshset.h"
+
 class agiMeshSet;
 class agiTexParameters;
 
@@ -25,7 +27,8 @@ class agiTexParameters;
 ARTS_EXPORT void FixTexFlags(agiTexParameters& tex);
 
 // ?GetMeshSet@@YAPAVagiMeshSet@@PAD0PAVVector3@@H@Z
-ARTS_IMPORT agiMeshSet* GetMeshSet(char* arg1, char* arg2, Vector3* arg3, i32 arg4);
+ARTS_IMPORT agiMeshSet* GetMeshSet(
+    char* name, char* group, Vector3* offset = nullptr, i32 flags = MESH_SET_UV | MESH_SET_NORMAL | MESH_SET_CPV);
 
 // ?IsSnowing@@3HA
 ARTS_IMPORT extern i32 IsSnowing;

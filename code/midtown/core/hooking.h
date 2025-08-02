@@ -21,24 +21,6 @@
 #include <mem/cmd_param.h>
 #include <mem/macros.h>
 
-#define Ty(...) __VA_ARGS__
-
-enum class hook_type
-{
-    jmp,
-    call,
-    push,
-    pointer,
-
-    count
-};
-
-enum class jump_type
-{
-    always,
-    never,
-};
-
 template <typename T>
 struct type_identity
 {
@@ -47,29 +29,6 @@ struct type_identity
 
 template <typename T>
 using type_identity_t = typename type_identity<T>::type;
-
-extern std::size_t HookCount;
-extern std::size_t PatchCount;
-
-extern bool LogHooks;
-
-void write_protected(mem::pointer dest, mem::pointer src, std::size_t length);
-
-void create_hook(const char* name, const char* description, mem::pointer target, mem::pointer detour,
-    hook_type type = hook_type::jmp);
-void create_patch(const char* name, const char* description, mem::pointer dest, mem::pointer src, std::size_t size);
-
-void patch_jmp(const char* name, const char* description, mem::pointer target, jump_type mode);
-
-template <typename... Args>
-inline void create_packed_patch(
-    const char* name, const char* description, mem::pointer dest, type_identity_t<const Args&>... args)
-{
-    unsigned char buffer[(sizeof(Args) + ...)];
-    unsigned char* here = buffer;
-    ((std::memcpy(here, &args, sizeof(args)), here += sizeof(args)), ...);
-    create_patch(name, description, dest, buffer, sizeof(buffer));
-}
 
 #define mem_offset_field(OFFSET, TYPE, NAME)                                              \
     MEM_STRONG_INLINE typename std::add_lvalue_reference<TYPE>::type Get##NAME() noexcept \

@@ -29,15 +29,15 @@ public:
     // ??_GVehShowcase@@UAEPAXI@Z
     // ??_EVehShowcase@@UAEPAXI@Z
     // ??1VehShowcase@@UAE@XZ
-    ARTS_IMPORT ~VehShowcase() override;
+    ARTS_EXPORT ~VehShowcase() override = default;
+
+    // ?PreSetup@VehShowcase@@UAEXXZ
+    ARTS_EXPORT void PreSetup() override;
 
     // ?PostSetup@VehShowcase@@UAEXXZ
     ARTS_EXPORT void PostSetup() override;
 
-    // ?PreSetup@VehShowcase@@UAEXXZ
-    ARTS_IMPORT void PreSetup() override;
-
-    u8 gap90[0x8];
+    string Showcases {};
 };
 
 check_size(VehShowcase, 0x98);
