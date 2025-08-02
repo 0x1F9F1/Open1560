@@ -23,48 +23,12 @@
 
 #include <atomic>
 
-// ?ipcCloseHandle@@YAXI@Z
-[[deprecated]] ARTS_EXPORT void ipcCloseHandle(usize handle);
-
-// ?ipcCloseSpinLock@@YAXPAI@Z | unused
-ARTS_EXPORT void ipcCloseSpinLock(u32* value);
-
-// ?ipcCreateEvent@@YAIH@Z
-[[deprecated]] ARTS_EXPORT usize ipcCreateEvent(b32 initial_state);
-
-// ?ipcCreateMutex@@YAIH@Z
-[[deprecated]] ARTS_EXPORT usize ipcCreateMutex(b32 initial_owner);
-
-// ?ipcCreateSpinLock@@YAXPAI@Z | unused
-ARTS_EXPORT void ipcCreateSpinLock(u32* value);
-
 // ?ipcCreateThread@@YAIP6GKPAX@Z0PAK@Z
 ARTS_EXPORT usize ipcCreateThread(ulong(ARTS_STDCALL* start)(void*), void* param, ulong* thread_id);
 
 void ipcWaitThreadExit(usize thread);
 
 void ipcDeleteThread(usize thread);
-
-// ?ipcReleaseMutex@@YAXI@Z
-[[deprecated]] ARTS_EXPORT void ipcReleaseMutex(usize mutex);
-
-// ?ipcSleep@@YAXI@Z | unused
-ARTS_EXPORT void ipcSleep(u32 milli_seconds);
-
-// ?ipcSpinLock@@YAXPAI@Z
-ARTS_EXPORT void ipcSpinLock(u32* value);
-
-// ?ipcSpunUnlock@@YAXPAI@Z | unused
-ARTS_EXPORT void ipcSpinUnlock(u32* value);
-
-// ?ipcTriggerEvent@@YAXI@Z
-[[deprecated]] ARTS_EXPORT void ipcTriggerEvent(usize event);
-
-// ?ipcWaitMultiple@@YAHHPAIH@Z | unused
-[[deprecated]] ARTS_EXPORT i32 ipcWaitMultiple(i32 count, usize* handles, b32 wait_all);
-
-// ?ipcWaitSingle@@YAXI@Z
-[[deprecated]] ARTS_EXPORT void ipcWaitSingle(usize handle);
 
 // ?ipcYield@@YAXXZ
 ARTS_EXPORT void ipcYield();
@@ -87,9 +51,6 @@ public:
 
     // ?Init@ipcMessageQueue@@QAEXHH@Z
     ARTS_EXPORT void Init(i32 max_messages, i32 mode);
-
-    // ?Send@ipcMessageQueue@@QAEXP6AXPAX@Z0@Z
-    [[deprecated]] ARTS_EXPORT void Send(void (*func)(void*), void* param);
 
     void Send(Callback cb);
 

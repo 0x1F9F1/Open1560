@@ -29,19 +29,10 @@ ARTS_EXPORT void DebugLogInit(b32 reading);
 // ?DebugLogShutdown@@YAXXZ
 ARTS_EXPORT void DebugLogShutdown();
 
-// ?DoStackTraceback@@YAXHPAH@Z
-ARTS_EXPORT void DoStackTraceback(i32 depth, isize* frame);
-
 // ?DumpStackTraceback@@YAXPAHH@Z
 ARTS_EXPORT void DumpStackTraceback(isize* frames, i32 count);
 
-// ?LogStackTraceback@@YAHPAHH@Z
-[[deprecated]] ARTS_EXPORT i32 LogStackTraceback(isize* frames, i32 count);
-
 void LookupAddress(char* buffer, usize buflen, usize address);
-
-// ?LookupAddress@@YAXPADH@Z
-// void LookupAddress(char* buffer, i32 address);
 
 i32 StackTraceback(i32 depth, isize* frames, i32 skipped);
 

@@ -19,3 +19,17 @@
 define_dummy_symbol(mmdyna_bndtmpl2);
 
 #include "bndtmpl2.h"
+
+#include "bndtmpl.h"
+
+#include "data7/ipc.h"
+
+void mmBoundTemplate::PageIn()
+{
+    if (PageState == 0)
+    {
+        ++PageState;
+
+        PAGER.Send([this] { DoPageIn(); });
+    }
+}

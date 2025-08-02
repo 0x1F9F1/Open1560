@@ -103,18 +103,6 @@ public:
         return -1;
     }
 
-    // ?GetLong@Stream@@QAEKXZ | unused
-    [[deprecated]] ARTS_EXPORT u32 GetLong()
-    {
-        return Get<u32>();
-    }
-
-    // ?GetShort@Stream@@QAEGXZ | unused
-    [[deprecated]] ARTS_EXPORT u16 GetShort()
-    {
-        return Get<u16>();
-    }
-
     // ?GetString@Stream@@QAEHPADH@Z | unused
     ARTS_EXPORT isize GetString(char* buffer, isize buffer_len);
 

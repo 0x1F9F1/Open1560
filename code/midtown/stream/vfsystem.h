@@ -158,16 +158,10 @@ public:
     // ?ValidPath@VirtualFileSystem@@UAEHPAD@Z
     ARTS_EXPORT b32 ValidPath(const char* path) override;
 
-    // ?ExpandName@VirtualFileSystem@@SAXPADPAUVirtualFileInode@@0@Z
-    [[deprecated]] ARTS_EXPORT static void ExpandName(char* buf, VirtualFileInode* node, const char* names);
-
     static void ExpandName(char* buf, isize buf_len, VirtualFileInode* node, const char* names);
 
     // ?Lookup@VirtualFileSystem@@SAPAUVirtualFileInode@@PAU2@HPAD1@Z
     ARTS_EXPORT static VirtualFileInode* Lookup(VirtualFileInode* nodes, i32 node_count, const char* names, char* path);
-
-    // ?NormalizeName@VirtualFileSystem@@SAXPAD0@Z
-    [[deprecated]] ARTS_EXPORT static void NormalizeName(char* buf, const char* path);
 
     static void NormalizeName(char* buf, isize buf_len, const char* path);
 

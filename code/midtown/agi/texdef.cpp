@@ -293,11 +293,6 @@ void agiTexDef::UnlockSurface()
         TEXCACHE.Unlock(cache_handle_);
 }
 
-void agiTexDef::PageInCallback(void* param)
-{
-    static_cast<agiTexDef*>(param)->DoPageIn();
-}
-
 void agiTexDef::PageOutCallback(void* param, isize delta)
 {
     agiTexDef* self = static_cast<agiTexDef*>(param);

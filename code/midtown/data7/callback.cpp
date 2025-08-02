@@ -55,13 +55,6 @@ Callback::Callback(Member2 func, Base* this_ptr, void* param) noexcept
         Quitf("Can't have callback to member function with nil 'this'");
 }
 
-Callback::Callback(Member2 func, Base* this_ptr, void* param1, void* param2) noexcept
-    : Callback([func, this_ptr, param1, param2] { (this_ptr->*func)(param1, param2); })
-{
-    if (!this_ptr)
-        Quitf("Can't have callback to member function with nil 'this'");
-}
-
 void Callback::Call(void* param)
 {
     if (invoke_)

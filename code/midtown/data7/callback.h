@@ -61,9 +61,6 @@ public:
     // ??0Callback@@QAE@P8Base@@AEXPAX0@ZPAV1@0@Z
     [[deprecated]] ARTS_EXPORT explicit Callback(Member2 func, Base* this_ptr, void* param) noexcept;
 
-    // ??0Callback@@QAE@P8Base@@AEXPAX0@ZPAV1@00@Z | unused
-    [[deprecated]] ARTS_EXPORT explicit Callback(Member2 func, Base* this_ptr, void* param1, void* param2) noexcept;
-
     // ?Call@Callback@@QAEXPAX@Z
     ARTS_EXPORT void Call(void* param = nullptr);
 

@@ -370,11 +370,6 @@ void asSimulation::BeginOverSample(i32 samples)
     inv_seconds_ *= samples;
 }
 
-void asSimulation::EndOverSample()
-{
-    Quitf("Use EndOverSample(i32)");
-}
-
 void asSimulation::EndOverSample(i32 samples)
 {
     seconds_ *= samples;

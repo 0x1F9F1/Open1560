@@ -122,7 +122,7 @@ public:
     ARTS_IMPORT i32 LockIfResident();
 
     // ?PageIn@mmBoundTemplate@@QAEXXZ | mmdyna:bndtmpl2
-    ARTS_IMPORT void PageIn();
+    ARTS_EXPORT void PageIn();
 
     // ?PlotSpan@mmBoundTemplate@@QAEXHHH@Z | mmdyna:bndtmpl2
     ARTS_EXPORT void PlotSpan(i32 arg1, i32 arg2, i32 arg3);
@@ -203,9 +203,6 @@ private:
 
     // ?MakeTable@mmBoundTemplate@@AAEXHHH@Z | mmdyna:bndtmpl2
     ARTS_IMPORT void MakeTable(i32 arg1, i32 arg2, i32 arg3);
-
-    // ?PageInCallback@mmBoundTemplate@@CAXPAX@Z | mmdyna:bndtmpl2
-    ARTS_IMPORT static void PageInCallback(void* arg1);
 
     // ?PageOutCallback@mmBoundTemplate@@CAXPAXH@Z | mmdyna:bndtmpl2
     ARTS_IMPORT static void PageOutCallback(void* arg1, i32 arg2);

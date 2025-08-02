@@ -167,8 +167,6 @@ private:
 #endif
 };
 
-// check_size(asMemoryAllocator, 0xA0);
-
 // ?ALLOCATOR@@3VasMemoryAllocator@@A
 ARTS_EXPORT extern asMemoryAllocator ALLOCATOR;
 

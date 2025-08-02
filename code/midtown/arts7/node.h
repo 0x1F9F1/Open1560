@@ -77,19 +77,7 @@ public:
 
     void AdoptChild(Ptr<asNode> child);
 
-    // ?GetChild@asNode@@QAEPAV1@H@Z
-    [[deprecated]] ARTS_EXPORT asNode* GetChild(i32 index);
-
-    // ?GetLastChild@asNode@@QAEPAV1@XZ | unused
-    [[deprecated]] ARTS_EXPORT asNode* GetLastChild();
-
-    // ?GetNext@asNode@@QAEPAV1@XZ | unused
-    [[deprecated]] ARTS_EXPORT asNode* GetNext()
-    {
-        return next_node_;
-    }
-
-    // ?GetNodeType@asNode@@QAEPADXZ | unused
+    // ?GetNodeType@asNode@@QAEPADXZ
     ARTS_EXPORT const char* GetNodeType();
 
     // ?GetParent@asNode@@QAEPAV1@PAVMetaClass@@@Z | unused
@@ -114,9 +102,6 @@ public:
 
     // ?RemoveChild@asNode@@QAEHPAV1@@Z
     ARTS_EXPORT b32 RemoveChild(asNode* child);
-
-    // ?RemoveChild@asNode@@QAEHH@Z
-    [[deprecated]] ARTS_EXPORT b32 RemoveChild(i32 index);
 
 #ifdef ARTS_DEV_BUILD
     // ?ResetTime@asNode@@QAEXXZ

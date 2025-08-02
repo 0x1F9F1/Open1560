@@ -167,11 +167,6 @@ b32 VirtualFileSystem::ValidPath(const char*)
     return true;
 }
 
-void VirtualFileSystem::ExpandName(char* buf, VirtualFileInode* node, const char* names)
-{
-    ExpandName(buf, 56, node, names);
-}
-
 void VirtualFileSystem::ExpandName(char* buf, isize buf_len, VirtualFileInode* node, const char* names)
 {
     CStringBuilder builder(buf, buf_len);
@@ -268,11 +263,6 @@ VirtualFileInode* VirtualFileSystem::Lookup(VirtualFileInode* nodes, i32 node_co
         end = start + node->GetEntryCount() - 1;
         path = dir_end + 1;
     }
-}
-
-void VirtualFileSystem::NormalizeName(char* buf, const char* path)
-{
-    NormalizeName(buf, 56, path);
 }
 
 void VirtualFileSystem::NormalizeName(char* buf, isize buf_len, const char* path)

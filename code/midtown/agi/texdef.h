@@ -155,9 +155,6 @@ public:
     // ?UnlockSurface@agiTexDef@@QAEXXZ
     ARTS_EXPORT void UnlockSurface();
 
-    // ?PageInCallback@agiTexDef@@SAXPAX@Z
-    [[deprecated]] ARTS_EXPORT static void PageInCallback(void* param);
-
     // ?PageOutCallback@agiTexDef@@SAXPAXH@Z
     ARTS_EXPORT static void PageOutCallback(void* param, isize delta);
 

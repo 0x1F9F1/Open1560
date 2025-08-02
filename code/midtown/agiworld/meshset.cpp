@@ -129,11 +129,6 @@ void agiMeshSet::UnlockAndFree()
         CACHE.UnlockAndFree(CacheHandle);
 }
 
-void agiMeshSet::PageInCallback(void* param)
-{
-    static_cast<agiMeshSet*>(param)->DoPageIn();
-}
-
 b32 agiMeshSet::IsFullyResident(i32 variant)
 {
     if (Resident < 2)

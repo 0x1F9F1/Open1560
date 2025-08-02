@@ -183,48 +183,6 @@ void asNode::AdoptChild(Ptr<asNode> child)
         Quitf("asNode::AdoptChild() - Failed to adopt child");
 }
 
-asNode* asNode::GetChild(i32 index)
-{
-    asNode* child = child_node_;
-
-    for (i32 i = 1; i < index; ++i)
-    {
-        if (!child)
-            break;
-
-        child = child->next_node_;
-    }
-
-    return child;
-}
-
-asNode* asNode::GetLastChild()
-{
-    if (!parent_node_)
-    {
-        Errorf("asNode::GetLastChild() - Need ParentNode set.");
-
-        return nullptr;
-    }
-
-    asNode* n = parent_node_->child_node_;
-
-    if (n == this)
-    {
-        n = nullptr;
-    }
-    else
-    {
-        for (; n; n = n->next_node_)
-        {
-            if (n->next_node_ == this)
-                break;
-        }
-    }
-
-    return n;
-}
-
 const char* asNode::GetNodeType()
 {
     return GetClass()->GetName();
@@ -351,35 +309,6 @@ b32 asNode::RemoveChild(asNode* child)
     }
 
     return false;
-}
-
-b32 asNode::RemoveChild(i32 index)
-{
-    if (!child_node_)
-    {
-        Errorf("asNode::RemoveChild() - No children!");
-        return false;
-    }
-
-    asNode** n = &child_node_;
-
-    for (i32 i = 1; i != index; ++i)
-    {
-        if (*n == nullptr)
-        {
-            Errorf("asNode::RemoveChild() - %d is out of range", index);
-            return false;
-        }
-
-        n = &(*n)->next_node_;
-    }
-
-    asNode* child = *n;
-
-    child->parent_node_ = nullptr;
-    *n = std::exchange(child->next_node_, nullptr);
-
-    return true;
 }
 
 #ifdef ARTS_DEV_BUILD

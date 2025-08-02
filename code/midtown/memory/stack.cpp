@@ -193,30 +193,6 @@ static void InitDebugSymbols()
     }
 }
 
-void DoStackTraceback(i32 depth, i32* frame)
-{
-    while (depth--)
-    {
-        __try
-        {
-            i32 ret_addr = frame[1];
-            frame = *reinterpret_cast<i32**>(frame);
-
-            if (ret_addr <= 0)
-                break;
-
-            char symbol[256];
-            LookupAddress(symbol, ARTS_SIZE(symbol), usize(ret_addr));
-
-            Displayf("%s", symbol);
-        }
-        __except (EXCEPTION_EXECUTE_HANDLER)
-        {
-            break;
-        }
-    }
-}
-
 void DumpStackTraceback(i32* frames, i32 count)
 {
     for (i32 i = 0; i < count; ++i)
@@ -225,11 +201,6 @@ void DumpStackTraceback(i32* frames, i32 count)
         LookupAddress(symbol, ARTS_SIZE(symbol), usize(frames[i]));
         Displayf("%d. %s", count - i - 1, symbol);
     }
-}
-
-ARTS_NOINLINE i32 LogStackTraceback(isize* frames, i32 count)
-{
-    return StackTraceback(count, frames, 1);
 }
 
 void LookupAddress(char* buffer, usize buflen, usize address)
@@ -287,11 +258,6 @@ void LookupAddress(char* buffer, usize buflen, usize address)
     }
 
     arts_sprintf(buffer, buflen, "0x%08zX (Unknown)", address);
-}
-
-[[deprecated]] ARTS_EXPORT void LookupAddress(char* buffer, i32 addr)
-{
-    LookupAddress(buffer, 128, usize(addr));
 }
 
 ARTS_NOINLINE i32 StackTraceback(i32 depth, isize* frames, i32 skipped, _CONTEXT* context_record)

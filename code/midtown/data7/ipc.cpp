@@ -24,40 +24,6 @@ define_dummy_symbol(data7_ipc);
 
 #include "memory/stack.h"
 
-// ?compareExchange@@YIHPAIH@Z
-ARTS_EXPORT /*static*/ i32 ARTS_FASTCALL compareExchange(u32* value, i32 new_value)
-{
-    return _InterlockedCompareExchange((long volatile*) value, (long) new_value, (long) (new_value ^ 1));
-}
-
-void ipcCloseHandle(usize handle)
-{
-    if (handle)
-        CloseHandle(reinterpret_cast<HANDLE>(handle));
-}
-
-void ipcCloseSpinLock(u32* value)
-{
-    ipcSpinLock(value);
-
-    *value = 99;
-}
-
-usize ipcCreateEvent(b32 initial_state)
-{
-    return reinterpret_cast<usize>(CreateEventA(nullptr, false, initial_state, nullptr));
-}
-
-usize ipcCreateMutex(b32 initial_owner)
-{
-    return reinterpret_cast<usize>(CreateMutexA(nullptr, initial_owner, nullptr));
-}
-
-void ipcCreateSpinLock(u32* value)
-{
-    *value = 0;
-}
-
 usize ipcCreateThread(ulong(ARTS_STDCALL* start)(void*), void* param, ulong* thread_id)
 {
     return reinterpret_cast<usize>(CreateThread(nullptr, 0, start, param, 0, thread_id));
@@ -73,49 +39,6 @@ void ipcDeleteThread(usize thread)
 {
     if (thread)
         CloseHandle(reinterpret_cast<HANDLE>(thread));
-}
-
-void ipcReleaseMutex(usize handle)
-{
-    if (handle)
-        ReleaseMutex(reinterpret_cast<HANDLE>(handle));
-}
-
-void ipcSleep(u32 milli_seconds)
-{
-    Sleep(milli_seconds);
-}
-
-void ipcSpinLock(u32* value)
-{
-    while (compareExchange(value, 1) == 1)
-        Sleep(0);
-}
-
-void ipcSpinUnlock(u32* value)
-{
-    while (compareExchange(value, 0) == 0)
-        Sleep(0);
-}
-
-void ipcTriggerEvent(usize handle)
-{
-    if (handle)
-        SetEvent(reinterpret_cast<HANDLE>(handle));
-}
-
-i32 ipcWaitMultiple(i32 count, usize* handles, b32 wait_all)
-{
-    // TODO: Should this return b32?
-    return WaitForMultipleObjects(count, reinterpret_cast<const HANDLE*>(handles), wait_all, INFINITE);
-}
-
-void ipcWaitSingle(usize handle)
-{
-    // NOTE: Original looped waiting 1000 ms
-
-    if (handle)
-        WaitForSingleObject(reinterpret_cast<HANDLE>(handle), INFINITE);
 }
 
 void ipcYield()
@@ -160,11 +83,6 @@ void ipcMessageQueue::Init(i32 max_messages, i32 mode)
 
     ulong thread_id = 0;
     proc_thread_ = ipcCreateThread(ipcMessageQueue::Proc, this, &thread_id);
-}
-
-void ipcMessageQueue::Send(void (*func)(void*), void* param)
-{
-    Send([func, param] { func(param); });
 }
 
 void ipcMessageQueue::Send(Callback cb)

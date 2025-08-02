@@ -65,9 +65,6 @@ public:
     // ?BeginOverSample@asSimulation@@QAEXH@Z
     ARTS_EXPORT void BeginOverSample(i32 samples);
 
-    // ?EndOverSample@asSimulation@@QAEXXZ | unused
-    [[deprecated]] ARTS_EXPORT void EndOverSample();
-
     // ?EndOverSample@asSimulation@@QAEXH@Z
     ARTS_EXPORT void EndOverSample(i32 samples);
 
