@@ -24,7 +24,7 @@ class PreCamCS final : public CarCamCS
 {
 public:
     // ??0PreCamCS@@QAE@XZ
-    ARTS_IMPORT PreCamCS();
+    ARTS_EXPORT PreCamCS() = default;
 
     // ??_EPreCamCS@@UAEPAXI@Z
     // ??1PreCamCS@@UAE@XZ | inline
@@ -39,21 +39,26 @@ public:
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@PreCamCS@@QAEXPAVmmCar@@@Z
-    ARTS_IMPORT void Init(mmCar* arg1);
+    ARTS_EXPORT void Init(mmCar* car);
 
     // ?MakeActive@PreCamCS@@UAEXXZ
-    ARTS_IMPORT void MakeActive() override;
+    ARTS_EXPORT void MakeActive() override;
 
     // ?Reset@PreCamCS@@UAEXXZ
-    ARTS_IMPORT void Reset() override;
+    ARTS_EXPORT void Reset() override;
 
     // ?Update@PreCamCS@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
     // ?DeclareFields@PreCamCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap118[0x18];
+    f32 PolarHeight {2.0f};
+    f32 PolarDistance {22.0f};
+    f32 PolarAngle {0.0f};
+    f32 PolarIncline {1.1f};
+    f32 field_128 {2.0f};
+    f32 AzimuthOffset {0.0f};
 };
 
 check_size(PreCamCS, 0x130);

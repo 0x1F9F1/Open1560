@@ -91,7 +91,7 @@ public:
     ARTS_IMPORT void PolarView(const Vector4& arg1);
 
     // ?PolarView@Matrix34@@QAEXMMMM@Z
-    ARTS_IMPORT void PolarView(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
+    ARTS_IMPORT void PolarView(f32 offz, f32 roty, f32 rotx, f32 rotz);
 
     // ?RotEqual@Matrix34@@QBEIABV1@M@Z
     ARTS_IMPORT u32 RotEqual(const Matrix34& arg1, f32 arg2) const;

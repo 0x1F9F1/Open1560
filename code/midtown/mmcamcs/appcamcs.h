@@ -55,7 +55,29 @@ private:
     // ?UpdateMaxDist@AppCamCS@@AAEXXZ
     ARTS_IMPORT void UpdateMaxDist();
 
-    u8 gap9C[0x78];
+public:
+    Matrix34* CarMatrix;
+    Vector3 TrackTo;
+    f32 ApproachOn;
+    f32 AppAppOn;
+    f32 AppRot;
+    f32 AppXRot;
+    f32 AppYPos;
+    f32 AppXZPos;
+    f32 AppApp;
+    f32 AppRotMin;
+    f32 AppPosMin;
+    b32 LookAbove;
+    b32 OneShot;
+    f32 MaxDist;
+    f32 MinDist;
+    f32 LookAt;
+    f32 field_E4;
+    f32 field_E8;
+    f32 field_EC;
+    Vector3 field_F0;
+    Vector3 field_FC;
+    Vector3 field_108;
 };
 
 check_size(AppCamCS, 0x114);
