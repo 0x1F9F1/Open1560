@@ -148,7 +148,7 @@ public:
     ARTS_IMPORT void SaveBinary(Stream* arg1);
 
     // ?StopDestinationSources@aiPath@@QAEXH@Z
-    ARTS_IMPORT void StopDestinationSources(i32 arg1);
+    ARTS_IMPORT void StopDestinationSources(b32 arg1);
 
     // ?SubSectionDir@aiPath@@QAEXAAVVector3@@HHM@Z
     ARTS_IMPORT void SubSectionDir(Vector3& arg1, i32 arg2, i32 arg3, f32 arg4);

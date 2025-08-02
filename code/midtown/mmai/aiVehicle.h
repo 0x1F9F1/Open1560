@@ -44,7 +44,7 @@ public:
 
     List Goals {};
     i16 OppId {};
-    u16 UpdateGroup {};
+    i16 UpdateGroup {};
 };
 
 check_size(aiVehicle, 0x14);

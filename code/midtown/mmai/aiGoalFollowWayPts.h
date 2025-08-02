@@ -69,7 +69,7 @@ public:
     ARTS_IMPORT void Reset() override;
 
     // ?Update@aiGoalFollowWayPts@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
     // ?DeclareFields@aiGoalFollowWayPts@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
@@ -79,7 +79,7 @@ private:
     ARTS_IMPORT void AddToBlockedRange(f32 arg1, f32 arg2, f32 arg3);
 
     // ?AvoidCollision@aiGoalFollowWayPts@@AAEXH@Z
-    ARTS_IMPORT void AvoidCollision(i32 arg1);
+    ARTS_IMPORT void AvoidCollision(i32 dist_to_side);
 
     // ?AvoidOpponentCollision@aiGoalFollowWayPts@@AAEXPAVaiVehicleOpponent@@@Z
     ARTS_IMPORT void AvoidOpponentCollision(aiVehicleOpponent* arg1);
@@ -108,6 +108,9 @@ private:
     // ?SolveTargetPoint@aiGoalFollowWayPts@@AAEXXZ
     ARTS_IMPORT void SolveTargetPoint();
 
+    i32 GetWayPtId(i16 index);
+
+public:
     aiVehicleOpponent* Vehicle;
     aiRailSet* Rail;
     mmCar* Car;

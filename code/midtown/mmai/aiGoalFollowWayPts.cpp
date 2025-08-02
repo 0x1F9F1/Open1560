@@ -25,6 +25,8 @@ define_dummy_symbol(mmai_aiGoalFollowWayPts);
 
 #include "aiData.h"
 #include "aiMap.h"
+#include "aiPath.h"
+#include "aiVehicleOpponent.h"
 
 b32 aiGoalFollowWayPts::Context()
 {
@@ -54,4 +56,115 @@ b32 aiGoalFollowWayPts::Context()
 
         return false;
     }
+}
+
+i32 aiGoalFollowWayPts::GetWayPtId(i16 index)
+{
+    if (index < 0 || index > NumWayPts)
+    {
+        Warningf("Check Point Index: %d, is outside of the array bounds.", index);
+        Warningf("Requested by: Opp %d.", Vehicle->OppId);
+        index = NumWayPts;
+    }
+
+    return WayPtIds[index];
+}
+
+void aiGoalFollowWayPts::Update()
+{
+    ++UpdateCount;
+
+    if (Car->Sim.ICS.Constraints & (ICS_CONSTRAIN_TX | ICS_CONSTRAIN_TZ))
+    {
+        if (Car->Sim.FrontLeft.OnGround)
+        {
+            Car->Sim.Steering = 0.0f;
+            Car->Sim.Brakes = 0.0f;
+            Car->Sim.Engine.Throttle = 1.0f;
+        }
+
+        return;
+    }
+
+    Stuck.Update();
+
+    if (Car->Sim.Stuck.State == CAR_STUCK)
+    {
+        PlanRoute();
+        *BackingUp = true;
+        Car->Sim.ICS.LinearMomentum = {};
+        Car->Sim.ICS.AngularMomentum = {};
+        UpdateCount = 0;
+        return;
+    }
+
+    if (Stuck.State == CAR_STUCK)
+    {
+        Car->Sim.Steering = 1.0f;
+        Car->Sim.Brakes = 0.0f;
+        Car->Sim.Engine.Throttle = 1.0f;
+        Car->Sim.Stuck.State = CAR_NOT_STUCK;
+        return;
+    }
+
+    i16 path_id = -1;
+
+    if (WayPtIdx > 1 && WayPtIdx < NumWayPts - 1)
+    {
+        aiIntersection* prev_isect = AIMAP.Intersection(GetWayPtId(WayPtIdx - 1));
+        aiIntersection* next_isect = AIMAP.Intersection(GetWayPtId(WayPtIdx));
+        aiPath* path = DetRdSegBetweenInts(prev_isect, next_isect);
+        path_id = path->Id;
+    }
+
+    i16 out_index = 0;
+
+    CurMapCompIdx =
+        static_cast<i16>(AIMAP.DetermineOppMapComponent(Car->Sim.ICS.Matrix, Rail, &CurMapCompType, &CurRdVertIdx,
+            &Rail->RoadDist, &DistToSide, &out_index, &TargetPtOffset, Car->Sim.Speed, LastMapCompType, path_id));
+
+    PlanRoute();
+
+    if (Rail->NextLink)
+    {
+        Rail->NextLink->StopDestinationSources(true);
+    }
+
+    if (i32 dist_to_side = 0; !Vehicle->IsSemi && DetectCollision(&dist_to_side))
+    {
+        AvoidCollision(dist_to_side);
+    }
+    else if (aiVehicleOpponent* opp = DetectOpponentCollision())
+    {
+        AvoidOpponentCollision(opp);
+    }
+    else
+    {
+        SolveTargetPoint();
+    }
+
+    Vector3 target_dir = TargetPt - Car->Sim.ICS.Matrix.m3;
+    f32 angle = std::atan2(target_dir ^ Car->Sim.ICS.Matrix.m0, target_dir ^ -Car->Sim.ICS.Matrix.m2);
+
+    Steering = std::clamp(angle, -1.0f, 1.0f);
+
+    if (Car->Model.Flags & INST_FLAG_COLLIDED_PLAYER)
+    {
+        *Car->Sim.Realism = 1.0f;
+    }
+    else
+    {
+        *Car->Sim.Realism = 0.0f;
+
+        if (angle < 0.1f && angle > -0.1f)
+        {
+            Car->Sim.ICS.AngularMomentum *= 0.1f;
+        }
+    }
+
+    Car->Sim.Steering = Steering;
+    Car->Sim.Brakes = Brakes;
+    Car->Sim.Engine.Throttle = Throttle;
+
+    LastMapCompType = CurMapCompType;
 }
