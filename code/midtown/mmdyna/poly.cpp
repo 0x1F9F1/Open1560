@@ -19,3 +19,150 @@
 define_dummy_symbol(mmdyna_poly);
 
 #include "poly.h"
+
+#include "mmdyna/bndtmpl.h"
+
+f32 mmPolygon::CheckCellXSide(f32 plane_x, f32 z_min, f32 z_max)
+{
+    f32 max_y = -999999.0f;
+    i32 num_verts = GetNumVerts();
+
+    for (i32 i = 0; i < num_verts; ++i)
+    {
+        const Vector3& v1 = mmBoundTemplate::VertPtr[VertIndices[i]];
+        const Vector3& v2 = mmBoundTemplate::VertPtr[VertIndices[(i + 1) % num_verts]];
+
+        if ((v1.x < plane_x && v2.x > plane_x) || (v1.x > plane_x && v2.x < plane_x))
+        {
+            f32 factor = (plane_x - v1.x) / (v2.x - v1.x);
+            f32 z_int = (v2.z - v1.z) * factor + v1.z;
+
+            if (z_int >= z_min && z_int <= z_max)
+                max_y = std::max(max_y, (v2.y - v1.y) * factor + v1.y);
+        }
+    }
+
+    return max_y;
+}
+
+f32 mmPolygon::CheckCellZSide(f32 plane_z, f32 x_min, f32 x_max)
+{
+    f32 max_y = -999999.0f;
+    i32 num_verts = GetNumVerts();
+
+    for (i32 i = 0; i < num_verts; ++i)
+    {
+        const Vector3& v1 = mmBoundTemplate::VertPtr[VertIndices[i]];
+        const Vector3& v2 = mmBoundTemplate::VertPtr[VertIndices[(i + 1) % num_verts]];
+
+        if ((v1.z < plane_z && v2.z > plane_z) || (v1.z > plane_z && v2.z < plane_z))
+        {
+            f32 factor = (plane_z - v1.z) / (v2.z - v1.z);
+            f32 x_int = (v2.x - v1.x) * factor + v1.x;
+
+            if (x_int >= x_min && x_int <= x_max)
+                max_y = std::max(max_y, (v2.y - v1.y) * factor + v1.y);
+        }
+    }
+
+    return max_y;
+}
+
+f32 mmPolygon::CheckCorner(f32 x, f32 z, f32* plane_x, f32* plane_z, f32* plane_d)
+{
+    if (PlaneN.y == 0.0f)
+        return -999999.0f;
+
+    for (i32 i = 0; i < GetNumVerts(); ++i)
+    {
+        if ((x * plane_x[i]) + (z * plane_z[i]) + plane_d[i] < 0.0f)
+            return -999999.0f;
+    }
+
+    return GetPlaneY(x, z);
+}
+
+f32 mmPolygon::CornersHeight(f32 x1, f32 z1, f32 x2, f32 z2)
+{
+    i32 num_verts = GetNumVerts();
+    f32 sign = (PlaneN.y <= 0.0f) ? 1.0f : -1.0f;
+    f32 plane_x[4] {};
+    f32 plane_z[4] {};
+    f32 plane_d[4] {};
+
+    for (i32 i = 0; i < num_verts; ++i)
+    {
+        const Vector3& v1 = mmBoundTemplate::VertPtr[VertIndices[i]];
+        const Vector3& v2 = mmBoundTemplate::VertPtr[VertIndices[(i + 1) % num_verts]];
+
+        plane_x[i] = -(v2.z - v1.z) * sign;
+        plane_z[i] = (v2.x - v1.x) * sign;
+        plane_d[i] = -(plane_x[i] * v1.x + plane_z[i] * v1.z);
+
+        f32 length = std::sqrt(plane_x[i] * plane_x[i] + plane_z[i] * plane_z[i]);
+
+        if (length < 1e-9)
+            return -999999.0f;
+
+        plane_x[i] /= length;
+        plane_z[i] /= length;
+        plane_d[i] /= length;
+    }
+
+    f32 max_y = -999999.0f;
+    max_y = std::max(max_y, CheckCorner(x1, z1, plane_x, plane_z, plane_d));
+    max_y = std::max(max_y, CheckCorner(x1, z2, plane_x, plane_z, plane_d));
+    max_y = std::max(max_y, CheckCorner(x2, z1, plane_x, plane_z, plane_d));
+    max_y = std::max(max_y, CheckCorner(x2, z2, plane_x, plane_z, plane_d));
+
+    return max_y;
+}
+
+f32 mmPolygon::MaxY(f32 x_min, f32 z_min, f32 x_max, f32 z_max)
+{
+    f32 max_y = -999999.0f;
+
+    for (i32 i = 0; i < GetNumVerts(); ++i)
+    {
+        const Vector3& vert = mmBoundTemplate::VertPtr[VertIndices[i]];
+
+        if (vert.x >= x_min && vert.x <= x_max && vert.z >= z_min && vert.z <= z_max)
+            max_y = std::max(max_y, vert.y);
+    }
+
+    max_y = std::max(max_y, CornersHeight(x_min, z_min, x_max, z_max));
+    max_y = std::max(max_y, CheckCellXSide(x_min, z_min, z_max));
+    max_y = std::max(max_y, CheckCellXSide(x_max, z_min, z_max));
+    max_y = std::max(max_y, CheckCellZSide(z_min, x_min, x_max));
+    max_y = std::max(max_y, CheckCellZSide(z_max, x_min, x_max));
+
+    return max_y;
+}
+
+void mmPolygon::Plot(mmBoundTemplate* t, i32 poly_index)
+{
+    if (IsQuad())
+    {
+        PlotTriangle(0, 1, 2, t, poly_index);
+        PlotTriangle(0, 2, 3, t, poly_index);
+    }
+    else
+    {
+        PlotTriangle(0, 1, 2, t, poly_index);
+    }
+}
+
+void mmPolygon::PlotScan(i32 x1, i32 x2, i32 z, mmBoundTemplate* t, i32 poly_index)
+{
+    if (t)
+    {
+        x1 = std::clamp(x1, 0, t->XDim - 1);
+        x2 = std::clamp(x2, 0, t->XDim - 1);
+        z = std::clamp(z, 0, t->ZDim - 1);
+
+        for (i32 x = x1; x <= x2; ++x)
+        {
+            t->AddIndex(x, z, poly_index);
+        }
+    }
+}

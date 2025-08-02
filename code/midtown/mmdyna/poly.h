@@ -38,16 +38,16 @@ public:
 
 private:
     // ?CheckCellXSide@mmPolygon@@AAEMMMM@Z
-    ARTS_IMPORT f32 CheckCellXSide(f32 arg1, f32 arg2, f32 arg3);
+    ARTS_EXPORT f32 CheckCellXSide(f32 plane_x, f32 z_min, f32 z_max);
 
     // ?CheckCellZSide@mmPolygon@@AAEMMMM@Z
-    ARTS_IMPORT f32 CheckCellZSide(f32 arg1, f32 arg2, f32 arg3);
+    ARTS_EXPORT f32 CheckCellZSide(f32 plane_z, f32 x_min, f32 x_max);
 
     // ?CheckCorner@mmPolygon@@AAEMMMPAM00@Z
-    ARTS_IMPORT f32 CheckCorner(f32 arg1, f32 arg2, f32* arg3, f32* arg4, f32* arg5);
+    ARTS_EXPORT f32 CheckCorner(f32 x, f32 z, f32* plane_x, f32* plane_z, f32* plane_d);
 
     // ?CornersHeight@mmPolygon@@AAEMMMMM@Z
-    ARTS_IMPORT f32 CornersHeight(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
+    ARTS_EXPORT f32 CornersHeight(f32 x1, f32 z1, f32 x2, f32 z2);
 
 #ifdef ARTS_DEV_BUILD
     // ?Draw@mmPolygon@@AAEXXZ
@@ -71,16 +71,26 @@ private:
     ARTS_IMPORT void Init();
 
     // ?MaxY@mmPolygon@@AAEMMMMM@Z
-    ARTS_IMPORT f32 MaxY(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
+    ARTS_EXPORT f32 MaxY(f32 x_min, f32 z_min, f32 x_max, f32 z_max);
 
     // ?Plot@mmPolygon@@AAEXPAVmmBoundTemplate@@H@Z
-    ARTS_IMPORT void Plot(mmBoundTemplate* arg1, i32 arg2);
+    ARTS_EXPORT void Plot(mmBoundTemplate* t, i32 poly_index);
 
     // ?PlotScan@mmPolygon@@AAEXHHHPAVmmBoundTemplate@@H@Z
-    ARTS_IMPORT void PlotScan(i32 arg1, i32 arg2, i32 arg3, mmBoundTemplate* arg4, i32 arg5);
+    ARTS_EXPORT void PlotScan(i32 x1, i32 x2, i32 z, mmBoundTemplate* t, i32 poly_index);
 
     // ?PlotTriangle@mmPolygon@@AAEXHHHPAVmmBoundTemplate@@H@Z
     ARTS_IMPORT void PlotTriangle(i32 arg1, i32 arg2, i32 arg3, mmBoundTemplate* arg4, i32 arg5);
+
+    i32 GetNumVerts() const
+    {
+        return IsQuad() ? 4 : 3;
+    }
+
+    b32 IsQuad() const
+    {
+        return (Flags & 4) != 0;
+    }
 
 public:
     u16 RoomId;

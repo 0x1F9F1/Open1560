@@ -207,6 +207,7 @@ private:
     // ?PageOutCallback@mmBoundTemplate@@CAXPAXH@Z | mmdyna:bndtmpl2
     ARTS_IMPORT static void PageOutCallback(void* arg1, i32 arg2);
 
+public:
     u32 RefCount;
     PagerInfo_t PagerInfo;
     i32 Handle;
