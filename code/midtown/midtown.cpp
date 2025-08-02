@@ -23,7 +23,6 @@ define_dummy_symbol(midtown);
 #include "agi/physlib.h"
 #include "agi/pipeline.h"
 #include "agi/texdef.h"
-#include "agid3d/pcpipe.h"
 #include "agisdl/sdlswpipe.h"
 #include "agisw/swddraw.h"
 #include "agisw/swpipe.h"
@@ -64,7 +63,7 @@ define_dummy_symbol(midtown);
 #include "vector7/randmath.h"
 
 #ifdef ARTS_DEV_BUILD
-#include "toolmgr/toolmgr.h"
+#    include "toolmgr/toolmgr.h"
 #endif
 
 #include <mem/cmd_param-inl.h>
@@ -75,13 +74,17 @@ define_dummy_symbol(midtown);
 #include "core/minwin.h"
 
 #ifdef ARTS_ENABLE_OPENGL
-#include "agigl/glpipe.h"
+#    include "agigl/glpipe.h"
+#endif
+
+#ifdef ARTS_ENABLE_DX6
+#    include "agid3d/pcpipe.h"
 #endif
 
 #include <shellapi.h>
 
 #ifndef CI_BUILD_STRING
-#define CI_BUILD_STRING "Dev"
+#    define CI_BUILD_STRING "Dev"
 #endif
 
 const char* VERSION_STRING = "Open1560: " __DATE__ " " __TIME__ " / " CI_BUILD_STRING;
@@ -812,9 +815,11 @@ Owner<agiPipeline> CreatePipeline(i32 argc, char** argv)
 
         switch (info.Type)
         {
+#ifdef ARTS_ENABLE_DX6
             case dxiRendererType::DX6_Soft: pipe = as_ptr swCreatePipeline(argc, argv); break;
             case dxiRendererType::DX6_GDI:
             case dxiRendererType::DX6: pipe = as_ptr d3dCreatePipeline(argc, argv); break;
+#endif
 
 #ifdef ARTS_ENABLE_OPENGL
             case dxiRendererType::OpenGL: pipe = as_ptr glCreatePipeline(argc, argv); break;
@@ -841,7 +846,11 @@ Owner<agiPipeline> CreatePipeline(i32 argc, char** argv)
 
             MessageBoxA(NULL, LOC_STR(MM_IDS_GRAPHICS_ERROR), APPTITLE, MB_ICONERROR);
 
+#ifdef ARTS_ENABLE_OPENGL
+            pipe = as_ptr sdlCreatePipeline(argc, argv);
+#else
             pipe = as_ptr swCreatePipeline(argc, argv);
+#endif
             pipe->SetRes(640, 480);
         }
     }
@@ -851,9 +860,11 @@ Owner<agiPipeline> CreatePipeline(i32 argc, char** argv)
 
         switch (bHaveIME ? dxiRendererType::DX6_Soft : info.Type)
         {
+#ifdef ARTS_ENABLE_DX6
             case dxiRendererType::DX6_Soft: pipe = as_ptr swCreatePipeline(argc, argv); break;
             case dxiRendererType::DX6_GDI:
             case dxiRendererType::DX6: pipe = as_ptr d3dCreatePipeline(argc, argv); break;
+#endif
 
 #ifdef ARTS_ENABLE_OPENGL
             case dxiRendererType::OpenGL: pipe = as_ptr glCreatePipeline(argc, argv); break;
@@ -1308,6 +1319,7 @@ include_dummy_symbol(agi_texdef);
 include_dummy_symbol(agi_texlib);
 include_dummy_symbol(agi_viewport);
 
+#ifdef ARTS_ENABLE_DX6
 include_dummy_symbol(agid3d_d3dlight);
 include_dummy_symbol(agid3d_d3dmtldef);
 include_dummy_symbol(agid3d_d3dpipe);
@@ -1319,6 +1331,7 @@ include_dummy_symbol(agid3d_ddbitmap);
 include_dummy_symbol(agid3d_dderror);
 include_dummy_symbol(agid3d_ddpipe);
 include_dummy_symbol(agid3d_pcpipe);
+#endif
 
 include_dummy_symbol(agisw_swddraw);
 include_dummy_symbol(agisw_swemitrunall);

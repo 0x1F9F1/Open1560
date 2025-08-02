@@ -35,11 +35,15 @@
 
 #include "agi/mtldef.h"
 
+#include "d3dpipe.h"
+
 class agiD3DMtlDef final : public agiMtlDef
 {
 public:
     // ??0agiD3DMtlDef@@QAE@PAVagiPipeline@@@Z
-    ARTS_IMPORT agiD3DMtlDef(agiPipeline* arg1);
+    ARTS_EXPORT agiD3DMtlDef(agiPipeline* pipe)
+        : agiMtlDef(pipe)
+    {}
 
     // ??_GagiD3DMtlDef@@UAEPAXI@Z
     // ??_EagiD3DMtlDef@@UAEPAXI@Z
@@ -47,15 +51,21 @@ public:
     ARTS_EXPORT ~agiD3DMtlDef() override = default;
 
     // ?Activate@agiD3DMtlDef@@QAEXXZ
-    ARTS_IMPORT void Activate();
+    ARTS_EXPORT void Activate();
 
     // ?BeginGfx@agiD3DMtlDef@@UAEHXZ
-    ARTS_IMPORT i32 BeginGfx() override;
+    ARTS_EXPORT i32 BeginGfx() override;
 
     // ?EndGfx@agiD3DMtlDef@@UAEXXZ
-    ARTS_IMPORT void EndGfx() override;
+    ARTS_EXPORT void EndGfx() override;
 
-    u8 gap80[0x8];
+    agiD3DPipeline* Pipe() const
+    {
+        return static_cast<agiD3DPipeline*>(agiRefreshable::Pipe());
+    }
+
+    IDirect3DMaterial3* material_ {};
+    D3DMATERIALHANDLE handle_ {};
 };
 
 check_size(agiD3DMtlDef, 0x88);

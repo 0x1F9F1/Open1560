@@ -62,15 +62,6 @@ class agiSurfaceDesc;
 // ?dxiChangeDisplaySettings@@YAHHHH@Z
 ARTS_EXPORT i32 dxiChangeDisplaySettings(i32 width, i32 height, i32 bpp);
 
-// ?dxiDirectDrawCreate@@YAXXZ
-ARTS_EXPORT void dxiDirectDrawCreate();
-
-// ?dxiDirectDrawSurfaceCreate@@YAXXZ
-ARTS_IMPORT void dxiDirectDrawSurfaceCreate();
-
-// ?dxiDirectDrawSurfaceDestroy@@YAXXZ
-ARTS_EXPORT void dxiDirectDrawSurfaceDestroy();
-
 // ?dxiDirectInputCreate@@YAXXZ
 ARTS_EXPORT void dxiDirectInputCreate();
 
@@ -85,10 +76,6 @@ ARTS_EXPORT void dxiSetDisplayMode();
 
 // ?dxiShutdown@@YAXXZ
 ARTS_EXPORT void dxiShutdown();
-
-// ?dxiWindowCreate@@YAXPAD@Z
-// This should only be in LockScreen
-ARTS_EXPORT void dxiWindowCreate(const char* title);
 
 void dxiWindowCreate(const char* title, dxiRendererType type);
 
@@ -139,14 +126,32 @@ ARTS_IMPORT extern i32 dxiWidth;
 // ?hwndMain@@3PAUHWND__@@A
 ARTS_IMPORT extern HWND__* hwndMain;
 
+// ?lpDI@@3PAUIDirectInputA@@A
+ARTS_IMPORT extern IDirectInputA* lpDI;
+
+typedef struct SDL_Window SDL_Window;
+
+extern SDL_Window* g_MainWindow;
+
+#ifdef ARTS_ENABLE_DX6
+// ?dxiDirectDrawCreate@@YAXXZ
+ARTS_EXPORT void dxiDirectDrawCreate();
+
+// ?dxiDirectDrawSurfaceCreate@@YAXXZ
+ARTS_IMPORT void dxiDirectDrawSurfaceCreate();
+
+// ?dxiDirectDrawSurfaceDestroy@@YAXXZ
+ARTS_EXPORT void dxiDirectDrawSurfaceDestroy();
+
+// This should only be called in LockScreen
+// ?dxiWindowCreate@@YAXPAD@Z
+ARTS_EXPORT void dxiWindowCreate(const char* title);
+
 // ?lpClip@@3PAUIDirectDrawClipper@@A
 ARTS_IMPORT extern IDirectDrawClipper* lpClip;
 
 // ?lpDD4@@3PAUIDirectDraw4@@A
 ARTS_IMPORT extern IDirectDraw4* lpDD4;
-
-// ?lpDI@@3PAUIDirectInputA@@A
-ARTS_IMPORT extern IDirectInputA* lpDI;
 
 // ?lpdsBack@@3PAUIDirectDrawSurface4@@A
 ARTS_IMPORT extern IDirectDrawSurface4* lpdsBack;
@@ -159,7 +164,4 @@ ARTS_IMPORT extern IDirectDrawSurface4* lpdsFront;
 
 // ?lpdsRend@@3PAUIDirectDrawSurface4@@A
 ARTS_IMPORT extern IDirectDrawSurface4* lpdsRend;
-
-typedef struct SDL_Window SDL_Window;
-
-extern SDL_Window* g_MainWindow;
+#endif

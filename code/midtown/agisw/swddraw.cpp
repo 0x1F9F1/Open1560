@@ -27,6 +27,7 @@ define_dummy_symbol(agisw_swddraw);
 #include "pcwindis/dxinit.h"
 #include "swrend.h"
 
+#ifdef ARTS_ENABLE_DX6
 // ?ddEnd@@YAXXZ
 ARTS_EXPORT /*static*/ void ddEnd()
 {}
@@ -109,3 +110,4 @@ void ddAttach(i32 flags, i32 bit_depth)
     swFbStartScene = ddStartScene;
     swFbEndScene = ddEndScene;
 }
+#endif

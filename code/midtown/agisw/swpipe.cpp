@@ -24,7 +24,6 @@ define_dummy_symbol(agisw_swpipe);
 #include "agi/mtldef.h"
 #include "agi/palette.h"
 #include "agi/texdef.h"
-#include "agid3d/dderror.h"
 #include "agirend/bilight.h"
 #include "agirend/bilmodel.h"
 #include "agirend/lighter.h"
@@ -38,6 +37,10 @@ define_dummy_symbol(agisw_swpipe);
 #include "swrend.h"
 #include "swrsys.h"
 #include "swtexdef.h"
+
+#ifdef ARTS_ENABLE_DX6
+#    include "agid3d/dderror.h"
+#endif
 
 class agiSWViewport final : public agiViewport
 {
@@ -84,6 +87,13 @@ private:
 
 check_size(agiSWViewport, 0x14C);
 
+// ?zmemset@@YAXPAGI@Z
+ARTS_EXPORT /*static*/ void zmemset(u16* values, u32 count)
+{
+    std::memset(values, 0xFF, count * sizeof(u16[4]));
+}
+
+#ifdef ARTS_ENABLE_DX6
 static DDCOLORKEY ddk {};
 
 // TODO: Merge with agiDDBitmap (identical code)
@@ -336,10 +346,10 @@ void agiSWPipeline::ClearRect(i32 x, i32 y, i32 width, i32 height, u32 color)
 
 void agiSWPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height)
 {
-#ifdef ARTS_DEV_BUILD
+#    ifdef ARTS_DEV_BUILD
     ++agiBitmapCount;
     agiBitmapPixels += width * height;
-#endif
+#    endif
 
     // TODO: Implement DrawMode 3
 
@@ -437,15 +447,10 @@ b32 agiSWPipeline::PrintIs3D()
     return true;
 }
 
-// ?zmemset@@YAXPAGI@Z
-ARTS_EXPORT /*static*/ void zmemset(u16* values, u32 count)
-{
-    std::memset(values, 0xFF, count * sizeof(u16[4]));
-}
-
 Owner<agiPipeline> swCreatePipeline(i32 argc, char** argv)
 {
     Ptr<agiSWPipeline> result = arnew agiSWPipeline(argc, argv);
     result->Init();
     return as_owner result;
 }
+#endif

@@ -120,10 +120,15 @@ public:
     ARTS_EXPORT ~agiD3DTexLut() override = default;
 
     // ?BeginGfx@agiD3DTexLut@@UAEHXZ
-    ARTS_IMPORT i32 BeginGfx() override;
+    ARTS_EXPORT i32 BeginGfx() override;
 
     // ?EndGfx@agiD3DTexLut@@UAEXXZ
-    ARTS_IMPORT void EndGfx() override;
+    ARTS_EXPORT void EndGfx() override;
+
+    agiD3DPipeline* Pipe() const
+    {
+        return static_cast<agiD3DPipeline*>(agiRefreshable::Pipe());
+    }
 
 private:
     IDirectDrawPalette* pal_ {};

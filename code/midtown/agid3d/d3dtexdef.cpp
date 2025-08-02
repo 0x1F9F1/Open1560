@@ -267,3 +267,20 @@ void agiD3DTexDef::Unlock(agiTexLock&)
 
 void agiD3DTexDef::Prober(void*)
 {}
+
+i32 agiD3DTexLut::BeginGfx()
+{
+    u32 flags = DDPCAPS_8BIT | DDPCAPS_INITIALIZE | DDPCAPS_ALLOW256;
+
+    if (AlphaPalette)
+        flags |= DDPCAPS_ALPHA;
+
+    DD_TRY(Pipe()->GetDirectDraw()->CreatePalette(flags, (PALETTEENTRY*) palette_, &pal_, NULL));
+
+    return AGI_ERROR_SUCCESS;
+}
+
+void agiD3DTexLut::EndGfx()
+{
+    DD_RELEASE(pal_);
+}

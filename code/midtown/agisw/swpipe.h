@@ -71,7 +71,9 @@
 
 #include "pcwindis/dxinit.h"
 
-#include <ddraw.h>
+#ifdef ARTS_ENABLE_DX6
+#    include <ddraw.h>
+#endif
 
 class agiSWPipeline final : public agiPipeline
 {
@@ -143,13 +145,17 @@ public:
 
     b32 PrintIs3D() override;
 
+#ifdef ARTS_ENABLE_DX6
     IDirectDraw4* GetDirectDraw() const
     {
         return lpDD4;
     }
+#endif
 };
 
 check_size(agiSWPipeline, 0x2F0);
 
+#ifdef ARTS_ENABLE_DX6
 // ?swCreatePipeline@@YAPAVagiPipeline@@HPAPAD@Z
 ARTS_EXPORT Owner<agiPipeline> swCreatePipeline(i32 argc, char** argv);
+#endif

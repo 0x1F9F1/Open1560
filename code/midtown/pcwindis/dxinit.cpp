@@ -37,8 +37,10 @@ define_dummy_symbol(pcwindis_dxinit);
 #include <SDL_syswm.h>
 #include <SDL_video.h>
 
-#include <ddraw.h>
-#include <dinput.h>
+#ifdef ARTS_ENABLE_DX6
+#    include <ddraw.h>
+#    include <dinput.h>
+#endif
 
 SDL_Window* g_MainWindow = nullptr;
 
@@ -57,6 +59,7 @@ i32 dxiChangeDisplaySettings(i32 /*width*/, i32 /*height*/, i32 /*bpp*/)
     return 0;
 }
 
+#ifdef ARTS_ENABLE_DX6
 static inline GUID* dxiGetInterfaceGUID()
 {
     dxiRendererInfo_t& info = GetRendererInfo();
@@ -95,6 +98,7 @@ void dxiDirectDrawSurfaceDestroy()
     SafeRelease(lpdsBack);
     SafeRelease(lpdsFront);
 }
+#endif
 
 static mem::cmd_param PARAM_sdljoy {"sdljoy"};
 
@@ -198,13 +202,20 @@ void dxiInit(char* title, i32 argc, char** argv)
 
     dxiWindowCreate(title, type);
 
+#ifdef ARTS_ENABLE_DX6
     if (IsDX6Renderer(type))
     {
         dxiDirectDrawCreate();
         dxiSetDisplayMode();
     }
+#endif
 
     dxiDirectInputCreate();
+}
+
+void dxiScreenShot(char* file_name)
+{
+    agiPipeline::RequestScreenShot(ConstString(file_name));
 }
 
 // ?translate555@@YAXPAEPAGI@Z
@@ -213,6 +224,7 @@ ARTS_IMPORT /*static*/ void translate555(u8* output, u16* input, u32 width);
 // ?translate565@@YAXPAEPAGI@Z
 ARTS_IMPORT /*static*/ void translate565(u8* output, u16* input, u32 width);
 
+#ifdef ARTS_ENABLE_DX6
 Ptr<agiSurfaceDesc> dxiScreenShot()
 {
     if (lpdsRend == nullptr)
@@ -232,7 +244,7 @@ Ptr<agiSurfaceDesc> dxiScreenShot()
     Ptr<agiSurfaceDesc> surface =
         as_ptr agiSurfaceDesc::Init(width, height, agiSurfaceDesc::FromFormat(PixelFormat_B8G8R8));
 
-    void (*translate)(u8 * output, u16 * input, u32 width) = nullptr;
+    void (*translate)(u8* output, u16* input, u32 width) = nullptr;
 
     switch (sd.ddpfPixelFormat.dwRBitMask)
     {
@@ -258,11 +270,6 @@ Ptr<agiSurfaceDesc> dxiScreenShot()
     lpdsRend->Unlock(NULL);
 
     return surface;
-}
-
-void dxiScreenShot(char* file_name)
-{
-    agiPipeline::RequestScreenShot(ConstString(file_name));
 }
 
 static inline void dxiRestoreDisplayMode()
@@ -313,21 +320,11 @@ void dxiSetDisplayMode()
 
     dxiDirectDrawSurfaceCreate();
 }
+#endif
 
-void dxiShutdown()
+void dxiWindowCreate([[maybe_unused]] const char* title)
 {
-    SafeRelease(lpDI);
-
-    dxiDirectDrawSurfaceDestroy();
-    dxiRestoreDisplayMode();
-
-    SafeRelease(lpDD4);
-
-    dxiWindowDestroy();
-}
-
-void dxiWindowCreate(const char* title)
-{
+#ifdef ARTS_ENABLE_DX6
     if (hwndMain != NULL)
         return;
 
@@ -355,6 +352,23 @@ void dxiWindowCreate(const char* title)
 
     ShowWindow(hwndMain, SW_SHOWNORMAL);
     UpdateWindow(hwndMain);
+#else
+    Abortf("DirectX 6 is disabled!");
+#endif
+}
+
+void dxiShutdown()
+{
+    SafeRelease(lpDI);
+
+#ifdef ARTS_ENABLE_DX6
+    dxiDirectDrawSurfaceDestroy();
+    dxiRestoreDisplayMode();
+
+    SafeRelease(lpDD4);
+#endif
+
+    dxiWindowDestroy();
 }
 
 static mem::cmd_param PARAM_legacygl {"legacygl"};
@@ -364,8 +378,10 @@ static dxiRendererType s_WindowType = dxiRendererType::Invalid;
 
 void dxiWindowCreate(const char* title, dxiRendererType type)
 {
+#ifdef ARTS_ENABLE_DX6
     if (!IsSDLRenderer(type) && !PARAM_sdlwindow.get_or(false))
         return dxiWindowCreate(title);
+#endif
 
     if (g_MainWindow != NULL)
     {
