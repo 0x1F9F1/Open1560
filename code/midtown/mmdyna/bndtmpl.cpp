@@ -29,6 +29,3 @@ i32 mmBoundTemplate::LineSphere(mmIntersection* /*arg1*/)
 {
     return 0;
 }
-
-void mmBoundTemplate::PlotSpan(i32 /*arg1*/, i32 /*arg2*/, i32 /*arg3*/)
-{}

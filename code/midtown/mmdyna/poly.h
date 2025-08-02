@@ -36,6 +36,16 @@ public:
         return -((PlaneN.x * x) + (PlaneN.z * z) + PlaneD) / PlaneN.y;
     }
 
+    i32 GetNumVerts() const
+    {
+        return IsQuad() ? 4 : 3;
+    }
+
+    b32 IsQuad() const
+    {
+        return (Flags & 4) != 0;
+    }
+
 private:
     // ?CheckCellXSide@mmPolygon@@AAEMMMM@Z
     ARTS_EXPORT f32 CheckCellXSide(f32 plane_x, f32 z_min, f32 z_max);
@@ -81,16 +91,6 @@ private:
 
     // ?PlotTriangle@mmPolygon@@AAEXHHHPAVmmBoundTemplate@@H@Z
     ARTS_IMPORT void PlotTriangle(i32 arg1, i32 arg2, i32 arg3, mmBoundTemplate* arg4, i32 arg5);
-
-    i32 GetNumVerts() const
-    {
-        return IsQuad() ? 4 : 3;
-    }
-
-    b32 IsQuad() const
-    {
-        return (Flags & 4) != 0;
-    }
 
 public:
     u16 RoomId;
