@@ -20,7 +20,6 @@ define_dummy_symbol(mminput_input);
 
 #include "input.h"
 
-#include "eventq7/geinputLib.h"
 #include "eventq7/keys.h"
 #include "mmcityinfo/state.h"
 
@@ -82,9 +81,6 @@ void mmInput::Flush()
     while (Events->Pop(&event))
         ;
 
-    GetBufferedKeyboardData();
-    NumKeyboardInputs = 0;
-
     ClearEventHitFlags();
 }
 
@@ -124,7 +120,6 @@ b32 mmInput::WheelConnected()
 
 void mmInput::ProcessEvents()
 {
-    ProcessMouseEvents();
     ProcessKeyboardEvents();
     ProcessJoyEvents();
     ClearEventHitFlags();
@@ -164,11 +159,6 @@ void mmInput::ProcessKeyboardEvents()
     }
 }
 
-void mmInput::ProcessMouseEvents()
-{
-    // Merged with ProcessKeyboardEvents
-}
-
 i64 mmInput::ScanForEvent(eqEvent* event)
 {
     for (i32 i = 0; i < NumControls; ++i)
@@ -184,21 +174,6 @@ i64 mmInput::ScanForEvent(eqEvent* event)
     }
 
     return 0;
-}
-
-void mmInput::GetBufferedKeyboardData()
-{
-    NumKeyboardInputs = geinputGetBufferedKeyboard(KeyboardPresses);
-}
-
-b32 mmInput::GetNextKeyboardEvent(eqEvent* event)
-{
-    if (NumKeyboardInputs == 0)
-        return false;
-
-    event->Key = {{nullptr, eqEventType::Keyboard}, EQ_KMOD_DOWN, KeyboardPresses[--NumKeyboardInputs], 0, 0};
-
-    return true;
 }
 
 #define kEvent (i32)(ioType::Event)

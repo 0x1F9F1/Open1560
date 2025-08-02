@@ -1355,7 +1355,6 @@ include_dummy_symbol(dyna7_gfx);
 include_dummy_symbol(eventq7_dispatchable);
 include_dummy_symbol(eventq7_event);
 include_dummy_symbol(eventq7_eventq);
-include_dummy_symbol(eventq7_geinputLib);
 include_dummy_symbol(eventq7_replay);
 
 include_dummy_symbol(localize_localize);

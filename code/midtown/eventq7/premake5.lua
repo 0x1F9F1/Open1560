@@ -7,8 +7,6 @@ arts_component "eventq7"
         "event.h",
         "eventq.cpp",
         "eventq.h",
-        "geinputLib.cpp",
-        "geinputLib.h",
         "replay.cpp",
         "replay.h",
         "sdlevent.cpp",

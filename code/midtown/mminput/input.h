@@ -513,8 +513,8 @@ public:
     i32 CaptureDevice;
     i32 CaptureComponent;
     i32 field_1FC;
-    i8 KeyboardPresses[64];
-    i32 NumKeyboardInputs;
+    [[deprecated]] i8 KeyboardPresses[64];
+    [[deprecated]] i32 NumKeyboardInputs;
     i32 field_244;
 
 private:
@@ -529,12 +529,6 @@ private:
     // ?FilterDiscreteSteering@mmInput@@AAEMM@Z
     ARTS_IMPORT f32 FilterDiscreteSteering(f32 arg1);
 
-    // ?GetBufferedKeyboardData@mmInput@@AAEXXZ
-    ARTS_EXPORT void GetBufferedKeyboardData();
-
-    // ?GetNextKeyboardEvent@mmInput@@AAEHPATeqEvent@@@Z
-    ARTS_EXPORT b32 GetNextKeyboardEvent(eqEvent* event);
-
     // ?PollContinuous@mmInput@@AAEXPAVmmIO@@@Z
     ARTS_IMPORT void PollContinuous(mmIO* arg1);
 
@@ -546,9 +540,6 @@ private:
 
     // ?ProcessKeyboardEvents@mmInput@@AAEXXZ
     ARTS_EXPORT void ProcessKeyboardEvents();
-
-    // ?ProcessMouseEvents@mmInput@@AAEXXZ
-    ARTS_EXPORT void ProcessMouseEvents();
 
     // ?ProcessStates@mmInput@@AAE_JXZ
     ARTS_IMPORT i64 ProcessStates();
