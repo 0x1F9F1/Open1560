@@ -52,6 +52,12 @@ struct asPortalView
 
 check_size(asPortalView, 0x48);
 
+struct PtlPath
+{
+    i32 PathId;
+    i32 Type;
+};
+
 struct asPortalCell
 {
     struct PortalLink* Edges;

@@ -50,7 +50,15 @@ public:
     // ?Reset@mmAnimTrigger@@QAEXXZ
     ARTS_IMPORT void Reset();
 
-    u8 gap0[0x24];
+    mmInstance* TargetObject;
+    Vector3* TriggerDist2;
+    i32* field_8;
+    i32 ObjectToHit;
+    f32 TimeDelay;
+    f32 Elapsed;
+    f32* TriggerPos;
+    i32 State;
+    b32 Disabled;
 };
 
 check_size(mmAnimTrigger, 0x24);

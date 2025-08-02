@@ -86,6 +86,11 @@ public:
     // ?UpdateMirror@asRenderWeb@@QAEXXZ
     ARTS_IMPORT void UpdateMirror();
 
+    asPortalCell* GetCell(i32 index) const
+    {
+        return (index >= 0 && index < MaxCells) ? CellArray[index] : nullptr;
+    }
+
     // ?DeclareFields@asRenderWeb@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 

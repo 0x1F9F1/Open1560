@@ -19,3 +19,76 @@
 define_dummy_symbol(mmanim_bridge);
 
 #include "bridge.h"
+
+#include "mmai/aiMap.h"
+#include "mmai/aiPath.h"
+#include "mmaudio/sound.h"
+#include "mmcity/cullcity.h"
+#include "mmcityinfo/state.h"
+
+b32 mmBridgeSet::Init(char* name, Stream* file)
+{
+    SetName(name);
+
+    for (i32 i = 0; i < NumEntries; ++i)
+    {
+        if (!ReadEntry(file, i))
+        {
+            Errorf("Error reading bridge file");
+            return false;
+        }
+    }
+
+    if (!MMSTATE.NetworkStatus)
+    {
+        if (auto cell = CullCity()->RenderWeb.GetCell(AnimDofs[0].DofBanger->ChainId))
+        {
+            for (i32 i = 0; i < cell->NumPtlPaths; ++i)
+            {
+                if (auto ptl = cell->PtlPaths[i]; ptl && ptl->Type == 1)
+                {
+                    if (auto path = AIMAP.Path(ptl->PathId))
+                    {
+                        path->HasBridge = true;
+
+                        if (auto oncoming = path->OncomingPath)
+                        {
+                            oncoming->HasBridge = true;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    return 1;
+}
+
+void mmBridgeSet::InitTrigger()
+{
+    if (Triggered)
+    {
+        State = 3;
+
+        mmAnimTrigger anim;
+        anim.Init(&TriggerPos, &TriggerDist2);
+    }
+}
+
+void mmBridgeSet::SetSoundPtrs(AudSound* sound1, AudSound* sound2)
+{
+    if (Sound1 && Sound1->IsPlaying(0))
+        Sound1->Stop();
+
+    if (Sound2 && Sound2->IsPlaying(0))
+        Sound2->Stop();
+
+    Sound1 = sound1;
+    Sound2 = sound2;
+}
+
+void mmBridgeSet::UnAssignSounds()
+{
+    SetSoundPtrs(0, 0);
+    MgrIndex = -1;
+}
