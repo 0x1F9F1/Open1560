@@ -55,7 +55,7 @@ public:
     ARTS_EXPORT static const char* EKeyName(i32 key_code);
 
     // ?SuperQ@eqEventHandler@@2PAV1@A
-    ARTS_IMPORT static eqEventHandler* SuperQ;
+    ARTS_EXPORT static eqEventHandler* SuperQ;
 
 protected:
     friend class eqEventMonitor;
@@ -174,9 +174,9 @@ ARTS_EXPORT void DeallocateEventQueue();
 ARTS_EXPORT void InitEventQueue();
 
 // ?CloseCallback@@3P6AXXZA
-ARTS_IMPORT extern void (*CloseCallback)(void);
+ARTS_EXPORT extern void (*CloseCallback)(void);
 
 // ?eqEventReplayChannel@@3VeqEventReplayChannelClass@@A
-ARTS_IMPORT extern eqEventReplayChannelClass eqEventReplayChannel;
+ARTS_EXPORT extern eqEventReplayChannelClass eqEventReplayChannel;
 
 extern mem::cmd_param PARAM_pause;

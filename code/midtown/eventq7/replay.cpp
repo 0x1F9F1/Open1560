@@ -22,6 +22,11 @@ define_dummy_symbol(eventq7_replay);
 
 #include "stream/stream.h"
 
+eqReplayChannel* eqReplayChannel::First = nullptr;
+b32 eqReplay::Playback = false;
+b32 eqReplay::Recording = false;
+Stream* eqReplay::ReplayStream = nullptr;
+
 eqReplayChannel::~eqReplayChannel()
 {
     if (this == First)

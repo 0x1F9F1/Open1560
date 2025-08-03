@@ -20,7 +20,7 @@
 
 // 0x1 | Focused/Active
 // ?ActiveFlag@@3HA
-ARTS_IMPORT extern i32 ActiveFlag;
+ARTS_EXPORT extern i32 ActiveFlag;
 
 inline bool IsAppActive()
 {

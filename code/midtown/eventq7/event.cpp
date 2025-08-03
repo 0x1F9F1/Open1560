@@ -25,6 +25,11 @@ define_dummy_symbol(eventq7_event);
 
 static mem::cmd_param PARAM_event_dbg {"eventdbg"};
 
+i32 ActiveFlag = 1;
+eqEventHandler* eqEventHandler::SuperQ = nullptr;
+void (*CloseCallback)(void) = nullptr;
+eqEventReplayChannelClass eqEventReplayChannel;
+
 eqEventHandler::eqEventHandler()
 {
     debug_ = PARAM_event_dbg.get<bool>();

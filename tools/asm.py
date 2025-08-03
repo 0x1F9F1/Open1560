@@ -73,8 +73,16 @@ def get_code_syms():
 
     import_syms = set()
     export_syms = set()
+    stats = {}
 
     for file in files:
+        dirname = os.path.basename(os.path.dirname(file))
+        if dirname in stats:
+            total_imps, total_exps = stats[dirname]
+        else:
+            total_imps = 0
+            total_exps = 0
+
         with open(file, 'r', encoding='utf-8') as f:
             data = f.read()
 
@@ -82,10 +90,14 @@ def get_code_syms():
             name = match[1]
             if match[2] == 'IMPORT':
                 import_syms.add(name)
+                total_imps += 1
             else:
                 export_syms.add(name)
+                total_exps += 1
 
-    return import_syms, export_syms
+        stats[dirname] = (total_imps, total_exps)
+
+    return import_syms, export_syms, stats
 
 for i, line in enumerate(lines):
     if not line:
@@ -144,14 +156,12 @@ for i, line in enumerate(lines):
 
 set_sym(None, len(lines))
 
-import_syms, export_syms = get_code_syms()
+import_syms, export_syms, sym_stats = get_code_syms()
 
 for sym in import_syms - public_syms:
     raise Exception(f'Missing {sym}')
 
 public_syms = public_syms & import_syms
-
-print('Public Syms', len(public_syms))
 
 for sym_name, (start, end, sym_refs) in all_syms.items():
     done_directives = False
@@ -230,3 +240,11 @@ output = replace_all(output, '\n\n\n', '\n\n')
 
 with open(game_asm, 'w') as f:
     f.write(output)
+
+print('Component  | Imports | Exports | Total')
+
+for folder, (imps, exps) in sorted(sym_stats.items()):
+    total = imps + exps
+    if total:
+        percent = int(exps / total * 100.0)
+        print(f'{folder:10} | {imps:>7} | {exps:>7} | {percent:>4}%')

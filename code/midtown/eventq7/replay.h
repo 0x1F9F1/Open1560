@@ -51,7 +51,7 @@ protected:
 
 private:
     // ?First@eqReplayChannel@@0PAV1@A
-    ARTS_IMPORT static eqReplayChannel* First;
+    ARTS_EXPORT static eqReplayChannel* First;
 
     u32 magic_ {};
     eqReplayChannel* next_ {};
@@ -83,12 +83,12 @@ public:
     ARTS_EXPORT static void ShutdownRecord();
 
     // ?Playback@eqReplay@@2HA
-    ARTS_IMPORT static b32 Playback;
+    ARTS_EXPORT static b32 Playback;
 
     // ?Recording@eqReplay@@2HA
-    ARTS_IMPORT static b32 Recording;
+    ARTS_EXPORT static b32 Recording;
 
 private:
     // ?ReplayStream@eqReplay@@0PAVStream@@A
-    ARTS_IMPORT static Stream* ReplayStream;
+    ARTS_EXPORT static Stream* ReplayStream;
 };
