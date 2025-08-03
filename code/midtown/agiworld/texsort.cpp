@@ -32,12 +32,12 @@ define_dummy_symbol(agiworld_texsort);
 // Note: codes/fogout/nextFactet/out are limited to 16384
 
 // Default: 3000
-extern constexpr i32 BigVtxSize = 16384;
-extern constexpr i32 BigIdxSize = BigVtxSize * 3;
+extern const i32 BigVtxSize = 16384;
+extern const i32 BigIdxSize = BigVtxSize * 3;
 
 // Default: 1024
-static constexpr i32 EnvVtxSize = 16384;
-static constexpr i32 EnvIdxSize = EnvVtxSize * 3;
+static const i32 EnvVtxSize = 16384;
+static const i32 EnvIdxSize = EnvVtxSize * 3;
 
 static i32 VtxSize = 0;
 static i32 IdxSize = 0;
