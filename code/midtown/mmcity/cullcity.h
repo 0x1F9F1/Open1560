@@ -198,7 +198,7 @@ class mmRunwayLight final : public mmInstance
 {
 public:
     // ??0mmRunwayLight@@QAE@PADAAVVector3@@1@Z
-    ARTS_IMPORT mmRunwayLight(char* arg1, Vector3& arg2, Vector3& arg3);
+    ARTS_IMPORT mmRunwayLight(aconst char* arg1, Vector3& arg2, Vector3& arg3);
 
     // ??_EmmRunwayLight@@UAEPAXI@Z
     // ??_GmmRunwayLight@@UAEPAXI@Z

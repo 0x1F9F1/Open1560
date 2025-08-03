@@ -42,7 +42,7 @@ public:
     ARTS_IMPORT void Init() override;
 
     // ?Priority@aiGoalAvoidPlayer@@UAEHXZ
-    ARTS_IMPORT i32 Priority() override;
+    ARTS_IMPORT b32 Priority() override;
 
     // ?Reset@aiGoalAvoidPlayer@@UAEXXZ
     ARTS_IMPORT void Reset() override;

@@ -63,7 +63,7 @@ public:
     ARTS_IMPORT void Init() override;
 
     // ?Priority@aiGoalFollowWayPts@@UAEHXZ
-    ARTS_IMPORT i32 Priority() override;
+    ARTS_IMPORT b32 Priority() override;
 
     // ?Reset@aiGoalFollowWayPts@@UAEXXZ
     ARTS_IMPORT void Reset() override;

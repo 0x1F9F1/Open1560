@@ -27,8 +27,8 @@ class agiTexParameters;
 ARTS_EXPORT void FixTexFlags(agiTexParameters& tex);
 
 // ?GetMeshSet@@YAPAVagiMeshSet@@PAD0PAVVector3@@H@Z
-ARTS_IMPORT agiMeshSet* GetMeshSet(
-    char* name, char* group, Vector3* offset = nullptr, i32 flags = MESH_SET_UV | MESH_SET_NORMAL | MESH_SET_CPV);
+ARTS_IMPORT agiMeshSet* GetMeshSet(aconst char* name, aconst char* group, Vector3* offset = nullptr,
+    i32 flags = MESH_SET_UV | MESH_SET_NORMAL | MESH_SET_CPV);
 
 // ?IsSnowing@@3HA
 ARTS_IMPORT extern i32 IsSnowing;

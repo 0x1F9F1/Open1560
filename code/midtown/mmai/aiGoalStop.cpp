@@ -22,14 +22,14 @@ define_dummy_symbol(mmai_aiGoalStop);
 
 #include "mmcar/car.h"
 
-aiGoalStop::aiGoalStop(mmCar* car, i16* stop_id)
+aiGoalStop::aiGoalStop(mmCar* car, b16* is_stopped)
     : Car(car)
-    , StopId(stop_id)
+    , IsStopped(is_stopped)
 {}
 
 b32 aiGoalStop::Context()
 {
-    if (*StopId)
+    if (*IsStopped)
         return true;
 
     UpdateCount = 0;

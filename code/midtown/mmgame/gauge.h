@@ -48,7 +48,7 @@ public:
     ARTS_EXPORT void Cull() override;
 
     // ?Init@RadialGauge@@QAEXPAD0PAM1M@Z
-    ARTS_IMPORT void Init(char* arg1, char* arg2, f32* arg3, f32* arg4, f32 arg5);
+    ARTS_IMPORT void Init(aconst char* arg1, aconst char* arg2, f32* arg3, f32* arg4, f32 arg5);
 
     // ?Update@RadialGauge@@UAEXXZ
     ARTS_IMPORT void Update() override;

@@ -33,7 +33,7 @@ public:
     ARTS_IMPORT void Draw(Matrix34& arg1);
 
     // ?Init@mmSky@@QAEXPAD@Z
-    ARTS_IMPORT void Init(char* arg1);
+    ARTS_IMPORT void Init(aconst char* arg1);
 
     // ?SetTexture@mmSky@@QAEXPAVagiTexDef@@@Z
     ARTS_IMPORT void SetTexture(agiTexDef* arg1);

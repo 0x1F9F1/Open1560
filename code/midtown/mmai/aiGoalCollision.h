@@ -39,7 +39,7 @@ public:
     ARTS_IMPORT void Init() override;
 
     // ?Priority@aiGoalCollision@@UAEHXZ
-    ARTS_IMPORT i32 Priority() override;
+    ARTS_IMPORT b32 Priority() override;
 
     // ?Reset@aiGoalCollision@@UAEXXZ
     ARTS_IMPORT void Reset() override;
