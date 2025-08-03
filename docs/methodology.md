@@ -1,3 +1,9 @@
+# Contents
+* [Versions](#versions)
+* [Debug Symbols](#debug-symbols-linker-map)
+* [Disassembly](#disassembly)
+* [IDA](#ida)
+
 # Versions
 Build | Build Date | Name | Details
 --- | --- | --- | ---
@@ -41,6 +47,12 @@ Comparisons can be found [here](https://github.com/0x1F9F1/Open1560/issues/46#is
 # Disassembly
 The game has been fully disassembled into `game.asm`, making it much easier to replace symbols and patch functions.
 
+After replacing any symbols, you should run `tools/asm.py`. This analyzes both the C++ and ASM code, performing tasks such as:
+* Ensuring any ARTS_IMPORT symbols exist in the ASM.
+* Removing any ASM symbols which exist as ARTS_EXPORT in C++, or converting them to EXTERN declarations if they are still referenced.
+* Warning of any ARTS_EXPORT symbols which are not used by the ASM.
+* Check for PATCH comments when removing dead code.
+
 # ARTS_IMPORT
 Currently does nothing, apart from signaling that a function is not yet implemented.
 
@@ -49,7 +61,7 @@ Marks the function as dllexport, to force the compiler to generate a definition 
 
 `Open1560.exp` (generated from an empty .def file) is used to disable actually exporting any functions from the exe.
 
-If replacing a variable is not trivially constructible and destructible, make sure to also remove the original static initializer.
+If replacing a global variable which was not trivially constructible and destructible, make sure to also remove the original static initializer.
 
 # IDA
 ## Offset (user-defined) - Ctrl+R
