@@ -32,7 +32,7 @@ workspace "Open1560"
     filter { "options:clang" }
         toolset "msc-ClangCL"
 
-    filter{}
+    filter {}
 
     configurations { "Debug", "Release", "Final" }
     platforms { "Win32" }
@@ -58,7 +58,7 @@ workspace "Open1560"
     -- debugformat "c7"
     inlining "Auto"
     intrinsics "On"
-    staticruntime  "On"
+    staticruntime "On"
 
     filter "kind:*App or SharedLib"
         targetdir "bin/%{prj.name}/%{cfg.platform}_%{cfg.buildcfg}"

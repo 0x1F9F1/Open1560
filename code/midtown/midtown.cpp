@@ -250,6 +250,11 @@ static void LoadArchives(const char* base_path)
         AutoLoadArchives(base_path, files);
     }
 
+    if (files.Count == 0)
+    {
+        Quitf("No archives found in '%s'. Is your game installed correctly?", base_path);
+    }
+
     Displayf("Loading %zu archives", files.Count);
 
     for (usize i = 0; i < files.Count; ++i)
@@ -582,10 +587,6 @@ void ApplicationHelper(i32 argc, char** argv)
             argv[argc++] = "-archive"_xconst;
             argv[argc++] = test_ar_path;*/
         }
-        else if (ARG("-sw"))
-        {
-            dxiRendererChoice = 0;
-        }
         else if (ARG("-log"))
         {
             LogToFile();
@@ -725,7 +726,8 @@ void ApplicationHelper(i32 argc, char** argv)
     }
 
     CURHEAP = &ALLOCATOR;
-    SAFEHEAP.Init(PARAM_heapsize.get_or(ALLOCATOR.IsDebug() ? 80 : 64) << 20, PARAM_multiheap.get_or<i32>(2));
+    SAFEHEAP.Init(PARAM_heapsize.get_or(ALLOCATOR.IsDebug() ? 80 : 64) << 20,
+        PARAM_multiheap.get_or<i32>(ALLOCATOR.IsDebug() ? 2 : 1));
 
     MMSTATE.SetDefaults();
     bool no_ui = MMSTATE.ParseStateArgs(argc, argv);
@@ -825,7 +827,7 @@ Owner<agiPipeline> CreatePipeline(i32 argc, char** argv)
 #ifdef ARTS_ENABLE_OPENGL
             pipe = as_ptr sdlCreatePipeline(argc, argv);
 #else
-            pipe = as_ptr swCreatePipeline(argc, argv);
+#    error No fallback renderer!
 #endif
             pipe->SetRes(640, 480);
         }
@@ -1139,10 +1141,6 @@ void GameLoop([[maybe_unused]] mmInterface* mm_interface, [[maybe_unused]] mmGam
 {
     ARTS_EXCEPTION_BEGIN
     {
-        // bool lock_alloc = MMSTATE.GameState == 1;
-        // if (lock_alloc)
-        //     ++ ALLOCATOR.LockCount;
-
         while (MMSTATE.GameState == mmGameState::Running)
         {
 #ifdef ARTS_DEV_BUILD
@@ -1196,9 +1194,6 @@ void GameLoop([[maybe_unused]] mmInterface* mm_interface, [[maybe_unused]] mmGam
                 Sim()->Simulate();
             }
         }
-
-        // if (lock_alloc)
-        //     --ALLOCATOR.LockCount;
     }
     ARTS_EXCEPTION_END
     {

@@ -156,7 +156,7 @@ project "Open1560"
         end
 
         debugdir (MM1_GAME_DIRECTORY)
-        debugcommand (MM1_GAME_DIRECTORY .. 'Open1560.exe')
+        debugargs { '-adir "' .. string.gsub(MM1_GAME_DIRECTORY, "\\", "/") .. '"' }
 
         if MM1_COMMAND_LINE ~= nil then
             debugargs (MM1_COMMAND_LINE)

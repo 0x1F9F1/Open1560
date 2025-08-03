@@ -7,7 +7,7 @@
 
 Open1560 is an open source re-implementation of Midtown Madness Sneak Preview Beta / Build 1560.
 
-This project is a partial rewrite of Midtown Madness 1, using a assembly to provide functions that have not yet been reimplemented in C++.<br/>
+This project is a partial rewrite of Midtown Madness 1, using assembly to provide functions that have not yet been reimplemented in C++.<br/>
 The intention is to allow the fixing of bugs, implementation of new features and porting to platforms unsupported by the original.<br/>
 
 ## Changes
