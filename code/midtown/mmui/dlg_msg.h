@@ -26,8 +26,6 @@ public:
     // ??0Dialog_Message@@QAE@HMMMMPAD@Z
     ARTS_IMPORT Dialog_Message(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
-    // ??_GDialog_Message@@UAEPAXI@Z
-    // ??_EDialog_Message@@UAEPAXI@Z
     // ??1Dialog_Message@@UAE@XZ
     ARTS_EXPORT ~Dialog_Message() override = default;
 

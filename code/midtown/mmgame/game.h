@@ -49,8 +49,6 @@ public:
     // ??0mmGame@@QAE@XZ
     ARTS_EXPORT mmGame();
 
-    // ??_GmmGame@@UAEPAXI@Z
-    // ??_EmmGame@@UAEPAXI@Z
     // ??1mmGame@@UAE@XZ
     ARTS_EXPORT ~mmGame() override;
 
@@ -193,8 +191,6 @@ check_size(mmGame, 0x1E570);
 class foobar final : public asNode
 {
 public:
-    // ??_Gfoobar@@UAEPAXI@Z
-    // ??_Efoobar@@UAEPAXI@Z
     // ??1foobar@@UAE@XZ | inline
     ARTS_EXPORT ~foobar() override = default;
 
@@ -212,7 +208,7 @@ check_size(foobar, 0x20);
 ARTS_IMPORT extern mmBangerData* BangerProjectile;
 
 // ?IconColor@@3PAIA
-ARTS_EXPORT extern u32 IconColor[8];
+extern u32 IconColor[8];
 
 // ?LocPlayerName@@3PADA
 ARTS_IMPORT extern char LocPlayerName[20];

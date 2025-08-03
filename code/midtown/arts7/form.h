@@ -30,7 +30,6 @@ public:
     // ??0asForm@@QAE@XZ
     ARTS_IMPORT asForm();
 
-    // ??_EasForm@@UAEPAXI@Z
     // ??1asForm@@UAE@XZ
     ARTS_IMPORT ~asForm() override;
 
@@ -43,7 +42,7 @@ public:
     ARTS_IMPORT void Cull() override;
 
     // ?FileIO@asForm@@QAEXPAVMiniParser@@@Z | unused
-    ARTS_EXPORT void FileIO(MiniParser* arg1);
+    void FileIO(MiniParser* arg1);
 
     // ?GetClass@asForm@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;

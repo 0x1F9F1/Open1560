@@ -19,4 +19,4 @@
 #pragma once
 
 // ?dxiPlayMovie@@YAXPAD@Z
-ARTS_EXPORT void dxiPlayMovie(const char* path);
+void dxiPlayMovie(const char* path);

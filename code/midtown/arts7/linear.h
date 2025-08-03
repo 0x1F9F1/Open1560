@@ -28,7 +28,6 @@ public:
     // ??0asLinearCS@@QAE@XZ
     ARTS_EXPORT asLinearCS();
 
-    // ??_EasLinearCS@@UAEPAXI@Z
     // ??1asLinearCS@@UAE@XZ | inline
     ARTS_EXPORT ~asLinearCS() override = default;
 
@@ -41,7 +40,7 @@ public:
     ARTS_EXPORT void Cull() override;
 
     // ?FileIO@asLinearCS@@QAEXPAVMiniParser@@@Z | unused
-    ARTS_EXPORT void FileIO(MiniParser* arg1);
+    void FileIO(MiniParser* arg1);
 
     // ?Update@asLinearCS@@UAEXXZ
     ARTS_EXPORT void Update() override;

@@ -24,14 +24,14 @@
 #include <atomic>
 
 // ?ipcCreateThread@@YAIP6GKPAX@Z0PAK@Z
-ARTS_EXPORT usize ipcCreateThread(ulong(ARTS_STDCALL* start)(void*), void* param, ulong* thread_id);
+usize ipcCreateThread(ulong(ARTS_STDCALL* start)(void*), void* param, ulong* thread_id);
 
 void ipcWaitThreadExit(usize thread);
 
 void ipcDeleteThread(usize thread);
 
 // ?ipcYield@@YAXXZ
-ARTS_EXPORT void ipcYield();
+void ipcYield();
 
 // ?SynchronousMessageQueues@@3HA
 ARTS_IMPORT extern b32 SynchronousMessageQueues;
@@ -59,10 +59,10 @@ public:
 
 private:
     // ?MessageLoop@ipcMessageQueue@@AAEHXZ
-    ARTS_EXPORT i32 MessageLoop();
+    i32 MessageLoop();
 
     // ?Proc@ipcMessageQueue@@CGKPAX@Z
-    ARTS_EXPORT static ulong ARTS_STDCALL Proc(void* param);
+    static ulong ARTS_STDCALL Proc(void* param);
 
     std::atomic<b32> initialized_ {};
     u32 send_index_ {};

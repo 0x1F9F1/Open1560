@@ -26,31 +26,29 @@ public:
     // ??0mmVehList@@QAE@XZ
     ARTS_EXPORT mmVehList();
 
-    // ??_GmmVehList@@UAEPAXI@Z
-    // ??_EmmVehList@@UAEPAXI@Z
     // ??1mmVehList@@UAE@XZ
-    ARTS_EXPORT virtual ~mmVehList();
+    virtual ~mmVehList();
 
     // ?GetVehicleID@mmVehList@@QAEHPAD@Z
     ARTS_EXPORT i32 GetVehicleID(char* name);
 
     // ?GetVehicleInfo@mmVehList@@QAEPAVmmVehInfo@@PAD@Z
-    ARTS_EXPORT mmVehInfo* GetVehicleInfo(const char* name);
+    mmVehInfo* GetVehicleInfo(const char* name);
 
     // ?GetVehicleInfo@mmVehList@@QAEPAVmmVehInfo@@H@Z
     ARTS_EXPORT mmVehInfo* GetVehicleInfo(i32 index);
 
     // ?Init@mmVehList@@QAEXH@Z | unused
-    ARTS_EXPORT void Init(i32 arg1);
+    void Init(i32 arg1);
 
     // ?Load@mmVehList@@QAEXPAD@Z
-    ARTS_EXPORT void Load(char* name);
+    void Load(char* name);
 
     // ?LoadAll@mmVehList@@QAEXXZ
     ARTS_EXPORT void LoadAll();
 
     // ?Print@mmVehList@@QAEXXZ | unused
-    ARTS_EXPORT void Print();
+    void Print();
 
     void SetDefaultVehicle(const char* name);
 

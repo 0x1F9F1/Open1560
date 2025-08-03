@@ -30,7 +30,6 @@ public:
     // ??0mmSkid@@QAE@XZ
     ARTS_IMPORT mmSkid();
 
-    // ??_EmmSkid@@UAEPAXI@Z
     // ??1mmSkid@@UAE@XZ
     ARTS_EXPORT ~mmSkid() override = default;
 
@@ -64,7 +63,7 @@ public:
     ARTS_IMPORT Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& arg1) override;
 
     // ?Update@mmSkid@@QAEXXZ | unused
-    ARTS_EXPORT void Update();
+    void Update();
 
     // ?DeclareFields@mmSkid@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
@@ -80,7 +79,6 @@ public:
     // ??0mmSkidManager@@QAE@XZ
     ARTS_IMPORT mmSkidManager();
 
-    // ??_EmmSkidManager@@UAEPAXI@Z
     // ??1mmSkidManager@@UAE@XZ
     ARTS_IMPORT ~mmSkidManager() override;
 

@@ -19,7 +19,7 @@
 #pragma once
 
 // ?ComputeCpuSpeed@@YAIXZ
-ARTS_EXPORT u32 ComputeCpuSpeed(); // Compute CPU speed in MHz (cycles per microsecond)
+u32 ComputeCpuSpeed(); // Compute CPU speed in MHz (cycles per microsecond)
 
 // ?__ComputeCpuSpeed@@YAIXZ
 // u32 __ComputeCpuSpeed();

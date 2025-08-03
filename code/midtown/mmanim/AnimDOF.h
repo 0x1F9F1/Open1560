@@ -25,8 +25,6 @@ class mmAnimTrigger;
 class mmDrawbridgeInstance final : public mmDofBangerInstance
 {
 public:
-    // ??_GmmDrawbridgeInstance@@UAEPAXI@Z
-    // ??_EmmDrawbridgeInstance@@UAEPAXI@Z
     // ??1mmDrawbridgeInstance@@UAE@XZ | inline
     ARTS_EXPORT ~mmDrawbridgeInstance() override = default;
 
@@ -45,7 +43,6 @@ public:
     // ??0mmAnimDOF@@QAE@XZ
     ARTS_IMPORT mmAnimDOF();
 
-    // ??_EmmAnimDOF@@QAEPAXI@Z | unused
     // ??1mmAnimDOF@@QAE@XZ
     ARTS_EXPORT ~mmAnimDOF();
 

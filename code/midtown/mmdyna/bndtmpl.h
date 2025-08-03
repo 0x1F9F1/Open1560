@@ -81,7 +81,7 @@ public:
     ARTS_IMPORT void DrawGeometry();
 
     // ?DrawGraph@mmBoundTemplate@@QAEXXZ | unused
-    ARTS_EXPORT void DrawGraph();
+    void DrawGraph();
 
     // ?DrawSphere@mmBoundTemplate@@QAEXXZ
     ARTS_IMPORT void DrawSphere();
@@ -125,7 +125,7 @@ public:
     ARTS_EXPORT void PageIn();
 
     // ?PlotSpan@mmBoundTemplate@@QAEXHHH@Z | mmdyna:bndtmpl2
-    ARTS_EXPORT void PlotSpan(i32 arg1, i32 arg2, i32 arg3);
+    void PlotSpan(i32 arg1, i32 arg2, i32 arg3);
 
     // ?QuickLineBox@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@@Z
     ARTS_IMPORT i32 QuickLineBox(mmEdgeBodyIsect* arg1);

@@ -28,12 +28,11 @@ public:
     // ??0mmIODev@@QAE@XZ
     ARTS_EXPORT mmIODev() = default;
 
-    // ??_EmmIODev@@UAEPAXI@Z
     // ??1mmIODev@@UAE@XZ
     ARTS_EXPORT ~mmIODev() override = default;
 
     // ??8mmIODev@@QAEHPATeqEvent@@@Z
-    ARTS_EXPORT b32 operator==(eqEvent* event);
+    b32 operator==(eqEvent* event);
 
     // ?Assign@mmIODev@@QAEXHHH@Z
     ARTS_IMPORT void Assign(i32 arg1, i32 arg2, i32 arg3);
@@ -81,4 +80,4 @@ public:
 check_size(mmIODev, 0xA8);
 
 // ?ConvertDItoString@@YAHHPADH@Z
-ARTS_EXPORT b32 ConvertDItoString(i32 vsc, char* buffer, i32 buflen);
+b32 ConvertDItoString(i32 vsc, char* buffer, i32 buflen);

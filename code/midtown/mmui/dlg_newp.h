@@ -26,8 +26,6 @@ public:
     // ??0Dialog_NewPlayer@@QAE@HMMMMPAD@Z
     ARTS_IMPORT Dialog_NewPlayer(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
-    // ??_EDialog_NewPlayer@@UAEPAXI@Z
-    // ??_GDialog_NewPlayer@@UAEPAXI@Z
     // ??1Dialog_NewPlayer@@UAE@XZ
     ARTS_EXPORT ~Dialog_NewPlayer() override = default;
 

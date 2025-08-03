@@ -26,8 +26,6 @@ public:
     // ??0OptionsMenu@@QAE@H@Z
     ARTS_IMPORT OptionsMenu(i32 arg1);
 
-    // ??_EOptionsMenu@@UAEPAXI@Z
-    // ??_GOptionsMenu@@UAEPAXI@Z
     // ??1OptionsMenu@@UAE@XZ
     ARTS_EXPORT ~OptionsMenu() override = default;
 

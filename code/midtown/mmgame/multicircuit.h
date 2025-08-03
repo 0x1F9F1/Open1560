@@ -26,7 +26,6 @@ public:
     // ??0mmMultiCircuit@@QAE@XZ
     ARTS_IMPORT mmMultiCircuit();
 
-    // ??_EmmMultiCircuit@@UAEPAXI@Z
     // ??1mmMultiCircuit@@UAE@XZ
     ARTS_IMPORT ~mmMultiCircuit() override;
 

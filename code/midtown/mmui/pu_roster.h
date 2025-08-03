@@ -26,8 +26,6 @@ public:
     // ??0PURoster@@QAE@HMMMM@Z
     ARTS_IMPORT PURoster(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
-    // ??_GPURoster@@UAEPAXI@Z
-    // ??_EPURoster@@UAEPAXI@Z
     // ??1PURoster@@UAE@XZ
     ARTS_EXPORT ~PURoster() override = default;
 

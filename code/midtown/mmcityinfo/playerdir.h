@@ -26,7 +26,6 @@ public:
     // ??0mmPlayerDirectory@@QAE@XZ
     ARTS_IMPORT mmPlayerDirectory();
 
-    // ??_EmmPlayerDirectory@@UAEPAXI@Z
     // ??1mmPlayerDirectory@@UAE@XZ
     ARTS_IMPORT ~mmPlayerDirectory() override;
 

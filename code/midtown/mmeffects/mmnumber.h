@@ -31,12 +31,11 @@ public:
     // ??0mmNumber@@QAE@XZ
     ARTS_EXPORT mmNumber();
 
-    // ??_EmmNumber@@UAEPAXI@Z
     // ??1mmNumber@@UAE@XZ
     ARTS_EXPORT ~mmNumber() override;
 
     // ?Cull@mmNumber@@UAEXXZ
-    ARTS_EXPORT void Cull() override;
+    void Cull() override;
 
     // ?Init@mmNumber@@QAEXPAVmmNumberFont@@MM@Z
     ARTS_EXPORT void Init(mmNumberFont* font, f32 x, f32 y);
@@ -48,11 +47,11 @@ public:
     ARTS_EXPORT void SetString(char* text);
 
     // ?Update@mmNumber@@UAEXXZ
-    ARTS_EXPORT void Update() override;
+    void Update() override;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmNumber@@UAEXPAVBank@@@Z
-    ARTS_EXPORT void AddWidgets(Bank* arg1) override;
+    void AddWidgets(Bank* arg1) override;
 #endif
 
     VIRTUAL_META_DECLARE;
@@ -106,4 +105,4 @@ private:
 check_size(mmNumberFont, 0x24);
 
 // ?NUMBERSTRING@@3PADA
-ARTS_EXPORT extern aconst char* NUMBERSTRING;
+extern aconst char* NUMBERSTRING;

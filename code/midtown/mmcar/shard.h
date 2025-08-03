@@ -30,7 +30,6 @@ public:
     // ??0mmShard@@QAE@XZ
     ARTS_IMPORT mmShard();
 
-    // ??_EmmShard@@UAEPAXI@Z
     // ??1mmShard@@UAE@XZ
     ARTS_EXPORT ~mmShard() override = default;
 
@@ -66,7 +65,6 @@ public:
     // ??0mmShardManager@@QAE@XZ
     ARTS_EXPORT mmShardManager();
 
-    // ??_EmmShardManager@@UAEPAXI@Z
     // ??1mmShardManager@@UAE@XZ
     ARTS_EXPORT ~mmShardManager() override;
 
@@ -97,7 +95,7 @@ public:
     ARTS_IMPORT static void DeclareFields();
 
     // ?GetInstance@mmShardManager@@SAPAV1@H@Z
-    ARTS_EXPORT static mmShardManager* GetInstance(i32 index);
+    static mmShardManager* GetInstance(i32 index);
 
     friend class mmShard;
 
@@ -105,7 +103,7 @@ protected:
     static const usize MaxShardManagers = 128;
 
     // ?Instances@mmShardManager@@1PAPAV1@A
-    ARTS_EXPORT static mmShardManager* Instances[MaxShardManagers];
+    static mmShardManager* Instances[MaxShardManagers];
 
     // ?NumInstances@mmShardManager@@1HA
     ARTS_IMPORT static i32 NumInstances;

@@ -29,7 +29,6 @@ public:
     // ??0mmMultiCR@@QAE@XZ
     ARTS_IMPORT mmMultiCR();
 
-    // ??_EmmMultiCR@@UAEPAXI@Z
     // ??1mmMultiCR@@UAE@XZ
     ARTS_IMPORT ~mmMultiCR() override;
 
@@ -122,7 +121,7 @@ private:
     ARTS_IMPORT void Score(i32 arg1);
 
     // ?SelectTeams@mmMultiCR@@AAEHXZ | unused
-    ARTS_EXPORT i32 SelectTeams();
+    i32 SelectTeams();
 
     // ?SendGameState@mmMultiCR@@AAEXK@Z
     ARTS_IMPORT void SendGameState(ulong arg1);
@@ -140,7 +139,7 @@ private:
     ARTS_IMPORT void SendLimitReached(i32 arg1);
 
     // ?SendSetup@mmMultiCR@@AAEXK@Z | unused
-    ARTS_EXPORT void SendSetup(ulong arg1);
+    void SendSetup(ulong arg1);
 
     // ?SendTimeWarning@mmMultiCR@@AAEXH@Z
     ARTS_IMPORT void SendTimeWarning(i32 arg1);

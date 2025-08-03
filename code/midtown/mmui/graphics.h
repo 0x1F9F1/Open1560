@@ -53,8 +53,6 @@ public:
     // ??0GraphicsOptions@@QAE@H@Z
     ARTS_IMPORT GraphicsOptions(i32 arg1);
 
-    // ??_GGraphicsOptions@@UAEPAXI@Z
-    // ??_EGraphicsOptions@@UAEPAXI@Z
     // ??1GraphicsOptions@@UAE@XZ
     ARTS_IMPORT ~GraphicsOptions() override;
 

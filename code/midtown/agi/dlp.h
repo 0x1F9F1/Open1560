@@ -30,8 +30,6 @@ public:
     // ??0DLP@@QAE@PAVagiPipeline@@@Z
     ARTS_IMPORT DLP(agiPipeline* arg1);
 
-    // ??_GDLP@@UAEPAXI@Z
-    // ??_EDLP@@UAEPAXI@Z
     // ??1DLP@@UAE@XZ
     ARTS_IMPORT ~DLP() override;
 

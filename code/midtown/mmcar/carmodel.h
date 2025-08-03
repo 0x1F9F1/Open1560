@@ -55,7 +55,6 @@ public:
     // ??0mmCarModel@@QAE@XZ
     ARTS_EXPORT mmCarModel();
 
-    // ??_EmmCarModel@@UAEPAXI@Z
     // ??1mmCarModel@@UAE@XZ
     ARTS_EXPORT ~mmCarModel() override = default;
 
@@ -104,7 +103,7 @@ public:
     ARTS_IMPORT void ARTS_FASTCALL FromMatrix(const Matrix34& arg1) override;
 
     // ?GetCarFlags@mmCarModel@@QAEHPAD@Z | unused
-    ARTS_EXPORT i32 GetCarFlags(char* arg1);
+    i32 GetCarFlags(char* arg1);
 
     // ?GetClass@mmCarModel@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;

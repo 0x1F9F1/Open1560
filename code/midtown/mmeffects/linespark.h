@@ -53,7 +53,7 @@ public:
     ARTS_EXPORT void Draw();
 
     // ?Init@asLineSparks@@QAEXHPAVasSparkLut@@@Z
-    ARTS_EXPORT void Init(i32 num_sparks, asSparkLut* lut);
+    void Init(i32 num_sparks, asSparkLut* lut);
 
     // ?RadialBlast@asLineSparks@@QAEXHAAVVector3@@0@Z
     ARTS_IMPORT void RadialBlast(i32 arg1, Vector3& arg2, Vector3& arg3);
@@ -62,7 +62,7 @@ public:
     ARTS_EXPORT void Update();
 
     // ?Update@asLineSparks@@QAEXM@Z
-    ARTS_EXPORT void Update(f32 delta);
+    void Update(f32 delta);
 
     i32 field_0 {};
     asSparkLut* Lut {};

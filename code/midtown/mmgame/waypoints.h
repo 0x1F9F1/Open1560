@@ -28,8 +28,6 @@ public:
     // ??0mmWaypoints@@QAE@XZ
     ARTS_IMPORT mmWaypoints();
 
-    // ??_EmmWaypoints@@UAEPAXI@Z
-    // ??_GmmWaypoints@@UAEPAXI@Z
     // ??1mmWaypoints@@UAE@XZ
     ARTS_IMPORT ~mmWaypoints() override;
 

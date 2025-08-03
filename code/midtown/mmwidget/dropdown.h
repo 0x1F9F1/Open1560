@@ -30,7 +30,6 @@ public:
     // ??0mmDropDown@@QAE@XZ
     ARTS_EXPORT mmDropDown();
 
-    // ??_EmmDropDown@@UAEPAXI@Z
     // ??1mmDropDown@@UAE@XZ
     ARTS_EXPORT ~mmDropDown() override;
 

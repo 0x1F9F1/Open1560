@@ -214,7 +214,6 @@ public:
     // ??0mmInput@@QAE@XZ
     ARTS_IMPORT mmInput();
 
-    // ??_EmmInput@@UAEPAXI@Z
     // ??1mmInput@@UAE@XZ
     ARTS_IMPORT ~mmInput() override;
 
@@ -273,7 +272,7 @@ public:
     ARTS_IMPORT void ForceAssignment(mmIO* arg1);
 
     // ?GamepadConnected@mmInput@@QAEHXZ
-    ARTS_EXPORT b32 GamepadConnected();
+    b32 GamepadConnected();
 
     // ?GetBrakes@mmInput@@QAEMXZ
     ARTS_EXPORT f32 GetBrakes();
@@ -309,7 +308,7 @@ public:
     ARTS_IMPORT i32 IsAlreadyAssigned(mmIO* arg1, i32 arg2, i32 arg3, i32 arg4);
 
     // ?JoystickConnected@mmInput@@QAEHXZ
-    ARTS_EXPORT b32 JoystickConnected();
+    b32 JoystickConnected();
 
     // ?JoystickHasCoolie@mmInput@@QAEHXZ
     ARTS_IMPORT b32 JoystickHasCoolie();
@@ -354,7 +353,7 @@ public:
     ARTS_IMPORT void Update() override;
 
     // ?WheelConnected@mmInput@@QAEHXZ
-    ARTS_EXPORT b32 WheelConnected();
+    b32 WheelConnected();
 
     // ?DeclareFields@mmInput@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
@@ -431,9 +430,6 @@ private:
     ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
-    // ?EventToButton@mmInput@@AAEHH@Z | unused
-    /*ARTS_EXPORT*/ i32 EventToButton(i32 event) = delete;
-
     // ?FilterDiscreteSteering@mmInput@@AAEMM@Z
     ARTS_IMPORT f32 FilterDiscreteSteering(f32 arg1);
 
@@ -447,7 +443,7 @@ private:
     ARTS_IMPORT void ProcessJoyEvents();
 
     // ?ProcessKeyboardEvents@mmInput@@AAEXXZ
-    ARTS_EXPORT void ProcessKeyboardEvents();
+    void ProcessKeyboardEvents();
 
     // ?ProcessStates@mmInput@@AAE_JXZ
     ARTS_IMPORT i64 ProcessStates();
@@ -456,7 +452,7 @@ private:
     ARTS_IMPORT void PutEventInQueue(i64 arg1);
 
     // ?ScanForEvent@mmInput@@AAE_JPATeqEvent@@@Z
-    ARTS_EXPORT i64 ScanForEvent(eqEvent* event);
+    i64 ScanForEvent(eqEvent* event);
 
     // ?ScanState@mmInput@@AAE_JPAVmmIO@@@Z
     ARTS_IMPORT i64 ScanState(mmIO* arg1);

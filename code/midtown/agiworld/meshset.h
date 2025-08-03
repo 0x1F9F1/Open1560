@@ -187,7 +187,7 @@ public:
     ARTS_EXPORT void PageIn();
 
     // ?ShadowGeometry@agiMeshSet@@QAEHIPAVVector3@@ABVVector4@@ABV2@@Z | agiworld:meshrend
-    ARTS_EXPORT i32 ShadowGeometry(u32 flags, Vector3* verts, const Vector4& surface_dir, const Vector3& light_dir);
+    i32 ShadowGeometry(u32 flags, Vector3* verts, const Vector4& surface_dir, const Vector3& light_dir);
 
     // ?SphereMap@agiMeshSet@@QAEXPAVagiTexDef@@I@Z | agiworld:meshrend
     ARTS_IMPORT void SphereMap(agiTexDef* arg1, u32 arg2);
@@ -202,7 +202,7 @@ public:
     ARTS_EXPORT static void DrawCard(Vector3& position, f32 scale, u32 rotation, u32 color, u32 frame);
 
     // ?DrawLines@agiMeshSet@@SAXPAVVector3@@0PAIH@Z | agiworld:meshrend
-    ARTS_EXPORT static void DrawLines(Vector3* starts, Vector3* ends, u32* colors, i32 count);
+    static void DrawLines(Vector3* starts, Vector3* ends, u32* colors, i32 count);
 
     // ?DrawWideLines@agiMeshSet@@SAXPAVVector3@@0PAMPAIH@Z | agiworld:meshrend
     ARTS_EXPORT static void DrawWideLines(Vector3* starts, Vector3* ends, f32* widths, u32* colors, i32 count);
@@ -232,13 +232,13 @@ public:
     ARTS_EXPORT static f32 DepthScale;
 
     // ?EyePlaneCount@agiMeshSet@@2HA | agiworld:meshrend
-    ARTS_EXPORT static i32 EyePlaneCount;
+    static i32 EyePlaneCount;
 
     // ?EyePlanes@agiMeshSet@@2PAVVector4@@A | agiworld:meshrend
     ARTS_IMPORT static Vector4 EyePlanes[2];
 
     // ?EyePlanesHit@agiMeshSet@@2HA | agiworld:meshrend
-    ARTS_EXPORT static i32 EyePlanesHit;
+    static i32 EyePlanesHit;
 
     // ?EyePos@agiMeshSet@@2VVector3@@A | agiworld:meshrend
     ARTS_EXPORT static Vector3 EyePos;
@@ -261,7 +261,7 @@ public:
 
 protected:
     // ?ClipTri@agiMeshSet@@IAEXHHHH@Z | agiworld:meshrend
-    ARTS_EXPORT void ClipTri(i32 i1, i32 i2, i32 i3, i32 texture);
+    void ClipTri(i32 i1, i32 i2, i32 i3, i32 texture);
 
     template <typename T>
     static void ARTS_FASTCALL ClampToScreen(T& vert);
@@ -276,32 +276,32 @@ protected:
     ARTS_IMPORT static void ARTS_FASTCALL ShadowInit(const Vector4& arg1, const Vector3& arg2);
 
     // ?ShadowTransform@agiMeshSet@@KIXPAVVector4@@PAVVector3@@H@Z | agiworld:meshrend
-    ARTS_EXPORT static void ARTS_FASTCALL ShadowTransform(
+    static void ARTS_FASTCALL ShadowTransform(
         Vector4* ARTS_RESTRICT output, Vector3* ARTS_RESTRICT input, i32 count);
 
     // ?ShadowTransformOutcode@agiMeshSet@@KIIPAEPAVVector4@@PAVVector3@@H@Z | agiworld:meshrend
-    ARTS_EXPORT static u32 ARTS_FASTCALL ShadowTransformOutcode(
+    static u32 ARTS_FASTCALL ShadowTransformOutcode(
         u8* ARTS_RESTRICT out_codes, Vector4* ARTS_RESTRICT output, Vector3* ARTS_RESTRICT input, i32 count);
 
     // ?ToScreen@agiMeshSet@@KIXPAEPAVVector4@@H@Z | agiworld:mrkni
-    ARTS_EXPORT static void ARTS_FASTCALL ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT verts, i32 count);
+    static void ARTS_FASTCALL ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT verts, i32 count);
 
     // ?Transform@agiMeshSet@@KIXPAVVector4@@PAVVector3@@H@Z | agiworld:meshrend
-    ARTS_EXPORT static void ARTS_FASTCALL Transform(
+    static void ARTS_FASTCALL Transform(
         Vector4* ARTS_RESTRICT output, Vector3* ARTS_RESTRICT input, i32 count);
 
     // ?TransformOutcode@agiMeshSet@@KIIPAEPAVVector4@@PAVVector3@@H@Z | agiworld:meshrend
-    ARTS_EXPORT static u32 ARTS_FASTCALL TransformOutcode(
+    static u32 ARTS_FASTCALL TransformOutcode(
         u8* ARTS_RESTRICT out_codes, Vector4* ARTS_RESTRICT output, Vector3* ARTS_RESTRICT input, i32 count);
 
     // ?AllowEyeBackfacing@agiMeshSet@@1HA | agiworld:meshrend
     ARTS_EXPORT static b32 AllowEyeBackfacing;
 
     // ?HalfHeight@agiMeshSet@@1MA | agiworld:meshrend
-    ARTS_EXPORT static f32 HalfHeight;
+    static f32 HalfHeight;
 
     // ?HalfWidth@agiMeshSet@@1MA | agiworld:meshrend
-    ARTS_EXPORT static f32 HalfWidth;
+    static f32 HalfWidth;
 
     // ?LocPos@agiMeshSet@@1VVector3@@A | agiworld:meshrend
     ARTS_EXPORT static Vector3 LocPos;
@@ -310,25 +310,25 @@ protected:
     ARTS_EXPORT static Matrix34 M;
 
     // ?MaxX@agiMeshSet@@1MA | agiworld:meshrend
-    ARTS_EXPORT static f32 MaxX;
+    static f32 MaxX;
 
     // ?MaxY@agiMeshSet@@1MA | agiworld:meshrend
-    ARTS_EXPORT static f32 MaxY;
+    static f32 MaxY;
 
     // ?MinX@agiMeshSet@@1MA | agiworld:meshrend
-    ARTS_EXPORT static f32 MinX;
+    static f32 MinX;
 
     // ?MinY@agiMeshSet@@1MA | agiworld:meshrend
-    ARTS_EXPORT static f32 MinY;
+    static f32 MinY;
 
     // ?MtxSerial@agiMeshSet@@1IA | agiworld:meshrend
     ARTS_EXPORT static u32 MtxSerial;
 
     // ?OffsX@agiMeshSet@@1MA | agiworld:meshrend
-    ARTS_EXPORT static f32 OffsX;
+    static f32 OffsX;
 
     // ?OffsY@agiMeshSet@@1MA | agiworld:meshrend
-    ARTS_EXPORT static f32 OffsY;
+    static f32 OffsY;
 
     // ?ProjZW@agiMeshSet@@1MA | agiworld:meshrend
     ARTS_EXPORT static f32 ProjZW;
@@ -360,13 +360,13 @@ protected:
 
 private:
     // ?DoPageIn@agiMeshSet@@AAEXXZ | agiworld:meshload
-    ARTS_EXPORT void DoPageIn();
+    void DoPageIn();
 
     // ?EndGfx@agiMeshSet@@AAEXXZ | agiworld:meshrend
     ARTS_IMPORT void EndGfx();
 
     // ?PageOutCallback@agiMeshSet@@CAXPAXH@Z | agiworld:meshload
-    ARTS_EXPORT static void PageOutCallback(void* param, isize delta);
+    static void PageOutCallback(void* param, isize delta);
 
     static inline bool IsBackfacing(const Vector4& plane)
     {

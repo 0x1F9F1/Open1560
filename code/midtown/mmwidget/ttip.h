@@ -25,8 +25,6 @@ class UIMenu;
 class mmToolTip final : public asNode
 {
 public:
-    // ??_GmmToolTip@@UAEPAXI@Z
-    // ??_EmmToolTip@@UAEPAXI@Z
     // ??1mmToolTip@@UAE@XZ
     ARTS_IMPORT ~mmToolTip() override;
 
@@ -34,7 +32,7 @@ public:
     ARTS_IMPORT void SetText(LocString* arg1);
 
     // ?Switch@mmToolTip@@QAEXH@Z
-    ARTS_EXPORT void Switch(i32 arg1);
+    void Switch(i32 arg1);
 
     // ?Update@mmToolTip@@UAEXXZ
     ARTS_EXPORT void Update() override;

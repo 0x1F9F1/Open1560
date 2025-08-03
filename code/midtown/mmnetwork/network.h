@@ -75,7 +75,7 @@ public:
     ARTS_IMPORT void CloseSession();
 
     // ?CreateInterface@asNetwork@@QAEHXZ
-    ARTS_EXPORT i32 CreateInterface();
+    i32 CreateInterface();
 
     // ?CreatePlayer@asNetwork@@QAEHPADPAXH@Z
     ARTS_IMPORT i32 CreatePlayer(char* arg1, void* arg2, i32 arg3);
@@ -84,7 +84,7 @@ public:
     ARTS_IMPORT i32 CreateSession(char* arg1, char* arg2, i32 arg3, NETSESSION_DESC* arg4);
 
     // ?Deallocate@asNetwork@@QAEXXZ
-    ARTS_EXPORT void Deallocate();
+    void Deallocate();
 
     // ?DestroyPlayer@asNetwork@@QAEXXZ
     ARTS_EXPORT void DestroyPlayer();
@@ -156,7 +156,7 @@ public:
     ARTS_EXPORT b32 Initialize(i32 max_players, b32 secure, i32 game_version);
 
     // ?InitializeLobby@asNetwork@@QAEHHH@Z
-    ARTS_EXPORT b32 InitializeLobby(i32 max_players, b32 secure);
+    b32 InitializeLobby(i32 max_players, b32 secure);
 
     // ?JoinLobbySession@asNetwork@@QAEHXZ
     ARTS_EXPORT b32 JoinLobbySession();

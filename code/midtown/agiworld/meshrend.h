@@ -23,7 +23,7 @@
 #include "vector7/vector4.h"
 
 // ?SetClipMode@@YAXH@Z | unused
-ARTS_EXPORT void SetClipMode(b32 mask_only_z);
+void SetClipMode(b32 mask_only_z);
 
 // ?MaxCardSize@@3MA
 ARTS_IMPORT extern f32 MaxCardSize;

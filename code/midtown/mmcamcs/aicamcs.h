@@ -28,7 +28,6 @@ public:
     // ??0AICamCS@@QAE@XZ
     ARTS_IMPORT AICamCS();
 
-    // ??_EAICamCS@@UAEPAXI@Z
     // ??1AICamCS@@UAE@XZ | inline
     ARTS_EXPORT ~AICamCS() override = default;
 

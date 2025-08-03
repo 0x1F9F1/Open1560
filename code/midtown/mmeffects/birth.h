@@ -31,7 +31,6 @@ public:
     // ??0asBirthRule@@QAE@XZ
     ARTS_IMPORT asBirthRule();
 
-    // ??_EasBirthRule@@UAEPAXI@Z
     // ??1asBirthRule@@UAE@XZ | inline
     ARTS_EXPORT ~asBirthRule() override = default;
 

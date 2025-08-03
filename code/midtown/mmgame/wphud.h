@@ -29,8 +29,6 @@ public:
     // ??0mmWPHUD@@QAE@XZ
     ARTS_IMPORT mmWPHUD();
 
-    // ??_GmmWPHUD@@UAEPAXI@Z
-    // ??_EmmWPHUD@@UAEPAXI@Z
     // ??1mmWPHUD@@UAE@XZ
     ARTS_IMPORT ~mmWPHUD() override;
 
@@ -68,8 +66,6 @@ public:
     // ??0mmCircuitHUD@@QAE@XZ
     ARTS_IMPORT mmCircuitHUD();
 
-    // ??_EmmCircuitHUD@@UAEPAXI@Z
-    // ??_GmmCircuitHUD@@UAEPAXI@Z
     // ??1mmCircuitHUD@@UAE@XZ
     ARTS_IMPORT ~mmCircuitHUD() override;
 
@@ -102,8 +98,6 @@ public:
     // ??0mmCRHUD@@QAE@XZ
     ARTS_IMPORT mmCRHUD();
 
-    // ??_EmmCRHUD@@UAEPAXI@Z
-    // ??_GmmCRHUD@@UAEPAXI@Z
     // ??1mmCRHUD@@UAE@XZ
     ARTS_IMPORT ~mmCRHUD() override;
 

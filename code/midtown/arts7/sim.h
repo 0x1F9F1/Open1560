@@ -33,19 +33,18 @@ public:
     // ??0asSimulation@@QAE@XZ
     ARTS_EXPORT asSimulation();
 
-    // ??_EasSimulation@@UAEPAXI@Z
     // ??1asSimulation@@UAE@XZ
     ARTS_EXPORT ~asSimulation() override;
 
     // ?Init@asSimulation@@QAEXPADHPAPAD@Z
-    ARTS_EXPORT void Init(aconst char* proj_path, i32 argc, char** argv);
+    void Init(aconst char* proj_path, i32 argc, char** argv);
 
 #ifdef ARTS_DEV_BUILD
     // ?OpenPhysicsBank@asSimulation@@QAEXXZ | unused
-    ARTS_EXPORT void OpenPhysicsBank();
+    void OpenPhysicsBank();
 
     // ?AddWidgets@asSimulation@@UAEXPAVBank@@@Z
-    ARTS_EXPORT void AddWidgets(Bank* bank) override;
+    void AddWidgets(Bank* bank) override;
 #endif
 
     // ?Benchmark@asSimulation@@QAEXXZ
@@ -53,57 +52,57 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?Cull@asSimulation@@UAEXXZ
-    ARTS_EXPORT void Cull() override;
+    void Cull() override;
 
     // ?DeclareVector@asSimulation@@QAEXPBVVector3@@00@Z
     ARTS_EXPORT void DeclareVector(const Vector3* start, const Vector3* end, const Vector3* color);
 #endif
 
     // ?Device@asSimulation@@QAEXXZ
-    ARTS_EXPORT void Device();
+    void Device();
 
     // ?BeginOverSample@asSimulation@@QAEXH@Z
-    ARTS_EXPORT void BeginOverSample(i32 samples);
+    void BeginOverSample(i32 samples);
 
     // ?EndOverSample@asSimulation@@QAEXH@Z
-    ARTS_EXPORT void EndOverSample(i32 samples);
+    void EndOverSample(i32 samples);
 
     // ?FirstUpdate@asSimulation@@QAEXXZ
-    ARTS_EXPORT void FirstUpdate();
+    void FirstUpdate();
 
     // ?FixedFrame@asSimulation@@QAEXMH@Z | unused
-    ARTS_EXPORT void FixedFrame(f32 frame_rate, i32 frame_samples);
+    void FixedFrame(f32 frame_rate, i32 frame_samples);
 
     // ?FrameLock@asSimulation@@QAEXHH@Z | unused
-    ARTS_EXPORT void FrameLock(i32 lock, i32 arg2);
+    void FrameLock(i32 lock, i32 arg2);
 
     // ?Pause@asSimulation@@QAEXXZ
-    ARTS_EXPORT void Pause();
+    void Pause();
 
     // ?Quiet@asSimulation@@QAEXXZ
-    ARTS_EXPORT void Quiet();
+    void Quiet();
 
     // ?RealTime@asSimulation@@QAEXM@Z
-    ARTS_EXPORT void RealTime(f32 fps);
+    void RealTime(f32 fps);
 
     // ?Reset@asSimulation@@UAEXXZ
-    ARTS_EXPORT void Reset() override;
+    void Reset() override;
 
     // ?ResetClock@asSimulation@@QAEXXZ
-    ARTS_EXPORT void ResetClock();
+    void ResetClock();
 
     // ?Simulate@asSimulation@@QAEXXZ
     ARTS_EXPORT void Simulate();
 
     // ?Update@asSimulation@@UAEXXZ
-    ARTS_EXPORT void Update() override;
+    void Update() override;
 
     // TODO: Mode code to asNode::UpdatePaused(), matching AGE
     // ?UpdatePaused@asSimulation@@QAEXPAVasNode@@@Z
-    ARTS_EXPORT void UpdatePaused(asNode* node);
+    void UpdatePaused(asNode* node);
 
     // ?Widgets@asSimulation@@QAEXXZ
-    ARTS_EXPORT void Widgets();
+    void Widgets();
 
     asBenchStats& GetStats()
     {
@@ -273,14 +272,14 @@ private:
 
 #ifdef ARTS_DEV_BUILD
 // ?InitBank@@YAXHPAPAD@Z | unused
-ARTS_EXPORT void InitBank(i32 argc, char** argv);
+void InitBank(i32 argc, char** argv);
 #endif
 
 // ?InitPipeline@@YAHPADHPAPAD@Z
-ARTS_EXPORT i32 InitPipeline(char* title, i32 argc, char** argv);
+i32 InitPipeline(char* title, i32 argc, char** argv);
 
 // ?ShutdownPipeline@@YAXXZ
-ARTS_EXPORT void ShutdownPipeline();
+void ShutdownPipeline();
 
 #ifdef ARTS_DEV_BUILD
 #endif

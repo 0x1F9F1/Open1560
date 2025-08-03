@@ -26,7 +26,6 @@ public:
     // ??0PostCamCS@@QAE@XZ
     ARTS_IMPORT PostCamCS();
 
-    // ??_EPostCamCS@@UAEPAXI@Z
     // ??1PostCamCS@@UAE@XZ | inline
     ARTS_EXPORT ~PostCamCS() override = default;
 

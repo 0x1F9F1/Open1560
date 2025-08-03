@@ -26,8 +26,6 @@ public:
     // ??0TransitionCS@@QAE@XZ
     ARTS_IMPORT TransitionCS();
 
-    // ??_GTransitionCS@@UAEPAXI@Z
-    // ??_ETransitionCS@@UAEPAXI@Z
     // ??1TransitionCS@@UAE@XZ
     ARTS_EXPORT ~TransitionCS() override = default;
 

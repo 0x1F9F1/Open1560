@@ -24,8 +24,6 @@ public:
     // ??0mmAnimExcel@@QAE@XZ
     ARTS_IMPORT mmAnimExcel();
 
-    // ??_EmmAnimExcel@@UAEPAXI@Z
-    // ??_GmmAnimExcel@@UAEPAXI@Z
     // ??1mmAnimExcel@@UAE@XZ
     ARTS_IMPORT virtual ~mmAnimExcel();
 

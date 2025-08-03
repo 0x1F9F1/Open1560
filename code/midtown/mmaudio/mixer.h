@@ -41,8 +41,6 @@ class MixerCTL final
 public:
     MixerCTL(HWND window);
 
-    // ??_GMixerCTL@@UAEPAXI@Z
-    // ??_EMixerCTL@@UAEPAXI@Z
     // ??1MixerCTL@@UAE@XZ
     ARTS_EXPORT ~MixerCTL() override;
 
@@ -83,14 +81,14 @@ public:
     ARTS_IMPORT ulong Init();
 
     // ?RefreshAll@MixerCTL@@QAEXK@Z | unused
-    ARTS_EXPORT void RefreshAll(ulong arg1);
+    void RefreshAll(ulong arg1);
 
     // ?SetDeviceNum@MixerCTL@@QAEXI@Z
     ARTS_EXPORT void SetDeviceNum(u32 device_id);
 
 private:
     // ?GetErrorMessage@MixerCTL@@AAEPADK@Z
-    ARTS_EXPORT const char* GetErrorMessage(ulong error);
+    const char* GetErrorMessage(ulong error);
 
     // ?WindowProc@MixerCTL@@EAEJPAUHWND__@@IIJ@Z
     ARTS_EXPORT LRESULT WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) override;

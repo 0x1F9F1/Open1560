@@ -26,7 +26,6 @@ public:
     // ??0PreCamCS@@QAE@XZ
     ARTS_EXPORT PreCamCS() = default;
 
-    // ??_EPreCamCS@@UAEPAXI@Z
     // ??1PreCamCS@@UAE@XZ | inline
     ARTS_EXPORT ~PreCamCS() override = default;
 
@@ -42,13 +41,13 @@ public:
     ARTS_EXPORT void Init(mmCar* car);
 
     // ?MakeActive@PreCamCS@@UAEXXZ
-    ARTS_EXPORT void MakeActive() override;
+    void MakeActive() override;
 
     // ?Reset@PreCamCS@@UAEXXZ
-    ARTS_EXPORT void Reset() override;
+    void Reset() override;
 
     // ?Update@PreCamCS@@UAEXXZ
-    ARTS_EXPORT void Update() override;
+    void Update() override;
 
     // ?DeclareFields@PreCamCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();

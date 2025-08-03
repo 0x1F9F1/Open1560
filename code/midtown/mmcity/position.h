@@ -37,7 +37,7 @@ public:
     ARTS_IMPORT mmPositions();
 
     // ?GetCount@mmPositions@@QAEHXZ
-    ARTS_EXPORT i32 GetCount()
+    i32 GetCount()
     {
         return NumPositions;
     }

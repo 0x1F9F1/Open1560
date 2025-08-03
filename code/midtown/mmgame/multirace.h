@@ -26,7 +26,6 @@ public:
     // ??0mmMultiRace@@QAE@XZ
     ARTS_IMPORT mmMultiRace();
 
-    // ??_EmmMultiRace@@UAEPAXI@Z
     // ??1mmMultiRace@@UAE@XZ
     ARTS_IMPORT ~mmMultiRace() override;
 

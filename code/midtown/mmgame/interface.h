@@ -70,7 +70,6 @@ public:
     // ??0mmInterface@@QAE@XZ
     ARTS_IMPORT mmInterface();
 
-    // ??_EmmInterface@@UAEPAXI@Z
     // ??1mmInterface@@UAE@XZ
     ARTS_EXPORT ~mmInterface() override;
 
@@ -331,10 +330,10 @@ private:
     ARTS_IMPORT void SetSessionData(NETSESSION_DESC* arg1);
 
     // ?SetStateDefaults@mmInterface@@AAEXXZ | unused
-    ARTS_EXPORT void SetStateDefaults();
+    void SetStateDefaults();
 
     // ?SetStateRace@mmInterface@@AAEXH@Z | unused
-    ARTS_EXPORT void SetStateRace(i32 arg1);
+    void SetStateRace(i32 arg1);
 
     // ?ShowSessions@mmInterface@@AAEXXZ
     ARTS_IMPORT void ShowSessions();

@@ -26,7 +26,6 @@ public:
     // ??0mmBoat@@QAE@XZ
     ARTS_IMPORT mmBoat();
 
-    // ??_EmmBoat@@UAEPAXI@Z
     // ??1mmBoat@@UAE@XZ
     ARTS_IMPORT ~mmBoat() override;
 

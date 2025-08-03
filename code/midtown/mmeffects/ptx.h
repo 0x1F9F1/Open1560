@@ -34,27 +34,26 @@ public:
     // ??0asParticles@@QAE@XZ
     ARTS_EXPORT asParticles();
 
-    // ??_EasParticles@@UAEPAXI@Z
     // ??1asParticles@@UAE@XZ
     ARTS_EXPORT ~asParticles() override;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@asParticles@@UAEXPAVBank@@@Z
-    ARTS_EXPORT void AddWidgets(Bank* bank) override;
+    void AddWidgets(Bank* bank) override;
 #endif
 
     // ?Blast@asParticles@@QAEXHPAVasBirthRule@@@Z
     ARTS_EXPORT void Blast(i32 num_sparks, asBirthRule* birth_rule);
 
     // ?Cull@asParticles@@UAEXXZ
-    ARTS_EXPORT void Cull() override;
+    void Cull() override;
 
     // ?Init@asParticles@@QAEXHHHHPAUagiMeshCardVertex@@@Z
     ARTS_EXPORT void Init(
         i32 max_particles, i32 frames_width, i32 frames_height, i32 vert_count, agiMeshCardVertex* vertices);
 
     // ?Reset@asParticles@@UAEXXZ
-    ARTS_EXPORT void Reset() override;
+    void Reset() override;
 
     // ?SetTexture@asParticles@@QAEXPAD@Z
     ARTS_EXPORT void SetTexture(char* name);
@@ -63,7 +62,7 @@ public:
     ARTS_EXPORT void SetTexture(agiTexDef* texture);
 
     // ?Update@asParticles@@UAEXXZ
-    ARTS_EXPORT void Update() override;
+    void Update() override;
 
     VIRTUAL_META_DECLARE;
 

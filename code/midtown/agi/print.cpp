@@ -39,7 +39,7 @@ i32 agiFontHeight = 0;
 static Rc<agiTexDef> BuiltinFontTexture = nullptr;
 
 // ?InitBuiltin@@YAXXZ
-ARTS_EXPORT /*static*/ void InitBuiltin()
+static void InitBuiltin()
 {
     ArAssert(BuiltinFontTexture == nullptr, "Font already initialized");
 

@@ -28,8 +28,6 @@ public:
     // ??0mmCDPlayer@@QAE@XZ
     ARTS_IMPORT mmCDPlayer();
 
-    // ??_GmmCDPlayer@@UAEPAXI@Z
-    // ??_EmmCDPlayer@@UAEPAXI@Z
     // ??1mmCDPlayer@@UAE@XZ | inline
     ARTS_IMPORT ~mmCDPlayer() override;
 

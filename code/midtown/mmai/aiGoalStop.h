@@ -32,19 +32,19 @@ public:
     ARTS_EXPORT ~aiGoalStop() = default;
 
     // ?Context@aiGoalStop@@UAEHXZ
-    ARTS_EXPORT b32 Context() override;
+    b32 Context() override;
 
     // ?Init@aiGoalStop@@UAEXXZ
     ARTS_IMPORT void Init() override;
 
     // ?Priority@aiGoalStop@@UAEHXZ
-    ARTS_EXPORT b32 Priority() override;
+    b32 Priority() override;
 
     // ?Reset@aiGoalStop@@UAEXXZ
-    ARTS_EXPORT void Reset() override;
+    void Reset() override;
 
     // ?Update@aiGoalStop@@UAEXXZ
-    ARTS_EXPORT void Update() override;
+    void Update() override;
 
     mmCar* Car;
     b16* IsStopped;

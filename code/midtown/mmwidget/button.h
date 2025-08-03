@@ -26,8 +26,6 @@ public:
     // ??0UIButton@@QAE@XZ
     ARTS_IMPORT UIButton();
 
-    // ??_GUIButton@@UAEPAXI@Z
-    // ??_EUIButton@@UAEPAXI@Z
     // ??1UIButton@@UAE@XZ
     ARTS_IMPORT ~UIButton() override;
 
@@ -56,7 +54,7 @@ public:
     ARTS_IMPORT void Switch(i32 arg1) override;
 
     // ?TestHit@UIButton@@QAEHMM@Z | unused
-    ARTS_EXPORT i32 TestHit(f32 arg1, f32 arg2);
+    i32 TestHit(f32 arg1, f32 arg2);
 
     // ?Update@UIButton@@UAEXXZ
     ARTS_IMPORT void Update() override;

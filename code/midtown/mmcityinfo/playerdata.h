@@ -29,8 +29,6 @@ public:
     // ??0mmPlayerRecord@@QAE@ABV0@@Z | inline
     ARTS_IMPORT mmPlayerRecord(const mmPlayerRecord& arg1);
 
-    // ??_EmmPlayerRecord@@UAEPAXI@Z
-    // ??_GmmPlayerRecord@@UAEPAXI@Z | unused
     // ??1mmPlayerRecord@@UAE@XZ
     ARTS_EXPORT ~mmPlayerRecord() override = default;
 
@@ -66,8 +64,6 @@ public:
     // ??0mmPlayerData@@QAE@XZ
     ARTS_IMPORT mmPlayerData();
 
-    // ??_EmmPlayerData@@UAEPAXI@Z
-    // ??_GmmPlayerData@@UAEPAXI@Z | unused
     // ??1mmPlayerData@@UAE@XZ | inline
     ARTS_IMPORT ~mmPlayerData() override;
 
@@ -123,7 +119,7 @@ public:
     ARTS_IMPORT i32 RegisterFinish(mmPlayerRecord arg1, i32 arg2, i32 arg3);
 
     // ?RegisterFinish@mmPlayerData@@QAEHHMD@Z | unused
-    ARTS_EXPORT i32 RegisterFinish(i32 arg1, f32 arg2, char arg3);
+    i32 RegisterFinish(i32 arg1, f32 arg2, char arg3);
 
     // ?Reset@mmPlayerData@@QAEXXZ
     ARTS_IMPORT void Reset();

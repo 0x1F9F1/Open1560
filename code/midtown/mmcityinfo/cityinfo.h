@@ -22,12 +22,10 @@ class mmCityInfo final
 {
 public:
     // ??0mmCityInfo@@QAE@XZ
-    ARTS_EXPORT mmCityInfo();
+    mmCityInfo();
 
-    // ??_EmmCityInfo@@UAEPAXI@Z
-    // ??_GmmCityInfo@@UAEPAXI@Z
     // ??1mmCityInfo@@UAE@XZ
-    ARTS_EXPORT virtual ~mmCityInfo();
+    virtual ~mmCityInfo();
 
     // ?Load@mmCityInfo@@QAEHPAD@Z
     ARTS_IMPORT b32 Load(char* path);

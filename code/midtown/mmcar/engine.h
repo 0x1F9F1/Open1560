@@ -29,7 +29,6 @@ public:
     // ??0mmEngine@@QAE@XZ
     ARTS_IMPORT mmEngine();
 
-    // ??_EmmEngine@@UAEPAXI@Z
     // ??1mmEngine@@UAE@XZ
     ARTS_EXPORT ~mmEngine() override = default;
 

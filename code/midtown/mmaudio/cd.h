@@ -48,10 +48,10 @@ public:
     ARTS_EXPORT MCIERROR PlayTrack(u8 track, u8 minute, u8 second, u8 frame, u8 restart);
 
     // ?ResumePlay@CDMan@@QAEKXZ
-    ARTS_EXPORT MCIERROR ResumePlay();
+    MCIERROR ResumePlay();
 
     // ?SeekTrack@CDMan@@QAEKE@Z | unused
-    ARTS_EXPORT MCIERROR SeekTrack(u8 track);
+    MCIERROR SeekTrack(u8 track);
 
     // ?Stop@CDMan@@QAEKXZ
     ARTS_EXPORT MCIERROR Stop();

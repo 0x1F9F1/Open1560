@@ -67,7 +67,6 @@ public:
     // ??0mmJoystick@@QAE@XZ
     ARTS_IMPORT mmJoystick();
 
-    // ??_EmmJoystick@@QAEPAXI@Z | unused
     // ??1mmJoystick@@QAE@XZ
     ARTS_IMPORT ~mmJoystick();
 

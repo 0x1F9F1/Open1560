@@ -26,8 +26,6 @@ public:
     // ??0Dialog_ControlAssign@@QAE@HMMMMPAD@Z
     ARTS_IMPORT Dialog_ControlAssign(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
-    // ??_GDialog_ControlAssign@@UAEPAXI@Z
-    // ??_EDialog_ControlAssign@@UAEPAXI@Z
     // ??1Dialog_ControlAssign@@UAE@XZ
     ARTS_EXPORT ~Dialog_ControlAssign() override = default;
 

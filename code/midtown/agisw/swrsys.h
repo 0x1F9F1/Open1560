@@ -26,8 +26,6 @@ public:
     // ??0agiSWRasterizer@@QAE@PAVagiPipeline@@@Z
     ARTS_IMPORT agiSWRasterizer(agiPipeline* arg1);
 
-    // ??_GagiSWRasterizer@@UAEPAXI@Z
-    // ??_EagiSWRasterizer@@UAEPAXI@Z
     // ??1agiSWRasterizer@@UAE@XZ
     ARTS_EXPORT ~agiSWRasterizer() override = default;
 

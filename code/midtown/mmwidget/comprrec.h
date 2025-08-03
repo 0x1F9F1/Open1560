@@ -26,8 +26,6 @@ public:
     // ??0mmCompRaceRecord@@QAE@XZ
     ARTS_IMPORT mmCompRaceRecord();
 
-    // ??_EmmCompRaceRecord@@UAEPAXI@Z
-    // ??_GmmCompRaceRecord@@UAEPAXI@Z
     // ??1mmCompRaceRecord@@UAE@XZ
     ARTS_IMPORT ~mmCompRaceRecord() override;
 

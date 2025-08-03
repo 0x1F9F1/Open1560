@@ -26,8 +26,6 @@ class mmTextNode;
 class mmCompBase : public asNode
 {
 public:
-    // ??_GmmCompBase@@UAEPAXI@Z
-    // ??_EmmCompBase@@UAEPAXI@Z
     // ??1mmCompBase@@UAE@XZ | inline
     ARTS_EXPORT ~mmCompBase() override = default;
 

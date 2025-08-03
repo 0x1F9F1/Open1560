@@ -28,7 +28,6 @@ public:
     // ??0mmMiscData@@QAE@XZ
     ARTS_IMPORT mmMiscData();
 
-    // ??_EmmMiscData@@UAEPAXI@Z
     // ??1mmMiscData@@UAE@XZ
     ARTS_IMPORT ~mmMiscData() override;
 

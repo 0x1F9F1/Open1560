@@ -26,8 +26,6 @@ public:
     // ??0AudHead@@QAE@PAVMatrix34@@@Z
     ARTS_IMPORT AudHead(Matrix34* arg1);
 
-    // ??_EAudHead@@UAEPAXI@Z
-    // ??_GAudHead@@UAEPAXI@Z
     // ??1AudHead@@UAE@XZ
     ARTS_EXPORT ~AudHead() override = default;
 

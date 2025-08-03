@@ -28,7 +28,6 @@ public:
     // ??0UIBMLabel@@QAE@XZ
     ARTS_IMPORT UIBMLabel();
 
-    // ??_EUIBMLabel@@UAEPAXI@Z
     // ??1UIBMLabel@@UAE@XZ
     ARTS_IMPORT ~UIBMLabel() override;
 

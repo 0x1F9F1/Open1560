@@ -33,7 +33,6 @@ public:
     // ??0mmBangerData@@QAE@XZ | inline
     ARTS_IMPORT mmBangerData();
 
-    // ??_EmmBangerData@@UAEPAXI@Z
     // ??1mmBangerData@@UAE@XZ | inline
     ARTS_IMPORT ~mmBangerData() override;
 
@@ -109,7 +108,6 @@ public:
     // ??0mmBangerDataManager@@QAE@XZ
     ARTS_IMPORT mmBangerDataManager();
 
-    // ??_EmmBangerDataManager@@UAEPAXI@Z
     // ??1mmBangerDataManager@@UAE@XZ
     ARTS_IMPORT ~mmBangerDataManager() override;
 

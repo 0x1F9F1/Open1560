@@ -22,10 +22,10 @@ struct asArg
 {
 public:
     // ??0asArg@@QAE@DPAD@Z
-    ARTS_EXPORT asArg(char flag, const char* usage);
+    asArg(char flag, const char* usage);
 
     // ?Print@asArg@@QAEXPAD@Z
-    ARTS_EXPORT void Print(const char* name);
+    void Print(const char* name);
 
     b32 Found {};
     char Flag {};
@@ -43,13 +43,13 @@ public:
     ~ArgSet();
 
     // ?ParseArgs@ArgSet@@QAEXHPAPAD@Z
-    ARTS_EXPORT void ParseArgs(i32 argc, const char** argv);
+    void ParseArgs(i32 argc, const char** argv);
 
     // ?Print@ArgSet@@QAEXPAD@Z | unused
-    ARTS_EXPORT void Print(const char* title);
+    void Print(const char* title);
 
     // ?Usage@ArgSet@@QAEXXZ
-    ARTS_EXPORT void Usage();
+    void Usage();
 
     asArg* operator[](char flag);
 

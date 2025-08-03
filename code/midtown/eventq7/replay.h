@@ -22,7 +22,7 @@ class eqReplayChannel
 {
 public:
     // ??1eqReplayChannel@@QAE@XZ
-    ARTS_EXPORT ~eqReplayChannel();
+    ~eqReplayChannel();
 
     // ?InitRecord@eqReplayChannel@@UAEXXZ
     ARTS_EXPORT virtual void InitRecord();
@@ -51,7 +51,7 @@ protected:
 
 private:
     // ?First@eqReplayChannel@@0PAV1@A
-    ARTS_EXPORT static eqReplayChannel* First;
+    static eqReplayChannel* First;
 
     u32 magic_ {};
     eqReplayChannel* next_ {};
@@ -65,30 +65,30 @@ class eqReplay
 {
 public:
     // ?DoPlayback@eqReplay@@SAXXZ
-    ARTS_EXPORT static void DoPlayback();
+    static void DoPlayback();
 
     // ?DoRecord@eqReplay@@SAXXZ
-    ARTS_EXPORT static void DoRecord();
+    static void DoRecord();
 
     // ?InitPlayback@eqReplay@@SAXPAD@Z
-    ARTS_EXPORT static void InitPlayback(const char* path);
+    static void InitPlayback(const char* path);
 
     // ?InitRecord@eqReplay@@SAXPAD@Z
-    ARTS_EXPORT static void InitRecord(const char* path);
+    static void InitRecord(const char* path);
 
     // ?ShutdownPlayback@eqReplay@@SAXXZ
-    ARTS_EXPORT static void ShutdownPlayback();
+    static void ShutdownPlayback();
 
     // ?ShutdownRecord@eqReplay@@SAXXZ
-    ARTS_EXPORT static void ShutdownRecord();
+    static void ShutdownRecord();
 
     // ?Playback@eqReplay@@2HA
-    ARTS_EXPORT static b32 Playback;
+    static b32 Playback;
 
     // ?Recording@eqReplay@@2HA
-    ARTS_EXPORT static b32 Recording;
+    static b32 Recording;
 
 private:
     // ?ReplayStream@eqReplay@@0PAVStream@@A
-    ARTS_EXPORT static Stream* ReplayStream;
+    static Stream* ReplayStream;
 };

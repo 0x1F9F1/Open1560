@@ -26,7 +26,6 @@ public:
     // ??0PointCamCS@@QAE@XZ
     ARTS_IMPORT PointCamCS();
 
-    // ??_EPointCamCS@@UAEPAXI@Z
     // ??1PointCamCS@@UAE@XZ | inline
     ARTS_EXPORT ~PointCamCS() override = default;
 

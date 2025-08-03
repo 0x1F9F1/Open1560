@@ -32,7 +32,7 @@ public:
     ARTS_EXPORT void* Access(i32 index);
 
     // ?Delete@List@@QAEHH@Z
-    ARTS_EXPORT b32 Delete(i32 index);
+    b32 Delete(i32 index);
 
     // ?Insert@List@@QAEHHPAX@Z
     ARTS_EXPORT b32 Insert(i32 index, void* value);

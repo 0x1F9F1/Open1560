@@ -26,44 +26,17 @@
 #    define ArReturnAddress() __builtin_return_address()
 #endif
 
-// ??3@YAXPAX@Z
+void* arts_calloc(std::size_t num, std::size_t size);
 
-// ??2@YAPAXI@Z
-
-// __CrtCheckMemory | void
-
-// __CrtDumpMemoryLeaks | void
-
-// __CrtIsValidPointer | void
-
-// __CrtMemCheckpoint | void
-
-// __CrtSetDbgFlag | void
-
-// __calloc_dbg | void
-
-// __free_dbg | void
-
-// __malloc_dbg | void
-
-// __msize_dbg | void
-
-// __realloc_dbg | void
-
-// _calloc
-ARTS_EXPORT void* arts_calloc(std::size_t num, std::size_t size);
-
-// _free
+// ?arts_free@@YAXPAX@Z
 ARTS_EXPORT void arts_free(void* ptr);
 
-// _malloc
+// ?arts_malloc@@YAPAXI@Z
 ARTS_EXPORT void* arts_malloc(std::size_t size);
 
-// __msize | void
-ARTS_EXPORT std::size_t arts_msize(void* ptr);
+std::size_t arts_msize(void* ptr);
 
-// _realloc
-ARTS_EXPORT void* arts_realloc(void* ptr, std::size_t size);
+void* arts_realloc(void* ptr, std::size_t size);
 
 void* arts_aligned_alloc(std::size_t size, std::size_t align);
 

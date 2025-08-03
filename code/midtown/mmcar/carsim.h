@@ -74,7 +74,6 @@ public:
     // ??0mmCarSim@@QAE@XZ
     ARTS_IMPORT mmCarSim();
 
-    // ??_EmmCarSim@@UAEPAXI@Z
     // ??1mmCarSim@@UAE@XZ
     ARTS_IMPORT ~mmCarSim() override;
 
@@ -171,7 +170,7 @@ public:
     ARTS_IMPORT static void DeclareFields();
 
     // ?SetGlobalTuning@mmCarSim@@SAXMM@Z
-    ARTS_EXPORT static void SetGlobalTuning(f32 arg1, f32 arg2);
+    static void SetGlobalTuning(f32 arg1, f32 arg2);
 
     // ?DirtTex@mmCarSim@@2PAVagiTexDef@@A
     ARTS_IMPORT static agiTexDef* DirtTex;

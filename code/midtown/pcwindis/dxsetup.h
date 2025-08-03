@@ -19,7 +19,7 @@
 #pragma once
 
 // ?dxiConfig@@YAXHPAPAD@Z
-ARTS_EXPORT void dxiConfig(i32 argc, char** argv);
+void dxiConfig(i32 argc, char** argv);
 
 // ?dxiCpuSpeed@@3HA
 ARTS_EXPORT extern i32 dxiCpuSpeed;

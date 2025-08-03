@@ -32,7 +32,6 @@ public:
     // ??0TrackCamCS@@QAE@XZ
     ARTS_IMPORT TrackCamCS();
 
-    // ??_ETrackCamCS@@UAEPAXI@Z
     // ??1TrackCamCS@@UAE@XZ
     ARTS_IMPORT ~TrackCamCS() override;
 

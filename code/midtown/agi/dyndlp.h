@@ -27,8 +27,6 @@ public:
     ARTS_IMPORT DynamicDLP(i32 arg1);
 
 protected:
-    // ??_EDynamicDLP@@MAEPAXI@Z
-    // ??_GDynamicDLP@@MAEPAXI@Z
     // ??1DynamicDLP@@MAE@XZ
     ARTS_IMPORT virtual ~DynamicDLP();
 

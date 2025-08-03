@@ -33,7 +33,6 @@ public:
     // ??0mmWheel@@QAE@XZ
     ARTS_IMPORT mmWheel();
 
-    // ??_EmmWheel@@UAEPAXI@Z
     // ??1mmWheel@@UAE@XZ | inline
     ARTS_EXPORT ~mmWheel() override = default;
 
@@ -55,7 +54,7 @@ public:
     ARTS_IMPORT void CopyVars(mmWheel* arg1);
 
     // ?GenerateSkidParticles@mmWheel@@QAEXXZ
-    ARTS_EXPORT void GenerateSkidParticles();
+    void GenerateSkidParticles();
 
     // ?GetClass@mmWheel@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;

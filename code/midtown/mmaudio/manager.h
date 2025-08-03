@@ -39,7 +39,6 @@ public:
     // ??0AudManager@@QAE@XZ
     ARTS_IMPORT AudManager();
 
-    // ??_EAudManager@@UAEPAXI@Z
     // ??1AudManager@@UAE@XZ
     ARTS_IMPORT ~AudManager() override;
 
@@ -207,7 +206,7 @@ public:
     ARTS_IMPORT void UpdatePaused() override;
 
     // ?ZeroVolAllSounds@AudManager@@QAEXXZ | unused
-    ARTS_EXPORT void ZeroVolAllSounds();
+    void ZeroVolAllSounds();
 
     // ?DeclareFields@AudManager@@SAXXZ
     ARTS_IMPORT static void DeclareFields();

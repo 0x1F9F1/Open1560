@@ -42,7 +42,6 @@ public:
     // ??0mmPlayer@@QAE@XZ
     ARTS_IMPORT mmPlayer();
 
-    // ??_EmmPlayer@@UAEPAXI@Z
     // ??1mmPlayer@@UAE@XZ | inline
     ARTS_EXPORT ~mmPlayer() override = default;
 

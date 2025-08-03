@@ -50,7 +50,7 @@ public:
 #endif
 
     // ?Dump@aiIntersection@@QAEXXZ | unused
-    ARTS_EXPORT void Dump();
+    void Dump();
 
     // ?Init@aiIntersection@@QAEXXZ
     ARTS_IMPORT void Init();

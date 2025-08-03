@@ -28,8 +28,6 @@ public:
     // ??0agiColorModel8@@QAE@PAVagiPalette@@@Z
     ARTS_IMPORT agiColorModel8(agiPalette* arg1);
 
-    // ??_EagiColorModel8@@UAEPAXI@Z
-    // ??_GagiColorModel8@@UAEPAXI@Z
     // ??1agiColorModel8@@UAE@XZ
     ARTS_EXPORT ~agiColorModel8() override = default;
 

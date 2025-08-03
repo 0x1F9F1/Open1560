@@ -34,39 +34,37 @@ class mmBangerActive final : public mmPhysEntity
 {
 public:
     // ??0mmBangerActive@@QAE@XZ
-    ARTS_EXPORT mmBangerActive();
+    mmBangerActive();
 
-    // ??_EmmBangerActive@@UAEPAXI@Z
-    // ??_GmmBangerActive@@UAEPAXI@Z
     // ??1mmBangerActive@@UAE@XZ
-    ARTS_EXPORT ~mmBangerActive() override;
+    ~mmBangerActive() override;
 
     // ?Attach@mmBangerActive@@QAEXPAVmmBangerInstance@@@Z
-    ARTS_EXPORT void Attach(mmBangerInstance* inst);
+    void Attach(mmBangerInstance* inst);
 
     // ?Detach@mmBangerActive@@QAEXXZ
-    ARTS_EXPORT void Detach();
+    void Detach();
 
     // ?DetachMe@mmBangerActive@@UAEXXZ
-    ARTS_EXPORT void DetachMe() override;
+    void DetachMe() override;
 
     // ?GetBound@mmBangerActive@@UAEPAVasBound@@XZ | inline
-    ARTS_EXPORT asBound* GetBound() override
+    asBound* GetBound() override
     {
         return &Bound;
     }
 
     // ?GetICS@mmBangerActive@@UAEPAVasInertialCS@@XZ | inline
-    ARTS_EXPORT asInertialCS* GetICS() override
+    asInertialCS* GetICS() override
     {
         return &ICS;
     }
 
     // ?PostUpdate@mmBangerActive@@UAEXXZ
-    ARTS_EXPORT void PostUpdate() override;
+    void PostUpdate() override;
 
     // ?Update@mmBangerActive@@UAEXXZ
-    ARTS_EXPORT void Update() override;
+    void Update() override;
 
     i32 Index {-1};
     asInertialCS ICS {};
@@ -84,25 +82,23 @@ public:
     // ??0mmBangerActiveManager@@QAE@XZ
     ARTS_EXPORT mmBangerActiveManager();
 
-    // ??_GmmBangerActiveManager@@UAEPAXI@Z
-    // ??_EmmBangerActiveManager@@UAEPAXI@Z
     // ??1mmBangerActiveManager@@UAE@XZ
     ARTS_EXPORT ~mmBangerActiveManager() override;
 
     // ?Attach@mmBangerActiveManager@@QAEPAVmmBangerActive@@PAVmmBangerInstance@@@Z
-    ARTS_EXPORT mmBangerActive* Attach(mmBangerInstance* inst);
+    mmBangerActive* Attach(mmBangerInstance* inst);
 
     // ?Detach@mmBangerActiveManager@@QAEXPAVmmBangerActive@@@Z
-    ARTS_EXPORT void Detach(mmBangerActive* active);
+    void Detach(mmBangerActive* active);
 
     // ?GetActive@mmBangerActiveManager@@QAEPAVmmBangerActive@@PAVmmBangerInstance@@@Z
     ARTS_EXPORT mmBangerActive* GetActive(mmBangerInstance* inst);
 
     // ?Reset@mmBangerActiveManager@@UAEXXZ
-    ARTS_EXPORT void Reset() override;
+    void Reset() override;
 
     // ?Update@mmBangerActiveManager@@UAEXXZ
-    ARTS_EXPORT void Update() override;
+    void Update() override;
 
     friend mmBangerActiveManager* BangerActiveMgr();
 

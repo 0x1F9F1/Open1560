@@ -29,18 +29,17 @@ public:
     // ??0mmIO@@QAE@XZ
     ARTS_EXPORT mmIO() = default;
 
-    // ??_EmmIO@@QAEPAXI@Z | unused
     // ??1mmIO@@QAE@XZ
     ARTS_EXPORT ~mmIO() = default;
 
     // ??8mmIO@@QAEHPATeqEvent@@@Z
-    ARTS_EXPORT b32 operator==(eqEvent* event);
+    b32 operator==(eqEvent* event);
 
     // ?Assign@mmIO@@QAEXHH@Z
     ARTS_EXPORT void Assign(i32 device, i32 component);
 
     // ?Clear@mmIO@@QAEXXZ | unused
-    ARTS_EXPORT void Clear();
+    void Clear();
 
     // ?CompareComponent@mmIO@@QAEHH@Z
     ARTS_EXPORT b32 CompareComponent(i32 component);
@@ -57,7 +56,7 @@ public:
     ARTS_EXPORT void Init(char* name, i32 ioid, ilong flags);
 
     // ?InitDev@mmIO@@QAEXH_JHHH@Z
-    ARTS_EXPORT void InitDev(i32 type, i64, i32 device, i32 component, i32 = 0);
+    void InitDev(i32 type, i64, i32 device, i32 component, i32 = 0);
 
     // ?Read@mmIO@@QAEHPAVStream@@@Z
     ARTS_IMPORT i32 Read(Stream* arg1);

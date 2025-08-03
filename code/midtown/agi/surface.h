@@ -87,7 +87,7 @@ class agiSurfaceDesc // DDSURFACEDESC2
 {
 public:
     // ?CopyFrom@agiSurfaceDesc@@QAEXPAV1@H@Z
-    ARTS_EXPORT void CopyFrom(agiSurfaceDesc* src, i32 src_lod);
+    void CopyFrom(agiSurfaceDesc* src, i32 src_lod);
 
     void CopyFrom(agiSurfaceDesc* src, i32 src_lod, agiTexParameters* params);
 
@@ -95,10 +95,10 @@ public:
     ARTS_IMPORT void Reload(aconst char* arg1, aconst char* arg2, i32 arg3, i32 arg4, Stream* arg5, i32 arg6, i32 arg7);
 
     // ?Unload@agiSurfaceDesc@@QAEXXZ
-    ARTS_EXPORT void Unload();
+    void Unload();
 
     // ?Init@agiSurfaceDesc@@SAPAV1@HHAAV1@@Z
-    [[nodiscard]] ARTS_EXPORT static Owner<agiSurfaceDesc> Init(i32 width, i32 height, const agiSurfaceDesc& desc);
+    [[nodiscard]] static Owner<agiSurfaceDesc> Init(i32 width, i32 height, const agiSurfaceDesc& desc);
 
     void Load();
 

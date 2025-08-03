@@ -28,8 +28,6 @@ public:
     // ??0RaceMenu@@QAE@H@Z
     ARTS_IMPORT RaceMenu(i32 arg1);
 
-    // ??_ERaceMenu@@UAEPAXI@Z
-    // ??_GRaceMenu@@UAEPAXI@Z
     // ??1RaceMenu@@UAE@XZ
     ARTS_EXPORT ~RaceMenu() override = default;
 

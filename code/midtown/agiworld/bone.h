@@ -33,7 +33,7 @@ public:
     ARTS_IMPORT void Attach(Matrix34* const arg1, i32& arg2);
 
     // ?Draw@bnBone@@QAEXXZ
-    ARTS_EXPORT void Draw();
+    void Draw();
 
     // ?Load@bnBone@@QAEHPAVTokenizer@@PAPAV1@@Z
     ARTS_IMPORT i32 Load(Tokenizer* arg1, bnBone** arg2);

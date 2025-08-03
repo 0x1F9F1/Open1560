@@ -38,7 +38,7 @@ ARTS_IMPORT void agiMeshLighterQuarter(u8* arg1, u32* arg2, u32* arg3, agiMeshSe
 ARTS_IMPORT void agiMeshLighterReset();
 
 // ?agiMeshLighterTriple@@YAXPAEPAI1PAVagiMeshSet@@@Z
-ARTS_EXPORT void agiMeshLighterTriple(
+void agiMeshLighterTriple(
     u8* ARTS_RESTRICT codes, u32* ARTS_RESTRICT output, u32* ARTS_RESTRICT colors, agiMeshSet* mesh);
 
 // ?agiMeshLighterUpdateColors@@YAXXZ

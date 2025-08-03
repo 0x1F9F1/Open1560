@@ -26,7 +26,6 @@ public:
     // ??0AppCamCS@@QAE@XZ
     ARTS_IMPORT AppCamCS();
 
-    // ??_EAppCamCS@@UAEPAXI@Z
     // ??1AppCamCS@@UAE@XZ
     ARTS_EXPORT ~AppCamCS() override = default;
 

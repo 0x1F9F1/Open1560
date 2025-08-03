@@ -26,7 +26,6 @@ public:
     // ??0sfPointer@@QAE@XZ
     ARTS_IMPORT sfPointer();
 
-    // ??_EsfPointer@@UAEPAXI@Z
     // ??1sfPointer@@UAE@XZ
     ARTS_IMPORT ~sfPointer() override;
 
@@ -56,7 +55,7 @@ public:
 
 private:
     // ?UpdateAttached@sfPointer@@AAEXXZ | unused
-    ARTS_EXPORT void UpdateAttached();
+    void UpdateAttached();
 
     u8 gap20[0x34];
 };

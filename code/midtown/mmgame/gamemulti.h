@@ -31,8 +31,6 @@ public:
     // ??0mmGameMulti@@QAE@XZ
     ARTS_IMPORT mmGameMulti();
 
-    // ??_EmmGameMulti@@UAEPAXI@Z
-    // ??_GmmGameMulti@@UAEPAXI@Z
     // ??1mmGameMulti@@UAE@XZ
     ARTS_IMPORT ~mmGameMulti() override;
 

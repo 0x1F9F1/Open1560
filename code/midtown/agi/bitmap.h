@@ -30,16 +30,16 @@ class agiBitmap : public agiRefreshable
 {
 public:
     // ??0agiBitmap@@QAE@PAVagiPipeline@@@Z
-    ARTS_EXPORT agiBitmap(agiPipeline* pipe);
+    agiBitmap(agiPipeline* pipe);
 
     // ?UpdateFlags@agiBitmap@@UAEXXZ
-    ARTS_EXPORT virtual void UpdateFlags();
+    virtual void UpdateFlags();
 
     // ?GetName@agiBitmap@@UAEPADXZ
-    ARTS_EXPORT aconst char* GetName() override;
+    aconst char* GetName() override;
 
     // ?Init@agiBitmap@@QAEHPADMMH@Z
-    ARTS_EXPORT i32 Init(const char* name, f32 sx, f32 sy, i32 flags);
+    i32 Init(const char* name, f32 sx, f32 sy, i32 flags);
 
     // ?SetTransparency@agiBitmap@@QAEXH@Z
     ARTS_EXPORT void SetTransparency(b32 enabled);
@@ -75,10 +75,8 @@ public:
     }
 
 protected:
-    // ??_GagiBitmap@@MAEPAXI@Z
-    // ??_EagiBitmap@@MAEPAXI@Z
     // ??1agiBitmap@@MAE@XZ
-    ARTS_EXPORT ~agiBitmap() override;
+    ~agiBitmap() override;
 
     ConstString name_;
 

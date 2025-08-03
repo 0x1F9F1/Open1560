@@ -33,8 +33,6 @@ class mmCarSim;
 class mmTrailerInstance final : public mmInstance
 {
 public:
-    // ??_GmmTrailerInstance@@UAEPAXI@Z
-    // ??_EmmTrailerInstance@@UAEPAXI@Z
     // ??1mmTrailerInstance@@UAE@XZ | inline
     ARTS_EXPORT ~mmTrailerInstance() override = default;
 
@@ -81,7 +79,6 @@ public:
     // ??0mmTrailer@@QAE@XZ
     ARTS_IMPORT mmTrailer();
 
-    // ??_EmmTrailer@@UAEPAXI@Z
     // ??1mmTrailer@@UAE@XZ | inline
     ARTS_IMPORT ~mmTrailer() override;
 

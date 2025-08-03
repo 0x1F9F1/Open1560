@@ -26,8 +26,6 @@ public:
     // ??0uiNavBar@@QAE@H@Z
     ARTS_IMPORT uiNavBar(i32 arg1);
 
-    // ??_EuiNavBar@@UAEPAXI@Z
-    // ??_GuiNavBar@@UAEPAXI@Z
     // ??1uiNavBar@@UAE@XZ
     ARTS_EXPORT ~uiNavBar() override = default;
 

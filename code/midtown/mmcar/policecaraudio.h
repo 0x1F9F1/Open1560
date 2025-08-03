@@ -26,8 +26,6 @@ public:
     // ??0mmPoliceCarAudio@@QAE@PAVmmCarSim@@M@Z
     ARTS_IMPORT mmPoliceCarAudio(mmCarSim* arg1, f32 arg2);
 
-    // ??_EmmPoliceCarAudio@@UAEPAXI@Z
-    // ??_GmmPoliceCarAudio@@UAEPAXI@Z
     // ??1mmPoliceCarAudio@@UAE@XZ
     ARTS_EXPORT ~mmPoliceCarAudio() override = default;
 

@@ -26,7 +26,6 @@ public:
     // ??0PolarCamCS@@QAE@XZ
     ARTS_IMPORT PolarCamCS();
 
-    // ??_EPolarCamCS@@UAEPAXI@Z
     // ??1PolarCamCS@@UAE@XZ | inline
     ARTS_EXPORT ~PolarCamCS() override = default;
 

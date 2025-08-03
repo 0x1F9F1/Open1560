@@ -26,8 +26,6 @@ public:
     // ??0mmCompCRPlayer@@QAE@XZ
     ARTS_IMPORT mmCompCRPlayer();
 
-    // ??_EmmCompCRPlayer@@UAEPAXI@Z
-    // ??_GmmCompCRPlayer@@UAEPAXI@Z
     // ??1mmCompCRPlayer@@UAE@XZ
     ARTS_IMPORT ~mmCompCRPlayer() override;
 
@@ -38,7 +36,7 @@ public:
     ARTS_IMPORT void Init(char* arg1, i32 arg2, char* arg3, i32 arg4, i32 arg5);
 
     // ?InitTitle@mmCompCRPlayer@@QAEXMMMMPAULocString@@000H@Z | unused
-    ARTS_EXPORT void InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, LocString* arg5, LocString* arg6,
+    void InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, LocString* arg5, LocString* arg6,
         LocString* arg7, LocString* arg8, i32 arg9);
 
     // ?Reset@mmCompCRPlayer@@UAEXXZ

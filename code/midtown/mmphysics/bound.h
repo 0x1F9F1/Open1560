@@ -31,8 +31,6 @@ public:
     // ??0asBound@@QAE@XZ
     ARTS_IMPORT asBound();
 
-    // ??_GasBound@@UAEPAXI@Z
-    // ??_EasBound@@UAEPAXI@Z
     // ??1asBound@@UAE@XZ | inline
     ARTS_EXPORT ~asBound() override = default;
 

@@ -31,7 +31,6 @@ public:
     // ??0asLamp@@QAE@XZ
     ARTS_IMPORT asLamp();
 
-    // ??_EasLamp@@UAEPAXI@Z
     // ??1asLamp@@UAE@XZ
     ARTS_EXPORT ~asLamp() override;
 
@@ -44,7 +43,7 @@ public:
     ARTS_IMPORT void Cull() override;
 
     // ?FileIO@asLamp@@QAEXPAVMiniParser@@@Z | unused
-    ARTS_EXPORT void FileIO(MiniParser* arg1);
+    void FileIO(MiniParser* arg1);
 
     // ?GetClass@asLamp@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;

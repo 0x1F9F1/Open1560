@@ -31,7 +31,6 @@ public:
     // ??0Joint3Dof@@QAE@XZ
     ARTS_IMPORT Joint3Dof();
 
-    // ??_EJoint3Dof@@UAEPAXI@Z
     // ??1Joint3Dof@@UAE@XZ | inline
     ARTS_EXPORT ~Joint3Dof() override = default;
 
@@ -68,7 +67,7 @@ public:
     ARTS_IMPORT void InitJoint3Dof(asInertialCS* arg1, const Vector3& arg2, asInertialCS* arg3, const Vector3& arg4);
 
     // ?MoveICS@Joint3Dof@@QAEXXZ
-    ARTS_EXPORT void MoveICS();
+    void MoveICS();
 
     // ?Reset@Joint3Dof@@UAEXXZ
     ARTS_IMPORT void Reset() override;

@@ -46,7 +46,6 @@ public:
     // ??0aiMap@@QAE@XZ
     ARTS_IMPORT aiMap();
 
-    // ??_EaiMap@@UAEPAXI@Z
     // ??1aiMap@@UAE@XZ
     ARTS_EXPORT ~aiMap() override = default;
 
@@ -120,7 +119,7 @@ public:
     ARTS_IMPORT void DrawNextVisibleAmbient();
 
     // ?Dump@aiMap@@QAEXXZ
-    ARTS_EXPORT void Dump();
+    void Dump();
 
     void DumpPaths();
 

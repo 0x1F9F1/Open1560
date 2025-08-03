@@ -26,8 +26,6 @@ public:
     // ??0MainMenu@@QAE@H@Z
     ARTS_IMPORT MainMenu(i32 arg1);
 
-    // ??_GMainMenu@@UAEPAXI@Z
-    // ??_EMainMenu@@UAEPAXI@Z
     // ??1MainMenu@@UAE@XZ
     ARTS_EXPORT ~MainMenu() override = default;
 

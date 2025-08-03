@@ -38,8 +38,6 @@ public:
     // ??0mmVehInfo@@QAE@XZ
     ARTS_IMPORT mmVehInfo();
 
-    // ??_EmmVehInfo@@UAEPAXI@Z
-    // ??_GmmVehInfo@@UAEPAXI@Z
     // ??1mmVehInfo@@UAE@XZ
     ARTS_EXPORT virtual ~mmVehInfo() = default;
 

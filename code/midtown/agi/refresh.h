@@ -35,8 +35,6 @@ public:
     ARTS_EXPORT virtual aconst char* GetName();
 
 protected:
-    // ??_EagiRefreshable@@MAEPAXI@Z
-    // ??_GagiRefreshable@@MAEPAXI@Z
     // ??1agiRefreshable@@MAE@XZ
     ARTS_EXPORT virtual ~agiRefreshable();
 
@@ -68,7 +66,7 @@ protected:
 
 private:
     // ?ValidatePtr@agiRefreshable@@AAEXPAD@Z
-    ARTS_EXPORT void ValidatePtr(const char* reason);
+    void ValidatePtr(const char* reason);
 
     agiRefreshable* prev_ {};
     agiRefreshable* next_ {};

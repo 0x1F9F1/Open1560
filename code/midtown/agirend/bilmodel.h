@@ -26,8 +26,6 @@ public:
     // ??0agiBILightModel@@QAE@PAVagiPipeline@@@Z
     ARTS_IMPORT agiBILightModel(agiPipeline* arg1);
 
-    // ??_GagiBILightModel@@UAEPAXI@Z
-    // ??_EagiBILightModel@@UAEPAXI@Z
     // ??1agiBILightModel@@UAE@XZ
     ARTS_IMPORT ~agiBILightModel() override;
 

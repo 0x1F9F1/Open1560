@@ -26,7 +26,6 @@ public:
     // ??0Spline@@QAE@XZ
     ARTS_IMPORT Spline();
 
-    // ??_ESpline@@UAEPAXI@Z
     // ??1Spline@@UAE@XZ | inline
     ARTS_EXPORT ~Spline() override = default;
 

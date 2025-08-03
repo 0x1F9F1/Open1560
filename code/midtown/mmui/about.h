@@ -28,8 +28,6 @@ public:
     // ??0AboutMenu@@QAE@H@Z
     ARTS_IMPORT AboutMenu(i32 arg1);
 
-    // ??_EAboutMenu@@UAEPAXI@Z
-    // ??_GAboutMenu@@UAEPAXI@Z
     // ??1AboutMenu@@UAE@XZ
     ARTS_EXPORT ~AboutMenu() override = default;
 

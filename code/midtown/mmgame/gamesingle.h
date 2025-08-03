@@ -26,7 +26,6 @@ public:
     // ??0mmGameSingle@@QAE@XZ
     ARTS_IMPORT mmGameSingle();
 
-    // ??_EmmGameSingle@@UAEPAXI@Z
     // ??1mmGameSingle@@UAE@XZ
     ARTS_IMPORT ~mmGameSingle() override;
 

@@ -26,8 +26,6 @@ public:
     // ??0VehShowcase@@QAE@H@Z
     ARTS_IMPORT VehShowcase(i32 arg1);
 
-    // ??_GVehShowcase@@UAEPAXI@Z
-    // ??_EVehShowcase@@UAEPAXI@Z
     // ??1VehShowcase@@UAE@XZ
     ARTS_EXPORT ~VehShowcase() override = default;
 

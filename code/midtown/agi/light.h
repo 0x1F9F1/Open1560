@@ -30,7 +30,7 @@ public:
     ARTS_EXPORT agiLightParameters() = default;
 
     // ??4agiLightParameters@@QAEXABV0@@Z
-    ARTS_EXPORT void operator=(const agiLightParameters& rhs)
+    void operator=(const agiLightParameters& rhs)
     {
         std::memcpy(this, &rhs, sizeof(*this));
 
@@ -76,15 +76,13 @@ public:
         : agiRefreshable(pipe)
     {}
 
-    // ??_EagiLight@@UAEPAXI@Z
-    // ??_GagiLight@@UAEPAXI@Z
     // ??1agiLight@@UAE@XZ
     ARTS_EXPORT ~agiLight() override = default;
 
     virtual i32 Update() = 0;
 
     // ?Remove@agiLight@@UAEXXZ
-    ARTS_EXPORT virtual void Remove();
+    virtual void Remove();
 
     // ?GetName@agiLight@@UAEPADXZ
     ARTS_EXPORT aconst char* GetName() override;

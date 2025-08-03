@@ -26,7 +26,6 @@ public:
     // ??0mmCarRoadFF@@QAE@XZ
     ARTS_IMPORT mmCarRoadFF();
 
-    // ??_EmmCarRoadFF@@UAEPAXI@Z
     // ??1mmCarRoadFF@@UAE@XZ
     ARTS_IMPORT ~mmCarRoadFF() override;
 

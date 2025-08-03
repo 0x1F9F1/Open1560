@@ -30,8 +30,6 @@ class asInertialCS;
 class mmPhysEntity : public asNode
 {
 public:
-    // ??_GmmPhysEntity@@UAEPAXI@Z
-    // ??_EmmPhysEntity@@UAEPAXI@Z
     // ??1mmPhysEntity@@UAE@XZ | inline
     ARTS_EXPORT ~mmPhysEntity() override = default;
 

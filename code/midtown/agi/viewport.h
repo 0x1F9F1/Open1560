@@ -108,13 +108,13 @@ public:
     virtual void Clear(i32 flags) = 0;
 
     // ?SetWorld@agiViewport@@UAEXAAVMatrix34@@@Z
-    ARTS_EXPORT virtual void SetWorld(aconst Matrix34& world);
+    virtual void SetWorld(aconst Matrix34& world);
 
     // ?Aspect@agiViewport@@QAEMXZ | unused
-    ARTS_EXPORT f32 Aspect();
+    f32 Aspect();
 
     // ?GetName@agiViewport@@UAEPADXZ
-    ARTS_EXPORT aconst char* GetName() override;
+    aconst char* GetName() override;
 
     agiViewParameters& GetParams()
     {
@@ -123,12 +123,10 @@ public:
 
 protected:
     // ??0agiViewport@@IAE@PAVagiPipeline@@@Z
-    ARTS_EXPORT agiViewport(agiPipeline* pipe);
+    agiViewport(agiPipeline* pipe);
 
-    // ??_GagiViewport@@MAEPAXI@Z
-    // ??_EagiViewport@@MAEPAXI@Z
     // ??1agiViewport@@MAE@XZ
-    ARTS_EXPORT ~agiViewport() override;
+    ~agiViewport() override;
 
     // ?Active@agiViewport@@1PAV1@A
     ARTS_IMPORT static agiViewport* Active;

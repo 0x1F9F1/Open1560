@@ -28,8 +28,6 @@ public:
     // ??0UITextDropdown@@QAE@XZ
     ARTS_IMPORT UITextDropdown();
 
-    // ??_GUITextDropdown@@UAEPAXI@Z
-    // ??_EUITextDropdown@@UAEPAXI@Z
     // ??1UITextDropdown@@UAE@XZ
     ARTS_IMPORT ~UITextDropdown() override;
 
@@ -59,13 +57,13 @@ public:
     ARTS_IMPORT void SetDisabledMask(ilong arg1);
 
     // ?SetPos@UITextDropdown@@QAEXMM@Z | unused
-    ARTS_EXPORT void SetPos(f32 arg1, f32 arg2);
+    void SetPos(f32 arg1, f32 arg2);
 
     // ?SetSliderFocus@UITextDropdown@@QAEXH@Z
     ARTS_IMPORT void SetSliderFocus(i32 arg1);
 
     // ?SetText@UITextDropdown@@QAEXPAULocString@@@Z | unused
-    ARTS_EXPORT void SetText(LocString* arg1);
+    void SetText(LocString* arg1);
 
     // ?SetValue@UITextDropdown@@QAEHH@Z
     ARTS_IMPORT i32 SetValue(i32 arg1);

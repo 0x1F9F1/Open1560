@@ -29,8 +29,6 @@ public:
     // ??0asMeshSetForm@@QAE@XZ
     ARTS_IMPORT asMeshSetForm();
 
-    // ??_GasMeshSetForm@@UAEPAXI@Z
-    // ??_EasMeshSetForm@@UAEPAXI@Z
     // ??1asMeshSetForm@@UAE@XZ | inline
     ARTS_EXPORT ~asMeshSetForm() override = default;
 

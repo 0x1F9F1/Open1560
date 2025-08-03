@@ -66,7 +66,6 @@ public:
     // ??0mmHudMap@@QAE@XZ
     ARTS_IMPORT mmHudMap();
 
-    // ??_EmmHudMap@@UAEPAXI@Z
     // ??1mmHudMap@@UAE@XZ | inline
     ARTS_EXPORT ~mmHudMap() override;
 
@@ -150,7 +149,7 @@ private:
     ARTS_IMPORT void DrawCopsnRobbers();
 
     // ?DrawOpponents@mmHudMap@@AAEXXZ
-    ARTS_EXPORT void DrawOpponents();
+    void DrawOpponents();
 
     // ?DrawOrientedBitmap@mmHudMap@@AAEXPAVMatrix34@@PAVagiBitmap@@@Z
     ARTS_IMPORT void DrawOrientedBitmap(Matrix34* arg1, agiBitmap* arg2);

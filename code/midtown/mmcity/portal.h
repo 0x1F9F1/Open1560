@@ -78,8 +78,6 @@ public:
     // ??0asPortalWeb@@QAE@XZ
     ARTS_IMPORT asPortalWeb();
 
-    // ??_EasPortalWeb@@UAEPAXI@Z
-    // ??_GasPortalWeb@@UAEPAXI@Z
     // ??1asPortalWeb@@UAE@XZ
     ARTS_IMPORT ~asPortalWeb() override;
 
@@ -111,7 +109,7 @@ public:
     ARTS_EXPORT void Cull(b32 front_to_back);
 
     // ?DeleteEdge@asPortalWeb@@QAEXPAUasPortalEdge@@@Z | unused
-    ARTS_EXPORT void DeleteEdge(asPortalEdge* arg1);
+    void DeleteEdge(asPortalEdge* arg1);
 
     // ?GetClass@asPortalWeb@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
@@ -154,10 +152,10 @@ public:
 check_size(asPortalWeb, 0x904C);
 
 // ?LookupCell@@YAPAUasPortalCell@@PAD@Z | unused
-ARTS_EXPORT asPortalCell* LookupCell(char* arg1);
+asPortalCell* LookupCell(char* arg1);
 
 // ?LookupEdge@@YAPAUasPortalCell@@PAD@Z | unused
-ARTS_EXPORT asPortalCell* LookupEdge(char* arg1);
+asPortalCell* LookupEdge(char* arg1);
 
 struct asPortalPVS
 {

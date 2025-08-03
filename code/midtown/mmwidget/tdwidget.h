@@ -28,7 +28,6 @@ public:
     // ??0TextDropWidget@@QAE@XZ
     ARTS_IMPORT TextDropWidget();
 
-    // ??_ETextDropWidget@@UAEPAXI@Z
     // ??1TextDropWidget@@UAE@XZ
     ARTS_IMPORT ~TextDropWidget() override;
 

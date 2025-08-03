@@ -34,7 +34,6 @@ public:
     // ??0asNode@@QAE@XZ
     ARTS_EXPORT asNode() = default;
 
-    // ??_EasNode@@UAEPAXI@Z
     // ??1asNode@@UAE@XZ
     ARTS_EXPORT ~asNode() override;
 
@@ -69,7 +68,7 @@ public:
     ARTS_EXPORT virtual void CloseWidgets();
 
     // ?AddButton@asNode@@QAEXPAVBank@@AAH@Z | unused
-    ARTS_EXPORT void AddButton(Bank* arg1, i32& arg2);
+    void AddButton(Bank* arg1, i32& arg2);
 #endif
 
     // ?AddChild@asNode@@QAEHPAV1@@Z
@@ -78,23 +77,23 @@ public:
     void AdoptChild(Ptr<asNode> child);
 
     // ?GetNodeType@asNode@@QAEPADXZ
-    ARTS_EXPORT const char* GetNodeType();
+    const char* GetNodeType();
 
     // ?GetParent@asNode@@QAEPAV1@PAVMetaClass@@@Z | unused
-    ARTS_EXPORT asNode* GetParent(MetaClass* cls);
+    asNode* GetParent(MetaClass* cls);
 
     // ?InsertChild@asNode@@QAEHHPAV1@@Z
     ARTS_EXPORT b32 InsertChild(i32 index, asNode* child);
 
     // ?Load@asNode@@QAEHPAD@Z
-    ARTS_EXPORT b32 Load(const char* path);
+    b32 Load(const char* path);
 
     // ?NumChildren@asNode@@QAEHXZ
-    ARTS_EXPORT i32 NumChildren();
+    i32 NumChildren();
 
 #ifdef ARTS_DEV_BUILD
     // ?PerfReport@asNode@@QAEXPAVStream@@H@Z
-    ARTS_EXPORT void PerfReport(Stream* output, i32 indent);
+    void PerfReport(Stream* output, i32 indent);
 #endif
 
     // ?RemoveAllChildren@asNode@@QAEXXZ
@@ -105,20 +104,20 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?ResetTime@asNode@@QAEXXZ
-    ARTS_EXPORT void ResetTime();
+    void ResetTime();
 #endif
 
     // ?Save@asNode@@QAEHPAD@Z
-    ARTS_EXPORT b32 Save(const char* path);
+    b32 Save(const char* path);
 
     // ?SetName@asNode@@QAEXPAD@Z
-    ARTS_EXPORT void SetName(const char* name);
+    void SetName(const char* name);
 
     // ?SwitchTo@asNode@@QAEXH@Z | unused
-    ARTS_EXPORT void SwitchTo(i32 index);
+    void SwitchTo(i32 index);
 
     // ?VerifyTree@asNode@@QAEPADXZ | arts7:sim
-    ARTS_EXPORT const char* VerifyTree();
+    const char* VerifyTree();
 
     bool IsNodeActive() const
     {

@@ -33,28 +33,28 @@ public:
     };
 
     // ??0MiniParser@@QAE@PAD@Z
-    ARTS_EXPORT MiniParser(const char* name)
+    MiniParser(const char* name)
         : name_(name)
     {}
 
     // ??1MiniParser@@QAE@XZ
-    ARTS_EXPORT ~MiniParser() = default;
+    ~MiniParser() = default;
 
     virtual i32 RawGetCh() = 0;
 
     virtual void RawPutCh(i32 arg1) = 0;
 
     // ?Commentf@MiniParser@@QAAXPBDZZ | unused
-    ARTS_EXPORT void Commentf(ARTS_FORMAT_STRING const char* format, ...);
+    void Commentf(ARTS_FORMAT_STRING const char* format, ...);
 
     // ?Errorf@MiniParser@@QAAXPBDZZ
-    ARTS_EXPORT void Errorf(ARTS_FORMAT_STRING const char* format, ...);
+    void Errorf(ARTS_FORMAT_STRING const char* format, ...);
 
     // ?FloatVal@MiniParser@@QAEMXZ
     ARTS_EXPORT f32 FloatVal();
 
     // ?GetCh@MiniParser@@QAEHXZ
-    ARTS_EXPORT i32 GetCh();
+    i32 GetCh();
 
     // ?Indent@MiniParser@@QAEXH@Z
     ARTS_EXPORT void Indent(i32 amount);
@@ -72,13 +72,13 @@ public:
     ARTS_EXPORT i32 NextToken();
 
     // ?PlaceLabel@MiniParser@@QAEXPAX@Z
-    ARTS_EXPORT void PlaceLabel(void* ptr);
+    void PlaceLabel(void* ptr);
 
     // ?PlaceLabelRef@MiniParser@@QAEXPAX@Z
-    ARTS_EXPORT void PlaceLabelRef(void* ptr);
+    void PlaceLabelRef(void* ptr);
 
     // ?PrintString@MiniParser@@QAEXPADH@Z
-    ARTS_EXPORT void PrintString(const char* str, i32 len);
+    void PrintString(const char* str, i32 len);
 
     // ?Printf@MiniParser@@QAAXPBDZZ
     ARTS_EXPORT void Printf(ARTS_FORMAT_STRING const char* format, ...);
@@ -90,7 +90,7 @@ public:
     ARTS_EXPORT void PutCh(i32 value);
 
     // ?ResolveLabel@MiniParser@@QAEPAXPADPAPAX@Z | unused
-    ARTS_EXPORT void* ResolveLabel(char* arg1, void** arg2);
+    void* ResolveLabel(char* arg1, void** arg2);
 
     const char* GetBuffer() const
     {
@@ -103,7 +103,7 @@ public:
     }
 
     // ?TokenName@MiniParser@@SAPADH@Z
-    ARTS_EXPORT static const char* TokenName(i32 token);
+    static const char* TokenName(i32 token);
 
 private:
     void PutString(const char* str);

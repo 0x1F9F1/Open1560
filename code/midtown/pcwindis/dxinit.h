@@ -25,16 +25,16 @@ struct IDirectInputA;
 class agiSurfaceDesc;
 
 // ?dxiDirectInputCreate@@YAXXZ
-ARTS_EXPORT void dxiDirectInputCreate();
+void dxiDirectInputCreate();
 
 // ?dxiInit@@YAXPADHPAPAD@Z
-ARTS_EXPORT void dxiInit(char* title, i32 argc, char** argv);
+void dxiInit(char* title, i32 argc, char** argv);
 
 // ?dxiScreenShot@@YAXPAD@Z
-ARTS_EXPORT void dxiScreenShot(char* file_name);
+void dxiScreenShot(char* file_name);
 
 // ?dxiShutdown@@YAXXZ
-ARTS_EXPORT void dxiShutdown();
+void dxiShutdown();
 
 void dxiWindowCreate(const char* title, dxiRendererType type);
 
@@ -69,7 +69,7 @@ inline bool dxiTripleBuffer()
 }
 
 // ?dxiIcon@@3HA
-ARTS_EXPORT extern i32 dxiIcon;
+extern i32 dxiIcon;
 
 // ?hwndMain@@3PAUHWND__@@A
 ARTS_EXPORT extern HWND__* hwndMain;

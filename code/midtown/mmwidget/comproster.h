@@ -26,8 +26,6 @@ public:
     // ??0mmCompRoster@@QAE@XZ
     ARTS_IMPORT mmCompRoster();
 
-    // ??_EmmCompRoster@@UAEPAXI@Z
-    // ??_GmmCompRoster@@UAEPAXI@Z
     // ??1mmCompRoster@@UAE@XZ
     ARTS_IMPORT ~mmCompRoster() override;
 
@@ -38,7 +36,7 @@ public:
     ARTS_IMPORT void Init(char* arg1, char* arg2, char* arg3, ulong arg4);
 
     // ?InitTitle@mmCompRoster@@QAEXMMMMPAULocString@@000H@Z | unused
-    ARTS_EXPORT void InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, LocString* arg5, LocString* arg6,
+    void InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, LocString* arg5, LocString* arg6,
         LocString* arg7, LocString* arg8, i32 arg9);
 
     // ?LoadBitmap@mmCompRoster@@QAEXPAD@Z

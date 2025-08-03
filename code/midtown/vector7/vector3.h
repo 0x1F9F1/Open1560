@@ -90,8 +90,8 @@ public:
         return {x * value, y * value, z * value};
     }
 
-    // ??TVector3@@QBE?AV0@ABVMatrix34@@@Z | inline
     // Dot Product
+    // ??TVector3@@QBE?AV0@ABVMatrix34@@@Z | inline
     ARTS_EXPORT inline Vector3 operator^(const Matrix34& other) const
     {
         Vector3 result;
@@ -99,8 +99,8 @@ public:
         return result;
     }
 
-    // ??TVector3@@QBEMABV0@@Z | inline
     // Dot Product
+    // ??TVector3@@QBEMABV0@@Z | inline
     ARTS_EXPORT inline f32 operator^(const Vector3& other) const
     {
         return (x * other.x) + (y * other.y) + (z * other.z);

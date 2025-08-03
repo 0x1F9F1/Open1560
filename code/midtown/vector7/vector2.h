@@ -37,7 +37,7 @@ public:
     }
 
     // ??SVector2@@QBE?AV0@XZ | unused
-    ARTS_EXPORT inline Vector2 operator~() const
+    inline Vector2 operator~() const
     {
         return *this * InvMag();
     }

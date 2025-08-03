@@ -24,20 +24,20 @@
 ARTS_EXPORT void DebugLog(i32 tag, void* data, i32 size);
 
 // ?DebugLogInit@@YAXH@Z | unused
-ARTS_EXPORT void DebugLogInit(b32 reading);
+void DebugLogInit(b32 reading);
 
 // ?DebugLogShutdown@@YAXXZ
 ARTS_EXPORT void DebugLogShutdown();
 
 // ?DumpStackTraceback@@YAXPAHH@Z
-ARTS_EXPORT void DumpStackTraceback(isize* frames, i32 count);
+void DumpStackTraceback(isize* frames, i32 count);
 
 void LookupAddress(char* buffer, usize buflen, usize address);
 
 i32 StackTraceback(i32 depth, isize* frames, i32 skipped);
 
 // ?StackTraceback@@YAXH@Z
-ARTS_EXPORT void StackTraceback(i32 depth);
+void StackTraceback(i32 depth);
 
 void StackTraceback(i32 depth, i32 skipped);
 

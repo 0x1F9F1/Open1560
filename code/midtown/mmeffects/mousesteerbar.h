@@ -26,8 +26,6 @@ public:
     // ??0mmMouseSteerBar@@QAE@XZ
     ARTS_IMPORT mmMouseSteerBar();
 
-    // ??_GmmMouseSteerBar@@UAEPAXI@Z
-    // ??_EmmMouseSteerBar@@UAEPAXI@Z
     // ??1mmMouseSteerBar@@UAE@XZ
     ARTS_EXPORT ~mmMouseSteerBar() override = default;
 

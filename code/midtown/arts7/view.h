@@ -26,7 +26,6 @@ public:
     // ??0asViewCS@@QAE@XZ
     ARTS_IMPORT asViewCS();
 
-    // ??_EasViewCS@@UAEPAXI@Z
     // ??1asViewCS@@UAE@XZ | inline
     ARTS_EXPORT ~asViewCS() override = default;
 
@@ -36,7 +35,7 @@ public:
 #endif
 
     // ?FileIO@asViewCS@@QAEXPAVMiniParser@@@Z | unused
-    ARTS_EXPORT void FileIO(MiniParser* arg1);
+    void FileIO(MiniParser* arg1);
 
     // ?GetClass@asViewCS@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;

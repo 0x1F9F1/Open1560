@@ -26,8 +26,6 @@ public:
     // ??0Vehicle@@QAE@H@Z
     ARTS_IMPORT Vehicle(i32 arg1);
 
-    // ??_EVehicle@@UAEPAXI@Z
-    // ??_GVehicle@@UAEPAXI@Z
     // ??1Vehicle@@UAE@XZ
     ARTS_EXPORT ~Vehicle() override = default;
 

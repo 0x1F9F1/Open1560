@@ -103,7 +103,7 @@ public:
     ARTS_IMPORT void PlayGTUnlocked();
 
     // ?PlayLap@mmVoiceCommentary@@QAEXF@Z | unused
-    ARTS_EXPORT void PlayLap(i16 arg1);
+    void PlayLap(i16 arg1);
 
     // ?PlayNextRacesUnlocked@mmVoiceCommentary@@QAEXXZ
     ARTS_IMPORT void PlayNextRacesUnlocked();

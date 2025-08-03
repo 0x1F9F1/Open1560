@@ -28,8 +28,6 @@ public:
     // ??0asCullable@@QAE@XZ | inline
     ARTS_EXPORT asCullable() = default;
 
-    // ??_EasCullable@@UAEPAXI@Z
-    // ??_GasCullable@@UAEPAXI@Z | unused
     // ??1asCullable@@UAE@XZ | inline
     ARTS_EXPORT ~asCullable() override = 0;
 
@@ -38,7 +36,7 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@asCullable@@QAEXPAVBank@@@Z
-    ARTS_EXPORT void AddWidgets(Bank* bank);
+    void AddWidgets(Bank* bank);
 #endif
 
     VIRTUAL_META_DECLARE;

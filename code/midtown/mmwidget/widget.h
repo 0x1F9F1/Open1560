@@ -30,8 +30,6 @@ public:
     // ??0uiWidget@@QAE@XZ
     ARTS_IMPORT uiWidget();
 
-    // ??_GuiWidget@@UAEPAXI@Z
-    // ??_EuiWidget@@UAEPAXI@Z
     // ??1uiWidget@@UAE@XZ | inline
     ARTS_EXPORT ~uiWidget() override = default;
 

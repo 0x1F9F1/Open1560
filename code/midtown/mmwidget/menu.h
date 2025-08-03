@@ -60,8 +60,6 @@ public:
     // ??0UIMenu@@QAE@H@Z
     ARTS_IMPORT UIMenu(i32 menu_id);
 
-    // ??_EUIMenu@@UAEPAXI@Z
-    // ??_GUIMenu@@UAEPAXI@Z
     // ??1UIMenu@@UAE@XZ
     ARTS_IMPORT ~UIMenu() override;
 
@@ -217,7 +215,7 @@ public:
     ARTS_EXPORT void ScaleWidget(f32& x, f32& y, f32& w, f32& h);
 
     // ?ScanInput@UIMenu@@QAEHPATeqEvent@@@Z
-    ARTS_EXPORT b32 ScanInput(eqEvent* event);
+    b32 ScanInput(eqEvent* event);
 
     // ?SetAction@UIMenu@@QAEXW4eSource@1@@Z
     ARTS_IMPORT void SetAction(UIMenu::eSource arg1);

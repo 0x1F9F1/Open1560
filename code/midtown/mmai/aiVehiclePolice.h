@@ -37,7 +37,6 @@ public:
     // ??0aiVehiclePolice@@QAE@XZ
     ARTS_IMPORT aiVehiclePolice();
 
-    // ??_EaiVehiclePolice@@QAEPAXI@Z | unused
     // ??1aiVehiclePolice@@QAE@XZ
     ARTS_IMPORT ~aiVehiclePolice();
 

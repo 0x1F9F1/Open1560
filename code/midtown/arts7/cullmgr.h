@@ -34,18 +34,17 @@ public:
     // ??0asCullManager@@QAE@HH@Z
     ARTS_EXPORT asCullManager(i32 max_cullables, i32 max_cullables_2D);
 
-    // ??_EasCullManager@@UAEPAXI@Z
     // ??1asCullManager@@UAE@XZ
     ARTS_EXPORT ~asCullManager() override;
 
     // ?DeclareCamera@asCullManager@@UAEXPAVasCamera@@@Z
-    ARTS_EXPORT virtual void DeclareCamera(asCamera* camera);
+    virtual void DeclareCamera(asCamera* camera);
 
     // ?DeclareCullable@asCullManager@@UAEXPAVasCullable@@@Z
-    ARTS_EXPORT virtual void DeclareCullable(asCullable* cullable);
+    virtual void DeclareCullable(asCullable* cullable);
 
     // ?DeclareCullable2D@asCullManager@@UAEXPAVasCullable@@@Z
-    ARTS_EXPORT virtual void DeclareCullable2D(asCullable* cullable);
+    virtual void DeclareCullable2D(asCullable* cullable);
 
 #ifdef ARTS_DEV_BUILD
     // ?AddPage@asCullManager@@QAEXVCallback@@@Z
@@ -59,7 +58,7 @@ public:
     ARTS_EXPORT void DeclarePrint(asCullable* cullable);
 
     // ?Reset@asCullManager@@UAEXXZ
-    ARTS_EXPORT void Reset() override;
+    void Reset() override;
 
     // ?Update@asCullManager@@UAEXXZ
     ARTS_IMPORT void Update() override;
@@ -107,10 +106,10 @@ protected:
     ARTS_EXPORT void DisplayVersionString();
 
     // ?PrintMiniStats@asCullManager@@IAEXXZ
-    ARTS_EXPORT void PrintMiniStats();
+    void PrintMiniStats();
 
     // ?PrintStats@asCullManager@@IAEXXZ
-    ARTS_EXPORT void PrintStats();
+    void PrintStats();
 
 private:
     u32 text_color_ {0xFFFFFFFF};

@@ -36,10 +36,8 @@ public:
     // ??0PUMain@@QAE@HMMMMPAD@Z
     ARTS_EXPORT PUMain(i32 menu_id, f32 x, f32 y, f32 width, f32 height, char* background);
 
-    // ??_GPUMain@@UAEPAXI@Z
-    // ??_EPUMain@@UAEPAXI@Z
     // ??1PUMain@@UAE@XZ
-    ARTS_EXPORT ~PUMain() override = default;
+    ~PUMain() override = default;
 
     void PreSetup() override;
 };

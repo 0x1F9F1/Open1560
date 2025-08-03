@@ -26,7 +26,6 @@ public:
     // ??0mmGameEdit@@QAE@XZ
     ARTS_IMPORT mmGameEdit();
 
-    // ??_EmmGameEdit@@UAEPAXI@Z
     // ??1mmGameEdit@@UAE@XZ
     ARTS_IMPORT ~mmGameEdit() override;
 

@@ -26,7 +26,6 @@ public:
     // ??0UIVScrollBar@@QAE@XZ
     ARTS_IMPORT UIVScrollBar();
 
-    // ??_EUIVScrollBar@@UAEPAXI@Z
     // ??1UIVScrollBar@@UAE@XZ
     ARTS_IMPORT ~UIVScrollBar() override;
 

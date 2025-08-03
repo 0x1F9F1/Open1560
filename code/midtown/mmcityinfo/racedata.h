@@ -51,7 +51,7 @@ public:
     ARTS_IMPORT f32 GetPedDensity(i32 arg1, mmSkillLevel arg2);
 
     // ?GetRaceName@mmRaceData@@QAEPADH@Z | unused
-    ARTS_EXPORT char* GetRaceName(i32 arg1);
+    char* GetRaceName(i32 arg1);
 
     // ?GetTimeLimit@mmRaceData@@QAEMHW4mmSkillLevel@@@Z
     ARTS_IMPORT f32 GetTimeLimit(i32 arg1, mmSkillLevel arg2);

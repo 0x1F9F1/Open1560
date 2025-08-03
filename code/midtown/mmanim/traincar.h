@@ -26,8 +26,6 @@ public:
     // ??0mmAnimTrainCar@@QAE@XZ
     ARTS_EXPORT mmAnimTrainCar();
 
-    // ??_EmmAnimTrainCar@@UAEPAXI@Z
-    // ??_GmmAnimTrainCar@@UAEPAXI@Z | unused
     // ??1mmAnimTrainCar@@UAE@XZ
     ARTS_EXPORT ~mmAnimTrainCar() override = default;
 

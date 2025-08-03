@@ -35,8 +35,6 @@ class mmViewCS;
 class mmPhysExec final : public asNode
 {
 public:
-    // ??_GmmPhysExec@@UAEPAXI@Z
-    // ??_EmmPhysExec@@UAEPAXI@Z
     // ??1mmPhysExec@@UAE@XZ | inline
     ARTS_EXPORT ~mmPhysExec() override = default;
 
@@ -75,7 +73,6 @@ public:
     // ??0mmPhysicsMGR@@QAE@XZ
     ARTS_IMPORT mmPhysicsMGR();
 
-    // ??_EmmPhysicsMGR@@UAEPAXI@Z
     // ??1mmPhysicsMGR@@UAE@XZ
     ARTS_IMPORT ~mmPhysicsMGR() override;
 
@@ -101,7 +98,7 @@ public:
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?IgnoreMover@mmPhysicsMGR@@QAEXPAVmmInstance@@@Z
-    ARTS_EXPORT void IgnoreMover(mmInstance* inst);
+    void IgnoreMover(mmInstance* inst);
 
     // ?Init@mmPhysicsMGR@@QAEXPAVasInertialCS@@PAVmmViewCS@@@Z
     ARTS_IMPORT void Init(asInertialCS* arg1, mmViewCS* arg2);

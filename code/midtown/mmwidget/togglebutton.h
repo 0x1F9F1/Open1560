@@ -26,8 +26,6 @@ public:
     // ??0UIToggleButton@@QAE@XZ
     ARTS_IMPORT UIToggleButton();
 
-    // ??_EUIToggleButton@@UAEPAXI@Z
-    // ??_GUIToggleButton@@UAEPAXI@Z
     // ??1UIToggleButton@@UAE@XZ
     ARTS_IMPORT ~UIToggleButton() override;
 

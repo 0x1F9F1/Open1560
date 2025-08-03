@@ -28,7 +28,6 @@ public:
     // ??0mmShock@@QAE@XZ
     ARTS_IMPORT mmShock();
 
-    // ??_EmmShock@@UAEPAXI@Z
     // ??1mmShock@@UAE@XZ | inline
     ARTS_EXPORT ~mmShock() override = default;
 

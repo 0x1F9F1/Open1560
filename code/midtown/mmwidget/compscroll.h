@@ -28,8 +28,6 @@ public:
     // ??0UICompositeScroll@@QAE@XZ
     ARTS_IMPORT UICompositeScroll();
 
-    // ??_EUICompositeScroll@@UAEPAXI@Z
-    // ??_GUICompositeScroll@@UAEPAXI@Z
     // ??1UICompositeScroll@@UAE@XZ
     ARTS_IMPORT ~UICompositeScroll() override;
 

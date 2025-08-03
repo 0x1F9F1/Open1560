@@ -29,8 +29,6 @@ public:
     // ??0aiTrafficLightSet@@QAE@PAVaiIntersection@@@Z
     ARTS_IMPORT aiTrafficLightSet(aiIntersection* arg1);
 
-    // ??_GaiTrafficLightSet@@UAEPAXI@Z
-    // ??_EaiTrafficLightSet@@UAEPAXI@Z
     // ??1aiTrafficLightSet@@UAE@XZ
     ARTS_IMPORT ~aiTrafficLightSet() override;
 
@@ -52,8 +50,6 @@ check_size(aiTrafficLightSet, 0x38);
 class aiTrafficLightInstance final : public mmUnhitBangerInstance
 {
 public:
-    // ??_EaiTrafficLightInstance@@UAEPAXI@Z
-    // ??_GaiTrafficLightInstance@@UAEPAXI@Z
     // ??1aiTrafficLightInstance@@UAE@XZ | inline
     ARTS_EXPORT ~aiTrafficLightInstance() override = default;
 

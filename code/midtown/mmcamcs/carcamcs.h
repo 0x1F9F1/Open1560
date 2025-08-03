@@ -28,7 +28,6 @@ public:
     // ??0CarCamCS@@QAE@XZ
     ARTS_IMPORT CarCamCS();
 
-    // ??_ECarCamCS@@UAEPAXI@Z
     // ??1CarCamCS@@UAE@XZ
     ARTS_EXPORT ~CarCamCS() override = default;
 

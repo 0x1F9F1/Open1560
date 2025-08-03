@@ -51,7 +51,6 @@ public:
     // ??0mmCullCity@@QAE@XZ
     ARTS_IMPORT mmCullCity();
 
-    // ??_EmmCullCity@@UAEPAXI@Z
     // ??1mmCullCity@@UAE@XZ
     ARTS_IMPORT ~mmCullCity() override;
 
@@ -75,7 +74,7 @@ public:
     ARTS_IMPORT i16 GetRoomFlags(i16 arg1);
 
     // ?Init@mmCullCity@@QAEXPADPAVasCamera@@@Z
-    ARTS_EXPORT void Init(char* name, asCamera* camera);
+    void Init(char* name, asCamera* camera);
 
     // ?InitObjectDetail@mmCullCity@@QAEXXZ
     ARTS_IMPORT void InitObjectDetail();
@@ -182,8 +181,6 @@ inline mmCullCity* CullCity()
 class mmUpperInstance final : public mmMatrixInstance
 {
 public:
-    // ??_GmmUpperInstance@@UAEPAXI@Z
-    // ??_EmmUpperInstance@@UAEPAXI@Z
     // ??1mmUpperInstance@@UAE@XZ | inline
     ARTS_EXPORT ~mmUpperInstance() override = default;
 
@@ -200,8 +197,6 @@ public:
     // ??0mmRunwayLight@@QAE@PADAAVVector3@@1@Z
     ARTS_IMPORT mmRunwayLight(aconst char* arg1, Vector3& arg2, Vector3& arg3);
 
-    // ??_EmmRunwayLight@@UAEPAXI@Z
-    // ??_GmmRunwayLight@@UAEPAXI@Z
     // ??1mmRunwayLight@@UAE@XZ | inline
     ARTS_EXPORT ~mmRunwayLight() override = default;
 

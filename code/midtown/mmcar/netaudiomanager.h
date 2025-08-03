@@ -29,8 +29,6 @@ public:
     // ??0NetAudioManager@@QAE@XZ
     ARTS_IMPORT NetAudioManager();
 
-    // ??_ENetAudioManager@@UAEPAXI@Z
-    // ??_GNetAudioManager@@UAEPAXI@Z
     // ??1NetAudioManager@@UAE@XZ
     ARTS_IMPORT ~NetAudioManager() override;
 

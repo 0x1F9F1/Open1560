@@ -26,8 +26,6 @@ public:
     // ??0PUControl@@QAE@HMMMM@Z
     ARTS_IMPORT PUControl(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
-    // ??_EPUControl@@UAEPAXI@Z
-    // ??_GPUControl@@UAEPAXI@Z
     // ??1PUControl@@UAE@XZ
     ARTS_IMPORT ~PUControl() override;
 

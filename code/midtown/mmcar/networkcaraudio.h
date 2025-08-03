@@ -31,7 +31,6 @@ public:
     // ??0mmNetworkCarAudio@@QAE@PAVmmCarSim@@@Z
     ARTS_IMPORT mmNetworkCarAudio(mmCarSim* arg1);
 
-    // ??_EmmNetworkCarAudio@@UAEPAXI@Z
     // ??1mmNetworkCarAudio@@UAE@XZ
     ARTS_IMPORT ~mmNetworkCarAudio() override;
 

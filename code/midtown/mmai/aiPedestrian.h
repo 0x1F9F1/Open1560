@@ -30,7 +30,6 @@ public:
     // ??0aiPedestrian@@QAE@XZ
     ARTS_IMPORT aiPedestrian();
 
-    // ??_EaiPedestrian@@QAEPAXI@Z | unused
     // ??1aiPedestrian@@QAE@XZ
     ARTS_IMPORT ~aiPedestrian();
 
@@ -148,8 +147,6 @@ check_size(aiPedestrian, 0xAC);
 class aiPedestrianInstance final : public mmInstance
 {
 public:
-    // ??_EaiPedestrianInstance@@UAEPAXI@Z
-    // ??_GaiPedestrianInstance@@UAEPAXI@Z
     // ??1aiPedestrianInstance@@UAE@XZ | inline
     ARTS_EXPORT ~aiPedestrianInstance() override = default;
 

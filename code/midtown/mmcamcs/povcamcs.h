@@ -27,7 +27,6 @@ public:
     // ??0PovCamCS@@QAE@XZ
     ARTS_IMPORT PovCamCS();
 
-    // ??_EPovCamCS@@UAEPAXI@Z
     // ??1PovCamCS@@UAE@XZ
     ARTS_EXPORT ~PovCamCS() override = default;
 

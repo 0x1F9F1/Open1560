@@ -66,8 +66,6 @@ protected:
     // ??0agiMtlDef@@IAE@PAVagiPipeline@@@Z
     ARTS_IMPORT agiMtlDef(agiPipeline* arg1);
 
-    // ??_EagiMtlDef@@MAEPAXI@Z
-    // ??_GagiMtlDef@@MAEPAXI@Z
     // ??1agiMtlDef@@MAE@XZ
     ARTS_IMPORT ~agiMtlDef() override;
 };

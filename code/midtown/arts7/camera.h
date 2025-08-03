@@ -37,7 +37,6 @@ public:
     // ??0asCamera@@QAE@XZ
     ARTS_IMPORT asCamera();
 
-    // ??_EasCamera@@UAEPAXI@Z
     // ??1asCamera@@UAE@XZ
     ARTS_IMPORT ~asCamera() override;
 

@@ -50,22 +50,22 @@ public:
     }
 
     // ??4HashTable@@QAEXAAV0@@Z | unused
-    ARTS_EXPORT void operator=(HashTable& other);
+    void operator=(HashTable& other);
 
     // ?Access@HashTable@@QAEPAXPAD@Z
-    ARTS_EXPORT void* Access(const char* key);
+    void* Access(const char* key);
 
     // ?Change@HashTable@@QAEHPAD0@Z | unused
-    ARTS_EXPORT b32 Change(const char* old_key, const char* new_key);
+    b32 Change(const char* old_key, const char* new_key);
 
     // ?Delete@HashTable@@QAEHPAD@Z
-    ARTS_EXPORT b32 Delete(const char* key);
+    b32 Delete(const char* key);
 
     // ?Init@HashTable@@QAEXH@Z
     ARTS_EXPORT void Init(i32 bucket_count);
 
     // ?Insert@HashTable@@QAEHPADPAX@Z
-    ARTS_EXPORT b32 Insert(const char* key, void* value);
+    b32 Insert(const char* key, void* value);
 
     // ?Kill@HashTable@@QAEXXZ
     ARTS_EXPORT void Kill();
@@ -73,7 +73,7 @@ public:
     void Kill(void* context, void (*callback)(void* context, const char* key, void* value));
 
     // ?KillAll@HashTable@@SAXXZ
-    ARTS_EXPORT static void KillAll();
+    static void KillAll();
 
     i32 Size() const
     {
@@ -82,13 +82,13 @@ public:
 
 private:
     // ?ComputePrime@HashTable@@AAEHH@Z
-    ARTS_EXPORT i32 ComputePrime(i32 value);
+    i32 ComputePrime(i32 value);
 
     // ?Hash@HashTable@@AAEHPAD@Z
-    ARTS_EXPORT u32 Hash(const char* key);
+    u32 Hash(const char* key);
 
     // ?Recompute@HashTable@@AAEXH@Z
-    ARTS_EXPORT void Recompute(i32 capacity);
+    void Recompute(i32 capacity);
 
     // ?RemoveMe@HashTable@@AAEXXZ
     ARTS_EXPORT void RemoveMe();
@@ -114,10 +114,10 @@ public:
     {}
 
     // ?Begin@HashIterator@@QAEXXZ
-    ARTS_EXPORT void Begin();
+    void Begin();
 
     // ?Next@HashIterator@@QAEHXZ
-    ARTS_EXPORT b32 Next();
+    b32 Next();
 
     HashEntry* operator->() const
     {

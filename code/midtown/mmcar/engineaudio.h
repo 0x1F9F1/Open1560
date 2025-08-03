@@ -26,7 +26,6 @@ public:
     // ??0EngineAudio@@QAE@XZ
     ARTS_IMPORT EngineAudio();
 
-    // ??_EEngineAudio@@UAEPAXI@Z
     // ??1EngineAudio@@UAE@XZ
     ARTS_IMPORT ~EngineAudio() override;
 

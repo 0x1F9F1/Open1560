@@ -32,7 +32,6 @@ public:
     // ??0mmBridgeSet@@QAE@XZ
     ARTS_IMPORT mmBridgeSet();
 
-    // ??_EmmBridgeSet@@UAEPAXI@Z
     // ??1mmBridgeSet@@UAE@XZ
     ARTS_IMPORT ~mmBridgeSet() override;
 
@@ -139,7 +138,6 @@ public:
     // ??0mmBridgeMgr@@QAE@XZ
     ARTS_IMPORT mmBridgeMgr();
 
-    // ??_EmmBridgeMgr@@UAEPAXI@Z
     // ??1mmBridgeMgr@@UAE@XZ
     ARTS_IMPORT ~mmBridgeMgr() override;
 

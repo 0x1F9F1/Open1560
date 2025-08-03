@@ -32,13 +32,11 @@ public:
     // ??0mmWheelCheap@@QAE@XZ
     ARTS_IMPORT mmWheelCheap();
 
-    // ??_EmmWheelCheap@@UAEPAXI@Z
-    // ??_GmmWheelCheap@@UAEPAXI@Z
     // ??1mmWheelCheap@@UAE@XZ | inline
     ARTS_EXPORT ~mmWheelCheap() override = default;
 
     // ?Init@mmWheelCheap@@QAEXPAVVector3@@PAVaiVehicleData@@PAVasInertialCS@@@Z
-    ARTS_EXPORT void Init(Vector3* offset, aiVehicleData* data, asInertialCS* ics);
+    void Init(Vector3* offset, aiVehicleData* data, asInertialCS* ics);
 
     // ?Reset@mmWheelCheap@@UAEXXZ
     ARTS_IMPORT void Reset() override;

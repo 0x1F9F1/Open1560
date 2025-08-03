@@ -29,8 +29,6 @@ public:
     // ??0aiStuck@@QAE@XZ
     ARTS_IMPORT aiStuck();
 
-    // ??_GaiStuck@@UAEPAXI@Z
-    // ??_EaiStuck@@UAEPAXI@Z
     // ??1aiStuck@@UAE@XZ | inline
     ARTS_EXPORT ~aiStuck() override = default;
 

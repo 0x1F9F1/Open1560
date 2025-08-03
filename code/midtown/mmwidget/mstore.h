@@ -28,7 +28,7 @@ public:
     ARTS_IMPORT void AddMenuData(i32 arg1, Vector4& arg2, char* arg3);
 
     // ?Flush@MArray@@QAEXXZ | unused
-    ARTS_EXPORT void Flush();
+    void Flush();
 
     // ?Init@MArray@@QAEXH@Z
     ARTS_IMPORT void Init(i32 arg1);

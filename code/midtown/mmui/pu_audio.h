@@ -28,8 +28,6 @@ public:
     // ??0PUAudioOptions@@QAE@HMMMM@Z
     ARTS_IMPORT PUAudioOptions(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
-    // ??_GPUAudioOptions@@UAEPAXI@Z
-    // ??_EPUAudioOptions@@UAEPAXI@Z
     // ??1PUAudioOptions@@UAE@XZ
     ARTS_EXPORT ~PUAudioOptions() override = default;
 

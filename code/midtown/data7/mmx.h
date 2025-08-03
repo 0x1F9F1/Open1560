@@ -19,16 +19,16 @@
 #pragma once
 
 // ?HaveKNI@@3HA
-ARTS_EXPORT extern b32 HaveKNI;
+extern b32 HaveKNI;
 
 // ?HaveMMX@@3HA
 ARTS_EXPORT extern b32 HaveMMX;
 
 // ?HavePPro@@3HA
-ARTS_EXPORT extern b32 HavePPro;
+extern b32 HavePPro;
 
 // ?UseKNI@@3HA
-ARTS_EXPORT extern b32 UseKNI;
+extern b32 UseKNI;
 
 // ?UseMMX@@3HA
 ARTS_EXPORT extern b32 UseMMX;

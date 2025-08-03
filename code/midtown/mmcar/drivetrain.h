@@ -29,7 +29,6 @@ public:
     // ??0mmDrivetrain@@QAE@XZ
     ARTS_IMPORT mmDrivetrain();
 
-    // ??_EmmDrivetrain@@UAEPAXI@Z
     // ??1mmDrivetrain@@UAE@XZ | inline
     ARTS_EXPORT ~mmDrivetrain() override = default;
 

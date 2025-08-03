@@ -26,7 +26,6 @@ public:
     // ??0mmSingleCircuit@@QAE@XZ
     ARTS_EXPORT mmSingleCircuit();
 
-    // ??_EmmSingleCircuit@@UAEPAXI@Z
     // ??1mmSingleCircuit@@UAE@XZ
     ARTS_IMPORT ~mmSingleCircuit() override;
 

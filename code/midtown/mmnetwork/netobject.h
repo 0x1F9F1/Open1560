@@ -28,8 +28,6 @@ public:
     // ??0asNetObject@@QAE@XZ
     ARTS_IMPORT asNetObject();
 
-    // ??_GasNetObject@@UAEPAXI@Z
-    // ??_EasNetObject@@UAEPAXI@Z
     // ??1asNetObject@@UAE@XZ
     ARTS_EXPORT ~asNetObject() override = default;
 

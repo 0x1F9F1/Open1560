@@ -86,6 +86,7 @@ ARTS_NOINLINE void* arts_realloc(void* ptr, std::size_t size)
     return CURHEAP->Reallocate(ptr, size, ArReturnAddress());
 }
 
+// ?arts_operator_new@@YAPAXI@Z
 ARTS_EXPORT ARTS_NOINLINE void* arts_operator_new(std::size_t size)
 {
     void* result = CURHEAP->Allocate(size, DefaultNewAlignment, ArReturnAddress());
@@ -98,6 +99,7 @@ ARTS_EXPORT ARTS_NOINLINE void* arts_operator_new(std::size_t size)
     return result;
 }
 
+// ?arts_operator_delete@@YAXPAX@Z
 ARTS_EXPORT ARTS_NOINLINE void arts_operator_delete(void* ptr)
 {
     CURHEAP->Free(ptr);

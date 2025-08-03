@@ -26,13 +26,11 @@ public:
     // ??0Dialog_RaceEnvironment@@QAE@HMMMMPAD@Z
     ARTS_IMPORT Dialog_RaceEnvironment(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
-    // ??_GDialog_RaceEnvironment@@UAEPAXI@Z
-    // ??_EDialog_RaceEnvironment@@UAEPAXI@Z
     // ??1Dialog_RaceEnvironment@@UAE@XZ
     ARTS_EXPORT ~Dialog_RaceEnvironment() override = default;
 
     // ?CancelCallback@Dialog_RaceEnvironment@@QAEXXZ | unused
-    ARTS_EXPORT void CancelCallback();
+    void CancelCallback();
 
     // ?ControlPedSlider@Dialog_RaceEnvironment@@QAEXXZ
     ARTS_IMPORT void ControlPedSlider();

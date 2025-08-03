@@ -30,16 +30,14 @@ public:
     // ??0agiRasterizer@@QAE@PAVagiPipeline@@@Z
     ARTS_EXPORT agiRasterizer(agiPipeline* pipe);
 
-    // ??_GagiRasterizer@@UAEPAXI@Z
-    // ??_EagiRasterizer@@UAEPAXI@Z
     // ??1agiRasterizer@@UAE@XZ
-    ARTS_EXPORT ~agiRasterizer() override = default;
+    ~agiRasterizer() override = default;
 
     // ?BeginGroup@agiRasterizer@@UAEXXZ
-    ARTS_EXPORT virtual void BeginGroup();
+    virtual void BeginGroup();
 
     // ?EndGroup@agiRasterizer@@UAEXXZ
-    ARTS_EXPORT virtual void EndGroup();
+    virtual void EndGroup();
 
     virtual void Verts(agiVtxType type, agiVtx* vertices, i32 vertex_count) = 0;
 
@@ -50,7 +48,7 @@ public:
     virtual void Triangle(i32 v0, i32 v1, i32 v2) = 0;
 
     // ?Quad@agiRasterizer@@UAEXHHHH@Z
-    ARTS_EXPORT virtual void Quad(i32 v0, i32 v1, i32 v2, i32 v3);
+    virtual void Quad(i32 v0, i32 v1, i32 v2, i32 v3);
 
     // ?Poly@agiRasterizer@@UAEXPAHH@Z
     ARTS_EXPORT virtual void Poly(i32* indices, i32 count);
@@ -151,7 +149,7 @@ struct agiRendStateStruct
 {
 public:
     // ?Reset@agiRendStateStruct@@QAEXXZ
-    ARTS_EXPORT void Reset();
+    void Reset();
 
     agiMtlDef* Mtl {};
     agiTexDef* Texture {};
@@ -289,10 +287,10 @@ struct agiRenderOpts
 {};
 
 // ?ROPTS@@3UagiRenderOpts@@A
-ARTS_EXPORT extern agiRenderOpts ROPTS;
+extern agiRenderOpts ROPTS;
 
 // ?agiCurState@@3VagiRendState@@A
 ARTS_EXPORT extern agiRendState agiCurState;
 
 // ?agiLastState@@3UagiRendStateStruct@@A
-ARTS_EXPORT extern agiRendStateStruct agiLastState;
+extern agiRendStateStruct agiLastState;

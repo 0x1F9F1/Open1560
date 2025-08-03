@@ -37,10 +37,8 @@ public:
     // ??0PUResults@@QAE@HMMMMPAD@Z
     ARTS_EXPORT PUResults(i32 menu_id, f32 x, f32 y, f32 width, f32 height, char* background);
 
-    // ??_GPUResults@@UAEPAXI@Z
-    // ??_EPUResults@@UAEPAXI@Z
     // ??1PUResults@@UAE@XZ
-    ARTS_EXPORT ~PUResults() override;
+    ~PUResults() override;
 
     // ?AddName@PUResults@@QAEXHPADM@Z
     ARTS_IMPORT void AddName(i32 arg1, char* arg2, f32 arg3);
@@ -64,7 +62,7 @@ public:
     ARTS_IMPORT void Init320();
 
     // ?Init640@PUResults@@QAEXXZ
-    ARTS_EXPORT void Init640();
+    void Init640();
 
     // ?Reset@PUResults@@UAEXXZ
     ARTS_IMPORT void Reset() override;

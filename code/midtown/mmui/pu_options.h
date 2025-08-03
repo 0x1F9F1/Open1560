@@ -26,8 +26,6 @@ public:
     // ??0PUOptions@@QAE@HMMMM@Z
     ARTS_IMPORT PUOptions(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
-    // ??_GPUOptions@@UAEPAXI@Z
-    // ??_EPUOptions@@UAEPAXI@Z
     // ??1PUOptions@@UAE@XZ
     ARTS_EXPORT ~PUOptions() override = default;
 };

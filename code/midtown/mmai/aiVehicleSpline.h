@@ -32,7 +32,6 @@ public:
     // ??0aiVehicleSpline@@QAE@XZ
     ARTS_IMPORT aiVehicleSpline();
 
-    // ??_EaiVehicleSpline@@QAEPAXI@Z | unused
     // ??1aiVehicleSpline@@QAE@XZ
     ARTS_IMPORT ~aiVehicleSpline();
 
@@ -56,7 +55,7 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@aiVehicleSpline@@QAEXPAVBank@@@Z
-    ARTS_EXPORT void AddWidgets(Bank* arg1);
+    void AddWidgets(Bank* arg1);
 #endif
 
     // ?DetectPlayerZoneCollision@aiVehicleSpline@@QAEHXZ

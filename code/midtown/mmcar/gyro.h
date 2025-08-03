@@ -26,7 +26,6 @@ public:
     // ??0VehGyro@@QAE@XZ
     ARTS_IMPORT VehGyro();
 
-    // ??_EVehGyro@@UAEPAXI@Z
     // ??1VehGyro@@UAE@XZ | inline
     ARTS_EXPORT ~VehGyro() override = default;
 

@@ -31,8 +31,6 @@ public:
     // ??0mmVehicleForm@@QAE@XZ
     ARTS_EXPORT mmVehicleForm();
 
-    // ??_EmmVehicleForm@@UAEPAXI@Z
-    // ??_GmmVehicleForm@@UAEPAXI@Z | unused
     // ??1mmVehicleForm@@UAE@XZ | inline
     ARTS_EXPORT ~mmVehicleForm() override;
 
@@ -43,7 +41,7 @@ public:
     ARTS_IMPORT void SetShape(char* arg1, char* arg2, char* arg3, Vector3* arg4);
 
     // ?Update@mmVehicleForm@@UAEXXZ
-    ARTS_EXPORT void Update() override;
+    void Update() override;
 
     // ?Lighter@mmVehicleForm@@2P6AXPAEPAI1PAVagiMeshSet@@@ZA
     ARTS_IMPORT static void (*Lighter)(u8*, u32*, u32*, agiMeshSet*);

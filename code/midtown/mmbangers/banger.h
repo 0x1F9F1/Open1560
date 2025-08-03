@@ -33,10 +33,8 @@ public:
     // ??0mmBangerInstance@@QAE@XZ | inline
     ARTS_EXPORT mmBangerInstance();
 
-    // ??_EmmBangerInstance@@UAEPAXI@Z
-    // ??_GmmBangerInstance@@UAEPAXI@Z
     // ??1mmBangerInstance@@UAE@XZ | inline
-    ARTS_EXPORT ~mmBangerInstance() override = default;
+    ~mmBangerInstance() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmBangerInstance@@UAEXPAVBank@@@Z | inline
@@ -80,8 +78,6 @@ public:
     // ??0mmUnhitBangerInstance@@QAE@XZ | inline
     ARTS_EXPORT mmUnhitBangerInstance();
 
-    // ??_GmmUnhitBangerInstance@@UAEPAXI@Z
-    // ??_EmmUnhitBangerInstance@@UAEPAXI@Z
     // ??1mmUnhitBangerInstance@@UAE@XZ | inline
     ARTS_EXPORT ~mmUnhitBangerInstance() override = default;
 
@@ -121,27 +117,26 @@ public:
     // ??0mmHitBangerInstance@@QAE@XZ | inline
     ARTS_EXPORT mmHitBangerInstance();
 
-    // ??_EmmHitBangerInstance@@UAEPAXI@Z
     // ??1mmHitBangerInstance@@UAE@XZ | inline
     ARTS_EXPORT ~mmHitBangerInstance() override = default;
 
     // ?Detach@mmHitBangerInstance@@UAEXXZ
-    ARTS_EXPORT void Detach() override;
+    void Detach() override;
 
     // ?Draw@mmHitBangerInstance@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
     // ?FromMatrix@mmHitBangerInstance@@UAIXABVMatrix34@@@Z
-    ARTS_EXPORT void ARTS_FASTCALL FromMatrix(const Matrix34& matrix) override;
+    void ARTS_FASTCALL FromMatrix(const Matrix34& matrix) override;
 
     // ?GetPos@mmHitBangerInstance@@UAIAAVVector3@@XZ
-    ARTS_EXPORT Vector3& ARTS_FASTCALL GetPos() override;
+    Vector3& ARTS_FASTCALL GetPos() override;
 
     // ?SizeOf@mmHitBangerInstance@@UAEIXZ | inline
-    ARTS_EXPORT usize SizeOf() override;
+    usize SizeOf() override;
 
     // ?ToMatrix@mmHitBangerInstance@@UAIAAVMatrix34@@AAV2@@Z
-    ARTS_EXPORT Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& matrix) override;
+    Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& matrix) override;
 
     i32 MeshVariant {};
     Matrix34 Matrix {IDENTITY};
@@ -152,8 +147,6 @@ check_size(mmHitBangerInstance, 0x50);
 class mmBangerManager final : public asNode
 {
 public:
-    // ??_GmmBangerManager@@UAEPAXI@Z
-    // ??_EmmBangerManager@@UAEPAXI@Z
     // ??1mmBangerManager@@UAE@XZ | inline
     ARTS_EXPORT ~mmBangerManager() override = default;
 

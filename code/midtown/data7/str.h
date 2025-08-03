@@ -51,7 +51,6 @@ public:
         other.capacity_ = 0;
     }
 
-    // ??_Estring@@QAEPAXI@Z | unused
     // ??1string@@QAE@XZ | inline
     ARTS_EXPORT ~string()
     {

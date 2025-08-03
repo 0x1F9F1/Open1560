@@ -37,8 +37,6 @@ public:
     // ??0mmTimer@@QAE@XZ
     ARTS_EXPORT mmTimer() = default;
 
-    // ??_GmmTimer@@UAEPAXI@Z
-    // ??_EmmTimer@@UAEPAXI@Z
     // ??1mmTimer@@UAE@XZ
     ARTS_EXPORT ~mmTimer() override = default;
 
@@ -49,19 +47,19 @@ public:
     ARTS_EXPORT void Init(b32 count_down, f32 start_time);
 
     // ?Reset@mmTimer@@UAEXXZ
-    ARTS_EXPORT void Reset() override;
+    void Reset() override;
 
     // ?Start@mmTimer@@QAEXXZ
     ARTS_EXPORT void Start();
 
     // ?StartStop@mmTimer@@QAEXXZ | unused
-    ARTS_EXPORT void StartStop();
+    void StartStop();
 
     // ?Stop@mmTimer@@QAEXXZ
     ARTS_EXPORT void Stop();
 
     // ?Update@mmTimer@@UAEXXZ
-    ARTS_EXPORT void Update() override;
+    void Update() override;
 
     b32 CountDown {};
     f32 StartTime {};
@@ -77,8 +75,6 @@ public:
     // ??0mmArrow@@QAE@XZ
     ARTS_IMPORT mmArrow();
 
-    // ??_GmmArrow@@UAEPAXI@Z
-    // ??_EmmArrow@@UAEPAXI@Z
     // ??1mmArrow@@UAE@XZ
     ARTS_IMPORT ~mmArrow() override;
 
@@ -109,7 +105,6 @@ public:
     // ??0mmHUD@@QAE@XZ
     ARTS_IMPORT mmHUD();
 
-    // ??_EmmHUD@@UAEPAXI@Z
     // ??1mmHUD@@UAE@XZ
     ARTS_IMPORT ~mmHUD() override;
 
@@ -212,7 +207,7 @@ public:
     ARTS_IMPORT void ToggleExternalView();
 
     // ?ToggleMirror@mmHUD@@QAEXXZ
-    ARTS_EXPORT void ToggleMirror();
+    void ToggleMirror();
 
     // ?TogglePositionDisplay@mmHUD@@QAEXH@Z
     ARTS_EXPORT void TogglePositionDisplay(i32 mode);

@@ -30,8 +30,6 @@ public:
     // ??0AudSound@@QAE@KHF@Z
     ARTS_IMPORT AudSound(ulong arg1, i32 arg2, i16 arg3);
 
-    // ??_GAudSound@@UAEPAXI@Z
-    // ??_EAudSound@@UAEPAXI@Z
     // ??1AudSound@@UAE@XZ
     ARTS_IMPORT ~AudSound() override;
 

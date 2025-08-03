@@ -26,7 +26,6 @@ public:
     // ??0asDofCS@@QAE@XZ
     ARTS_IMPORT asDofCS();
 
-    // ??_EasDofCS@@UAEPAXI@Z
     // ??1asDofCS@@UAE@XZ | inline
     ARTS_EXPORT ~asDofCS() override = default;
 
@@ -36,7 +35,7 @@ public:
 #endif
 
     // ?FileIO@asDofCS@@QAEXPAVMiniParser@@@Z | unused
-    ARTS_EXPORT void FileIO(MiniParser* arg1);
+    void FileIO(MiniParser* arg1);
 
     // ?GetClass@asDofCS@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;

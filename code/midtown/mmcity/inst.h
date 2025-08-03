@@ -51,8 +51,6 @@ public:
     // ??0mmInstance@@QAE@XZ
     ARTS_EXPORT mmInstance() = default;
 
-    // ??_EmmInstance@@UAEPAXI@Z
-    // ??_GmmInstance@@UAEPAXI@Z
     // ??1mmInstance@@UAE@XZ
     ARTS_EXPORT ~mmInstance() override = default;
 
@@ -287,7 +285,6 @@ public:
     // ??0mmMatrixInstance@@QAE@XZ
     ARTS_EXPORT mmMatrixInstance();
 
-    // ??_EmmMatrixInstance@@UAEPAXI@Z
     // ??1mmMatrixInstance@@UAE@XZ
     ARTS_EXPORT ~mmMatrixInstance() override = default;
 
@@ -331,8 +328,6 @@ public:
     // ??0mmShearInstance@@QAE@XZ | inline
     ARTS_IMPORT mmShearInstance();
 
-    // ??_EmmShearInstance@@UAEPAXI@Z
-    // ??_GmmShearInstance@@UAEPAXI@Z | unused
     // ??1mmShearInstance@@UAE@XZ | inline
     ARTS_EXPORT ~mmShearInstance() override = default;
 
@@ -365,8 +360,6 @@ public:
     // ??0mmBuildingInstance@@QAE@XZ | inline
     ARTS_IMPORT mmBuildingInstance();
 
-    // ??_EmmBuildingInstance@@UAEPAXI@Z
-    // ??_GmmBuildingInstance@@UAEPAXI@Z | unused
     // ??1mmBuildingInstance@@UAE@XZ | inline
     ARTS_EXPORT ~mmBuildingInstance() override = default;
 
@@ -410,8 +403,6 @@ public:
     // ??0mmYInstance@@QAE@XZ
     ARTS_IMPORT mmYInstance();
 
-    // ??_EmmYInstance@@UAEPAXI@Z
-    // ??_GmmYInstance@@UAEPAXI@Z
     // ??1mmYInstance@@UAE@XZ
     ARTS_EXPORT ~mmYInstance() override = default;
 
@@ -451,7 +442,6 @@ public:
     // ??0mmStaticInstance@@QAE@XZ
     ARTS_IMPORT mmStaticInstance();
 
-    // ??_EmmStaticInstance@@UAEPAXI@Z
     // ??1mmStaticInstance@@UAE@XZ
     ARTS_EXPORT ~mmStaticInstance() override = default;
 
@@ -486,7 +476,6 @@ public:
     // ??0mmFacadeInstance@@QAE@XZ
     ARTS_IMPORT mmFacadeInstance();
 
-    // ??_EmmFacadeInstance@@UAEPAXI@Z
     // ??1mmFacadeInstance@@UAE@XZ
     ARTS_EXPORT ~mmFacadeInstance() override = default;
 

@@ -73,15 +73,13 @@ def get_code_syms():
 
     import_syms = set()
     export_syms = set()
-    stats = {}
+    dir_stats = {}
 
     for file in files:
         dirname = os.path.basename(os.path.dirname(file))
-        if dirname in stats:
-            total_imps, total_exps = stats[dirname]
-        else:
-            total_imps = 0
-            total_exps = 0
+        if dirname not in dir_stats:
+            dir_stats[dirname] = set()
+        dir_imps = dir_stats[dirname]
 
         with open(file, 'r', encoding='utf-8') as f:
             data = f.read()
@@ -90,14 +88,11 @@ def get_code_syms():
             name = match[1]
             if match[2] == 'IMPORT':
                 import_syms.add(name)
-                total_imps += 1
+                dir_imps.add(name)
             else:
                 export_syms.add(name)
-                total_exps += 1
 
-        stats[dirname] = (total_imps, total_exps)
-
-    return import_syms, export_syms, stats
+    return import_syms, export_syms, dir_stats
 
 for i, line in enumerate(lines):
     if not line:
@@ -156,7 +151,7 @@ for i, line in enumerate(lines):
 
 set_sym(None, len(lines))
 
-import_syms, export_syms, sym_stats = get_code_syms()
+import_syms, export_syms, dir_imports = get_code_syms()
 
 for sym in import_syms - public_syms:
     raise Exception(f'Missing {sym}')
@@ -202,6 +197,13 @@ for sym in export_syms:
         sym_type = 'PROC' if sym in proc_syms else 'BYTE'
         extern_syms[sym] = f'EXTERN {sym}:{sym_type}'
 
+unused_exports = export_syms - visited
+
+if unused_exports:
+    print('Unused exports:')
+    for sym in unused_exports:
+        print(sym)
+
 bad_lines = set()
 
 for sym in dead_syms:
@@ -241,10 +243,14 @@ output = replace_all(output, '\n\n\n', '\n\n')
 with open(game_asm, 'w') as f:
     f.write(output)
 
-print('Component  | Imports | Exports | Total')
+print('Component  | Proc | Data | Total')
 
-for folder, (imps, exps) in sorted(sym_stats.items()):
-    total = imps + exps
-    if total:
-        percent = int(exps / total * 100.0)
-        print(f'{folder:10} | {imps:>7} | {exps:>7} | {percent:>4}%')
+for folder, imps in sorted(dir_imports.items()):
+    total_imps = len(imps)
+    if not total_imps:
+        continue
+    num_procs = sum(1 for sym in imps if sym in proc_syms) 
+    num_data = total_imps - num_procs
+    print(f'{folder:10} | {num_procs:>4} | {num_data:>4} | {total_imps:>5}')
+
+print(f'Total imported symbols: {len(import_syms)}')

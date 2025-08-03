@@ -26,7 +26,6 @@ public:
     // ??0mmWaypointInstance@@QAE@HMM@Z
     ARTS_IMPORT mmWaypointInstance(i32 arg1, f32 arg2, f32 arg3);
 
-    // ??_EmmWaypointInstance@@UAEPAXI@Z
     // ??1mmWaypointInstance@@UAE@XZ
     ARTS_EXPORT ~mmWaypointInstance() override = default;
 

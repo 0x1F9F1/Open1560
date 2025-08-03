@@ -29,7 +29,6 @@ public:
     // ??0aiVehicleAmbient@@QAE@XZ
     ARTS_IMPORT aiVehicleAmbient();
 
-    // ??_EaiVehicleAmbient@@QAEPAXI@Z | unused
     // ??1aiVehicleAmbient@@QAE@XZ
     ARTS_IMPORT ~aiVehicleAmbient();
 

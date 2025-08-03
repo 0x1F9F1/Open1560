@@ -26,7 +26,6 @@ public:
     // ??0mmForce@@QAE@XZ
     ARTS_IMPORT mmForce();
 
-    // ??_EmmForce@@UAEPAXI@Z
     // ??1mmForce@@UAE@XZ | inline
     ARTS_EXPORT ~mmForce() override = default;
 

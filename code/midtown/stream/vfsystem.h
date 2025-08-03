@@ -125,43 +125,42 @@ class VirtualFileSystem final : public FileSystem
 {
 public:
     // ??0VirtualFileSystem@@QAE@PAVStream@@@Z
-    ARTS_EXPORT VirtualFileSystem(Owner<Stream> stream);
+    VirtualFileSystem(Owner<Stream> stream);
 
-    // ??_EVirtualFileSystem@@UAEPAXI@Z
     // ??1VirtualFileSystem@@UAE@XZ
-    ARTS_EXPORT ~VirtualFileSystem() override;
+    ~VirtualFileSystem() override;
 
     // ?ChangeDir@VirtualFileSystem@@UAEHPAD@Z
-    ARTS_EXPORT b32 ChangeDir(const char* path) override;
+    b32 ChangeDir(const char* path) override;
 
     // ?CreateOn@VirtualFileSystem@@UAEPAVStream@@PADPAXH@Z
-    ARTS_EXPORT Owner<Stream> CreateOn(const char* path, void* buffer, isize buffer_len) override;
+    Owner<Stream> CreateOn(const char* path, void* buffer, isize buffer_len) override;
 
     // ?FirstEntry@VirtualFileSystem@@UAEPAUFileInfo@@PAD@Z
-    ARTS_EXPORT FileInfo* FirstEntry(const char* path) override;
+    FileInfo* FirstEntry(const char* path) override;
 
     // ?GetDir@VirtualFileSystem@@UAEHPADH@Z
-    ARTS_EXPORT b32 GetDir(char* buffer, isize buffer_len) override;
+    b32 GetDir(char* buffer, isize buffer_len) override;
 
     // ?NextEntry@VirtualFileSystem@@UAEPAUFileInfo@@PAU2@@Z
-    ARTS_EXPORT FileInfo* NextEntry(FileInfo* info) override;
+    FileInfo* NextEntry(FileInfo* info) override;
 
     // ?OpenOn@VirtualFileSystem@@UAEPAVStream@@PADHPAXH@Z
-    ARTS_EXPORT Owner<Stream> OpenOn(const char* path, b32 read_only, void* buffer, isize buffer_len) override;
+    Owner<Stream> OpenOn(const char* path, b32 read_only, void* buffer, isize buffer_len) override;
 
     // ?PagerInfo@VirtualFileSystem@@UAEHPADAAUPagerInfo_t@@@Z
-    ARTS_EXPORT b32 PagerInfo(const char* path, PagerInfo_t& info) override;
+    b32 PagerInfo(const char* path, PagerInfo_t& info) override;
 
     // ?QueryOn@VirtualFileSystem@@UAEHPAD@Z
-    ARTS_EXPORT b32 QueryOn(const char* path) override;
+    b32 QueryOn(const char* path) override;
 
     // ?ValidPath@VirtualFileSystem@@UAEHPAD@Z
-    ARTS_EXPORT b32 ValidPath(const char* path) override;
+    b32 ValidPath(const char* path) override;
 
     static void ExpandName(char* buf, isize buf_len, VirtualFileInode* node, const char* names);
 
     // ?Lookup@VirtualFileSystem@@SAPAUVirtualFileInode@@PAU2@HPAD1@Z
-    ARTS_EXPORT static VirtualFileInode* Lookup(VirtualFileInode* nodes, i32 node_count, const char* names, char* path);
+    static VirtualFileInode* Lookup(VirtualFileInode* nodes, i32 node_count, const char* names, char* path);
 
     static void NormalizeName(char* buf, isize buf_len, const char* path);
 

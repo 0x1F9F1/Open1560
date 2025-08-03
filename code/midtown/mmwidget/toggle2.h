@@ -26,7 +26,6 @@ public:
     // ??0mmToggle2@@QAE@XZ
     ARTS_IMPORT mmToggle2();
 
-    // ??_EmmToggle2@@UAEPAXI@Z
     // ??1mmToggle2@@UAE@XZ
     ARTS_IMPORT ~mmToggle2() override;
 

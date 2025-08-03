@@ -28,13 +28,11 @@ public:
     // ??0NetSelectMenu@@QAE@H@Z
     ARTS_IMPORT NetSelectMenu(i32 arg1);
 
-    // ??_GNetSelectMenu@@UAEPAXI@Z
-    // ??_ENetSelectMenu@@UAEPAXI@Z
     // ??1NetSelectMenu@@UAE@XZ
     ARTS_IMPORT ~NetSelectMenu() override;
 
     // ?AddWidgetToList@NetSelectMenu@@QAEXHPAVuiWidget@@@Z | unused
-    ARTS_EXPORT void AddWidgetToList(i32 arg1, uiWidget* arg2);
+    void AddWidgetToList(i32 arg1, uiWidget* arg2);
 
     // ?BuildAllTheIPXWidgets@NetSelectMenu@@QAEXMMMM@Z
     ARTS_EXPORT void BuildAllTheIPXWidgets(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
@@ -94,7 +92,7 @@ public:
     ARTS_IMPORT void ProtocolBack();
 
     // ?ReparentWidgets@NetSelectMenu@@QAEXH@Z | unused
-    ARTS_EXPORT void ReparentWidgets(i32 arg1);
+    void ReparentWidgets(i32 arg1);
 
     // ?SetComs@NetSelectMenu@@QAEXXZ
     ARTS_IMPORT void SetComs();

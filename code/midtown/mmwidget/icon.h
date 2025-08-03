@@ -28,8 +28,6 @@ public:
     // ??0UIIcon@@QAE@XZ
     ARTS_IMPORT UIIcon();
 
-    // ??_EUIIcon@@UAEPAXI@Z
-    // ??_GUIIcon@@UAEPAXI@Z
     // ??1UIIcon@@UAE@XZ
     ARTS_EXPORT ~UIIcon() override = default;
 

@@ -91,7 +91,7 @@ public:
 #endif
 
     // ?Dump@aiPath@@QAEXXZ | unused
-    ARTS_EXPORT void Dump();
+    void Dump();
 
     // ?GetHeading@aiPath@@QAEMMH@Z
     ARTS_IMPORT f32 GetHeading(f32 arg1, i32 arg2);

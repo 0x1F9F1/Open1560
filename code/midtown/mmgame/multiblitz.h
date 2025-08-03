@@ -26,7 +26,6 @@ public:
     // ??0mmMultiBlitz@@QAE@XZ
     ARTS_IMPORT mmMultiBlitz();
 
-    // ??_EmmMultiBlitz@@UAEPAXI@Z
     // ??1mmMultiBlitz@@UAE@XZ
     ARTS_IMPORT ~mmMultiBlitz() override;
 

@@ -38,22 +38,22 @@ public:
     virtual u32 GetPixel(agiSurfaceDesc* surface, i32 x, i32 y) = 0;
 
     // ?FindColor@agiColorModel@@QAEIHHHH@Z | unused
-    ARTS_EXPORT u32 FindColor(i32 r, i32 g, i32 b, i32 a);
+    u32 FindColor(i32 r, i32 g, i32 b, i32 a);
 
     // ?GetColor@agiColorModel@@QAEIABVVector3@@@Z
-    ARTS_EXPORT u32 GetColor(const Vector3& color);
+    u32 GetColor(const Vector3& color);
 
     // ?GetColor@agiColorModel@@QAEIABVVector4@@@Z | unused
-    ARTS_EXPORT u32 GetColor(const Vector4& color);
+    u32 GetColor(const Vector4& color);
 
     // ?GetColor@agiColorModel@@QAEIHHHH@Z
     ARTS_EXPORT u32 GetColor(i32 r, i32 g, i32 b, i32 a);
 
     // ?FindMatch@agiColorModel@@SAPAV1@PAVagiSurfaceDesc@@@Z | agi:cmodelx
-    ARTS_EXPORT static RcOwner<agiColorModel> FindMatch(agiSurfaceDesc* surface);
+    static RcOwner<agiColorModel> FindMatch(agiSurfaceDesc* surface);
 
     // ?FindMatch@agiColorModel@@SAPAV1@HHHH@Z | agi:cmodelx
-    ARTS_EXPORT static RcOwner<agiColorModel> FindMatch(i32 mask_r, i32 mask_g, i32 mask_b, i32 mask_a);
+    static RcOwner<agiColorModel> FindMatch(i32 mask_r, i32 mask_g, i32 mask_b, i32 mask_a);
 
     void AddRef()
     {

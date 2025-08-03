@@ -26,8 +26,6 @@ public:
     // ??0UISlider@@QAE@XZ
     ARTS_IMPORT UISlider();
 
-    // ??_EUISlider@@UAEPAXI@Z
-    // ??_GUISlider@@UAEPAXI@Z
     // ??1UISlider@@UAE@XZ
     ARTS_IMPORT ~UISlider() override;
 
@@ -60,7 +58,7 @@ public:
     ARTS_IMPORT void SetReadWrite(i32 arg1);
 
     // ?SetText@UISlider@@QAEXPAULocString@@@Z | unused
-    ARTS_EXPORT void SetText(LocString* arg1);
+    void SetText(LocString* arg1);
 
     // ?SetValue@UISlider@@QAEMM@Z
     ARTS_IMPORT f32 SetValue(f32 arg1);
@@ -69,7 +67,7 @@ public:
     ARTS_IMPORT void Switch(i32 arg1) override;
 
     // ?TestHit@UISlider@@QAEHMM@Z | unused
-    ARTS_EXPORT i32 TestHit(f32 arg1, f32 arg2);
+    i32 TestHit(f32 arg1, f32 arg2);
 
     // ?Update@UISlider@@UAEXXZ
     ARTS_IMPORT void Update() override;

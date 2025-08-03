@@ -48,7 +48,6 @@ public:
     // ??0asInertialCS@@QAE@XZ
     ARTS_EXPORT asInertialCS();
 
-    // ??_EasInertialCS@@UAEPAXI@Z
     // ??1asInertialCS@@UAE@XZ | inline
     ARTS_EXPORT ~asInertialCS() override = default;
 
@@ -88,7 +87,7 @@ public:
     ARTS_IMPORT void DoConstrain();
 
     // ?FileIO@asInertialCS@@QAEXPAVMiniParser@@@Z | unused
-    ARTS_EXPORT void FileIO(MiniParser* arg1);
+    void FileIO(MiniParser* arg1);
 
     // ?FinishForces@asInertialCS@@QAEXXZ
     ARTS_IMPORT void FinishForces();
@@ -109,7 +108,7 @@ public:
     ARTS_IMPORT void Reset() override;
 
     // ?SetDensity@asInertialCS@@QAEXMMMM@Z
-    ARTS_EXPORT void SetDensity(f32 size_x, f32 size_y, f32 size_z, f32 density);
+    void SetDensity(f32 size_x, f32 size_y, f32 size_z, f32 density);
 
     // ?SetMass@asInertialCS@@QAEXMMMM@Z
     ARTS_EXPORT void SetMass(f32 size_x, f32 size_y, f32 size_z, f32 mass);

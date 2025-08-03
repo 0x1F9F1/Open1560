@@ -26,8 +26,6 @@ public:
     // ??0UITextField@@QAE@XZ
     ARTS_IMPORT UITextField();
 
-    // ??_GUITextField@@UAEPAXI@Z
-    // ??_EUITextField@@UAEPAXI@Z
     // ??1UITextField@@UAE@XZ
     ARTS_IMPORT ~UITextField() override;
 

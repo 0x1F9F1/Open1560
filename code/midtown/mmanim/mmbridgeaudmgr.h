@@ -28,8 +28,6 @@ public:
     // ??0mmBridgeAudMgr@@QAE@XZ
     ARTS_IMPORT mmBridgeAudMgr();
 
-    // ??_GmmBridgeAudMgr@@UAEPAXI@Z
-    // ??_EmmBridgeAudMgr@@UAEPAXI@Z
     // ??1mmBridgeAudMgr@@UAE@XZ
     ARTS_IMPORT ~mmBridgeAudMgr() override;
 

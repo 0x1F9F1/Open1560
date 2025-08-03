@@ -28,8 +28,6 @@ public:
     // ??0Card2D@@QAE@XZ
     ARTS_IMPORT Card2D();
 
-    // ??_ECard2D@@UAEPAXI@Z
-    // ??_GCard2D@@UAEPAXI@Z
     // ??1Card2D@@UAE@XZ | inline
     ARTS_EXPORT ~Card2D() override = default;
 

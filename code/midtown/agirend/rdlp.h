@@ -29,8 +29,6 @@ public:
     // ??0RDLP@@QAE@PAVagiPipeline@@@Z
     ARTS_IMPORT RDLP(agiPipeline* arg1);
 
-    // ??_ERDLP@@UAEPAXI@Z
-    // ??_GRDLP@@UAEPAXI@Z
     // ??1RDLP@@UAE@XZ
     ARTS_IMPORT ~RDLP() override;
 
@@ -64,8 +62,6 @@ public:
     // ??0RDynamicDLP@@QAE@HPAVRDLP@@@Z
     ARTS_IMPORT RDynamicDLP(i32 arg1, RDLP* arg2);
 
-    // ??_ERDynamicDLP@@UAEPAXI@Z
-    // ??_GRDynamicDLP@@UAEPAXI@Z
     // ??1RDynamicDLP@@UAE@XZ
     ARTS_IMPORT ~RDynamicDLP() override;
 

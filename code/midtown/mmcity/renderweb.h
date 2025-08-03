@@ -48,7 +48,6 @@ public:
     // ??0asRenderWeb@@QAE@XZ
     ARTS_IMPORT asRenderWeb();
 
-    // ??_EasRenderWeb@@UAEPAXI@Z
     // ??1asRenderWeb@@UAE@XZ
     ARTS_IMPORT ~asRenderWeb() override;
 

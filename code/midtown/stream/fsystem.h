@@ -44,11 +44,10 @@ class FileSystem : public Base
 {
 public:
     // ??0FileSystem@@QAE@XZ
-    ARTS_EXPORT FileSystem();
+    FileSystem();
 
-    // ??_GFileSystem@@UAEPAXI@Z
     // ??1FileSystem@@UAE@XZ
-    ARTS_EXPORT ~FileSystem() override;
+    ~FileSystem() override;
 
     virtual b32 ValidPath(const char* path) = 0;
 
@@ -59,7 +58,7 @@ public:
     virtual Owner<Stream> CreateOn(const char* path, void* buffer, isize buffer_len) = 0;
 
     // ?PagerInfo@FileSystem@@UAEHPADAAUPagerInfo_t@@@Z
-    ARTS_EXPORT virtual b32 PagerInfo(const char* path, PagerInfo_t& pager);
+    virtual b32 PagerInfo(const char* path, PagerInfo_t& pager);
 
     virtual b32 ChangeDir(const char* path) = 0;
 
@@ -70,24 +69,24 @@ public:
     virtual FileInfo* NextEntry(FileInfo* info) = 0;
 
     // ?Search@FileSystem@@QAEHPAD00H0@Z
-    ARTS_EXPORT b32 Search(
+    b32 Search(
         const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, isize buffer_len);
 
     // ?OpenAny@FileSystem@@SAPAVStream@@PADHPAXH@Z
-    ARTS_EXPORT static Owner<Stream> OpenAny(const char* path, b32 read_only, void* buffer, isize buffer_len);
+    static Owner<Stream> OpenAny(const char* path, b32 read_only, void* buffer, isize buffer_len);
 
     // ?PagerInfoAny@FileSystem@@SAHPADAAUPagerInfo_t@@@Z
-    ARTS_EXPORT static b32 PagerInfoAny(const char* path, PagerInfo_t& pager);
+    static b32 PagerInfoAny(const char* path, PagerInfo_t& pager);
 
     // ?SearchAll@FileSystem@@SAPAV1@PAD00H0@Z
-    ARTS_EXPORT static FileSystem* SearchAll(
+    static FileSystem* SearchAll(
         const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, isize buffer_len);
 
     // ?FS@FileSystem@@2PAPAV1@A
-    ARTS_EXPORT static FileSystem* FS[MAX_FILESYSTEMS];
+    static FileSystem* FS[MAX_FILESYSTEMS];
 
     // ?FSCount@FileSystem@@2HA
-    ARTS_EXPORT static i32 FSCount;
+    static i32 FSCount;
 
     static inline constexpr bool IsPathSeparator(char c) noexcept
     {
@@ -114,13 +113,13 @@ private:
 check_size(FileSystem, 0x8);
 
 // ?FindFile@@YAPAVFileSystem@@PAD00H0@Z
-[[deprecated]] ARTS_EXPORT FileSystem* FindFile(
+[[deprecated]] FileSystem* FindFile(
     const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer);
 
 FileSystem* FindFile(const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, usize buffer_len);
 
 // ?OpenFile@@YAPAVStream@@PAD00H00@Z
-[[deprecated]] ARTS_EXPORT Owner<Stream> OpenFile(
+[[deprecated]] Owner<Stream> OpenFile(
     const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, const char* desc);
 
 Owner<Stream> OpenFile(const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer,

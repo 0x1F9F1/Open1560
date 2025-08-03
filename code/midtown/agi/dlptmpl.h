@@ -67,7 +67,7 @@ public:
         agiLib<agiPhysParameters, agiPhysDef>& plib);
 
     // ?Load@DLPTemplate@@QAEHPAD@Z | unused
-    ARTS_EXPORT i32 Load(aconst char* path);
+    i32 Load(aconst char* path);
 
     // ?Load@DLPTemplate@@QAEXPAVStream@@@Z
     ARTS_EXPORT void Load(Stream* file);
@@ -114,12 +114,11 @@ public:
     // ??0DLPPatch@@QAE@XZ | inline
     ARTS_EXPORT DLPPatch() = default;
 
-    // ??_EDLPPatch@@QAEPAXI@Z | unused
     // ??1DLPPatch@@QAE@XZ | inline
     ARTS_EXPORT ~DLPPatch() = default;
 
     // ?Load@DLPPatch@@QAEXPAVStream@@@Z
-    ARTS_EXPORT void Load(Stream* file);
+    void Load(Stream* file);
 
     // ?Print@DLPPatch@@QAEXPAVStream@@@Z
     ARTS_IMPORT void Print(Stream* arg1);
@@ -178,15 +177,14 @@ public:
     // ??0DLPGroup@@QAE@PAVDLPTemplate@@PAV0@@Z
     ARTS_IMPORT DLPGroup(DLPTemplate* arg1, DLPGroup* arg2);
 
-    // ??_EDLPGroup@@QAEPAXI@Z | unused
     // ??1DLPGroup@@QAE@XZ
     ARTS_EXPORT ~DLPGroup() = default;
 
     // ?Init@DLPGroup@@QAEXHH@Z
-    ARTS_EXPORT void Init(i32 num_verts, i32 num_patches);
+    void Init(i32 num_verts, i32 num_patches);
 
     // ?Load@DLPGroup@@QAEXPAVStream@@@Z
-    ARTS_EXPORT void Load(Stream* file);
+    void Load(Stream* file);
 
     // ?Print@DLPGroup@@QAEXPAVStream@@@Z
     ARTS_IMPORT void Print(Stream* arg1);
@@ -219,7 +217,7 @@ struct DLPVertex
 {
 public:
     // ?Load@DLPVertex@@QAEXPAVStream@@@Z
-    ARTS_EXPORT void Load(Stream* file);
+    void Load(Stream* file);
 
     // ?Save@DLPVertex@@QAEXPAVStream@@@Z
     ARTS_IMPORT void Save(Stream* arg1);

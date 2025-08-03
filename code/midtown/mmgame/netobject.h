@@ -48,8 +48,6 @@ public:
     // ??0mmNetObject@@QAE@XZ
     ARTS_IMPORT mmNetObject();
 
-    // ??_GmmNetObject@@UAEPAXI@Z
-    // ??_EmmNetObject@@UAEPAXI@Z
     // ??1mmNetObject@@UAE@XZ
     ARTS_EXPORT ~mmNetObject() override = default;
 

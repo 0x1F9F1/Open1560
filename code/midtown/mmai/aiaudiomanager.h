@@ -31,8 +31,6 @@ public:
     // ??0aiAudioManager@@QAE@XZ
     ARTS_IMPORT aiAudioManager();
 
-    // ??_EaiAudioManager@@UAEPAXI@Z
-    // ??_GaiAudioManager@@UAEPAXI@Z
     // ??1aiAudioManager@@UAE@XZ
     ARTS_IMPORT ~aiAudioManager() override;
 

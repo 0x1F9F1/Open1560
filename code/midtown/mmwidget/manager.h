@@ -43,8 +43,6 @@ public:
     // ??0MenuManager@@QAE@XZ
     ARTS_IMPORT MenuManager();
 
-    // ??_EMenuManager@@UAEPAXI@Z
-    // ??_GMenuManager@@UAEPAXI@Z
     // ??1MenuManager@@UAE@XZ
     ARTS_IMPORT ~MenuManager() override;
 

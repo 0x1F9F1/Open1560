@@ -19,7 +19,7 @@
 #pragma once
 
 // ?EdgeInList@@YA_NHHJPAH0@Z
-ARTS_EXPORT bool EdgeInList(i32 v1, i32 v2, ilong count, i32* edge_1s, i32* edge_2s);
+bool EdgeInList(i32 v1, i32 v2, ilong count, i32* edge_1s, i32* edge_2s);
 
 // ?BoundBytesPaged@@3HA
 ARTS_IMPORT extern i32 BoundBytesPaged;

@@ -26,8 +26,6 @@ public:
     // ??0PUChat@@QAE@HMMMMPAD@Z
     ARTS_IMPORT PUChat(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
-    // ??_EPUChat@@UAEPAXI@Z
-    // ??_GPUChat@@UAEPAXI@Z
     // ??1PUChat@@UAE@XZ
     ARTS_EXPORT ~PUChat() override = default;
 

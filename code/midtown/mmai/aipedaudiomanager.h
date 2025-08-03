@@ -28,8 +28,6 @@ public:
     // ??0aiPedAudioManager@@QAE@XZ
     ARTS_IMPORT aiPedAudioManager();
 
-    // ??_GaiPedAudioManager@@UAEPAXI@Z
-    // ??_EaiPedAudioManager@@UAEPAXI@Z
     // ??1aiPedAudioManager@@UAE@XZ
     ARTS_IMPORT ~aiPedAudioManager() override;
 
@@ -46,7 +44,7 @@ public:
     ARTS_IMPORT i16 FindUnusedSlot();
 
     // ?RandomizeSeconds@aiPedAudioManager@@QAEXMM@Z | unused
-    ARTS_EXPORT void RandomizeSeconds(f32 arg1, f32 arg2);
+    void RandomizeSeconds(f32 arg1, f32 arg2);
 
     // ?Remove@aiPedAudioManager@@QAEXPAVaiPedestrian@@F@Z
     ARTS_IMPORT void Remove(aiPedestrian* arg1, i16 arg2);

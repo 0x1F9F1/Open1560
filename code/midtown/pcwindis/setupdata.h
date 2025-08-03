@@ -96,13 +96,13 @@ struct dxiRendererInfo_t
 check_size(dxiRendererInfo_t, 0x198);
 
 // ?dxiReadConfigFile@@YAHXZ
-ARTS_EXPORT b32 dxiReadConfigFile();
+b32 dxiReadConfigFile();
 
 // ?dxiWriteConfigFile@@YAXXZ
 ARTS_EXPORT void dxiWriteConfigFile();
 
 // ?dxiResClosestMatch@@YAHHHH@Z
-ARTS_EXPORT i32 dxiResClosestMatch(i32 renderer, i32 width, i32 height);
+i32 dxiResClosestMatch(i32 renderer, i32 width, i32 height);
 
 // ?dxiResGetRecommended@@YAHHH@Z
 ARTS_EXPORT i32 dxiResGetRecommended(i32 renderer, i32 cpu_speed);

@@ -35,29 +35,29 @@ struct PtrToType final : MetaType
     MetaType* TargetType {};
 
     // ?Delete@PtrToType@@UAEXPAXH@Z
-    ARTS_EXPORT void Delete(void*, isize) override
+    void Delete(void*, isize) override
     {}
 
     // ?Load@PtrToType@@UAEXPAVMiniParser@@PAX@Z
-    ARTS_EXPORT void Load(MiniParser* parser, void*) override
+    void Load(MiniParser* parser, void*) override
     {
         parser->Match(MiniParser::LabelRefToken);
     }
 
     // ?New@PtrToType@@UAEPAXH@Z
-    ARTS_EXPORT void* New(isize) override
+    void* New(isize) override
     {
         return nullptr;
     }
 
     // ?Save@PtrToType@@UAEXPAVMiniParser@@PAX@Z
-    ARTS_EXPORT void Save(MiniParser* parser, void* ptr) override
+    void Save(MiniParser* parser, void* ptr) override
     {
         parser->PlaceLabelRef(*static_cast<void**>(ptr));
     }
 
     // ?SizeOf@PtrToType@@UAEIXZ
-    ARTS_EXPORT usize SizeOf() override
+    usize SizeOf() override
     {
         return sizeof(void*);
     }
@@ -79,31 +79,31 @@ struct StructType final : MetaType
     MetaClass* TargetClass {};
 
     // ?Delete@StructType@@UAEXPAXH@Z
-    ARTS_EXPORT void Delete(void* ptr, isize count) override
+    void Delete(void* ptr, isize count) override
     {
         TargetClass->Free(ptr, count);
     }
 
     // ?Load@StructType@@UAEXPAVMiniParser@@PAX@Z
-    ARTS_EXPORT void Load(MiniParser* parser, void* ptr) override
+    void Load(MiniParser* parser, void* ptr) override
     {
         TargetClass->Load(parser, ptr);
     }
 
     // ?New@StructType@@UAEPAXH@Z
-    ARTS_EXPORT void* New(isize count) override
+    void* New(isize count) override
     {
         return TargetClass->Allocate(count);
     }
 
     // ?Save@StructType@@UAEXPAVMiniParser@@PAX@Z
-    ARTS_EXPORT void Save(MiniParser* parser, void* ptr) override
+    void Save(MiniParser* parser, void* ptr) override
     {
         TargetClass->Save(parser, ptr);
     }
 
     // ?SizeOf@StructType@@UAEIXZ
-    ARTS_EXPORT usize SizeOf() override
+    usize SizeOf() override
     {
         return TargetClass->GetSize();
     }

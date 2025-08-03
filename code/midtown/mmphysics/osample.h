@@ -26,7 +26,6 @@ public:
     // ??0asOverSample@@QAE@XZ
     ARTS_EXPORT asOverSample() = default;
 
-    // ??_EasOverSample@@UAEPAXI@Z
     // ??1asOverSample@@UAE@XZ | inline
     ARTS_EXPORT ~asOverSample() override = default;
 
@@ -39,7 +38,7 @@ public:
     ARTS_EXPORT void RealTime(f32 fps);
 
     // ?Update@asOverSample@@UAEXXZ
-    ARTS_EXPORT void Update() override;
+    void Update() override;
 
     VIRTUAL_META_DECLARE;
 

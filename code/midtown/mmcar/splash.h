@@ -28,8 +28,6 @@ public:
     // ??0mmSplash@@QAE@XZ
     ARTS_IMPORT mmSplash();
 
-    // ??_GmmSplash@@UAEPAXI@Z
-    // ??_EmmSplash@@UAEPAXI@Z
     // ??1mmSplash@@UAE@XZ | inline
     ARTS_EXPORT ~mmSplash() override = default;
 

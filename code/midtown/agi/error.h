@@ -30,7 +30,7 @@
 ARTS_EXPORT void agiDisplayf(ARTS_FORMAT_STRING const char* format, ...);
 
 // ?agiGetError@@YAPADH@Z
-ARTS_EXPORT const char* agiGetError(i32 error);
+const char* agiGetError(i32 error);
 
 // ?agiVerbose@@3HA
 ARTS_IMPORT extern i32 agiVerbose;

@@ -46,8 +46,6 @@ ARTS_IMPORT extern HashTable VehicleDataHash;
 class aiVehicleInstance final : public mmInstance
 {
 public:
-    // ??_GaiVehicleInstance@@UAEPAXI@Z
-    // ??_EaiVehicleInstance@@UAEPAXI@Z
     // ??1aiVehicleInstance@@UAE@XZ | inline
     ARTS_EXPORT ~aiVehicleInstance() override = default;
 
@@ -111,8 +109,6 @@ public:
     // ??0aiVehicleActive@@QAE@XZ
     ARTS_IMPORT aiVehicleActive();
 
-    // ??_GaiVehicleActive@@UAEPAXI@Z
-    // ??_EaiVehicleActive@@UAEPAXI@Z
     // ??1aiVehicleActive@@UAE@XZ
     ARTS_IMPORT ~aiVehicleActive() override;
 
@@ -168,8 +164,6 @@ public:
     // ??0aiVehicleManager@@QAE@XZ
     ARTS_IMPORT aiVehicleManager();
 
-    // ??_EaiVehicleManager@@UAEPAXI@Z
-    // ??_GaiVehicleManager@@UAEPAXI@Z
     // ??1aiVehicleManager@@UAE@XZ
     ARTS_IMPORT ~aiVehicleManager() override;
 
@@ -224,7 +218,6 @@ public:
     // ??0aiVehicleData@@QAE@XZ | inline
     ARTS_IMPORT aiVehicleData();
 
-    // ??_EaiVehicleData@@UAEPAXI@Z
     // ??1aiVehicleData@@UAE@XZ | inline
     ARTS_EXPORT ~aiVehicleData() override = default;
 

@@ -25,16 +25,16 @@ extern i32 agiFontHeight;
 ARTS_EXPORT void agiPrint(i32 x, i32 y, i32 color, const char* text);
 
 // ?agiPrintInit@@YAXXZ
-ARTS_EXPORT void agiPrintInit();
+void agiPrintInit();
 
 // ?agiPrintIs3D@@YAHXZ
 ARTS_EXPORT i32 agiPrintIs3D();
 
 // ?agiPrintShutdown@@YAXXZ
-ARTS_EXPORT void agiPrintShutdown();
+void agiPrintShutdown();
 
 // ?agiPrintf@@YAXHHHPBDZZ
-ARTS_EXPORT void agiPrintf(i32 x, i32 y, i32 color, ARTS_FORMAT_STRING const char* format, ...);
+void agiPrintf(i32 x, i32 y, i32 color, ARTS_FORMAT_STRING const char* format, ...);
 
 // ?CharSet@@3PAEA
 extern const u8 CharSet[768];

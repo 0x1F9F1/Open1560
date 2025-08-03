@@ -26,8 +26,6 @@ public:
     // ??0NetArena@@QAE@H@Z
     ARTS_IMPORT NetArena(i32 arg1);
 
-    // ??_ENetArena@@UAEPAXI@Z
-    // ??_GNetArena@@UAEPAXI@Z
     // ??1NetArena@@UAE@XZ
     ARTS_IMPORT ~NetArena() override;
 

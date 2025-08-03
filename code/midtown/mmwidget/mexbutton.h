@@ -26,8 +26,6 @@ public:
     // ??0UIMexButton@@QAE@XZ
     ARTS_IMPORT UIMexButton();
 
-    // ??_EUIMexButton@@UAEPAXI@Z
-    // ??_GUIMexButton@@UAEPAXI@Z
     // ??1UIMexButton@@UAE@XZ
     ARTS_EXPORT ~UIMexButton() override = default;
 

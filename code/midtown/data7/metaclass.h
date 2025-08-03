@@ -28,26 +28,26 @@ class MetaClass
 {
 public:
     // ??0MetaClass@@QAE@PADIP6APAXH@ZP6AXPAXH@ZP6AXXZPAV0@@Z
-    ARTS_EXPORT MetaClass(const char* name, usize size, void* (*allocate)(isize), void (*free)(void*, isize),
+    MetaClass(const char* name, usize size, void* (*allocate)(isize), void (*free)(void*, isize),
         void (*declare)(void), MetaClass* parent);
 
     // ??1MetaClass@@QAE@XZ
     ARTS_EXPORT ~MetaClass();
 
     // ?InitFields@MetaClass@@QAEXXZ
-    ARTS_EXPORT void InitFields();
+    void InitFields();
 
     // ?IsSubclassOf@MetaClass@@QAEHPAV1@@Z
-    ARTS_EXPORT b32 IsSubclassOf(MetaClass* parent);
+    b32 IsSubclassOf(MetaClass* parent);
 
     // ?Load@MetaClass@@QAEXPAVMiniParser@@PAX@Z
-    ARTS_EXPORT void Load(MiniParser* parser, void* ptr);
+    void Load(MiniParser* parser, void* ptr);
 
     // ?Save@MetaClass@@QAEXPAVMiniParser@@PAX@Z
-    ARTS_EXPORT void Save(MiniParser* parser, void* ptr);
+    void Save(MiniParser* parser, void* ptr);
 
     // ?SkipBlock@MetaClass@@QAEXPAVMiniParser@@@Z
-    ARTS_EXPORT void SkipBlock(MiniParser* parser);
+    void SkipBlock(MiniParser* parser);
 
     const char* GetName() const
     {
@@ -83,13 +83,13 @@ public:
     static void FixupClasses();
 
     // ?DeclareNamedTypedField@MetaClass@@SAXPADIPAUMetaType@@@Z
-    ARTS_EXPORT static void DeclareNamedTypedField(const char* name, usize offset, MetaType* type);
+    static void DeclareNamedTypedField(const char* name, usize offset, MetaType* type);
 
     // ?FindByName@MetaClass@@SAPAV1@PADPAV1@@Z
-    ARTS_EXPORT static MetaClass* FindByName(const char* name, MetaClass* root);
+    static MetaClass* FindByName(const char* name, MetaClass* root);
 
     // ?UndeclareAll@MetaClass@@SAXXZ
-    ARTS_EXPORT static void UndeclareAll();
+    static void UndeclareAll();
 
     // ?ClassIndex@MetaClass@@2PAPAV1@A
     static MetaClass* ClassIndex[MAX_CLASSES];
@@ -128,7 +128,7 @@ private:
 check_size(MetaClass, 0x28);
 
 // ?__BadSafeCall@@YAXPADPAVBase@@@Z | unused
-ARTS_EXPORT void __BadSafeCall(const char* name, Base* ptr);
+void __BadSafeCall(const char* name, Base* ptr);
 
 // ?NoDefault@@3HA
 ARTS_IMPORT extern i32 NoDefault;

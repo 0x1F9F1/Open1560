@@ -28,8 +28,6 @@ public:
     // ??0Dialog_Serial@@QAE@HMMMMPAD@Z
     ARTS_IMPORT Dialog_Serial(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
-    // ??_GDialog_Serial@@UAEPAXI@Z
-    // ??_EDialog_Serial@@UAEPAXI@Z
     // ??1Dialog_Serial@@UAE@XZ
     ARTS_IMPORT ~Dialog_Serial() override;
 

@@ -26,8 +26,6 @@ public:
     // ??0HostRaceMenu@@QAE@H@Z
     ARTS_IMPORT HostRaceMenu(i32 arg1);
 
-    // ??_EHostRaceMenu@@UAEPAXI@Z
-    // ??_GHostRaceMenu@@UAEPAXI@Z
     // ??1HostRaceMenu@@UAE@XZ
     ARTS_EXPORT ~HostRaceMenu() override = default;
 

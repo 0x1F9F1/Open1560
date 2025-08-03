@@ -37,7 +37,7 @@ public:
     ARTS_EXPORT void IgnoreToken();
 
     // ?MatchToken@Tokenizer@@QAEXPAD@Z
-    ARTS_EXPORT void MatchToken(const char* value);
+    void MatchToken(const char* value);
 
 private:
     const char* name_ {};

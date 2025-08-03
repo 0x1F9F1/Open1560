@@ -29,7 +29,6 @@ public:
     // ??0mmLoader@@QAE@XZ
     ARTS_IMPORT mmLoader();
 
-    // ??_EmmLoader@@UAEPAXI@Z
     // ??1mmLoader@@UAE@XZ
     ARTS_IMPORT ~mmLoader() override;
 
@@ -43,7 +42,7 @@ public:
     ARTS_IMPORT void EndTask(f32 arg1 = 0.0f);
 
     // ?Init@mmLoader@@QAEXPADMM@Z
-    ARTS_EXPORT void Init(aconst char* underlay_name, f32 bar_x, f32 bar_y);
+    void Init(aconst char* underlay_name, f32 bar_x, f32 bar_y);
 
     // ?Reset@mmLoader@@QAEXXZ
     ARTS_IMPORT void Reset();

@@ -31,22 +31,22 @@ struct mmText
 {
 public:
     // ??0mmText@@QAE@XZ
-    ARTS_EXPORT mmText() = default;
+    mmText() = default;
 
     // ??1mmText@@QAE@XZ
-    ARTS_EXPORT ~mmText() = default;
+    ~mmText() = default;
 
     // ?Draw@mmText@@QAEXPAVagiSurfaceDesc@@MMPADPAX@Z | unused
-    ARTS_EXPORT void Draw(agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font);
+    void Draw(agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font);
 
     // ?Draw2@mmText@@QAEXPAVagiSurfaceDesc@@MMPADPAXI@Z
-    ARTS_EXPORT void Draw2(agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font, u32 color);
+    void Draw2(agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font, u32 color);
 
     // ?CreateFitBitmap@mmText@@SAPAVagiBitmap@@PADPAXHH@Z
     ARTS_EXPORT static RcOwner<agiBitmap> CreateFitBitmap(char* text, void* font, i32 color, i32 bg_color);
 
     // ?CreateFont@mmText@@SAPAXPADH@Z
-    ARTS_EXPORT static void* CreateFont(const char* font_name, i32 height);
+    static void* CreateFont(const char* font_name, i32 height);
 
     // ?CreateLocFont@mmText@@SAPAXPAULocString@@H@Z
     ARTS_EXPORT static void* CreateLocFont(LocString* params, i32 screen_width);
@@ -55,10 +55,10 @@ public:
     ARTS_EXPORT static void DeleteFont(void* font);
 
     // ?GetDC@mmText@@SAPAXPAVagiSurfaceDesc@@@Z
-    ARTS_EXPORT static void* GetDC(agiSurfaceDesc* surface);
+    static void* GetDC(agiSurfaceDesc* surface);
 
     // ?ReleaseDC@mmText@@SAXXZ
-    ARTS_EXPORT static void ReleaseDC();
+    static void ReleaseDC();
 
 private:
     u8 byte0 {1};
@@ -102,8 +102,6 @@ public:
     // ??0mmTextNode@@QAE@XZ
     ARTS_EXPORT mmTextNode();
 
-    // ??_EmmTextNode@@UAEPAXI@Z
-    // ??_GmmTextNode@@UAEPAXI@Z | unused
     // ??1mmTextNode@@UAE@XZ
     ARTS_EXPORT ~mmTextNode() override;
 
@@ -111,7 +109,7 @@ public:
     ARTS_IMPORT i32 AddText(void* font, LocString* text, i32 effects, f32 x, f32 y);
 
     // ?Cull@mmTextNode@@UAEXXZ
-    ARTS_EXPORT void Cull() override;
+    void Cull() override;
 
     // ?GetFGColor@mmTextNode@@QAEIXZ
     ARTS_IMPORT u32 GetFGColor();
@@ -123,7 +121,7 @@ public:
     ARTS_EXPORT void Init(f32 x, f32 y, f32 width, f32 height, i32 num_lines, i32 flags);
 
     // ?RenderText@mmTextNode@@QAEXPAVagiSurfaceDesc@@PAUmmTextData@@HI@Z
-    ARTS_EXPORT void RenderText(agiSurfaceDesc* surface, mmTextData* lines, i32 num_lines, u32 enabled_lines);
+    void RenderText(agiSurfaceDesc* surface, mmTextData* lines, i32 num_lines, u32 enabled_lines);
 
     // ?SetEffects@mmTextNode@@QAEXHH@Z
     ARTS_IMPORT void SetEffects(i32 line, i32 effects);

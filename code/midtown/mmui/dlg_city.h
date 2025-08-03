@@ -26,8 +26,6 @@ public:
     // ??0Dialog_City@@QAE@HMMMMPAD@Z
     ARTS_IMPORT Dialog_City(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
-    // ??_GDialog_City@@UAEPAXI@Z
-    // ??_EDialog_City@@UAEPAXI@Z
     // ??1Dialog_City@@UAE@XZ
     ARTS_IMPORT ~Dialog_City() override;
 

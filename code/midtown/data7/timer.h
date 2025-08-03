@@ -45,19 +45,19 @@ public:
     f32 WaitUntil(f32 target);
 
     // ?BeginBenchmark@Timer@@SAXXZ | unused
-    ARTS_EXPORT static void BeginBenchmark();
+    static void BeginBenchmark();
 
     // ?EndBenchmark@Timer@@SAXXZ | unused
-    ARTS_EXPORT static void EndBenchmark();
+    static void EndBenchmark();
 
     // ?Sleep@Timer@@SAXH@Z
-    ARTS_EXPORT static void Sleep(i32 ms);
+    static void Sleep(i32 ms);
 
     // ?Ticks@Timer@@SAKXZ
-    ARTS_EXPORT static ulong Ticks();
+    static ulong Ticks();
 
     // ?TicksToSeconds@Timer@@2MA
-    ARTS_EXPORT static f32 TicksToSeconds;
+    static f32 TicksToSeconds;
 
     static f32 TicksToMilliseconds;
 

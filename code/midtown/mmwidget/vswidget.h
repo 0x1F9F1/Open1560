@@ -28,7 +28,6 @@ public:
     // ??0VSWidget@@QAE@XZ
     ARTS_IMPORT VSWidget();
 
-    // ??_EVSWidget@@UAEPAXI@Z
     // ??1VSWidget@@UAE@XZ
     ARTS_IMPORT ~VSWidget() override;
 

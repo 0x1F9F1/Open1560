@@ -26,8 +26,6 @@ public:
     // ??0CRSettings@@QAE@H@Z
     ARTS_IMPORT CRSettings(i32 arg1);
 
-    // ??_ECRSettings@@UAEPAXI@Z
-    // ??_GCRSettings@@UAEPAXI@Z
     // ??1CRSettings@@UAE@XZ
     ARTS_IMPORT ~CRSettings() override;
 
@@ -80,7 +78,7 @@ public:
     ARTS_IMPORT void SetTeamWidgets();
 
     // ?SettingsCB@CRSettings@@QAEXXZ | unused
-    ARTS_EXPORT void SettingsCB();
+    void SettingsCB();
 
     u8 gap90[0xB0];
 };

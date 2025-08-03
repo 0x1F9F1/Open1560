@@ -26,8 +26,6 @@ public:
     // ??0UICWArray@@QAE@XZ
     ARTS_IMPORT UICWArray();
 
-    // ??_GUICWArray@@UAEPAXI@Z
-    // ??_EUICWArray@@UAEPAXI@Z
     // ??1UICWArray@@UAE@XZ
     ARTS_EXPORT ~UICWArray() override = default;
 

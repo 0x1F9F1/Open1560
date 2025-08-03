@@ -26,8 +26,6 @@ public:
     // ??0mmRoadSide@@QAE@XZ
     ARTS_IMPORT mmRoadSide();
 
-    // ??_EmmRoadSide@@UAEPAXI@Z
-    // ??_GmmRoadSide@@UAEPAXI@Z | unused
     // ??1mmRoadSide@@UAE@XZ | inline
     ARTS_IMPORT ~mmRoadSide() override;
 
@@ -48,8 +46,6 @@ public:
     // ??0mmRoadSect@@QAE@XZ
     ARTS_IMPORT mmRoadSect();
 
-    // ??_EmmRoadSect@@UAEPAXI@Z
-    // ??_GmmRoadSect@@UAEPAXI@Z | unused
     // ??1mmRoadSect@@UAE@XZ | inline
     ARTS_IMPORT ~mmRoadSect() override;
 
@@ -100,7 +96,6 @@ public:
     // ??0mmPropInfo@@QAE@XZ
     ARTS_IMPORT mmPropInfo();
 
-    // ??_EmmPropInfo@@UAEPAXI@Z
     // ??1mmPropInfo@@UAE@XZ
     ARTS_IMPORT ~mmPropInfo() override;
 

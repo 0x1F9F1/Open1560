@@ -109,38 +109,36 @@ public:
     // ??0eqEventQ@@QAE@HHH@Z
     ARTS_EXPORT eqEventQ(i32 channels, i32 enabled_events, i32 max_events);
 
-    // ??_GeqEventQ@@UAEPAXI@Z
-    // ??_EeqEventQ@@UAEPAXI@Z
     // ??1eqEventQ@@UAE@XZ
-    ARTS_EXPORT ~eqEventQ() override;
+    ~eqEventQ() override;
 
     // ?Activate@eqEventQ@@UAEXPAXH@Z
-    ARTS_EXPORT void Activate(void* window, b32 active) override;
+    void Activate(void* window, b32 active) override;
 
     // ?Destroy@eqEventQ@@UAEXPAX@Z
-    ARTS_EXPORT void Destroy(void* window) override;
+    void Destroy(void* window) override;
 
     // ?Keyboard@eqEventQ@@UAEXPAXHHHH@Z
-    ARTS_EXPORT void Keyboard(void* window, i32 modifiers, i32 virtual_key, i32 ascii_key, i32 state) override;
+    void Keyboard(void* window, i32 modifiers, i32 virtual_key, i32 ascii_key, i32 state) override;
 
     // ?Mouse@eqEventQ@@UAEXPAXHHHHHHH@Z
-    ARTS_EXPORT void Mouse(void* window, i32 new_buttons, i32 changed_buttons, i32 buttons, i32 mouse_x, i32 mouse_y,
+    void Mouse(void* window, i32 new_buttons, i32 changed_buttons, i32 buttons, i32 mouse_x, i32 mouse_y,
         i32 window_x, i32 window_y) override;
 
     // ?Pop@eqEventQ@@QAEHPATeqEvent@@@Z
     ARTS_EXPORT b32 Pop(eqEvent* event);
 
     // ?Redraw@eqEventQ@@UAEXPAXHHHH@Z
-    ARTS_EXPORT void Redraw(void* window, i32 arg2, i32 arg3, i32 arg4, i32 arg5) override;
+    void Redraw(void* window, i32 arg2, i32 arg3, i32 arg4, i32 arg5) override;
 
     // ?Refocus@eqEventQ@@UAEXPAXH@Z
-    ARTS_EXPORT void Refocus(void* window, i32 focused) override;
+    void Refocus(void* window, i32 focused) override;
 
     void Clear();
 
 private:
     // ?Queue@eqEventQ@@AAEXAATeqEvent@@@Z
-    ARTS_EXPORT void Queue(eqEvent& event);
+    void Queue(eqEvent& event);
 
     Ptr<eqEvent[]> events_;
     u32 enabled_events_ {};

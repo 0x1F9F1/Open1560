@@ -33,8 +33,6 @@ public:
     // ??0mmExternalView@@QAE@XZ
     ARTS_IMPORT mmExternalView();
 
-    // ??_EmmExternalView@@UAEPAXI@Z
-    // ??_GmmExternalView@@UAEPAXI@Z
     // ??1mmExternalView@@UAE@XZ | inline
     ARTS_IMPORT ~mmExternalView() override;
 
@@ -72,7 +70,6 @@ public:
     // ??0mmDashView@@QAE@XZ
     ARTS_IMPORT mmDashView();
 
-    // ??_EmmDashView@@UAEPAXI@Z
     // ??1mmDashView@@UAE@XZ
     ARTS_IMPORT ~mmDashView() override;
 

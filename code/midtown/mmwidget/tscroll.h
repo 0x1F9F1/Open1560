@@ -26,8 +26,6 @@ public:
     // ??0UITextScroll@@QAE@XZ
     ARTS_IMPORT UITextScroll();
 
-    // ??_EUITextScroll@@UAEPAXI@Z
-    // ??_GUITextScroll@@UAEPAXI@Z
     // ??1UITextScroll@@UAE@XZ
     ARTS_IMPORT ~UITextScroll() override;
 

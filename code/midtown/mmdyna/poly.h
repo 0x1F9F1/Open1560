@@ -48,16 +48,16 @@ public:
 
 private:
     // ?CheckCellXSide@mmPolygon@@AAEMMMM@Z
-    ARTS_EXPORT f32 CheckCellXSide(f32 plane_x, f32 z_min, f32 z_max);
+    f32 CheckCellXSide(f32 plane_x, f32 z_min, f32 z_max);
 
     // ?CheckCellZSide@mmPolygon@@AAEMMMM@Z
-    ARTS_EXPORT f32 CheckCellZSide(f32 plane_z, f32 x_min, f32 x_max);
+    f32 CheckCellZSide(f32 plane_z, f32 x_min, f32 x_max);
 
     // ?CheckCorner@mmPolygon@@AAEMMMPAM00@Z
-    ARTS_EXPORT f32 CheckCorner(f32 x, f32 z, f32* plane_x, f32* plane_z, f32* plane_d);
+    f32 CheckCorner(f32 x, f32 z, f32* plane_x, f32* plane_z, f32* plane_d);
 
     // ?CornersHeight@mmPolygon@@AAEMMMMM@Z
-    ARTS_EXPORT f32 CornersHeight(f32 x1, f32 z1, f32 x2, f32 z2);
+    f32 CornersHeight(f32 x1, f32 z1, f32 x2, f32 z2);
 
 #ifdef ARTS_DEV_BUILD
     // ?Draw@mmPolygon@@AAEXXZ

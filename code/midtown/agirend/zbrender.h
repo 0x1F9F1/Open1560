@@ -26,8 +26,6 @@ public:
     // ??0agiZBufRenderer@@QAE@PAVagiRasterizer@@@Z
     ARTS_IMPORT agiZBufRenderer(agiRasterizer* arg1);
 
-    // ??_EagiZBufRenderer@@UAEPAXI@Z
-    // ??_GagiZBufRenderer@@UAEPAXI@Z
     // ??1agiZBufRenderer@@UAE@XZ
     ARTS_EXPORT ~agiZBufRenderer() override = default;
 

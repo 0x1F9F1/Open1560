@@ -19,7 +19,7 @@
 #pragma once
 
 // ?HexDump@@YAXPAXH@Z
-ARTS_EXPORT void HexDump(const void* data, i32 length);
+void HexDump(const void* data, i32 length);
 
 // ?DevelopmentMode@@3HA
 ARTS_IMPORT extern b32 DevelopmentMode;

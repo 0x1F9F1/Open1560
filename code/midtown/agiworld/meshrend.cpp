@@ -175,7 +175,7 @@ ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipPZ(CV& arg1, CV& arg2);
 ARTS_IMPORT /*static*/ i32 ClipPZ(CV* arg1, CV* arg2, i32 arg3);
 
 // ?FullClip@@YAHPAUCV@@0H@Z
-ARTS_EXPORT /*static*/ i32 FullClip(CV* ARTS_RESTRICT output, CV* ARTS_RESTRICT input, i32 count)
+static i32 FullClip(CV* ARTS_RESTRICT output, CV* ARTS_RESTRICT input, i32 count)
 {
     if (count = ClipNZ(output, input, count); count == 0)
         return 0;
@@ -202,7 +202,7 @@ ARTS_EXPORT /*static*/ i32 FullClip(CV* ARTS_RESTRICT output, CV* ARTS_RESTRICT 
 }
 
 // ?ZClipOnly@@YAHPAUCV@@0H@Z
-ARTS_EXPORT /*static*/ i32 ZClipOnly(CV* ARTS_RESTRICT output, CV* ARTS_RESTRICT input, i32 count)
+static i32 ZClipOnly(CV* ARTS_RESTRICT output, CV* ARTS_RESTRICT input, i32 count)
 {
     if (count = ClipNZ(output, input, count); count == 0)
         return 0;
@@ -718,7 +718,7 @@ void agiMeshSet::DrawShadow(u32 flags, const Vector4& plane, const Vector3& ligh
     }
 }
 
-static void (agiMeshSet::*const FirstPassFunctions[2][2][2][2])(u32* colors, Vector2* tex_coords, u32 color) {
+static void (agiMeshSet::* const FirstPassFunctions[2][2][2][2])(u32* colors, Vector2* tex_coords, u32 color) {
     {
         {
             {&agiMeshSet::FirstPass_HW_UV_CPV_noDYNTEX, &agiMeshSet::FirstPass_HW_UV_CPV_DYNTEX},

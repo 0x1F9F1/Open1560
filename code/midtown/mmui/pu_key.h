@@ -28,17 +28,15 @@ public:
     // ??0PUKey@@QAE@HMMMM@Z
     ARTS_EXPORT PUKey(i32 menu_id, f32 x, f32 y, f32 width, f32 height);
 
-    // ??_GPUKey@@UAEPAXI@Z
-    // ??_EPUKey@@UAEPAXI@Z
     // ??1PUKey@@UAE@XZ
-    ARTS_EXPORT ~PUKey() override;
+    ~PUKey() override;
 
 private:
     // ?PreSetup@PUKey@@EAEXXZ
-    ARTS_EXPORT void PreSetup() override;
+    void PreSetup() override;
 
     // ?PostSetup@PUKey@@EAEXXZ
-    ARTS_EXPORT void PostSetup() override;
+    void PostSetup() override;
 
     Ptr<mmTextNode> text_node_;
     i32 key_count_ {};

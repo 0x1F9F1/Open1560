@@ -30,8 +30,6 @@ public:
     ARTS_IMPORT agiLighter();
 
 protected:
-    // ??_EagiLighter@@MAEPAXI@Z
-    // ??_GagiLighter@@MAEPAXI@Z
     // ??1agiLighter@@MAE@XZ
     ARTS_EXPORT virtual ~agiLighter() = default;
 
@@ -104,8 +102,6 @@ public:
     // ??0agiMonoLighter@@QAE@XZ
     ARTS_IMPORT agiMonoLighter();
 
-    // ??_GagiMonoLighter@@UAEPAXI@Z
-    // ??_EagiMonoLighter@@UAEPAXI@Z
     // ??1agiMonoLighter@@UAE@XZ
     ARTS_EXPORT ~agiMonoLighter() override = default;
 
@@ -121,8 +117,6 @@ public:
     // ??0agiRGBLighter@@QAE@XZ
     ARTS_IMPORT agiRGBLighter();
 
-    // ??_GagiRGBLighter@@UAEPAXI@Z
-    // ??_EagiRGBLighter@@UAEPAXI@Z
     // ??1agiRGBLighter@@UAE@XZ
     ARTS_EXPORT ~agiRGBLighter() override = default;
 

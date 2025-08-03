@@ -26,8 +26,6 @@ public:
     // ??0mmAnimPlane@@QAE@XZ
     ARTS_IMPORT mmAnimPlane();
 
-    // ??_EmmAnimPlane@@UAEPAXI@Z
-    // ??_GmmAnimPlane@@UAEPAXI@Z
     // ??1mmAnimPlane@@UAE@XZ
     ARTS_IMPORT ~mmAnimPlane() override;
 

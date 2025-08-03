@@ -26,8 +26,6 @@ public:
     // ??0PUDebug@@QAE@HMMMM@Z
     ARTS_IMPORT PUDebug(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
-    // ??_EPUDebug@@UAEPAXI@Z
-    // ??_GPUDebug@@UAEPAXI@Z
     // ??1PUDebug@@UAE@XZ
     ARTS_EXPORT ~PUDebug() override = default;
 

@@ -27,7 +27,6 @@ public:
     // ??0mmPed@@QAE@XZ
     ARTS_IMPORT mmPed();
 
-    // ??_EmmPed@@UAEPAXI@Z
     // ??1mmPed@@UAE@XZ
     ARTS_EXPORT ~mmPed() override = default;
 
@@ -60,7 +59,6 @@ public:
     // ??0mmPedManager@@QAE@XZ
     ARTS_IMPORT mmPedManager();
 
-    // ??_EmmPedManager@@UAEPAXI@Z
     // ??1mmPedManager@@UAE@XZ
     ARTS_EXPORT ~mmPedManager() override = default;
 

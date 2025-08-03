@@ -26,8 +26,6 @@ public:
     // ??0mmAnimSpline@@QAE@XZ
     ARTS_IMPORT mmAnimSpline();
 
-    // ??_EmmAnimSpline@@UAEPAXI@Z
-    // ??_GmmAnimSpline@@UAEPAXI@Z | unused
     // ??1mmAnimSpline@@UAE@XZ
     ARTS_IMPORT ~mmAnimSpline() override;
 

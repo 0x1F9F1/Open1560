@@ -26,8 +26,6 @@ public:
     // ??0mmRecord@@QAE@XZ
     ARTS_IMPORT mmRecord();
 
-    // ??_EmmRecord@@UAEPAXI@Z
-    // ??_GmmRecord@@UAEPAXI@Z | unused
     // ??1mmRecord@@UAE@XZ
     ARTS_EXPORT ~mmRecord() override = default;
 

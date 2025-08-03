@@ -33,23 +33,23 @@ public:
     ARTS_EXPORT ~aiGoalBackup() = default;
 
     // ?Context@aiGoalBackup@@UAEHXZ
-    ARTS_EXPORT b32 Context() override;
+    b32 Context() override;
 
     // ?Init@aiGoalBackup@@UAEXXZ
-    ARTS_EXPORT void Init() override;
+    void Init() override;
 
     // ?Priority@aiGoalBackup@@UAEHXZ
-    ARTS_EXPORT b32 Priority() override;
+    b32 Priority() override;
 
     // ?Reset@aiGoalBackup@@UAEXXZ
-    ARTS_EXPORT void Reset() override;
+    void Reset() override;
 
     // ?Update@aiGoalBackup@@UAEXXZ
-    ARTS_EXPORT void Update() override;
+    void Update() override;
 
 private:
     // ?FinishedBackingUp@aiGoalBackup@@AAEXXZ
-    ARTS_EXPORT void FinishedBackingUp();
+    void FinishedBackingUp();
 
     aiRailSet* Rail {};
     mmCar* Car {};

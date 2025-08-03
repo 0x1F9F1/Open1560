@@ -29,8 +29,6 @@ public:
     // ??0PUMenuBase@@QAE@HMMMMPAD@Z
     ARTS_EXPORT PUMenuBase(i32 menu_id, f32 x, f32 y, f32 width, f32 height, char* background);
 
-    // ??_EPUMenuBase@@UAEPAXI@Z
-    // ??_GPUMenuBase@@UAEPAXI@Z
     // ??1PUMenuBase@@UAE@XZ
     ARTS_IMPORT ~PUMenuBase() override;
 

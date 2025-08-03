@@ -29,7 +29,6 @@ public:
     // ??0mmViewCS@@QAE@XZ
     ARTS_IMPORT mmViewCS();
 
-    // ??_EmmViewCS@@UAEPAXI@Z
     // ??1mmViewCS@@UAE@XZ
     ARTS_EXPORT ~mmViewCS() override = default;
 

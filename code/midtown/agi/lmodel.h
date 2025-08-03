@@ -50,8 +50,6 @@ inline agiLightModelParameters::~agiLightModelParameters() = default;
 class agiLightModel : public agiRefreshable
 {
 public:
-    // ??_EagiLightModel@@UAEPAXI@Z
-    // ??_GagiLightModel@@UAEPAXI@Z
     // ??1agiLightModel@@UAE@XZ
     ARTS_IMPORT ~agiLightModel() override;
 

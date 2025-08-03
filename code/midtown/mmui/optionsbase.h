@@ -26,8 +26,6 @@ public:
     // ??0OptionsBase@@QAE@H@Z
     ARTS_IMPORT OptionsBase(i32 arg1);
 
-    // ??_GOptionsBase@@UAEPAXI@Z
-    // ??_EOptionsBase@@UAEPAXI@Z
     // ??1OptionsBase@@UAE@XZ
     ARTS_IMPORT ~OptionsBase() override;
 

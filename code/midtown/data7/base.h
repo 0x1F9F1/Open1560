@@ -23,7 +23,6 @@
 class Base
 {
 public:
-    // ??_GBase@@UAEPAXI@Z
     // ??1Base@@UAE@XZ
     ARTS_EXPORT virtual ~Base() = 0;
 
@@ -31,7 +30,7 @@ public:
     ARTS_EXPORT virtual MetaClass* GetClass();
 
     // ?GetTypeNameV@Base@@UAEPADXZ
-    ARTS_EXPORT virtual const char* GetTypeNameV();
+    virtual const char* GetTypeNameV();
 
     // ?BeforeSave@Base@@UAEXXZ
     ARTS_EXPORT virtual void BeforeSave();
@@ -40,7 +39,7 @@ public:
     ARTS_EXPORT virtual void AfterLoad();
 
     // ?GetTypeName@Base@@QAEPADXZ
-    ARTS_EXPORT const char* GetTypeName();
+    const char* GetTypeName();
 
     META_DECLARE;
 };

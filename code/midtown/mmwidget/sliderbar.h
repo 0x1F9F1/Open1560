@@ -28,7 +28,6 @@ public:
     // ??0mmSlider@@QAE@XZ
     ARTS_IMPORT mmSlider();
 
-    // ??_EmmSlider@@UAEPAXI@Z
     // ??1mmSlider@@UAE@XZ
     ARTS_IMPORT ~mmSlider() override;
 

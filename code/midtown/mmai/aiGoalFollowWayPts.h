@@ -41,7 +41,6 @@ public:
     ARTS_IMPORT aiGoalFollowWayPts(char* pathfile, aiRailSet* railset, aiVehicleOpponent* vehicle_opponent,
         b16* is_backup, b16* is_finished, b16* is_stopped, aconst char* race_name, f32 max_throttle);
 
-    // ??_EaiGoalFollowWayPts@@QAEPAXI@Z | unused
     // ??1aiGoalFollowWayPts@@QAE@XZ
     ARTS_IMPORT ~aiGoalFollowWayPts();
 

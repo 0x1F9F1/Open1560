@@ -29,7 +29,6 @@ public:
     // ??0BaseCamCS@@QAE@XZ
     ARTS_IMPORT BaseCamCS();
 
-    // ??_EBaseCamCS@@UAEPAXI@Z
     // ??1BaseCamCS@@UAE@XZ
     ARTS_EXPORT ~BaseCamCS() override = default;
 

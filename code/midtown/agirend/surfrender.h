@@ -62,8 +62,6 @@ public:
     ARTS_IMPORT void Verts(agiVtx* arg1, i32 arg2) override;
 
 protected:
-    // ??_EagiSurfRenderer@@MAEPAXI@Z
-    // ??_GagiSurfRenderer@@MAEPAXI@Z
     // ??1agiSurfRenderer@@MAE@XZ
     ARTS_EXPORT ~agiSurfRenderer() override = default;
 

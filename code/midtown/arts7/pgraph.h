@@ -24,19 +24,19 @@ class asPerfGraph
 {
 public:
     // ??0asPerfGraph@@QAE@XZ
-    ARTS_EXPORT asPerfGraph();
+    asPerfGraph();
 
     // ??1asPerfGraph@@QAE@XZ
-    ARTS_EXPORT ~asPerfGraph();
+    ~asPerfGraph();
 
     // ?AddComponent@asPerfGraph@@QAEXPADPAMAAVVector3@@@Z
-    ARTS_EXPORT void AddComponent(const char* name, f32* value, const Vector3& color);
+    void AddComponent(const char* name, f32* value, const Vector3& color);
 
     // ?Cull@asPerfGraph@@QAEXXZ
-    ARTS_EXPORT void Cull();
+    void Cull();
 
     // ?Key@asPerfGraph@@QAEXH@Z
-    ARTS_EXPORT void Key(i32 vkey);
+    void Key(i32 vkey);
 
     // ?Update@asPerfGraph@@QAEXXZ
     ARTS_EXPORT void Update();

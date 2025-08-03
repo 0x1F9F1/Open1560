@@ -26,7 +26,6 @@ public:
     // ??0mmMapData@@QAE@XZ
     ARTS_IMPORT mmMapData();
 
-    // ??_EmmMapData@@UAEPAXI@Z
     // ??1mmMapData@@UAE@XZ
     ARTS_IMPORT ~mmMapData() override;
 

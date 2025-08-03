@@ -26,7 +26,6 @@ public:
     // ??0mmPlayerConfig@@QAE@XZ
     ARTS_IMPORT mmPlayerConfig();
 
-    // ??_EmmPlayerConfig@@UAEPAXI@Z
     // ??1mmPlayerConfig@@UAE@XZ
     ARTS_IMPORT ~mmPlayerConfig() override;
 

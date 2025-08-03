@@ -29,8 +29,6 @@ public:
     // ??0UILabel@@QAE@XZ
     ARTS_IMPORT UILabel();
 
-    // ??_GUILabel@@UAEPAXI@Z
-    // ??_EUILabel@@UAEPAXI@Z
     // ??1UILabel@@UAE@XZ
     ARTS_IMPORT ~UILabel() override;
 

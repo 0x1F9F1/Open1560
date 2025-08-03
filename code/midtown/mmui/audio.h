@@ -26,8 +26,6 @@ public:
     // ??0AudioOptions@@QAE@H@Z
     ARTS_IMPORT AudioOptions(i32 arg1);
 
-    // ??_GAudioOptions@@UAEPAXI@Z
-    // ??_EAudioOptions@@UAEPAXI@Z
     // ??1AudioOptions@@UAE@XZ
     ARTS_IMPORT ~AudioOptions() override;
 

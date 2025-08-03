@@ -35,7 +35,7 @@ public:
     ARTS_NON_COPYABLE(DataCache);
 
     // ?Age@DataCache@@QAEXXZ
-    ARTS_EXPORT void Age();
+    void Age();
 
     // ?Allocate@DataCache@@QAEPAXHI@Z
     ARTS_EXPORT void* Allocate(i32 handle, u32 size);
@@ -47,25 +47,25 @@ public:
     ARTS_EXPORT void EndObject(i32 handle);
 
     // ?Flush@DataCache@@QAEXXZ
-    ARTS_EXPORT void Flush();
+    void Flush();
 
     // ?GetStatus@DataCache@@QAEXAAI00@Z
-    ARTS_EXPORT void GetStatus(u32& objects, u32& bytes, u32& waste);
+    void GetStatus(u32& objects, u32& bytes, u32& waste);
 
     // ?Init@DataCache@@QAEXIHPAD@Z
-    ARTS_EXPORT void Init(u32 heap_size, i32 handle_count, const char* name);
+    void Init(u32 heap_size, i32 handle_count, const char* name);
 
     // ?Lock@DataCache@@QAEHPAH@Z
     ARTS_EXPORT b32 Lock(i32* handle);
 
     // ?Shutdown@DataCache@@QAEXXZ
-    ARTS_EXPORT void Shutdown();
+    void Shutdown();
 
     // ?Unlock@DataCache@@QAEXH@Z
     ARTS_EXPORT void Unlock(i32 handle);
 
     // ?UnlockAndFree@DataCache@@QAEXH@Z
-    ARTS_EXPORT void UnlockAndFree(i32 handle);
+    void UnlockAndFree(i32 handle);
 
     void Free(i32 handle);
 
@@ -87,17 +87,17 @@ public:
 
 private:
     // ?CleanEndOfHeap@DataCache@@AAEXXZ
-    ARTS_EXPORT void CleanEndOfHeap();
+    void CleanEndOfHeap();
 
     // ?InitObject@DataCache@@AAEXHPAHP6AXPAXH@Z1PAEI@Z
-    ARTS_EXPORT void InitObject(
+    void InitObject(
         i32 handle, i32* handle_ptr, DataCacheCallback relocate, void* context, u8* data, u32 maxsize);
 
     // ?Relocate@DataCache@@AAEXPAUDataCacheObject@@PAE@Z
-    ARTS_EXPORT void Relocate(DataCacheObject* dco, u8* ptr);
+    void Relocate(DataCacheObject* dco, u8* ptr);
 
     // ?Unload@DataCache@@AAEXH@Z
-    ARTS_EXPORT void Unload(i32 handle);
+    void Unload(i32 handle);
 
     DataCacheObject& GetObject(i32 handle);
 

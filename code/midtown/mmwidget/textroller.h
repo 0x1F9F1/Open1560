@@ -26,8 +26,6 @@ public:
     // ??0UITextRoller@@QAE@XZ
     ARTS_IMPORT UITextRoller();
 
-    // ??_GUITextRoller@@UAEPAXI@Z
-    // ??_EUITextRoller@@UAEPAXI@Z
     // ??1UITextRoller@@UAE@XZ
     ARTS_IMPORT ~UITextRoller() override;
 

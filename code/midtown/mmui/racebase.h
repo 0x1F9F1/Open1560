@@ -26,8 +26,6 @@ public:
     // ??0RaceMenuBase@@QAE@H@Z
     ARTS_IMPORT RaceMenuBase(i32 arg1);
 
-    // ??_GRaceMenuBase@@UAEPAXI@Z
-    // ??_ERaceMenuBase@@UAEPAXI@Z
     // ??1RaceMenuBase@@UAE@XZ
     ARTS_IMPORT ~RaceMenuBase() override;
 

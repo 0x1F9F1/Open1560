@@ -26,7 +26,6 @@ public:
     // ??0asAero@@QAE@XZ
     ARTS_IMPORT asAero();
 
-    // ??_EasAero@@UAEPAXI@Z
     // ??1asAero@@UAE@XZ | inline
     ARTS_EXPORT ~asAero() override = default;
 

@@ -34,8 +34,6 @@ class agiBitmap;
 class mmScreenClearFlunky final : public asNode
 {
 public:
-    // ??_EmmScreenClearFlunky@@UAEPAXI@Z
-    // ??_GmmScreenClearFlunky@@UAEPAXI@Z
     // ??1mmScreenClearFlunky@@UAE@XZ | inline
     ARTS_EXPORT ~mmScreenClearFlunky() override = default;
 
@@ -54,7 +52,6 @@ public:
     // ??0mmGameManager@@QAE@XZ
     ARTS_IMPORT mmGameManager();
 
-    // ??_EmmGameManager@@UAEPAXI@Z
     // ??1mmGameManager@@UAE@XZ
     ARTS_IMPORT ~mmGameManager() override;
 

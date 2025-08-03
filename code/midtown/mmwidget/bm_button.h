@@ -29,7 +29,6 @@ public:
     // ??0UIBMButton@@QAE@XZ
     ARTS_IMPORT UIBMButton();
 
-    // ??_EUIBMButton@@UAEPAXI@Z
     // ??1UIBMButton@@UAE@XZ
     ARTS_IMPORT ~UIBMButton() override;
 

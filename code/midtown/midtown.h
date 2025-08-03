@@ -27,31 +27,31 @@ class mmInterface;
 class Timer;
 
 // ?Application@@YAXHPAPAD@Z
-ARTS_EXPORT void Application(i32 argc, char** argv);
+void Application(i32 argc, char** argv);
 
 // ?ApplicationHelper@@YAXHPAPAD@Z
-ARTS_EXPORT void ApplicationHelper(i32 argc, char** argv);
+void ApplicationHelper(i32 argc, char** argv);
 
 // ?CreatePipeline@@YAPAVagiPipeline@@HPAPAD@Z
-ARTS_EXPORT Owner<agiPipeline> CreatePipeline(i32 argc, char** argv);
+Owner<agiPipeline> CreatePipeline(i32 argc, char** argv);
 
 // ?GameFilter@@YAHPAU_EXCEPTION_POINTERS@@@Z
-ARTS_EXPORT i32 GameFilter(_EXCEPTION_POINTERS* exception);
+i32 GameFilter(_EXCEPTION_POINTERS* exception);
 
 // ?GameLoop@@YAXPAVmmInterface@@PAVmmGameManager@@PAD@Z
-ARTS_EXPORT void GameLoop(mmInterface* mm_interface, mmGameManager* game_manager, char* replay_name);
+void GameLoop(mmInterface* mm_interface, mmGameManager* game_manager, char* replay_name);
 
 // ?GenerateLoadScreenName@@YAHXZ
-ARTS_EXPORT b32 GenerateLoadScreenName();
+b32 GenerateLoadScreenName();
 
 // ?InitAudioManager@@YAXXZ
-ARTS_EXPORT void InitAudioManager();
+void InitAudioManager();
 
 // ?APPTITLE@@3PADA
 ARTS_EXPORT extern aconst char* APPTITLE;
 
 // ?AllCars@@3HA
-ARTS_EXPORT extern b32 AllCars;
+extern b32 AllCars;
 
 // ?BlitzCheatTime@@3HA
 ARTS_EXPORT extern i32 BlitzCheatTime;
@@ -60,10 +60,10 @@ ARTS_EXPORT extern i32 BlitzCheatTime;
 ARTS_EXPORT extern char CityName[40];
 
 // ?CycleState@@3HA
-ARTS_EXPORT extern i32 CycleState;
+extern i32 CycleState;
 
 // ?CycleTime@@3MA
-ARTS_EXPORT extern f32 CycleTime;
+extern f32 CycleTime;
 
 // ?GlobalDamageScale@@3MA
 ARTS_EXPORT extern f32 GlobalDamageScale;
@@ -75,13 +75,13 @@ ARTS_EXPORT extern u8 GraphicsChange;
 ARTS_EXPORT extern u8 GraphicsPreviousMenu;
 
 // ?LoadScreen@@3PADA
-ARTS_EXPORT extern char LoadScreen[40];
+extern char LoadScreen[40];
 
 // ?LoadTimer@@3VTimer@@A
-ARTS_EXPORT extern Timer LoadTimer;
+extern Timer LoadTimer;
 
 // ?SystemStatsRecord@@3PAVmmGameRecord@@A
-ARTS_EXPORT extern mmGameRecord* SystemStatsRecord;
+extern mmGameRecord* SystemStatsRecord;
 
 // ?bHaveIME@@3HA
 ARTS_EXPORT extern b32 bHaveIME;
@@ -94,13 +94,13 @@ ARTS_EXPORT extern i32 page_override;
 
 #ifdef ARTS_DEV_BUILD
 // ?CycleTest@@3HA
-ARTS_EXPORT extern i32 CycleTest;
+extern i32 CycleTest;
 
 // ?DragTimer@@3HA
 ARTS_EXPORT extern i32 DragTimer;
 
 // ?SampleStats@@3HA
-ARTS_EXPORT extern i32 SampleStats;
+extern i32 SampleStats;
 #endif
 
 extern CallbackArray OnGameReset;

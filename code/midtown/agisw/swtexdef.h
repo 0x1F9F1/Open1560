@@ -27,16 +27,14 @@ public:
         : agiTexDef(pipe)
     {}
 
-    // ??_GagiSWTexDef@@UAEPAXI@Z
-    // ??_EagiSWTexDef@@UAEPAXI@Z
     // ??1agiSWTexDef@@UAE@XZ
-    ARTS_EXPORT ~agiSWTexDef() override = default;
+    ~agiSWTexDef() override = default;
 
     // ?BeginGfx@agiSWTexDef@@UAEHXZ
-    ARTS_EXPORT i32 BeginGfx() override;
+    i32 BeginGfx() override;
 
     // ?EndGfx@agiSWTexDef@@UAEXXZ
-    ARTS_EXPORT void EndGfx() override;
+    void EndGfx() override;
 
     // ?IsAvailable@agiSWTexDef@@UAEHXZ
     ARTS_IMPORT b32 IsAvailable() override;
@@ -51,7 +49,7 @@ public:
     ARTS_IMPORT void Set(Vector2& arg1, Vector2& arg2) override;
 
     // ?Unlock@agiSWTexDef@@UAEXAAUagiTexLock@@@Z
-    ARTS_EXPORT void Unlock(agiTexLock& arg1) override;
+    void Unlock(agiTexLock& arg1) override;
 
 private:
     i32 field_74 {};
@@ -69,16 +67,14 @@ public:
         : agiTexLut(pipe)
     {}
 
-    // ??_GagiSWTexLut@@UAEPAXI@Z
-    // ??_EagiSWTexLut@@UAEPAXI@Z
     // ??1agiSWTexLut@@UAE@XZ | inline
-    ARTS_EXPORT ~agiSWTexLut() override = default;
+    ~agiSWTexLut() override = default;
 
     // ?BeginGfx@agiSWTexLut@@UAEHXZ
     ARTS_IMPORT i32 BeginGfx() override;
 
     // ?EndGfx@agiSWTexLut@@UAEXXZ
-    ARTS_EXPORT void EndGfx() override;
+    void EndGfx() override;
 
     u32 fog_color_ {};
     u16 intensities_[8][256];

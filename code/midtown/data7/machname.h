@@ -19,4 +19,4 @@
 #pragma once
 
 // ?GetMachineName@@YAXPADH@Z
-ARTS_EXPORT void GetMachineName(char* buffer, isize buffer_len);
+void GetMachineName(char* buffer, isize buffer_len);

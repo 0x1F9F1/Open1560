@@ -51,82 +51,82 @@ class agiPipeline
 {
 public:
     // ??1agiPipeline@@UAE@XZ
-    ARTS_EXPORT virtual ~agiPipeline() = 0;
+    virtual ~agiPipeline() = 0;
 
     // ?Validate@agiPipeline@@UAEHXZ
-    ARTS_EXPORT virtual i32 Validate();
+    virtual i32 Validate();
 
     virtual i32 BeginGfx() = 0;
 
     virtual void EndGfx() = 0;
 
     // ?BeginFrame@agiPipeline@@UAEXXZ
-    ARTS_EXPORT virtual void BeginFrame();
+    virtual void BeginFrame();
 
     // ?BeginScene@agiPipeline@@UAEXXZ
-    ARTS_EXPORT virtual void BeginScene();
+    virtual void BeginScene();
 
     // ?EndScene@agiPipeline@@UAEXXZ
-    ARTS_EXPORT virtual void EndScene();
+    virtual void EndScene();
 
     // ?EndFrame@agiPipeline@@UAEXXZ
-    ARTS_EXPORT virtual void EndFrame();
+    virtual void EndFrame();
 
     virtual RcOwner<agiTexDef> CreateTexDef() = 0;
 
     virtual RcOwner<agiTexLut> CreateTexLut() = 0;
 
     // ?CreateMtlDef@agiPipeline@@UAEPAVagiMtlDef@@XZ
-    ARTS_EXPORT virtual RcOwner<agiMtlDef> CreateMtlDef();
+    virtual RcOwner<agiMtlDef> CreateMtlDef();
 
     virtual RcOwner<DLP> CreateDLP() = 0;
 
     virtual RcOwner<agiViewport> CreateViewport() = 0;
 
     // ?CreateLight@agiPipeline@@UAEPAVagiLight@@XZ
-    ARTS_EXPORT virtual RcOwner<agiLight> CreateLight();
+    virtual RcOwner<agiLight> CreateLight();
 
     // ?CreateLightModel@agiPipeline@@UAEPAVagiLightModel@@XZ
-    ARTS_EXPORT virtual RcOwner<agiLightModel> CreateLightModel();
+    virtual RcOwner<agiLightModel> CreateLightModel();
 
     // ?CreateBitmap@agiPipeline@@UAEPAVagiBitmap@@XZ
-    ARTS_EXPORT virtual RcOwner<agiBitmap> CreateBitmap();
+    virtual RcOwner<agiBitmap> CreateBitmap();
 
     // ?CopyBitmap@agiPipeline@@UAEXHHPAVagiBitmap@@HHHH@Z
-    ARTS_EXPORT virtual void CopyBitmap(
+    virtual void CopyBitmap(
         i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height);
 
     virtual void ClearAll(i32 color) = 0;
 
     // ?ClearRect@agiPipeline@@UAEXHHHHI@Z
-    ARTS_EXPORT virtual void ClearRect(i32 x, i32 y, i32 width, i32 height, u32 color);
+    virtual void ClearRect(i32 x, i32 y, i32 width, i32 height, u32 color);
 
     // ?Print@agiPipeline@@UAEXHHHPBD@Z | agi:print
-    ARTS_EXPORT virtual void Print(i32 x, i32 y, i32 color, const char* text);
+    virtual void Print(i32 x, i32 y, i32 color, const char* text);
 
     // ?PrintIs3D@agiPipeline@@UAEHXZ | agi:print
-    ARTS_EXPORT virtual b32 PrintIs3D();
+    virtual b32 PrintIs3D();
 
     // ?PrintInit@agiPipeline@@UAEXXZ | agi:print
-    ARTS_EXPORT virtual void PrintInit();
+    virtual void PrintInit();
 
     // ?PrintShutdown@agiPipeline@@UAEXXZ | agi:print
-    ARTS_EXPORT virtual void PrintShutdown();
+    virtual void PrintShutdown();
 
     // ?Defragment@agiPipeline@@UAEXXZ
-    ARTS_EXPORT virtual void Defragment();
+    virtual void Defragment();
 
     // ?LockFrameBuffer@agiPipeline@@UAEHAAVagiSurfaceDesc@@@Z
-    ARTS_EXPORT virtual b32 LockFrameBuffer(agiSurfaceDesc& arg1);
+    virtual b32 LockFrameBuffer(agiSurfaceDesc& arg1);
 
     // ?UnlockFrameBuffer@agiPipeline@@UAEXXZ
-    ARTS_EXPORT virtual void UnlockFrameBuffer();
+    virtual void UnlockFrameBuffer();
 
     // ?DumpStatus@agiPipeline@@UAEXAAUagiMemStatus@@@Z
-    ARTS_EXPORT virtual void DumpStatus(agiMemStatus& arg1);
+    virtual void DumpStatus(agiMemStatus& arg1);
 
     // ?BeginAllGfx@agiPipeline@@QAEHXZ
-    ARTS_EXPORT i32 BeginAllGfx();
+    i32 BeginAllGfx();
 
     // ?CopyClippedBitmap@agiPipeline@@QAEHHHPAVagiBitmap@@HHHH@Z
     ARTS_EXPORT b32 CopyClippedBitmap(
@@ -139,13 +139,13 @@ public:
     void ClearBorder(i32 x, i32 y, i32 width, i32 height, u32 color);
 
     // ?DumpStatus@agiPipeline@@QAEXXZ | unused
-    ARTS_EXPORT void DumpStatus();
+    void DumpStatus();
 
     // ?EndAllGfx@agiPipeline@@QAEXXZ
-    ARTS_EXPORT void EndAllGfx();
+    void EndAllGfx();
 
     // ?GetBitmap@agiPipeline@@QAEPAVagiBitmap@@PADMMH@Z
-    ARTS_EXPORT RcOwner<agiBitmap> GetBitmap(const char* name, f32 sx, f32 sy, i32 flags);
+    RcOwner<agiBitmap> GetBitmap(const char* name, f32 sx, f32 sy, i32 flags);
 
     // ?GetDLP@agiPipeline@@QAEPAVDLP@@PAD0PAVVector3@@HH@Z
     ARTS_IMPORT RcOwner<DLP> GetDLP(aconst char* arg1, aconst char* arg2, Vector3* arg3, i32 arg4, i32 arg5);
@@ -157,7 +157,7 @@ public:
     ARTS_IMPORT RcOwner<agiTexLut> GetTexLut(aconst char* arg1);
 
     // ?GetTexture@agiPipeline@@QAEPAVagiTexDef@@PADH@Z
-    ARTS_EXPORT RcOwner<agiTexDef> GetTexture(const char* name, i32 pack_shift);
+    RcOwner<agiTexDef> GetTexture(const char* name, i32 pack_shift);
 
     // ?GetTexture@agiPipeline@@QAEPAVagiTexDef@@HH@Z
     ARTS_EXPORT RcOwner<agiTexDef> GetTexture(i32 index, i32 pack_shift);
@@ -166,16 +166,16 @@ public:
     i32 Init(const char* name, i32 x, i32 y, i32 width, i32 height, i32 bit_depth, i32 flags, SDL_Window* window);
 
     // ?NotifyDelete@agiPipeline@@QAEXPAVagiRefreshable@@@Z
-    ARTS_EXPORT void NotifyDelete(agiRefreshable* ptr);
+    void NotifyDelete(agiRefreshable* ptr);
 
     // ?NotifyNew@agiPipeline@@QAEXPAVagiRefreshable@@@Z
-    ARTS_EXPORT void NotifyNew(agiRefreshable* ptr);
+    void NotifyNew(agiRefreshable* ptr);
 
     // ?RestoreAll@agiPipeline@@QAEXXZ
-    ARTS_EXPORT void RestoreAll();
+    void RestoreAll();
 
     // ?ValidateObject@agiPipeline@@QAEXPAVagiRefreshable@@@Z | unused
-    ARTS_EXPORT void ValidateObject(agiRefreshable* ptr);
+    void ValidateObject(agiRefreshable* ptr);
 
     static void RequestScreenShot(ConstString file_name);
 
@@ -284,7 +284,7 @@ public:
 
 protected:
     // ??0agiPipeline@@IAE@XZ
-    ARTS_EXPORT agiPipeline();
+    agiPipeline();
 
     static bool ScreenShotRequested();
     static void SaveScreenShot(Ptr<agiSurfaceDesc> surface);
@@ -361,7 +361,7 @@ inline agiPipeline* Pipe()
 SDL_Window* CreatePipelineAttachableWindow(char* title, i32 x, i32 y, i32 width, i32 height, void* ptr);
 
 // ?DestroyPipelineAttachableWindow@@YAXXZ
-ARTS_EXPORT void DestroyPipelineAttachableWindow();
+void DestroyPipelineAttachableWindow();
 
 // ?GetRootWindow@@YAPAXXZ
 SDL_Window* GetRootWindow();

@@ -24,7 +24,6 @@ public:
     // ??0CArrayList@@QAE@XZ | inline
     ARTS_IMPORT CArrayList();
 
-    // ??_ECArrayList@@QAEPAXI@Z | unused
     // ??1CArrayList@@QAE@XZ
     ARTS_IMPORT ~CArrayList();
 

@@ -47,42 +47,42 @@ class asMemoryAllocator
 {
 public:
     // ??0asMemoryAllocator@@QAE@XZ
-    ARTS_EXPORT asMemoryAllocator() = default;
+    asMemoryAllocator() = default;
 
     // ??1asMemoryAllocator@@QAE@XZ
-    ARTS_EXPORT ~asMemoryAllocator() = default;
+    ~asMemoryAllocator() = default;
 
     // ?Allocate@asMemoryAllocator@@QAEPAXI@Z
-    ARTS_EXPORT void* Allocate(usize size);
+    void* Allocate(usize size);
 
     void* Allocate(usize size, usize align, void* caller);
 
     // ?CheckPointer@asMemoryAllocator@@QAEXPAX@Z
-    ARTS_EXPORT void CheckPointer(void* ptr);
+    void CheckPointer(void* ptr);
 
     // ?Free@asMemoryAllocator@@QAEXPAX@Z
-    ARTS_EXPORT void Free(void* ptr);
+    void Free(void* ptr);
 
     void Free(void* ptr, usize size);
 
     // ?GetStats@asMemoryAllocator@@QAEXPAUasMemStats@@@Z
-    ARTS_EXPORT void GetStats(asMemStats* stats);
+    void GetStats(asMemStats* stats);
 
     void GetStats(asMemStats* stats, asMemSource* sources, usize* num_sources);
 
     // ?Init@asMemoryAllocator@@QAEXPAXIH@Z
-    ARTS_EXPORT void Init(void* heap, usize heap_size, b32 use_nodes);
+    void Init(void* heap, usize heap_size, b32 use_nodes);
 
     // ?Kill@asMemoryAllocator@@QAEXXZ
-    ARTS_EXPORT void Kill();
+    void Kill();
 
     // ?Reallocate@asMemoryAllocator@@QAEPAXPAXI@Z
-    ARTS_EXPORT void* Reallocate(void* ptr, usize size);
+    void* Reallocate(void* ptr, usize size);
 
     void* Reallocate(void* ptr, usize size, void* caller);
 
     // ?SanityCheck@asMemoryAllocator@@QAEXXZ
-    ARTS_EXPORT void SanityCheck() const;
+    void SanityCheck() const;
 
     void DumpStats();
 
@@ -128,13 +128,13 @@ private:
     struct FreeNode;
 
     // ?Link@asMemoryAllocator@@AAEXPAUnode@1@@Z
-    ARTS_EXPORT void Link(FreeNode* n);
+    void Link(FreeNode* n);
 
     // ?Unlink@asMemoryAllocator@@AAEXPAUnode@1@@Z
-    ARTS_EXPORT void Unlink(FreeNode* n);
+    void Unlink(FreeNode* n);
 
     // ?Verify@asMemoryAllocator@@AAEXPAX@Z
-    ARTS_EXPORT void Verify(void* ptr) const;
+    void Verify(void* ptr) const;
 
     FreeNode* FindFirstFit(usize size, usize align, usize offset);
 
@@ -171,6 +171,6 @@ private:
 ARTS_EXPORT extern asMemoryAllocator ALLOCATOR;
 
 // ?CURHEAP@@3PAVasMemoryAllocator@@A
-ARTS_EXPORT extern asMemoryAllocator* CURHEAP;
+extern asMemoryAllocator* CURHEAP;
 
 asMemoryAllocator* StaticAllocator();

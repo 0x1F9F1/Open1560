@@ -26,8 +26,6 @@ public:
     // ??0DriverMenu@@QAE@H@Z
     ARTS_IMPORT DriverMenu(i32 arg1);
 
-    // ??_EDriverMenu@@UAEPAXI@Z
-    // ??_GDriverMenu@@UAEPAXI@Z
     // ??1DriverMenu@@UAE@XZ
     ARTS_IMPORT ~DriverMenu() override;
 
@@ -44,7 +42,7 @@ public:
     ARTS_IMPORT void InitPlayerSelection();
 
     // ?NewPlayer@DriverMenu@@QAEXXZ | unused
-    ARTS_EXPORT void NewPlayer();
+    void NewPlayer();
 
     // ?PreSetup@DriverMenu@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;

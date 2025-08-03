@@ -32,7 +32,6 @@ public:
     // ??0mmAnimMgr@@QAE@XZ
     ARTS_IMPORT mmAnimMgr();
 
-    // ??_EmmAnimMgr@@UAEPAXI@Z
     // ??1mmAnimMgr@@UAE@XZ
     ARTS_IMPORT ~mmAnimMgr() override;
 
@@ -46,7 +45,7 @@ public:
     ARTS_IMPORT i32 Init(char* arg1, mmInstance* arg2, mmInstance** arg3, i32 arg4);
 
     // ?TestDOFAct@mmAnimMgr@@QAEXH@Z
-    ARTS_EXPORT void TestDOFAct(i32 arg1);
+    void TestDOFAct(i32 arg1);
 
     // ?UFOSwap@mmAnimMgr@@QAEXXZ
     ARTS_IMPORT void UFOSwap();

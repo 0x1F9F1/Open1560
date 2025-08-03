@@ -72,7 +72,7 @@ ARTS_IMPORT swSurface* swInitSurface(agiScreenVtx arg1, agiScreenVtx arg2, agiSc
 ARTS_EXPORT void swKill();
 
 // ?swLine@@YAXPAUagiScreenVtx@@0@Z
-ARTS_EXPORT void swLine(agiScreenVtx* start, agiScreenVtx* end);
+void swLine(agiScreenVtx* start, agiScreenVtx* end);
 
 // ?swLineInt@@YAXHHHHH@Z
 ARTS_IMPORT void swLineInt(i32 start_x, i32 start_y, i32 end_x, i32 end_y, i32 color);

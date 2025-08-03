@@ -26,8 +26,6 @@ public:
     // ??0ControlSetup@@QAE@H@Z
     ARTS_IMPORT ControlSetup(i32 arg1);
 
-    // ??_EControlSetup@@UAEPAXI@Z
-    // ??_GControlSetup@@UAEPAXI@Z
     // ??1ControlSetup@@UAE@XZ
     ARTS_IMPORT ~ControlSetup() override;
 
@@ -65,7 +63,7 @@ public:
     ARTS_IMPORT void LaunchJoyCpl();
 
     // ?POVCB@ControlSetup@@QAEXXZ | unused
-    ARTS_EXPORT void POVCB();
+    void POVCB();
 
     // ?PreSetup@ControlSetup@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;

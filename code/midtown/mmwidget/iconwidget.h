@@ -26,8 +26,6 @@ public:
     // ??0UIIconW@@QAE@XZ
     ARTS_IMPORT UIIconW();
 
-    // ??_GUIIconW@@UAEPAXI@Z
-    // ??_EUIIconW@@UAEPAXI@Z
     // ??1UIIconW@@UAE@XZ
     ARTS_IMPORT ~UIIconW() override;
 

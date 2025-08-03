@@ -28,7 +28,6 @@ public:
     // ??0mmTransmission@@QAE@XZ
     ARTS_IMPORT mmTransmission();
 
-    // ??_EmmTransmission@@UAEPAXI@Z
     // ??1mmTransmission@@UAE@XZ | inline
     ARTS_EXPORT ~mmTransmission() override = default;
 

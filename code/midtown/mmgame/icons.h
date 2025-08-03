@@ -28,8 +28,6 @@ public:
     // ??0mmIcons@@QAE@XZ
     ARTS_IMPORT mmIcons();
 
-    // ??_GmmIcons@@UAEPAXI@Z
-    // ??_EmmIcons@@UAEPAXI@Z
     // ??1mmIcons@@UAE@XZ
     ARTS_IMPORT ~mmIcons() override;
 

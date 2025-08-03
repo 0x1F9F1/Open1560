@@ -28,8 +28,6 @@ public:
     // ??0AudStream@@QAE@KHF@Z
     ARTS_IMPORT AudStream(ulong arg1, i32 arg2, i16 arg3);
 
-    // ??_EAudStream@@UAEPAXI@Z
-    // ??_GAudStream@@UAEPAXI@Z
     // ??1AudStream@@UAE@XZ
     ARTS_IMPORT ~AudStream() override;
 
@@ -58,7 +56,7 @@ public:
     ARTS_IMPORT void SetPan(f32 arg1, i32 arg2);
 
     // ?SetPlayPosition@AudStream@@QAEXK@Z | unused
-    ARTS_EXPORT void SetPlayPosition(ulong arg1);
+    void SetPlayPosition(ulong arg1);
 
     // ?SetPriority@AudStream@@QAEXH@Z
     ARTS_IMPORT void SetPriority(i32 arg1);

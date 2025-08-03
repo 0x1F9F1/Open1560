@@ -24,49 +24,48 @@ class FileStream final : public Stream
 {
 public:
     // ??0FileStream@@QAE@PAXHPAVFileSystem@@@Z
-    ARTS_EXPORT FileStream(void* buffer, isize buffer_size, FileSystem* file_system);
+    FileStream(void* buffer, isize buffer_size, FileSystem* file_system);
 
-    // ??_EFileStream@@UAEPAXI@Z
     // ??1FileStream@@UAE@XZ
-    ARTS_EXPORT ~FileStream() override;
+    ~FileStream() override;
 
     // ?Close@FileStream@@QAEHXZ
-    ARTS_EXPORT i32 Close();
+    i32 Close();
 
     // ?Create@FileStream@@QAEHPAD@Z
-    ARTS_EXPORT i32 Create(const char* path);
+    i32 Create(const char* path);
 
     void* GetMapping() override;
 
     // ?GetPagerHandle@FileStream@@UAEIXZ
-    ARTS_EXPORT usize GetPagerHandle() override;
+    usize GetPagerHandle() override;
 
     // ?Open@FileStream@@QAEHPADH@Z
-    ARTS_EXPORT i32 Open(const char* path, b32 read_only);
+    i32 Open(const char* path, b32 read_only);
 
     // ?RawRead@FileStream@@UAEHPAXH@Z
-    ARTS_EXPORT isize RawRead(void* ptr, isize size) override;
+    isize RawRead(void* ptr, isize size) override;
 
     // ?RawSeek@FileStream@@UAEHH@Z
-    ARTS_EXPORT i32 RawSeek(i32 pos) override;
+    i32 RawSeek(i32 pos) override;
 
     // ?RawSize@FileStream@@UAEHXZ
-    ARTS_EXPORT i32 RawSize() override;
+    i32 RawSize() override;
 
     // ?RawTell@FileStream@@UAEHXZ
-    ARTS_EXPORT i32 RawTell() override;
+    i32 RawTell() override;
 
     // ?RawWrite@FileStream@@UAEHPAXH@Z
-    ARTS_EXPORT isize RawWrite(const void* ptr, isize size) override;
+    isize RawWrite(const void* ptr, isize size) override;
 
     // ?Stderr@FileStream@@QAEHXZ | unused
-    ARTS_EXPORT i32 Stderr();
+    i32 Stderr();
 
     // ?Stdin@FileStream@@QAEHXZ
-    ARTS_EXPORT i32 Stdin();
+    i32 Stdin();
 
     // ?Stdout@FileStream@@QAEHXZ
-    ARTS_EXPORT i32 Stdout();
+    i32 Stdout();
 
 protected:
     i32 GetError(char* buf, isize buf_len) override;

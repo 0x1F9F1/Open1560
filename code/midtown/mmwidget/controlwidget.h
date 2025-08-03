@@ -28,8 +28,6 @@ public:
     // ??0UIControlWidget@@QAE@XZ
     ARTS_IMPORT UIControlWidget();
 
-    // ??_EUIControlWidget@@UAEPAXI@Z
-    // ??_GUIControlWidget@@UAEPAXI@Z | unused
     // ??1UIControlWidget@@UAE@XZ
     ARTS_IMPORT ~UIControlWidget() override;
 

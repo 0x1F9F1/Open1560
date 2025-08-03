@@ -146,7 +146,7 @@ static void TogglePipelineWindow()
 #endif
 
 // ?QuietPrinter@@YAXHPBDPAD@Z
-ARTS_EXPORT /*static*/ void QuietPrinter(i32 level, const char* format, std::va_list args)
+/*static*/ void QuietPrinter(i32 level, const char* format, std::va_list args)
 {
     if (level >= 3)
         DefaultPrinter(level, format, args);

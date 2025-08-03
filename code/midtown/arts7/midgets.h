@@ -31,108 +31,106 @@ class asMidgets final
 {
 public:
     // ??0asMidgets@@QAE@XZ
-    ARTS_EXPORT asMidgets();
+    asMidgets();
 
-    // ??_GasMidgets@@UAEPAXI@Z
-    // ??_EasMidgets@@UAEPAXI@Z
     // ??1asMidgets@@UAE@XZ
-    ARTS_EXPORT ~asMidgets() override;
+    ~asMidgets() override;
 
     // ?AddButton@asMidgets@@UAEPAVbkButton@@PADVCallback@@@Z
-    ARTS_EXPORT bkButton* AddButton(const char* arg1, Callback arg2) override;
+    bkButton* AddButton(const char* arg1, Callback arg2) override;
 
     // ?AddColor@asMidgets@@UAEXPADPAVVector3@@VCallback@@@Z
-    ARTS_EXPORT void AddColor(const char* arg1, Vector3* arg2, Callback arg3) override;
+    void AddColor(const char* arg1, Vector3* arg2, Callback arg3) override;
 
     // ?AddColor@asMidgets@@UAEXPADPAVVector4@@VCallback@@@Z
-    ARTS_EXPORT void AddColor(const char* arg1, Vector4* arg2, Callback arg3) override;
+    void AddColor(const char* arg1, Vector4* arg2, Callback arg3) override;
 
     // ?AddFileButton@asMidgets@@UAEXPADVCallback@@@Z
-    ARTS_EXPORT void AddFileButton(const char* arg1, Callback arg2) override;
+    void AddFileButton(const char* arg1, Callback arg2) override;
 
     // ?AddMex@asMidgets@@UAEPAVbkButton@@PADPAHHVCallback@@@Z
-    ARTS_EXPORT bkButton* AddMex(const char* arg1, i32* arg2, i32 arg3, Callback arg4) override;
+    bkButton* AddMex(const char* arg1, i32* arg2, i32 arg3, Callback arg4) override;
 
     // ?AddSlider@asMidgets@@UAEPAVbkSlider@@PAD0DDMVCallback@@@Z
-    ARTS_EXPORT bkSlider* AddSlider(const char* arg1, i8* arg2, i8 arg3, i8 arg4, f32 arg5, Callback arg6) override;
+    bkSlider* AddSlider(const char* arg1, i8* arg2, i8 arg3, i8 arg4, f32 arg5, Callback arg6) override;
 
     // ?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAMMMMVCallback@@@Z
-    ARTS_EXPORT bkSlider* AddSlider(const char* arg1, f32* arg2, f32 arg3, f32 arg4, f32 arg5, Callback arg6) override;
+    bkSlider* AddSlider(const char* arg1, f32* arg2, f32 arg3, f32 arg4, f32 arg5, Callback arg6) override;
 
     // ?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAFFFMVCallback@@@Z
-    ARTS_EXPORT bkSlider* AddSlider(const char* arg1, i16* arg2, i16 arg3, i16 arg4, f32 arg5, Callback arg6) override;
+    bkSlider* AddSlider(const char* arg1, i16* arg2, i16 arg3, i16 arg4, f32 arg5, Callback arg6) override;
 
     // ?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAHHHMVCallback@@@Z
-    ARTS_EXPORT bkSlider* AddSlider(const char* arg1, i32* arg2, i32 arg3, i32 arg4, f32 arg5, Callback arg6) override;
+    bkSlider* AddSlider(const char* arg1, i32* arg2, i32 arg3, i32 arg4, f32 arg5, Callback arg6) override;
 
     // ?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAGGGMVCallback@@@Z
-    ARTS_EXPORT bkSlider* AddSlider(const char* arg1, u16* arg2, u16 arg3, u16 arg4, f32 arg5, Callback arg6) override;
+    bkSlider* AddSlider(const char* arg1, u16* arg2, u16 arg3, u16 arg4, f32 arg5, Callback arg6) override;
 
     // ?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAIIIMVCallback@@@Z
-    ARTS_EXPORT bkSlider* AddSlider(const char* arg1, u32* arg2, u32 arg3, u32 arg4, f32 arg5, Callback arg6) override;
+    bkSlider* AddSlider(const char* arg1, u32* arg2, u32 arg3, u32 arg4, f32 arg5, Callback arg6) override;
 
     // ?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAEEEMVCallback@@@Z
-    ARTS_EXPORT bkSlider* AddSlider(const char* arg1, u8* arg2, u8 arg3, u8 arg4, f32 arg5, Callback arg6) override;
+    bkSlider* AddSlider(const char* arg1, u8* arg2, u8 arg3, u8 arg4, f32 arg5, Callback arg6) override;
 
     // ?AddText@asMidgets@@UAEPAVbkButton@@VCallback@@@Z
-    ARTS_EXPORT bkButton* AddText(Callback arg1) override;
+    bkButton* AddText(Callback arg1) override;
 
     // ?AddText@asMidgets@@UAEPAVbkButton@@PADVCallback@@@Z
-    ARTS_EXPORT bkButton* AddText(const char* arg1, Callback arg2) override;
+    bkButton* AddText(const char* arg1, Callback arg2) override;
 
     // ?AddTextSlider@asMidgets@@UAEPAVbkSlider@@PAD0PAHMVCallback@@@Z
-    ARTS_EXPORT bkSlider* AddTextSlider(
+    bkSlider* AddTextSlider(
         const char* arg1, const char* arg2, i32* arg3, f32 arg4, Callback arg5) override;
 
     // ?AddTitle@asMidgets@@UAEPAVbkWindow@@PAD@Z
-    ARTS_EXPORT bkWindow* AddTitle(const char* arg1) override;
+    bkWindow* AddTitle(const char* arg1) override;
 
     // TODO: Add bool overload to for AddToggle
 
     // ?AddToggle@asMidgets@@UAEPAVbkButton@@PADPAHHVCallback@@@Z
-    ARTS_EXPORT bkButton* AddToggle(const char* arg1, i32* arg2, i32 arg3, Callback arg4) override;
+    bkButton* AddToggle(const char* arg1, i32* arg2, i32 arg3, Callback arg4) override;
 
     // ?AddVector@asMidgets@@UAEXPADPAVVector2@@MMMVCallback@@@Z
-    ARTS_EXPORT void AddVector(const char* arg1, Vector2* arg2, f32 arg3, f32 arg4, f32 arg5, Callback arg6) override;
+    void AddVector(const char* arg1, Vector2* arg2, f32 arg3, f32 arg4, f32 arg5, Callback arg6) override;
 
     // ?AddVector@asMidgets@@UAEXPADPAVVector3@@MMMVCallback@@@Z
-    ARTS_EXPORT void AddVector(const char* arg1, Vector3* arg2, f32 arg3, f32 arg4, f32 arg5, Callback arg6) override;
+    void AddVector(const char* arg1, Vector3* arg2, f32 arg3, f32 arg4, f32 arg5, Callback arg6) override;
 
     // ?AddVector@asMidgets@@UAEXPADPAVVector4@@MMMVCallback@@@Z
-    ARTS_EXPORT void AddVector(const char* arg1, Vector4* arg2, f32 arg3, f32 arg4, f32 arg5, Callback arg6) override;
+    void AddVector(const char* arg1, Vector4* arg2, f32 arg3, f32 arg4, f32 arg5, Callback arg6) override;
 
     // ?Cull@asMidgets@@UAEXXZ
-    ARTS_EXPORT void Cull() override;
+    void Cull() override;
 
     // ?Off@asMidgets@@UAEXXZ
-    ARTS_EXPORT void Off() override;
+    void Off() override;
 
     // ?Open@asMidgets@@QAEXPAVasNode@@@Z
-    ARTS_EXPORT void Open(asNode* node);
+    void Open(asNode* node);
 
     // ?PopColumn@asMidgets@@UAEXXZ
-    ARTS_EXPORT void PopColumn() override;
+    void PopColumn() override;
 
     // ?PopSection@asMidgets@@UAEXXZ
-    ARTS_EXPORT void PopSection() override;
+    void PopSection() override;
 
     // ?PushColumn@asMidgets@@UAEXH@Z
-    ARTS_EXPORT void PushColumn(i32 arg1) override;
+    void PushColumn(i32 arg1) override;
 
     // ?PushSection@asMidgets@@UAEXPADH@Z
-    ARTS_EXPORT void PushSection(const char* arg1, b32 open) override;
+    void PushSection(const char* arg1, b32 open) override;
 
     // ?SetLabel@asMidgets@@UAEXPAD@Z
-    ARTS_EXPORT void SetLabel(const char* title) override;
+    void SetLabel(const char* title) override;
 
     // ?Toggle@asMidgets@@QAEXXZ
-    ARTS_EXPORT void Toggle();
+    void Toggle();
 
     // ?Update@asMidgets@@QAEXXZ
     ARTS_EXPORT void Update();
 
     // ?UpdateKey@asMidgets@@QAEXHH@Z
-    ARTS_EXPORT void UpdateKey(i32 key, i32 mods);
+    void UpdateKey(i32 key, i32 mods);
 
     bool IsOpen() const
     {
@@ -153,10 +151,10 @@ public:
 
 private:
     // ?AddItem@asMidgets@@AAEXPAVMI@@@Z
-    ARTS_EXPORT void AddItem(MI* item);
+    void AddItem(MI* item);
 
     // ?IsVisible@asMidgets@@AAEHH@Z
-    ARTS_EXPORT i32 IsVisible(i32 line);
+    i32 IsVisible(i32 line);
 
     i32 IndexBefore(i32 index, i32 count);
     i32 IndexAfter(i32 index, i32 count);

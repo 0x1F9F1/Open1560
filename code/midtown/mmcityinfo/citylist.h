@@ -26,10 +26,8 @@ public:
     // ??0mmCityList@@QAE@XZ
     ARTS_EXPORT mmCityList();
 
-    // ??_GmmCityList@@UAEPAXI@Z
-    // ??_EmmCityList@@UAEPAXI@Z
     // ??1mmCityList@@UAE@XZ
-    ARTS_EXPORT virtual ~mmCityList();
+    virtual ~mmCityList();
 
     // ?GetCityID@mmCityList@@QAEHPAD@Z
     ARTS_EXPORT i32 GetCityID(aconst char* name);
@@ -44,16 +42,16 @@ public:
     ARTS_EXPORT mmCityInfo* GetCurrentCity();
 
     // ?Init@mmCityList@@QAEXH@Z | unused
-    ARTS_EXPORT void Init(i32 arg1);
+    void Init(i32 arg1);
 
     // ?Load@mmCityList@@QAEXPAD@Z
-    ARTS_EXPORT void Load(aconst char* name);
+    void Load(aconst char* name);
 
     // ?LoadAll@mmCityList@@QAEXXZ
     ARTS_EXPORT void LoadAll();
 
     // ?Print@mmCityList@@QAEXXZ | unused
-    ARTS_EXPORT void Print();
+    void Print();
 
     // ?SetCurrentCity@mmCityList@@QAEXPAD@Z
     ARTS_EXPORT void SetCurrentCity(aconst char* name);

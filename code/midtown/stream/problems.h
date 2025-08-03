@@ -22,7 +22,7 @@
 ARTS_EXPORT void DumpProblems();
 
 // ?InitProblems@@YAXXZ
-ARTS_EXPORT void InitProblems();
+void InitProblems();
 
 // ?RegisterProblem@@YAXPAD00@Z
-ARTS_EXPORT void RegisterProblem(const char* message, const char* target, const char* location);
+void RegisterProblem(const char* message, const char* target, const char* location);

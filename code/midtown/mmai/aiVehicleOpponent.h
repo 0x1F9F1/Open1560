@@ -36,7 +36,6 @@ public:
     // ??0aiVehicleOpponent@@QAE@XZ
     ARTS_IMPORT aiVehicleOpponent();
 
-    // ??_EaiVehicleOpponent@@QAEPAXI@Z | unused
     // ??1aiVehicleOpponent@@QAE@XZ
     ARTS_IMPORT ~aiVehicleOpponent();
 
@@ -50,7 +49,7 @@ public:
     ARTS_IMPORT void AssignSounds(AudSound* arg1, AudSound* arg2, mmOpponentImpactAudio* arg3, AudSound* arg4);
 
     // ?DrawDamage@aiVehicleOpponent@@QAEXXZ | unused
-    ARTS_EXPORT void DrawDamage();
+    void DrawDamage();
 
     // ?DrawId@aiVehicleOpponent@@UAEXXZ
     ARTS_IMPORT void DrawId() override;
