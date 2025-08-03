@@ -26,9 +26,6 @@ define_dummy_symbol(mmgame_gameman);
 #include "data7/cache.h"
 #include "mmdyna/bndtmpl2.h"
 
-// ?DoScan@@YAXPAX@Z
-ARTS_IMPORT /*static*/ void DoScan(void* arg1);
-
 // ?randcall@@YAXXZ
 ARTS_IMPORT /*static*/ void randcall();
 

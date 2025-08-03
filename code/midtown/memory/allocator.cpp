@@ -20,8 +20,9 @@ define_dummy_symbol(memory_allocator);
 
 #include "allocator.h"
 
-#include "core/minwin.h"
 #include "stack.h"
+
+#include "core/minwin.h"
 
 #ifndef STATIC_HEAP_SIZE
 #    define STATIC_HEAP_SIZE 0x10000
@@ -171,13 +172,8 @@ struct asMemoryAllocator::Node
         return source;
     }
 
-#ifdef ARTS_DEBUG
     static constexpr usize DebugLowerGuardSize = sizeof(u32) * 4;
     static constexpr usize DebugUpperGuardSize = sizeof(u32) * 2;
-#else
-    static constexpr usize DebugLowerGuardSize = sizeof(u32) * 3;
-    static constexpr usize DebugUpperGuardSize = sizeof(u32) * 1;
-#endif
 
     // Only valid for debug allocators
     ARTS_FORCEINLINE bool CheckLowerGuard() const noexcept
@@ -220,13 +216,6 @@ struct asMemoryAllocator::FreeNode : asMemoryAllocator::Node
     FreeNode* PrevFree; // Prev free node in bucket
     FreeNode* NextFree; // Next free node in bucket
 };
-
-static ARTS_FORCEINLINE u32 GetBucketIndex(u32 size) noexcept
-{
-    unsigned long index;
-    _BitScanReverse(&index, size);
-    return index;
-}
 
 static inline void ARTS_FASTCALL HexDump16(char (&buffer)[65], const u8* data)
 {
@@ -276,18 +265,12 @@ static ARTS_NOINLINE b32 ARTS_FASTCALL HeapAssert(void* address, const char* mes
     return true;
 }
 
-void* asMemoryAllocator::Allocate(usize size)
-{
-    return Allocate(size, DefaultNewAlignment, nullptr);
-}
-
 void* asMemoryAllocator::Allocate(usize size, usize align, void* caller)
 {
-    static constexpr usize MinAllocSize = sizeof(FreeNode) - sizeof(Node);
+    static constexpr usize MinAllocSize = 8;
     static constexpr usize MinAllocAlign =
-        std::max<usize>(4, alignof(FreeNode)); // Node uses the lower 2 bits for other stuff
-    static constexpr usize SplitNodeThresh = std::max<usize>(sizeof(Node) + 16, sizeof(FreeNode));
-
+        std::max<usize>({8, alignof(FreeNode), SmallBucketStep}); // Node uses the lower 2 bits for other stuff
+    static constexpr usize SplitNodeThresh = std::max<usize>({sizeof(Node) + MinAllocSize, sizeof(FreeNode)});
     static_assert(SplitNodeThresh >= sizeof(FreeNode));
 
     check_size(Node, 0x8);
@@ -296,20 +279,20 @@ void* asMemoryAllocator::Allocate(usize size, usize align, void* caller)
     if (size == 0)
         return nullptr;
 
+    Lock();
+
     usize real_size = size;
 
     usize align_offset = 0;
 
     if (debug_)
     {
+        static_assert((Node::DebugLowerGuardSize % MinAllocAlign) == 0);
+
         size += Node::DebugLowerGuardSize + Node::DebugUpperGuardSize;
         align_offset += Node::DebugLowerGuardSize;
 
 #ifndef ARTS_FINAL
-        static u32 size_randomizer = static_cast<u32>(std::time(0));
-        size += size_randomizer >> 27;
-        size_randomizer = (size_randomizer * 214013) + 2531011;
-
         last_allocs_[alloc_id_++ % ARTS_SIZE(last_allocs_)] = reinterpret_cast<usize>(caller);
 #endif
     }
@@ -322,11 +305,9 @@ void* asMemoryAllocator::Allocate(usize size, usize align, void* caller)
     if (align < MinAllocAlign)
         align = MinAllocAlign;
 
-    Lock();
-
     Verify(nullptr);
 
-    FreeNode* n = FindFirstFit(size, align, align_offset);
+    FreeNode* n = FindFreeNode(size, align, align_offset);
 
     if (n == nullptr)
     {
@@ -489,11 +470,6 @@ void asMemoryAllocator::Free(void* ptr, usize size)
     Unlock();
 }
 
-void asMemoryAllocator::GetStats(asMemStats* stats)
-{
-    GetStats(stats, nullptr, nullptr);
-}
-
 void asMemoryAllocator::GetStats(asMemStats* stats, asMemSource* sources, usize* num_sources)
 {
     Lock();
@@ -572,38 +548,35 @@ void asMemoryAllocator::GetStats(asMemStats* stats, asMemSource* sources, usize*
     Unlock();
 }
 
-void asMemoryAllocator::Init(void* heap, usize heap_size, b32 use_nodes)
+void asMemoryAllocator::Init(void* heap, usize heap_size)
 {
     ArAssert(!initialized_, "Allocator already initialized");
-    ArAssert(use_nodes, "Linear allocator not supported");
 
     heap_ = heap;
     heap_size_ = heap_size;
     heap_used_ = heap_size;
-    use_nodes_ = use_nodes;
 
 #ifndef ARTS_FINAL
     alloc_id_ = 0;
+    num_calls_ = 0;
+    num_tests_ = 0;
 #endif
 
     initialized_ = true;
 
     std::memset(heap_, Node::FREED_FILL, heap_size_);
+    std::memset(buckets_, 0, sizeof(buckets_));
+    std::memset(live_buckets_, 0, sizeof(live_buckets_));
 
-    if (use_nodes)
-    {
-        std::memset(buckets_, 0, sizeof(buckets_));
+    FreeNode* start = static_cast<FreeNode*>(heap_);
+    start->Clear();
+    start->Size = heap_size - sizeof(Node);
+    start->SetPrev(nullptr);
+    Link(start);
 
-        FreeNode* start = static_cast<FreeNode*>(heap_);
-        start->Clear();
-        start->Size = heap_size - sizeof(Node);
-        start->SetPrev(nullptr);
-        Link(start);
+    Allocate(1, 1, nullptr);
 
-        Allocate(1, 1, nullptr);
-
-        SanityCheck();
-    }
+    SanityCheck();
 }
 
 void asMemoryAllocator::Kill()
@@ -613,11 +586,6 @@ void asMemoryAllocator::Kill()
 
     heap_ = nullptr;
     initialized_ = false;
-}
-
-void* asMemoryAllocator::Reallocate(void* ptr, usize size)
-{
-    return Reallocate(ptr, size, nullptr);
 }
 
 void* asMemoryAllocator::Reallocate(void* ptr, usize size, void* caller)
@@ -728,6 +696,14 @@ void asMemoryAllocator::DumpStats()
     Warningf(" Used Blocks: %10u", stats.nUsedBlocks);
     Warningf(" Free Blocks: %10u", stats.nFreeBlocks);
 
+#ifndef ARTS_FINAL
+    if (num_calls_)
+    {
+        Warningf("FindFreeNode: %zu calls, %zu tests (%.2f avg)", num_calls_, num_tests_,
+            static_cast<float>(num_tests_) / static_cast<float>(num_calls_));
+    }
+#endif
+
     for (u32 i = 0; i < ARTS_SIZE(buckets_); ++i)
     {
         u32 count = 0;
@@ -745,7 +721,7 @@ void asMemoryAllocator::DumpStats()
 
         if (count)
         {
-            Displayf("Bucket %2u: %4u nodes, 0x%05X KB (%u min, %u max, %u avg)", i, count, size >> 10, min_size,
+            Displayf("Free Bucket %2u: %4u nodes, 0x%05X KB (%u min, %u max, %u avg)", i, count, size >> 10, min_size,
                 max_size, size / count);
         }
     }
@@ -777,6 +753,20 @@ usize asMemoryAllocator::SizeOf(void* ptr) const
     return debug_ ? Node::From(ptr, true)->GetUserSize() : Node::From(ptr, false)->Size;
 }
 
+u32 asMemoryAllocator::GetBucketIndex(u32 size) noexcept
+{
+    size += sizeof(Node);
+
+    if (size <= SmallBucketLimit)
+    {
+        return size / SmallBucketStep;
+    }
+
+    unsigned long index;
+    _BitScanReverse(&index, size);
+    return index + (SmallBucketCount - SmallBucketBits);
+}
+
 void asMemoryAllocator::Link(FreeNode* n)
 {
     heap_used_ -= n->Size + sizeof(Node);
@@ -790,6 +780,8 @@ void asMemoryAllocator::Link(FreeNode* n)
 
     if (next)
         next->PrevFree = n;
+    else
+        live_buckets_[bucket / 32] |= (u32(1) << (bucket % 32));
 
     buckets_[bucket] = n;
 }
@@ -801,10 +793,19 @@ void asMemoryAllocator::Unlink(FreeNode* n)
     FreeNode* const prev = n->PrevFree;
     FreeNode* const next = n->NextFree;
 
+    const u32 bucket = GetBucketIndex(n->Size);
+
     if (prev)
+    {
         prev->NextFree = next;
+    }
     else
-        buckets_[GetBucketIndex(n->Size)] = next;
+    {
+        buckets_[bucket] = next;
+
+        if (!next)
+            live_buckets_[bucket / 32] &= ~(u32(1) << (bucket % 32));
+    }
 
     if (next)
         next->PrevFree = prev;
@@ -817,79 +818,128 @@ void asMemoryAllocator::Verify(void* ptr) const
 {
     ArAssert(heap_ && heap_size_, "Heap not initialized");
 
-    if (usize const lock_count = lock_count_)
-    {
-        lock_count_ = 0;
-        Warningf("Memory allocated or freed while locked!");
-        StackTraceback(16);
-        lock_count_ = lock_count;
-    }
-
     if (ptr)
     {
         ArAssert(ptr >= GetHeapStart(), "Pointer below heap");
         ArAssert(ptr < GetHeapEnd(), "Pointer above heap");
 
-        if (use_nodes_)
+        Node* const n = Node::From(ptr, debug_);
+
+        ArAssert(n->IsAllocated(), "Node not allocated");
+
+        b32 is_invalid = false;
+
+        u32 source = 0;
+
+        if (debug_)
         {
-            Node* const n = Node::From(ptr, debug_);
+            source = n->GetAllocSource();
 
-            ArAssert(n->IsAllocated(), "Node not allocated");
+            if (!n->CheckLowerGuard())
+                is_invalid |= HeapAssert(n->GetData(), "Lower Guard Word", source);
 
-            b32 is_invalid = false;
+            if (!n->CheckUpperGuard())
+                is_invalid |= HeapAssert(n->GetData(), "Upper Guard Word", source);
+        }
 
-            u32 source = 0;
+        if (Node* prev = n->GetPrev())
+        {
+            if (prev->GetNext() != n)
+                is_invalid |= HeapAssert(n, "Node->Prev->Next != Node", source);
+        }
+        else
+        {
+            if (n != GetHeapStart())
+                is_invalid |= HeapAssert(n, "Node->Prev == NULL, but Node != HeapBase", source);
+        }
 
-            if (debug_)
-            {
-                source = n->GetAllocSource();
+        if (Node* next = n->GetNext(); next != GetHeapEnd())
+        {
+            if (next->GetPrev() != n)
+                is_invalid |= HeapAssert(n, "Node->Next->Prev != Node", source);
+        }
 
-                if (!n->CheckLowerGuard())
-                    is_invalid |= HeapAssert(n->GetData(), "Lower Guard Word", source);
+        if (is_invalid)
+        {
+            SanityCheck();
 
-                if (!n->CheckUpperGuard())
-                    is_invalid |= HeapAssert(n->GetData(), "Upper Guard Word", source);
-            }
-
-            if (Node* prev = n->GetPrev())
-            {
-                if (prev->GetNext() != n)
-                    is_invalid |= HeapAssert(n, "Node->Prev->Next != Node", source);
-            }
-            else
-            {
-                if (n != GetHeapStart())
-                    is_invalid |= HeapAssert(n, "Node->Prev == NULL, but Node != HeapBase", source);
-            }
-
-            if (Node* next = n->GetNext(); next != GetHeapEnd())
-            {
-                if (next->GetPrev() != n)
-                    is_invalid |= HeapAssert(n, "Node->Next->Prev != Node", source);
-            }
-
-            if (is_invalid)
-            {
-                SanityCheck();
-
-                Abortf("Memory Allocator Node Corrupt");
-            }
+            Abortf("Memory Allocator Node Corrupt");
         }
     }
 }
 
-asMemoryAllocator::FreeNode* asMemoryAllocator::FindFirstFit(usize size, usize align, usize offset)
+asMemoryAllocator::FreeNode* asMemoryAllocator::FindFreeNode(usize size, usize align, usize offset)
 {
     align -= 1;
     offset = -isize(offset + sizeof(Node));
 
-    for (u32 i = GetBucketIndex(size + (size >> 1)); i < ARTS_SIZE32(buckets_); ++i)
+#ifndef ARTS_FINAL
+    ++num_calls_;
+#endif
+
+    const auto get_needed = [&](Node* n) { return size + ((offset - reinterpret_cast<usize>(n)) & align); };
+
+    u32 i = GetBucketIndex(size);
+
+    if (i < SmallBucketCount)
     {
+#ifndef ARTS_FINAL
+        ++num_tests_;
+#endif
+
+        // Check if we can fit in our small bucket
+        if (FreeNode* n = buckets_[i])
+        {
+            if (usize needed = get_needed(n); n->Size == needed)
+            {
+                return n;
+            }
+        }
+
+        // Otherwise, find a bigger node to break down.
+        i = GetBucketIndex(size * 2);
+    }
+
+    // Find the best-fitting node
+    for (; i < ARTS_SIZE32(buckets_); ++i)
+    {
+        // Skip over buckets without any elements.
+        if (unsigned long index; _BitScanForward(&index, live_buckets_[i / 32] >> (i % 32)))
+        {
+            i += index;
+        }
+        else
+        {
+            i |= 31;
+            continue;
+        }
+
+        FreeNode* best = nullptr;
+        usize best_waste = SIZE_MAX;
+
         for (FreeNode* n = buckets_[i]; n; n = n->NextFree)
         {
-            if (n->Size >= size + ((offset - reinterpret_cast<usize>(n)) & align))
-                return n;
+#ifndef ARTS_FINAL
+            ++num_tests_;
+#endif
+
+            if (usize needed = get_needed(n); n->Size >= needed)
+            {
+                usize waste = n->Size - needed;
+
+                if ((waste == 0) || (i < SmallBucketCount))
+                    return n;
+
+                if (waste < best_waste)
+                {
+                    best = n;
+                    best_waste = waste;
+                }
+            }
         }
+
+        if (best)
+            return best;
     }
 
     return nullptr;
@@ -991,8 +1041,6 @@ bool asMemoryAllocator::DoSanityCheck() const
     if (total_used + total_free != total)
         return true;
 
-    // Displayf("Sanity Checked %u nodes (%u used, %u free)", total, total_used, total_free);
-
     return errors != 0;
 }
 
@@ -1009,7 +1057,7 @@ asMemoryAllocator* StaticAllocator()
         allocator->SetDebug(true);
 
         alignas(64) static unsigned char heap[STATIC_HEAP_SIZE];
-        allocator->Init(heap, sizeof(heap), true);
+        allocator->Init(heap, sizeof(heap));
     }
 
     return allocator;

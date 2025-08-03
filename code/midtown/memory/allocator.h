@@ -52,9 +52,6 @@ public:
     // ??1asMemoryAllocator@@QAE@XZ
     ~asMemoryAllocator() = default;
 
-    // ?Allocate@asMemoryAllocator@@QAEPAXI@Z
-    void* Allocate(usize size);
-
     void* Allocate(usize size, usize align, void* caller);
 
     // ?CheckPointer@asMemoryAllocator@@QAEXPAX@Z
@@ -65,24 +62,17 @@ public:
 
     void Free(void* ptr, usize size);
 
-    // ?GetStats@asMemoryAllocator@@QAEXPAUasMemStats@@@Z
-    void GetStats(asMemStats* stats);
-
     void GetStats(asMemStats* stats, asMemSource* sources, usize* num_sources);
 
-    // ?Init@asMemoryAllocator@@QAEXPAXIH@Z
-    void Init(void* heap, usize heap_size, b32 use_nodes);
+    void Init(void* heap, usize heap_size);
 
     // ?Kill@asMemoryAllocator@@QAEXXZ
     void Kill();
 
-    // ?Reallocate@asMemoryAllocator@@QAEPAXPAXI@Z
-    void* Reallocate(void* ptr, usize size);
-
     void* Reallocate(void* ptr, usize size, void* caller);
 
-    // ?SanityCheck@asMemoryAllocator@@QAEXXZ
-    void SanityCheck() const;
+    // ?SanityCheck@asMemoryAllocator@@QBEXXZ
+    ARTS_EXPORT void SanityCheck() const;
 
     void DumpStats();
 
@@ -90,6 +80,8 @@ public:
 
     void SetDebug(bool enabled)
     {
+        ArAssert(!IsInitialized(), "Cannot change debug mode of initialized allocator");
+
         debug_ = enabled;
     }
 
@@ -127,6 +119,8 @@ private:
     struct Node;
     struct FreeNode;
 
+    u32 GetBucketIndex(u32 size) noexcept;
+
     // ?Link@asMemoryAllocator@@AAEXPAUnode@1@@Z
     void Link(FreeNode* n);
 
@@ -136,7 +130,7 @@ private:
     // ?Verify@asMemoryAllocator@@AAEXPAX@Z
     void Verify(void* ptr) const;
 
-    FreeNode* FindFirstFit(usize size, usize align, usize offset);
+    FreeNode* FindFreeNode(usize size, usize align, usize offset);
 
     Node* GetFirstNode() const;
 
@@ -150,20 +144,24 @@ private:
     void* heap_ {};
     usize heap_size_ {};
     std::atomic<usize> heap_used_ {};
-    mutable usize lock_count_ {};
-    b32 use_nodes_ {};
-    FreeNode* buckets_[32] {};
 
-#ifndef ARTS_STANDALONE
-    [[deprecated]] Node* last_ {};
-#endif
+    static constexpr usize SmallBucketBits = 7;
+    static constexpr usize SmallBucketStep = 8;
+    static constexpr usize SmallBucketLimit = 1 << SmallBucketBits;
+    static constexpr usize SmallBucketCount = SmallBucketLimit / SmallBucketStep;
+    static constexpr usize LargeBucketCount = 32 - SmallBucketBits;
+    static constexpr usize NumBuckets = SmallBucketCount + LargeBucketCount;
 
-    // New Fields
+    FreeNode* buckets_[NumBuckets] {};
+    u32 live_buckets_[(NumBuckets + 31) / 32] {};
+
     mutable RecursiveTicketLock lock_ {};
 
 #ifndef ARTS_FINAL
-    std::atomic<usize> alloc_id_ {};
+    usize alloc_id_ {};
     usize last_allocs_[16] {};
+    usize num_calls_ {};
+    usize num_tests_ {};
 #endif
 };
 

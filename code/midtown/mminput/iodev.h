@@ -41,7 +41,7 @@ public:
     ARTS_EXPORT i32 GetComponentType(i32 device, i32 component);
 
     // ?GetDescription@mmIODev@@QAEXPAD@Z
-    [[deprecated]] ARTS_EXPORT void GetDescription(char* buffer);
+    ARTS_EXPORT [[deprecated]] void GetDescription(char* buffer);
 
     void GetDescription(char* buffer, usize buflen);
 

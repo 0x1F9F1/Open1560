@@ -31,7 +31,6 @@ define_dummy_symbol(mmai_aiVehicleOpponent);
 #include "agiworld/quality.h"
 #include "data7/str.h"
 #include "dyna7/gfx.h"
-#include "memory/allocator.h"
 #include "mmai/aiaudiomanager.h"
 #include "mmcar/trailer.h"
 #include "mmcity/cullcity.h"
@@ -173,11 +172,5 @@ void aiVehicleOpponent::Update()
         Car.ReleaseTrailer();
     }
 
-    ALLOCATOR.CheckPointer(WayPts.get());
-    ALLOCATOR.CheckPointer(BackupGoal.get());
-    ALLOCATOR.CheckPointer(StopGoal.get());
     aiVehicle::Update();
-    ALLOCATOR.CheckPointer(WayPts.get());
-    ALLOCATOR.CheckPointer(BackupGoal.get());
-    ALLOCATOR.CheckPointer(StopGoal.get());
 }

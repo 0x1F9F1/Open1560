@@ -94,7 +94,7 @@ void asSafeHeap::Activate()
         VirtualAlloc(current_heap_, heap_size_, MEM_COMMIT, PAGE_READWRITE);
     }
 
-    ALLOCATOR.Init(current_heap_, heap_size_, true);
+    ALLOCATOR.Init(current_heap_, heap_size_);
 }
 
 void asSafeHeap::Deactivate()

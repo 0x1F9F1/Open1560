@@ -48,7 +48,7 @@ public:
     ARTS_IMPORT void ForceSettingAcrossConfigs(i32 arg1);
 
     // ?GetDescription@mmIO@@QAEXPAD@Z
-    [[deprecated]] ARTS_EXPORT void GetDescription(char* buffer);
+    ARTS_EXPORT [[deprecated]] void GetDescription(char* buffer);
 
     void GetDescription(char* buffer, usize buflen);
 

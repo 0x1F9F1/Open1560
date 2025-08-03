@@ -299,6 +299,8 @@ public:
     }
 };
 
+static mem::cmd_param PARAM_allocstats {"allocstats", "Show allocator stats after init"};
+
 static void MainPhase(i32 argc, char** argv)
 {
     LoadTimer.Reset();
@@ -498,6 +500,11 @@ static void MainPhase(i32 argc, char** argv)
 
     module_init.End();
     Displayf("********* Load time = %f seconds; %dK allocated.", LoadTimer.Time(), ALLOCATOR.GetHeapUsed() >> 10);
+
+    if (PARAM_allocstats)
+    {
+        ALLOCATOR.DumpStats();
+    }
 
     GameLoop(mm_interface.get(), game_manager.get(), replay_name);
 

@@ -44,22 +44,22 @@ public:
     Callback(Func func) noexcept;
 
     // ??0Callback@@QAE@P6AXXZ@Z
-    [[deprecated]] ARTS_EXPORT explicit Callback(Static0 func) noexcept;
+    ARTS_EXPORT [[deprecated]] explicit Callback(Static0 func) noexcept;
 
     // ??0Callback@@QAE@P6AXPAX@Z0@Z
-    [[deprecated]] ARTS_EXPORT explicit Callback(Static1 func, void* param) noexcept;
+    ARTS_EXPORT [[deprecated]] explicit Callback(Static1 func, void* param) noexcept;
 
     // ??0Callback@@QAE@P6AXPAX0@Z0@Z
-    [[deprecated]] ARTS_EXPORT explicit Callback(Static2 func, void* param) noexcept;
+    ARTS_EXPORT [[deprecated]] explicit Callback(Static2 func, void* param) noexcept;
 
     // ??0Callback@@QAE@P8Base@@AEXXZPAV1@@Z
-    [[deprecated]] ARTS_EXPORT explicit Callback(Member0 func, Base* this_ptr) noexcept;
+    ARTS_EXPORT [[deprecated]] explicit Callback(Member0 func, Base* this_ptr) noexcept;
 
     // ??0Callback@@QAE@P8Base@@AEXPAX@ZPAV1@0@Z
-    [[deprecated]] ARTS_EXPORT explicit Callback(Member1 func, Base* this_ptr, void* param) noexcept;
+    ARTS_EXPORT [[deprecated]] explicit Callback(Member1 func, Base* this_ptr, void* param) noexcept;
 
     // ??0Callback@@QAE@P8Base@@AEXPAX0@ZPAV1@0@Z
-    [[deprecated]] ARTS_EXPORT explicit Callback(Member2 func, Base* this_ptr, void* param) noexcept;
+    ARTS_EXPORT [[deprecated]] explicit Callback(Member2 func, Base* this_ptr, void* param) noexcept;
 
     // ?Call@Callback@@QAEXPAX@Z
     ARTS_EXPORT void Call(void* param = nullptr);
@@ -89,7 +89,7 @@ private:
 };
 
 // ?NullCallback@@3VCallback@@A
-[[deprecated]] ARTS_EXPORT extern Callback NullCallback;
+ARTS_EXPORT [[deprecated]] extern Callback NullCallback;
 
 inline Callback::Callback(std::nullptr_t) noexcept
     : Callback()
