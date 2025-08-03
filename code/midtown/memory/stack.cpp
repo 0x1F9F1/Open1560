@@ -392,10 +392,10 @@ i32 ExceptionFilter(_EXCEPTION_POINTERS* exception)
 }
 
 // ?DebugLogStream@@3PAVStream@@A
-ARTS_IMPORT extern Stream* DebugLogStream;
+ARTS_EXPORT Stream* DebugLogStream = nullptr;
 
 // ?DebugLogReading@@3HA
-ARTS_IMPORT extern b32 DebugLogReading;
+ARTS_EXPORT b32 DebugLogReading = false;
 
 void DebugLogInit(b32 reading)
 {
