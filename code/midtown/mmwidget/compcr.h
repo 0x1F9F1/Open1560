@@ -36,8 +36,8 @@ public:
     ARTS_IMPORT void Init(char* arg1, i32 arg2, char* arg3, i32 arg4, i32 arg5);
 
     // ?InitTitle@mmCompCRPlayer@@QAEXMMMMPAULocString@@000H@Z | unused
-    void InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, LocString* arg5, LocString* arg6,
-        LocString* arg7, LocString* arg8, i32 arg9);
+    void InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, LocString* arg5, LocString* arg6, LocString* arg7,
+        LocString* arg8, i32 arg9);
 
     // ?Reset@mmCompCRPlayer@@UAEXXZ
     ARTS_IMPORT void Reset() override;

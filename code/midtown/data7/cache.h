@@ -90,8 +90,7 @@ private:
     void CleanEndOfHeap();
 
     // ?InitObject@DataCache@@AAEXHPAHP6AXPAXH@Z1PAEI@Z
-    void InitObject(
-        i32 handle, i32* handle_ptr, DataCacheCallback relocate, void* context, u8* data, u32 maxsize);
+    void InitObject(i32 handle, i32* handle_ptr, DataCacheCallback relocate, void* context, u8* data, u32 maxsize);
 
     // ?Relocate@DataCache@@AAEXPAUDataCacheObject@@PAE@Z
     void Relocate(DataCacheObject* dco, u8* ptr);

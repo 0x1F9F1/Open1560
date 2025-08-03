@@ -28,8 +28,8 @@ class MetaClass
 {
 public:
     // ??0MetaClass@@QAE@PADIP6APAXH@ZP6AXPAXH@ZP6AXXZPAV0@@Z
-    MetaClass(const char* name, usize size, void* (*allocate)(isize), void (*free)(void*, isize),
-        void (*declare)(void), MetaClass* parent);
+    MetaClass(const char* name, usize size, void* (*allocate)(isize), void (*free)(void*, isize), void (*declare)(void),
+        MetaClass* parent);
 
     // ??1MetaClass@@QAE@XZ
     ARTS_EXPORT ~MetaClass();
@@ -127,8 +127,5 @@ private:
 
 check_size(MetaClass, 0x28);
 
-// ?__BadSafeCall@@YAXPADPAVBase@@@Z | unused
-void __BadSafeCall(const char* name, Base* ptr);
-
 // ?NoDefault@@3HA
-ARTS_IMPORT extern i32 NoDefault;
+extern b32 NoDefault;

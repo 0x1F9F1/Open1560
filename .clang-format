@@ -37,3 +37,4 @@ SpaceAfterCStyleCast: true
 SpaceInEmptyBlock: false
 TabWidth: 4
 ReflowComments: false
+AttributeMacros: [ARTS_IMPORT, ARTS_EXPORT, ARTS_RESTRICT, arnew, arnewa, as_ptr, as_raw, as_owner]

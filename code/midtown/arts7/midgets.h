@@ -79,8 +79,7 @@ public:
     bkButton* AddText(const char* arg1, Callback arg2) override;
 
     // ?AddTextSlider@asMidgets@@UAEPAVbkSlider@@PAD0PAHMVCallback@@@Z
-    bkSlider* AddTextSlider(
-        const char* arg1, const char* arg2, i32* arg3, f32 arg4, Callback arg5) override;
+    bkSlider* AddTextSlider(const char* arg1, const char* arg2, i32* arg3, f32 arg4, Callback arg5) override;
 
     // ?AddTitle@asMidgets@@UAEPAVbkWindow@@PAD@Z
     bkWindow* AddTitle(const char* arg1) override;

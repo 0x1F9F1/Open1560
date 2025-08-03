@@ -69,8 +69,7 @@ public:
     virtual FileInfo* NextEntry(FileInfo* info) = 0;
 
     // ?Search@FileSystem@@QAEHPAD00H0@Z
-    b32 Search(
-        const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, isize buffer_len);
+    b32 Search(const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, isize buffer_len);
 
     // ?OpenAny@FileSystem@@SAPAVStream@@PADHPAXH@Z
     static Owner<Stream> OpenAny(const char* path, b32 read_only, void* buffer, isize buffer_len);
@@ -112,14 +111,14 @@ private:
 
 check_size(FileSystem, 0x8);
 
-// ?FindFile@@YAPAVFileSystem@@PAD00H0@Z
-[[deprecated]] FileSystem* FindFile(
+// ?FindFile@@YAPAVFileSystem@@PBD00HPAD@Z
+ARTS_EXPORT [[deprecated]] FileSystem* FindFile(
     const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer);
 
 FileSystem* FindFile(const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, usize buffer_len);
 
-// ?OpenFile@@YAPAVStream@@PAD00H00@Z
-[[deprecated]] Owner<Stream> OpenFile(
+// ?OpenFile@@YAPAVStream@@PBD00HPAD0@Z
+ARTS_EXPORT [[deprecated]] Owner<Stream> OpenFile(
     const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, const char* desc);
 
 Owner<Stream> OpenFile(const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer,

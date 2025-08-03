@@ -19,3 +19,9 @@
 define_dummy_symbol(data7_pager);
 
 #include "pager.h"
+
+#include "data7/ipc.h"
+
+i32 EnablePaging = 0;
+
+ipcMessageQueue PAGER {};

@@ -50,7 +50,7 @@ check_size(PagerInfo_t, 0x10);
 #define ARTS_PAGE_BOUNDS 0x4
 
 // ?EnablePaging@@3HA
-ARTS_IMPORT extern i32 EnablePaging; // ARTS_PAGE_*
+ARTS_EXPORT extern i32 EnablePaging; // ARTS_PAGE_*
 
 // ?PAGER@@3VipcMessageQueue@@A
-ARTS_IMPORT extern ipcMessageQueue PAGER;
+extern ipcMessageQueue PAGER;

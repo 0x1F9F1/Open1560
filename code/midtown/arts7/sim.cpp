@@ -254,18 +254,6 @@ void asSimulation::Init(aconst char* proj_path, i32 argc, char** argv)
             Errorf("Message output disabled.");
             Quiet();
         }
-        else if (ARG("-com"))
-        {
-            i32 port = std::atoi(argv[i++]);
-            i32 rate = std::atoi(argv[i++]);
-
-            if (!port || !rate || !LogToCommPort(port, rate))
-                Errorf("Cannot open port '%s' (%d,%d)", argv[i - 2], port, rate);
-        }
-        else if (ARG("-mono"))
-        {
-            LogToMonochromeMonitor();
-        }
         else if (ARG("-record"))
         {
             eqReplay::InitRecord(argv[i++]);
@@ -342,7 +330,6 @@ void asSimulation::Init(aconst char* proj_path, i32 argc, char** argv)
     HierPrefix = ProjPath;
 
     arts_sprintf(ExecPath, "%s\\bin\\", proj_path);
-    arts_strcpy(ImageExts, ".tx1|.rla|.bmp|.tif|.TIF|.tga|.s3t");
 
     CheckLibraries();
 

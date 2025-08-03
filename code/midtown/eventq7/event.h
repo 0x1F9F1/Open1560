@@ -96,8 +96,8 @@ public:
     virtual void Refocus(void* window, i32 focused);
 
     // ?Mouse@eqEventMonitor@@UAEXPAXHHHHHHH@Z
-    virtual void Mouse(void* window, i32 new_buttons, i32 changed_buttons, i32 buttons, i32 mouse_x,
-        i32 mouse_y, i32 window_x, i32 window_y);
+    virtual void Mouse(void* window, i32 new_buttons, i32 changed_buttons, i32 buttons, i32 mouse_x, i32 mouse_y,
+        i32 window_x, i32 window_y);
 
     // ?Keyboard@eqEventMonitor@@UAEXPAXHHHH@Z
     virtual void Keyboard(void* window, i32 modifiers, i32 virtual_key, i32 ascii_key, i32 state);

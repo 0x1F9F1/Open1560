@@ -19,3 +19,6 @@
 define_dummy_symbol(data7_str);
 
 #include "str.h"
+
+char ExecPath[1024];
+char ProjPath[1024];

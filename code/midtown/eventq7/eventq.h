@@ -122,8 +122,8 @@ public:
     void Keyboard(void* window, i32 modifiers, i32 virtual_key, i32 ascii_key, i32 state) override;
 
     // ?Mouse@eqEventQ@@UAEXPAXHHHHHHH@Z
-    void Mouse(void* window, i32 new_buttons, i32 changed_buttons, i32 buttons, i32 mouse_x, i32 mouse_y,
-        i32 window_x, i32 window_y) override;
+    void Mouse(void* window, i32 new_buttons, i32 changed_buttons, i32 buttons, i32 mouse_x, i32 mouse_y, i32 window_x,
+        i32 window_y) override;
 
     // ?Pop@eqEventQ@@QAEHPATeqEvent@@@Z
     ARTS_EXPORT b32 Pop(eqEvent* event);

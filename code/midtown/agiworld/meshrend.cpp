@@ -718,7 +718,7 @@ void agiMeshSet::DrawShadow(u32 flags, const Vector4& plane, const Vector3& ligh
     }
 }
 
-static void (agiMeshSet::* const FirstPassFunctions[2][2][2][2])(u32* colors, Vector2* tex_coords, u32 color) {
+static void (agiMeshSet::*const FirstPassFunctions[2][2][2][2])(u32* colors, Vector2* tex_coords, u32 color) {
     {
         {
             {&agiMeshSet::FirstPass_HW_UV_CPV_noDYNTEX, &agiMeshSet::FirstPass_HW_UV_CPV_DYNTEX},

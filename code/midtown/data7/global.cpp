@@ -20,6 +20,8 @@ define_dummy_symbol(data7_global);
 
 #include "global.h"
 
+b32 DevelopmentMode = true;
+
 void HexDump(const void* data, i32 length)
 {
     const u8* data8 = static_cast<const u8*>(data);

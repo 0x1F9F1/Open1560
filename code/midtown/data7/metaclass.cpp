@@ -37,6 +37,8 @@ struct MetaField
 
 check_size(MetaField, 0x10);
 
+b32 NoDefault = true;
+
 MetaClass* MetaClass::ClassIndex[MAX_CLASSES] {};
 i32 MetaClass::NextSerial {};
 
@@ -370,9 +372,4 @@ void MetaClass::FreeFields()
     }
 
     fields_ = nullptr;
-}
-
-void __BadSafeCall(const char* name, Base* ptr)
-{
-    Quitf("SafeCall failed: '%s' is not a '%s'.", ptr->GetTypeName(), name);
 }

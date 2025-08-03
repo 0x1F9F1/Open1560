@@ -34,7 +34,7 @@ void ipcDeleteThread(usize thread);
 void ipcYield();
 
 // ?SynchronousMessageQueues@@3HA
-ARTS_IMPORT extern b32 SynchronousMessageQueues;
+extern b32 SynchronousMessageQueues;
 
 #define IPC_QUEUE_MODE_ASYNC 0
 #define IPC_QUEUE_MODE_BLOCKING 1

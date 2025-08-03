@@ -123,10 +123,7 @@ private:
 check_size(string, 0x8);
 
 // ?ExecPath@@3PADA
-ARTS_IMPORT extern char ExecPath[128];
-
-// ?ImageExts@@3PADA
-ARTS_IMPORT extern char ImageExts[128];
+ARTS_EXPORT extern char ExecPath[1024];
 
 // ?ProjPath@@3PADA
-ARTS_IMPORT extern char ProjPath[128];
+ARTS_EXPORT extern char ProjPath[1024];

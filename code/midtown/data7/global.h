@@ -22,4 +22,4 @@
 void HexDump(const void* data, i32 length);
 
 // ?DevelopmentMode@@3HA
-ARTS_IMPORT extern b32 DevelopmentMode;
+ARTS_EXPORT extern b32 DevelopmentMode;

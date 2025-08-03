@@ -276,8 +276,7 @@ protected:
     ARTS_IMPORT static void ARTS_FASTCALL ShadowInit(const Vector4& arg1, const Vector3& arg2);
 
     // ?ShadowTransform@agiMeshSet@@KIXPAVVector4@@PAVVector3@@H@Z | agiworld:meshrend
-    static void ARTS_FASTCALL ShadowTransform(
-        Vector4* ARTS_RESTRICT output, Vector3* ARTS_RESTRICT input, i32 count);
+    static void ARTS_FASTCALL ShadowTransform(Vector4* ARTS_RESTRICT output, Vector3* ARTS_RESTRICT input, i32 count);
 
     // ?ShadowTransformOutcode@agiMeshSet@@KIIPAEPAVVector4@@PAVVector3@@H@Z | agiworld:meshrend
     static u32 ARTS_FASTCALL ShadowTransformOutcode(
@@ -287,8 +286,7 @@ protected:
     static void ARTS_FASTCALL ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT verts, i32 count);
 
     // ?Transform@agiMeshSet@@KIXPAVVector4@@PAVVector3@@H@Z | agiworld:meshrend
-    static void ARTS_FASTCALL Transform(
-        Vector4* ARTS_RESTRICT output, Vector3* ARTS_RESTRICT input, i32 count);
+    static void ARTS_FASTCALL Transform(Vector4* ARTS_RESTRICT output, Vector3* ARTS_RESTRICT input, i32 count);
 
     // ?TransformOutcode@agiMeshSet@@KIIPAEPAVVector4@@PAVVector3@@H@Z | agiworld:meshrend
     static u32 ARTS_FASTCALL TransformOutcode(

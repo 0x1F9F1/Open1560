@@ -197,13 +197,6 @@ for sym in export_syms:
         sym_type = 'PROC' if sym in proc_syms else 'BYTE'
         extern_syms[sym] = f'EXTERN {sym}:{sym_type}'
 
-unused_exports = export_syms - visited
-
-if unused_exports:
-    print('Unused exports:')
-    for sym in unused_exports:
-        print(sym)
-
 bad_lines = set()
 
 for sym in dead_syms:
@@ -254,3 +247,10 @@ for folder, imps in sorted(dir_imports.items()):
     print(f'{folder:10} | {num_procs:>4} | {num_data:>4} | {total_imps:>5}')
 
 print(f'Total imported symbols: {len(import_syms)}')
+
+unused_exports = export_syms - visited
+
+if unused_exports:
+    print('Unused exports:')
+    for sym in unused_exports:
+        print(sym)

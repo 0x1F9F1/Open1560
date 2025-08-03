@@ -49,9 +49,6 @@ void PDebug(ARTS_FORMAT_STRING const char* format, ...);
 // ?DefaultPrinter@@YAXHPBDPAD@Z
 void DefaultPrinter(i32 level, const char* format, std::va_list args);
 
-// ?LogToCommPort@@YAHHH@Z
-ARTS_IMPORT i32 LogToCommPort(i32 arg1, i32 arg2);
-
 // ?LogToFile@@YAXXZ
 void LogToFile();
 
@@ -61,9 +58,6 @@ void LogToFile(const char* file);
 void CloseLogFile();
 
 void LogToConsole();
-
-// ?LogToMonochromeMonitor@@YAXXZ
-ARTS_IMPORT void LogToMonochromeMonitor();
 
 // ?Quit@@YAXPBD@Z
 void Quit(const char* message = nullptr);
@@ -81,9 +75,6 @@ extern char MessageFifo[32][256];
 // ?MessageFirst@@3HA
 extern i32 MessageFirst;
 #endif
-
-// ?MonoPointer@@3PAGA
-ARTS_EXPORT extern u16* MonoPointer;
 
 // ?Printer@@3P6AXHPBDPAD@ZA
 extern void (*Printer)(i32 level, const char* format, std::va_list args);

@@ -22,16 +22,19 @@ define_dummy_symbol(data7_memstat);
 
 #include "memory/allocator.h"
 
-// ?getMem@@YAHXZ
-static isize getMem()
-{
-    return ALLOCATOR.GetHeapUsed();
-}
+b32 EnableMemStat = true;
 
 static constexpr const i32 MAX_CHECK = 16;
 
 static isize MemStatValues[MAX_CHECK] {};
 static const char* MemStatNames[MAX_CHECK] {};
+static i32 beginStackCount = 0;
+
+// ?getMem@@YAHXZ
+static isize getMem()
+{
+    return ALLOCATOR.GetHeapUsed();
+}
 
 void BeginMemStat(const char* name)
 {

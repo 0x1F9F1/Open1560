@@ -36,8 +36,6 @@ char MessageFifo[32][256];
 i32 MessageFirst = 0;
 #endif
 
-u16* MonoPointer = nullptr;
-
 void (*Printer)(i32 level, const char* format, std::va_list args) = DefaultPrinter;
 
 char __assertFailed[] = "Assertion failed (%s,%d): '%s'";

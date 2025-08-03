@@ -93,8 +93,7 @@ public:
     virtual RcOwner<agiBitmap> CreateBitmap();
 
     // ?CopyBitmap@agiPipeline@@UAEXHHPAVagiBitmap@@HHHH@Z
-    virtual void CopyBitmap(
-        i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height);
+    virtual void CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height);
 
     virtual void ClearAll(i32 color) = 0;
 

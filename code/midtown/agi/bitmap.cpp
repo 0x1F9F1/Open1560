@@ -25,6 +25,9 @@ define_dummy_symbol(agi_bitmap);
 #include "pipeline.h"
 #include "surface.h"
 
+HashTable BitmapHash {64, "BitmapHash"};
+aconst char* BitmapSearchPath = "bmp16"_xconst;
+
 agiBitmap::agiBitmap(agiPipeline* pipe)
     : agiRefreshable(pipe)
 {}

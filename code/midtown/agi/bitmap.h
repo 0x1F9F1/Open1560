@@ -90,13 +90,13 @@ protected:
     f32 height_scale_ {};
 
     b32 is_3D_ {};
-    u32 field_38 {1}; // Always 1 ?
+    [[deprecated]] u32 field_38 {1}; // Always 1 ?
 };
 
 check_size(agiBitmap, 0x3C);
 
 // ?BitmapHash@@3VHashTable@@A
-ARTS_IMPORT extern HashTable BitmapHash;
+extern HashTable BitmapHash;
 
 // ?BitmapSearchPath@@3PADA
-ARTS_IMPORT extern char* BitmapSearchPath;
+extern aconst char* BitmapSearchPath;

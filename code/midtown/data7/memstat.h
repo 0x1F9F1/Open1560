@@ -25,10 +25,7 @@ ARTS_EXPORT void BeginMemStat(const char* name);
 ARTS_EXPORT void EndMemStat();
 
 // ?EnableMemStat@@3HA
-ARTS_IMPORT extern i32 EnableMemStat;
-
-// ?beginStackCount@@3HA
-ARTS_IMPORT extern i32 beginStackCount;
+extern b32 EnableMemStat;
 
 struct MemStat
 {

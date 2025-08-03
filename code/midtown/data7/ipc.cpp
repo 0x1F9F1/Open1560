@@ -20,9 +20,11 @@ define_dummy_symbol(data7_ipc);
 
 #include "ipc.h"
 
+#include "memory/stack.h"
+
 #include "core/minwin.h"
 
-#include "memory/stack.h"
+b32 SynchronousMessageQueues = false;
 
 usize ipcCreateThread(ulong(ARTS_STDCALL* start)(void*), void* param, ulong* thread_id)
 {
