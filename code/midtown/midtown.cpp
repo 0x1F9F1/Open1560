@@ -69,11 +69,11 @@ define_dummy_symbol(midtown);
 #define SDL_MAIN_NEEDED
 #include <SDL.h>
 
-#include "core/minwin.h"
-
 #ifdef ARTS_ENABLE_OPENGL
 #    include "agigl/glpipe.h"
 #endif
+
+#include "core/minwin.h"
 
 #include <shellapi.h>
 
@@ -83,36 +83,37 @@ define_dummy_symbol(midtown);
 
 const char* VERSION_STRING = "Open1560: " __DATE__ " " __TIME__ " / " CI_BUILD_STRING;
 const char* DEFAULT_CITY = "chicago";
+aconst char* APPTITLE = "Midtown Madness!"_xconst;
 
-// ?GameCloseCallback@@YAXXZ
-ARTS_EXPORT /*static*/ void GameCloseCallback()
+b32 AllCars = false;
+i32 BlitzCheatTime = 0;
+char CityName[40] {};
+i32 CycleState = 0;
+f32 CycleTime = 0.0f;
+f32 GlobalDamageScale = 1.45f;
+u8 GraphicsChange = false;
+u8 GraphicsPreviousMenu = 0;
+char LoadScreen[40] {};
+Timer LoadTimer {};
+mmGameRecord* SystemStatsRecord = nullptr;
+b32 bHaveIME = false;
+ulong hImmContext = 0;
+i32 page_override = -1;
+
+#ifdef ARTS_DEV_BUILD
+i32 CycleTest;
+i32 DragTimer;
+i32 SampleStats;
+#endif
+
+static Callback GameResetCallbacks[32];
+CallbackArray OnGameReset {GameResetCallbacks, ARTS_SIZE(GameResetCallbacks)};
+
+static void GameCloseCallback()
 {
     MMSTATE.GameState = mmGameState::Menus;
     MMSTATE.Shutdown = true;
 }
-
-// ?TouchMemory@@YAXPAXH@Z
-ARTS_EXPORT /*static*/ void TouchMemory(void*, i32)
-{}
-
-// ?exeDirFile@@YAPADPAD0@Z
-ARTS_EXPORT /*static*/ char* exeDirFile(char* buffer, char* file)
-{
-    // FIXME: Unsafe
-    usize const buf_len = 0x80;
-
-    GetModuleFileNameA(NULL, buffer, buf_len);
-
-    if (char* folder = std::strrchr(buffer, '\\'))
-        folder[1] = '\0';
-
-    arts_strcat(buffer, buf_len, file);
-
-    return buffer;
-}
-
-static Callback GameResetCallbacks[32];
-CallbackArray OnGameReset {GameResetCallbacks, ARTS_SIZE(GameResetCallbacks)};
 
 static void CheckSystem()
 {
@@ -489,7 +490,6 @@ static void MainPhase(i32 argc, char** argv)
     MMSTATE.Shutdown = false;
 
     ALLOCATOR.SanityCheck();
-    // TouchMemory(ALLOCATOR.GetHeapStart(), ALLOCATOR.GetHeapSize());
 
     module_init.End();
     Displayf("********* Load time = %f seconds; %dK allocated.", LoadTimer.Time(), ALLOCATOR.GetHeapUsed() >> 10);

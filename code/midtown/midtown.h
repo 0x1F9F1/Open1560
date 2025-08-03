@@ -18,44 +18,6 @@
 
 #pragma once
 
-/*
-    midtown
-
-    0x4010B0 | class agiPipeline * __cdecl CreatePipeline(int,char * *) | ?CreatePipeline@@YAPAVagiPipeline@@HPAPAD@Z
-    0x4012D0 | int __cdecl GenerateLoadScreenName(void) | ?GenerateLoadScreenName@@YAHXZ
-    0x4014B0 | int __cdecl GameFilter(struct _EXCEPTION_POINTERS *) | ?GameFilter@@YAHPAU_EXCEPTION_POINTERS@@@Z
-    0x4015A0 | void __cdecl GameLoop(class mmInterface *,class mmGameManager *,char *) | ?GameLoop@@YAXPAVmmInterface@@PAVmmGameManager@@PAD@Z
-    0x401830 | void __cdecl ApplicationHelper(int,char * *) | ?ApplicationHelper@@YAXHPAPAD@Z
-    0x402E70 | void __cdecl TouchMemory(void *,int) | ?TouchMemory@@YAXPAXH@Z
-    0x402EC0 | char * __cdecl exeDirFile(char *,char *) | ?exeDirFile@@YAPADPAD0@Z
-    0x402F20 | void __cdecl GameCloseCallback(void) | ?GameCloseCallback@@YAXXZ
-    0x402F40 | void __cdecl InitAudioManager(void) | ?InitAudioManager@@YAXXZ
-    0x4030C0 | void __cdecl Application(int,char * *) | ?Application@@YAXHPAPAD@Z
-    0x4031A0 | _WinMain@16
-    0x403C00 | void __stdcall `vector constructor iterator'(void *,unsigned int,int,void (__thiscall*)(void *)) | ??_H@YGXPAXIHP6EX0@Z@Z
-    0x634680 | float CycleTime | ?CycleTime@@3MA
-    0x634684 | int page_override | ?page_override@@3HA
-    0x634688 | float GlobalDamageScale | ?GlobalDamageScale@@3MA
-    0x63468C | char * APPTITLE | ?APPTITLE@@3PADA
-    0x634690 | char * VERSION_STRING | ?VERSION_STRING@@3PADA
-    0x671D04 | int bHaveIME | ?bHaveIME@@3HA
-    0x671D08 | char * LoadScreen | ?LoadScreen@@3PADA
-    0x671D30 | int (__cdecl* __VtResumeSampling)(void) | ?__VtResumeSampling@@3P6AHXZA
-    0x671E38 | class Timer LoadTimer | ?LoadTimer@@3VTimer@@A
-    0x672040 | int (__cdecl* __VtPauseSampling)(void) | ?__VtPauseSampling@@3P6AHXZA
-    0x672044 | class mmGameRecord * SystemStatsRecord | ?SystemStatsRecord@@3PAVmmGameRecord@@A
-    0x672048 | unsigned long hImmContext | ?hImmContext@@3KA
-    0x672050 | char * CityName | ?CityName@@3PADA
-    0x672078 | int CycleTest | ?CycleTest@@3HA
-    0x67207C | int SampleStats | ?SampleStats@@3HA
-    0x672080 | int DragTimer | ?DragTimer@@3HA
-    0x672084 | int CycleState | ?CycleState@@3HA
-    0x672088 | unsigned char GraphicsChange | ?GraphicsChange@@3EA
-    0x67208C | unsigned char GraphicsPreviousMenu | ?GraphicsPreviousMenu@@3EA
-    0x672090 | int BlitzCheatTime | ?BlitzCheatTime@@3HA
-    0x672094 | int AllCars | ?AllCars@@3HA
-*/
-
 struct _EXCEPTION_POINTERS;
 class agiPipeline;
 class CallbackArray;
@@ -63,8 +25,6 @@ class mmGameManager;
 class mmGameRecord;
 class mmInterface;
 class Timer;
-
-// _WinMain@16 | void
 
 // ?Application@@YAXHPAPAD@Z
 ARTS_EXPORT void Application(i32 argc, char** argv);
@@ -88,63 +48,59 @@ ARTS_EXPORT b32 GenerateLoadScreenName();
 ARTS_EXPORT void InitAudioManager();
 
 // ?APPTITLE@@3PADA
-ARTS_IMPORT extern char* APPTITLE;
+ARTS_EXPORT extern aconst char* APPTITLE;
 
 // ?AllCars@@3HA
-ARTS_IMPORT extern i32 AllCars;
+ARTS_EXPORT extern b32 AllCars;
 
 // ?BlitzCheatTime@@3HA
-ARTS_IMPORT extern i32 BlitzCheatTime;
+ARTS_EXPORT extern i32 BlitzCheatTime;
 
 // ?CityName@@3PADA
-ARTS_IMPORT extern char CityName[40];
+ARTS_EXPORT extern char CityName[40];
 
 // ?CycleState@@3HA
-ARTS_IMPORT extern i32 CycleState;
+ARTS_EXPORT extern i32 CycleState;
+
+// ?CycleTime@@3MA
+ARTS_EXPORT extern f32 CycleTime;
+
+// ?GlobalDamageScale@@3MA
+ARTS_EXPORT extern f32 GlobalDamageScale;
+
+// ?GraphicsChange@@3EA
+ARTS_EXPORT extern u8 GraphicsChange;
+
+// ?GraphicsPreviousMenu@@3EA
+ARTS_EXPORT extern u8 GraphicsPreviousMenu;
+
+// ?LoadScreen@@3PADA
+ARTS_EXPORT extern char LoadScreen[40];
+
+// ?LoadTimer@@3VTimer@@A
+ARTS_EXPORT extern Timer LoadTimer;
+
+// ?SystemStatsRecord@@3PAVmmGameRecord@@A
+ARTS_EXPORT extern mmGameRecord* SystemStatsRecord;
+
+// ?bHaveIME@@3HA
+ARTS_EXPORT extern b32 bHaveIME;
+
+// ?hImmContext@@3KA
+ARTS_EXPORT extern ulong hImmContext; // TODO: Use usize/void*
+
+// ?page_override@@3HA
+ARTS_EXPORT extern i32 page_override;
 
 #ifdef ARTS_DEV_BUILD
 // ?CycleTest@@3HA
-ARTS_IMPORT extern i32 CycleTest;
-#endif
+ARTS_EXPORT extern i32 CycleTest;
 
-// ?CycleTime@@3MA
-ARTS_IMPORT extern f32 CycleTime;
-
-#ifdef ARTS_DEV_BUILD
 // ?DragTimer@@3HA
-ARTS_IMPORT extern i32 DragTimer;
-#endif
+ARTS_EXPORT extern i32 DragTimer;
 
-// ?GlobalDamageScale@@3MA
-ARTS_IMPORT extern f32 GlobalDamageScale;
-
-// ?GraphicsChange@@3EA
-ARTS_IMPORT extern u8 GraphicsChange;
-
-// ?GraphicsPreviousMenu@@3EA
-ARTS_IMPORT extern u8 GraphicsPreviousMenu;
-
-// ?LoadScreen@@3PADA
-ARTS_IMPORT extern char LoadScreen[40];
-
-// ?LoadTimer@@3VTimer@@A
-ARTS_IMPORT extern Timer LoadTimer;
-
-#ifdef ARTS_DEV_BUILD
 // ?SampleStats@@3HA
-ARTS_IMPORT extern i32 SampleStats;
+ARTS_EXPORT extern i32 SampleStats;
 #endif
-
-// ?SystemStatsRecord@@3PAVmmGameRecord@@A
-ARTS_IMPORT extern mmGameRecord* SystemStatsRecord;
-
-// ?bHaveIME@@3HA
-ARTS_IMPORT extern i32 bHaveIME;
-
-// ?hImmContext@@3KA
-ARTS_IMPORT extern ulong hImmContext; // TODO: Use usize/void*
-
-// ?page_override@@3HA
-ARTS_IMPORT extern i32 page_override;
 
 extern CallbackArray OnGameReset;
