@@ -54,7 +54,7 @@ define_dummy_symbol(arts7_sim);
 // ?PipelineInitialized@@3HA
 ARTS_IMPORT extern b32 PipelineInitialized;
 
-i32 InitPipeline(char* title, i32 argc, char** argv)
+i32 InitPipeline(const char* title, i32 argc, char** argv)
 {
     if (PipelineInitialized)
         Quitf("Tried to InitPipeline twice.");

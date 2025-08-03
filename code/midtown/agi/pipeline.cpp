@@ -350,7 +350,7 @@ RcOwner<agiTexDef> agiPipeline::GetTexture(i32 index, i32 pack_shift)
 }
 
 SDL_Window* CreatePipelineAttachableWindow(
-    char* title, i32 /*x*/, i32 /*y*/, i32 /*width*/, i32 /*height*/, void* /*ptr*/)
+    const char* title, i32 /*x*/, i32 /*y*/, i32 /*width*/, i32 /*height*/, void* /*ptr*/)
 {
     dxiWindowCreate(title, GetRendererInfo().Type);
 

@@ -104,7 +104,7 @@ void dxiDirectInputCreate()
 
 static mem::cmd_param PARAM_integrated {"integrated"};
 
-void dxiInit(char* title, i32 argc, char** argv)
+void dxiInit(const char* title, i32 argc, char** argv)
 {
 #define ARG(NAME) !std::strcmp(arg, NAME)
 

@@ -358,7 +358,7 @@ inline agiPipeline* Pipe()
 }
 
 // ?CreatePipelineAttachableWindow@@YAPAXPADHHHHPAX@Z
-SDL_Window* CreatePipelineAttachableWindow(char* title, i32 x, i32 y, i32 width, i32 height, void* ptr);
+SDL_Window* CreatePipelineAttachableWindow(const char* title, i32 x, i32 y, i32 width, i32 height, void* ptr);
 
 // ?DestroyPipelineAttachableWindow@@YAXXZ
 void DestroyPipelineAttachableWindow();

@@ -28,7 +28,7 @@ class agiSurfaceDesc;
 void dxiDirectInputCreate();
 
 // ?dxiInit@@YAXPADHPAPAD@Z
-void dxiInit(char* title, i32 argc, char** argv);
+void dxiInit(const char* title, i32 argc, char** argv);
 
 // ?dxiScreenShot@@YAXPAD@Z
 void dxiScreenShot(char* file_name);

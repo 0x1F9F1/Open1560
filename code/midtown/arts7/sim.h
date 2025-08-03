@@ -276,7 +276,7 @@ void InitBank(i32 argc, char** argv);
 #endif
 
 // ?InitPipeline@@YAHPADHPAPAD@Z
-i32 InitPipeline(char* title, i32 argc, char** argv);
+i32 InitPipeline(const char* title, i32 argc, char** argv);
 
 // ?ShutdownPipeline@@YAXXZ
 void ShutdownPipeline();
