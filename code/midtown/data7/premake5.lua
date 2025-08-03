@@ -32,8 +32,6 @@ arts_component "data7"
         "mmx.h",
         "pager.cpp",
         "pager.h",
-        "perfstat.cpp",
-        "perfstat.h",
         "printer.cpp",
         "printer.h",
         "quitf.cpp",
