@@ -22,4 +22,4 @@
 ARTS_EXPORT void dxiConfig(i32 argc, char** argv);
 
 // ?dxiCpuSpeed@@3HA
-ARTS_IMPORT extern i32 dxiCpuSpeed;
+ARTS_EXPORT extern i32 dxiCpuSpeed;

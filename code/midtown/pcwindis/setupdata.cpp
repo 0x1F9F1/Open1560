@@ -22,17 +22,40 @@ define_dummy_symbol(pcwindis_setupdata);
 
 #include "stream/stream.h"
 
-// ?guidtostr@@YAXPADPAU_GUID@@@Z
-ARTS_IMPORT /*static*/ void guidtostr(char* arg1, _GUID* arg2);
-
-// ?strtoguid@@YAXPAU_GUID@@PAD@Z
-ARTS_IMPORT /*static*/ void strtoguid(_GUID* arg1, char* arg2);
-
 dxiRendererInfo_t dxiInfo[16];
 i32 dxiRendererChoice = -1;
 i32 dxiRendererCount = 0;
 
 static const u32 ConfigFileVersion = 112;
+
+static void guidtostr(char* dst, size_t dstlen, GUID* guid)
+{
+    arts_sprintf(dst, dstlen, "%08x-%04x-%04x-%02x-%02x-%02x-%02x-%02x-%02x-%02x-%02x", guid->Data1, guid->Data2,
+        guid->Data3, guid->Data4[0], guid->Data4[1], guid->Data4[2], guid->Data4[3], guid->Data4[4], guid->Data4[5],
+        guid->Data4[6], guid->Data4[7]);
+}
+
+static bool strtoguid(GUID* guid, const char* src)
+{
+    unsigned int data[11] {};
+
+    if (arts_sscanf(src, "%08x-%04x-%04x-%02x-%02x-%02x-%02x-%02x-%02x-%02x-%02x", &data[0], &data[1], &data[2],
+            &data[3], &data[4], &data[5], &data[6], &data[7], &data[8], &data[9], &data[10]) != 11)
+    {
+        return false;
+    }
+
+    guid->Data1 = data[0];
+    guid->Data2 = static_cast<unsigned short>(data[1]);
+    guid->Data3 = static_cast<unsigned short>(data[2]);
+
+    for (int i = 0; i < 8; ++i)
+    {
+        guid->Data4[i] = static_cast<unsigned char>(data[i + 3]);
+    }
+
+    return true;
+}
 
 b32 dxiReadConfigFile()
 {
@@ -89,8 +112,10 @@ b32 dxiReadConfigFile()
         *std::strrchr(name, ']') = '\0';
         arts_strcpy(info.Name, &name[1]);
 
-        strtoguid(&info.DX6.Interface, interface_guid);
-        strtoguid(&info.DX6.Driver, driver_guid);
+        if (!strtoguid(&info.DX6.Interface, interface_guid))
+            return false;
+        if (!strtoguid(&info.DX6.Driver, driver_guid))
+            return false;
 
         for (i32 j = 0; j < info.ResCount; ++j)
         {
@@ -126,9 +151,9 @@ void dxiWriteConfigFile()
         output->Printf("Type=%d\n", info.Type);
 
         char guid[64];
-        guidtostr(guid, &info.DX6.Interface);
+        guidtostr(guid, ARTS_SIZE(guid), &info.DX6.Interface);
         output->Printf("InterfaceGuid=%s\n", guid);
-        guidtostr(guid, &info.DX6.Driver);
+        guidtostr(guid, ARTS_SIZE(guid), &info.DX6.Driver);
         output->Printf("DriverGuid=%s\n", guid);
 
         output->Printf("bSmoothAlpha=%d\n", info.SmoothAlpha);

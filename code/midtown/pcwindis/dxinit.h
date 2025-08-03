@@ -40,16 +40,13 @@ void dxiWindowCreate(const char* title, dxiRendererType type);
 
 void dxiWindowDestroy();
 
-// ?dxiDepth@@3HA
-ARTS_IMPORT extern i32 dxiDepth;
-
 #define DXI_FLAG_FULL_SCREEN 0x1
 #define DXI_FLAG_SYSTEM_MEMORY 0x2
 #define DXI_FLAG_DOUBLE_BUFFER 0x4
 #define DXI_FLAG_TRIPLE_BUFFER 0x8
 
 // ?dxiFlags@@3HA
-ARTS_IMPORT extern i32 dxiFlags;
+ARTS_EXPORT extern i32 dxiFlags;
 
 inline bool dxiIsFullScreen()
 {
@@ -71,20 +68,14 @@ inline bool dxiTripleBuffer()
     return dxiFlags & DXI_FLAG_TRIPLE_BUFFER;
 }
 
-// ?dxiHeight@@3HA
-ARTS_IMPORT extern i32 dxiHeight;
-
 // ?dxiIcon@@3HA
-ARTS_IMPORT extern i32 dxiIcon;
-
-// ?dxiWidth@@3HA
-ARTS_IMPORT extern i32 dxiWidth;
+ARTS_EXPORT extern i32 dxiIcon;
 
 // ?hwndMain@@3PAUHWND__@@A
-ARTS_IMPORT extern HWND__* hwndMain;
+ARTS_EXPORT extern HWND__* hwndMain;
 
 // ?lpDI@@3PAUIDirectInputA@@A
-ARTS_IMPORT extern IDirectInputA* lpDI;
+ARTS_EXPORT extern IDirectInputA* lpDI;
 
 typedef struct SDL_Window SDL_Window;
 

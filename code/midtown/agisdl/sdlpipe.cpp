@@ -56,10 +56,6 @@ i32 agiSDLPipeline::BeginGfx()
 
 void agiSDLPipeline::InitScaling()
 {
-    dxiWidth = horz_res_;
-    dxiHeight = vert_res_;
-    dxiDepth = bit_depth_;
-
     switch (i32 scaling_mode = PARAM_scaling.get_or(0))
     {
         case 0: // Stretched, Keep Aspect

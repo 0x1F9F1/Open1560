@@ -37,6 +37,12 @@ define_dummy_symbol(pcwindis_dxinit);
 #include <SDL_syswm.h>
 #include <SDL_video.h>
 
+i32 dxiFlags = DXI_FLAG_FULL_SCREEN | DXI_FLAG_DOUBLE_BUFFER;
+i32 dxiIcon = 0;
+
+HWND__* hwndMain = nullptr;
+IDirectInputA* lpDI = nullptr;
+
 SDL_Window* g_MainWindow = nullptr;
 
 template <typename T>
@@ -121,14 +127,6 @@ void dxiInit(char* title, i32 argc, char** argv)
         else if (ARG("-window"))
         {
             dxiFlags &= ~DXI_FLAG_FULL_SCREEN;
-        }
-        else if (ARG("-width"))
-        {
-            dxiWidth = std::atoi(argv[i++]);
-        }
-        else if (ARG("-height"))
-        {
-            dxiHeight = std::atoi(argv[i++]);
         }
     }
 

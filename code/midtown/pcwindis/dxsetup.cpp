@@ -37,6 +37,8 @@ define_dummy_symbol(pcwindis_dxsetup);
 static mem::cmd_param PARAM_config {"config"};
 static mem::cmd_param PARAM_sw {"sw"};
 
+i32 dxiCpuSpeed = 0;
+
 void dxiConfig([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
 {
     dxiCpuSpeed = ComputeCpuSpeed();
