@@ -45,22 +45,3 @@ public:
 };
 
 check_size(mmDofBangerInstance, 0x34);
-
-#if 0
-class mmFacadeBangerInstance final : public mmBangerInstance
-{
-public:
-    
-    
-    u8 gap1C[0x14];
-};
-
-check_size(mmFacadeBangerInstance, 0x30);
-
-class mmGlassBangerInstance final : public mmBangerInstance
-{
-private:
-    };
-
-check_size(mmGlassBangerInstance, 0x1C);
-#endif
