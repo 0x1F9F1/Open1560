@@ -2,7 +2,6 @@ VENDOR_DIR = os.getcwd()
 
 MEM_DIR = path.join(VENDOR_DIR, "mem")
 HEDLEY_DIR = path.join(VENDOR_DIR, "hedley")
-LUA_DIR = path.join(VENDOR_DIR, "lua-5.3.5")
 FREETYPE_DIR = path.join(VENDOR_DIR, "freetype-2.10.4")
 GLAD_DIR = path.join(VENDOR_DIR, "glad")
 MINIZ_DIR = path.join(VENDOR_DIR, "miniz")
@@ -54,27 +53,6 @@ function includeSDL2()
     includedirs { path.join(SDL2_DIR, "include") }
     libdirs { path.join(SDL2_DIR, "lib/x86") }
 end
-
--- function includeLua()
---     includedirs { LUA_DIR }
--- end
-
--- project "lua"
---     kind "StaticLib"
---     language "C++"
---     warnings "Off"
-
---     files
---     {
---         path.join(LUA_DIR, "*.h"),
---         path.join(LUA_DIR, "*.c")
---     }
-
---     excludes
---     {
---         path.join(LUA_DIR, "lua.c"),
---         path.join(LUA_DIR, "luac.c"),
---     }
 
 project "glad"
     kind "StaticLib"

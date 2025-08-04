@@ -117,7 +117,6 @@ project "Open1560"
         "arts_stream",
         "arts_vector7",
 
-        -- "lua",
         "SDL2",
         "SDL2main",
     }
