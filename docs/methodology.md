@@ -5,6 +5,7 @@
 * [IDA](#ida)
 
 # Versions
+
 | Build | Build Date | Name | Details |
 | --- | --- | --- | --- |
 | `1427` | `Mar  1 1999 18:23:06` | midtown.exe | Beta, Symbols, Debug |
@@ -80,6 +81,7 @@ Fix incorrect struct offsets
     * Includes certain cheats not found in 1549/1560
 * 1560 setup.exe references an unknown `vpbus.ar`.
 * 1589 was released three times:
+
     | Protection | Release Date | Name | Extra |
     | --- | --- | --- | --- |
     | SafeDisc | `03 November 1999 00:32:10` | mmpat.exe | Contains symbols for an unknown trial debug build dated `Aug 10 11:52:15 1999` |
@@ -89,11 +91,13 @@ Fix incorrect struct offsets
 # Retail Releases
 
 ## Gold
+
 | Name | Hash | Length |
 | --- | --- | --- |
 | `midtown.exe` | `2E4DAB549C8B789DF30BF1AA4DE4DC74234E0BA0` | 1972736 |
 
 ## English
+
 | Name | Hash | Length |
 | --- | --- | --- |
 | `audio.ar` | `4754F78BD6E537C822E533526882C9360AFA453F` | 54821984 |
@@ -102,14 +106,16 @@ Fix incorrect struct offsets
 | `ui.ar` | `B7CC8EA982C643635CA1D842BD16D740D2678314` | 19891168 |
 
 ## German
-Name | Hash | Length
---- | --- | ---
-`audio.ar` | `3B2A3DFFD6079C88FA003B138D044BA22CEEA0E3` | 64175024
-`core.ar` | `4058AC179CA888B0BC86F0A0394C70E99FDF56C2` | 91404016
-`mmlang.dll` | `F0058F3C63B03B6F76A3F6A1622C2010028C3012` | 52224
-`ui.ar` | `6687A23D1FD0867DE532AB3309E9A9AF621AA889` | 21073168
+
+| Name | Hash | Length |
+| --- | --- | --- |
+| `audio.ar` | `3B2A3DFFD6079C88FA003B138D044BA22CEEA0E3` | 64175024 |
+| `core.ar` | `4058AC179CA888B0BC86F0A0394C70E99FDF56C2` | 91404016 |
+| `mmlang.dll` | `F0058F3C63B03B6F76A3F6A1622C2010028C3012` | 52224 |
+| `ui.ar` | `6687A23D1FD0867DE532AB3309E9A9AF621AA889` | 21073168 |
 
 ## Japanese
+
 | Name | Hash | Length |
 | --- | --- | --- |
 | `audio.ar` | `5D8AE0E580058401BF644A993CE93B627113AEF8` | 50076688 |
@@ -118,6 +124,7 @@ Name | Hash | Length
 | `ui.ar` | `1165F55DCCE3466A28CEEF44DF3CBCCDBAF22E4E` | 17365728 |
 
 ## Russian
+
 | Name | Hash | Length |
 | --- | --- | --- |
 | `audio.ar` | `573DABF7E72DE213C6E9E597ACA2ACD292C3027C` | 54821984 |
@@ -137,34 +144,40 @@ Name | Hash | Length
 | `mmvwdemo.exe` | `450669FAB7B965DA740DB45B9D480E3A70A580A0` | 24231936 |
 
 ## mmdemo.exe
+
 | Name | Hash | Length |
 | --- | --- | --- |
 | `midtrial.ar` | `83D17588F78DC7A645DF5FC734E078A27E211874` | 85285616 |
 | `midtrial.exe` | `8AC67A1035B2736C079B1B545DA77B2833EF5AD5` | 1990656 |
 
 ## mmvwdemo.exe
+
 | Name | Hash | Length |
 | --- | --- | --- |
 | `midvwtrial.ar` | `F265DD7597A0C9D3189016474C0819BD8D519638` | 77003488 |
 | `midvwtrial.exe` | `975F7EB948A2CC7B5D755211C0246733BCB784C1` | 1991168 |
 
 ## mmpat.exe
+
 | Name | Hash | Length |
 | --- | --- | --- |
 | `midtown.exe` | `12EF71BCF9A81E7E30576DED5859E2CC6B9727CF` | 239863 |
 | `midtown.icd` | `E1EF98215090A1517EF8527CB51E1A0AA71A618A` | 2005549 |
 
 ## midtown1_patch_aspac.exe
+
 | Name | Hash | Length |
 | --- | --- | --- |
 | `midtown.exe` | `6A5356090489C3E715FB8A29334BB971B409D058` | 2005504 |
 
 ## mm1xppat.exe
+
 | Name | Hash | Length |
 | --- | --- | --- |
 | `midtown.exe` | `F9CFDDF30257DCE4C588C5F4F924FF6E7F9179EC` | 2005504 |
 
 ## 1560 / Sneak Preview Beta
+
 | Name | Hash | Length |
 | --- | --- | --- |
 | `audio.ar` | `7F38D809B6FEE8EB38020EF7A73AAB69EB89336D` | 55054704 |
@@ -178,6 +191,7 @@ Name | Hash | Length
 | `vpdisco.ar` | `63FCCF9EC7871E6C32098FE53195A1845AE2D6D9` | 177776 |
 
 ## 1427 Beta
+
 | Name | Hash | Length |
 | --- | --- | --- |
 | `midtown.ar` | `302403895A39FB31FDED5CEBD798A9FCA0A4B1AA` | 156897280 |
