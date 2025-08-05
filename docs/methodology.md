@@ -8,6 +8,7 @@
 
 | Build | Build Date | Name | Details |
 | --- | --- | --- | --- |
+| `1386` | `Feb 16 1999 12:24:33` | midtown.exe | Beta, Symbols, Debug |
 | `1427` | `Mar  1 1999 18:23:06` | midtown.exe | Beta, Symbols, Debug |
 | `1549` | `Mar 31 1999 17:02:43` | midtown.exe | Beta, Executable Only, SafeDisc |
 | `1560` | `Apr  2 1999 19:09:02` | midtown.exe | Beta, Symbols |
@@ -17,8 +18,12 @@
 | `1532 / VW DEMO`  | `Jul 29 1999 15:03:55` | midvwtrial.exe | Trial |
 | `1589` | `Sep 16 1999 11:00:21` | midtown.exe | Retail, SafeDisc + Clean |
 
+## 1386
+Earliest known build. 
+Used for beta testing. The CD included "MSReport", with information for uploading bug reports to Microsoft via FTP.
+
 ## 1427
-Earliest known build. Probably the one seen in GDC, March 1999.
+Probably the one seen in GDC, March 1999.
 
 ## 1549
 Found in an old .icd alongside the 1560 builds. Needs a custom mmlang.dll to run.
@@ -196,6 +201,13 @@ Fix incorrect struct offsets
 | --- | --- | --- |
 | `midtown.ar` | `302403895A39FB31FDED5CEBD798A9FCA0A4B1AA` | 156897280 |
 | `midtown.exe` | `D7FE4C77FB4707C5F302D778B2AB64849AEBEEF0` | 2655744 |
+
+## 1386 Beta
+
+| Name | Hash | Length |
+| --- | --- | --- |
+| `midtown.ar` | `939C0D4E1B0DD8D154A238A04F24FC7275770866` | 136241408 |
+| `midtown.exe` | `1EE0686BA9A9D5FAF230D8B2BB059F1CD4C3EF50` | 2583552 |
 
 ## Script for dumping file info
 ```ps

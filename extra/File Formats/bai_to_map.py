@@ -62,33 +62,67 @@ def calc_normal(a, b, c):
     except:
         return Vector3(0, 1, 0)
 
+
+# RACETRACK7: Version 0
+# C39: Version 1
+# Retail: Version 2
+BAI_VERSION = 2
+
 class aiPath:
     def load(self, file):
-        self.ID,\
-        self.NumVertexs,\
-        self.NumLanes,\
-        self.NumSidewalks,\
-        self.StopLightIndex,\
-        self.IntersectionType,\
-        self.Blocked,\
-        self.PedBlocked,\
-        self.Divided,\
-        self.IsFlat,\
-        self.HasBridge,\
-        self.Alley,\
-        self.RoadLength,\
-        self.SpeedLimit,\
-        self.StopLightName,\
-        self.OncomingPath,\
-        self.EdgeIndex,\
-        self.PathIndex = read_unpack(file, '<HHHHHHHHHHHHff32sIII')
+        if BAI_VERSION == 2:
+            self.ID,\
+            self.NumVertexs,\
+            self.NumLanes,\
+            self.NumSidewalks,\
+            self.StopLightIndex,\
+            self.IntersectionType,\
+            self.Blocked,\
+            self.PedBlocked,\
+            self.Divided,\
+            self.IsFlat,\
+            self.HasBridge,\
+            self.Alley,\
+            self.RoadLength,\
+            self.SpeedLimit,\
+            self.StopLightName,\
+            self.OncomingPath,\
+            self.EdgeIndex,\
+            self.PathIndex = read_unpack(file, '<HHHHHHHHHHHHff32sIII')
+            self.AlwaysBlocked = self.Blocked
+        else:
+            self.ID,\
+            self.NumVertexs,\
+            self.NumLanes,\
+            self.NumSidewalks,\
+            self.HasBridge,\
+            self.IntersectionType,\
+            self.Blocked,\
+            self.AlwaysBlocked,\
+            self.PedBlocked,\
+            self.Divided,\
+            self.IsFlat,\
+            self.RoadLength,\
+            self.SpeedLimit,\
+            self.StopLightName,\
+            self.OncomingPath,\
+            self.EdgeIndex,\
+            self.PathIndex = read_unpack(file, '<HHHHHHHHHHHff32sIII')
+            self.StopLightIndex = 0
+            self.Alley = 0
+
         self.SubSectionOffsets = read_unpack(file, '<{}f'.format(self.NumVertexs * (self.NumLanes + self.NumSidewalks)))
         self.CenterOffsets = read_unpack(file, '<{}f'.format(self.NumVertexs))
         self.IntersectionIds = read_unpack(file, '<2I')
-        self.LaneVertices = Vector3.readn(file, self.NumVertexs * (self.NumLanes + self.NumSidewalks))
 
-        # Center/Dividing line between the two sides of the road
-        self.CenterVertices = Vector3.readn(file, self.NumVertexs)
+        if BAI_VERSION == 0:
+            self.LaneVertices = Vector3.readn(file, self.NumVertexs * self.NumLanes)
+            self.CenterVertices = None
+        else:
+            self.LaneVertices = Vector3.readn(file, self.NumVertexs * (self.NumLanes + self.NumSidewalks))
+            # Center/Dividing line between the two sides of the road
+            self.CenterVertices = Vector3.readn(file, self.NumVertexs)
+
         self.VertXDirs = Vector3.readn(file, self.NumVertexs)
         self.Normals = Vector3.readn(file, self.NumVertexs)
         self.VertZDirs = Vector3.readn(file, self.NumVertexs)
@@ -217,16 +251,14 @@ class MiniParser:
         self.indent -= 1
         self.print('}\n')
 
-
 city_name = 'CHICAGO'
-# city_name = 'RACETRACK2'
 
 game_dir = open('../../GameDirectory.txt', 'r').read().strip()
 city_dir = r'{}dev/CITY/{}/'.format(game_dir, city_name)
 
 ai_map = aiMap()
 
-with open('{}{}_ORIG.bai'.format(city_dir, city_name), 'rb') as f:
+with open('{}{}.bai'.format(city_dir, city_name), 'rb') as f:
     ai_map.load(f)
 
     here = f.tell()
@@ -253,11 +285,7 @@ for i, path in enumerate(ai_map.Paths):
     # 2: Yield (Unused)
     # 3: Continue
     assert path.IntersectionType in [0, 1, 3]
-
-    if path.IntersectionType == 0:
-        assert path.StopLightName == "tpsstop"
-    else:
-        assert path.StopLightName in ["tplttrafc", "tplttrafcdual"]
+    assert path.StopLightName in ["tpsstop", "tplttrafc", "tplttrafcdual"]
 
     sink_isect = path.LaneVertices[0]
     source_isect = path.LaneVertices[path.NumVertexs - 1]
@@ -308,7 +336,7 @@ for street_name, paths in streets:
     assert paths[0].Normals == list(reversed(paths[1].Normals))
     assert paths[0].Normals[0] == Vector3(0, 1, 0)
     assert paths[0].Normals[-1] == Vector3(0, 1, 0)
-    assert paths[0].CenterVertices == list(reversed(paths[1].CenterVertices))
+    # assert paths[0].CenterVertices == list(reversed(paths[1].CenterVertices))
 
     if paths[0].NumSidewalks != 0:
         for n in range(1, len(paths[0].Normals) - 1):
@@ -324,15 +352,17 @@ for street_name, paths in streets:
             if angle > 0.01:
                 print('Road {} has suspicious normal {}: Expected {}, Calculated {} ({:.2} degrees error)'.format(paths[0].ID, n, target, normal, angle))
 
-        for road in range(2):
-            path = paths[road]
+        if BAI_VERSION != 0:
+            for road in range(2):
+                path = paths[road]
 
-            assert path.Boundaries[path.NumVertexs:] == list(reversed(paths[road ^ 1].LBoundaries))
+                assert path.Boundaries[path.NumVertexs:] == list(reversed(paths[road ^ 1].LBoundaries))
 
-            for i in range(path.NumVertexs):
-                a = path.LaneVertices[i + (path.NumLanes * path.NumVertexs)]
-                b = (path.Boundaries[i] + path.Boundaries[i + path.NumVertexs]) * 0.5
-                assert a.Dist2(b) < 0.00001
+                for i in range(path.NumVertexs):
+                    a = path.LaneVertices[i + (path.NumLanes * path.NumVertexs)]
+                    b = (path.Boundaries[i] + path.Boundaries[i + path.NumVertexs]) * 0.5
+                    dist = a.Dist2(b)
+                    assert dist < 0.00001, dist
 
     with open('{}{}.road'.format(city_dir, street_name), 'w') as f:
         parser = MiniParser(f)
