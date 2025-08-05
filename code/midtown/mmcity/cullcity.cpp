@@ -25,6 +25,7 @@ define_dummy_symbol(mmcity_cullcity);
 #include "agi/rsys.h"
 #include "agisw/swrend.h"
 #include "agiworld/getmesh.h"
+#include "agiworld/meshlight.h"
 #include "agiworld/meshset.h"
 #include "agiworld/quality.h"
 #include "agiworld/texsheet.h"
@@ -233,4 +234,41 @@ void mmCullCity::Init(char* name, asCamera* camera)
     {
         delete StaticLog;
     }
+}
+
+static mem::cmd_param PARAM_conelighter {"conelighter", "Use agiConeLighter"};
+
+void fix_lighting()
+{
+    if (PARAM_conelighter)
+    {
+        mmInstance::DynamicLighter = agiConeLighter;
+        mmInstance::StaticLighter = agiConeLighter;
+        return;
+    }
+
+    switch (agiRQ.LightQuality)
+    {
+        case AGI_QUALITY_LOW:
+            mmInstance::StaticLighter = nullptr;
+            mmInstance::DynamicLighter = nullptr;
+            break;
+        case AGI_QUALITY_MEDIUM:
+            mmInstance::DynamicLighter = agiMeshLighterQuarter;
+            mmInstance::StaticLighter = agiMeshLighterQuarter;
+            break;
+        case AGI_QUALITY_HIGH:
+            mmInstance::DynamicLighter = agiMeshLighterQuarter;
+            mmInstance::StaticLighter = agiMeshLighterTriple;
+            break;
+        case AGI_QUALITY_VERY_HIGH:
+            mmInstance::DynamicLighter = agiMeshLighterTriple;
+            mmInstance::StaticLighter = agiMeshLighterTriple;
+            break;
+
+        default: Quitf("agiRQ.LightQuality = %d", agiRQ.LightQuality);
+    }
+
+    if (agiCurState.GetSoftwareRendering())
+        mmInstance::StaticLighter = nullptr;
 }

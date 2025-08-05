@@ -244,7 +244,7 @@ ARTS_IMPORT void fix_fog();
 #endif
 
 // ?fix_lighting@@YAXXZ
-ARTS_IMPORT void fix_lighting();
+ARTS_EXPORT void fix_lighting();
 
 #ifdef ARTS_DEV_BUILD
 // ?fix_shadow@@YAXXZ
