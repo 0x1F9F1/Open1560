@@ -19,3 +19,67 @@
 define_dummy_symbol(mmwidget_textfield);
 
 #include "textfield.h"
+
+#include "manager.h"
+
+#include "menu.h"
+#include "mmeffects/card2d.h"
+#include "mmeffects/mmtext.h"
+#include "pcwindis/dxinit.h"
+#include "vector7/vector4.h"
+
+#include <SDL3/SDL_keyboard.h>
+
+void UITextField::ToggleField(i32 state)
+{
+    if (MenuMgr()->HasActiveWidget() && (state == 0) && (LocString513 == 1))
+        MenuMgr()->RegisterWidgetFocus(0, X, Y, Width, Height, this);
+
+    if (state == -1)
+        Enabled = Enabled == 0;
+    else
+        Enabled = state != 0;
+
+    if (Enabled)
+    {
+        Text->SetFGColor(MenuMgr()->GetFGColor(3));
+        Card->SetColor(Vector4 {0.0f, 0.0f, 0.0f, 1.0f});
+    }
+    else
+    {
+        Text->SetFGColor(MenuMgr()->GetFGColor(0));
+        Card->SetColor(Vector4 {0.0f, 0.0f, 0.0f, 0.0f});
+    }
+
+    if (!(Flags & 0x80) && !(Flags & 0x100))
+    {
+        if (Enabled)
+        {
+            MenuMgr()->SetActiveImeField(this);
+
+            SetCompositionWindow();
+        }
+        else
+        {
+            if (SDL_TextInputActive(g_MainWindow))
+            {
+                Displayf("Disabled Text Input");
+                SDL_StopTextInput(g_MainWindow);
+            }
+        }
+    }
+}
+
+void UITextField::SetCompositionWindow()
+{
+    // TODO: Call SDL_SetTextInputArea
+
+    if (Enabled)
+    {
+        if (!SDL_TextInputActive(g_MainWindow))
+        {
+            Displayf("Enabled Text Input");
+            SDL_StartTextInput(g_MainWindow);
+        }
+    }
+}

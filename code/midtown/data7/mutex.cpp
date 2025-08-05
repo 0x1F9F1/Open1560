@@ -18,7 +18,7 @@
 
 #include "mutex.h"
 
-#include <SDL_mutex.h>
+#include <SDL3/SDL_mutex.h>
 
 Mutex::~Mutex()
 {
@@ -60,14 +60,14 @@ Condvar::~Condvar()
 void Condvar::init()
 {
     if (handle_ == nullptr)
-        handle_ = SDL_CreateCond();
+        handle_ = SDL_CreateCondition();
 }
 
 void Condvar::close()
 {
     if (handle_)
     {
-        SDL_DestroyCond(handle_);
+        SDL_DestroyCondition(handle_);
         handle_ = nullptr;
     }
 }
@@ -75,18 +75,18 @@ void Condvar::close()
 void Condvar::notify_one()
 {
     if (handle_)
-        SDL_CondSignal(handle_);
+        SDL_SignalCondition(handle_);
 }
 
 void Condvar::notify_all()
 {
     if (handle_)
-        SDL_CondBroadcast(handle_);
+        SDL_BroadcastCondition(handle_);
 }
 
 void Condvar::wait(UniqueLock<Mutex>& mutex)
 {
     ArAssert(mutex.owns_lock(), "Mutex not locked");
 
-    SDL_CondWait(handle_, mutex.mutex()->native_handle());
+    SDL_WaitCondition(handle_, mutex.mutex()->native_handle());
 }

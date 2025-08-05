@@ -6,7 +6,7 @@ FREETYPE_DIR = path.join(VENDOR_DIR, "freetype-2.10.4")
 GLAD_DIR = path.join(VENDOR_DIR, "glad")
 MINIZ_DIR = path.join(VENDOR_DIR, "miniz")
 DX6_DIR = path.join(VENDOR_DIR, "dx6")
-SDL2_DIR = path.join(VENDOR_DIR, "SDL2")
+SDL3_DIR = path.join(VENDOR_DIR, "SDL3")
 
 function includeMem()
     includedirs { MEM_DIR }
@@ -18,7 +18,6 @@ end
 
 function includeFreetype()
     includedirs { path.join(FREETYPE_DIR, "include") }
-    libdirs { path.join(FREETYPE_DIR, "bin") }
 end
 
 -- Compiled with:
@@ -29,6 +28,7 @@ end
 -- set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 function linkFreetype()
     local libdir = path.join(FREETYPE_DIR, "bin")
+    libdirs { libdir }
 
     filter "configurations:Debug"
         links { path.join(libdir, "freetyped.lib") }
@@ -49,9 +49,12 @@ function includeDX6()
     includedirs { path.join(DX6_DIR, "include") }
 end
 
-function includeSDL2()
-    includedirs { path.join(SDL2_DIR, "include") }
-    libdirs { path.join(SDL2_DIR, "lib/x86") }
+function includeSDL3()
+    includedirs { path.join(SDL3_DIR, "include") }
+end
+
+function linkSDL3()
+    links { path.join(SDL3_DIR, "lib/x86/SDL3.lib") }
 end
 
 project "glad"

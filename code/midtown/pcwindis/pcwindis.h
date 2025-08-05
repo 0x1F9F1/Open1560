@@ -24,9 +24,6 @@ class Dispatchable;
 
 void SDLWindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
-// ?MasterWindowProc@@YGJPAUHWND__@@IIJ@Z
-LRESULT ARTS_STDCALL MasterWindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
-
 // ?RegisterMap@@YAXPADPAIHPAVDispatchable@@@Z
 void RegisterMap(const char* name, u32* msgs, i32 num_msgs, Dispatchable* handler);
 

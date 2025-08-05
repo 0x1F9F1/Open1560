@@ -49,15 +49,13 @@ public:
     // ?RemoveClient@eqEventHandler@@QAEXPAVeqEventMonitor@@@Z
     void RemoveClient(eqEventMonitor* monitor);
 
-    // ?EKeyName@eqEventHandler@@SAPADH@Z | unused
-    static const char* EKeyName(i32 key_code);
-
     // ?SuperQ@eqEventHandler@@2PAV1@A
     ARTS_EXPORT static eqEventHandler* SuperQ;
 
 protected:
     friend class eqEventMonitor;
 
+    // TODO: Use f32 for mouse coords
     b32 debug_ {};
     u32 tracked_events_ {};
     i32 channels_ {-1};

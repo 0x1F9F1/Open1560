@@ -26,16 +26,11 @@ define_dummy_symbol(pcwindis_dxinit);
 #include "setupdata.h"
 
 #include "agi/pipeline.h"
+#include "agigl/glpipe.h"
+#include "agisdl/sdlswpipe.h"
 #include "data7/ipc.h"
 
-#ifdef ARTS_ENABLE_OPENGL
-#    include "agigl/glpipe.h"
-#    include "agisdl/sdlswpipe.h"
-#endif
-
-#include <SDL_hints.h>
-#include <SDL_syswm.h>
-#include <SDL_video.h>
+#include <SDL3/SDL_video.h>
 
 i32 dxiFlags = DXI_FLAG_FULL_SCREEN | DXI_FLAG_DOUBLE_BUFFER;
 i32 dxiIcon = 0;
@@ -78,6 +73,7 @@ void dxiDirectInputCreate()
             if ((lpDI->EnumDevices(DIDEVTYPE_JOYSTICK, enum_callback, &has_devices, DIEDFL_ATTACHEDONLY) == DI_OK) &&
                 has_devices)
             {
+                Displayf("Using SDL dinput wrapper");
                 return;
             }
 
@@ -132,6 +128,7 @@ void dxiInit(const char* title, i32 argc, char** argv)
 
 #undef ARG
 
+    // FIXME: Make these part of the actual exe
     {
         bool use_gpu = !PARAM_integrated.get_or(false);
         HINSTANCE hInstance = GetModuleHandle(NULL);
@@ -185,27 +182,24 @@ void dxiWindowCreate(const char* title, dxiRendererType type)
 
     if (type == dxiRendererType::OpenGL)
     {
-#ifdef ARTS_ENABLE_OPENGL
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 2);
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK,
             PARAM_legacygl.get_or(false) ? SDL_GL_CONTEXT_PROFILE_COMPATIBILITY : SDL_GL_CONTEXT_PROFILE_CORE);
 
         window_flags |= SDL_WINDOW_OPENGL /*| SDL_WINDOW_FULLSCREEN_DESKTOP*/;
-#endif
     }
 
-    g_MainWindow = SDL_CreateWindow(title, 0, 0, 0, 0, window_flags);
+    g_MainWindow = SDL_CreateWindow(title, 0, 0, window_flags);
 
     if (!g_MainWindow)
     {
         Quitf("Failed to create main window: %s", SDL_GetError());
     }
 
-    SDL_SysWMinfo wm_info {};
-    SDL_VERSION(&wm_info.version);
-    ArAssert(SDL_GetWindowWMInfo(g_MainWindow, &wm_info), "Failed to get native window handle");
-    hwndMain = wm_info.info.win.window;
+    hwndMain =
+        (HWND) SDL_GetPointerProperty(SDL_GetWindowProperties(g_MainWindow), SDL_PROP_WINDOW_WIN32_HWND_POINTER, NULL);
+    ArAssert(hwndMain != NULL, "Failed to get native window handle");
 
     SDL_RaiseWindow(g_MainWindow);
 }

@@ -20,6 +20,7 @@ define_dummy_symbol(pcwindis_dxsetup);
 
 #include "dxsetup.h"
 
+#include "agisdl/sdlsetup.h"
 #include "data7/speed.h"
 #include "data7/timer.h"
 #include "dxinit.h"
@@ -27,10 +28,6 @@ define_dummy_symbol(pcwindis_dxsetup);
 #include "midtown.h"
 #include "mmui/graphics.h"
 #include "setupdata.h"
-
-#ifdef ARTS_ENABLE_OPENGL
-#    include "agisdl/sdlsetup.h"
-#endif
 
 #include "core/minwin.h"
 
@@ -47,15 +44,11 @@ void dxiConfig([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
     void (*enumerate)() = nullptr;
     bool show_message = false;
 
-#ifdef ARTS_ENABLE_OPENGL
     {
         validate = ValidateRenderersSDL;
         enumerate = EnumerateRenderersSDL;
         show_message = false;
     }
-#else
-#    error No valid renderer backends
-#endif
 
     if (PARAM_config.get_or(false) || !dxiReadConfigFile() || !validate())
     {

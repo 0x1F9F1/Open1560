@@ -182,7 +182,7 @@ public:
     ARTS_IMPORT void Disable();
 
     // ?DisableIME@UIMenu@@QAEXXZ
-    ARTS_IMPORT void DisableIME();
+    ARTS_EXPORT void DisableIME();
 
     // ?Enable@UIMenu@@QAEXXZ
     ARTS_IMPORT void Enable();

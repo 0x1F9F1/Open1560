@@ -22,7 +22,7 @@ define_dummy_symbol(data7_timer);
 
 #include "core/minwin.h"
 
-#include <SDL_timer.h>
+#include <SDL3/SDL_timer.h>
 
 // https://randomascii.wordpress.com/2012/06/05/in-praise-of-idleness/
 // https://randomascii.wordpress.com/2013/04/02/sleep-variation-investigated/

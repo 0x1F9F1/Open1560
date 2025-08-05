@@ -61,12 +61,6 @@ void SDLWindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
     HandleMessage(hwnd, uMsg, wParam, lParam, lResult);
 }
 
-LRESULT ARTS_STDCALL MasterWindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
-{
-    LRESULT lResult = 0;
-    return HandleMessage(hwnd, uMsg, wParam, lParam, lResult) ? lResult : DefWindowProcA(hwnd, uMsg, wParam, lParam);
-}
-
 void RegisterMap(const char* name, u32* msgs, i32 num_msgs, Dispatchable* handler)
 {
     if (NumMapEntries == MAX_MAP_ENTRIES)

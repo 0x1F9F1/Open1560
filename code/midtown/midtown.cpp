@@ -24,6 +24,7 @@ define_dummy_symbol(midtown);
 #include "agi/physlib.h"
 #include "agi/pipeline.h"
 #include "agi/texdef.h"
+#include "agigl/glpipe.h"
 #include "agisdl/sdlswpipe.h"
 #include "arts7/sim.h"
 #include "data7/args.h"
@@ -61,24 +62,23 @@ define_dummy_symbol(midtown);
 #include "vector7/randmath.h"
 
 #ifdef ARTS_DEV_BUILD
-#    include "toolmgr/toolmgr.h"
+#include "toolmgr/toolmgr.h"
 #endif
 
 #include <mem/cmd_param-inl.h>
 
-#define SDL_MAIN_NEEDED
-#include <SDL.h>
-
-#ifdef ARTS_ENABLE_OPENGL
-#    include "agigl/glpipe.h"
-#endif
+#include <SDL3/SDL_hints.h>
+#include <SDL3/SDL_init.h>
+#include <SDL3/SDL_log.h>
+#include <SDL3/SDL_main.h>
+#include <SDL3/SDL_system.h>
 
 #include "core/minwin.h"
 
 #include <shellapi.h>
 
 #ifndef CI_BUILD_STRING
-#    define CI_BUILD_STRING "Dev"
+#define CI_BUILD_STRING "Dev"
 #endif
 
 const char* VERSION_STRING = "Open1560: " __DATE__ " " __TIME__ " / " CI_BUILD_STRING;
@@ -97,7 +97,6 @@ char LoadScreen[40] {};
 Timer LoadTimer {};
 mmGameRecord* SystemStatsRecord = nullptr;
 b32 bHaveIME = false;
-ulong hImmContext = 0;
 i32 page_override = -1;
 
 #ifdef ARTS_DEV_BUILD
@@ -552,13 +551,6 @@ static void MainPhase(i32 argc, char** argv)
 
     ShutdownPipeline();
 
-    // TODO: Fix IME
-    /*if (bHaveIME)
-        {
-            dxiShutdown();
-            ChangeDisplaySettingsA(0, 0);
-        }*/
-
     DeallocateEventQueue();
 
     HashTable::KillAll();
@@ -642,11 +634,6 @@ void ApplicationHelper(i32 argc, char** argv)
         {
             ALLOCATOR.SetDebug(false);
         }
-        else if (ARG("-ime"))
-        {
-            // TODO: Fix IME
-            // bHaveIME = true;
-        }
         else if (ARG("-prio"))
         {
             priority = std::atoi(argv[i++]);
@@ -691,31 +678,21 @@ void ApplicationHelper(i32 argc, char** argv)
 
     CheckSystem();
 
-    SDL_SetHint(SDL_HINT_TIMER_RESOLUTION, "1");
     SDL_SetHint(SDL_HINT_VIDEO_MINIMIZE_ON_FOCUS_LOSS, "1");
-    SDL_SetHint(SDL_HINT_WINDOWS_NO_CLOSE_ON_ALT_F4, "1");
-    SDL_SetHint(SDL_HINT_WINDOWS_DPI_AWARENESS, "permonitorv2");
+    SDL_SetHint(SDL_HINT_WINDOWS_CLOSE_ON_ALT_F4, "0");
     SDL_SetHint(SDL_HINT_RENDER_DRIVER, "opengl");
     SDL_SetHintWithPriority(SDL_HINT_WINDOWS_INTRESOURCE_ICON, arts_formatf<16>("%i", dxiIcon), SDL_HINT_OVERRIDE);
 
-    if (SDL_InitSubSystem(SDL_INIT_VIDEO) != 0)
+    if (!SDL_InitSubSystem(SDL_INIT_VIDEO))
     {
-        Errorf("Unable to initialize SDL Video: %s", SDL_GetError());
-        return;
+        Abortf("Unable to initialize SDL Video: %s", SDL_GetError());
     }
 
     dxiConfig(argc, argv);
-    SDL_ShowCursor(0);
+    SDL_HideCursor();
 
     dxiInit(APPTITLE, argc, argv);
     Displayf("dxiInit returned.");
-
-    // TODO: Fix IME
-    /*if (ImmGetContext(hwndMain))
-    {
-        bHaveIME = 1;
-        hImmContext = reinterpret_cast<ulong>(ImmAssociateContext(hwndMain, 0));
-    }*/
 
     switch (path_filter)
     {
@@ -802,14 +779,11 @@ Owner<agiPipeline> CreatePipeline(i32 argc, char** argv)
 
     if (MMSTATE.GameState != mmGameState::Menus)
     {
-        i32 res_choice = info.ResChoice;
-
         switch (info.Type)
         {
-#ifdef ARTS_ENABLE_OPENGL
             case dxiRendererType::OpenGL: pipe = as_ptr glCreatePipeline(argc, argv); break;
             case dxiRendererType::SDL2: pipe = as_ptr sdlCreatePipeline(argc, argv); break;
-#endif
+            default: Quitf("Unknown renderer type %i", static_cast<int>(info.Type));
         }
 
         i32 width = pipe->GetWidth();
@@ -817,7 +791,7 @@ Owner<agiPipeline> CreatePipeline(i32 argc, char** argv)
 
         if (info.ResCount)
         {
-            dxiResolution& res = info.Resolutions[res_choice];
+            dxiResolution& res = info.Resolutions[info.ResChoice];
             width = res.uWidth;
             height = res.uHeight;
         }
@@ -831,11 +805,7 @@ Owner<agiPipeline> CreatePipeline(i32 argc, char** argv)
 
             MessageBoxA(NULL, LOC_STR(MM_IDS_GRAPHICS_ERROR), APPTITLE, MB_ICONERROR);
 
-#ifdef ARTS_ENABLE_OPENGL
             pipe = as_ptr sdlCreatePipeline(argc, argv);
-#else
-#    error No fallback renderer!
-#endif
             pipe->SetRes(640, 480);
         }
     }
@@ -843,10 +813,9 @@ Owner<agiPipeline> CreatePipeline(i32 argc, char** argv)
     {
         switch (info.Type)
         {
-#ifdef ARTS_ENABLE_OPENGL
             case dxiRendererType::OpenGL: pipe = as_ptr glCreatePipeline(argc, argv); break;
             case dxiRendererType::SDL2: pipe = as_ptr sdlCreatePipeline(argc, argv); break;
-#endif
+            default: Quitf("Unknown renderer type %i", static_cast<int>(info.Type));
         }
 
         pipe->SetRes(640, 480);
@@ -956,7 +925,7 @@ int main(int argc, char** argv)
 
     SDL_SetHint(SDL_HINT_TIMER_RESOLUTION, "1");
 
-    SDL_LogSetOutputFunction(
+    SDL_SetLogOutputFunction(
         [](void* /*userdata*/, int /*category*/, SDL_LogPriority priority, const char* message) {
             i32 level = 0;
 
@@ -975,8 +944,9 @@ int main(int argc, char** argv)
         nullptr);
 
     SDL_SetWindowsMessageHook(
-        [](void* /*userdata*/, void* hWnd, unsigned int message, u64 wParam, i64 lParam) {
-            SDLWindowProc(static_cast<HWND>(hWnd), message, static_cast<WPARAM>(wParam), static_cast<LPARAM>(lParam));
+        [](void* /*userdata*/, MSG* msg) {
+            SDLWindowProc(msg->hwnd, msg->message, msg->wParam, msg->lParam);
+            return true;
         },
         nullptr);
 
@@ -1008,10 +978,9 @@ int main(int argc, char** argv)
     if (PARAM_console.get_or(false))
         LogToConsole();
 
-    if (SDL_Init(SDL_INIT_TIMER) != 0)
+    if (!SDL_Init(SDL_INIT_EVENTS))
     {
-        Errorf("Unable to initialize SDL: %s", SDL_GetError());
-        return 1;
+        Abortf("Unable to initialize SDL: %s", SDL_GetError());
     }
 
     MetaClass::FixupClasses();

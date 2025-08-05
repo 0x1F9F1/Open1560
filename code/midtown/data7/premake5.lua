@@ -54,3 +54,5 @@ arts_component "data7"
         "ticketlock.cpp",
         "ticketlock.h",
     }
+
+    includeSDL3()

@@ -40,6 +40,8 @@
 
 #include <glad/glad.h>
 
+#include <SDL3/SDL_video.h>
+
 static mem::cmd_param PARAM_gldebug {"gldebug"};
 static mem::cmd_param PARAM_msaa {"msaa"};
 static mem::cmd_param PARAM_native_res {"nativeres"};
@@ -55,7 +57,10 @@ i32 agiGLPipeline::BeginGfx()
     valid_bit_depths_ = 0x4;
     flags_ = 0x1 | 0x4 | 0x10;
 
-    agiSDLPipeline::BeginGfx();
+    if (i32 error = agiSDLPipeline::BeginGfx())
+    {
+        return error;
+    }
 
     i32 debug_level = PARAM_gldebug.get_or(
 #ifdef ARTS_DEBUG
@@ -99,7 +104,7 @@ i32 agiGLPipeline::BeginGfx()
         return AGI_ERROR_UNSUPPORTED;
     }
 
-    SDL_GL_GetDrawableSize(window_, &horz_res_, &vert_res_);
+    SDL_GetWindowSizeInPixels(window_, &horz_res_, &vert_res_);
 
     Displayf("Window Resolution: %u x %u", horz_res_, vert_res_);
 

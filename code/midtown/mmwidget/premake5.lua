@@ -77,3 +77,5 @@ arts_component "mmwidget"
         "wstore.cpp",
         "wstore.h",
     }
+
+    includeSDL3()

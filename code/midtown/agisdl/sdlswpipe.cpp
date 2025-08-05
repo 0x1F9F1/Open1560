@@ -39,9 +39,8 @@
 #include "eventq7/active.h"
 #include "pcwindis/dxinit.h"
 
-#include <SDL_hints.h>
-#include <SDL_render.h>
-#include <SDL_syswm.h>
+#include <SDL3/SDL_render.h>
+#include <SDL3/SDL_video.h>
 
 static void zmemset(u16* values, u32 count)
 {
@@ -89,7 +88,7 @@ public:
 
         if (flags & AGI_VIEW_CLEAR_TARGET)
         {
-            SDL_FillRect(Pipe()->GetSurface(), &rect, swIsInterlaced ? 0 : clear_color_);
+            SDL_FillSurfaceRect(Pipe()->GetSurface(), &rect, swIsInterlaced ? 0 : clear_color_);
         }
 
         if ((flags & AGI_VIEW_CLEAR_ZBUFFER) && agiEnableZBuffer)
@@ -135,7 +134,7 @@ private:
     u32 clear_color_ {};
 };
 
-static u32 GetSDLPixelFormat(const agiPixelFormat& format)
+static SDL_PixelFormat GetSDLPixelFormat(const agiPixelFormat& format)
 {
     switch (format.RBitMask)
     {
@@ -200,14 +199,13 @@ public:
         // FIXME: Some RV3 bitmaps (ICON_*) have incorrect pitch.
         surface_->FixPitch();
 
-        sdl_surface_ = SDL_CreateRGBSurfaceWithFormat(
-            0, width_, height_, 16, GetSDLPixelFormat(Pipe()->GetScreenFormat().PixelFormat));
+        sdl_surface_ = SDL_CreateSurface(width_, height_, GetSDLPixelFormat(Pipe()->GetScreenFormat().PixelFormat));
 
-        SDL_Surface* source = SDL_CreateRGBSurfaceWithFormatFrom(surface_->Surface, surface_->Width, surface_->Height,
-            16, surface_->Pitch, GetSDLPixelFormat(surface_->PixelFormat));
+        SDL_Surface* source = SDL_CreateSurfaceFrom(surface_->Width, surface_->Height,
+            GetSDLPixelFormat(surface_->PixelFormat), surface_->Surface, surface_->Pitch);
 
-        SDL_BlitScaled(source, NULL, sdl_surface_, NULL);
-        SDL_FreeSurface(source);
+        SDL_BlitSurfaceScaled(source, NULL, sdl_surface_, NULL, SDL_SCALEMODE_NEAREST);
+        SDL_DestroySurface(source);
 
         state_ = 1;
 
@@ -225,7 +223,7 @@ public:
         {
             if (sdl_surface_)
             {
-                SDL_FreeSurface(sdl_surface_);
+                SDL_DestroySurface(sdl_surface_);
                 sdl_surface_ = nullptr;
             }
 
@@ -241,7 +239,7 @@ public:
 
     void UpdateFlags() override
     {
-        SDL_SetColorKey(sdl_surface_, IsTransparent() ? SDL_TRUE : SDL_FALSE, 0x0);
+        SDL_SetSurfaceColorKey(sdl_surface_, IsTransparent(), 0x0);
     }
 
     SDL_Surface* GetSurface()
@@ -300,10 +298,13 @@ i32 agiSDLSWPipeline::BeginGfx()
     bit_depth_ = 16;
     valid_bit_depths_ = 0x1;
 
-    agiSDLPipeline::BeginGfx();
+    if (i32 error = agiSDLPipeline::BeginGfx())
+    {
+        return error;
+    }
 
-    sdl_renderer_ = SDL_CreateRenderer(
-        window_, -1, SDL_RENDERER_ACCELERATED | ((device_flags_1_ & 0x1) ? SDL_RENDERER_PRESENTVSYNC : 0));
+    sdl_renderer_ = SDL_CreateRenderer(window_, NULL);
+    SDL_SetRenderVSync(sdl_renderer_, (device_flags_1_ & 0x1) ? 1 : 0);
 
     if (sdl_renderer_ == nullptr)
     {
@@ -312,25 +313,23 @@ i32 agiSDLSWPipeline::BeginGfx()
     }
 
     // FIXME: SDL_CreateRenderer can silently recreate the underlying window
-    SDL_SysWMinfo wm_info {};
-    SDL_VERSION(&wm_info.version);
-    ArAssert(SDL_GetWindowWMInfo(window_, &wm_info), "Failed to get native window handle");
-    hwndMain = wm_info.info.win.window;
+    hwndMain =
+        (HWND) SDL_GetPointerProperty(SDL_GetWindowProperties(g_MainWindow), SDL_PROP_WINDOW_WIN32_HWND_POINTER, NULL);
+    ArAssert(hwndMain != NULL, "Failed to get native window handle");
 
-    SDL_RendererInfo info;
-    SDL_GetRendererInfo(sdl_renderer_, &info);
-    Displayf("Software Renderer: %s", info.name);
+    Displayf("Software Renderer: %s", SDL_GetRendererName(sdl_renderer_));
 
-    SDL_GetRendererOutputSize(sdl_renderer_, &horz_res_, &vert_res_);
+    SDL_GetCurrentRenderOutputSize(sdl_renderer_, &horz_res_, &vert_res_);
 
     InitScaling();
 
     const auto& screen_format = PARAM_use555 ? PixelFormat_X1R5G5B5 : PixelFormat_R5G6B5;
 
-    render_surface_ = SDL_CreateRGBSurfaceWithFormat(0, width_, height_, 16, GetSDLPixelFormat(screen_format));
+    render_surface_ = SDL_CreateSurface(width_, height_, GetSDLPixelFormat(screen_format));
 
     render_texture_ = SDL_CreateTexture(
         sdl_renderer_, GetSDLPixelFormat(screen_format), SDL_TEXTUREACCESS_STREAMING, width_, height_);
+    SDL_SetTextureScaleMode(render_texture_, SDL_SCALEMODE_NEAREST);
 
     swFbWidth = width_;
     swFbHeight = height_;
@@ -395,14 +394,14 @@ void agiSDLSWPipeline::BeginScene()
 
 void agiSDLSWPipeline::ClearAll(i32 color)
 {
-    SDL_FillRect(render_surface_, NULL, color);
+    SDL_FillSurfaceRect(render_surface_, NULL, color);
 }
 
 void agiSDLSWPipeline::ClearRect(i32 x, i32 y, i32 width, i32 height, u32 color)
 {
     SDL_Rect rect {x, y, width, height};
 
-    SDL_FillRect(render_surface_, &rect, color);
+    SDL_FillSurfaceRect(render_surface_, &rect, color);
 }
 
 void agiSDLSWPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height)
@@ -434,7 +433,7 @@ void agiSDLSWPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_
 
     SDL_Rect dst_rect {dst_x, dst_y, width, height};
 
-    SDL_BlitScaled(src_surface, &src_rect, render_surface_, &dst_rect);
+    SDL_BlitSurfaceScaled(src_surface, &src_rect, render_surface_, &dst_rect, SDL_SCALEMODE_NEAREST);
 }
 
 RcOwner<agiBitmap> agiSDLSWPipeline::CreateBitmap()
@@ -486,8 +485,13 @@ void agiSDLSWPipeline::EndFrame()
 
     SDL_UpdateTexture(render_texture_, NULL, render_surface_->pixels, render_surface_->pitch);
 
-    SDL_Rect dest {blit_x_, blit_y_, blit_width_, blit_height_};
-    SDL_RenderCopy(sdl_renderer_, render_texture_, NULL, &dest);
+    SDL_FRect dest {
+        static_cast<f32>(blit_x_),
+        static_cast<f32>(blit_y_),
+        static_cast<f32>(blit_width_),
+        static_cast<f32>(blit_height_),
+    };
+    SDL_RenderTexture(sdl_renderer_, render_texture_, NULL, &dest);
 
     SDL_RenderPresent(sdl_renderer_);
 
@@ -506,7 +510,7 @@ void agiSDLSWPipeline::EndGfx()
 
     if (render_surface_)
     {
-        SDL_FreeSurface(render_surface_);
+        SDL_DestroySurface(render_surface_);
         render_surface_ = nullptr;
     }
 
@@ -517,7 +521,7 @@ void agiSDLSWPipeline::EndGfx()
     }
 
     // The "software" renderer/driver creates a window surface, but doesn't destroy it afterwards
-    if (SDL_HasWindowSurface(window_))
+    if (SDL_WindowHasSurface(window_))
     {
         SDL_DestroyWindowSurface(window_);
     }
@@ -546,7 +550,7 @@ Ptr<agiSurfaceDesc> agiSDLSWPipeline::CaptureScreen()
     Ptr<agiSurfaceDesc> surface =
         as_ptr agiSurfaceDesc::Init(width, height, agiSurfaceDesc::FromFormat(PixelFormat_B8G8R8));
 
-    SDL_ConvertPixels(width, height, render_surface_->format->format, render_surface_->pixels, render_surface_->pitch,
+    SDL_ConvertPixels(width, height, render_surface_->format, render_surface_->pixels, render_surface_->pitch,
         SDL_PIXELFORMAT_BGR24, static_cast<u8*>(surface->Surface) + surface->Pitch * (height - 1), -surface->Pitch);
 
     return surface;

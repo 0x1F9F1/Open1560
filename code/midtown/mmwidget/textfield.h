@@ -20,6 +20,9 @@
 
 #include "widget.h"
 
+class mmTextNode;
+class Card2D;
+
 class UITextField final : public uiWidget
 {
 public:
@@ -46,7 +49,7 @@ public:
     ARTS_IMPORT void KeyAction(eqEvent* arg1);
 
     // ?SetCompositionWindow@UITextField@@QAEXXZ
-    ARTS_IMPORT void SetCompositionWindow();
+    ARTS_EXPORT void SetCompositionWindow();
 
     // ?SetField@UITextField@@QAEXPAD@Z
     ARTS_IMPORT void SetField(char* arg1);
@@ -58,7 +61,7 @@ public:
     ARTS_IMPORT void Switch(i32 arg1) override;
 
     // ?ToggleField@UITextField@@QAEXH@Z
-    ARTS_IMPORT void ToggleField(i32 arg1);
+    ARTS_EXPORT void ToggleField(i32 state);
 
     // ?Update@UITextField@@UAEXXZ | inline
     ARTS_IMPORT void Update() override;
@@ -66,7 +69,35 @@ public:
     // ?WmCharHandler@UITextField@@QAEXE@Z
     ARTS_IMPORT void WmCharHandler(u8 arg1);
 
-    u8 gap74[0xD0];
+    u32 Flags;
+    u32 LocString513;
+    mmTextNode* Text;
+    mmTextNode* TextNode;
+    i32 field_84;
+    Card2D* Card;
+    char* DataBuffer;
+    char ActualData[80];
+    char DataFormat[16];
+    char* DataEnd;
+    char TrailByte;
+    char LastKey;
+    char field_F6;
+    char field_F7;
+    i32 FontSize;
+    u32 DataSize;
+    i32 field_100;
+    i32 field_104;
+    i32 field_108;
+    b32 Enabled;
+    u32 EnteringText;
+    i32 NeedsTrailByte;
+    void* ImmContext;
+    u32 WantsText;
+    f32 X;
+    f32 Y;
+    f32 Width;
+    f32 Height;
+    Callback OnEnter;
 };
 
 check_size(UITextField, 0x144);

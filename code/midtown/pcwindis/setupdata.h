@@ -75,13 +75,13 @@ struct dxiRendererInfo_t
 
         struct
         {
-            u32 Format;
-            i32 RefreshRate;
+            i32 Format;
+            f32 RefreshRate;
             i32 Left;
             i32 Top;
             u32 Width;
             u32 Height;
-            i32 Index;
+            u32 DisplayID;
             u32 Padding;
         } SDL;
     };

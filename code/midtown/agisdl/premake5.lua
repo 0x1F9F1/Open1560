@@ -7,3 +7,5 @@ arts_component "agisdl"
         "sdlsetup.cpp",
         "sdlsetup.h",
     }
+
+    includeSDL3()

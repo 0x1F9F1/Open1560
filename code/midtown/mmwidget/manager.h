@@ -36,6 +36,7 @@ class UIMenu;
 class uiNavBar;
 class uiWidget;
 class WArray;
+class UITextField;
 
 class MenuManager final : public asNode
 {
@@ -224,6 +225,16 @@ public:
         return field_D0;
     }
 
+    bool HasActiveWidget() const
+    {
+        return has_active_widget_ == 1;
+    }
+
+    void SetActiveImeField(UITextField* field)
+    {
+        active_ime_field_ = field;
+    }
+
 private:
     // ?PlayMenuSwitchSound@MenuManager@@AAEXXZ
     ARTS_IMPORT void PlayMenuSwitchSound();
@@ -242,7 +253,7 @@ private:
     b32 is_popup_open_;
     uiWidget* focused_widget_;
     uiWidget* active_widget_;
-    i32 field_50;
+    UITextField* active_ime_field_;
     Ptr<WArray> widget_array_;
     Ptr<MArray> menu_array_;
     string controller_names_;

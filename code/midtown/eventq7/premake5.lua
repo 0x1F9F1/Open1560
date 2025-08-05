@@ -17,3 +17,5 @@ arts_component "eventq7"
     }
 
     links { "dinput8" }
+
+    includeSDL3()

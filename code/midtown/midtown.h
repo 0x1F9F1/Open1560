@@ -86,9 +86,6 @@ extern mmGameRecord* SystemStatsRecord;
 // ?bHaveIME@@3HA
 ARTS_EXPORT extern b32 bHaveIME;
 
-// ?hImmContext@@3KA
-ARTS_EXPORT extern ulong hImmContext; // TODO: Use usize/void*
-
 // ?page_override@@3HA
 ARTS_EXPORT extern i32 page_override;
 

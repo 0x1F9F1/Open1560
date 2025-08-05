@@ -20,6 +20,8 @@
 
 #include <glad/glad.h>
 
+#include <SDL3/SDL_video.h>
+
 agiGLContext::agiGLContext(SDL_Window* window, SDL_GLContext gl_context, i32 debug_level)
     : window_(window)
     , gl_context_(gl_context)
@@ -36,7 +38,7 @@ agiGLContext::agiGLContext(SDL_Window* window, SDL_GLContext gl_context, i32 deb
 
 agiGLContext::~agiGLContext()
 {
-    SDL_GL_DeleteContext(gl_context_);
+    SDL_GL_DestroyContext(gl_context_);
 
     if (agiGL == this)
         agiGL = nullptr;

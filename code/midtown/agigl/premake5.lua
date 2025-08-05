@@ -22,3 +22,4 @@ arts_component "agigl"
     }
 
     includeGlad()
+    includeSDL3()

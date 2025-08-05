@@ -26,7 +26,7 @@ dxiRendererInfo_t dxiInfo[16];
 i32 dxiRendererChoice = -1;
 i32 dxiRendererCount = 0;
 
-static const u32 ConfigFileVersion = 112;
+static const u32 ConfigFileVersion = 113;
 
 static void guidtostr(char* dst, size_t dstlen, GUID* guid)
 {

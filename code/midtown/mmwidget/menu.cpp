@@ -24,7 +24,10 @@ define_dummy_symbol(mmwidget_menu);
 #include "arts7/midgets.h"
 #include "eventq7/keys.h"
 #include "manager.h"
+#include "pcwindis/dxinit.h"
 #include "widget.h"
+
+#include <SDL3/SDL_keyboard.h>
 
 void UIMenu::PostSetup()
 {}
@@ -122,4 +125,13 @@ uiWidget* UIMenu::FindWidget(i32 id)
     }
 
     return nullptr;
+}
+
+void UIMenu::DisableIME()
+{
+    if (SDL_TextInputActive(g_MainWindow))
+    {
+        Displayf("Disabled Text Input");
+        SDL_StopTextInput(g_MainWindow);
+    }
 }

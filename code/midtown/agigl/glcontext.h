@@ -20,7 +20,8 @@
 
 #include "data7/hash.h"
 
-#include <SDL_video.h>
+typedef struct SDL_Window SDL_Window;
+typedef struct SDL_GLContextState* SDL_GLContext;
 
 class agiGLRasterizer;
 

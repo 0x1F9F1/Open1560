@@ -13,3 +13,5 @@ arts_component "pcwindis"
         "setupdata.cpp",
         "setupdata.h",
     }
+
+    includeSDL3()

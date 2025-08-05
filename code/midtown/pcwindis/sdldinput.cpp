@@ -18,7 +18,8 @@
 
 #include "sdldinput.h"
 
-#include <SDL.h>
+#include <SDL3/SDL_gamepad.h>
+#include <SDL3/SDL_init.h>
 
 static HRESULT DoFunctionNotImplemented(const char* name, usize times)
 {
@@ -34,17 +35,17 @@ static HRESULT DoFunctionNotImplemented(const char* name, usize times)
         return ++counter;                        \
     }());
 
-class SDL_DirectInputDevice2A_GameController final : public IDirectInputDevice2A
+class SDL_DirectInputDevice2A_GamePad final : public IDirectInputDevice2A
 {
 public:
-    SDL_DirectInputDevice2A_GameController(Ptr<SDL_GameController*[]> controllers)
+    SDL_DirectInputDevice2A_GamePad(Ptr<SDL_Gamepad*[]> controllers)
         : Controllers(std::move(controllers))
     {}
 
-    ~SDL_DirectInputDevice2A_GameController()
+    ~SDL_DirectInputDevice2A_GamePad()
     {
         for (usize i = 0; Controllers[i]; ++i)
-            SDL_GameControllerClose(Controllers[i]);
+            SDL_CloseGamepad(Controllers[i]);
     }
 
     /*** IUnknown methods ***/
@@ -135,45 +136,45 @@ public:
 
         *state = {};
 
-        SDL_GameController* controller = GetActiveController();
+        SDL_Gamepad* controller = GetActiveController();
 
-        const auto get_axis = [controller](SDL_GameControllerAxis axis, LONG min, LONG max) -> LONG {
-            return (((SDL_GameControllerGetAxis(controller, axis) + 32768) * (max - min)) / 65535) + min;
+        const auto get_axis = [controller](SDL_GamepadAxis axis, LONG min, LONG max) -> LONG {
+            return (((SDL_GetGamepadAxis(controller, axis) + 32768) * (max - min)) / 65535) + min;
         };
 
-        state->lX = get_axis(SDL_CONTROLLER_AXIS_LEFTX, -2000, 2000); // XAxis
-        state->lY = get_axis(SDL_CONTROLLER_AXIS_LEFTY, -2000, 2000); // YAxis
+        state->lX = get_axis(SDL_GAMEPAD_AXIS_LEFTX, -2000, 2000); // XAxis
+        state->lY = get_axis(SDL_GAMEPAD_AXIS_LEFTY, -2000, 2000); // YAxis
 
-        state->lZ = get_axis(SDL_CONTROLLER_AXIS_TRIGGERLEFT, -2000, 2000) -
-            get_axis(SDL_CONTROLLER_AXIS_TRIGGERRIGHT, -2000, 2000); // ZAxis
+        state->lZ = get_axis(SDL_GAMEPAD_AXIS_LEFT_TRIGGER, -2000, 2000) -
+            get_axis(SDL_GAMEPAD_AXIS_RIGHT_TRIGGER, -2000, 2000); // ZAxis
 
-        state->lRx = get_axis(SDL_CONTROLLER_AXIS_RIGHTX, -2000, 2000); // UAxis
-        state->lRy = get_axis(SDL_CONTROLLER_AXIS_RIGHTY, -2000, 2000); // VAxis
+        state->lRx = get_axis(SDL_GAMEPAD_AXIS_RIGHTX, -2000, 2000); // UAxis
+        state->lRy = get_axis(SDL_GAMEPAD_AXIS_RIGHTY, -2000, 2000); // VAxis
 
-        const auto get_button = [controller](SDL_GameControllerButton button) -> Uint8 {
-            return !!SDL_GameControllerGetButton(controller, button);
+        const auto get_button = [controller](SDL_GamepadButton button) -> Uint8 {
+            return SDL_GetGamepadButton(controller, button);
         };
 
-        Uint8 dpad_py = get_button(SDL_CONTROLLER_BUTTON_DPAD_UP);
-        Uint8 dpad_ny = get_button(SDL_CONTROLLER_BUTTON_DPAD_DOWN);
-        Uint8 dpad_nx = get_button(SDL_CONTROLLER_BUTTON_DPAD_LEFT);
-        Uint8 dpad_px = get_button(SDL_CONTROLLER_BUTTON_DPAD_RIGHT);
+        Uint8 dpad_py = get_button(SDL_GAMEPAD_BUTTON_DPAD_UP);
+        Uint8 dpad_ny = get_button(SDL_GAMEPAD_BUTTON_DPAD_DOWN);
+        Uint8 dpad_nx = get_button(SDL_GAMEPAD_BUTTON_DPAD_LEFT);
+        Uint8 dpad_px = get_button(SDL_GAMEPAD_BUTTON_DPAD_RIGHT);
 
         const DWORD pov_rot[16] {0xFFFFFFFF, 27000, 18000, 22500, 9000, 0xFFFFFFFF, 13500, 18000, 0, 31500, 0xFFFFFFFF,
             27000, 4500, 0, 9000, 0xFFFFFFFF};
 
         state->rgdwPOV[0] = pov_rot[(dpad_py << 3) | (dpad_px << 2) | (dpad_ny << 1) | (dpad_nx << 0)];
 
-        state->rgbButtons[0] = get_button(SDL_CONTROLLER_BUTTON_A) ? 0x80 : 0x00;
-        state->rgbButtons[1] = get_button(SDL_CONTROLLER_BUTTON_B) ? 0x80 : 0x00;
-        state->rgbButtons[2] = get_button(SDL_CONTROLLER_BUTTON_X) ? 0x80 : 0x00;
-        state->rgbButtons[3] = get_button(SDL_CONTROLLER_BUTTON_Y) ? 0x80 : 0x00;
-        state->rgbButtons[4] = get_button(SDL_CONTROLLER_BUTTON_LEFTSHOULDER) ? 0x80 : 0x00;
-        state->rgbButtons[5] = get_button(SDL_CONTROLLER_BUTTON_RIGHTSHOULDER) ? 0x80 : 0x00;
-        state->rgbButtons[6] = get_button(SDL_CONTROLLER_BUTTON_BACK) ? 0x80 : 0x00;
-        state->rgbButtons[7] = get_button(SDL_CONTROLLER_BUTTON_START) ? 0x80 : 0x00;
-        state->rgbButtons[8] = get_button(SDL_CONTROLLER_BUTTON_LEFTSTICK) ? 0x80 : 0x00;
-        state->rgbButtons[9] = get_button(SDL_CONTROLLER_BUTTON_RIGHTSTICK) ? 0x80 : 0x00;
+        state->rgbButtons[0] = get_button(SDL_GAMEPAD_BUTTON_SOUTH) ? 0x80 : 0x00;
+        state->rgbButtons[1] = get_button(SDL_GAMEPAD_BUTTON_EAST) ? 0x80 : 0x00;
+        state->rgbButtons[2] = get_button(SDL_GAMEPAD_BUTTON_WEST) ? 0x80 : 0x00;
+        state->rgbButtons[3] = get_button(SDL_GAMEPAD_BUTTON_NORTH) ? 0x80 : 0x00;
+        state->rgbButtons[4] = get_button(SDL_GAMEPAD_BUTTON_LEFT_SHOULDER) ? 0x80 : 0x00;
+        state->rgbButtons[5] = get_button(SDL_GAMEPAD_BUTTON_RIGHT_SHOULDER) ? 0x80 : 0x00;
+        state->rgbButtons[6] = get_button(SDL_GAMEPAD_BUTTON_BACK) ? 0x80 : 0x00;
+        state->rgbButtons[7] = get_button(SDL_GAMEPAD_BUTTON_START) ? 0x80 : 0x00;
+        state->rgbButtons[8] = get_button(SDL_GAMEPAD_BUTTON_LEFT_STICK) ? 0x80 : 0x00;
+        state->rgbButtons[9] = get_button(SDL_GAMEPAD_BUTTON_RIGHT_STICK) ? 0x80 : 0x00;
 
         return DI_OK;
     }
@@ -282,18 +283,18 @@ public:
 
     STDMETHOD(Poll)() override
     {
-        SDL_GameControllerUpdate();
+        SDL_UpdateGamepads();
 
         // mmJoyMan::Init only supports one controller, so unify them and find the active one
         for (usize i = 0; Controllers[i]; ++i)
         {
-            SDL_GameController* controller = Controllers[i];
+            SDL_Gamepad* controller = Controllers[i];
 
             bool active = false;
 
-            for (int j = 0; j < SDL_CONTROLLER_BUTTON_MAX; ++j)
+            for (int j = 0; j < SDL_GAMEPAD_BUTTON_COUNT; ++j)
             {
-                if (SDL_GameControllerGetButton(controller, (SDL_GameControllerButton) j))
+                if (SDL_GetGamepadButton(controller, static_cast<SDL_GamepadButton>(j)))
                 {
                     active = true;
                     break;
@@ -318,9 +319,9 @@ public:
 private:
     ULONG RefCount {1};
 
-    Ptr<SDL_GameController*[]> Controllers {};
+    Ptr<SDL_Gamepad*[]> Controllers {};
 
-    SDL_GameController* GetActiveController()
+    SDL_Gamepad* GetActiveController()
     {
         return Controllers[0];
     }
@@ -331,8 +332,8 @@ class SDL_DirectInput2A final : public IDirectInput2A
 public:
     SDL_DirectInput2A()
     {
-        if (!SDL_WasInit(SDL_INIT_GAMECONTROLLER))
-            SDL_InitSubSystem(SDL_INIT_GAMECONTROLLER);
+        if (!SDL_WasInit(SDL_INIT_GAMEPAD))
+            SDL_InitSubSystem(SDL_INIT_GAMEPAD);
     }
 
     /*** IUnknown methods ***/
@@ -364,52 +365,51 @@ public:
     STDMETHOD(CreateDevice)
     (REFGUID rguid, LPDIRECTINPUTDEVICEA* lplpDirectInputDevice, LPUNKNOWN /*pUnkOuter*/) override
     {
+        HRESULT result = DIERR_DEVICENOTREG;
+
         *lplpDirectInputDevice = nullptr;
 
         if (rguid == GUID_Joystick)
         {
             ArWithStaticHeap static_heap;
 
-            int num_joysticks = SDL_NumJoysticks();
+            int num_gamepads = 0;
+            SDL_JoystickID* gamepads_ids = SDL_GetGamepads(&num_gamepads);
 
-            if (num_joysticks > 0)
+            if (num_gamepads > 0)
             {
-                Ptr<SDL_GameController*[]> controllers = arnewa SDL_GameController * [num_joysticks + 1] {};
-                usize num_gamepads = 0;
+                Ptr<SDL_Gamepad*[]> gamepads = arnewa SDL_Gamepad * [num_gamepads + 1] {};
+                usize num_opened = 0;
 
-                for (int i = 0; i < num_joysticks; ++i)
+                for (int i = 0; i < num_gamepads; ++i)
                 {
-                    if (!SDL_IsGameController(i))
+                    SDL_Gamepad* gamepad = SDL_OpenGamepad(gamepads_ids[i]);
+
+                    if (!gamepad)
                         continue;
 
-                    SDL_GameController* controller = SDL_GameControllerOpen(i);
-
-                    if (!controller)
-                        continue;
-
-                    controllers[num_gamepads++] = controller;
+                    gamepads[num_opened++] = gamepad;
                 }
 
-                if (num_gamepads)
+                if (num_opened)
                 {
-                    *lplpDirectInputDevice = new SDL_DirectInputDevice2A_GameController(std::move(controllers));
-
-                    return DI_OK;
+                    *lplpDirectInputDevice = new SDL_DirectInputDevice2A_GamePad(std::move(gamepads));
+                    result = DI_OK;
                 }
             }
+
+            SDL_free(gamepads_ids);
         }
 
-        return DIERR_DEVICENOTREG;
+        return result;
     }
 
     STDMETHOD(EnumDevices)(DWORD dwDevType, LPDIENUMDEVICESCALLBACKA lpCallback, LPVOID pvRef, DWORD dwFlags) override
     {
         if (dwDevType == DIDEVTYPE_JOYSTICK && dwFlags == DIEDFL_ATTACHEDONLY)
         {
-            usize num_gamepads = 0;
-
-            for (int i = 0; i < SDL_NumJoysticks(); ++i)
-                num_gamepads += SDL_IsGameController(i);
+            int num_gamepads = 0;
+            SDL_JoystickID* gamepads = SDL_GetGamepads(&num_gamepads);
 
             if (num_gamepads)
             {
@@ -420,6 +420,8 @@ public:
 
                 lpCallback(&dev_inst, pvRef);
             }
+
+            SDL_free(gamepads);
 
             return DI_OK;
         }

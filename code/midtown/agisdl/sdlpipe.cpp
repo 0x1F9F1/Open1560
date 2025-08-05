@@ -18,10 +18,12 @@
 
 #include "sdlpipe.h"
 
+#include "agi/error.h"
 #include "pcwindis/dxinit.h"
 #include "pcwindis/setupdata.h"
 
-#include <SDL_video.h>
+#include <SDL3/SDL_video.h>
+#include <SDL3/SDL_mouse.h>
 
 static mem::cmd_param PARAM_border {"border"};
 static mem::cmd_param PARAM_scaling {"scaling"};
@@ -32,23 +34,24 @@ i32 agiSDLPipeline::BeginGfx()
 
     if (dxiIsFullScreen())
     {
-        if (info.SDL.Index != SDL_GetWindowDisplayIndex(window_))
+        SDL_Rect rect {};
+
+        if (!SDL_GetDisplayBounds(info.SDL.DisplayID, &rect))
         {
-            // Cannot move/resize window when fullscreen
-            SDL_SetWindowFullscreen(window_, 0);
-            SDL_SetWindowPosition(window_, SDL_WINDOWPOS_CENTERED_DISPLAY(info.SDL.Index),
-                SDL_WINDOWPOS_CENTERED_DISPLAY(info.SDL.Index));
+            Errorf("Failed to get display bounds for display %u: %s", info.SDL.DisplayID, SDL_GetError());
+            return AGI_ERROR_NO_DEVICE;
         }
 
-        SDL_SetWindowFullscreen(window_, SDL_WINDOW_FULLSCREEN_DESKTOP);
+        SDL_SetWindowPosition(window_, rect.x, rect.y);
+        SDL_SetWindowFullscreen(window_, true);
     }
     else
     {
-        SDL_SetWindowFullscreen(window_, 0);
-        SDL_SetWindowBordered(window_, PARAM_border.get_or(true) ? SDL_TRUE : SDL_FALSE);
+        SDL_SetWindowFullscreen(window_, false);
+        SDL_SetWindowBordered(window_, PARAM_border.get_or(true));
         SDL_SetWindowSize(window_, width_, height_);
-        SDL_SetWindowPosition(
-            window_, SDL_WINDOWPOS_CENTERED_DISPLAY(info.SDL.Index), SDL_WINDOWPOS_CENTERED_DISPLAY(info.SDL.Index));
+        SDL_SetWindowPosition(window_, SDL_WINDOWPOS_CENTERED_DISPLAY(info.SDL.DisplayID),
+            SDL_WINDOWPOS_CENTERED_DISPLAY(info.SDL.DisplayID));
     }
 
     return 0;

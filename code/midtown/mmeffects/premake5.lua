@@ -1,4 +1,4 @@
-ARTS_USE_FREETYPE = ARTS_ENABLE_OPENGL
+ARTS_USE_FREETYPE = true
 
 arts_component "mmeffects"
     files {

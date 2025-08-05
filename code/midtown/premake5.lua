@@ -1,12 +1,12 @@
 ARTS_TARGET_BUILD = 1560
 ARTS_DEV_BUILD = true
 
-ARTS_ENABLE_OPENGL = true
-
 include "core"
 
 include "agi"
 
+include "agigl"
+include "agisdl"
 include "agisw"
 include "agiworld"
 include "arts7"
@@ -48,17 +48,6 @@ if ARTS_DEV_BUILD then
         defines { "ARTS_DEV_BUILD" }
 end
 
-if ARTS_ENABLE_OPENGL then
-    include "agigl"
-    include "agisdl"
-
-    project "*"
-        defines { "ARTS_ENABLE_OPENGL" }
-end
-
-project "*"
-    includeSDL2()
-
 project "Open1560"
     kind "WindowedApp"
     language "C++"
@@ -88,6 +77,8 @@ project "Open1560"
         "arts_core",
 
         "arts_agi",
+        "arts_agigl",
+        "arts_agisdl",
         "arts_agisw",
         "arts_agiworld",
         "arts_arts7",
@@ -116,9 +107,6 @@ project "Open1560"
         "arts_pcwindis",
         "arts_stream",
         "arts_vector7",
-
-        "SDL2",
-        "SDL2main",
     }
 
     if ARTS_DEV_BUILD then
@@ -129,12 +117,8 @@ project "Open1560"
         }
     end
 
-    if ARTS_ENABLE_OPENGL then
-        links {
-            "arts_agigl",
-            "arts_agisdl",
-        }
-    end
+    includeSDL3()
+    linkSDL3()
 
     links { "DbgHelp", "Winmm" }
 
@@ -145,7 +129,7 @@ project "Open1560"
     -- copyToGameDir ("%{cfg.buildtarget.directory}%{cfg.buildtarget.basename}.pdb")
     copyToGameDir ("%{cfg.buildtarget.directory}%{cfg.buildtarget.basename}.map")
     copyToGameDir (path.join(ROOT_DIR, "game"))
-    copyToGameDir (path.join(SDL2_DIR, "lib/x86/SDL2.dll"))
+    copyToGameDir (path.join(SDL3_DIR, "lib/x86/SDL3.dll"))
 
     if MM1_GAME_DIRECTORY ~= nil then
         for _, path in ipairs(GAME_FILES) do

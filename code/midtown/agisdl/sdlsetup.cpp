@@ -20,7 +20,8 @@
 
 #include "pcwindis/setupdata.h"
 
-#include <SDL_video.h>
+#include <SDL3/SDL_video.h>
+
 #include <numeric>
 
 static u32 GetSpecialFlags(dxiRendererType type)
@@ -31,7 +32,7 @@ static u32 GetSpecialFlags(dxiRendererType type)
     return 0;
 }
 
-static void AddVideoDisplay(i32 index, dxiRendererType type)
+static void AddVideoDisplay(SDL_DisplayID display, dxiRendererType type)
 {
     if (dxiRendererCount >= ARTS_SSIZE(dxiInfo))
         return;
@@ -47,7 +48,7 @@ static void AddVideoDisplay(i32 index, dxiRendererType type)
     info.Type2 = type;
     info.Flags = 0;
 
-    info.SmoothAlpha = (type != dxiRendererType::SDL2);
+    info.SmoothAlpha = !IsSoftwareRenderer(type);
     info.AdditiveBlending = true;
     info.VertexFog = true;
     info.MultiTexture = true;
@@ -55,16 +56,16 @@ static void AddVideoDisplay(i32 index, dxiRendererType type)
     info.HaveMipmaps = true;
     info.SpecialFlags = GetSpecialFlags(type);
 
-    const char* name = SDL_GetDisplayName(index);
+    const char* name = SDL_GetDisplayName(display);
     if (name == nullptr)
         return;
 
     SDL_Rect bounds;
-    if (SDL_GetDisplayBounds(index, &bounds) != 0)
+    if (!SDL_GetDisplayBounds(display, &bounds))
         return;
 
-    SDL_DisplayMode mode;
-    if (SDL_GetDesktopDisplayMode(index, &mode) != 0)
+    const SDL_DisplayMode* mode = SDL_GetDesktopDisplayMode(display);
+    if (mode == nullptr)
         return;
 
     arts_strncpy(info.Name, name, ARTS_TRUNCATE);
@@ -83,15 +84,16 @@ static void AddVideoDisplay(i32 index, dxiRendererType type)
     info.SDL.Top = bounds.y;
     info.SDL.Width = bounds.w;
     info.SDL.Height = bounds.h;
-    info.SDL.Format = mode.format;
-    info.SDL.RefreshRate = mode.refresh_rate;
+    info.SDL.Format = mode->format;
+    info.SDL.RefreshRate = mode->refresh_rate;
+    info.SDL.DisplayID = display;
 
     info.Type = type;
 
     info.ResCount = 0;
     info.ResChoice = -1;
 
-    Displayf("Renderer: '%s' @ {%i,%i}, Refresh=%i", info.Name, info.SDL.Left, info.SDL.Top, info.SDL.RefreshRate);
+    Displayf("Renderer: '%s' @ {%i,%i}, Refresh=%.2f", info.Name, info.SDL.Left, info.SDL.Top, info.SDL.RefreshRate);
 
     // Choosing resolutions to list is fairly arbitrary for two main reasons:
     // * By default the OpenGL pipe always renders using the native resolution, so only the UI is affected.
@@ -185,7 +187,7 @@ static void AddVideoDisplay(i32 index, dxiRendererType type)
             return (lhs.uHeight != rhs.uHeight) ? (lhs.uHeight < rhs.uHeight) : (lhs.uWidth < rhs.uWidth);
         });
 
-    if (info.SDL.Left == 0 && info.SDL.Top == 0 && dxiRendererChoice == -1)
+    if ((display == SDL_GetPrimaryDisplay()) && (dxiRendererChoice == -1))
     {
         Displayf("Display '%s' (%i) is primary", info.Name, dxiRendererCount);
         arts_strncat(info.Name, " (Primary)", ARTS_TRUNCATE);
@@ -200,11 +202,16 @@ void EnumerateRenderersSDL()
     dxiRendererCount = 0;
     dxiRendererChoice = -1;
 
-    for (i32 i = 0, count = SDL_GetNumVideoDisplays(); i < count; ++i)
-        AddVideoDisplay(i, dxiRendererType::OpenGL);
+    int num_displays = 0;
+    SDL_DisplayID* displays = SDL_GetDisplays(&num_displays);
 
-    for (i32 i = 0, count = SDL_GetNumVideoDisplays(); i < count; ++i)
-        AddVideoDisplay(i, dxiRendererType::SDL2);
+    for (i32 i = 0; i < num_displays; ++i)
+        AddVideoDisplay(displays[i], dxiRendererType::OpenGL);
+
+    for (i32 i = 0; i < num_displays; ++i)
+        AddVideoDisplay(displays[i], dxiRendererType::SDL2);
+
+    SDL_free(displays);
 
     if (dxiRendererCount == 0)
         Quitf("No Valid Renderers");
@@ -221,6 +228,48 @@ void EnumerateRenderersSDL()
     }
 }
 
+static bool ValidateVideoDisplay(SDL_DisplayID display)
+{
+    const char* name = SDL_GetDisplayName(display);
+    if (name == nullptr)
+        return false;
+
+    SDL_Rect bounds;
+    if (!SDL_GetDisplayBounds(display, &bounds))
+        return false;
+
+    const SDL_DisplayMode* mode = SDL_GetDesktopDisplayMode(display);
+    if (mode == nullptr)
+        return false;
+
+    bool found = false;
+
+    for (i32 j = 0; j < dxiRendererCount; ++j)
+    {
+        dxiRendererInfo_t& info = dxiInfo[j];
+
+        if (info.SpecialFlags != GetSpecialFlags(info.Type))
+            continue;
+
+        if (std::strncmp(info.Name, name, std::min(ARTS_SIZE(info.Name), std::strlen(name))) != 0)
+            continue;
+
+        if ((info.SDL.Format != mode->format) || (info.SDL.RefreshRate != mode->refresh_rate))
+            continue;
+
+        if ((info.SDL.Left != bounds.x) || (info.SDL.Top != bounds.y))
+            continue;
+
+        if ((info.SDL.Width != static_cast<u32>(bounds.w)) || (info.SDL.Height != static_cast<u32>(bounds.h)))
+            continue;
+
+        info.SDL.DisplayID = display;
+        found = true;
+    }
+
+    return found;
+}
+
 bool ValidateRenderersSDL()
 {
     for (i32 i = 0; i < dxiRendererCount; ++i)
@@ -230,51 +279,32 @@ bool ValidateRenderersSDL()
         if (!IsSDLRenderer(info.Type))
             return false;
 
-        info.SDL.Index = -1;
+        info.SDL.DisplayID = 0;
     }
 
-    for (i32 i = 0, count = SDL_GetNumVideoDisplays(); i < count; ++i)
+    bool found = true;
+
+    int num_displays = 0;
+    SDL_DisplayID* displays = SDL_GetDisplays(&num_displays);
+
+    for (i32 i = 0; i < num_displays; ++i)
     {
-        const char* name = SDL_GetDisplayName(i);
-        if (name == nullptr)
-            continue;
-
-        SDL_Rect bounds;
-        if (SDL_GetDisplayBounds(i, &bounds) != 0)
-            continue;
-
-        SDL_DisplayMode mode;
-        if (SDL_GetDesktopDisplayMode(i, &mode) != 0)
-            continue;
-
-        bool found = false;
-
-        for (i32 j = 0; j < dxiRendererCount; ++j)
+        if (!ValidateVideoDisplay(displays[i]))
         {
-            dxiRendererInfo_t& info = dxiInfo[j];
-
-            if (info.SpecialFlags != GetSpecialFlags(info.Type))
-                continue;
-
-            if (std::strncmp(info.Name, name, std::min(ARTS_SIZE(info.Name), std::strlen(name))) != 0)
-                continue;
-
-            if ((info.SDL.Format != mode.format) || (info.SDL.RefreshRate != mode.refresh_rate))
-                continue;
-
-            if ((info.SDL.Left != bounds.x) || (info.SDL.Top != bounds.y))
-                continue;
-
-            if ((info.SDL.Width != static_cast<u32>(bounds.w)) || (info.SDL.Height != static_cast<u32>(bounds.h)))
-                continue;
-
-            info.SDL.Index = i;
-            found = true;
+            found = false;
+            break;
         }
-
-        if (!found)
-            return false;
     }
 
-    return true;
+    SDL_free(displays);
+
+    for (i32 i = 0; i < dxiRendererCount; ++i)
+    {
+        dxiRendererInfo_t& info = dxiInfo[i];
+
+        if (info.SDL.DisplayID == 0)
+            found = false;
+    }
+
+    return found;
 }

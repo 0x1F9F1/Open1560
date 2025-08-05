@@ -24,9 +24,8 @@
 #include "mmaudio/manager.h"
 #include "pcwindis/dxinit.h"
 
-#include <SDL_events.h>
-#include <SDL_hints.h>
-#include <SDL_video.h>
+#include <SDL3/SDL_events.h>
+#include <SDL3/SDL_hints.h>
 
 #include "core/minwin.h"
 
@@ -71,12 +70,12 @@ i32 SDLEventHandler::BeginGfx(i32 width, i32 height, b32 fullscreen)
     SDL_RaiseWindow(g_MainWindow);
 
     i32 mouse_mode = PARAM_mousemode.get_or(fullscreen ? 0 : 2);
-    SDL_SetHint(SDL_HINT_MOUSE_RELATIVE_MODE_WARP, (mouse_mode == 1) ? "1" : "0");
 
-    if ((SDL_SetRelativeMouseMode((mouse_mode != 2) ? SDL_TRUE : SDL_FALSE) < 0) || (mouse_mode == 2))
+    if (!SDL_SetWindowRelativeMouseMode(g_MainWindow, (mouse_mode != 2)) || (mouse_mode == 2))
     {
-        SDL_SetWindowGrab(g_MainWindow, SDL_TRUE);
-        SDL_WarpMouseInWindow(g_MainWindow, mouse_x_, mouse_y_);
+        SDL_HideCursor();
+        SDL_SetWindowMouseGrab(g_MainWindow, true);
+        SDL_WarpMouseInWindow(g_MainWindow, static_cast<float>(mouse_x_), static_cast<float>(mouse_y_));
         tracked_events_ |= 0x1;
     }
 
@@ -86,9 +85,14 @@ i32 SDLEventHandler::BeginGfx(i32 width, i32 height, b32 fullscreen)
 void SDLEventHandler::EndGfx()
 {
     if (tracked_events_ & 0x1)
-        SDL_SetWindowGrab(g_MainWindow, SDL_FALSE);
+    {
+        SDL_SetWindowMouseGrab(g_MainWindow, false);
+        SDL_ShowCursor();
+    }
     else
-        SDL_SetRelativeMouseMode(SDL_FALSE);
+    {
+        SDL_SetWindowRelativeMouseMode(g_MainWindow, false);
+    }
 }
 
 #define EQ_SEND(NAME, ...)                               \
@@ -106,7 +110,7 @@ void SDLEventHandler::Update(i32)
 
     while (true)
     {
-        i32 count = SDL_PeepEvents(events, ARTS_SSIZE32(events), SDL_GETEVENT, SDL_FIRSTEVENT, SDL_LASTEVENT);
+        i32 count = SDL_PeepEvents(events, ARTS_SSIZE32(events), SDL_GETEVENT, SDL_EVENT_FIRST, SDL_EVENT_LAST);
 
         if (count < 1)
         {
@@ -123,7 +127,6 @@ void SDLEventHandler::Update(i32)
     if (mouse_moved_)
     {
         EQ_SEND(Mouse, 0, 0, 0, buttons_, mouse_x_, mouse_y_, 0, 0);
-
         mouse_moved_ = false;
     }
 }
@@ -143,121 +146,13 @@ static void TranslateScancode(SDL_Scancode scan, i32& vkey, u8& vsc);
 
 void SDLEventHandler::HandleEvent(const SDL_Event& event)
 {
+    const auto window_id = [](SDL_WindowID id) { return reinterpret_cast<void*>(static_cast<usize>(id)); };
+
     switch (event.type)
     {
-        case SDL_WINDOWEVENT: HandleWindowEvent(event.window); break;
-
-        case SDL_MOUSEMOTION: {
-            i32 old_x = mouse_x_;
-            i32 old_y = mouse_y_;
-
-            mouse_virtual_x_ += event.motion.xrel;
-            mouse_virtual_y_ += event.motion.yrel;
-
-            if (tracked_events_ & 0x1)
-            {
-                mouse_x_ = std::clamp(event.motion.x - tracking_x_, 0, mouse_width_);
-                mouse_y_ = std::clamp(event.motion.y - tracking_y_, 0, mouse_height_);
-
-                tracking_x_ = event.motion.x - mouse_x_;
-                tracking_y_ = event.motion.y - mouse_y_;
-            }
-            else
-            {
-                mouse_x_ = std::clamp(mouse_x_ + event.motion.xrel, 0, mouse_width_);
-                mouse_y_ = std::clamp(mouse_y_ + event.motion.yrel, 0, mouse_height_);
-            }
-
-            // Avoid redudant events, and only send a maximum of one per frame
-            if (mouse_x_ != old_x || mouse_y_ != old_y)
-                mouse_moved_ = true;
-
-            break;
-        }
-
-        case SDL_KEYDOWN:
-        case SDL_KEYUP: {
-            u32 modifiers = 0;
-
-            if (event.key.state == SDL_PRESSED)
-                modifiers |= EQ_KMOD_DOWN;
-            if (event.key.repeat)
-                modifiers |= EQ_KMOD_REPEAT;
-            if (event.key.keysym.mod & KMOD_CTRL)
-                modifiers |= EQ_KMOD_CTRL;
-            if (event.key.keysym.mod & KMOD_ALT)
-                modifiers |= EQ_KMOD_ALT;
-            if (event.key.keysym.mod & KMOD_SHIFT)
-                modifiers |= EQ_KMOD_SHIFT;
-
-            i32 vkey = 0;
-            u8 vsc = 0;
-            TranslateScancode(event.key.keysym.scancode, vkey, vsc);
-
-            if (vsc)
-                key_states_[vsc] = !!(modifiers & EQ_KMOD_DOWN);
-
-            i32 lparam = 0x1 | ((vsc & 0x7F) << 16) | ((vsc & 0x80) << 17);
-
-            if (modifiers & EQ_KMOD_REPEAT)
-                lparam |= (0x1 << 30);
-
-            if (!(modifiers & EQ_KMOD_DOWN))
-                lparam |= (0x1 << 30) | (0x1 << 31);
-
-            if (vkey)
-                EQ_SEND(Keyboard, (void*) event.key.windowID, modifiers, vkey, 0, lparam);
-
-            break;
-        }
-
-        case SDL_TEXTINPUT: {
-            for (const char* text = event.text.text; *text; ++text)
-            {
-                u8 value = *text;
-
-                EQ_SEND(Keyboard, (void*) event.text.windowID, EQ_KMOD_DOWN, 0, value, 0);
-            }
-
-            break;
-        }
-
-        case SDL_MOUSEBUTTONDOWN:
-        case SDL_MOUSEBUTTONUP: {
-            u32 button = 0;
-
-            switch (event.button.button)
-            {
-                case SDL_BUTTON_LEFT: button = EQ_BUTTON_LEFT; break;
-                case SDL_BUTTON_RIGHT: button = EQ_BUTTON_RIGHT; break;
-                case SDL_BUTTON_MIDDLE: button = EQ_BUTTON_MIDDLE; break;
-            }
-
-            if (event.button.state == SDL_PRESSED)
-                buttons_ |= button;
-            else
-                buttons_ &= ~button;
-
-            u32 changed_buttons = buttons_ ^ prev_buttons_;
-            u32 new_buttons = buttons_ & changed_buttons;
-
-            EQ_SEND(
-                Mouse, (void*) event.button.windowID, new_buttons, changed_buttons, buttons_, mouse_x_, mouse_y_, 0, 0);
-
-            prev_buttons_ = buttons_;
-
-            break;
-        }
-    }
-}
-
-void SDLEventHandler::HandleWindowEvent(const SDL_WindowEvent& event)
-{
-    switch (event.event)
-    {
-        case SDL_WINDOWEVENT_FOCUS_GAINED:
-        case SDL_WINDOWEVENT_FOCUS_LOST: {
-            bool focused = event.event == SDL_WINDOWEVENT_FOCUS_GAINED;
+        case SDL_EVENT_WINDOW_FOCUS_GAINED:
+        case SDL_EVENT_WINDOW_FOCUS_LOST: {
+            bool focused = event.type == SDL_EVENT_WINDOW_FOCUS_GAINED;
 
             if (focused)
             {
@@ -276,18 +171,119 @@ void SDLEventHandler::HandleWindowEvent(const SDL_WindowEvent& event)
                 }
             }
 
-            EQ_SEND(Refocus, (void*) event.windowID, focused);
-
+            EQ_SEND(Refocus, window_id(event.window.windowID), focused);
             break;
         }
 
-        case SDL_WINDOWEVENT_CLOSE: {
+        case SDL_EVENT_WINDOW_CLOSE_REQUESTED: {
             Displayf("Close requested.");
 
             if (CloseCallback)
                 CloseCallback();
 
             ActiveFlag = 1;
+            break;
+        }
+
+        case SDL_EVENT_MOUSE_MOTION: {
+            i32 old_x = mouse_x_;
+            i32 old_y = mouse_y_;
+
+            mouse_virtual_x_ += static_cast<i32>(event.motion.xrel);
+            mouse_virtual_y_ += static_cast<i32>(event.motion.yrel);
+
+            if (tracked_events_ & 0x1)
+            {
+                mouse_x_ = std::clamp(static_cast<i32>(event.motion.x) - tracking_x_, 0, mouse_width_);
+                mouse_y_ = std::clamp(static_cast<i32>(event.motion.y) - tracking_y_, 0, mouse_height_);
+
+                tracking_x_ = static_cast<i32>(event.motion.x) - mouse_x_;
+                tracking_y_ = static_cast<i32>(event.motion.y) - mouse_y_;
+            }
+            else
+            {
+                mouse_x_ = std::clamp(mouse_x_ + static_cast<i32>(event.motion.xrel), 0, mouse_width_);
+                mouse_y_ = std::clamp(mouse_y_ + static_cast<i32>(event.motion.yrel), 0, mouse_height_);
+            }
+
+            // Avoid redudant events, and only send a maximum of one per frame
+            if (mouse_x_ != old_x || mouse_y_ != old_y)
+                mouse_moved_ = true;
+
+            break;
+        }
+
+        case SDL_EVENT_KEY_DOWN:
+        case SDL_EVENT_KEY_UP: {
+            u32 modifiers = 0;
+
+            if (event.key.down)
+                modifiers |= EQ_KMOD_DOWN;
+            if (event.key.repeat)
+                modifiers |= EQ_KMOD_REPEAT;
+            if (event.key.mod & SDL_KMOD_CTRL)
+                modifiers |= EQ_KMOD_CTRL;
+            if (event.key.mod & SDL_KMOD_ALT)
+                modifiers |= EQ_KMOD_ALT;
+            if (event.key.mod & SDL_KMOD_SHIFT)
+                modifiers |= EQ_KMOD_SHIFT;
+
+            i32 vkey = 0;
+            u8 vsc = 0;
+            TranslateScancode(event.key.scancode, vkey, vsc);
+
+            if (vsc)
+                key_states_[vsc] = !!(modifiers & EQ_KMOD_DOWN);
+
+            i32 lparam = 0x1 | ((vsc & 0x7F) << 16) | ((vsc & 0x80) << 17);
+
+            if (modifiers & EQ_KMOD_REPEAT)
+                lparam |= (0x1 << 30);
+
+            if (!(modifiers & EQ_KMOD_DOWN))
+                lparam |= (0x1 << 30) | (0x1 << 31);
+
+            if (vkey)
+                EQ_SEND(Keyboard, window_id(event.key.windowID), modifiers, vkey, 0, lparam);
+
+            break;
+        }
+
+        case SDL_EVENT_TEXT_INPUT: {
+            for (const char* text = event.text.text; *text; ++text)
+            {
+                u8 value = *text;
+
+                EQ_SEND(Keyboard, window_id(event.text.windowID), EQ_KMOD_DOWN, 0, value, 0);
+            }
+
+            break;
+        }
+
+        case SDL_EVENT_MOUSE_BUTTON_DOWN:
+        case SDL_EVENT_MOUSE_BUTTON_UP: {
+            u32 button = 0;
+
+            switch (event.button.button)
+            {
+                case SDL_BUTTON_LEFT: button = EQ_BUTTON_LEFT; break;
+                case SDL_BUTTON_RIGHT: button = EQ_BUTTON_RIGHT; break;
+                case SDL_BUTTON_MIDDLE: button = EQ_BUTTON_MIDDLE; break;
+            }
+
+            if (event.button.down)
+                buttons_ |= button;
+            else
+                buttons_ &= ~button;
+
+            u32 changed_buttons = buttons_ ^ prev_buttons_;
+            u32 new_buttons = buttons_ & changed_buttons;
+
+            EQ_SEND(Mouse, window_id(event.button.windowID), new_buttons, changed_buttons, buttons_, mouse_x_, mouse_y_,
+                0, 0);
+
+            prev_buttons_ = buttons_;
+
             break;
         }
     }
@@ -705,13 +701,10 @@ static void TranslateScancode(SDL_Scancode scan, i32& vkey, u8& vsc)
         case SDL_SCANCODE_MENU: vkey = EQ_VK_MENU; break;
         case SDL_SCANCODE_SELECT: vkey = EQ_VK_SELECT; break;
         case SDL_SCANCODE_STOP: vsc = EQ_KEY_STOP; break;
-        // case SDL_SCANCODE_AGAIN: break;
-        // case SDL_SCANCODE_UNDO: break;
-        // case SDL_SCANCODE_CUT: break;
-        // case SDL_SCANCODE_COPY: break;
-        // case SDL_SCANCODE_PASTE: break;
-        // case SDL_SCANCODE_FIND: break;
-        case SDL_SCANCODE_MUTE: vsc = EQ_KEY_MUTE; break;
+        case SDL_SCANCODE_MUTE:
+            vkey = EQ_VK_VOLUME_MUTE;
+            vsc = EQ_KEY_MUTE;
+            break;
         case SDL_SCANCODE_VOLUMEUP:
             vkey = EQ_VK_VOLUME_UP;
             vsc = EQ_KEY_VOLUMEUP;
@@ -837,37 +830,26 @@ static void TranslateScancode(SDL_Scancode scan, i32& vkey, u8& vsc)
             vsc = EQ_KEY_RWIN;
             break;
         case SDL_SCANCODE_MODE: vkey = EQ_VK_MODECHANGE; break;
-        case SDL_SCANCODE_AUDIONEXT:
+        case SDL_SCANCODE_MEDIA_NEXT_TRACK:
             vkey = EQ_VK_MEDIA_NEXT_TRACK;
             vsc = EQ_KEY_NEXTTRACK;
             break;
-        case SDL_SCANCODE_AUDIOPREV:
+        case SDL_SCANCODE_MEDIA_PREVIOUS_TRACK:
             vkey = EQ_VK_MEDIA_PREV_TRACK;
             vsc = EQ_KEY_PREVTRACK;
             break;
-        case SDL_SCANCODE_AUDIOSTOP:
+        case SDL_SCANCODE_MEDIA_STOP:
             vkey = EQ_VK_MEDIA_STOP;
             vsc = EQ_KEY_MEDIASTOP;
             break;
-        case SDL_SCANCODE_AUDIOPLAY:
+        case SDL_SCANCODE_MEDIA_PLAY:
             vkey = EQ_VK_MEDIA_PLAY_PAUSE;
             vsc = EQ_KEY_PLAYPAUSE;
             break;
-        case SDL_SCANCODE_AUDIOMUTE:
-            vkey = EQ_VK_VOLUME_MUTE;
-            vsc = EQ_KEY_MUTE;
-            break;
-        case SDL_SCANCODE_MEDIASELECT:
+        case SDL_SCANCODE_MEDIA_SELECT:
             vkey = EQ_VK_LAUNCH_MEDIA_SELECT;
             vsc = EQ_KEY_MEDIASELECT;
             break;
-        // case SDL_SCANCODE_WWW: break;
-        case SDL_SCANCODE_MAIL:
-            vkey = EQ_VK_LAUNCH_MAIL;
-            vsc = EQ_KEY_MAIL;
-            break;
-        case SDL_SCANCODE_CALCULATOR: vsc = EQ_KEY_CALCULATOR; break;
-        // case SDL_SCANCODE_COMPUTER: break;
         case SDL_SCANCODE_AC_SEARCH:
             vkey = EQ_VK_BROWSER_SEARCH;
             vsc = EQ_KEY_WEBSEARCH;
@@ -890,21 +872,10 @@ static void TranslateScancode(SDL_Scancode scan, i32& vkey, u8& vsc)
             break;
         case SDL_SCANCODE_AC_REFRESH: vkey = EQ_VK_BROWSER_REFRESH; break;
         case SDL_SCANCODE_AC_BOOKMARKS: vkey = EQ_VK_BROWSER_FAVORITES; break;
-        // case SDL_SCANCODE_BRIGHTNESSDOWN: break;
-        // case SDL_SCANCODE_BRIGHTNESSUP: break;
-        // case SDL_SCANCODE_DISPLAYSWITCH: break;
-        // case SDL_SCANCODE_KBDILLUMTOGGLE: break;
-        // case SDL_SCANCODE_KBDILLUMDOWN: break;
-        // case SDL_SCANCODE_KBDILLUMUP: break;
-        // case SDL_SCANCODE_EJECT: break;
         case SDL_SCANCODE_SLEEP:
             vkey = EQ_VK_SLEEP;
             vsc = EQ_KEY_SLEEP;
             break;
-        case SDL_SCANCODE_APP1: vkey = EQ_VK_LAUNCH_APP1; break;
-        case SDL_SCANCODE_APP2: vkey = EQ_VK_LAUNCH_APP2; break;
-        // case SDL_SCANCODE_AUDIOREWIND: break;
-        // case SDL_SCANCODE_AUDIOFASTFORWARD: break;
         default: return;
     }
 

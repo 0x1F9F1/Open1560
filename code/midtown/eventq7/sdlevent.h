@@ -20,7 +20,8 @@
 
 #include "event.h"
 
-#include <SDL_events.h>
+typedef union SDL_Event SDL_Event;
+typedef struct SDL_WindowEvent SDL_WindowEvent;
 
 class SDLEventHandler final : public eqEventHandler
 {
@@ -34,7 +35,6 @@ public:
 
 private:
     void HandleEvent(const SDL_Event& event);
-    void HandleWindowEvent(const SDL_WindowEvent& event);
 
     i32 mouse_width_ {};
     i32 mouse_height_ {};

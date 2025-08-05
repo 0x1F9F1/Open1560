@@ -18,8 +18,8 @@
 
 #pragma once
 
-typedef struct SDL_mutex SDL_mutex;
-typedef struct SDL_cond SDL_cond;
+typedef struct SDL_Mutex SDL_Mutex;
+typedef struct SDL_Condition SDL_Condition;
 
 class Mutex
 {
@@ -36,13 +36,13 @@ public:
     void lock();
     void unlock();
 
-    SDL_mutex* native_handle() const
+    SDL_Mutex* native_handle() const
     {
         return handle_;
     }
 
 private:
-    SDL_mutex* handle_ {};
+    SDL_Mutex* handle_ {};
 };
 
 template <typename T>
@@ -137,5 +137,5 @@ public:
     void wait(UniqueLock<Mutex>& mutex);
 
 private:
-    SDL_cond* handle_ {};
+    SDL_Condition* handle_ {};
 };
