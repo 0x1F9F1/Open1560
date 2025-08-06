@@ -61,7 +61,7 @@ b32 mmBridgeSet::Init(char* name, Stream* file)
         }
     }
 
-    return 1;
+    return true;
 }
 
 void mmBridgeSet::InitTrigger()
@@ -70,8 +70,7 @@ void mmBridgeSet::InitTrigger()
     {
         State = 3;
 
-        mmAnimTrigger anim;
-        anim.Init(&TriggerPos, &TriggerDist2);
+        Trigger.Init(&TriggerPos, &TriggerDist2);
     }
 }
 

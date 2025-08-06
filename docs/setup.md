@@ -1,7 +1,7 @@
 # Setup
 
 In most cases, Open1560 should run optimally straight away.
-For a minimal fresh installation, only the 3 original
+For a minimal fresh installation, only the 3 original `.ar` files are required.
 You do not need to install the XP patch, or use dgVoodoo.
 However, there are certain things you may wish to change:
 * If you have a laptop, ensure you are using the correct GPU.
