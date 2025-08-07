@@ -34,17 +34,24 @@ public:
     virtual void SetLabel(const char* title) = 0;
     virtual bkWindow* AddTitle(const char* title) = 0;
     virtual bkButton* AddButton(const char* title, Callback cb = nullptr) = 0;
-    virtual bkButton* AddToggle(const char* title, i32* value, i32 arg3, Callback cb = nullptr) = 0;
+    virtual bkButton* AddToggle(const char* title, i32* value, i32 arg3 = 0, Callback cb = nullptr) = 0;
     virtual bkButton* AddMex(const char* title, i32* value, i32 arg3, Callback cb = nullptr) = 0;
     virtual bkButton* AddText(Callback cb) = 0;
     virtual bkButton* AddText(const char* title, Callback cb = nullptr) = 0;
-    virtual bkSlider* AddSlider(const char* title, i8* value, i8 min, i8 max, f32 step, Callback cb = nullptr) = 0;
-    virtual bkSlider* AddSlider(const char* title, u8* value, u8 min, u8 max, f32 step, Callback cb = nullptr) = 0;
-    virtual bkSlider* AddSlider(const char* title, i16* value, i16 min, i16 max, f32 step, Callback cb = nullptr) = 0;
-    virtual bkSlider* AddSlider(const char* title, u16* value, u16 min, u16 max, f32 step, Callback cb = nullptr) = 0;
-    virtual bkSlider* AddSlider(const char* title, i32* value, i32 min, i32 max, f32 step, Callback cb = nullptr) = 0;
-    virtual bkSlider* AddSlider(const char* title, u32* value, u32 min, u32 max, f32 step, Callback cb = nullptr) = 0;
-    virtual bkSlider* AddSlider(const char* title, f32* value, f32 min, f32 max, f32 step, Callback cb = nullptr) = 0;
+    virtual bkSlider* AddSlider(
+        const char* title, i8* value, i8 min, i8 max, f32 step = 1.0f, Callback cb = nullptr) = 0;
+    virtual bkSlider* AddSlider(
+        const char* title, u8* value, u8 min, u8 max, f32 step = 1.0f, Callback cb = nullptr) = 0;
+    virtual bkSlider* AddSlider(
+        const char* title, i16* value, i16 min, i16 max, f32 step = 1.0f, Callback cb = nullptr) = 0;
+    virtual bkSlider* AddSlider(
+        const char* title, u16* value, u16 min, u16 max, f32 step = 1.0f, Callback cb = nullptr) = 0;
+    virtual bkSlider* AddSlider(
+        const char* title, i32* value, i32 min, i32 max, f32 step = 1.0f, Callback cb = nullptr) = 0;
+    virtual bkSlider* AddSlider(
+        const char* title, u32* value, u32 min, u32 max, f32 step = 1.0f, Callback cb = nullptr) = 0;
+    virtual bkSlider* AddSlider(
+        const char* title, f32* value, f32 min, f32 max, f32 step = 1.0f, Callback cb = nullptr) = 0;
     virtual bkSlider* AddTextSlider(
         const char* title, const char* arg2, i32* value, f32 arg4, Callback cb = nullptr) = 0;
     virtual void AddVector(const char* title, Vector2* value, f32 min, f32 max, f32 step, Callback cb = nullptr) = 0;

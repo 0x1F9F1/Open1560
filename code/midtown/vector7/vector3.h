@@ -231,9 +231,6 @@ ARTS_IMPORT void TransformVertNorm(
 // ?ORIGIN@@3VVector3@@A
 ARTS_IMPORT extern Vector3 ORIGIN;
 
-// ?Vector3Inst@@3UVector3Type@@A
-// ARTS_IMPORT Vector3Type Vector3Inst;
-
 // ?XAXIS@@3VVector3@@A
 ARTS_IMPORT extern Vector3 XAXIS;
 

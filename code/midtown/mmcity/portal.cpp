@@ -21,12 +21,37 @@ define_dummy_symbol(mmcity_portal);
 #include "portal.h"
 
 #include "agi/viewport.h"
+#include "arts7/cullmgr.h"
 #include "arts7/sim.h"
+#include "data7/metadefine.h"
 #include "dyna7/gfx.h"
 
-ARTS_IMPORT i32 PortalCurrentIdx;
-ARTS_IMPORT i32 PortalShowIdx;
-ARTS_IMPORT i32 PortalDebugIdx;
+// ?VisitOnce@@3HA
+ARTS_EXPORT b32 VisitOnce = true;
+
+// ?EnableGroups@@3HA
+ARTS_EXPORT b32 EnableGroups = true;
+
+u16 asPortalWeb::VisitTag = 0;
+
+static i32 PortalCurrentIdx = 0;
+static i32 PortalShowIdx = 0;
+static i32 PortalDebugIdx = 0;
+
+asPortalWeb::asPortalWeb()
+{
+    CullMgr()->AddPage([this] { Stats(); });
+}
+
+asPortalWeb::~asPortalWeb()
+{
+    while (asPortalCell* cell = CellList)
+    {
+        CellList = cell->Next;
+
+        delete cell;
+    }
+}
 
 void asPortalWeb::Cull(b32 front_to_back)
 {
@@ -155,15 +180,20 @@ void asPortalWeb::Cull(b32 front_to_back)
     } while (portal != end);
 }
 
-void asPortalWeb::DeleteEdge(asPortalEdge* /*arg1*/)
+#ifdef ARTS_DEV_BUILD
+void asPortalWeb::AddWidgets(Bank* bank)
+{
+    bank->AddToggle("Debug", &Debug);
+    bank->AddSlider("DebugIdx", &PortalDebugIdx, 0, 100);
+    bank->AddSlider("ShowIdx", &PortalShowIdx, 0, 300);
+    bank->AddButton("Lock Target", [this] { PortalShowIdx = PortalCurrentIdx; });
+    bank->AddToggle("SubClip", &SubClip);
+    bank->AddToggle("NoPortals", &NoPortals);
+    bank->AddToggle("VisitOnce", &VisitOnce);
+    bank->AddToggle("EnableGroups", &EnableGroups);
+    bank->AddSlider("MaxRenderDepth", &MaxRenderDepth, 0, 64);
+}
+#endif
+
+META_DEFINE_CHILD("asPortalWeb", asPortalWeb, asNode)
 {}
-
-asPortalCell* LookupCell(char* /*arg1*/)
-{
-    return nullptr;
-}
-
-asPortalCell* LookupEdge(char* /*arg1*/)
-{
-    return nullptr;
-}

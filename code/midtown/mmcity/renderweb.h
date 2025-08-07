@@ -46,29 +46,16 @@ class asRenderWeb final : public asPortalWeb
 {
 public:
     // ??0asRenderWeb@@QAE@XZ
-    ARTS_IMPORT asRenderWeb();
+    ARTS_EXPORT asRenderWeb();
 
     // ??1asRenderWeb@@UAE@XZ
-    ARTS_IMPORT ~asRenderWeb() override;
-
-#ifdef ARTS_DEV_BUILD
-    // ?AddWidgets@asRenderWeb@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
-#endif
+    ARTS_EXPORT ~asRenderWeb() override;
 
     // ?Cull@asRenderWeb@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
-#ifdef ARTS_DEV_BUILD
-    // ?DrawAllBounds@asRenderWeb@@QAEXXZ
-    ARTS_IMPORT void DrawAllBounds();
-#endif
-
     // ?GetCellNeighbors@asRenderWeb@@QAEHHPAPAUasPortalCell@@H@Z
     ARTS_IMPORT i32 GetCellNeighbors(i32 arg1, asPortalCell** arg2, i32 arg3);
-
-    // ?GetClass@asRenderWeb@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetStartCell@asRenderWeb@@UAEPAUasPortalCell@@AAVVector3@@PAU2@PAPAVmmPolygon@@@Z
     ARTS_IMPORT asPortalCell* GetStartCell(Vector3& arg1, asPortalCell* arg2, mmPolygon** arg3) override;
@@ -93,6 +80,16 @@ public:
     // ?DeclareFields@asRenderWeb@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
+#ifdef ARTS_DEV_BUILD
+    // ?DrawAllBounds@asRenderWeb@@QAEXXZ
+    ARTS_EXPORT void DrawAllBounds();
+
+    // ?AddWidgets@asRenderWeb@@UAEXPAVBank@@@Z
+    void AddWidgets(Bank* bank) override;
+#endif
+
+    VIRTUAL_META_DECLARE;
+
     // ?InvLodFactor@asRenderWeb@@2MA
     ARTS_IMPORT static f32 InvLodFactor;
 
@@ -100,18 +97,18 @@ public:
     // ?PassMask@asRenderWeb@@2HA
     ARTS_IMPORT static i32 PassMask;
 
-    asPortalCell** CellArray;
-    mmBoundTemplate* HitIdBound;
-    mmBoundTemplate** Bounds;
-    i32 HasHitIdBound;
-    i32 MaxCells;
-    i32 HitID;
-    asParticles* Particles[64];
-    i32 PtxCount;
-    b32 EnableMirror;
-    agiViewport* Viewport;
-    Matrix34* CarCamera;
-    Matrix34* MirrorMatrix;
+    asPortalCell** CellArray {};
+    mmBoundTemplate* HitIdBound {};
+    mmBoundTemplate** Bounds {};
+    b32 HasHitIdBound {};
+    i32 MaxCells {};
+    i32 HitID {};
+    asParticles* Particles[64] {};
+    i32 PtxCount {};
+    b32 EnableMirror {};
+    agiViewport* Viewport {};
+    Matrix34* CarCamera {};
+    Matrix34* MirrorMatrix {};
 };
 
 check_size(asRenderWeb, 0x9178);

@@ -20,8 +20,57 @@ define_dummy_symbol(mmcity_renderweb);
 
 #include "renderweb.h"
 
+#include "agi/pipeline.h"
+#include "agi/viewport.h"
+#include "data7/metadefine.h"
+#include "mmdyna/bndtmpl.h"
+
 static mem::cmd_param PARAM_mirrordist {"mirrordist"};
 
 f32 MirrorDist = 200.0f;
 
 hook_func(INIT_main, [] { MirrorDist = PARAM_mirrordist.get_or(200.0f); });
+
+asRenderWeb::asRenderWeb()
+{
+    SetNodeFlag(NODE_FLAG_UPDATE_PAUSED);
+
+    Viewport = Pipe()->CreateViewport();
+}
+
+asRenderWeb::~asRenderWeb()
+{
+    Viewport->Release();
+
+    if (HitIdBound)
+        HitIdBound->Release();
+
+    delete[] CellArray;
+}
+
+#ifdef ARTS_DEV_BUILD
+void asRenderWeb::DrawAllBounds()
+{
+    asPortalView* portals = Portals[CurrentGroup];
+
+    for (i32 i = 0, count = NumSubPortals[CurrentGroup]; i < count; ++i)
+    {
+        asPortalCell* cell = portals[i].Cell;
+
+        if (mmBoundTemplate* bound = Bounds[cell->CellIndex]; bound && bound->LockIfResident())
+        {
+            bound->Draw();
+            bound->Unlock();
+        }
+    }
+}
+
+void asRenderWeb::AddWidgets(Bank* bank)
+{
+    bank->AddSlider("HitID", &HitID, 0, 10000, 0.0f); // Read-Only
+    bank->AddSlider("ScreenClearY", &ScreenClearY, 0.0f, 10000.0f, 1.0f);
+}
+#endif
+
+META_DEFINE_CHILD("asRenderWeb", asRenderWeb, asPortalWeb)
+{}

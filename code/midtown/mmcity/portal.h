@@ -58,16 +58,18 @@ struct PtlPath
     i32 Type;
 };
 
+struct PortalLink;
+
 struct asPortalCell
 {
-    struct PortalLink* Edges;
+    PortalLink* Edges;
     asPortalRenderable* CellRenderer;
     asPortalCell* Next;
     u16 VisitTag;
     u16 CellIndex;
     u16 NumPtlPaths;
     u16 Flags;
-    struct PtlPath** PtlPaths;
+    PtlPath** PtlPaths;
 };
 
 check_size(asPortalCell, 0x18);
@@ -76,26 +78,27 @@ class asPortalWeb : public asNode
 {
 public:
     // ??0asPortalWeb@@QAE@XZ
-    ARTS_IMPORT asPortalWeb();
+    asPortalWeb();
 
     // ??1asPortalWeb@@UAE@XZ
-    ARTS_IMPORT ~asPortalWeb() override;
+    ~asPortalWeb() override;
 
     virtual asPortalCell* GetStartCell(Vector3& arg1, asPortalCell* arg2, mmPolygon** arg3) = 0;
 
     // ?AddCell@asPortalWeb@@QAEPAUasPortalCell@@PADPAVasPortalRenderable@@I@Z
-    ARTS_IMPORT asPortalCell* AddCell(char* arg1, asPortalRenderable* arg2, u32 arg3);
+    ARTS_IMPORT asPortalCell* AddCell(char* name, asPortalRenderable* render, u32 index);
 
     // ?AddEdge@asPortalWeb@@QAEPAUasPortalEdge@@PADPAUasPortalCell@@1H@Z
-    ARTS_IMPORT asPortalEdge* AddEdge(char* arg1, asPortalCell* arg2, asPortalCell* arg3, i32 arg4);
-
-#ifdef ARTS_DEV_BUILD
-    // ?AddWidgets@asPortalWeb@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
-#endif
+    ARTS_IMPORT asPortalEdge* AddEdge(char* name, asPortalCell* cell1, asPortalCell* cell2, i32 num_edges);
 
     // ?BuildGroups@asPortalWeb@@QAEXXZ
     ARTS_IMPORT void BuildGroups();
+
+    // ?Update@asPortalWeb@@UAEXXZ
+    ARTS_IMPORT void Update() override;
+
+    // ?Cull@asPortalWeb@@QAEXH@Z
+    ARTS_EXPORT void Cull(b32 front_to_back);
 
 #ifdef ARTS_DEV_BUILD
     // ?BuildVisibilityList@asPortalWeb@@QAEHAAVMatrix34@@PAPAUasPortalCell@@HM@Z
@@ -103,73 +106,36 @@ public:
 
     // ?BuildVisibilityList@asPortalWeb@@QAEHAAVVector3@@PAPAUasPortalCell@@HM@Z
     ARTS_IMPORT i32 BuildVisibilityList(Vector3& arg1, asPortalCell** arg2, i32 arg3, f32 arg4);
-#endif
 
-    // ?Cull@asPortalWeb@@QAEXH@Z
-    ARTS_EXPORT void Cull(b32 front_to_back);
-
-    // ?DeleteEdge@asPortalWeb@@QAEXPAUasPortalEdge@@@Z | unused
-    void DeleteEdge(asPortalEdge* arg1);
-
-    // ?GetClass@asPortalWeb@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT MetaClass* GetClass() override;
-
-#ifdef ARTS_DEV_BUILD
-    // ?LockTarget@asPortalWeb@@QAEXXZ
-    ARTS_IMPORT void LockTarget();
-#endif
-
-#ifdef ARTS_DEV_BUILD
     // ?Stats@asPortalWeb@@QAEXXZ
     ARTS_IMPORT void Stats();
+
+    // ?AddWidgets@asPortalWeb@@UAEXPAVBank@@@Z
+    void AddWidgets(Bank* bank) override;
 #endif
 
-    // ?Update@asPortalWeb@@UAEXXZ
-    ARTS_IMPORT void Update() override;
-
-    // ?DeclareFields@asPortalWeb@@SAXXZ
-    ARTS_IMPORT static void DeclareFields();
+    VIRTUAL_META_DECLARE;
 
     // ?VisitTag@asPortalWeb@@2GA
-    ARTS_IMPORT static u16 VisitTag;
+    ARTS_EXPORT static u16 VisitTag;
 
-    b32 DisableTextures;
-    i32 MaxRenderDepth;
-    asPortalCell* CellList;
-    asPortalCell* StartCell;
-    asPortalEdge* Edges;
-    b32 Debug;
-    b32 SubClip;
-    b32 NoPortals;
+    b32 DisableTextures {};
+    i32 MaxRenderDepth {32};
+    asPortalCell* CellList {};
+    asPortalCell* StartCell {};
+    asPortalEdge* Edges {};
+    b32 Debug {};
+    b32 SubClip {};
+    b32 NoPortals {};
 
     // 0 = Main
     // 1 = Mirror
-    u32 CurrentGroup;
-    i32 NumSubPortals[2];
-    asPortalView Portals[2][256];
+    u32 CurrentGroup {};
+    i32 NumSubPortals[2] {};
+    asPortalView Portals[2][256] {};
 };
 
 check_size(asPortalWeb, 0x904C);
-
-// ?LookupCell@@YAPAUasPortalCell@@PAD@Z | unused
-asPortalCell* LookupCell(char* arg1);
-
-// ?LookupEdge@@YAPAUasPortalCell@@PAD@Z | unused
-asPortalCell* LookupEdge(char* arg1);
-
-struct asPortalPVS
-{
-public:
-    // ?Init@asPortalPVS@@QAEXHH@Z
-    ARTS_IMPORT void Init(i32 arg1, i32 arg2);
-
-    // ?SetVisible@asPortalPVS@@QAEXI@Z
-    ARTS_IMPORT void SetVisible(u32 arg1);
-
-    u8 gap0[0x8];
-};
-
-check_size(asPortalPVS, 0x8);
 
 struct asPortalEdge
 {

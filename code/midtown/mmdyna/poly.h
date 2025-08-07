@@ -107,7 +107,7 @@ public:
     i16 VertIndices[4];
 
     // Equations of the 2D lines representing the edges of the polygon
-    // The lines are projected from the 3D plane onto an orthoganal 2D plane
+    // The lines are projected from the 3D plane onto an orthogonal 2D plane
     Vector3 PlaneEdges[4];
 
     // Equation of the 3D plane which the polygon exists on

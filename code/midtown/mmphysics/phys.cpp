@@ -45,8 +45,11 @@ struct mmPhysMover
 
 check_size(mmPhysMover, 0x194);
 
-ARTS_IMPORT i32 MoverCount;
-ARTS_IMPORT mmPhysMover Movers[MAX_MOVERS];
+// ?MoverCount@@3HA
+ARTS_EXPORT i32 MoverCount = 0;
+
+// ?Movers@@3PAUmmPhysMover@@A
+ARTS_EXPORT mmPhysMover Movers[MAX_MOVERS] {};
 
 void mmPhysExec::Update()
 {
