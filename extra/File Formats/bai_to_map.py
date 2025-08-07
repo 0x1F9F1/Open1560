@@ -62,15 +62,17 @@ def calc_normal(a, b, c):
     except:
         return Vector3(0, 1, 0)
 
+BAI_VERSION_RACETRACK8 = 0
+BAI_VERSION_RACETRACK7 = 1
+BAI_VERSION_C39 = 2 # and C46
+BAI_VERSION_RETAIL = 3
 
-# RACETRACK7: Version 0
-# C39: Version 1
-# Retail: Version 2
-BAI_VERSION = 2
+BAI_VERSION = BAI_VERSION_RETAIL
+CITY_NAME = 'CHICAGO'
 
 class aiPath:
     def load(self, file):
-        if BAI_VERSION == 2:
+        if BAI_VERSION >= BAI_VERSION_RETAIL:
             self.ID,\
             self.NumVertexs,\
             self.NumLanes,\
@@ -94,8 +96,13 @@ class aiPath:
             self.ID,\
             self.NumVertexs,\
             self.NumLanes,\
-            self.NumSidewalks,\
-            self.HasBridge,\
+            self.NumSidewalks = read_unpack(file, '<HHHH')
+
+            if BAI_VERSION >= BAI_VERSION_RACETRACK7:
+                self.HasBridge = read_unpack(file, '<H')
+            else:
+                self.HasBridge = False
+
             self.IntersectionType,\
             self.Blocked,\
             self.AlwaysBlocked,\
@@ -107,7 +114,8 @@ class aiPath:
             self.StopLightName,\
             self.OncomingPath,\
             self.EdgeIndex,\
-            self.PathIndex = read_unpack(file, '<HHHHHHHHHHHff32sIII')
+            self.PathIndex = read_unpack(file, '<HHHHHHff32sIII')
+
             self.StopLightIndex = 0
             self.Alley = 0
 
@@ -115,13 +123,18 @@ class aiPath:
         self.CenterOffsets = read_unpack(file, '<{}f'.format(self.NumVertexs))
         self.IntersectionIds = read_unpack(file, '<2I')
 
-        if BAI_VERSION == 0:
-            self.LaneVertices = Vector3.readn(file, self.NumVertexs * self.NumLanes)
-            self.CenterVertices = None
-        else:
+        if BAI_VERSION >= BAI_VERSION_C39:
             self.LaneVertices = Vector3.readn(file, self.NumVertexs * (self.NumLanes + self.NumSidewalks))
             # Center/Dividing line between the two sides of the road
             self.CenterVertices = Vector3.readn(file, self.NumVertexs)
+        else:
+            self.LaneVertices = Vector3.readn(file, self.NumVertexs * self.NumLanes)
+            self.CenterVertices = None
+
+            # Some/all of this is definitely garbage
+            if BAI_VERSION <= BAI_VERSION_RACETRACK8:
+                garbage0 = Vector3.readn(file, self.NumVertexs * (self.NumLanes + self.NumSidewalks))
+                garbage1 = Vector3.readn(file, self.NumVertexs)
 
         self.VertXDirs = Vector3.readn(file, self.NumVertexs)
         self.Normals = Vector3.readn(file, self.NumVertexs)
@@ -251,14 +264,12 @@ class MiniParser:
         self.indent -= 1
         self.print('}\n')
 
-city_name = 'CHICAGO'
-
 game_dir = open('../../GameDirectory.txt', 'r').read().strip()
-city_dir = r'{}dev/CITY/{}/'.format(game_dir, city_name)
+city_dir = r'{}dev/CITY/{}/'.format(game_dir, CITY_NAME)
 
 ai_map = aiMap()
 
-with open('{}{}.bai'.format(city_dir, city_name), 'rb') as f:
+with open('{}{}.bai'.format(city_dir, CITY_NAME), 'rb') as f:
     ai_map.load(f)
 
     here = f.tell()
@@ -318,7 +329,7 @@ for i, path in enumerate(ai_map.Paths):
 
 assert len(streets) * 2 == len(ai_map.Paths)
 
-with open('{}{}.map'.format(city_dir, city_name), 'w') as f:
+with open('{}{}.map'.format(city_dir, CITY_NAME), 'w') as f:
     parser = MiniParser(f)
 
     parser.begin_class('mmMapData')
@@ -352,7 +363,7 @@ for street_name, paths in streets:
             if angle > 0.01:
                 print('Road {} has suspicious normal {}: Expected {}, Calculated {} ({:.2} degrees error)'.format(paths[0].ID, n, target, normal, angle))
 
-        if BAI_VERSION != 0:
+        if BAI_VERSION >= BAI_VERSION_C39:
             for road in range(2):
                 path = paths[road]
 

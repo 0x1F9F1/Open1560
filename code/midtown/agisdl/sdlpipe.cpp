@@ -22,8 +22,8 @@
 #include "pcwindis/dxinit.h"
 #include "pcwindis/setupdata.h"
 
-#include <SDL3/SDL_video.h>
 #include <SDL3/SDL_mouse.h>
+#include <SDL3/SDL_video.h>
 
 static mem::cmd_param PARAM_border {"border"};
 static mem::cmd_param PARAM_scaling {"scaling"};
