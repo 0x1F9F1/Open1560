@@ -299,6 +299,128 @@ public:
 
 static mem::cmd_param PARAM_allocstats {"allocstats", "Show allocator stats after init"};
 
+static void InitAudioManager()
+{
+    /*AUDMGRPTR = */ new AudManager();
+
+    AudMgr()->SteroOn = (MMSTATE.AudFlags & AudManager::GetStereoOnMask()) != 0;
+
+    AudMgr()->Init(150, MMSTATE.AudFlags & (AudManager::GetDSound3DMask() | AudManager::GetUsingEAXMask()),
+        MMSTATE.AudDeviceName, // FIXME: This is empty the first time
+        (MMSTATE.AudFlags & AudManager::GetSoundFXOnMask()) != 0,
+        (MMSTATE.AudFlags & AudManager::GetCDMusicOnMask()) != 0);
+
+    AudMgr()->NotDsound3D = !(AudManager::GetDSound3DMask() & MMSTATE.AudFlags);
+
+    if (AudMgr()->EAXEnabled() && (MMSTATE.AudFlags & AudManager::GetUsingEAXMask()) &&
+        (MMSTATE.AudFlags & AudManager::GetDSound3DMask()))
+    {
+        AudMgr()->AlwaysEAX(true);
+        AudMgr()->SetEAXPreset(EAX_ENVIRONMENT_CITY, 0.114329f, 1.865f, 0.221129f);
+    }
+
+    MMSTATE.HasMidtownCD = AudMgr()->CheckCDFile("cdid.txt"_xconst);
+
+    if (!MMSTATE.HasMidtownCD)
+        AudMgr()->SetCDPlayMode(1);
+
+    AudMgr()->AssignWaveVolume(0.0f);
+    AudMgr()->AssignCDVolume(0.0f);
+    AudMgr()->SetNumChannels(MMSTATE.AudNumChannels);
+}
+
+static b32 GenerateLoadScreenName()
+{
+    switch (MMSTATE.GameMode)
+    {
+        case mmGameMode::Cruise: arts_sprintf(LoadScreen, "%sro", CityName); return true;
+        case mmGameMode::Checkpoint: arts_sprintf(LoadScreen, "%sch%d", CityName, MMSTATE.EventId + 1); return true;
+        case mmGameMode::CnR: arts_sprintf(LoadScreen, "%scr", CityName); return true;
+        case mmGameMode::Circuit: arts_sprintf(LoadScreen, "%sci%d", CityName, MMSTATE.EventId + 1); return true;
+        case mmGameMode::Blitz: arts_sprintf(LoadScreen, "%sbl%d", CityName, MMSTATE.EventId + 1); return true;
+    }
+
+    return false;
+}
+
+static void GameLoop([[maybe_unused]] mmInterface* mm_interface, [[maybe_unused]] mmGameManager* game_manager,
+    [[maybe_unused]] char* replay_name)
+{
+    ARTS_EXCEPTION_BEGIN
+    {
+        while (MMSTATE.GameState == mmGameState::Running)
+        {
+#ifdef ARTS_DEV_BUILD
+            if (CycleTest && Sim()->GetElapsed() > CycleTime)
+            {
+                Sim()->SetElapsed(0.0f);
+
+                if (CycleState == 1)
+                {
+                    if (CycleTest <= 1)
+                    {
+                        MMSTATE.GameMode = mmGameMode::Cruise;
+                        MMSTATE.NetworkStatus = 0;
+                    }
+                    else
+                    {
+                        mm_interface->SetupArchiveTest(CycleTest);
+                    }
+
+                    mm_interface->BeDone();
+                    MMSTATE.GameState = mmGameState::Drive;
+                }
+                else if (CycleState == 2)
+                {
+                    static i32 CycleCount = 0;
+
+                    game_manager->BeDone();
+                    MMSTATE.GameState = mmGameState::Menus;
+                    Displayf(">>>>>>>>>>>>>>>>>>>CYCLETEST: CYCLE # %d", ++CycleCount);
+                }
+            }
+
+            if (SampleStats == 1 && game_manager)
+            {
+                Vector4 pos;
+                game_manager->Current->Player->Hud.GetPosHdg(pos);
+                SystemStatsRecord->DoScan(pos);
+            }
+            else
+#endif
+            {
+                if (GetAsyncKeyState(VK_SCROLL) & 0x8000)
+                    ALLOCATOR.SanityCheck();
+
+                if (EnablePaging)
+                {
+                    CACHE.Age();
+                    TEXCACHE.Age();
+                }
+
+                Sim()->Simulate();
+            }
+        }
+    }
+    ARTS_EXCEPTION_END
+    {
+        Displayf("CRASH POSITION = (%f, %f, %f)", PlayerPos.x, PlayerPos.y, PlayerPos.z);
+
+        AIMAP.Dump();
+
+#ifdef ARTS_DEV_BUILD
+        if (game_manager && !replay_name)
+        {
+            game_manager->SaveReplay("crash.rpl"_xconst);
+
+            Abortf("Exception caught during simulate loop, saving replay.");
+        }
+#endif
+
+        Abortf("Exception caught during simulate loop.");
+    }
+}
+
 static void MainPhase(i32 argc, char** argv)
 {
     LoadTimer.Reset();
@@ -560,7 +682,7 @@ static mem::cmd_param PARAM_heapsize {"heapsize"};
 static mem::cmd_param PARAM_speedrun {"speedrun"};
 static mem::cmd_param PARAM_multiheap {"multiheap"};
 
-void ApplicationHelper(i32 argc, char** argv)
+static void ApplicationHelper(i32 argc, char** argv)
 {
     dxiIcon = 111;
 
@@ -884,6 +1006,94 @@ static char** GetCommandFileUTF8(int* pNumArgs)
     return result;
 }
 
+static mem::cmd_param PARAM_help {"help", "Show list of available command line arguments"};
+
+static void ShowUsage()
+{
+    mem::cmd_param* cmds[256];
+    std::size_t count = mem::cmd_param::collect(cmds, ARTS_SIZE(cmds));
+
+    std::size_t name_width = 0;
+    std::size_t desc_width = 0;
+
+    for (std::size_t i = 0; i < count; ++i)
+    {
+        mem::cmd_param& cmd = *cmds[i];
+
+        name_width = (std::max)(name_width, std::strlen(cmd.name()));
+
+        if (const char* desc = cmd.description())
+            desc_width = (std::max)(desc_width, std::strlen(desc));
+    }
+
+    for (std::size_t i = 0; i < count; ++i)
+    {
+        mem::cmd_param& cmd = *cmds[i];
+
+        const char* name = cmd.name();
+        const char* desc = cmd.description();
+        const char* def_value = cmd.default_value();
+
+        Printf("-%-*s | %-*s | %s", static_cast<int>(name_width), name, static_cast<int>(desc_width), desc ? desc : "",
+            def_value ? def_value : "");
+    }
+}
+
+static mem::cmd_param PARAM_affinity {"affinity"};
+static mem::cmd_param PARAM_sync {"sync"};
+
+static void SetThreadSafety()
+{
+    u32 affinity = PARAM_affinity.get_or<u32>(0);
+
+    if (affinity)
+    {
+        Displayf("SetProcessAffinityMask(0x%X)", affinity);
+
+        SetProcessAffinityMask(GetCurrentProcess(), affinity);
+    }
+
+    if (affinity == 0 || (affinity & (affinity - 1)) != 0)
+    {
+        SynchronousMessageQueues = PARAM_sync.get_or(true);
+
+        if (!SynchronousMessageQueues)
+        {
+            Warningf("For stability, recommend using -sync");
+        }
+    }
+}
+
+static mem::cmd_param PARAM_tool {"tool"};
+
+static void Application(i32 argc, char** argv)
+{
+    ARTS_EXCEPTION_BEGIN
+    {
+        SetThreadSafety();
+
+        if (PARAM_help)
+        {
+            ShowUsage();
+            return;
+        }
+
+        if (const char* tool = PARAM_tool.value())
+        {
+            ProcessTool(tool);
+            return;
+        }
+
+        ApplicationHelper(argc, argv);
+    }
+    ARTS_EXCEPTION_END
+    {
+        // AIMAP.Dump()
+
+        Abortf("Exception caught during init.");
+    }
+}
+
 static mem::cmd_param PARAM_clean_dir {"cleandir"};
 static mem::cmd_param PARAM_console {"console"};
 
@@ -1000,221 +1210,6 @@ int main(int argc, char** argv)
 #endif
 
     return 0;
-}
-
-static mem::cmd_param PARAM_help {"help", "Show list of available command line arguments"};
-
-static void ShowUsage()
-{
-    mem::cmd_param* cmds[256];
-    std::size_t count = mem::cmd_param::collect(cmds, ARTS_SIZE(cmds));
-
-    std::size_t name_width = 0;
-    std::size_t desc_width = 0;
-
-    for (std::size_t i = 0; i < count; ++i)
-    {
-        mem::cmd_param& cmd = *cmds[i];
-
-        name_width = (std::max)(name_width, std::strlen(cmd.name()));
-
-        if (const char* desc = cmd.description())
-            desc_width = (std::max)(desc_width, std::strlen(desc));
-    }
-
-    for (std::size_t i = 0; i < count; ++i)
-    {
-        mem::cmd_param& cmd = *cmds[i];
-
-        const char* name = cmd.name();
-        const char* desc = cmd.description();
-        const char* def_value = cmd.default_value();
-
-        Printf("-%-*s | %-*s | %s", static_cast<int>(name_width), name, static_cast<int>(desc_width), desc ? desc : "",
-            def_value ? def_value : "");
-    }
-}
-
-static mem::cmd_param PARAM_affinity {"affinity"};
-static mem::cmd_param PARAM_sync {"sync"};
-
-static void SetThreadSafety()
-{
-    u32 affinity = PARAM_affinity.get_or<u32>(0);
-
-    if (affinity)
-    {
-        Displayf("SetProcessAffinityMask(0x%X)", affinity);
-
-        SetProcessAffinityMask(GetCurrentProcess(), affinity);
-    }
-
-    if (affinity == 0 || (affinity & (affinity - 1)) != 0)
-    {
-        SynchronousMessageQueues = PARAM_sync.get_or(true);
-
-        if (!SynchronousMessageQueues)
-        {
-            Warningf("For stability, recommend using -sync");
-        }
-    }
-}
-
-static mem::cmd_param PARAM_tool {"tool"};
-
-void Application(i32 argc, char** argv)
-{
-    ARTS_EXCEPTION_BEGIN
-    {
-        SetThreadSafety();
-
-        if (PARAM_help)
-        {
-            ShowUsage();
-            return;
-        }
-
-        if (const char* tool = PARAM_tool.value())
-        {
-            ProcessTool(tool);
-            return;
-        }
-
-        ApplicationHelper(argc, argv);
-    }
-    ARTS_EXCEPTION_END
-    {
-        // AIMAP.Dump()
-
-        Abortf("Exception caught during init.");
-    }
-}
-
-i32 GameFilter(_EXCEPTION_POINTERS* exception)
-{
-    return ExceptionFilter(exception);
-}
-
-void GameLoop([[maybe_unused]] mmInterface* mm_interface, [[maybe_unused]] mmGameManager* game_manager,
-    [[maybe_unused]] char* replay_name)
-{
-    ARTS_EXCEPTION_BEGIN
-    {
-        while (MMSTATE.GameState == mmGameState::Running)
-        {
-#ifdef ARTS_DEV_BUILD
-            if (CycleTest && Sim()->GetElapsed() > CycleTime)
-            {
-                Sim()->SetElapsed(0.0f);
-
-                if (CycleState == 1)
-                {
-                    if (CycleTest <= 1)
-                    {
-                        MMSTATE.GameMode = mmGameMode::Cruise;
-                        MMSTATE.NetworkStatus = 0;
-                    }
-                    else
-                    {
-                        mm_interface->SetupArchiveTest(CycleTest);
-                    }
-
-                    mm_interface->BeDone();
-                    MMSTATE.GameState = mmGameState::Drive;
-                }
-                else if (CycleState == 2)
-                {
-                    static i32 CycleCount = 0;
-
-                    game_manager->BeDone();
-                    MMSTATE.GameState = mmGameState::Menus;
-                    Displayf(">>>>>>>>>>>>>>>>>>>CYCLETEST: CYCLE # %d", ++CycleCount);
-                }
-            }
-
-            if (SampleStats == 1 && game_manager)
-            {
-                Vector4 pos;
-                game_manager->Current->Player->Hud.GetPosHdg(pos);
-                SystemStatsRecord->DoScan(pos);
-            }
-            else
-#endif
-            {
-                if (GetAsyncKeyState(VK_SCROLL) & 0x8000)
-                    ALLOCATOR.SanityCheck();
-
-                if (EnablePaging)
-                {
-                    CACHE.Age();
-                    TEXCACHE.Age();
-                }
-
-                Sim()->Simulate();
-            }
-        }
-    }
-    ARTS_EXCEPTION_END
-    {
-        Displayf("CRASH POSITION = (%f, %f, %f)", PlayerPos.x, PlayerPos.y, PlayerPos.z);
-
-        AIMAP.Dump();
-
-#ifdef ARTS_DEV_BUILD
-        if (game_manager && !replay_name)
-        {
-            game_manager->SaveReplay("crash.rpl"_xconst);
-
-            Abortf("Exception caught during simulate loop, saving replay.");
-        }
-#endif
-
-        Abortf("Exception caught during simulate loop.");
-    }
-}
-
-b32 GenerateLoadScreenName()
-{
-    switch (MMSTATE.GameMode)
-    {
-        case mmGameMode::Cruise: arts_sprintf(LoadScreen, "%sro", CityName); return true;
-        case mmGameMode::Checkpoint: arts_sprintf(LoadScreen, "%sch%d", CityName, MMSTATE.EventId + 1); return true;
-        case mmGameMode::CnR: arts_sprintf(LoadScreen, "%scr", CityName); return true;
-        case mmGameMode::Circuit: arts_sprintf(LoadScreen, "%sci%d", CityName, MMSTATE.EventId + 1); return true;
-        case mmGameMode::Blitz: arts_sprintf(LoadScreen, "%sbl%d", CityName, MMSTATE.EventId + 1); return true;
-    }
-
-    return false;
-}
-
-void InitAudioManager()
-{
-    /*AUDMGRPTR = */ new AudManager();
-
-    AudMgr()->SteroOn = (MMSTATE.AudFlags & AudManager::GetStereoOnMask()) != 0;
-
-    AudMgr()->Init(150, MMSTATE.AudFlags & (AudManager::GetDSound3DMask() | AudManager::GetUsingEAXMask()),
-        MMSTATE.AudDeviceName, // FIXME: This is empty the first time
-        (MMSTATE.AudFlags & AudManager::GetSoundFXOnMask()) != 0,
-        (MMSTATE.AudFlags & AudManager::GetCDMusicOnMask()) != 0);
-
-    AudMgr()->NotDsound3D = !(AudManager::GetDSound3DMask() & MMSTATE.AudFlags);
-
-    if (AudMgr()->EAXEnabled() && (MMSTATE.AudFlags & AudManager::GetUsingEAXMask()) &&
-        (MMSTATE.AudFlags & AudManager::GetDSound3DMask()))
-    {
-        AudMgr()->AlwaysEAX(true);
-        AudMgr()->SetEAXPreset(EAX_ENVIRONMENT_CITY, 0.114329f, 1.865f, 0.221129f);
-    }
-
-    MMSTATE.HasMidtownCD = AudMgr()->CheckCDFile("cdid.txt"_xconst);
-
-    if (!MMSTATE.HasMidtownCD)
-        AudMgr()->SetCDPlayMode(1);
-
-    AudMgr()->AssignWaveVolume(0.0f);
-    AudMgr()->AssignCDVolume(0.0f);
-    AudMgr()->SetNumChannels(MMSTATE.AudNumChannels);
 }
 
 include_dummy_symbol(agi_bitmap);

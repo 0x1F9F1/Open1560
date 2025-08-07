@@ -18,34 +18,13 @@
 
 #pragma once
 
-struct _EXCEPTION_POINTERS;
 class agiPipeline;
 class CallbackArray;
-class mmGameManager;
 class mmGameRecord;
-class mmInterface;
 class Timer;
-
-// ?Application@@YAXHPAPAD@Z
-void Application(i32 argc, char** argv);
-
-// ?ApplicationHelper@@YAXHPAPAD@Z
-void ApplicationHelper(i32 argc, char** argv);
 
 // ?CreatePipeline@@YAPAVagiPipeline@@HPAPAD@Z
 Owner<agiPipeline> CreatePipeline(i32 argc, char** argv);
-
-// ?GameFilter@@YAHPAU_EXCEPTION_POINTERS@@@Z
-i32 GameFilter(_EXCEPTION_POINTERS* exception);
-
-// ?GameLoop@@YAXPAVmmInterface@@PAVmmGameManager@@PAD@Z
-void GameLoop(mmInterface* mm_interface, mmGameManager* game_manager, char* replay_name);
-
-// ?GenerateLoadScreenName@@YAHXZ
-b32 GenerateLoadScreenName();
-
-// ?InitAudioManager@@YAXXZ
-void InitAudioManager();
 
 // ?APPTITLE@@3PADA
 ARTS_EXPORT extern aconst char* APPTITLE;
