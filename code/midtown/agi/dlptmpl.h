@@ -63,7 +63,7 @@ public:
     ARTS_IMPORT void Init(i32 arg1, i32 arg2, i32 arg3);
 
     // ?InitRemap@DLPTemplate@@QAEXAAV?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@AAV?$agiLib@VagiTexParameters@@VagiTexDef@@@@AAV?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@@Z
-    ARTS_IMPORT void InitRemap(agiLib<agiMtlParameters, agiMtlDef>& mlib, agiLib<agiTexParameters, agiTexDef>& tlib,
+    void InitRemap(agiLib<agiMtlParameters, agiMtlDef>& mlib, agiLib<agiTexParameters, agiTexDef>& tlib,
         agiLib<agiPhysParameters, agiPhysDef>& plib);
 
     // ?Load@DLPTemplate@@QAEHPAD@Z | unused
@@ -97,9 +97,9 @@ private:
     i32 TexCount {};
     i32 PhysCount {};
 
-    Ptr<i16[]> MtlIds;
-    Ptr<i16[]> TexIds;
-    Ptr<i16[]> PhysIds;
+    Ptr<u16[]> MtlIds;
+    Ptr<u16[]> TexIds;
+    Ptr<u16[]> PhysIds;
 
     u32 RefCount {1};
 

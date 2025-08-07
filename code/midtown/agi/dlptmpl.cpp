@@ -20,12 +20,12 @@ define_dummy_symbol(agi_dlptmpl);
 
 #include "dlptmpl.h"
 
-#include "data7/hash.h"
-#include "stream/stream.h"
-
 #include "mtllib.h"
 #include "physlib.h"
 #include "texlib.h"
+
+#include "data7/hash.h"
+#include "stream/stream.h"
 
 DLPTemplate::DLPTemplate(aconst char* name)
     : Name(name)
@@ -36,6 +36,34 @@ DLPTemplate::DLPTemplate(aconst char* name)
 DLPTemplate::~DLPTemplate()
 {
     DLPTemplateHash.Delete(Name.get());
+}
+
+void DLPTemplate::InitRemap(agiLib<agiMtlParameters, agiMtlDef>& mlib, agiLib<agiTexParameters, agiTexDef>& tlib,
+    agiLib<agiPhysParameters, agiPhysDef>& plib)
+{
+    MtlCount = mlib.Count();
+    MtlIds = arnewa u16[MtlCount] {};
+
+    for (i32 i = 0; i < MtlCount; ++i)
+    {
+        MtlIds[i] = static_cast<u16>(agiMtlLib.Add(mlib[i + 1]));
+    }
+
+    TexCount = mlib.Count();
+    TexIds = arnewa u16[TexCount] {};
+
+    for (i32 i = 0; i < TexCount; ++i)
+    {
+        TexIds[i] = static_cast<u16>(agiTexLib.Add(tlib[i + 1]));
+    }
+
+    PhysCount = mlib.Count();
+    PhysIds = arnewa u16[PhysCount] {};
+
+    for (i32 i = 0; i < PhysCount; ++i)
+    {
+        PhysIds[i] = static_cast<u16>(agiPhysLib.Add(plib[i + 1]));
+    }
 }
 
 i32 DLPTemplate::Load(aconst char* path)
