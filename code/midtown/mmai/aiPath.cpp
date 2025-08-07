@@ -74,3 +74,8 @@ Vector3* aiPath::VertZDir(i32 index)
     Warningf("Bad Idx: %d, Path Id: %d", index, Id);
     return nullptr;
 }
+
+void aiPath::Blocked(b32 blocked)
+{
+    IsBlocked = blocked || IsAlwaysBlocked;
+}

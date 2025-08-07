@@ -619,6 +619,8 @@ void mmGame::UpdatePaused()
     }
 }
 
+static mem::cmd_param PARAM_deadends {"deadends", "Allow traffic to travel to dead-end intersections"};
+
 b32 mmGame::Init()
 {
     ResetPositions = arnew mmPositions();
@@ -808,7 +810,7 @@ b32 mmGame::Init()
         AddChild(AnimMgr.get());
     }
 
-    for (bool changed = true; changed;)
+    for (bool changed = !PARAM_deadends.get_or(false); changed;)
     {
         changed = false;
 
@@ -824,17 +826,30 @@ b32 mmGame::Init()
                     ++num_sinks;
             }
 
-            if (num_sinks == 1)
+            if (num_sinks <= 1)
             {
-                Warningf("Blocked dead-end intersection %i", isect->Id);
+                bool blocked = true;
 
                 for (i32 j = 0; j < isect->NumSinkPaths; ++j)
-                    isect->SinkPath(j)->Blocked(true);
+                {
+                    aiPath* path = isect->SinkPath(j);
+                    blocked = blocked && path->IsBlocked;
+                    path->Blocked(true);
+                }
 
                 for (i32 j = 0; j < isect->NumSourcePaths; ++j)
-                    isect->SourcePath(j)->Blocked(true);
+                {
+                    aiPath* path = isect->SourcePath(j);
+                    blocked = blocked && path->IsBlocked;
+                    path->Blocked(true);
+                }
 
-                changed = true;
+                if (!blocked)
+                {
+                    Warningf("Blocked dead-end intersection %i", isect->Id);
+
+                    changed = true;
+                }
             }
         }
     }

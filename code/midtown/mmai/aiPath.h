@@ -61,7 +61,7 @@ public:
     ARTS_IMPORT void AmbientCenterDistance(aiVehicleSpline* arg1, f32* arg2, f32* arg3, f32* arg4, f32* arg5);
 
     // ?Blocked@aiPath@@QAEXH@Z
-    ARTS_IMPORT void Blocked(i32 arg1);
+    ARTS_EXPORT void Blocked(b32 blocked);
 
     // ?CalcCenterVerts@aiPath@@QAEXAAVmmRoadSect@@H@Z
     ARTS_IMPORT void CalcCenterVerts(mmRoadSect& arg1, i32 arg2);
@@ -182,13 +182,13 @@ public:
     i16 NumLanes;
     i16 NumSidewalks;
     i16 IntersectionType;
-    i16 IsBlocked;
-    i16 IsAlwaysBlocked;
-    i16 IsPedBlocked;
-    i16 IsDivided;
-    i16 IsFlat;
-    i16 IsAlley;
-    i16 HasBridge;
+    b16 IsBlocked;
+    b16 IsAlwaysBlocked;
+    b16 IsPedBlocked;
+    b16 IsDivided;
+    b16 IsFlat;
+    b16 IsAlley;
+    b16 HasBridge;
     i16 StopLightIndex;
     i16 field_26;
     f32 RoadLength;

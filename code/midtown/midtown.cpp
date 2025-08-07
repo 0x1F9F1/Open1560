@@ -96,7 +96,6 @@ u8 GraphicsPreviousMenu = 0;
 char LoadScreen[40] {};
 Timer LoadTimer {};
 mmGameRecord* SystemStatsRecord = nullptr;
-b32 bHaveIME = false;
 i32 page_override = -1;
 
 #ifdef ARTS_DEV_BUILD
@@ -758,22 +757,6 @@ void ApplicationHelper(i32 argc, char** argv)
 Owner<agiPipeline> CreatePipeline(i32 argc, char** argv)
 {
     dxiRendererInfo_t& info = GetRendererInfo();
-
-    if (bHaveIME)
-    {
-        dxiShutdown();
-
-        if (MMSTATE.GameState != mmGameState::Menus)
-        {
-            dxiFlags = (dxiFlags & ~DXI_FLAG_SYSTEM_MEMORY) | DXI_FLAG_FULL_SCREEN | DXI_FLAG_DOUBLE_BUFFER;
-        }
-        else
-        {
-            dxiFlags = (dxiFlags & ~(DXI_FLAG_FULL_SCREEN | DXI_FLAG_DOUBLE_BUFFER)) | DXI_FLAG_SYSTEM_MEMORY;
-        }
-
-        dxiInit(APPTITLE, 0, 0);
-    }
 
     Ptr<agiPipeline> pipe;
 

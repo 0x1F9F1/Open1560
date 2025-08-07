@@ -83,9 +83,6 @@ extern Timer LoadTimer;
 // ?SystemStatsRecord@@3PAVmmGameRecord@@A
 extern mmGameRecord* SystemStatsRecord;
 
-// ?bHaveIME@@3HA
-ARTS_EXPORT extern b32 bHaveIME;
-
 // ?page_override@@3HA
 ARTS_EXPORT extern i32 page_override;
 

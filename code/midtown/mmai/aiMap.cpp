@@ -20,15 +20,16 @@ define_dummy_symbol(mmai_aiMap);
 
 #include "aiMap.h"
 
-#include "arts7/camera.h"
-#include "arts7/cullmgr.h"
-#include "mmcity/cullcity.h"
-
 #include "aiIntersection.h"
 #include "aiPath.h"
 #include "aiVehicleAmbient.h"
 #include "aiVehicleOpponent.h"
 #include "aiVehiclePolice.h"
+
+#include "arts7/camera.h"
+#include "arts7/cullmgr.h"
+#include "mmcity/cullcity.h"
+#include "vector7/randmath.h"
 
 #ifdef ARTS_DEV_BUILD
 void aiMap::AddWidgets(Bank* bank)
@@ -162,3 +163,88 @@ void aiMap::Stats()
 
 void aiMap::UpdatePaused()
 {}
+
+b32 aiMap::ChooseNextLaneLink(aiRailSet* rail)
+{
+    aiPath* path = rail->CurLink;
+    i16 lane = rail->CurLane;
+
+    switch (path->NumLanes)
+    {
+        case 1: return ChooseNextRandomLink(rail);
+        case 2: return lane ? ChooseNextRightStraightLink(rail) : ChooseNextLeftStraightLink(rail);
+        case 3: {
+            switch (lane)
+            {
+                case 0: return ChooseNextLeftStraightLink(rail);
+                case 1: return ChooseNextStraightLink(rail);
+                case 2: return ChooseNextRightStraightLink(rail);
+                default: return false;
+            }
+        }
+
+        case 4: return (lane == 3) ? ChooseNextRightStraightFreewayLink(rail) : ChooseNextFreewayLink(rail);
+
+        default: return false;
+    }
+}
+
+i32 aiMap::ChooseNextRandomLink(aiRailSet* rail)
+{
+    aiPath* path = rail->CurLink;
+    i32 total_paths = path->Sink->NumSourcePaths + path->Sink->NumSinkPaths;
+
+    aiPath* paths[16];
+    usize num_paths = 0;
+    i32 idx = path->EdgeIndex;
+
+    // Check all paths, except the current one
+    for (i32 i = 1; i < total_paths; ++i)
+    {
+        if (++idx == total_paths)
+            idx = 0;
+
+        aiIntersection* intersection = path->Sink;
+
+        if (intersection->PathIds[idx] >= 9990)
+            continue;
+
+        aiPath* dst = intersection->Path(idx);
+
+        // TODO: Allow following a path back to the same intersection.
+        if (intersection == dst->Sink) // Avoid circular roads
+            continue;
+
+        if (dst != path->OncomingPath // Avoid doing a U-turn
+            && !dst->IsBlocked        // Avoid blocked roads
+            && !dst->HasBridge)       // Avoid bridges
+        {
+            if (dst->NumLanes == 4)
+            {
+                rail->NextLink = dst;
+                rail->NextLane = 3;
+                return true;
+            }
+
+            ArAssert(num_paths < ARTS_SIZE(paths), "Too many possible paths");
+            paths[num_paths++] = dst;
+        }
+    }
+
+    if (num_paths == 0)
+    {
+        Warningf("No eligible roads identified to turn onto from road: %d.", path->Id);
+
+        return false;
+    }
+
+    aiPath* dst = paths[static_cast<u32>(static_cast<f32>(num_paths) * frand())];
+    rail->NextLink = dst;
+
+    if (rail->SolveTurnType(path, dst))
+        rail->NextLane = 0;
+    else
+        rail->NextLane = dst->NumLanes - 1;
+
+    return true;
+}

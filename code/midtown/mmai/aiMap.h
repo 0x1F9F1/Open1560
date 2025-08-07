@@ -73,13 +73,13 @@ public:
     ARTS_IMPORT i32 ChooseNextFreewayLink(aiRailSet* arg1);
 
     // ?ChooseNextLaneLink@aiMap@@QAEHPAVaiRailSet@@@Z
-    ARTS_IMPORT i32 ChooseNextLaneLink(aiRailSet* arg1);
+    ARTS_EXPORT b32 ChooseNextLaneLink(aiRailSet* rail);
 
     // ?ChooseNextLeftStraightLink@aiMap@@QAEHPAVaiRailSet@@@Z
     ARTS_IMPORT i32 ChooseNextLeftStraightLink(aiRailSet* arg1);
 
     // ?ChooseNextRandomLink@aiMap@@QAEHPAVaiRailSet@@@Z
-    ARTS_IMPORT i32 ChooseNextRandomLink(aiRailSet* arg1);
+    b32 ChooseNextRandomLink(aiRailSet* rail);
 
     // ?ChooseNextRightStraightFreewayLink@aiMap@@QAEHPAVaiRailSet@@@Z
     ARTS_IMPORT i32 ChooseNextRightStraightFreewayLink(aiRailSet* arg1);

@@ -25,7 +25,7 @@ ARTS_IMPORT f32 frand();
 ARTS_IMPORT i32 irand();
 
 // ?irand@@YAHH@Z
-ARTS_IMPORT i32 irand(i32 arg1);
+ARTS_IMPORT i32 irand(i32 seed);
 
 // ?LogRandomCalls@@3P6AXXZA
 ARTS_IMPORT extern void (*LogRandomCalls)(void);
