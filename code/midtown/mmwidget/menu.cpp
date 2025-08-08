@@ -74,6 +74,11 @@ i32 UIMenu::IsAnOptionMenu()
     return 0;
 }
 
+void UIMenu::AssignBackground(char* background_name)
+{
+    this->background_name_ = background_name;
+}
+
 void UIMenu::ClearAction()
 {
     state_ = 2;
