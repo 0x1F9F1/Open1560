@@ -107,7 +107,7 @@ void eqReplay::InitPlayback(const char* path)
 {
     ArAssert(!Playback && !Recording, "Already opened replay");
 
-    ReplayStream = arts_fopen(path, "r");
+    ReplayStream = as_raw arts_fopen(path, "r");
 
     if (!ReplayStream)
         Quitf("asReplay: Cannot open '%s' for playback.", path);
@@ -127,7 +127,7 @@ void eqReplay::InitRecord(const char* path)
 {
     ArAssert(!Playback && !Recording, "Already opened replay");
 
-    ReplayStream = arts_fopen(path, "w");
+    ReplayStream = as_raw arts_fopen(path, "w");
 
     if (!ReplayStream)
         Quitf("asReplay: Cannot create '%s' for recording.", path);

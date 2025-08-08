@@ -234,7 +234,7 @@ check_size(Stream, 0x20);
 [[deprecated("Use stream->Gets()")]] isize arts_fgets(char* buffer, isize buffer_len, Stream* stream);
 
 // ?fopen@@YAPAVStream@@PAD0@Z
-Stream* arts_fopen(const char* path, const char* mode);
+Owner<Stream> arts_fopen(const char* path, const char* mode);
 
 // ?fprintf@@YAXPAVStream@@PBDZZ
 void arts_fprintf(Stream* stream, ARTS_FORMAT_STRING const char* format, ...);

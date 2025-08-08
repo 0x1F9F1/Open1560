@@ -129,7 +129,7 @@ void mmCullCity::Init(char* name, asCamera* camera)
         default: TextureSuffix = nullptr; break;
     }
 
-    StaticLog = arts_fopen(arts_formatf<64>("%s_static.csv", name), "w");
+    StaticLog = as_raw arts_fopen(arts_formatf<64>("%s_static.csv", name), "w");
 
     Loader()->BeginTask(LOC_STRING(MM_IDS_LOADING_CITY_LAYOUT));
 

@@ -49,7 +49,7 @@ void DLPTemplate::InitRemap(agiLib<agiMtlParameters, agiMtlDef>& mlib, agiLib<ag
         MtlIds[i] = static_cast<u16>(agiMtlLib.Add(mlib[i + 1]));
     }
 
-    TexCount = mlib.Count();
+    TexCount = tlib.Count();
     TexIds = arnewa u16[TexCount] {};
 
     for (i32 i = 0; i < TexCount; ++i)
@@ -57,7 +57,7 @@ void DLPTemplate::InitRemap(agiLib<agiMtlParameters, agiMtlDef>& mlib, agiLib<ag
         TexIds[i] = static_cast<u16>(agiTexLib.Add(tlib[i + 1]));
     }
 
-    PhysCount = mlib.Count();
+    PhysCount = plib.Count();
     PhysIds = arnewa u16[PhysCount] {};
 
     for (i32 i = 0; i < PhysCount; ++i)

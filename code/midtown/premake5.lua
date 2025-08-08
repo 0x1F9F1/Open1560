@@ -66,9 +66,6 @@ project "Open1560"
         "midtown.cpp",
         "midtown.h",
 
-        "patches.cpp",
-        "patches.h",
-
         "game.asm",
         "midtown.rc",
     }

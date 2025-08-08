@@ -313,12 +313,12 @@ static unsigned long mmFont_IoFunc(FT_Stream stream, unsigned long offset, unsig
         return count ? 0 : 1;
 
     return static_cast<unsigned long>(file->Read(buffer, static_cast<isize>(count)));
-};
+}
 
 static void mmFont_CloseFunc(FT_Stream stream)
 {
     delete static_cast<Stream*>(stream->descriptor.pointer);
-};
+}
 
 static FT_Library mmFont_Library = nullptr;
 
@@ -452,7 +452,7 @@ mmFont* mmFont::Create(const char* font_name, i32 height, i32 weight)
         font_path.assign("C:\\WINDOWS\\FONTS\\VERDANA.TTF");
     }
 
-    Stream* file = arts_fopen(font_path, "r");
+    Ptr<Stream> file = as_ptr arts_fopen(font_path, "r");
 
     if (file == nullptr)
     {
@@ -462,10 +462,10 @@ mmFont* mmFont::Create(const char* font_name, i32 height, i32 weight)
     }
 
     FT_StreamRec* stream = new FT_StreamRec {};
-    stream->descriptor.pointer = file;
     stream->size = file->Size();
     stream->read = mmFont_IoFunc;
     stream->close = mmFont_CloseFunc;
+    stream->descriptor.pointer = file.release();
 
     FT_Open_Args args {};
     args.flags = FT_OPEN_STREAM;

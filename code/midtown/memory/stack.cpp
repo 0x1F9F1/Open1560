@@ -342,7 +342,7 @@ static const char* GetExceptionCodeString(DWORD code)
     return nullptr;
 }
 
-thread_local bool InException {};
+static thread_local bool InException {};
 
 i32 ExceptionFilter(_EXCEPTION_POINTERS* exception)
 {
@@ -403,7 +403,7 @@ void DebugLogInit(b32 reading)
         return;
 
     DebugLogReading = reading;
-    DebugLogStream = arts_fopen("c:\\debug.log", reading ? "r" : "w");
+    DebugLogStream = as_raw arts_fopen("c:\\debug.log", reading ? "r" : "w");
 }
 
 void DebugLogShutdown()
