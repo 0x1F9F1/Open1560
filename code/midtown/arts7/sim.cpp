@@ -51,8 +51,7 @@ define_dummy_symbol(arts7_sim);
 #include <crtdbg.h>
 #include <cstdlib>
 
-// ?PipelineInitialized@@3HA
-ARTS_IMPORT extern b32 PipelineInitialized;
+static bool PipelineInitialized = false;
 
 i32 InitPipeline(const char* title, i32 argc, char** argv)
 {
@@ -62,7 +61,8 @@ i32 InitPipeline(const char* title, i32 argc, char** argv)
     Argc = argc;
     Argv = argv;
 
-    agiPipeline::CurrentPipe = as_raw CreatePipeline(argc, argv);
+    auto pipe = CreatePipeline(argc, argv);
+    agiPipeline::CurrentPipe = pipe.release();
 
     if (!agiPipeline::CurrentPipe)
         return AGI_ERROR_NO_DEVICE;
@@ -86,11 +86,8 @@ i32 InitPipeline(const char* title, i32 argc, char** argv)
     return error;
 }
 
-// ?SunParams@@3VagiLightParameters@@A
-ARTS_IMPORT extern agiLightParameters SunParams;
-
-// ?SunLight@@3PAVagiLight@@A
-ARTS_IMPORT extern agiLight* SunLight;
+static agiLightParameters SunParams {};
+static agiLight* SunLight = nullptr;
 
 void ShutdownPipeline()
 {
@@ -145,8 +142,7 @@ static void TogglePipelineWindow()
 }
 #endif
 
-// ?QuietPrinter@@YAXHPBDPAD@Z
-/*static*/ void QuietPrinter(i32 level, const char* format, std::va_list args)
+static void QuietPrinter(i32 level, const char* format, std::va_list args)
 {
     if (level >= 3)
         DefaultPrinter(level, format, args);
@@ -216,10 +212,10 @@ void asSimulation::Init(aconst char* proj_path, i32 argc, char** argv)
 {
     seconds_ = 4321.0f;
 
-    char* proj_path_env = arts_getenv("ARTS_PROJ");
+    ConstString proj_path_env = arts_getenv("ARTS_PROJ");
 
     if (proj_path_env)
-        proj_path = proj_path_env;
+        proj_path = proj_path_env.get();
 
     const char* vfs_path = nullptr;
     [[maybe_unused]] i32 dbg_flags = _CRTDBG_ALLOC_MEM_DF;
@@ -347,8 +343,6 @@ void asSimulation::Init(aconst char* proj_path, i32 argc, char** argv)
 
     if (SunLight)
         SunLight->Init(SunParams);
-
-    arts_free(proj_path_env);
 }
 
 void asSimulation::BeginOverSample(i32 samples)

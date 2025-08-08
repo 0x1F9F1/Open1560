@@ -20,12 +20,14 @@ function includeFreetype()
     includedirs { path.join(FREETYPE_DIR, "include") }
 end
 
+-- Override CRT, and use embedded PDB
+-- cmake_policy(SET CMP0091 NEW)
+-- cmake_policy(SET CMP0141 NEW)
+-- set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+-- set(MSVC_DEBUG_INFORMATION_FORMAT "Embedded")
+--
 -- Compiled with:
 -- cmake --fresh -B build -A Win32 -T v141 -DFT_DISABLE_ZLIB=ON -DFT_DISABLE_BZIP2=ON -DFT_DISABLE_PNG=ON -DFT_DISABLE_HARFBUZZ=ON -DFT_DISABLE_BROTLI=ON
---
--- And override CRT:
--- cmake_policy(SET CMP0091 NEW)
--- set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 function linkFreetype()
     local libdir = path.join(FREETYPE_DIR, "bin")
     libdirs { libdir }

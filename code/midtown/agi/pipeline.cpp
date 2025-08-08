@@ -163,11 +163,12 @@ i32 agiPipeline::BeginAllGfx()
 
     agiDisplayf("Refreshing objects");
 
+    // NOTE: This will spew errors when paging is enabled.
     for (agiRefreshable* i = objects_; i; i = i->next_)
     {
         error = i->SafeBeginGfx();
 
-        if (error != AGI_ERROR_SUCCESS && error != AGI_ERROR_ALREADY_INITIALIZED)
+        if (error != AGI_ERROR_SUCCESS && error != AGI_ERROR_ALREADY_INITIALIZED && error != AGI_ERROR_OBJECT_EMPTY)
         {
             Errorf("Error resurrecting object: %s: %s", i->GetName(), agiGetError(error));
         }
@@ -310,10 +311,9 @@ RcOwner<agiTexDef> agiPipeline::GetTexture(i32 index, i32 pack_shift)
     if (index == 0)
         return nullptr;
 
-    if (char* name = arts_getenv("ONE_TEXTURE"))
+    if (ConstString name = arts_getenv("ONE_TEXTURE"))
     {
-        index = agiTexLib.Lookup(name);
-        arts_free(name);
+        index = agiTexLib.Lookup(name.get());
     }
 
     agiTexDef** tex_def = agiTexLib.GetDef(index);

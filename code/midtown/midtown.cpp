@@ -876,7 +876,7 @@ static void ApplicationHelper(i32 argc, char** argv)
 #undef ARG
 #undef ARGN
 
-Owner<agiPipeline> CreatePipeline(i32 argc, char** argv)
+Ptr<agiPipeline> CreatePipeline(i32 argc, char** argv)
 {
     dxiRendererInfo_t& info = GetRendererInfo();
 
@@ -932,7 +932,7 @@ Owner<agiPipeline> CreatePipeline(i32 argc, char** argv)
         }
     }
 
-    return as_owner pipe;
+    return pipe;
 }
 
 static char** GetCommandLineUTF8(const wchar_t* wCmdLine, int* pNumArgs)

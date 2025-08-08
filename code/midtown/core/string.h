@@ -46,7 +46,6 @@
 #define arts_strtok strtok_s
 
 char* arts_strdup(const char* str); // StringDuplicate
-char* arts_getenv(const char* name);
 
 class Stream;
 
@@ -155,6 +154,8 @@ private:
 };
 
 static_assert(sizeof(ConstString) == sizeof(char*));
+
+ConstString arts_getenv(const char* name);
 
 class arts_format_t
 {};

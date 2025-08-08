@@ -37,15 +37,14 @@ ARTS_NOINLINE char* arts_strdup(const char* str)
     return ptr;
 }
 
-ARTS_NOINLINE char* arts_getenv(const char* name)
+ConstString arts_getenv(const char* name)
 {
     char* buffer;
 
     if (_dupenv_s(&buffer, nullptr, name))
         return nullptr;
 
-    char* result = arts_strdup(buffer);
+    ConstString result {buffer};
     free(buffer);
-
     return result;
 }

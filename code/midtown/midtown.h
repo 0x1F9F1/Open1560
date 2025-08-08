@@ -23,8 +23,7 @@ class CallbackArray;
 class mmGameRecord;
 class Timer;
 
-// ?CreatePipeline@@YAPAVagiPipeline@@HPAPAD@Z
-Owner<agiPipeline> CreatePipeline(i32 argc, char** argv);
+Ptr<agiPipeline> CreatePipeline(i32 argc, char** argv);
 
 // ?APPTITLE@@3PADA
 ARTS_EXPORT extern aconst char* APPTITLE;
