@@ -22,7 +22,7 @@ This will create the Open1560 directory.
 After having done that, shift+right click on the directory Open1560 directory and select "Open PowerShell window here". Then run the following command with after replacing the location of the Midtown Madness in it:
 
 ```
-tools/premake5.exe --MM1_GAME_DIRECTORY=c:/location/of/mm1/installation
+tools/premake5.exe vs2022 --MM1_GAME_DIRECTORY=c:/location/of/mm1/installation
 ```
 
 Make sure to use `/`s and not `\`s in the Midtown Madness path.
