@@ -135,7 +135,11 @@ void ipcMessageQueue::Shutdown()
     if (!initialized_)
         return;
 
-    initialized_ = false;
+    {
+        UniqueLock lock(mutex_);
+        initialized_ = false;
+    }
+
     send_event_.notify_one();
 
     ipcWaitThreadExit(proc_thread_);
@@ -153,29 +157,33 @@ i32 ipcMessageQueue::MessageLoop()
     {
         UniqueLock lock(mutex_);
 
-        while (initialized_)
+        while (true)
         {
-            // Check if the queue is empty
-            while (read_index_ != send_index_)
+            if (read_index_ == send_index_)
             {
-                // Get the next read index
-                if (++read_index_ == max_messages_)
-                    read_index_ = 0;
+                // Process all pending messages before quitting.
+                if (!initialized_)
+                    break;
 
-                // Copy the message
-                Callback msg = messages_[read_index_];
-
-                // Process the message, temporarily unlocking the mutex
-                lock.unlock();
-                msg.Call();
-                lock.lock();
-
-                // Notify that a message has been processed
-                done_event_.notify_one();
+                // The queue is empty, wait for something to be sent
+                send_event_.wait(lock);
+                continue;
             }
 
-            // The queue is empty, wait for something to be sent
-            send_event_.wait(lock);
+            // Get the next read index
+            if (++read_index_ == max_messages_)
+                read_index_ = 0;
+
+            // Copy the message
+            Callback msg = messages_[read_index_];
+
+            // Process the message, temporarily unlocking the mutex
+            lock.unlock();
+            msg.Call();
+            lock.lock();
+
+            // Notify that a message has been processed
+            done_event_.notify_one();
         }
     }
     ARTS_EXCEPTION_END

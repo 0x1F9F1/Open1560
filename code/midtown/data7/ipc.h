@@ -64,7 +64,7 @@ private:
     // ?Proc@ipcMessageQueue@@CGKPAX@Z
     static ulong ARTS_STDCALL Proc(void* param);
 
-    std::atomic<b32> initialized_ {};
+    b32 initialized_ {};
     u32 send_index_ {};
     u32 read_index_ {};
     u32 max_messages_ {};
