@@ -37,7 +37,15 @@ jobs:
         path: build/output
         if-no-files-found: error
 
-    - name: Update Release
+    - name: Compress Release
       run: |
         7z a -tzip "artifacts/Open1560.zip" "${{github.workspace}}/build/output/*"
-        gh release upload "build" "artifacts/Open1560.zip" --clobber
+
+    - name: GitHub pre-release
+      uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{secrets.GITHUB_TOKEN}}"
+        automatic_release_tag: "build"
+        prerelease: false
+        title: "Open1560"
+        files: "artifacts/Open1560.zip"
