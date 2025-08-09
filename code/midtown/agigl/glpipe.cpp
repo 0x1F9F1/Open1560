@@ -74,7 +74,6 @@ i32 agiGLPipeline::BeginGfx()
     SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
     SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
     SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
-    SDL_GL_SetAttribute(SDL_GL_ACCELERATED_VISUAL, 1);
 
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, (debug_level > 0) ? SDL_GL_CONTEXT_DEBUG_FLAG : 0);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_NO_ERROR, (debug_level < 0) ? 1 : 0);
@@ -83,10 +82,16 @@ i32 agiGLPipeline::BeginGfx()
 
     if (context == nullptr)
     {
+        Warningf("Initial OpenGL context creation failed: %s", SDL_GetError());
+        SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 0);
+        SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 0);
+        SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 0);
+        SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 0);
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 1);
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, 0);
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, 0);
+        SDL_GL_SetAttribute(SDL_GL_CONTEXT_NO_ERROR, 0);
         context = SDL_GL_CreateContext(window_);
     }
 

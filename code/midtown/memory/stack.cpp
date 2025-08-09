@@ -43,7 +43,7 @@ static const MapSymbol* LookupMapSymbol(usize address)
     const MapSymbol* last = first + MapSymbolCount;
 
     const MapSymbol* find = std::upper_bound(
-        first, last, address, [](usize address, const MapSymbol& entry) { return entry.Address >= address; });
+        first, last, address, [](usize address, const MapSymbol& entry) { return address < entry.Address; });
 
     if (find == first || find == last)
     {
@@ -207,6 +207,22 @@ void LookupAddress(char* buffer, usize buflen, usize address)
 {
     InitDebugSymbols();
 
+    if (const MapSymbol* entry = LookupMapSymbol(address))
+    {
+        char undec_name[256];
+
+        const char* function_name =
+            UnDecorateSymbolName(entry->Name, undec_name, ARTS_SSIZE32(undec_name), UNDNAME_NAME_ONLY) ? undec_name
+                                                                                                       : entry->Name;
+
+        if (std::strlen(undec_name) > 64)
+            arts_strcpy(undec_name + 61, 4, "...");
+
+        arts_sprintf(buffer, buflen, "0x%08zX (%s + 0x%zX)", address, function_name, address - entry->Address);
+
+        return;
+    }
+
     if (DbgHelpLoaded)
     {
         DWORD64 dwDisplacement = 0;
@@ -239,22 +255,6 @@ void LookupAddress(char* buffer, usize buflen, usize address)
 
             return;
         }
-    }
-
-    if (const MapSymbol* entry = LookupMapSymbol(address))
-    {
-        char undec_name[256];
-
-        const char* function_name =
-            UnDecorateSymbolName(entry->Name, undec_name, ARTS_SSIZE32(undec_name), UNDNAME_NAME_ONLY) ? undec_name
-                                                                                                       : entry->Name;
-
-        if (std::strlen(undec_name) > 64)
-            arts_strcpy(undec_name + 61, 4, "...");
-
-        arts_sprintf(buffer, buflen, "0x%08zX (%s + 0x%zX)", address, function_name, address - entry->Address);
-
-        return;
     }
 
     arts_sprintf(buffer, buflen, "0x%08zX (Unknown)", address);
@@ -344,6 +344,8 @@ static const char* GetExceptionCodeString(DWORD code)
 
 static thread_local bool InException {};
 
+static mem::cmd_param PARAM_exceptions {"exceptions", "Whether to catch fatal exceptions"};
+
 i32 ExceptionFilter(_EXCEPTION_POINTERS* exception)
 {
     if (InException)
@@ -354,7 +356,7 @@ i32 ExceptionFilter(_EXCEPTION_POINTERS* exception)
     CONTEXT* context = exception->ContextRecord;
     EXCEPTION_RECORD* record = exception->ExceptionRecord;
 
-    char source[128];
+    char source[256];
     LookupAddress(source, ARTS_SIZE(source), context->Eip);
 
     const char* error_code_string = GetExceptionCodeString(record->ExceptionCode);
@@ -363,14 +365,6 @@ i32 ExceptionFilter(_EXCEPTION_POINTERS* exception)
 
     Displayf("EAX=%08X EBX=%08X ECX=%08X EDX=%08X", context->Eax, context->Ebx, context->Ecx, context->Edx);
     Displayf("ESI=%08X EDI=%08X EBP=%08X ESP=%08X", context->Esi, context->Edi, context->Ebp, context->Esp);
-
-    STACKFRAME stack_frame {};
-    stack_frame.AddrPC.Offset = context->Eip;
-    stack_frame.AddrPC.Mode = AddrModeFlat;
-    stack_frame.AddrStack.Offset = context->Esp;
-    stack_frame.AddrStack.Mode = AddrModeFlat;
-    stack_frame.AddrFrame.Offset = context->Ebp;
-    stack_frame.AddrFrame.Mode = AddrModeFlat;
 
     i32 frames[32];
     i32 num_frames = StackTraceback(ARTS_SSIZE32(frames), frames, 0, context);
@@ -381,14 +375,15 @@ i32 ExceptionFilter(_EXCEPTION_POINTERS* exception)
 
     InException = false;
 
-#ifndef ARTS_FINAL
-    if (IsDebuggerPresent())
-    {
-        return EXCEPTION_CONTINUE_SEARCH;
-    }
+    bool catch_exception = PARAM_exceptions.get_or(
+#ifdef ARTS_FINAL
+        true
+#else
+        IsDebuggerPresent()
 #endif
+    );
 
-    return EXCEPTION_EXECUTE_HANDLER;
+    return catch_exception ? EXCEPTION_EXECUTE_HANDLER : EXCEPTION_CONTINUE_SEARCH;
 }
 
 // ?DebugLogStream@@3PAVStream@@A

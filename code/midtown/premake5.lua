@@ -123,7 +123,7 @@ project "Open1560"
     -- linkoptions { "/PDBALTPATH:%_PDB%" } -- Remove full PDB path
 
     copyToGameDir ("%{cfg.buildtarget.abspath}")
-    -- copyToGameDir ("%{cfg.buildtarget.directory}%{cfg.buildtarget.basename}.pdb")
+    copyToGameDir ("%{cfg.buildtarget.directory}%{cfg.buildtarget.basename}.pdb")
     copyToGameDir ("%{cfg.buildtarget.directory}%{cfg.buildtarget.basename}.map")
     copyToGameDir (path.join(ROOT_DIR, "game"))
     copyToGameDir (path.join(SDL3_DIR, "lib/x86/SDL3.dll"))
