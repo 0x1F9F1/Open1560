@@ -1619,7 +1619,6 @@ include_dummy_symbol(mmwidget_widget);
 include_dummy_symbol(mmwidget_wstore);
 
 include_dummy_symbol(pcwindis_dxinit);
-include_dummy_symbol(pcwindis_dxmovie);
 include_dummy_symbol(pcwindis_dxsetup);
 include_dummy_symbol(pcwindis_pcwindis);
 include_dummy_symbol(pcwindis_setupdata);
