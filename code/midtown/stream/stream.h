@@ -102,9 +102,6 @@ public:
         return -1;
     }
 
-    // ?GetString@Stream@@QAEHPADH@Z | unused
-    isize GetString(char* buffer, isize buffer_len);
-
     ConstString GetString();
 
     // ?Printf@Stream@@QAAHPBDZZ | unused

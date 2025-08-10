@@ -130,26 +130,6 @@ isize Stream::Get(u32* values, isize count)
     return count;
 }
 
-isize Stream::GetString(char* buffer, isize buffer_len)
-{
-    usize len = Get<u32>();
-
-    if (len <= static_cast<u32>(buffer_len)) // TODO: Should this be "<" to ensure a null terminator?
-        return Get(reinterpret_cast<u8*>(buffer), len);
-
-    // TODO: Check result of Get()
-    Get(reinterpret_cast<u8*>(buffer), buffer_len - 1);
-    buffer[buffer_len - 1] = '\0';
-
-    len -= buffer_len - 1;
-
-    // TODO: Use seek?
-    for (; len; --len)
-        GetCh();
-
-    return buffer_len;
-}
-
 ConstString Stream::GetString()
 {
     usize length = Get<u32>();
