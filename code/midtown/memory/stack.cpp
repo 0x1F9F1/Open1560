@@ -109,6 +109,7 @@ static void InitMap()
         bool in_publics = false;
         usize symbols_size = 0;
         usize addr_delta = 0;
+        usize base_addr = 0;
         MapSymbolCount = 0;
 
         for (char* line_end = nullptr;; map_data = line_end + 1)
@@ -128,7 +129,7 @@ static void InitMap()
             {
                 if (auto base = std::strstr(line_buffer, "Preferred load address is "))
                 {
-                    if (usize base_addr = 0; arts_sscanf(base + 26, "%zx", &base_addr))
+                    if (arts_sscanf(base + 26, "%zx", &base_addr))
                     {
                         addr_delta = reinterpret_cast<usize>(GetModuleHandleA(NULL)) - base_addr;
                     }
@@ -137,11 +138,15 @@ static void InitMap()
                 continue;
             }
 
+            usize sym_seg = 0;
+            usize sym_segoff = 0;
             char sym_name[1024];
             usize sym_addr = 0;
+            char sym_attribs[6];
 
-            if (!std::strncmp(line_buffer, " 0001:", 6) &&
-                arts_sscanf(line_buffer, "%*s %s %zx", sym_name, ARTS_SIZE32(sym_name), &sym_addr))
+            if ((arts_sscanf(line_buffer, "%zx:%zx %s %zx%5[^\r]c", &sym_seg, &sym_segoff, sym_name,
+                     ARTS_SIZE32(sym_name), &sym_addr, sym_attribs, ARTS_SIZE32(sym_attribs)) == 5) &&
+                (sym_addr != 0) && (sym_addr != base_addr) && (sym_segoff < 0x40000000) && (sym_attribs[1] == 'f'))
             {
                 usize sym_len = std::strlen(sym_name);
 
@@ -157,10 +162,6 @@ static void InitMap()
                 symbols_size += sym_len + 1;
                 ++MapSymbolCount;
             }
-            else if (!std::strncmp(line_buffer, " 0002:", 6))
-            {
-                break;
-            }
         }
 
         if (state == 1)
@@ -173,6 +174,9 @@ static void InitMap()
 
     UnmapViewOfFile(map_file_view);
     map_file_view = NULL;
+
+    std::sort(MapSymbols, MapSymbols + MapSymbolCount,
+        [](const auto& lhs, const auto& rhs) { return lhs.Address < rhs.Address; });
 }
 
 static bool DbgHelpLoaded = false;
