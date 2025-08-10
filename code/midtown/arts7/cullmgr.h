@@ -32,10 +32,10 @@ class asCullManager final : public asNode
 {
 public:
     // ??0asCullManager@@QAE@HH@Z
-    ARTS_EXPORT asCullManager(i32 max_cullables, i32 max_cullables_2D);
+    asCullManager(i32 max_cullables, i32 max_cullables_2D);
 
     // ??1asCullManager@@UAE@XZ
-    ARTS_EXPORT ~asCullManager() override;
+    ~asCullManager() override;
 
     // ?DeclareCamera@asCullManager@@UAEXPAVasCamera@@@Z
     virtual void DeclareCamera(asCamera* camera);
@@ -61,11 +61,11 @@ public:
     void Reset() override;
 
     // ?Update@asCullManager@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    void Update() override;
 
-    void ToggleDebug()
+    void ToggleVersionString()
     {
-        debug_ ^= true;
+        show_version_ ^= true;
     }
 
     u32 GetTextColor() const
@@ -103,7 +103,7 @@ public:
 
 protected:
     // ?DisplayVersionString@asCullManager@@IAEXXZ
-    ARTS_EXPORT void DisplayVersionString();
+    void DisplayVersionString() const;
 
     // ?PrintMiniStats@asCullManager@@IAEXXZ
     void PrintMiniStats();
@@ -118,7 +118,7 @@ private:
     u32 color_green_ {0xFF00FF00};
     u32 color_blue_ {0xFF0000FF};
 
-    b32 debug_ {};
+    b32 show_version_ {};
 
     i32 num_cameras_ {};
     asCamera* cameras_[16] {};
@@ -150,7 +150,6 @@ private:
 #endif
 
     // NOTE: The mutex is never initialized
-    // FIXME: ipcWaitSingle is still used in asCullManager::Update
     Mutex mutex_ {};
 };
 
@@ -160,7 +159,7 @@ check_size(asCullManager, 0x1F8);
 ARTS_EXPORT void Statsf(ARTS_FORMAT_STRING const char* format, ...);
 
 // ?CULLMGR@@3PAVasCullManager@@A
-ARTS_IMPORT extern asCullManager* CULLMGR;
+ARTS_EXPORT extern asCullManager* CULLMGR;
 
 inline asCullManager* CullMgr()
 {

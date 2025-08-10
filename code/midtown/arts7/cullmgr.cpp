@@ -19,28 +19,35 @@
 define_dummy_symbol(arts7_cullmgr);
 
 #include "cullmgr.h"
-#include "agi/bitmap.h"
-#include "agi/pipeline.h"
-#include "agi/print.h"
-#include "data7/metadefine.h"
-#include "data7/utimer.h"
-#include "dyna7/gfx.h"
-#include "memory/allocator.h"
-#include "memory/stack.h"
-#include "midtown.h"
+
+#include "camera.h"
+#include "midgets.h"
 #include "pgraph.h"
 #include "sim.h"
 
-ARTS_IMPORT extern f32 CurrentFrameTime;
+#include "agi/bitmap.h"
+#include "agi/pipeline.h"
+#include "agi/print.h"
+#include "agi/rsys.h"
+#include "data7/metadefine.h"
+#include "data7/utimer.h"
+#include "dyna7/gfx.h"
+#include "eventq7/active.h"
+#include "memory/allocator.h"
+#include "memory/stack.h"
+#include "midtown.h"
+#include "vector7/randmath.h"
 
-ARTS_IMPORT extern f32 UpdateTime2D;
-ARTS_IMPORT extern f32 UpdateTime3D;
+asCullManager* CULLMGR = nullptr;
 
-ARTS_IMPORT extern i32 StatsTextOffset;
+static f32 CurrentFrameTime = 0.0f;
+static f32 UpdateTime2D = 0.0f;
+static f32 UpdateTime3D = 0.0f;
+static f32 asCullManager_UpdateTime = 0.0f;
+static f32 asCullManager_UpdateTime3D = 0.0f;
+static i32 StatsTextOffset = 0;
 
 #ifdef ARTS_DEV_BUILD
-// ?PrintRenderPerf@@YAXXZ
-ARTS_IMPORT void PrintRenderPerf();
 
 static void PrintMessages()
 {
@@ -80,6 +87,58 @@ static void PrintMemoryUsage()
             Statsf("%5zu, %9zu, %10zu | %s", source.nBlocks, source.cbUsed >> 10, source.cbOverhead >> 10, symbol);
         }
     }
+}
+
+static void PrintRenderPerf()
+{
+    agiTraverseTimer -= agiClipTimer;
+
+    ulong api_total = agiBeginScene + agiEndScene + agiBeginFrame + agiEndFrame + agiCopyBitmap + agiClearViewport +
+        agiStateChanges + agiRasterization;
+
+    ulong geom_total = agiTransformTimer + agiTraverseTimer + agiFirstPass + agiSecondPass + agiClipTimer +
+        agiInvertTimer + agiLightTimer;
+
+    Statsf("BeginFrame:    %5.2f", agiBeginFrame * ut2float);
+    Statsf("BeginScene:    %5.2f", agiBeginScene * ut2float);
+    Statsf("ClearViewport: %5.2f", agiClearViewport * ut2float);
+    Statsf("Rasterization: %5.2f", agiRasterization * ut2float);
+    Statsf("State Changes: %5.2f", agiStateChanges * ut2float);
+    Statsf("EndScene:      %5.2f", agiEndScene * ut2float);
+    Statsf("CopyBitmap:    %5.2f (%d calls/%d pixels)", agiCopyBitmap * ut2float, agiBitmapCount, agiBitmapPixels);
+    Statsf("EndFrame:      %5.2f", agiEndFrame * ut2float);
+    Statsf("API Total:     %5.2f", api_total * ut2float);
+
+    Statsf("Transform:    %5.2f", agiTransformTimer * ut2float);
+    Statsf("Lighting:     %5.2f", agiLightTimer * ut2float);
+    Statsf("Traverse:     %5.2f", agiTraverseTimer * ut2float);
+    Statsf("First Pass:   %5.2f", agiFirstPass * ut2float);
+    Statsf("Second Pass:  %5.2f", agiSecondPass * ut2float);
+    Statsf("Clip:         %5.2f", agiClipTimer * ut2float);
+    Statsf("W Invert:     %5.2f", agiInvertTimer * ut2float);
+    Statsf("Geom. Total:  %5.2f", geom_total * ut2float);
+
+    Statsf("3D Total:  %5.2f", asCullManager_UpdateTime3D * 1000.0f);
+    Statsf("2D Total:  %5.2f", (asCullManager_UpdateTime - asCullManager_UpdateTime3D) * 1000.0f);
+    Statsf("Overhead:  %5.2f", (asCullManager_UpdateTime * 1000.0f) - ((api_total + geom_total) * ut2float));
+
+    agiClearViewport = 0;
+    agiEndFrame = 0;
+    agiCopyBitmap = 0;
+    agiEndScene = 0;
+    agiStateChanges = 0;
+    agiRasterization = 0;
+    agiBeginScene = 0;
+    agiBeginFrame = 0;
+    agiInvertTimer = 0;
+    agiClipTimer = 0;
+    agiLightTimer = 0;
+    agiTraverseTimer = 0;
+    agiTransformTimer = 0;
+    agiSecondPass = 0;
+    agiFirstPass = 0;
+    agiBitmapPixels = 0;
+    agiBitmapCount = 0;
 }
 #endif
 
@@ -222,7 +281,113 @@ void asCullManager::Reset()
     stats_timer_.Reset();
 }
 
-void asCullManager::DisplayVersionString()
+void asCullManager::Update()
+{
+    if (!Sim()->IsFullUpdate())
+    {
+        return;
+    }
+
+    LockGuard lock(mutex_);
+
+    auto log_random_calls = std::exchange(LogRandomCalls, nullptr);
+    auto rand_seed = gRandSeed;
+
+    if (MIDGETSPTR->IsOpen())
+        MIDGETSPTR->Update();
+
+    PGRAPH->Update();
+
+    Timer update_timer;
+    float update_3D = 0.0f;
+
+    if (num_cameras_ && IsAppActive())
+    {
+        Pipe()->BeginFrame();
+
+        if (!num_cameras_ || !cameras_[0]->GetUnderlayBitmap() || cameras_[0]->GetUnderlayBitmap()->Is3D())
+            Pipe()->BeginScene();
+
+        Matrix34* prev_matrix = Sim()->GetCurrentMatrix();
+
+        for (i32 i = 0; i < num_cameras_; ++i)
+        {
+            current_camera_ = cameras_[i];
+            current_camera_->DrawBegin();
+
+            for (i32 j = 0; j < num_cullables_; ++j)
+            {
+                Sim()->SetCurrentMatrix(transforms_[j]);
+                cullables_[j]->Cull();
+            }
+
+            current_camera_->DrawEnd();
+        }
+
+        Sim()->SetCurrentMatrix(prev_matrix);
+
+        Timer update_3D_timer;
+
+        StatsTextOffset = 0;
+        UpdateTime3D = asCullManager_UpdateTime3D;
+        UpdateTime2D = asCullManager_UpdateTime - asCullManager_UpdateTime3D;
+
+        if (agiPrintIs3D())
+        {
+            if (show_version_)
+            {
+                DisplayVersionString();
+            }
+            else if (current_page_)
+            {
+                page_callbacks_[current_page_ - 1].Call();
+            }
+        }
+
+        agiCurState.SetTexture(nullptr);
+        agiCurState.SetMtl(nullptr);
+
+        // TODO: Should this only call EndScene if BeginScene was called?
+        Pipe()->EndScene();
+
+        current_camera_ = nullptr;
+
+        update_3D = update_3D_timer.Time();
+
+        for (i32 i = 0; i < num_cullables_2D_; ++i)
+            cullables_2D_[i]->Cull();
+
+        if (!agiPrintIs3D())
+        {
+            if (show_version_)
+            {
+                DisplayVersionString();
+            }
+            else if (current_page_)
+            {
+                page_callbacks_[current_page_ - 1].Call();
+            }
+        }
+
+        Pipe()->EndFrame();
+    }
+
+    Update3D = update_3D;
+    asCullManager_UpdateTime3D = update_3D;
+    asCullManager_UpdateTime = update_timer.Time();
+
+    CurrentFrameTime = frame_timer_.Time();
+    frame_timer_.Reset();
+
+    num_cameras_ = 0;
+    num_cullables_2D_ = 0;
+    num_cullables_ = 0;
+
+    LogRandomCalls = log_random_calls;
+    gRandSeed = rand_seed;
+}
+
+void asCullManager::DisplayVersionString() const
 {
     agiPrintf(0, 0, text_color_, VERSION_STRING);
 }

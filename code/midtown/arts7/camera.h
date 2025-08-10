@@ -46,7 +46,7 @@ public:
 #endif
 
     // ?DrawBegin@asCamera@@QAEXXZ
-    ARTS_EXPORT void DrawBegin();
+    void DrawBegin();
 
     // ?DrawEnd@asCamera@@QAEXXZ
     ARTS_IMPORT void DrawEnd();
@@ -102,6 +102,11 @@ public:
     Matrix34* GetCameraMatrix()
     {
         return &camera_;
+    }
+
+    agiBitmap* GetUnderlayBitmap()
+    {
+        return underlay_bitmap_;
     }
 
 private:

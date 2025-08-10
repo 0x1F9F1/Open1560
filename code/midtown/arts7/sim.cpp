@@ -684,8 +684,8 @@ void asSimulation::Device()
         if (vkey == EQ_VK_PAUSE)
             Pause();
 
-        if (vkey == EQ_VK_V && (mods & EQ_KMOD_CTRL) && CULLMGR)
-            CullMgr()->ToggleDebug();
+        if (vkey == EQ_VK_V && (mods & EQ_KMOD_CTRL) && CullMgr())
+            CullMgr()->ToggleVersionString();
 
 #ifdef ARTS_DEV_BUILD
         if (no_debug_)

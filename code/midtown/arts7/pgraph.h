@@ -39,7 +39,7 @@ public:
     void Key(i32 vkey);
 
     // ?Update@asPerfGraph@@QAEXXZ
-    ARTS_EXPORT void Update();
+    void Update();
 
 private:
     static constexpr i32 MaxComponents = 8;

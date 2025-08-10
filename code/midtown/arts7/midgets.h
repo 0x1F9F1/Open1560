@@ -124,7 +124,7 @@ public:
     void Toggle();
 
     // ?Update@asMidgets@@QAEXXZ
-    ARTS_EXPORT void Update();
+    void Update();
 
     // ?UpdateKey@asMidgets@@QAEXHH@Z
     void UpdateKey(i32 key, i32 mods);

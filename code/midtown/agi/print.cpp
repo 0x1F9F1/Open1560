@@ -141,7 +141,7 @@ void agiPrintInit()
     Pipe()->PrintInit();
 }
 
-i32 agiPrintIs3D()
+b32 agiPrintIs3D()
 {
     return Pipe()->PrintIs3D();
 }

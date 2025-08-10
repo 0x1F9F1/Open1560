@@ -28,7 +28,7 @@ ARTS_EXPORT void agiPrint(i32 x, i32 y, i32 color, const char* text);
 void agiPrintInit();
 
 // ?agiPrintIs3D@@YAHXZ
-ARTS_EXPORT i32 agiPrintIs3D();
+b32 agiPrintIs3D();
 
 // ?agiPrintShutdown@@YAXXZ
 void agiPrintShutdown();
