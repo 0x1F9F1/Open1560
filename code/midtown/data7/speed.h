@@ -20,6 +20,3 @@
 
 // ?ComputeCpuSpeed@@YAIXZ
 u32 ComputeCpuSpeed(); // Compute CPU speed in MHz (cycles per microsecond)
-
-// ?__ComputeCpuSpeed@@YAIXZ
-// u32 __ComputeCpuSpeed();

@@ -28,10 +28,10 @@ public:
     // ??1JointedStruct@@UAE@XZ | inline
     ARTS_EXPORT ~JointedStruct() = default;
 
+    virtual void GetCMatrix(const asInertialCS* arg1, Matrix34& arg2, const Vector3& arg3) = 0;
+
     virtual void GetCMatrix(
         const asInertialCS* arg1, const asInertialCS* arg2, Matrix34& arg3, const Vector3& arg4) = 0;
-
-    virtual void GetCMatrix(const asInertialCS* arg1, Matrix34& arg2, const Vector3& arg3) = 0;
 };
 
 check_size(JointedStruct, 0x20);

@@ -35,11 +35,11 @@ public:
     // ?SetBltXY@mmCompBase@@UAEXMM@Z | inline
     ARTS_IMPORT virtual void SetBltXY(f32 arg1, f32 arg2);
 
-    // ?Action@mmCompBase@@UAEXTeqEvent@@MMH@Z | inline
-    ARTS_EXPORT virtual void Action(eqEvent arg1, f32 arg2, f32 arg3, i32 arg4);
-
     // ?Action@mmCompBase@@UAEXTeqEvent@@@Z | inline
     ARTS_EXPORT virtual void Action(eqEvent arg1);
+
+    // ?Action@mmCompBase@@UAEXTeqEvent@@MMH@Z | inline
+    ARTS_EXPORT virtual void Action(eqEvent arg1, f32 arg2, f32 arg3, i32 arg4);
 
     // ?CaptureAction@mmCompBase@@UAEXTeqEvent@@@Z | inline
     ARTS_EXPORT virtual void CaptureAction(eqEvent arg1);
