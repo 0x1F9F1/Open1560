@@ -176,6 +176,12 @@ public:
         return seconds_;
     }
 
+    void SetUpdateDelta(f32 delta)
+    {
+        seconds_ = delta;
+        inv_seconds_ = 1.0f / delta;
+    }
+
     bool IsFullUpdate() const
     {
         return full_update_;
@@ -281,43 +287,13 @@ i32 InitPipeline(const char* title, i32 argc, char** argv);
 // ?ShutdownPipeline@@YAXXZ
 void ShutdownPipeline();
 
-#ifdef ARTS_DEV_BUILD
-#endif
-
 // ?ARTSPTR@@3PAVasSimulation@@A
-ARTS_IMPORT extern asSimulation* ARTSPTR;
+ARTS_EXPORT extern asSimulation* ARTSPTR;
 
 inline asSimulation* Sim()
 {
     return ARTSPTR;
 }
 
-// ?Argc@@3HA
-ARTS_IMPORT extern i32 Argc;
-
-// ?Argv@@3PAPADA
-ARTS_IMPORT extern char** Argv;
-
-// ?StereoBuffer@@3HA
-ARTS_IMPORT extern i32 StereoBuffer;
-
 // ?VFS@@3PAVVirtualFileSystem@@A
-ARTS_IMPORT extern VirtualFileSystem* VFS;
-
-class artsReplayChannel final : public eqReplayChannel
-{
-public:
-    // ??0artsReplayChannel@@QAE@XZ | inline
-    ARTS_IMPORT artsReplayChannel();
-
-    // ??1artsReplayChannel@@QAE@XZ | inline
-    ARTS_EXPORT ~artsReplayChannel() = default;
-
-    // ?DoPlayback@artsReplayChannel@@UAEXPAVStream@@@Z | inline
-    ARTS_IMPORT void DoPlayback(Stream* arg1) override;
-
-    // ?DoRecord@artsReplayChannel@@UAEXPAVStream@@@Z | inline
-    ARTS_IMPORT void DoRecord(Stream* arg1) override;
-};
-
-check_size(artsReplayChannel, 0xC);
+extern VirtualFileSystem* VFS;

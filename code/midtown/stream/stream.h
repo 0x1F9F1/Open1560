@@ -248,10 +248,6 @@ i32 arts_fseek(Stream* stream, i32 offset, i32 origin);
 // ?EnableBinaryFileMapping@@3HA
 ARTS_EXPORT extern b32 EnableBinaryFileMapping;
 
-// _printf | void
-
-// _vprintf | void
-
 template <typename T>
 ARTS_NOINLINE inline T Stream::Get()
 {

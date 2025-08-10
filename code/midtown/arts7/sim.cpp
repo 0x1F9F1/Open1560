@@ -51,15 +51,15 @@ define_dummy_symbol(arts7_sim);
 #include <crtdbg.h>
 #include <cstdlib>
 
+asSimulation* ARTSPTR = nullptr;
+VirtualFileSystem* VFS = nullptr;
+
 static bool PipelineInitialized = false;
 
 i32 InitPipeline(const char* title, i32 argc, char** argv)
 {
     if (PipelineInitialized)
         Quitf("Tried to InitPipeline twice.");
-
-    Argc = argc;
-    Argv = argv;
 
     auto pipe = CreatePipeline(argc, argv);
     agiPipeline::CurrentPipe = pipe.release();
@@ -947,6 +947,38 @@ const char* asNode::VerifyTree()
 
     return msg;
 }
+
+class artsReplayChannel final : public eqReplayChannel
+{
+public:
+    // ??0artsReplayChannel@@QAE@XZ | inline
+    artsReplayChannel()
+        : eqReplayChannel('SIM0')
+    {}
+
+    // ??1artsReplayChannel@@QAE@XZ | inline
+    ~artsReplayChannel() = default;
+
+    // ?DoPlayback@artsReplayChannel@@UAEXPAVStream@@@Z | inline
+    void DoPlayback(Stream* stream) override
+    {
+        u32 size = 0;
+        stream->Get(&size, 1);
+        Sim()->SetUpdateDelta(stream->Get<f32>());
+    }
+
+    // ?DoRecord@artsReplayChannel@@UAEXPAVStream@@@Z | inline
+    void DoRecord(Stream* stream) override
+    {
+        stream->Put(GetMagic());
+        stream->Put(4_u32);
+        stream->Put(Sim()->GetUpdateDelta());
+    }
+};
+
+check_size(artsReplayChannel, 0xC);
+
+static artsReplayChannel artsReplay;
 
 #ifdef ARTS_DEV_BUILD
 void asSimulation::OpenPhysicsBank()

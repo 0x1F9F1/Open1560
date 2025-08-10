@@ -61,10 +61,10 @@ public:
 #endif
 
     // ?BeDone@mmGameManager@@QAEXXZ
-    ARTS_IMPORT void BeDone();
+    void BeDone();
 
     // ?Cull@mmGameManager@@UAEXXZ
-    ARTS_IMPORT void Cull() override;
+    ARTS_EXPORT void Cull() override;
 
     // ?GetBrakes@mmGameManager@@QAEMXZ
     ARTS_IMPORT f32 GetBrakes();
@@ -82,7 +82,7 @@ public:
     ARTS_IMPORT void LoadReplay(aconst char* arg1);
 
     // ?Reset@mmGameManager@@UAEXXZ
-    ARTS_IMPORT void Reset() override;
+    ARTS_EXPORT void Reset() override;
 
     // ?SaveReplay@mmGameManager@@QAEXPAD@Z
     ARTS_IMPORT void SaveReplay(aconst char* arg1);
@@ -91,7 +91,7 @@ public:
     ARTS_IMPORT void StartReplay();
 
     // ?Update@mmGameManager@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
     // ?DeclareFields@mmGameManager@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
@@ -113,8 +113,8 @@ private:
     mmMultiBlitz* MultiBlitz;
     mmGameEdit* GameEdit;
     b32 InReplay;
-    i32 Frame;
-    i32 PendingFrames;
+    u32 Frame;
+    u32 PendingFrames;
     b32 NeedsReset;
     agiBitmap* ReplayBitmap;
     i32 field_58;
@@ -127,11 +127,5 @@ inline mmGameManager* GameMgr()
     return mmGameManager::Instance;
 }
 
-// ?ReplayLog@@3PAVStream@@A
-ARTS_IMPORT extern Stream* ReplayLog;
-
 // ?ScreenClearCount@@3HA
-ARTS_IMPORT extern i32 ScreenClearCount;
-
-// ?dummyGlobal2@@3EA
-ARTS_IMPORT extern u8 dummyGlobal2;
+ARTS_EXPORT extern i32 ScreenClearCount;

@@ -20,16 +20,48 @@ define_dummy_symbol(mmgame_gameman);
 
 #include "gameman.h"
 
+#include "game.h"
+#include "player.h"
+
+#include "agi/bitmap.h"
+#include "agi/pipeline.h"
 #include "agi/texdef.h"
 #include "agiworld/meshload.h"
 #include "arts7/cullmgr.h"
+#include "arts7/sim.h"
 #include "data7/cache.h"
+#include "memory/stack.h"
+#include "mmcityinfo/state.h"
 #include "mmdyna/bndtmpl2.h"
+#include "mmeffects/card2d.h"
+#include "mminput/input.h"
+#include "vector7/randmath.h"
 
 // ?randcall@@YAXXZ
 ARTS_IMPORT /*static*/ void randcall();
 
-void ShowGameManagerStats()
+// ?ResetFadeCard@@3PAVCard2D@@A
+ARTS_EXPORT Card2D* ResetFadeCard = nullptr;
+
+struct mmReplayFrame
+{
+    f32 UpdateDelta;
+    f32 TotalElapsed;
+    i8 Steering;
+    u8 Brakes;
+    u8 Throttle;
+};
+check_size(mmReplayFrame, 0xC);
+
+static constexpr usize MaxReplayFrames = 18000;
+
+// ?ReplayData@@3PAUmmReplayFrame@@A
+ARTS_EXPORT mmReplayFrame ReplayData[MaxReplayFrames];
+
+i32 ScreenClearCount = 0;
+
+// ?ShowGameManagerStats@@YAXXZ
+ARTS_EXPORT void ShowGameManagerStats()
 {
     // TODO: Make these atomic
     Statsf("Meshes: %d paged, %d bytes", MeshesPaged, MeshBytesPaged);
@@ -57,4 +89,68 @@ void ShowGameManagerStats()
     BoundBytesPaged = 0;
     TexsPaged = 0;
     TexBytesPaged = 0;
+}
+
+void mmGameManager::BeDone()
+{
+    MMSTATE.GameState = mmGameState::Menus;
+}
+
+void mmGameManager::Cull()
+{
+    auto bitmap = ReplayBitmap;
+
+    Pipe()->CopyBitmap((Pipe()->GetWidth() - bitmap->GetWidth()) / 2, (Pipe()->GetHeight() - bitmap->GetHeight()) / 4,
+        bitmap, 0, 0, bitmap->GetWidth(), bitmap->GetHeight());
+}
+
+void mmGameManager::Reset()
+{
+    // Actual reset is handled in Update()
+    NeedsReset = true;
+    InReplay = false;
+}
+
+void mmGameManager::Update()
+{
+    ScreenClearCount = 3;
+
+    if (NeedsReset)
+    {
+        gRandSeed = 1;
+        Frame = 0;
+        asNode::Reset();
+        NeedsReset = false;
+
+        Current->Player->Camera.FadeIn(1.0f, 0);
+    }
+
+    DebugLog('dees', &gRandSeed, sizeof(gRandSeed));
+
+    if (InReplay)
+    {
+        Sim()->SetUpdateDelta(ReplayData[Frame].UpdateDelta);
+        Sim()->SetElapsed(ReplayData[Frame].TotalElapsed);
+
+        asNode::Update();
+
+        if (++Frame == PendingFrames)
+            InReplay = false;
+
+        if (ReplayBitmap && (Frame & 31) < 16)
+            CullMgr()->DeclareBitmap(this, ReplayBitmap);
+    }
+    else
+    {
+        ReplayData[Frame].UpdateDelta = Sim()->GetUpdateDelta();
+        ReplayData[Frame].TotalElapsed = Sim()->GetElapsed();
+        ReplayData[Frame].Steering = static_cast<i8>(GameInput()->GetSteering() * 127.0f);
+        ReplayData[Frame].Throttle = static_cast<u8>(GameInput()->GetThrottle() * 255.0f);
+        ReplayData[Frame].Brakes = static_cast<u8>(GameInput()->GetBrakes() * 255.0f);
+
+        asNode::Update();
+
+        if (Frame < MaxReplayFrames - 1)
+            ++Frame;
+    }
 }

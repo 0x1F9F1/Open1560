@@ -275,7 +275,7 @@ public:
     b32 GamepadConnected();
 
     // ?GetBrakes@mmInput@@QAEMXZ
-    ARTS_EXPORT f32 GetBrakes();
+    f32 GetBrakes();
 
     // ?GetBrakesVal@mmInput@@QAEMXZ
     ARTS_EXPORT f32 GetBrakesVal();

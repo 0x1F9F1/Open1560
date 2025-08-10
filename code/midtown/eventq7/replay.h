@@ -25,20 +25,20 @@ public:
     ~eqReplayChannel();
 
     // ?InitRecord@eqReplayChannel@@UAEXXZ
-    ARTS_EXPORT virtual void InitRecord();
+    virtual void InitRecord();
 
     // ?InitPlayback@eqReplayChannel@@UAEXXZ
-    ARTS_EXPORT virtual void InitPlayback();
+    virtual void InitPlayback();
 
     virtual void DoRecord(Stream* arg1) = 0;
 
     virtual void DoPlayback(Stream* arg1) = 0;
 
     // ?ShutdownRecord@eqReplayChannel@@UAEXXZ
-    ARTS_EXPORT virtual void ShutdownRecord();
+    virtual void ShutdownRecord();
 
     // ?ShutdownPlayback@eqReplayChannel@@UAEXXZ
-    ARTS_EXPORT virtual void ShutdownPlayback();
+    virtual void ShutdownPlayback();
 
     u32 GetMagic() const
     {
@@ -47,7 +47,7 @@ public:
 
 protected:
     // ??0eqReplayChannel@@IAE@K@Z
-    ARTS_EXPORT eqReplayChannel(ulong magic);
+    eqReplayChannel(ulong magic);
 
 private:
     // ?First@eqReplayChannel@@0PAV1@A
