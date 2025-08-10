@@ -357,6 +357,8 @@ protected:
     ARTS_EXPORT static i16 vertCounts[256];
 
 private:
+    u32 GetBaseCacheSize() const;
+
     // ?DoPageIn@agiMeshSet@@AAEXXZ | agiworld:meshload
     void DoPageIn();
 

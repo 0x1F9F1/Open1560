@@ -172,3 +172,38 @@ void agiMeshSet::MakeResident()
         ipcYield();
     }
 }
+
+// Same as DataCache alignment
+static inline constexpr u32 AlignSize(u32 value) noexcept
+{
+    return (value + 7) & ~u32(7); // FIXME: 64-bit requires 16-byte alignment
+}
+
+u32 agiMeshSet::GetBaseCacheSize() const
+{
+    u32 result = 0;
+
+    result += AlignSize(VertexCount * sizeof(*Vertices));
+
+    if (VertexCount >= 16)
+        result += AlignSize(8 * sizeof(Vector3));
+
+    if (Flags & MESH_SET_NORMAL)
+        result += AlignSize(AdjunctCount * sizeof(*Normals));
+
+    if (Flags & MESH_SET_UV)
+        result += AlignSize(AdjunctCount * sizeof(*TexCoords));
+
+    if (Flags & MESH_SET_CPV)
+        result += AlignSize(AdjunctCount * sizeof(*Colors));
+
+    result += AlignSize(AdjunctCount * sizeof(*VertexIndices));
+
+    if (Flags & MESH_SET_PLANES)
+        result += AlignSize(SurfaceCount * sizeof(*Planes));
+
+    result += AlignSize(SurfaceCount * sizeof(*TextureIndices));
+    result += AlignSize(IndicesCount * sizeof(*SurfaceIndices));
+
+    return result;
+}

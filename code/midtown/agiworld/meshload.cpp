@@ -150,6 +150,14 @@ void agiMeshSet::DoPageIn()
     X(cache_size);
 #undef X
 
+    if (u32 actual_size = GetBaseCacheSize(); cache_size != actual_size)
+    {
+        Warningf(
+            "Mesh '%s' has incorrect cache size (expected 0x%X, got 0x%X)", Pager.GetPath(), actual_size, cache_size);
+
+        cache_size = actual_size;
+    }
+
     agiTexParameters* textures = reinterpret_cast<agiTexParameters*>(data) - 1;
     data += sizeof(agiTexParameters) * TextureCount;
 

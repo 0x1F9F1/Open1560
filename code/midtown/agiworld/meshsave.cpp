@@ -27,12 +27,6 @@ define_dummy_symbol(agiworld_meshsave);
 #include "vector7/vector3.h"
 #include "vector7/vector4.h"
 
-// Same as DataCache alignment
-static inline constexpr u32 AlignSize(u32 value) noexcept
-{
-    return (value + 7) & ~u32(7); // FIXME: 64-bit requires 16-byte alignment
-}
-
 void agiMeshSet::BinarySave(Stream* stream)
 {
     stream->Write(&VertexCount, sizeof(VertexCount));
@@ -48,30 +42,7 @@ void agiMeshSet::BinarySave(Stream* stream)
     u16 padding = 0;
     stream->Write(&padding, sizeof(padding));
 
-    u32 cache_size = 0;
-
-    cache_size += AlignSize(VertexCount * sizeof(*Vertices));
-
-    if (VertexCount >= 16)
-        cache_size += AlignSize(8 * sizeof(Vector3));
-
-    if (Flags & MESH_SET_NORMAL)
-        cache_size += AlignSize(AdjunctCount * sizeof(*Normals));
-
-    if (Flags & MESH_SET_UV)
-        cache_size += AlignSize(AdjunctCount * sizeof(*TexCoords));
-
-    if (Flags & MESH_SET_CPV)
-        cache_size += AlignSize(AdjunctCount * sizeof(*Colors));
-
-    cache_size += AlignSize(AdjunctCount * sizeof(*VertexIndices));
-
-    if (Flags & MESH_SET_PLANES)
-        cache_size += AlignSize(SurfaceCount * sizeof(*Planes));
-
-    cache_size += AlignSize(SurfaceCount * sizeof(*TextureIndices));
-    cache_size += AlignSize(IndicesCount * sizeof(*SurfaceIndices));
-
+    u32 cache_size = GetBaseCacheSize();
     stream->Write(&cache_size, sizeof(cache_size));
 
     for (u8 i = 1; i <= TextureCount; ++i)

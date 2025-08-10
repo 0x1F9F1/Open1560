@@ -236,17 +236,29 @@ isize Stream::Gets(char* buffer, isize buffer_len)
 
     isize total = 0;
 
-    while (total < buffer_len)
+    while (true)
     {
         i32 v = GetCh();
 
         if (v == -1)
             break;
 
-        buffer[total++] = static_cast<char>(v);
+        if (total < buffer_len)
+        {
+            buffer[total] = static_cast<char>(v);
+        }
+
+        ++total;
 
         if (v == '\n')
             break;
+    }
+
+    if (total >= buffer_len)
+    {
+        // TODO: Abort on buffer truncation.
+        Errorf("Buffer too small for full line");
+        total = buffer_len;
     }
 
     buffer[total] = '\0';

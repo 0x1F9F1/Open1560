@@ -116,7 +116,7 @@ void asRenderWeb::LoadCells(const char* city_name, bool enable_lm)
     auto city_mesh = arts_formatf<128>("%scity", city_name);
     auto lm_mesh = arts_formatf<128>("%slm", city_name);
 
-    char buffer[128];
+    char buffer[256];
     stream->Gets(buffer, ARTS_SIZE(buffer));
     i32 num_cells = std::atoi(buffer);
 
