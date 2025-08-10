@@ -22,5 +22,5 @@ define_dummy_symbol(mmanim_traincar);
 
 mmAnimTrainCar::mmAnimTrainCar()
 {
-    Flags &= ~INST_FLAG_COLLIDER;
+    ClearFlags(INST_FLAG_COLLIDER);
 }

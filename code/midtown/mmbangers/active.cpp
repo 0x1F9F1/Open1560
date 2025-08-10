@@ -48,8 +48,8 @@ mmBangerActive::~mmBangerActive() = default;
 
 void mmBangerActive::Attach(mmBangerInstance* inst)
 {
-    inst->Flags &= ~INST_FLAG_COLLIDER;
-    inst->Flags |= INST_FLAG_MOVER;
+    inst->ClearFlags(INST_FLAG_COLLIDER);
+    inst->SetFlags(INST_FLAG_MOVER);
     inst->Owner = static_cast<u8>(Index + 1);
 
     mmBangerData* banger = inst->GetData();
@@ -77,7 +77,7 @@ void mmBangerActive::Attach(mmBangerInstance* inst)
 
         if (banger->BirthRule.BirthFlags & asBirthRule::kStationary)
         {
-            if (!(inst->Flags & INST_FLAG_200))
+            if (!inst->TestFlags(INST_FLAG_UNHIT_BANGER))
                 return;
 
             banger->BirthRule.Position = ICS.World.m3;
@@ -107,8 +107,8 @@ void mmBangerActive::Detach()
 
     ICS.State = ICS_STATE_AWAKE;
 
-    Target->Flags |= INST_FLAG_COLLIDER;
-    Target->Flags &= ~INST_FLAG_MOVER;
+    Target->SetFlags(INST_FLAG_COLLIDER);
+    Target->ClearFlags(INST_FLAG_MOVER);
     Target->Owner = 0;
 
     Target = nullptr;

@@ -110,7 +110,7 @@ public:
     ARTS_IMPORT void NewMover(mmInstance* arg1, mmInstance* arg2);
 
     // ?NewMover@mmPhysicsMGR@@QAEXPAVmmInstance@@00@Z
-    ARTS_IMPORT void NewMover(mmInstance* arg1, mmInstance* arg2, mmInstance* arg3);
+    ARTS_IMPORT void NewMover(mmInstance* new_inst, mmInstance* old_inst, mmInstance* other);
 
     // ?Reset@mmPhysicsMGR@@UAEXXZ
     ARTS_IMPORT void Reset() override;

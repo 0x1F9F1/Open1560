@@ -40,9 +40,9 @@ define_dummy_symbol(mmcity_cullcity);
 
 #include "loader.h"
 
-static constexpr i32 MAX_BANGERS = 40;
+static constexpr i32 MAX_HIT_BANGERS = 80;
 static constexpr i32 MAX_PARTICLES = 100;
-static constexpr i32 CHICAGO_CELLID_RUNWAY = 35;
+static constexpr i32 CHICAGO_CELL_RUNWAY = 35;
 
 #ifdef ARTS_DEV_BUILD
 void mmRunwayLight::AddWidgets(Bank* /*arg1*/)
@@ -209,8 +209,8 @@ void mmCullCity::Init(char* name, asCamera* camera)
         Vector3 pos_3 = {1015.383, 0.173, 1188.805};
         Vector3 pos_4 = {1015.383, 0.173, 742.411};
 
-        BuildingChain.Parent(new mmRunwayLight("fxltglow"_xconst, pos_1, pos_2), CHICAGO_CELLID_RUNWAY);
-        BuildingChain.Parent(new mmRunwayLight("fxltglow"_xconst, pos_3, pos_4), CHICAGO_CELLID_RUNWAY);
+        BuildingChain.Parent(new mmRunwayLight("fxltglow"_xconst, pos_1, pos_2), CHICAGO_CELL_RUNWAY);
+        BuildingChain.Parent(new mmRunwayLight("fxltglow"_xconst, pos_3, pos_4), CHICAGO_CELL_RUNWAY);
     }
 
     InitTimeOfDayAndWeather();
@@ -218,7 +218,7 @@ void mmCullCity::Init(char* name, asCamera* camera)
     if (IsSnowing)
         InitSnowTextures();
 
-    BangerMgr()->Init(MAX_BANGERS);
+    BangerMgr()->Init(MAX_HIT_BANGERS);
 
     if (city_dlp && city_dlp->Release())
         Errorf("Someone is still holding a ref on the city's template");

@@ -48,7 +48,7 @@ enum
 
 mmCarModel::mmCarModel()
 {
-    Flags |= INST_FLAG_SHADOW | INST_FLAG_MOVER | INST_FLAG_100 | INST_FLAG_GLOW | INST_FLAG_2000;
+    SetFlags(INST_FLAG_SHADOW | INST_FLAG_MOVER | INST_FLAG_100 | INST_FLAG_GLOW | INST_FLAG_2000);
     CarFlags |= CAR_FLAG_ACTIVE;
 
     Sparks.Init(256, GetSparkLut("tune/spark.tga"_xconst));

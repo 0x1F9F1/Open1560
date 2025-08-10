@@ -40,7 +40,7 @@ void aiVehicleActive::Attach(aiVehicleInstance* inst)
 {
     aiVehicleData* data = inst->GetData();
 
-    inst->Flags &= ~INST_FLAG_COLLIDER;
+    inst->ClearFlags(INST_FLAG_COLLIDER);
     inst->Owner = static_cast<u8>(VehicleIndex + 1);
 
     ICS.Zero();
@@ -80,15 +80,15 @@ void aiVehicleActive::Detach()
     if (!PHYS.Collide(&isect, PHYS_COLLIDE_ROOM) || (ICS.Matrix.m1 ^ isect.Normal) < 0.9f)
         return_to_rail = false;
 
-    if (Inst->Flags & INST_FLAG_40)
+    if (Inst->TestFlags(INST_FLAG_40))
         return_to_rail = false;
 
     if (return_to_rail)
         Inst->Spline->Impact(0);
     else
-        Inst->Flags |= INST_FLAG_40;
+        Inst->SetFlags(INST_FLAG_40);
 
-    Inst->Flags |= INST_FLAG_COLLIDER;
+    Inst->SetFlags(INST_FLAG_COLLIDER);
     Inst->Owner = 0;
 
     PHYS.IgnoreMover(Inst);

@@ -233,18 +233,43 @@ public:
 #define INST_FLAG_40 0x40 // Is an obstacle?
 
 #define INST_FLAG_80 0x80
-#define INST_FLAG_100 0x100 // Vehicle? Cleared in mmBangerManager::GetBanger
-#define INST_FLAG_200 0x200 // Breakable? Is Banger/Has Banger Data?
+#define INST_FLAG_100 0x100          // Vehicle? Cleared in mmBangerManager::GetBanger
+#define INST_FLAG_UNHIT_BANGER 0x200 // Breakable? Is Banger/Has Banger Data?
 #define INST_FLAG_GLOW 0x400
 
     // Passed from mmPhysicsMGR::Update to mmPhysicsMGR::GatherCollidables, and mmPhysicsMGR::Collide to mmPhysicsMGR::CollideProbe
 #define INST_FLAG_TERRAIN 0x800
-#define INST_FLAG_1000 0x1000 // mmBangerInstance::Draw - Increment lod
+#define INST_FLAG_1000 0x1000 // mmBangerInstance::Draw, mmHitBangerInstance::Draw - Increment lod
 #define INST_FLAG_2000 0x2000 // Important shadows
 #define INST_FLAG_COLLIDED_PLAYER 0x4000
 
     // INST_FLAG_*
     u16 Flags {INST_FLAG_ACTIVE};
+
+    u16 GetFlags(u16 flags) const
+    {
+        return Flags & flags;
+    }
+
+    bool TestFlags(u16 flags) const
+    {
+        return (Flags & flags) == flags;
+    }
+
+    void SetFlags(u16 flags)
+    {
+        Flags |= flags;
+    }
+
+    void EnableFlags(u16 flags, bool enabled)
+    {
+        Flags = (Flags & ~flags) | (enabled ? flags : 0);
+    }
+
+    void ClearFlags(u16 flags)
+    {
+        Flags &= ~flags;
+    }
 
     u16 MeshIndex {};
     i16 ChainId {-1};

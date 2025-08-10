@@ -81,8 +81,12 @@ public:
     asBirthRule BirthRule;
     i32 TexNumber;
 
-#define BANGER_BILL_FLAG_10 0x10 // Shadows?
-#define BANGER_BILL_FLAG_20 0x20 // Glow?
+#define BANGER_BILL_FLAG_BILLBOARD_VLOW 0x1 // Draw as billboard for LOD 0
+#define BANGER_BILL_FLAG_BILLBOARD_LOW 0x2  // Draw as billboard for LOD 1
+#define BANGER_BILL_FLAG_BILLBOARD_MED 0x4  // Draw as billboard for LOD 2
+#define BANGER_BILL_FLAG_BILLBOARD_HIGH 0x8 // Draw as billboard for LOD 3
+#define BANGER_BILL_FLAG_NO_SHADOWS 0x10    // Disable shadows
+#define BANGER_BILL_FLAG_GLOW 0x20          // Draw glowing parts
 
     i32 BillFlags;
     i16 SpinAxis;
@@ -98,6 +102,11 @@ public:
     char** PartNames;
     u32 AudioId;
     i32 MeshIndex;
+
+    bool HasShadows() const
+    {
+        return !(BillFlags & BANGER_BILL_FLAG_NO_SHADOWS);
+    }
 };
 
 check_size(mmBangerData, 0x134);

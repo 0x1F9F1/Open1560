@@ -35,7 +35,7 @@ void PreCamCS::MakeActive()
     Car->Model.Activate();
 
     if (Car->Trailer)
-        Car->Trailer->Inst.Flags |= INST_FLAG_ACTIVE;
+        Car->Trailer->Inst.SetFlags(INST_FLAG_ACTIVE);
 
     PolarAngle = std::atan2(CarMatrix->m2.x, CarMatrix->m2.z) + AzimuthOffset;
 }

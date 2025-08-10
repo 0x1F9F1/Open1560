@@ -88,7 +88,7 @@ public:
     ARTS_EXPORT Vector3& ARTS_FASTCALL GetPos() override;
 
     // ?Impact@mmUnhitBangerInstance@@UAEXPAVmmInstance@@PAVVector3@@@Z
-    ARTS_IMPORT void Impact(mmInstance* arg1, Vector3* arg2) override;
+    ARTS_EXPORT void Impact(mmInstance* other, Vector3* position) override;
 
     // ?Init@mmUnhitBangerInstance@@UAEHPADAAVVector3@@1H0@Z
     ARTS_EXPORT b32 Init(aconst char* name, Vector3& pos1, Vector3& pos2, i32 init_flags, aconst char* part) override;
@@ -151,7 +151,7 @@ public:
     ARTS_EXPORT ~mmBangerManager() override = default;
 
     // ?GetBanger@mmBangerManager@@QAEPAVmmHitBangerInstance@@XZ
-    ARTS_IMPORT mmHitBangerInstance* GetBanger();
+    ARTS_EXPORT mmHitBangerInstance* GetBanger();
 
     // ?Init@mmBangerManager@@QAEXH@Z
     ARTS_IMPORT void Init(i32 arg1);
@@ -167,7 +167,7 @@ protected:
 
 private:
     mmHitBangerInstance* Bangers {};
-    i32 NumBangers {};
+    i32 NextBanger {};
     i32 MaxBangers {};
 };
 

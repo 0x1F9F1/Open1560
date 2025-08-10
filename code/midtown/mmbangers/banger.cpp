@@ -22,12 +22,15 @@ define_dummy_symbol(mmbangers_banger);
 
 #include "active.h"
 #include "data.h"
+#include "dof.h"
+
 #include "mmcity/cullcity.h"
+#include "mmphysics/phys.h"
 #include "vector7/matrix34.h"
 
 mmBangerInstance::mmBangerInstance()
 {
-    Flags |= INST_FLAG_COLLIDER | INST_FLAG_40;
+    SetFlags(INST_FLAG_COLLIDER | INST_FLAG_40);
 }
 
 mmPhysEntity* mmBangerInstance::AttachEntity()
@@ -63,7 +66,7 @@ Vector3 mmBangerInstance::GetVelocity()
 
 mmUnhitBangerInstance::mmUnhitBangerInstance()
 {
-    Flags |= INST_FLAG_200;
+    SetFlags(INST_FLAG_UNHIT_BANGER);
 }
 
 void mmUnhitBangerInstance::FromMatrix(const Matrix34& matrix)
@@ -115,16 +118,16 @@ b32 mmUnhitBangerInstance::Init(aconst char* name, Vector3& pos1, Vector3& pos2,
         is_valid = true;
     }
 
-    if ((init_flags & INST_INIT_FLAG_GLOW) && bng_data && (bng_data->BillFlags & BANGER_BILL_FLAG_20))
+    if ((init_flags & INST_INIT_FLAG_GLOW) && bng_data && (bng_data->BillFlags & BANGER_BILL_FLAG_GLOW))
     {
         AddMeshes(name, MESH_SET_UV | MESH_SET_CPV | MESH_SET_NO_BOUND, "GLOW"_xconst, &glow_offset);
 
-        Flags |= INST_FLAG_GLOW;
+        SetFlags(INST_FLAG_GLOW);
     }
 
     if (init_flags & INST_INIT_FLAG_TERRAIN)
     {
-        Flags |= INST_FLAG_TERRAIN;
+        SetFlags(INST_FLAG_TERRAIN);
     }
 
     if (is_valid)
@@ -133,11 +136,94 @@ b32 mmUnhitBangerInstance::Init(aconst char* name, Vector3& pos1, Vector3& pos2,
 
         CullCity()->ReparentObject(this);
 
-        if (bng_data && !(bng_data->BillFlags & BANGER_BILL_FLAG_10))
-            Flags |= INST_FLAG_SHADOW;
+        if (bng_data && bng_data->HasShadows())
+            SetFlags(INST_FLAG_SHADOW);
     }
 
     return is_valid;
+}
+
+void mmUnhitBangerInstance::Impact(mmInstance* other, Vector3* position)
+{
+    // Apply an impact to an unhit banger, converting it into one or more hit bangers.
+    // Once this happens, the unhit banger is effectively dead.
+    // Since hit bangers are allocated using a circular buffer, old ones will eventually be removed.
+
+    // A banger cannot be impacted until it has an active entity.
+    mmBangerActive* old_active = BangerActiveMgr()->GetActive(this);
+    ArAssert(old_active, "Banger impacted without active entity");
+    ArAssert(this == old_active->Target, "Active entity has incorrect target");
+
+    Matrix34 mat = ToMatrix(mat);
+    mmBangerData* data = GetData();
+
+    i16 chain_id = ChainId;
+    CullCity()->ObjectsChain.Unparent(this);
+    ChainId = chain_id;
+    ClearFlags(INST_FLAG_UNHIT_BANGER);
+
+    if (data->NumParts == 0)
+    {
+        // Convert our active entity directly into a hit banger.
+        mmBangerActive* active = old_active;
+
+        mmHitBangerInstance* hit = BangerMgr()->GetBanger();
+        CullCity()->ObjectsChain.Parent(hit, ChainId);
+
+        hit->BangerIndex = BangerIndex;
+        hit->MeshIndex = MeshIndex;
+        hit->SetFlags(GetFlags(INST_FLAG_SHADOW | INST_FLAG_TERRAIN));
+
+        hit->FromMatrix(mat);
+
+        // Transfer ownership of the mmBangerActive
+        hit->Owner = std::exchange(Owner, 0_u8);
+        active->Target = hit;
+
+        active->ICS.State = ICS_STATE_AWAKE;
+
+        // Replaces our unhit inst with the hit inst, and attaches it to other.
+        PHYS.NewMover(hit, this, other);
+    }
+    else
+    {
+        // Split into multiple parts, and destroy our current entity.
+
+        Vector3 cg;
+        cg.Dot3x3(data->CG, mat);
+        mat.m3 -= cg;
+
+        for (i16 i = 0; i < data->NumParts; ++i)
+        {
+            // Convert our active entity directly into a hit banger.
+            mmHitBangerInstance* hit = BangerMgr()->GetBanger();
+            CullCity()->ObjectsChain.Parent(hit, ChainId);
+
+            // Set our data to the sub-part
+            hit->BangerIndex = BangerIndex + i + 1;
+            hit->MeshIndex = MeshIndex + i + 1;
+
+            mmBangerData* part = hit->GetData();
+
+            // Add shadows, only if both parts have shadows
+            if (TestFlags(INST_FLAG_SHADOW) && part->HasShadows())
+                hit->SetFlags(INST_FLAG_SHADOW);
+
+            cg.Dot3x3(part->CG, mat);
+            mat.m3 += cg;
+            hit->FromMatrix(mat);
+            mat.m3 -= cg;
+
+            mmBangerActive* active = static_cast<mmBangerActive*>(hit->AttachEntity());
+            Vector3 impulse = old_active->ICS.LinearImpulse * (active->ICS.Mass / old_active->ICS.Mass);
+            active->ICS.ApplyImpulse(impulse, position ? *position : GetPos());
+            active->ICS.State = ICS_STATE_AWAKE;
+
+            PHYS.NewMover(hit, (i == 0) ? this : nullptr, other);
+        }
+
+        old_active->DetachMe();
+    }
 }
 
 u32 mmUnhitBangerInstance::SizeOf()
@@ -162,7 +248,7 @@ void mmBangerInstance::AddWidgets(Bank* /*arg1*/)
 
 mmHitBangerInstance::mmHitBangerInstance()
 {
-    Flags |= INST_FLAG_COLLIDER | INST_FLAG_40;
+    SetFlags(INST_FLAG_COLLIDER | INST_FLAG_40);
 }
 
 void mmHitBangerInstance::Detach()
@@ -192,4 +278,23 @@ u32 mmHitBangerInstance::SizeOf()
 Matrix34& mmHitBangerInstance::ToMatrix([[maybe_unused]] Matrix34& matrix)
 {
     return Matrix;
+}
+
+mmHitBangerInstance* mmBangerManager::GetBanger()
+{
+    mmHitBangerInstance* banger = &Bangers[NextBanger++];
+
+    if (NextBanger == MaxBangers)
+        NextBanger = 0;
+
+    if (mmBangerActive* active = BangerActiveMgr()->GetActive(banger))
+        active->DetachMe();
+
+    if (banger->ChainId != -1)
+        CullCity()->ObjectsChain.Unparent(banger);
+
+    // Clear any flags which may be changed between bangers
+    banger->ClearFlags(INST_FLAG_100 | INST_FLAG_SHADOW | INST_FLAG_TERRAIN);
+
+    return banger;
 }

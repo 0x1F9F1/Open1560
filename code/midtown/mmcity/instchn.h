@@ -41,7 +41,7 @@ public:
     ARTS_IMPORT void Init(i32 arg1);
 
     // ?Parent@mmInstChain@@QAEXPAVmmInstance@@F@Z
-    ARTS_IMPORT void Parent(mmInstance* arg1, i16 arg2);
+    ARTS_IMPORT void Parent(mmInstance* inst, i16 room);
 
     // ?Relight@mmInstChain@@QAEXF@Z
     ARTS_IMPORT void Relight(i16 arg1);

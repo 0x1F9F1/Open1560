@@ -148,7 +148,7 @@ public:
     Vector3 field_16C {};
     i32 Constraints {};
     i32 field_17C {-1};
-    i32 State {};
+    i32 State {}; // ICS_STATE_*
     f32 Vel2 {0.1f};
     f32 AngVel2 {0.1f};
     f32 Time {1.0f};
