@@ -36,7 +36,7 @@ class mmPhysExec final : public asNode
 {
 public:
     // ??1mmPhysExec@@UAE@XZ | inline
-    ARTS_EXPORT ~mmPhysExec() override = default;
+    ~mmPhysExec() override = default;
 
     // ?DoUpdateAll@mmPhysExec@@QAEXXZ
     ARTS_IMPORT void DoUpdateAll();
@@ -45,7 +45,7 @@ public:
     ARTS_IMPORT void DoUpdatePlayerOnly();
 
     // ?Update@mmPhysExec@@UAEXXZ | inline
-    ARTS_EXPORT void Update() override;
+    void Update() override;
 
     b32 OnlyPlayer {};
 };
@@ -71,10 +71,10 @@ class mmPhysicsMGR final : public asNode
 {
 public:
     // ??0mmPhysicsMGR@@QAE@XZ
-    ARTS_IMPORT mmPhysicsMGR();
+    ARTS_EXPORT mmPhysicsMGR();
 
     // ??1mmPhysicsMGR@@UAE@XZ
-    ARTS_IMPORT ~mmPhysicsMGR() override;
+    ARTS_EXPORT ~mmPhysicsMGR() override;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmPhysicsMGR@@UAEXPAVBank@@@Z
@@ -173,7 +173,7 @@ protected:
 #endif
 
     // ?TrivialCollideInstances@mmPhysicsMGR@@IAEHPAVmmInstance@@0@Z
-    ARTS_IMPORT i32 TrivialCollideInstances(mmInstance* arg1, mmInstance* arg2);
+    b32 TrivialCollideInstances(mmInstance* inst_1, mmInstance* inst_2);
 
     // ?Instance@mmPhysicsMGR@@1PAV1@A
     ARTS_IMPORT static mmPhysicsMGR* Instance;
@@ -184,27 +184,27 @@ private:
     bool IsRoomActive(i16 room) const;
     void AddActiveRoom(i16 room);
 
-    i32 field_20;
-    asInertialCS* PlayerICS;
-    mmInstance* PlayerInst;
-    i32 ReduceOversampling;
-    f32 Gravity;
-    i32 field_34;
+    i32 field_20 {};
+    asInertialCS* PlayerICS {};
+    mmInstance* PlayerInst {};
+    b32 ReduceOversampling {};
+    f32 Gravity {};
+    b32 DrawBounds {};
 
     // DeclareBound
-    i32 NumBounds;
-    mmBoundTemplate* Bounds[MAX_ACTIVE_ROOMS];
+    i32 NumBounds {};
+    mmBoundTemplate* Bounds[MAX_ACTIVE_ROOMS] {};
 
-    i32 CylinderCollisions;
-    mmPhysExec PhysExec;
-    asOverSample OverSample;
-    mmViewCS* PlayerVCS;
+    b32 CylinderCollisions {};
+    mmPhysExec PhysExec {};
+    asOverSample OverSample {};
+    mmViewCS* PlayerVCS {};
 
-    i16 ActiveRooms[MAX_ACTIVE_ROOMS];
-    i16 NumActiveRooms;
+    i16 ActiveRooms[MAX_ACTIVE_ROOMS] {};
+    i16 NumActiveRooms {};
 
-    mmBoundTemplate* HitIdBound;
-    mmInstChain* ObjectsChain;
+    Rc<mmBoundTemplate> HitIdBound {};
+    mmInstChain* ObjectsChain {};
 };
 
 check_size(mmPhysicsMGR, 0x224);

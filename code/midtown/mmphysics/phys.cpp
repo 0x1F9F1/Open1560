@@ -23,6 +23,7 @@ define_dummy_symbol(mmphysics_phys);
 #include "entity.h"
 
 #include "memory/alloca.h"
+#include "mmbangers/banger.h"
 #include "mmcity/cullcity.h"
 #include "mmcity/inst.h"
 #include "mmcity/instchn.h"
@@ -137,6 +138,33 @@ void mmPhysExec::Update()
         DoUpdatePlayerOnly();
     else
         DoUpdateAll();
+}
+
+mmPhysicsMGR::mmPhysicsMGR()
+{
+    if (Instance)
+        Quitf("Can only have one physmgr at a time");
+
+    Instance = this;
+
+    AddChild(&OverSample);
+    OverSample.AddChild(&PhysExec);
+    OverSample.RealTime(35.0f);
+
+    DrawBounds = true;
+
+    // The original code relied on CylinderCollisions to properly detect collisions,
+    // but now that's been fixed, it shouldn't be necessary.
+    CylinderCollisions = false;
+
+    EnableCachedPoly = true;
+
+    Reset();
+}
+
+mmPhysicsMGR::~mmPhysicsMGR()
+{
+    Instance = nullptr;
 }
 
 void mmPhysicsMGR::DeclareMover(mmInstance* inst, i32 type, i32 flags)
@@ -368,4 +396,56 @@ void mmPhysicsMGR::AddActiveRoom(i16 room)
     {
         ActiveRooms[NumActiveRooms++] = room;
     }
+}
+
+b32 mmPhysicsMGR::TrivialCollideInstances(mmInstance* inst_1, mmInstance* inst_2)
+{
+    mmBoundTemplate* bound_1 = inst_1->GetBound();
+    mmBoundTemplate* bound_2 = inst_2->GetBound();
+
+    // The original code did not use the bound's Center, even though the Radius is based off that point.
+    Vector3 center_1 = bound_1->Center;
+    Vector3 center_2 = bound_2->Center;
+
+    f32 radius_1 = bound_1->Radius;
+    f32 radius_2 = bound_2->Radius;
+
+    bool ignore_y = false;
+
+    // TODO: Remove CylinderCollisions if no issues are found without it.
+    if (CylinderCollisions)
+    {
+        if (inst_1->TestFlags(INST_FLAG_UNHIT_BANGER))
+        {
+            if (mmBangerData* data = static_cast<mmBangerInstance*>(inst_1)->GetData(); data && (data->YRadius != 0.0f))
+            {
+                radius_1 = data->YRadius;
+                center_1 = -data->CG;
+                ignore_y = true;
+            }
+        }
+
+        if (inst_2->TestFlags(INST_FLAG_UNHIT_BANGER))
+        {
+            if (mmBangerData* data = static_cast<mmBangerInstance*>(inst_2)->GetData(); data && (data->YRadius != 0.0f))
+            {
+                radius_2 = data->YRadius;
+                center_2 = -data->CG;
+                ignore_y = true;
+            }
+        }
+    }
+
+    Matrix34 mat;
+    Vector3 pos_1 = center_1 ^ inst_1->ToMatrix(mat);
+    Vector3 pos_2 = center_2 ^ inst_2->ToMatrix(mat);
+
+    if (ignore_y)
+    {
+        pos_2.y = pos_1.y;
+    }
+
+    f32 max_dist = radius_1 + radius_2;
+
+    return pos_1.Dist2(pos_2) < (max_dist * max_dist);
 }

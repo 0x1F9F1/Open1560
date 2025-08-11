@@ -20,9 +20,21 @@ define_dummy_symbol(vector7_vector3);
 
 #include "vector3.h"
 
+#include "matrix34.h"
+
 #include "data7/metadefine.h"
 #include "data7/metatype.h"
 #include "data7/miniparser.h"
+
+void Vector3::Dot(const Vector3& vec, const Matrix34& mat)
+{
+    *this = (mat.m0 * vec.x) + (mat.m1 * vec.y) + (mat.m2 * vec.z) + mat.m3;
+}
+
+void Vector3::Dot3x3(const Vector3& vec, const Matrix34& mat)
+{
+    *this = (mat.m0 * vec.x) + (mat.m1 * vec.y) + (mat.m2 * vec.z);
+}
 
 struct Vector3Type final : MetaType
 {

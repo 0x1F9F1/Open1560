@@ -64,7 +64,7 @@ asRenderWeb::asRenderWeb()
 {
     SetNodeFlag(NODE_FLAG_UPDATE_PAUSED);
 
-    Viewport = as_rc Pipe() -> CreateViewport();
+    Viewport = as_rc Pipe()->CreateViewport();
 }
 
 asRenderWeb::~asRenderWeb() = default;

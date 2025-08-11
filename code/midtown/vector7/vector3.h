@@ -145,10 +145,10 @@ public:
     ARTS_IMPORT f32 Dist(const Vector3& arg1) const;
 
     // ?Dot@Vector3@@QAIXABV1@ABVMatrix34@@@Z
-    ARTS_IMPORT void ARTS_FASTCALL Dot(const Vector3& arg1, const Matrix34& arg2);
+    ARTS_EXPORT void ARTS_FASTCALL Dot(const Vector3& vec, const Matrix34& mat);
 
     // ?Dot3x3@Vector3@@QAIXABV1@ABVMatrix34@@@Z
-    ARTS_IMPORT void ARTS_FASTCALL Dot3x3(const Vector3& arg1, const Matrix34& arg2);
+    ARTS_EXPORT void ARTS_FASTCALL Dot3x3(const Vector3& vec, const Matrix34& mat);
 
     // ?Equal@Vector3@@QBEIABV1@M@Z
     ARTS_IMPORT u32 Equal(const Vector3& arg1, f32 arg2) const;

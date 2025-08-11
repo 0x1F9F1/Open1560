@@ -35,7 +35,7 @@ public:
 #endif
 
     // ?RealTime@asOverSample@@QAEXM@Z
-    ARTS_EXPORT void RealTime(f32 fps);
+    void RealTime(f32 fps);
 
     // ?Update@asOverSample@@UAEXXZ
     void Update() override;
