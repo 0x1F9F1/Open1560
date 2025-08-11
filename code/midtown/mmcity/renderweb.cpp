@@ -39,7 +39,12 @@ define_dummy_symbol(mmcity_renderweb);
 
 static mem::cmd_param PARAM_mirrordist {"mirrordist"};
 
-f32 MirrorDist = 200.0f;
+f32 asRenderWeb::InvLodFactor = 0.0f;
+
+i32 asRenderWeb::PassMask = 0;
+
+// ?MirrorDist@@3MA
+ARTS_EXPORT f32 MirrorDist = 200.0f;
 
 hook_func(INIT_main, [] { MirrorDist = PARAM_mirrordist.get_or(200.0f); });
 
@@ -59,11 +64,30 @@ asRenderWeb::asRenderWeb()
 {
     SetNodeFlag(NODE_FLAG_UPDATE_PAUSED);
 
-    Viewport = as_rc Pipe()->CreateViewport();
+    Viewport = as_rc Pipe() -> CreateViewport();
 }
 
-asRenderWeb::~asRenderWeb()
-{}
+asRenderWeb::~asRenderWeb() = default;
+
+i32 asRenderWeb::GetCellNeighbors(i32 cell_id, asPortalCell** cells, i32 capacity)
+{
+    i32 count = 0;
+
+    if (asPortalCell* cell = GetCell(cell_id))
+    {
+        for (PortalLink* link = cell->Edges; link; link = link->Next)
+        {
+            asPortalEdge* edge = link->Edge;
+
+            cells[count] = (edge->Cell1 != cell) ? edge->Cell1 : edge->Cell2;
+
+            if (++count == capacity)
+                break;
+        }
+    }
+
+    return count;
+}
 
 b32 asRenderWeb::Load(aconst char* city_name, b32 enable_lm)
 {
@@ -313,14 +337,14 @@ void asRenderWeb::LoadRoomBounds(const char* city_name, bool enable_lm)
         {
             switch (i)
             {
-                case CHICAGO_CELL_CONSTRUCTION: mesh_name = "dl60_bnd"_xconst; break;
+                case CHICAGO_CELL_CONSTRUCTION: mesh_name = "dl60_bnd"; break;
                 case CHICAGO_CELL_WRIGLEY_24:
-                case CHICAGO_CELL_WRIGLEY_174: mesh_name = "dl24_bnd"_xconst; break;
+                case CHICAGO_CELL_WRIGLEY_174: mesh_name = "dl24_bnd"; break;
             }
         }
 
         Bounds[i] = as_rc mmBoundTemplate::GetBoundTemplate(
-            xconst(mesh_name), arts_formatf<128>("BOUND%02d"_xconst, i), nullptr, 0, 0, 0, 0, 0);
+            xconst(mesh_name), arts_formatf<128>("BOUND%02d", i), nullptr, 0, 0, 0, 0, 0);
     }
 
     // TODO: Regenerate from DLP if present

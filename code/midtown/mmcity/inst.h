@@ -253,7 +253,7 @@ public:
 
     bool TestFlags(u16 flags) const
     {
-        return (Flags & flags) == flags;
+        return (Flags & flags) != 0;
     }
 
     void SetFlags(u16 flags)

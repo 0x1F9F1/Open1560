@@ -21,7 +21,9 @@ define_dummy_symbol(mmphysics_phys);
 #include "phys.h"
 
 #include "entity.h"
+
 #include "memory/alloca.h"
+#include "mmcity/cullcity.h"
 #include "mmcity/inst.h"
 #include "mmcity/instchn.h"
 #include "mmdyna/bndtmpl.h"
@@ -41,6 +43,51 @@ struct mmPhysMover
     mmInstance* Colliders[MAX_COLLIDABLES_PER_ENTRY];
     mmPhysMover* Movers[MAX_MOVERS_PER_ENTRY];
     i32 Flags;
+
+    void SetInstance(mmInstance* inst)
+    {
+        Instance = inst;
+        Entity = inst->GetEntity();
+    }
+
+    void AddCollider(mmInstance* inst)
+    {
+        if (NumColliders == MAX_COLLIDABLES_PER_ENTRY)
+        {
+            Errorf("Reached MAX_COLLIDABLES_PER_ENTRY");
+        }
+        else if (inst == Instance)
+        {
+            Errorf("Colliding object against itself");
+        }
+        else
+        {
+            Colliders[NumColliders++] = inst;
+        }
+    }
+
+    void IgnoreCollider(mmInstance* inst)
+    {
+        for (i32 i = 0; i < NumColliders; ++i)
+        {
+            if (inst == Colliders[i])
+            {
+                DisabledColliders[i] = true;
+            }
+        }
+    }
+
+    void AddMover(mmPhysMover* mover)
+    {
+        if (NumMovers == MAX_MOVERS_PER_ENTRY)
+        {
+            Errorf("Reached MAX_MOVERS_PER_ENTRY");
+        }
+        else
+        {
+            Movers[NumMovers++] = mover;
+        }
+    }
 };
 
 check_size(mmPhysMover, 0x194);
@@ -51,6 +98,24 @@ ARTS_EXPORT i32 MoverCount = 0;
 // ?Movers@@3PAUmmPhysMover@@A
 ARTS_EXPORT mmPhysMover Movers[MAX_MOVERS] {};
 
+// ?MoverNeighbours@@3PAFA
+ARTS_EXPORT i16 MoverNeighbours[MAX_MOVERS] {};
+
+static mmPhysMover* GetInstMover(mmInstance* inst)
+{
+    for (i32 i = 0; i < MoverCount; ++i)
+    {
+        mmPhysMover* mover = &Movers[i];
+
+        if (inst == mover->Instance)
+        {
+            return mover;
+        }
+    }
+
+    return nullptr;
+}
+
 void mmPhysExec::Update()
 {
     if (OnlyPlayer)
@@ -59,16 +124,151 @@ void mmPhysExec::Update()
         DoUpdateAll();
 }
 
-void mmPhysicsMGR::IgnoreMover(mmInstance* inst)
+void mmPhysicsMGR::DeclareMover(mmInstance* inst, i32 type, i32 flags)
 {
-    for (i32 i = 0; i < MoverCount; ++i)
+    i16 room = inst->ChainId;
+
+    if (room == -1)
     {
-        if (mmPhysMover* mover = &Movers[i]; mover->Instance == inst)
+        Errorf("PHYS.DeclareMover: An unparented instance is being declared to the PhysMGR - ignoring it.");
+        return;
+    }
+
+    if (type == MOVER_TYPE_PERM)
+    {
+        AddActiveRoom(room);
+
+        asPortalCell* cells[20];
+        i32 count = CullCity()->RenderWeb.GetCellNeighbors(room, cells, ARTS_SSIZE32(cells));
+
+        for (i32 i = 0; i < count; ++i)
         {
-            // TODO: Set mover->[Instance/Entity] = nullptr;
-            mover->Flags = 0;
+            AddActiveRoom(cells[i]->CellIndex);
         }
     }
+    else if (type == MOVER_TYPE_TEMP)
+    {
+        // Temporary movers disappear once their room is inactive.
+        if (!IsRoomActive(room))
+        {
+            inst->Detach();
+            return;
+        }
+    }
+
+    if (mmPhysMover* mover = GetInstMover(inst))
+    {
+        mover->Flags |= flags;
+    }
+    else if (MoverCount < MAX_MOVERS)
+    {
+        mover = &Movers[MoverCount++];
+        mover->SetInstance(inst);
+        mover->Flags = flags;
+    }
+    else
+    {
+        Errorf("PHYS.DeclareMover: raise MAX_MOVERS past %d", MoverCount);
+    }
+
+    // FIXME: Banger projectiles can be spawned before the player's mover is declared.
+    // if (inst == PHYS.PlayerInst)
+    // {
+    //     ArAssert(GetInstMover(inst) == Movers, "First mover is not the player!");
+    // }
+}
+
+void mmPhysicsMGR::IgnoreMover(mmInstance* inst)
+{
+    if (mmPhysMover* mover = GetInstMover(inst))
+    {
+        mover->Flags = 0;
+
+        // FIXME: It is sometimes possible for a non-player mover to take slot 0
+        // ArAssert(mover != Movers, "Ignore player mover");
+        // mover->Instance = nullptr;
+        // mover->Entity = nullptr;
+        // mover->NumMovers = 0;
+        // mover->NumColliders = 0;
+    }
+}
+
+void mmPhysicsMGR::NewMover(mmInstance* inst)
+{
+    if (GetInstMover(inst))
+    {
+        Errorf("PHYS.NewMover(1): mover's already here");
+        return;
+    }
+
+    if (MoverCount >= MAX_MOVERS)
+    {
+        Errorf("PHYS.NewMover(1): raise MAX_MOVERS past %d", MoverCount);
+        return;
+    }
+
+    mmPhysMover* mover = &Movers[MoverCount++];
+    mover->SetInstance(inst);
+}
+
+void mmPhysicsMGR::NewMover(mmInstance* inst, mmInstance* other)
+{
+    if (GetInstMover(inst))
+    {
+        // TODO: Fix this and start logging the issues.
+        // Errorf("PHYS.NewMover(2): mover's already here");
+        return;
+    }
+
+    mmPhysMover* other_mover = GetInstMover(other);
+
+    if (!other_mover)
+    {
+        Errorf("PHYS.NewMover(2): not able to find other's entry");
+        return;
+    }
+
+    other_mover->IgnoreCollider(inst);
+
+    if (MoverCount >= MAX_MOVERS)
+    {
+        Errorf("PHYS.NewMover(2): raise MAX_MOVERS past %d", MoverCount);
+        return;
+    }
+
+    mmPhysMover* mover = &Movers[MoverCount++];
+    mover->SetInstance(inst);
+    other_mover->AddMover(mover);
+}
+
+void mmPhysicsMGR::NewMover(mmInstance* new_inst, mmInstance* old_inst, mmInstance* other)
+{
+    if (old_inst)
+    {
+        for (i32 i = 0; i < MoverCount; ++i)
+        {
+            mmPhysMover* mover = &Movers[i];
+            mover->IgnoreCollider(old_inst);
+        }
+    }
+
+    mmPhysMover* other_mover = GetInstMover(other);
+
+    if (!other_mover)
+    {
+        Errorf("PHYS.NewMover(3): not able to find other's entry");
+        return;
+    }
+
+    if (MoverCount >= MAX_MOVERS)
+    {
+        Errorf("PHYS.NewMover(3): raise MAX_MOVERS past %d", MoverCount);
+        return;
+    }
+
+    mmPhysMover* mover = &Movers[MoverCount++];
+    mover->SetInstance(new_inst);
+    other_mover->AddMover(mover);
 }
 
 b32 mmPhysicsMGR::CollideProbe(i16 room, mmIntersection* isect, i32 flags)
@@ -100,4 +300,48 @@ b32 mmPhysicsMGR::CollideProbe(i16 room, mmIntersection* isect, i32 flags)
     }
 
     return false;
+}
+
+void mmPhysicsMGR::GatherCollidables(i32 mover_id, i32 inst_flags)
+{
+    mmPhysMover* mover = &Movers[mover_id];
+    mover->NumColliders = 0;
+
+    GatherRoomCollidables(mover_id, mover->Instance->ChainId, inst_flags);
+
+    if (i16 other_cell = MoverNeighbours[mover_id]; other_cell != -1)
+        GatherRoomCollidables(mover_id, other_cell, inst_flags);
+}
+
+void mmPhysicsMGR::GatherRoomCollidables(i32 mover_id, i16 room, i32 inst_flags)
+{
+    mmPhysMover* mover = &Movers[mover_id];
+    u16 test_flags = static_cast<u16>(inst_flags ? inst_flags : INST_FLAG_COLLIDER);
+
+    for (mmInstance* inst = ObjectsChain->Chains[room]; inst; inst = inst->ChainNext)
+    {
+        if (inst->TestFlags(test_flags) && (inst != mover->Instance) && TrivialCollideInstances(inst, mover->Instance))
+        {
+            mover->AddCollider(inst);
+        }
+    }
+}
+
+bool mmPhysicsMGR::IsRoomActive(i16 room) const
+{
+    for (i32 i = 0; i < NumActiveRooms; ++i)
+    {
+        if (room == ActiveRooms[i])
+            return true;
+    }
+
+    return false;
+}
+
+void mmPhysicsMGR::AddActiveRoom(i16 room)
+{
+    if (!IsRoomActive(room) && (NumActiveRooms < MAX_ACTIVE_ROOMS))
+    {
+        ActiveRooms[NumActiveRooms++] = room;
+    }
 }

@@ -447,6 +447,9 @@ void mmGame::UpdateGameInput()
 
         if (horn)
         {
+            // FIXME: This spawns the projectile before mmPlayer::Update declares the player's mover.
+            // This breaks the assumption that Mover[0] is the player's vehicle.
+
             if (BangerProjectile)
                 BangerProjectile->LaunchInstance(ProjectileY, &ProjectileV);
 

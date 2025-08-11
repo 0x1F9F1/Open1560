@@ -55,7 +55,7 @@ public:
     ARTS_IMPORT void Cull() override;
 
     // ?GetCellNeighbors@asRenderWeb@@QAEHHPAPAUasPortalCell@@H@Z
-    ARTS_IMPORT i32 GetCellNeighbors(i32 arg1, asPortalCell** arg2, i32 arg3);
+    ARTS_EXPORT i32 GetCellNeighbors(i32 cell, asPortalCell** cells, i32 capacity);
 
     // ?GetStartCell@asRenderWeb@@UAEPAUasPortalCell@@AAVVector3@@PAU2@PAPAVmmPolygon@@@Z
     ARTS_IMPORT asPortalCell* GetStartCell(Vector3& arg1, asPortalCell* arg2, mmPolygon** arg3) override;
@@ -91,11 +91,11 @@ public:
     VIRTUAL_META_DECLARE;
 
     // ?InvLodFactor@asRenderWeb@@2MA
-    ARTS_IMPORT static f32 InvLodFactor;
+    ARTS_EXPORT static f32 InvLodFactor;
 
     // RENDER_PASS_*
     // ?PassMask@asRenderWeb@@2HA
-    ARTS_IMPORT static i32 PassMask;
+    ARTS_EXPORT static i32 PassMask;
 
 private:
     void LoadCells(const char* city_name, bool enable_lm);

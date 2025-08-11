@@ -92,7 +92,7 @@ public:
     ARTS_IMPORT void Cull() override;
 
     // ?DeclareMover@mmPhysicsMGR@@QAEXPAVmmInstance@@HH@Z
-    ARTS_IMPORT void DeclareMover(mmInstance* arg1, i32 type, i32 flags);
+    ARTS_EXPORT void DeclareMover(mmInstance* inst, i32 type, i32 flags);
 
     // ?GetClass@mmPhysicsMGR@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
@@ -104,13 +104,13 @@ public:
     ARTS_IMPORT void Init(asInertialCS* arg1, mmViewCS* arg2);
 
     // ?NewMover@mmPhysicsMGR@@QAEXPAVmmInstance@@@Z
-    ARTS_IMPORT void NewMover(mmInstance* arg1);
+    ARTS_EXPORT void NewMover(mmInstance* inst);
 
     // ?NewMover@mmPhysicsMGR@@QAEXPAVmmInstance@@0@Z
-    ARTS_IMPORT void NewMover(mmInstance* arg1, mmInstance* arg2);
+    ARTS_EXPORT void NewMover(mmInstance* inst, mmInstance* other);
 
     // ?NewMover@mmPhysicsMGR@@QAEXPAVmmInstance@@00@Z
-    ARTS_IMPORT void NewMover(mmInstance* new_inst, mmInstance* old_inst, mmInstance* other);
+    void NewMover(mmInstance* new_inst, mmInstance* old_inst, mmInstance* other);
 
     // ?Reset@mmPhysicsMGR@@UAEXXZ
     ARTS_IMPORT void Reset() override;
@@ -162,10 +162,10 @@ protected:
     ARTS_IMPORT void DeclareBound(mmBoundTemplate* arg1);
 
     // ?GatherCollidables@mmPhysicsMGR@@IAEXHH@Z
-    ARTS_IMPORT void GatherCollidables(i32 arg1, i32 arg2);
+    ARTS_EXPORT void GatherCollidables(i32 mover_id, i32 inst_flags);
 
     // ?GatherRoomCollidables@mmPhysicsMGR@@IAEXHFH@Z
-    ARTS_IMPORT void GatherRoomCollidables(i32 arg1, i16 arg2, i32 arg3);
+    void GatherRoomCollidables(i32 mover_id, i16 room, i32 inst_flags);
 
 #ifdef ARTS_DEV_BUILD
     // ?Stats@mmPhysicsMGR@@IAEXXZ
@@ -179,6 +179,11 @@ protected:
     ARTS_IMPORT static mmPhysicsMGR* Instance;
 
 private:
+    static const i32 MAX_ACTIVE_ROOMS = 64;
+
+    bool IsRoomActive(i16 room) const;
+    void AddActiveRoom(i16 room);
+
     i32 field_20;
     asInertialCS* PlayerICS;
     mmInstance* PlayerInst;
@@ -188,17 +193,16 @@ private:
 
     // DeclareBound
     i32 NumBounds;
-    mmBoundTemplate* Bounds[64];
+    mmBoundTemplate* Bounds[MAX_ACTIVE_ROOMS];
 
     i32 CylinderCollisions;
     mmPhysExec PhysExec;
     asOverSample OverSample;
     mmViewCS* PlayerVCS;
 
-    i16 ActiveRooms[64];
+    i16 ActiveRooms[MAX_ACTIVE_ROOMS];
     i16 NumActiveRooms;
 
-    i16 field_21A;
     mmBoundTemplate* HitIdBound;
     mmInstChain* ObjectsChain;
 };

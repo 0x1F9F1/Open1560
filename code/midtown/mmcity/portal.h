@@ -59,7 +59,13 @@ struct PtlPath
     i32 Type;
 };
 
-struct PortalLink;
+struct PortalLink
+{
+    asPortalEdge* Edge;
+    PortalLink* Next;
+};
+
+check_size(PortalLink, 0x8);
 
 struct asPortalCell
 {
