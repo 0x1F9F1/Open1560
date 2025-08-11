@@ -24,6 +24,9 @@ define_dummy_symbol(mmgame_gamemulti);
 #include "mmcityinfo/state.h"
 #include "mmnetwork/network.h"
 
+// ?GameMultiTickRate@@3MA
+ARTS_EXPORT f32 GameMultiTickRate = (1.0f / 20.0f);
+
 void mmGameMulti::NextRace()
 {}
 
