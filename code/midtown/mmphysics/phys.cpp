@@ -22,6 +22,7 @@ define_dummy_symbol(mmphysics_phys);
 
 #include "entity.h"
 
+#include "data7/metadefine.h"
 #include "memory/alloca.h"
 #include "mmbangers/banger.h"
 #include "mmcity/cullcity.h"
@@ -30,6 +31,8 @@ define_dummy_symbol(mmphysics_phys);
 #include "mmdyna/bndtmpl.h"
 #include "mmdyna/isect.h"
 
+static constexpr i32 MAX_EBISECTS = 32;
+static constexpr i32 MAX_ISECTS = 32;
 static constexpr i32 MAX_MOVERS = 256; // Increased from 128
 static constexpr i32 MAX_COLLIDABLES_PER_ENTRY = 32;
 static constexpr i32 MAX_MOVERS_PER_ENTRY = 32;
@@ -100,6 +103,19 @@ struct mmPhysMover
 
 check_size(mmPhysMover, 0x194);
 
+mmEdgeBodyIsect EBISECTS[MAX_EBISECTS] {};
+mmIntersection ISECTS[MAX_ISECTS] {};
+mmPhysicsMGR PHYS {};
+f32 PhysUpdate = 0.0f;
+
+#ifdef ARTS_DEV_BUILD
+ulong ImpactCallbackTime = 0;
+ulong ImpactTime = 0;
+ulong physCollisions = 0;
+ulong physTerrainCollisions = 0;
+ulong physUpdate = 0;
+#endif
+
 // ?MoverCount@@3HA
 ARTS_EXPORT i32 MoverCount = 0;
 
@@ -117,8 +133,6 @@ ARTS_EXPORT f32 MoverRadiuses[MAX_MOVERS] {};
 
 static mmPhysMover* GetInstMover(mmInstance* inst)
 {
-    MoverRadiuses[0] = 0.0f;
-
     for (i32 i = 0; i < MoverCount; ++i)
     {
         mmPhysMover* mover = &Movers[i];
@@ -448,4 +462,9 @@ b32 mmPhysicsMGR::TrivialCollideInstances(mmInstance* inst_1, mmInstance* inst_2
     f32 max_dist = radius_1 + radius_2;
 
     return pos_1.Dist2(pos_2) < (max_dist * max_dist);
+}
+
+META_DEFINE_CHILD("mmPhysicsMGR", mmPhysicsMGR, asNode)
+{
+    META_FIELD("Gravity", Gravity);
 }

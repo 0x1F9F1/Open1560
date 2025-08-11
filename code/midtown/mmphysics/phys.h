@@ -71,10 +71,10 @@ class mmPhysicsMGR final : public asNode
 {
 public:
     // ??0mmPhysicsMGR@@QAE@XZ
-    ARTS_EXPORT mmPhysicsMGR();
+    mmPhysicsMGR();
 
     // ??1mmPhysicsMGR@@UAE@XZ
-    ARTS_EXPORT ~mmPhysicsMGR() override;
+    ~mmPhysicsMGR() override;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmPhysicsMGR@@UAEXPAVBank@@@Z
@@ -93,9 +93,6 @@ public:
 
     // ?DeclareMover@mmPhysicsMGR@@QAEXPAVmmInstance@@HH@Z
     ARTS_EXPORT void DeclareMover(mmInstance* inst, i32 type, i32 flags);
-
-    // ?GetClass@mmPhysicsMGR@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?IgnoreMover@mmPhysicsMGR@@QAEXPAVmmInstance@@@Z
     void IgnoreMover(mmInstance* inst);
@@ -127,8 +124,7 @@ public:
     // ?UpdatePaused@mmPhysicsMGR@@UAEXXZ
     ARTS_IMPORT void UpdatePaused() override;
 
-    // ?DeclareFields@mmPhysicsMGR@@SAXXZ
-    ARTS_IMPORT static void DeclareFields();
+    VIRTUAL_META_DECLARE;
 
     void SetGravity(f32 gravity)
     {
@@ -187,8 +183,12 @@ private:
     i32 field_20 {};
     asInertialCS* PlayerICS {};
     mmInstance* PlayerInst {};
+
+    // Oversample the player as many times as necessary, and upddate everything else once.
     b32 ReduceOversampling {};
+
     f32 Gravity {};
+
     b32 DrawBounds {};
 
     // DeclareBound
@@ -232,36 +232,31 @@ ARTS_IMPORT void SegSegDistNorm(const Vector3& arg1, const Vector3& arg2, const 
 // ?testNoOverlap@@YAHMM@Z | inline
 ARTS_IMPORT i32 testNoOverlap(f32 arg1, f32 arg2);
 
-// ?CallImpactCallbacks@@3HA
-ARTS_IMPORT extern i32 CallImpactCallbacks;
-
 // ?EBISECTS@@3PAVmmEdgeBodyIsect@@A
-ARTS_IMPORT extern mmEdgeBodyIsect EBISECTS[32];
+ARTS_EXPORT extern mmEdgeBodyIsect EBISECTS[32];
 
 // ?ISECTS@@3PAVmmIntersection@@A
-ARTS_IMPORT extern mmIntersection ISECTS[32];
+ARTS_EXPORT extern mmIntersection ISECTS[32];
+
+// ?PHYS@@3VmmPhysicsMGR@@A
+ARTS_EXPORT extern mmPhysicsMGR PHYS;
+
+// ?PhysUpdate@@3MA
+ARTS_EXPORT extern f32 PhysUpdate;
 
 #ifdef ARTS_DEV_BUILD
 // ?ImpactCallbackTime@@3KA
-ARTS_IMPORT extern ulong ImpactCallbackTime;
+ARTS_EXPORT extern ulong ImpactCallbackTime;
 
 // ?ImpactTime@@3KA
-ARTS_IMPORT extern ulong ImpactTime;
-#endif
+ARTS_EXPORT extern ulong ImpactTime;
 
-// ?PHYS@@3VmmPhysicsMGR@@A
-ARTS_IMPORT extern mmPhysicsMGR PHYS;
-
-// ?PhysUpdate@@3MA
-ARTS_IMPORT extern f32 PhysUpdate;
-
-#ifdef ARTS_DEV_BUILD
 // ?physCollisions@@3KA
-ARTS_IMPORT extern ulong physCollisions;
+ARTS_EXPORT extern ulong physCollisions;
 
 // ?physTerrainCollisions@@3KA
-ARTS_IMPORT extern ulong physTerrainCollisions;
+ARTS_EXPORT extern ulong physTerrainCollisions;
 
 // ?physUpdate@@3KA
-ARTS_IMPORT extern ulong physUpdate;
+ARTS_EXPORT extern ulong physUpdate;
 #endif

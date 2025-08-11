@@ -55,9 +55,12 @@ asPortalWeb::~asPortalWeb()
 
 void asPortalWeb::Cull(b32 front_to_back)
 {
-    asPortalView* group = Portals[CurrentGroup];
     i32 nump = NumSubPortals[CurrentGroup];
 
+    if (nump == 0)
+        return;
+
+    asPortalView* group = Portals[CurrentGroup];
     asPortalView* portal = &group[front_to_back ? -1 : nump];
     asPortalView* end = &group[front_to_back ? nump - 1 : 0];
 

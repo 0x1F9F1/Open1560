@@ -46,9 +46,6 @@ check_size(asSparkLut, 0xC);
 struct asLineSparks
 {
 public:
-#ifdef ARTS_DEV_BUILD
-#endif
-
     // ?Draw@asLineSparks@@QAEXXZ
     ARTS_EXPORT void Draw();
 

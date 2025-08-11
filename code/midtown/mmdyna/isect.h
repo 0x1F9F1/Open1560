@@ -29,9 +29,6 @@ public:
     // ??0mmIntersection@@QAE@XZ
     ARTS_IMPORT mmIntersection();
 
-#ifdef ARTS_DEV_BUILD
-#endif
-
     // ?InitSegment@mmIntersection@@QAEXABVVector3@@0PAVmmBoundTemplate@@HH@Z
     ARTS_IMPORT void InitSegment(const Vector3& arg1, const Vector3& arg2, mmBoundTemplate* arg3, i32 arg4, i32 arg5);
 
@@ -83,9 +80,6 @@ class mmEdgeBodyIsect
 public:
     // ??0mmEdgeBodyIsect@@QAE@XZ
     ARTS_IMPORT mmEdgeBodyIsect();
-
-#ifdef ARTS_DEV_BUILD
-#endif
 
     // ?InitSegment@mmEdgeBodyIsect@@QAEXABVVector3@@0HH0M@Z
     ARTS_IMPORT void InitSegment(
