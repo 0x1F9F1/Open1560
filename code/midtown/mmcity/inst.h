@@ -233,7 +233,7 @@ public:
 #define INST_FLAG_40 0x40 // Is an obstacle?
 
 #define INST_FLAG_80 0x80
-#define INST_FLAG_100 0x100          // Vehicle? Cleared in mmBangerManager::GetBanger
+#define INST_FLAG_100 0x100          // Has Velocity? Checked in mmPhysExec::DoUpdateAll.
 #define INST_FLAG_UNHIT_BANGER 0x200 // Breakable? Is Banger/Has Banger Data?
 #define INST_FLAG_GLOW 0x400
 

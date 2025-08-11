@@ -29,7 +29,7 @@ define_dummy_symbol(mmphysics_phys);
 #include "mmdyna/bndtmpl.h"
 #include "mmdyna/isect.h"
 
-static constexpr i32 MAX_MOVERS = 128;
+static constexpr i32 MAX_MOVERS = 256; // Increased from 128
 static constexpr i32 MAX_COLLIDABLES_PER_ENTRY = 32;
 static constexpr i32 MAX_MOVERS_PER_ENTRY = 32;
 
@@ -42,7 +42,7 @@ struct mmPhysMover
     b32 DisabledColliders[MAX_COLLIDABLES_PER_ENTRY];
     mmInstance* Colliders[MAX_COLLIDABLES_PER_ENTRY];
     mmPhysMover* Movers[MAX_MOVERS_PER_ENTRY];
-    i32 Flags;
+    i32 Flags; // MOVER_FLAG_*
 
     void SetInstance(mmInstance* inst)
     {
@@ -73,12 +73,19 @@ struct mmPhysMover
             if (inst == Colliders[i])
             {
                 DisabledColliders[i] = true;
+                break;
             }
         }
     }
 
     void AddMover(mmPhysMover* mover)
     {
+        for (i32 i = 0; i < NumMovers; ++i)
+        {
+            if (Movers[i] == mover)
+                return;
+        }
+
         if (NumMovers == MAX_MOVERS_PER_ENTRY)
         {
             Errorf("Reached MAX_MOVERS_PER_ENTRY");
@@ -101,8 +108,16 @@ ARTS_EXPORT mmPhysMover Movers[MAX_MOVERS] {};
 // ?MoverNeighbours@@3PAFA
 ARTS_EXPORT i16 MoverNeighbours[MAX_MOVERS] {};
 
+// ?MoverPositions@@3PAVVector3@@A
+ARTS_EXPORT Vector3 MoverPositions[MAX_MOVERS] {};
+
+// ?MoverRadiuses@@3PAMA
+ARTS_EXPORT f32 MoverRadiuses[MAX_MOVERS] {};
+
 static mmPhysMover* GetInstMover(mmInstance* inst)
 {
+    MoverRadiuses[0] = 0.0f;
+
     for (i32 i = 0; i < MoverCount; ++i)
     {
         mmPhysMover* mover = &Movers[i];
@@ -131,6 +146,7 @@ void mmPhysicsMGR::DeclareMover(mmInstance* inst, i32 type, i32 flags)
     if (room == -1)
     {
         Errorf("PHYS.DeclareMover: An unparented instance is being declared to the PhysMGR - ignoring it.");
+        inst->Detach();
         return;
     }
 
@@ -174,7 +190,7 @@ void mmPhysicsMGR::DeclareMover(mmInstance* inst, i32 type, i32 flags)
     // FIXME: Banger projectiles can be spawned before the player's mover is declared.
     // if (inst == PHYS.PlayerInst)
     // {
-    //     ArAssert(GetInstMover(inst) == Movers, "First mover is not the player!");
+    //     ArAssert(GetInstMover(inst) == &Movers[0], "First mover is not the player!");
     // }
 }
 
@@ -183,61 +199,66 @@ void mmPhysicsMGR::IgnoreMover(mmInstance* inst)
     if (mmPhysMover* mover = GetInstMover(inst))
     {
         mover->Flags = 0;
-
-        // FIXME: It is sometimes possible for a non-player mover to take slot 0
-        // ArAssert(mover != Movers, "Ignore player mover");
+        mover->NumMovers = 0;
+        mover->NumColliders = 0;
         // mover->Instance = nullptr;
         // mover->Entity = nullptr;
-        // mover->NumMovers = 0;
-        // mover->NumColliders = 0;
     }
 }
 
 void mmPhysicsMGR::NewMover(mmInstance* inst)
 {
-    if (GetInstMover(inst))
+    mmPhysMover* mover = GetInstMover(inst);
+
+    if (!mover)
     {
-        Errorf("PHYS.NewMover(1): mover's already here");
-        return;
+        if (MoverCount >= MAX_MOVERS)
+        {
+            Errorf("PHYS.NewMover(1): raise MAX_MOVERS past %d", MoverCount);
+            return;
+        }
+
+        mover = &Movers[MoverCount++];
     }
 
-    if (MoverCount >= MAX_MOVERS)
-    {
-        Errorf("PHYS.NewMover(1): raise MAX_MOVERS past %d", MoverCount);
-        return;
-    }
-
-    mmPhysMover* mover = &Movers[MoverCount++];
     mover->SetInstance(inst);
 }
 
 void mmPhysicsMGR::NewMover(mmInstance* inst, mmInstance* other)
 {
-    if (GetInstMover(inst))
+    // This is called by CollideInstances after two instances have collided, and at least one of them did not have an entity.
+
+    mmPhysMover* mover = GetInstMover(inst);
+
+    if (!mover)
     {
-        // TODO: Fix this and start logging the issues.
-        // Errorf("PHYS.NewMover(2): mover's already here");
+        Errorf("PHYS.NewMover(2): not a mover");
         return;
     }
+
+    mover->SetInstance(inst);
 
     mmPhysMover* other_mover = GetInstMover(other);
 
     if (!other_mover)
     {
-        Errorf("PHYS.NewMover(2): not able to find other's entry");
-        return;
+        if (MoverCount >= MAX_MOVERS)
+        {
+            Errorf("PHYS.NewMover(2): raise MAX_MOVERS past %d", MoverCount);
+            return;
+        }
+
+        other_mover = &Movers[MoverCount++];
     }
 
+    other_mover->SetInstance(other);
+
+    // Each mover is first collided with other movers, then with other instances.
+    // If we've collided with this instance, make sure we don't collide with it again.
     other_mover->IgnoreCollider(inst);
 
-    if (MoverCount >= MAX_MOVERS)
-    {
-        Errorf("PHYS.NewMover(2): raise MAX_MOVERS past %d", MoverCount);
-        return;
-    }
-
-    mmPhysMover* mover = &Movers[MoverCount++];
-    mover->SetInstance(inst);
+    // I'm not really sure when we should link movers to each other.
+    // They are usually gathered at the start of each frame.
     other_mover->AddMover(mover);
 }
 
@@ -307,14 +328,17 @@ void mmPhysicsMGR::GatherCollidables(i32 mover_id, i32 inst_flags)
     mmPhysMover* mover = &Movers[mover_id];
     mover->NumColliders = 0;
 
-    GatherRoomCollidables(mover_id, mover->Instance->ChainId, inst_flags);
+    if (i32 room = mover->Instance->ChainId; room != -1)
+        GatherRoomCollidables(mover_id, mover->Instance->ChainId, inst_flags);
 
-    if (i16 other_cell = MoverNeighbours[mover_id]; other_cell != -1)
-        GatherRoomCollidables(mover_id, other_cell, inst_flags);
+    if (i16 room = MoverNeighbours[mover_id]; room != -1)
+        GatherRoomCollidables(mover_id, room, inst_flags);
 }
 
 void mmPhysicsMGR::GatherRoomCollidables(i32 mover_id, i16 room, i32 inst_flags)
 {
+    ArAssert(room != -1, "Invalid room");
+
     mmPhysMover* mover = &Movers[mover_id];
     u16 test_flags = static_cast<u16>(inst_flags ? inst_flags : INST_FLAG_COLLIDER);
 

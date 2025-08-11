@@ -56,7 +56,7 @@ def set_sym(value, line):
 
     prev_sym = current_sym
     if value:
-        assert sym_regex.fullmatch(value), current_sym
+        assert sym_regex.fullmatch(value), value
 
     current_sym = value
     current_start = line
