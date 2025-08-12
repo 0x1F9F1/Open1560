@@ -155,7 +155,7 @@ public:
         uiWidget* arg1, char* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, char* arg8);
 
     // ?AssignBackground@UIMenu@@QAEXPAD@Z
-    ARTS_EXPORT void AssignBackground(char* background_name);
+    ARTS_EXPORT void AssignBackground(aconst char* background_name);
 
     // ?AssignName@UIMenu@@QAEXPAULocString@@@Z
     ARTS_IMPORT void AssignName(LocString* arg1);
