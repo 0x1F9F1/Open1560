@@ -234,6 +234,11 @@ public:
         app_message_cb_ = cb;
     }
 
+    void SetState(i32 state)
+    {
+        state_ = state;
+    }
+
 private:
     i32 state_;
     Callback sys_message_cb_;

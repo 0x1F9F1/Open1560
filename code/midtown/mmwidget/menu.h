@@ -79,15 +79,15 @@ public:
     ARTS_EXPORT virtual i32 IsAnOptionMenu();
 
     // ?AddBMButton@UIMenu@@QAEPAVUIBMButton@@HPADMMHVCallback@@PAHHH1@Z
-    ARTS_IMPORT UIBMButton* AddBMButton(i32 arg1, char* arg2, f32 arg3, f32 arg4, i32 arg5, Callback arg6, i32* arg7,
-        i32 arg8, i32 arg9, Callback arg10);
+    ARTS_IMPORT UIBMButton* AddBMButton(i32 idc, aconst char* name, f32 x, f32 y, i32 type, Callback cb_1 = nullptr,
+        i32* arg7 = nullptr, i32 arg8 = -1, i32 arg9 = -1, Callback arg10 = nullptr);
 
     // ?AddBMLabel@UIMenu@@QAEPAVUIBMLabel@@HPADPAVstring@@MMPAH@Z
     ARTS_IMPORT UIBMLabel* AddBMLabel(i32 arg1, char* arg2, string* arg3, f32 arg4, f32 arg5, i32* arg6);
 
     // ?AddButton@UIMenu@@QAEPAVUIButton@@HPAULocString@@MMMMHHVCallback@@@Z
     ARTS_IMPORT UIButton* AddButton(
-        i32 arg1, LocString* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, i32 arg8, Callback arg9);
+        i32 arg1, LocString* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, i32 arg8, Callback arg9 = nullptr);
 
     // ?AddCWArray@UIMenu@@QAEPAVUICWArray@@HMMMMHVCallback@@@Z
     ARTS_IMPORT UICWArray* AddCWArray(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, i32 arg6, Callback arg7);

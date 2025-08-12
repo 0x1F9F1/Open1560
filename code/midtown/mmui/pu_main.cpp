@@ -31,7 +31,7 @@ PUMain::PUMain(i32 menu_id, f32 x, f32 y, f32 width, f32 height, char* backgroun
     CreateTitle();
     AddExit(0.65f, 0.0f, 0.35f, 0.075f);
 
-#define X(IDC, LABEL, POS) AddButton(IDC, LABEL, 0.0f, POS / 7.0f, 1.0f, widget_height_, widget_font_size_, 2, nullptr);
+#define X(IDC, LABEL, POS) AddButton(IDC, LABEL, 0.0f, POS / 7.0f, 1.0f, widget_height_, widget_font_size_, 2);
 
     X(IDC_PU_MAIN_RESTART, LOC_STRING(MM_IDS_PU_MAIN_RESTART), 1);
     X(IDC_PU_MAIN_OPTIONS, LOC_STRING(MM_IDS_PU_MAIN_OPTIONS), 2);

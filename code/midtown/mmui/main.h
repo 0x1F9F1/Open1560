@@ -20,17 +20,25 @@
 
 #include "mmwidget/menu.h"
 
+enum
+{
+    IDC_MAIN_MENU_QUICK = 100,
+    IDC_MAIN_MENU_SINGLE = 101,
+    IDC_MAIN_MENU_MULTI = 102,
+    IDC_MAIN_MENU_RECORDS = 105,
+};
+
 class MainMenu final : public UIMenu
 {
 public:
     // ??0MainMenu@@QAE@H@Z
-    ARTS_IMPORT MainMenu(i32 arg1);
+    ARTS_EXPORT MainMenu(i32 idd);
 
     // ??1MainMenu@@UAE@XZ
-    ARTS_EXPORT ~MainMenu() override = default;
+    ~MainMenu() override = default;
 
     // ?PreSetup@MainMenu@@UAEXXZ
-    ARTS_IMPORT void PreSetup() override;
+    void PreSetup() override;
 };
 
 check_size(MainMenu, 0x90);

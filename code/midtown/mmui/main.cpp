@@ -19,3 +19,23 @@
 define_dummy_symbol(mmui_main);
 
 #include "main.h"
+
+#include "mmnetwork/network.h"
+
+MainMenu::MainMenu(i32 idd)
+    : UIMenu(idd)
+{
+    AssignName(LOC_TEXT("Main Menu"));
+
+    AddBMButton(IDC_MAIN_MENU_QUICK, "main_quick"_xconst, UI_LEFT_MARGIN, 0.1f, 4);
+    AddBMButton(IDC_MAIN_MENU_SINGLE, "main_single"_xconst, UI_LEFT_MARGIN, 0.25f, 4);
+    AddBMButton(IDC_MAIN_MENU_MULTI, "main_multi"_xconst, UI_LEFT_MARGIN, 0.4f, 4);
+    AddBMButton(IDC_MAIN_MENU_RECORDS, "race_rec"_xconst, UI_LEFT_MARGIN, 0.55f, 4);
+
+    SetBstate(0);
+}
+
+void MainMenu::PreSetup()
+{
+    NETMGR.SetState(0);
+}
