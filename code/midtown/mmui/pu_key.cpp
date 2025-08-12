@@ -99,7 +99,5 @@ void PUKey::PreSetup()
 
 void PUKey::PostSetup()
 {
-    CullMgr()->Reset();
-
     text_node_ = nullptr;
 }
