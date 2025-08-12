@@ -68,9 +68,10 @@ private:
 
     struct mmGlyph
     {
-        i32 Top {};
-        i32 Left {};
-        i32 AdvanceX {};
+        i32 BitmapTop {};
+        i32 BitmapLeft {};
+
+        FT_Pos AdvanceX {};
 
         u32 Rows {};
         u32 Width {};
@@ -88,21 +89,31 @@ public:
 
     void Draw(agiSurfaceDesc* surface, const char* text, mmRect rect, u32 color, u32 format);
 
-    i32 GetHeight()
+    i32 GetLineHeight() const
     {
         return height_;
     }
 
     mmSize GetExtents(const char* text)
     {
-        return {(GetLines(text, 0)[0].Width + 63) >> 6, GetHeight()};
+        FT_Pos right = 0;
+        i32 height = 0;
+
+        for (const auto& line : GetLines(text, 0))
+        {
+            right = std::max(right, line.Right);
+            height += GetLineHeight();
+        }
+
+        return {static_cast<i32>((right + 63) >> 6), height};
     }
 
     struct mmLineInfo
     {
         const char* Start {};
         const char* End {};
-        i32 Width {};
+        FT_Pos Left {};
+        FT_Pos Right {};
     };
 
     std::vector<mmLineInfo> GetLines(const char* text, i32 max_width);
@@ -178,8 +189,8 @@ const mmFont::mmGlyph& mmFont::LoadChar(u32 char_code)
 
     FT_Load_Char(face_, char_code, FT_LOAD_RENDER | FT_LOAD_MONOCHROME | FT_LOAD_TARGET_MONO);
 
-    result->Left = face_->glyph->bitmap_left;
-    result->Top = face_->glyph->bitmap_top;
+    result->BitmapLeft = face_->glyph->bitmap_left;
+    result->BitmapTop = face_->glyph->bitmap_top;
     result->AdvanceX = face_->glyph->advance.x;
 
     result->Rows = face_->glyph->bitmap.rows;
@@ -210,18 +221,17 @@ void mmFont::Draw(agiSurfaceDesc* surface, const char* text, mmRect rect, u32 co
     u32 max_x = std::min<u32>(rect.right, surface->Width);
     u32 max_y = std::min<u32>(rect.bottom, surface->Height);
 
-    // TODO: Add UTF-8 support
-    std::vector<mmLineInfo> lines = GetLines(text, (format & MM_TEXT_WORDBREAK) ? (rect_width << 6) : 0);
+    std::vector<mmLineInfo> lines = GetLines(text, (format & MM_TEXT_WORDBREAK) ? rect_width : 0);
 
     for (const auto& line : lines)
     {
         i32 line_x = x;
         i32 line_y = y;
-        y += GetHeight();
+        y += GetLineHeight();
 
         if (format & (MM_TEXT_CENTER | MM_TEXT_RIGHT))
         {
-            i32 text_width = line.Width >> 6;
+            i32 text_width = (line.Right - line.Left + 63) >> 6;
 
             if (format & MM_TEXT_CENTER)
                 line_x += (rect_width - text_width) / 2;
@@ -233,7 +243,7 @@ void mmFont::Draw(agiSurfaceDesc* surface, const char* text, mmRect rect, u32 co
         {
             if (format & (MM_TEXT_VCENTER | MM_TEXT_BOTTOM))
             {
-                i32 text_height = GetHeight();
+                i32 text_height = GetLineHeight();
 
                 if (format & MM_TEXT_VCENTER)
                     line_y += (rect_height - text_height) / 2;
@@ -244,6 +254,8 @@ void mmFont::Draw(agiSurfaceDesc* surface, const char* text, mmRect rect, u32 co
 
         line_x <<= 6;
         line_y <<= 6;
+
+        line_x += line.Left;
         line_y += face_->size->metrics.ascender;
 
         const char* str = line.Start;
@@ -253,19 +265,16 @@ void mmFont::Draw(agiSurfaceDesc* surface, const char* text, mmRect rect, u32 co
         {
             const mmGlyph& glyph = LoadChar(codepoint);
 
-            if ((str == line.Start) && (glyph.Left < 0)) // FIXME (str is now incremented)
-                line_x -= glyph.Left << 6;
-
             for (u32 src_y = 0, src_y_off = 0; src_y < glyph.Rows; ++src_y, src_y_off += glyph.Pitch)
             {
-                u32 dst_y = (line_y >> 6) + src_y - glyph.Top;
+                u32 dst_y = (line_y >> 6) + src_y - glyph.BitmapTop;
 
                 if (dst_y >= max_y)
                     continue;
 
                 for (u32 src_x = 0; src_x < glyph.Width; ++src_x)
                 {
-                    u32 dst_x = (line_x >> 6) + src_x + glyph.Left;
+                    u32 dst_x = (line_x >> 6) + src_x + glyph.BitmapLeft;
 
                     if (dst_x >= max_x)
                         continue;
@@ -335,78 +344,81 @@ std::vector<mmFont::mmLineInfo> mmFont::GetLines(const char* text, i32 max_width
 {
     std::vector<mmLineInfo> lines;
 
-    const char* curr_start = nullptr;
-    const char* curr_end = nullptr;
-    i32 curr_width = 0;
-    i32 trim_width = 0;
-    bool flush = false;
+    FT_Pos word_break = max_width << 6;
+
+    mmLineInfo curr_line {};
+    mmLineInfo curr_word {};
+
+    const auto new_line = [&](const char* here) {
+        curr_line.Start = here;
+        curr_line.End = here;
+        curr_line.Left = 0;
+        curr_line.Right = 0;
+        curr_word = curr_line;
+    };
+
+    const auto flush_line = [&] {
+        lines.emplace_back(curr_line);
+        new_line(curr_word.Start);
+    };
+
+    const auto flush_word = [&](const char* here) {
+        curr_line.End = curr_word.End;
+        curr_line.Right = curr_word.Right;
+        curr_word.Start = here;
+        curr_word.End = here;
+        curr_word.Left = curr_word.Right;
+    };
+
+    new_line(text);
 
     while (true)
     {
-        const char* here = text;
+        const char* here = curr_word.End;
         u32 codepoint = DecodeUTF8(&here);
 
-        if (codepoint == '\0')
-            flush = true;
-
-        if (flush)
+        if ((codepoint == '\0') || IsSpace(codepoint))
         {
-            lines.push_back({curr_start, curr_end ? curr_end : curr_start, trim_width});
-            flush = false;
-            curr_start = nullptr;
-        }
-
-        if (codepoint == '\0')
-            return lines;
-
-        if (curr_start == nullptr)
-        {
-            curr_start = text;
-            curr_end = nullptr;
-            curr_width = 0;
-            trim_width = 0;
-        }
-
-        if (max_width && IsSpace(codepoint))
-        {
-            if (codepoint == '\n')
+            // Word break
+            if (word_break && (curr_word.Right >= word_break))
             {
-                text = here;
-                flush = true;
+                // If the word spans exactly to the end, or it's the only word on this line,
+                // add it to the current line.
+                if ((curr_word.Right == word_break) || (curr_word.Start == curr_line.Start))
+                {
+                    flush_word(here);
+                }
+
+                flush_line();
+
                 continue;
             }
 
-            if (!curr_end)
+            flush_word(here);
+
+            if (codepoint == '\0' || codepoint == '\n')
             {
-                text = here;
-                curr_start = text;
+                flush_line();
+
+                if (codepoint == '\0')
+                {
+                    return lines;
+                }
+
                 continue;
             }
         }
 
         const mmGlyph& glyph = LoadChar(codepoint);
 
-        i32 width = curr_width;
-
-        if ((text == curr_start) && (glyph.Left < 0))
-            width -= glyph.Left << 6;
-
-        width += glyph.AdvanceX;
-
-        if (max_width && curr_width && (width >= max_width))
+        if ((curr_word.Left == curr_word.Right) && (glyph.BitmapLeft < 0))
         {
-            flush = true;
-            continue;
+            curr_word.Left -= glyph.BitmapLeft << 6;
+            curr_word.Right = curr_word.Left;
         }
 
-        curr_width = width;
-        text = here;
-
-        if (!max_width || !IsSpace(codepoint))
-        {
-            trim_width = curr_width;
-            curr_end = text;
-        }
+        curr_word.End = here;
+        curr_word.Right += glyph.AdvanceX;
     }
 }
 

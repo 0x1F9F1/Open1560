@@ -81,15 +81,7 @@ struct mmTextData
 {
     u32 X {};
     u32 Y {};
-
-    // 0x1 | Vertical Centered
-    // 0x2 | Horizontal Centered
-    // 0x4 | White Border
-    // 0x10 | Move right 2 pixels
-    // 0x20 | Word Break
-    // 0x40 | Always Draw
-    // 0x80 | Highlight text
-    u32 Effects {};
+    u32 Effects {}; // MM_TEXT_*
     void* Font {};
     char Text[256] {};
 };
