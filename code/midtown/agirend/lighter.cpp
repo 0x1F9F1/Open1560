@@ -19,3 +19,32 @@
 define_dummy_symbol(agirend_lighter);
 
 #include "lighter.h"
+
+#include "vector7/vector3.h"
+
+agiLight* agiLighter::ACTIVELIGHTS[MAX_LIGHTS] {};
+char agiLighter::Attenuate[MAX_LIGHTS] {};
+f32 agiLighter::CosSpread[MAX_LIGHTS] {};
+i32 agiLighter::Current {};
+Vector3 agiLighter::Dir[MAX_LIGHTS] {};
+Vector3 agiLighter::Eye {};
+agiLight* agiLighter::LIGHTS[MAX_LIGHTS] {};
+agiLightModel* agiLighter::LMODEL {};
+i32 agiLighter::LocalViewer {};
+Vector3 agiLighter::Pos[MAX_LIGHTS] {};
+char agiLighter::Positional[MAX_LIGHTS] {};
+i32 agiLighter::SceneActive {};
+Vector3 agiLighter::SceneAmbient {};
+i32 agiLighter::SceneCurrent {};
+agiShadowMap* agiLighter::ShadowMap {};
+
+agiMonoLighter MONOLIGHTER {};
+agiRGBLighter RGBLIGHTER {};
+
+void agiLighter::DeclareLight(agiLight* light)
+{
+    if (Current < MAX_LIGHTS)
+    {
+        LIGHTS[Current++] = light;
+    }
+}

@@ -43,55 +43,57 @@ public:
     ARTS_IMPORT static void BeginScene();
 
     // ?DeclareLight@agiLighter@@SAXPAVagiLight@@@Z
-    ARTS_IMPORT static void DeclareLight(agiLight* arg1);
+    ARTS_EXPORT static void DeclareLight(agiLight* light);
 
     // ?RemoveLight@agiLighter@@SAXPAVagiLight@@@Z
     ARTS_IMPORT static void RemoveLight(agiLight* arg1);
 
+    static constexpr i32 MAX_LIGHTS = 16;
+
     // ?ACTIVELIGHTS@agiLighter@@2PAPAVagiLight@@A
-    ARTS_IMPORT static agiLight* ACTIVELIGHTS[16];
+    ARTS_EXPORT static agiLight* ACTIVELIGHTS[MAX_LIGHTS];
 
     // ?Attenuate@agiLighter@@2PADA
-    ARTS_IMPORT static char Attenuate[16];
+    ARTS_EXPORT static char Attenuate[MAX_LIGHTS];
 
     // ?CosSpread@agiLighter@@2PAMA
-    ARTS_IMPORT static f32 CosSpread[16];
+    ARTS_EXPORT static f32 CosSpread[MAX_LIGHTS];
 
     // ?Current@agiLighter@@2HA
-    ARTS_IMPORT static i32 Current;
+    ARTS_EXPORT static i32 Current;
 
     // ?Dir@agiLighter@@2PAVVector3@@A
-    ARTS_IMPORT static Vector3 Dir[16];
+    ARTS_EXPORT static Vector3 Dir[MAX_LIGHTS];
 
     // ?Eye@agiLighter@@2VVector3@@A
-    ARTS_IMPORT static Vector3 Eye;
+    ARTS_EXPORT static Vector3 Eye;
 
     // ?LIGHTS@agiLighter@@2PAPAVagiLight@@A
-    ARTS_IMPORT static agiLight* LIGHTS[16];
+    ARTS_EXPORT static agiLight* LIGHTS[MAX_LIGHTS];
 
     // ?LMODEL@agiLighter@@2PAVagiLightModel@@A
-    ARTS_IMPORT static agiLightModel* LMODEL;
+    ARTS_EXPORT static agiLightModel* LMODEL;
 
     // ?LocalViewer@agiLighter@@2HA
-    ARTS_IMPORT static i32 LocalViewer;
+    ARTS_EXPORT static i32 LocalViewer;
 
     // ?Pos@agiLighter@@2PAVVector3@@A
-    ARTS_IMPORT static Vector3 Pos[16];
+    ARTS_EXPORT static Vector3 Pos[MAX_LIGHTS];
 
     // ?Positional@agiLighter@@2PADA
-    ARTS_IMPORT static char Positional[16];
+    ARTS_EXPORT static char Positional[MAX_LIGHTS];
 
     // ?SceneActive@agiLighter@@2HA
-    ARTS_IMPORT static i32 SceneActive;
+    ARTS_EXPORT static i32 SceneActive;
 
     // ?SceneAmbient@agiLighter@@2VVector3@@A
-    ARTS_IMPORT static Vector3 SceneAmbient;
+    ARTS_EXPORT static Vector3 SceneAmbient;
 
     // ?SceneCurrent@agiLighter@@2HA
-    ARTS_IMPORT static i32 SceneCurrent;
+    ARTS_EXPORT static i32 SceneCurrent;
 
     // ?ShadowMap@agiLighter@@2PAVagiShadowMap@@A
-    ARTS_IMPORT static agiShadowMap* ShadowMap;
+    ARTS_EXPORT static agiShadowMap* ShadowMap;
 };
 
 check_size(agiLighter, 0x4);
@@ -127,7 +129,7 @@ public:
 check_size(agiRGBLighter, 0x4);
 
 // ?MONOLIGHTER@@3VagiMonoLighter@@A
-ARTS_IMPORT extern agiMonoLighter MONOLIGHTER;
+extern agiMonoLighter MONOLIGHTER;
 
 // ?RGBLIGHTER@@3VagiRGBLighter@@A
-ARTS_IMPORT extern agiRGBLighter RGBLIGHTER;
+extern agiRGBLighter RGBLIGHTER;
