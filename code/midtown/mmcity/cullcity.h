@@ -308,7 +308,7 @@ struct t_mmEnvSetup
 check_size(t_mmEnvSetup, 0x28);
 
 // ?mmEnvSetup@@3PAY03Ut_mmEnvSetup@@A
-ARTS_IMPORT extern t_mmEnvSetup mmEnvSetup[4][4];
+ARTS_EXPORT extern t_mmEnvSetup mmEnvSetup[4][4];
 
 #ifdef ARTS_DEV_BUILD
 // ?pedTriCount@@3HA

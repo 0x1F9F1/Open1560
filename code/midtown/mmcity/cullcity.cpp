@@ -44,6 +44,35 @@ static constexpr i32 MAX_HIT_BANGERS = 80;
 static constexpr i32 MAX_PARTICLES = 100;
 static constexpr i32 CHICAGO_CELL_RUNWAY = 35;
 
+// clang-format off
+t_mmEnvSetup mmEnvSetup[4][4] {
+    { // Morning
+        {"sky_mc", "refl_mc", "shadmap_morneve",  0.002, 0.01,   0.0, 0x000000, 1.00, 1.00, 0.50},
+        {"sky_mf", "refl_mf", "shadmap_day",      0.010, 0.01, 200.0, 0xBEB496, 1.00, 1.00, 0.75},
+        {"sky_mr", "refl_mr", "shadmap_rainsnow", 0.000, 0.01, 500.0, 0x000000, 0.00, 0.00, 0.00},
+        {"sky_ms", "refl_mr", "shadmap_rainsnow", 0.000, 0.01, 200.0, 0xFFFFFF, 0.00, 0.00, 0.00},
+    },
+    { // Noon
+        {"sky_nc", "refl_nc", "shadmap_day",      0.010, 0.01,   0.0, 0x000000, 0.25, 0.70, 1.00},
+        {"sky_nf", "refl_nf", "shadmap_day",      0.010, 0.01, 200.0, 0x82B4C3, 0.50, 0.85, 1.00},
+        {"sky_nr", "refl_nr", "shadmap_rainsnow", 0.000, 0.01, 500.0, 0x000000, 0.50, 0.50, 0.50},
+        {"sky_ns", "refl_nr", "shadmap_rainsnow", 0.000, 0.01, 200.0, 0xFFFFFF, 0.50, 0.50, 0.50},
+    },
+    { // Sunset
+        {"sky_sc", "refl_sc", "shadmap_morneve",  0.002, 0.01,   0.0, 0x000000, 1.00, 0.75, 0.50},
+        {"sky_sf", "refl_sf", "shadmap_day",      0.010, 0.01, 200.0, 0x5A283C, 1.00, 0.80, 0.65},
+        {"sky_sr", "refl_sr", "shadmap_rainsnow", 0.000, 0.01, 500.0, 0x000000, 0.60, 0.50, 0.40},
+        {"sky_ss", "refl_sr", "shadmap_rainsnow", 0.000, 0.01, 200.0, 0xFFFFFF, 0.60, 0.50, 0.40},
+    },
+    { // Night/Dark
+        {"sky_dc", "refl_dc", "shadmap_nite",     0.000, 0.01,   0.0, 0x000000, 0.0, 0.0, 0.1},
+        {"sky_df", "refl_df", "shadmap_nite",     0.000, 0.01, 300.0, 0x141414, 10.0f/255.0f, 10.0f/255.0f, 10.0f/255.0f},
+        {"sky_dr", "refl_dr", "shadmap_nite",     0.000, 0.01, 500.0, 0x000000, 0.0, 0.0, 0.0},
+        {"sky_ds", "refl_dr", "shadmap_nite",     0.000, 0.01, 200.0, 0xFFFFFF, 0.0, 0.0, 0.0},
+    },
+};
+// clang-format off
+
 #ifdef ARTS_DEV_BUILD
 void mmRunwayLight::AddWidgets(Bank* /*arg1*/)
 {}
