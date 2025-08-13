@@ -67,7 +67,7 @@ public:
     ARTS_IMPORT void PositionUpdate(NETGAME_MSG* arg1);
 
     // ?Predict@mmNetObject@@QAEXXZ
-    ARTS_IMPORT void Predict();
+    ARTS_EXPORT void Predict();
 
     // ?ReInit@mmNetObject@@QAEXPAVmmCar@@PADHK1@Z
     ARTS_EXPORT void ReInit(mmCar* car, char* vehicle, i32 variant, ulong player_id, char* name);
