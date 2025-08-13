@@ -167,9 +167,10 @@ mmPhysicsMGR::mmPhysicsMGR()
 
     DrawBounds = true;
 
-    // The original code relied on CylinderCollisions to properly detect collisions,
-    // but now that's been fixed, it shouldn't be necessary.
-    CylinderCollisions = false;
+    // The original code relied on CylinderCollisions to properly detect collisions, but now that's been fixed.
+    // However, Chicago is mostly flat terrain, and most props are vertical poles whose YRadius is significantly less than their regular Radius.
+    // So there is probably a tiny boost win from keeping it enabled.
+    CylinderCollisions = true;
 
     EnableCachedPoly = true;
 
@@ -426,7 +427,6 @@ b32 mmPhysicsMGR::TrivialCollideInstances(mmInstance* inst_1, mmInstance* inst_2
 
     bool ignore_y = false;
 
-    // TODO: Remove CylinderCollisions if no issues are found without it.
     if (CylinderCollisions)
     {
         if (inst_1->TestFlags(INST_FLAG_UNHIT_BANGER))
