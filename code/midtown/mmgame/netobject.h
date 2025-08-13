@@ -42,29 +42,33 @@ struct NETGAME_MSG
     char StringValue[4];
 };
 
+#define NET_FLAG_HORN 0x2
+#define NET_FLAG_REVERSE 0x4
+#define NET_FLAG_SIREN 0x8
+
 class mmNetObject final : public asNetObject
 {
 public:
     // ??0mmNetObject@@QAE@XZ
-    ARTS_IMPORT mmNetObject();
+    ARTS_EXPORT mmNetObject();
 
     // ??1mmNetObject@@UAE@XZ
     ARTS_EXPORT ~mmNetObject() override = default;
 
     // ?Activate@mmNetObject@@QAEXXZ
-    ARTS_IMPORT void Activate();
+    ARTS_EXPORT void Activate();
 
     // ?Clear@mmNetObject@@QAEXXZ
-    ARTS_IMPORT void Clear();
+    ARTS_EXPORT void Clear();
 
     // ?Deactivate@mmNetObject@@QAEXXZ
-    ARTS_IMPORT void Deactivate();
+    ARTS_EXPORT void Deactivate();
 
     // ?Init@mmNetObject@@QAEXPAVmmCar@@PADHK1@Z
     ARTS_EXPORT void Init(mmCar* car, char* vehicle, i32 variant, ulong player_id, char* name);
 
     // ?PositionUpdate@mmNetObject@@QAEXPAUNETGAME_MSG@@@Z
-    ARTS_IMPORT void PositionUpdate(NETGAME_MSG* arg1);
+    ARTS_EXPORT void PositionUpdate(NETGAME_MSG* msg);
 
     // ?Predict@mmNetObject@@QAEXXZ
     ARTS_EXPORT void Predict();
@@ -73,16 +77,16 @@ public:
     ARTS_EXPORT void ReInit(mmCar* car, char* vehicle, i32 variant, ulong player_id, char* name);
 
     // ?SetActive@mmNetObject@@QAEXH@Z
-    ARTS_IMPORT void SetActive(i32 arg1);
+    ARTS_EXPORT void SetActive(i32 active);
 
     // ?SetCar@mmNetObject@@QAEXPAVmmCar@@@Z
-    ARTS_IMPORT void SetCar(mmCar* arg1);
+    ARTS_EXPORT void SetCar(mmCar* car);
 
     // ?SetLocalData@mmNetObject@@UAEXXZ
-    ARTS_IMPORT void SetLocalData() override;
+    ARTS_EXPORT void SetLocalData() override;
 
     // ?Update@mmNetObject@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
     u32 field_28;
     u32 Flags;
