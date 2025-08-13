@@ -20,6 +20,11 @@ define_dummy_symbol(mmcamcs_trackcamcs);
 
 #include "trackcamcs.h"
 
+void TrackCamCS::AfterLoad()
+{
+    CameraNear = 0.5f;
+}
+
 void TrackCamCS::UpdateInput()
 {}
 

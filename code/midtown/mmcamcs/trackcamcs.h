@@ -20,6 +20,9 @@
 
 #include "carcamcs.h"
 
+#include "mmdyna/isect.h"
+#include "spline.h"
+
 #define TRACK_CAM_NEAR 0
 #define TRACK_CAM_BASE 1
 #define TRACK_CAM_FAR 2
@@ -41,7 +44,7 @@ public:
 #endif
 
     // ?AfterLoad@TrackCamCS@@UAEXXZ
-    ARTS_IMPORT void AfterLoad() override;
+    ARTS_EXPORT void AfterLoad() override;
 
     // ?GetClass@TrackCamCS@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
@@ -89,7 +92,56 @@ private:
     // ?UpdateTrack@TrackCamCS@@AAEXXZ
     ARTS_IMPORT void UpdateTrack();
 
-    u8 gap118[0x20C];
+    b32 MatrixTouched;
+    Vector3 Offset;
+    i32 CollideType;
+    i32 EnableMinMax;
+    i32 VerticalBreak;
+    f32 MinAppXZPos;
+    f32 MaxAppXZPos;
+    f32 MinSpeed;
+    f32 MaxSpeed;
+    f32 AppInc;
+    f32 AppDec;
+    f32 MinHardSteer;
+    f32 DriftDelay;
+    f32 VertOffset;
+    f32 FrontRate;
+    f32 RearRate;
+    f32 FlipDelay;
+    i32 EnableSteer;
+    f32 SteerMin;
+    f32 SteerAmt;
+    i32 field_170;
+    f32 InAirTime;
+    f32 OnGroundTime;
+    b32 IsOnGround;
+    b32 SpinningReallyFast;
+    i32 field_184;
+    i32 SplineState1;
+    i32 SplineState2;
+    i32 SplineState3;
+    i32 field_194;
+    i32 field_198;
+    i32 field_19C;
+    f32 field_1A0;
+    i32 field_1A4;
+    Spline TrackSpline;
+    u8 gap_21C[12];
+    f32 field_228;
+    i32 field_22C;
+    f32 CarSteering;
+    f32 CarVelocity;
+    f32 SteerTarget;
+    int field_23C;
+    i32 field_240;
+    i32 field_244;
+    f32 field_248;
+    f32 field_24C;
+    Vector3 field_250;
+    Vector3 field_25C;
+    Vector3 field_268;
+    mmIntersection Intersection;
 };
 
 check_size(TrackCamCS, 0x324);
