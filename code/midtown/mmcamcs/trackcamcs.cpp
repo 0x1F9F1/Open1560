@@ -27,6 +27,25 @@ static mem::cmd_param PARAM_preapproach {"preapproach", "Enable dynamic TrackCam
 void TrackCamCS::AfterLoad()
 {
     CameraNear = 0.5f;
+
+    if (bool enabled = false; PARAM_preapproach.get(enabled))
+    {
+        if (!enabled)
+        {
+            // preapproach is explicitly disabled
+            MinAppXZPos = 0.0f;
+        }
+    }
+    else
+    {
+        // preapproach is not specified, disable it for vanilla cameras (these values are the same for every MM1 TrackCamCS).
+        // If you want to use these values, change AppXZPos to something slightly different.
+        if ((MinAppXZPos == 1.8f) && (MaxAppXZPos == 30.0f) && (MinSpeed == 5.0f) && (MaxSpeed == 35.0f) &&
+            (AppInc == 15.0f) && (AppDec == 10.0f) && (AppXZPos == 5.0f))
+        {
+            MinAppXZPos = 0.0f;
+        }
+    }
 }
 
 void TrackCamCS::UpdateInput()
@@ -36,10 +55,8 @@ void TrackCamCS::PreApproach()
 {
     // AppXZPos is used to control how quickly the camera will attempt to adjust its X/Z coordinates to match the target position.
     // MinAppXZPos/MaxAppXZPos/MinSpeed/MaxSpeed/AppInc/AppDec can used to dynamically control AppXZPos based on the vehicle's speed.
-    // This was used in MM2, but disabled in MM1.
-    // Since the existing cameras are not tuned to use it, you must use the `-preapproach` command param to enable it.
 
-    if (!Car || !PARAM_preapproach.get_or(false))
+    if (!Car)
     {
         return;
     }
