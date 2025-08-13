@@ -75,7 +75,7 @@ private:
     ARTS_IMPORT void MinMax(Matrix34 arg1);
 
     // ?PreApproach@TrackCamCS@@AAEXXZ
-    ARTS_IMPORT void PreApproach();
+    ARTS_EXPORT void PreApproach();
 
     // ?Rear@TrackCamCS@@AAEXM@Z
     ARTS_IMPORT void Rear(f32 arg1);
@@ -91,6 +91,17 @@ private:
 
     // ?UpdateTrack@TrackCamCS@@AAEXXZ
     ARTS_IMPORT void UpdateTrack();
+
+    struct TrackCamData
+    {
+        i32 field_0;
+        f32 ApproachAmount;
+        f32 YRot;
+        f32 field_C;
+        i32 field_10;
+        i32 field_14;
+    };
+    check_size(TrackCamData, 0x18);
 
     b32 MatrixTouched;
     Vector3 Offset;
@@ -112,7 +123,7 @@ private:
     i32 EnableSteer;
     f32 SteerMin;
     f32 SteerAmt;
-    i32 field_170;
+    TrackCamData* SharedData;
     f32 InAirTime;
     f32 OnGroundTime;
     b32 IsOnGround;
@@ -133,7 +144,7 @@ private:
     f32 CarSteering;
     f32 CarVelocity;
     f32 SteerTarget;
-    int field_23C;
+    i32 field_23C;
     i32 field_240;
     i32 field_244;
     f32 field_248;
