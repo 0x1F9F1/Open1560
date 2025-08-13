@@ -129,7 +129,7 @@ void mmNetObject::PositionUpdate(NETGAME_MSG* msg)
 {
     MatrixChanged = true;
 
-    if (msg->LastUpdateIdx < UpdateCount)
+    if ((msg->LastUpdateIdx < 0) || (static_cast<u32>(msg->LastUpdateIdx) < UpdateCount))
         return;
 
     UpdateCount = msg->LastUpdateIdx;
@@ -317,7 +317,7 @@ void mmNetObject::SetLocalData()
     LocalData.LastUpdateIdx = ++UpdateCount;
 
     LocalData.Time = Time;
-    LocalData.Score = Score; // u16 -> i32
+    LocalData.Score = static_cast<u16>(Score);
     LocalData.StringValue[1] = 0;
 
     LocalData.Flags = 0;
