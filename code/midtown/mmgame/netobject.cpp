@@ -20,6 +20,7 @@ define_dummy_symbol(mmgame_netobject);
 
 #include "netobject.h"
 
+#include "arts7/sim.h"
 #include "mmcar/car.h"
 #include "mmcityinfo/vehlist.h"
 
@@ -36,6 +37,43 @@ void mmNetObject::Init(mmCar* car, char* vehicle, i32 variant, ulong player_id, 
     SetCar(car);
     PlayerID = player_id;
     SetName(name);
+}
+
+void mmNetObject::Predict()
+{
+    if (MatrixChanged)
+    {
+        constexpr f32 INSTANT_UPDATE_FLAG = 100.0f;
+
+        if (field_BC == INSTANT_UPDATE_FLAG)
+        {
+            ICS->Matrix = Matrix;
+            MatrixChanged = false;
+        }
+
+        else if (field_BC > 0.0f)
+        {
+            const f32 seconds = ARTSPTR->GetUpdateDelta();
+            ICS->Matrix.Approach(Matrix, field_BC, field_C0, seconds);
+            MatrixChanged = false;
+        }
+    }
+    else
+    {
+        const f32 seconds = ARTSPTR->GetUpdateDelta();
+
+        const f32 steering = std::clamp(SteeringDelta * seconds + PrevSteering, 0.0f, 2.0f);
+        const f32 throttle = std::clamp(ThrottleDelta * seconds + PrevThrottle, 0.0f, 1.0f);
+        const f32 brakes = std::clamp(BrakesDelta * seconds + PrevBrakes, 0.0f, 1.0f);
+
+        Car->Sim.Steering = steering - 1.0f; // Convert [0, 2] range to [-1, 1]
+        Car->Sim.Engine.Throttle = throttle;
+        Car->Sim.Brakes = brakes;
+
+        PrevSteering = steering;
+        PrevThrottle = throttle;
+        PrevBrakes = brakes;
+    }
 }
 
 void mmNetObject::ReInit(mmCar* car, char* vehicle, i32 variant, ulong player_id, char* name)
