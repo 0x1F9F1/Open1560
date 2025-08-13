@@ -205,7 +205,7 @@ public:
     VIRTUAL_META_DECLARE;
 
 private:
-    void SmoothDelta(f32& delta);
+    f32 SmoothDelta(f32 delta);
 
     b32 in_escape_ {};
     i32 frame_depth_ {};
@@ -230,7 +230,7 @@ private:
     i32 max_samples_ {4};
     i32 frame_samples_ {};
     b32 frame_step_ {};
-    i32 frame_count_ {};
+    i32 bench_frames_ {};
     b32 print_bench_stats_ {};
     i32 field_184 {};
     f32 bench_elapsed_ {};

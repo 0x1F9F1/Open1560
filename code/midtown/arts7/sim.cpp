@@ -436,14 +436,14 @@ void asSimulation::ResetClock()
     elapsed_ = 0.0f;
     full_updates_ = 0;
     updates_ = 0;
-    frame_count_ = 0;
+    bench_frames_ = 0;
     bench_elapsed_ = 0.0f;
 
     curr_stats_.Reset();
     prev_stats_.Reset();
 
     smooth_ = PARAM_smoothstep.get_or(true);
-    target_delta_ = 1.0f / 30.0f;
+    target_delta_ = 1.0f / 60.0f;
     delta_drift_ = 0.0f;
     prev_utimer_ = 0;
     toggle_pause_ = false;
@@ -521,12 +521,12 @@ void asSimulation::Update()
         Benchmark();
 
     i32 num_samples = 1;
-    ++frame_count_;
+    ++bench_frames_;
 
     delta = std::clamp(delta, min_frame_delta_, max_frame_delta_);
 
     if (smooth_)
-        SmoothDelta(delta);
+        delta = SmoothDelta(delta);
 
     delta *= time_warp_;
 
@@ -877,20 +877,27 @@ void asSimulation::Widgets()
     curr_stats_.WidgetsTime += timer.Time();
 }
 
-void asSimulation::SmoothDelta(f32& delta)
+f32 asSimulation::SmoothDelta(f32 delta)
 {
     // Ignore very large deltas
     if (delta >= 0.5f)
-        return;
+        return delta;
 
-    f32 raw_delta = delta;
+    // Wait some time for the value to settle first.
+    if (actual_elapsed_ < 1.0f)
+    {
+        target_delta_ += (delta - target_delta_) * 0.2f;
+        return delta;
+    }
 
-    delta += delta_drift_ * 0.2f;
-    delta += (target_delta_ - delta) * 0.8f;
-    delta = std::clamp(delta, raw_delta * 0.2f, raw_delta * 5.0f);
+    f32 new_delta = delta;
+    new_delta += delta_drift_ * 0.2f;
+    new_delta += (target_delta_ - new_delta) * 0.8f;
+    new_delta = std::clamp(new_delta, delta * 0.2f, delta * 5.0f);
 
-    target_delta_ += (delta - target_delta_) * 0.2f;
-    delta_drift_ += raw_delta - delta;
+    target_delta_ += (new_delta - target_delta_) * 0.2f;
+    delta_drift_ += delta - new_delta;
+    return new_delta;
 }
 
 static ARTS_NOINLINE bool IsValidPointer(void* address, usize size, bool access)
