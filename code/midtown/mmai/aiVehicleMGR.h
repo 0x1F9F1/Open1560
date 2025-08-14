@@ -97,8 +97,7 @@ public:
     u32** Variants;
     i16 Random;
     i16 Indicators;
-    i16 field_20;
-    i16 field_22;
+    i16 LastDrawLod;
 };
 
 check_size(aiVehicleInstance, 0x24);
@@ -158,60 +157,6 @@ public:
 
 check_size(aiVehicleActive, 0xA6C);
 
-class aiVehicleManager final : public asNode
-{
-public:
-    // ??0aiVehicleManager@@QAE@XZ
-    ARTS_IMPORT aiVehicleManager();
-
-    // ??1aiVehicleManager@@UAE@XZ
-    ARTS_IMPORT ~aiVehicleManager() override;
-
-    // ?AddVehicleDataEntry@aiVehicleManager@@QAEHPAD@Z
-    ARTS_IMPORT i32 AddVehicleDataEntry(char* arg1);
-
-#ifdef ARTS_DEV_BUILD
-    // ?AddWidgets@aiVehicleManager@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
-#endif
-
-    // ?Attach@aiVehicleManager@@QAEPAVaiVehicleActive@@PAVaiVehicleInstance@@@Z
-    ARTS_IMPORT aiVehicleActive* Attach(aiVehicleInstance* arg1);
-
-    // ?Detach@aiVehicleManager@@QAEXPAVaiVehicleActive@@@Z
-    ARTS_IMPORT void Detach(aiVehicleActive* arg1);
-
-    // ?Init@aiVehicleManager@@QAEXPAD@Z
-    ARTS_IMPORT void Init(char* arg1);
-
-    // ?Reset@aiVehicleManager@@UAEXXZ
-    ARTS_IMPORT void Reset() override;
-
-    // ?Save@aiVehicleManager@@UAEXXZ
-    ARTS_IMPORT void Save() override;
-
-    // ?Update@aiVehicleManager@@UAEXXZ
-    ARTS_IMPORT void Update() override;
-
-    // ?FloatClock@aiVehicleManager@@2MA
-    ARTS_IMPORT static f32 FloatClock;
-
-    // ?Instance@aiVehicleManager@@2PAV1@A
-    ARTS_IMPORT static aiVehicleManager* Instance;
-
-    // ?SignalClock@aiVehicleManager@@2HA
-    ARTS_IMPORT static i32 SignalClock;
-
-    u8 gap20[0x16608];
-};
-
-inline aiVehicleManager* AiVehicleMgr()
-{
-    return aiVehicleManager::Instance;
-}
-
-check_size(aiVehicleManager, 0x16628);
-
 class aiVehicleData final : public asNode
 {
 public:
@@ -260,5 +205,66 @@ public:
 };
 
 check_size(aiVehicleData, 0xC0);
+
+class aiVehicleManager final : public asNode
+{
+public:
+    // ??0aiVehicleManager@@QAE@XZ
+    ARTS_EXPORT aiVehicleManager();
+
+    // ??1aiVehicleManager@@UAE@XZ
+    ~aiVehicleManager() override;
+
+    // ?AddVehicleDataEntry@aiVehicleManager@@QAEHPAD@Z
+    ARTS_IMPORT i32 AddVehicleDataEntry(char* arg1);
+
+#ifdef ARTS_DEV_BUILD
+    // ?AddWidgets@aiVehicleManager@@UAEXPAVBank@@@Z
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
+#endif
+
+    // ?Attach@aiVehicleManager@@QAEPAVaiVehicleActive@@PAVaiVehicleInstance@@@Z
+    ARTS_IMPORT aiVehicleActive* Attach(aiVehicleInstance* arg1);
+
+    // ?Detach@aiVehicleManager@@QAEXPAVaiVehicleActive@@@Z
+    ARTS_IMPORT void Detach(aiVehicleActive* arg1);
+
+    // ?Init@aiVehicleManager@@QAEXPAD@Z
+    ARTS_IMPORT void Init(char* arg1);
+
+    // ?Reset@aiVehicleManager@@UAEXXZ
+    ARTS_IMPORT void Reset() override;
+
+    // ?Save@aiVehicleManager@@UAEXXZ
+    ARTS_IMPORT void Save() override;
+
+    // ?Update@aiVehicleManager@@UAEXXZ
+    ARTS_IMPORT void Update() override;
+
+    // ?FloatClock@aiVehicleManager@@2MA
+    ARTS_EXPORT static f32 FloatClock;
+
+    // ?Instance@aiVehicleManager@@2PAV1@A
+    ARTS_EXPORT static aiVehicleManager* Instance;
+
+    // ?SignalClock@aiVehicleManager@@2HA
+    ARTS_EXPORT static i32 SignalClock;
+
+    static const i32 MAX_VEHICLE_TYPES = 32;
+    static const i32 MAX_ACTIVE_VEHICLES = 32;
+
+    aiVehicleData VehicleData[MAX_VEHICLE_TYPES] {};
+    i32 NumEntries {};
+    aiVehicleActive* Attached[MAX_ACTIVE_VEHICLES] {};
+    aiVehicleActive ActiveVehicles[MAX_ACTIVE_VEHICLES] {};
+    i16 NumAttached {};
+};
+
+check_size(aiVehicleManager, 0x16628);
+
+inline aiVehicleManager* AiVehicleMgr()
+{
+    return aiVehicleManager::Instance;
+}
 
 extern f32 EggMass;

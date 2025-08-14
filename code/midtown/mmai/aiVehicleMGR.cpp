@@ -21,9 +21,14 @@ define_dummy_symbol(mmai_aiVehicleMGR);
 #include "aiVehicleMGR.h"
 
 #include "aiVehicleSpline.h"
+#include "data7/hash.h"
 #include "mmcity/cullcity.h"
 #include "mmdyna/isect.h"
 #include "mmphysics/phys.h"
+
+f32 aiVehicleManager::FloatClock {};
+aiVehicleManager* aiVehicleManager::Instance {};
+i32 aiVehicleManager::SignalClock {};
 
 f32 EggMass = 1.0f;
 
@@ -34,6 +39,28 @@ void aiVehicleInstance::Detach()
 
     if (ChainId != -1)
         CullCity()->ObjectsChain.Unparent(this);
+}
+
+aiVehicleManager::aiVehicleManager()
+{
+    if (Instance)
+        Quitf("Already have aiVehicleManager");
+
+    Instance = this;
+
+    for (i32 i = 0; i < MAX_ACTIVE_VEHICLES; ++i)
+    {
+        aiVehicleActive* veh = &ActiveVehicles[i];
+        veh->VehicleIndex = i;
+        Attached[i] = veh;
+    }
+}
+
+aiVehicleManager::~aiVehicleManager()
+{
+    VehicleDataHash.Kill();
+    VehicleDataHash.Init(32);
+    Instance = nullptr;
 }
 
 void aiVehicleActive::Attach(aiVehicleInstance* inst)
