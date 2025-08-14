@@ -30,9 +30,10 @@
 #include "midtown.h"
 #include "stream/stream.h"
 
-#include <ft2build.h>
-
+#include <unordered_map>
 #include <vector>
+
+#include <ft2build.h>
 
 #include <freetype/freetype.h>
 #include <freetype/ftmodapi.h>
@@ -51,41 +52,39 @@ struct mmRect
     i32 bottom {};
 };
 
+struct mmGlyph
+{
+    u32 GlyphIndex {};
+
+    i32 BitmapTop {};
+    i32 BitmapLeft {};
+
+    i32 AdvanceX {};
+
+    u32 Rows {};
+    u32 Width {};
+    i32 Pitch {};
+    Ptr<u8[]> Buffer;
+
+    std::unordered_map<mmGlyph*, i32> Kerning;
+};
+
+struct mmLineInfo
+{
+    const char* Start {};
+    const char* End {};
+    i32 Left {};
+    i32 Right {};
+};
+
 static HashTable FontHash {64, "FontHash"};
 
 class mmFont
 {
-private:
-    mmFont(const char* name, FT_Face face, i32 height)
-        : face_(face)
-        , height_(height)
-    {
-        FontHash.Insert(name, this);
-    }
-
-    FT_Face face_ {};
-    i32 height_ {};
-
-    struct mmGlyph
-    {
-        i32 BitmapTop {};
-        i32 BitmapLeft {};
-
-        FT_Pos AdvanceX {};
-
-        u32 Rows {};
-        u32 Width {};
-        i32 Pitch {};
-        Ptr<u8[]> Buffer;
-    };
-
-    Ptr<mmGlyph> glyphs_[128];
-    mmGlyph temp_glyph_;
-
-    const mmGlyph& LoadChar(u32 char_code);
-
 public:
     ~mmFont();
+
+    i32 GetKerning(mmGlyph* glyph, mmGlyph* prev_glyph) const;
 
     void Draw(agiSurfaceDesc* surface, const char* text, mmRect rect, u32 color, u32 format);
 
@@ -96,7 +95,7 @@ public:
 
     mmSize GetExtents(const char* text)
     {
-        FT_Pos right = 0;
+        i32 right = 0;
         i32 height = 0;
 
         for (const auto& line : GetLines(text, 0))
@@ -105,23 +104,34 @@ public:
             height += GetLineHeight();
         }
 
-        return {static_cast<i32>((right + 63) >> 6), height};
+        return {right, height};
     }
-
-    struct mmLineInfo
-    {
-        const char* Start {};
-        const char* End {};
-        FT_Pos Left {};
-        FT_Pos Right {};
-    };
 
     std::vector<mmLineInfo> GetLines(const char* text, i32 max_width);
 
     static mmFont* Create(const char* font_name, i32 height, i32 weight);
+
+private:
+    mmFont(const char* name, FT_Face face, i32 height)
+        : face_(face)
+        , height_(height)
+        , ascender_(face_->size->metrics.ascender >> 6)
+        , has_kerning_(FT_HAS_KERNING(face))
+    {
+        FontHash.Insert(name, this);
+    }
+
+    FT_Face face_ {};
+    i32 height_ {};
+    i32 ascender_ {};
+    bool has_kerning_ {false};
+
+    std::unordered_map<u32, mmGlyph> glyphs_;
+
+    mmGlyph* LoadChar(u32 char_code);
 };
 
-inline bool StopDecoding(u32 state)
+static inline bool StopDecoding(u32 state)
 {
     return (state == UTF8_ACCEPT) || (state == UTF8_REJECT);
 }
@@ -129,7 +139,7 @@ inline bool StopDecoding(u32 state)
 // TODO: Handle encoding of foreign game files
 static const u32 ErrorCodepoint = '?';
 
-inline u32 DecodeUTF8(const char** text)
+static inline u32 DecodeUTF8(const char** text)
 {
     u32 codepoint = 0;
     u32 state = 0;
@@ -149,7 +159,7 @@ inline u32 DecodeUTF8(const char** text)
     return codepoint;
 }
 
-inline u32 DecodeUTF8(const char** text, const char* end)
+static inline u32 DecodeUTF8(const char** text, const char* end)
 {
     u32 codepoint = 0;
     u32 state = 0;
@@ -169,39 +179,57 @@ inline u32 DecodeUTF8(const char** text, const char* end)
     return codepoint;
 }
 
-const mmFont::mmGlyph& mmFont::LoadChar(u32 char_code)
+mmGlyph* mmFont::LoadChar(u32 char_code)
 {
-    mmGlyph* result = nullptr;
-
-    // TODO: Cache all chars
-    if (char_code < ARTS_SIZE32(glyphs_))
+    if (auto find = glyphs_.find(char_code); find != glyphs_.end())
     {
-        if (result = glyphs_[char_code].get(); result)
-            return *result;
-
-        glyphs_[char_code] = arnew mmGlyph();
-        result = glyphs_[char_code].get();
-    }
-    else
-    {
-        result = &temp_glyph_;
+        return &find->second;
     }
 
-    FT_Load_Char(face_, char_code, FT_LOAD_RENDER | FT_LOAD_MONOCHROME | FT_LOAD_TARGET_MONO);
+    FT_UInt glyph_index = FT_Get_Char_Index(face_, char_code);
+    FT_Load_Glyph(face_, glyph_index, FT_LOAD_RENDER | FT_LOAD_MONOCHROME | FT_LOAD_TARGET_MONO);
 
-    result->BitmapLeft = face_->glyph->bitmap_left;
-    result->BitmapTop = face_->glyph->bitmap_top;
-    result->AdvanceX = face_->glyph->advance.x;
+    mmGlyph result {};
 
-    result->Rows = face_->glyph->bitmap.rows;
-    result->Width = face_->glyph->bitmap.width;
-    result->Pitch = face_->glyph->bitmap.pitch;
+    result.GlyphIndex = glyph_index;
+    result.BitmapLeft = face_->glyph->bitmap_left;
+    result.BitmapTop = face_->glyph->bitmap_top;
+    result.AdvanceX = face_->glyph->advance.x >> 6;
 
-    usize buffer_size = result->Rows * result->Pitch;
-    result->Buffer = arnewa u8[buffer_size];
-    std::memcpy(result->Buffer.get(), face_->glyph->bitmap.buffer, buffer_size);
+    result.Rows = face_->glyph->bitmap.rows;
+    result.Width = face_->glyph->bitmap.width;
+    result.Pitch = face_->glyph->bitmap.pitch;
 
-    return *result;
+    usize buffer_size = result.Rows * result.Pitch;
+    result.Buffer = arnewa u8[buffer_size];
+    std::memcpy(result.Buffer.get(), face_->glyph->bitmap.buffer, buffer_size);
+
+    auto [iter, _] = glyphs_.emplace(char_code, std::move(result));
+
+    return &iter->second;
+}
+
+i32 mmFont::GetKerning(mmGlyph* glyph, mmGlyph* prev_glyph) const
+{
+    i32 kerning_x = 0;
+
+    if (has_kerning_ && prev_glyph)
+    {
+        if (auto find = glyph->Kerning.find(prev_glyph); find != glyph->Kerning.end())
+        {
+            kerning_x = find->second;
+        }
+        else
+        {
+            FT_Vector kerning {};
+            FT_Get_Kerning(face_, prev_glyph->GlyphIndex, glyph->GlyphIndex, FT_KERNING_DEFAULT, &kerning);
+            kerning_x = kerning.x >> 6;
+
+            glyph->Kerning.emplace(prev_glyph, kerning_x);
+        }
+    }
+
+    return kerning_x;
 }
 
 void mmFont::Draw(agiSurfaceDesc* surface, const char* text, mmRect rect, u32 color, u32 format)
@@ -223,6 +251,16 @@ void mmFont::Draw(agiSurfaceDesc* surface, const char* text, mmRect rect, u32 co
 
     std::vector<mmLineInfo> lines = GetLines(text, (format & MM_TEXT_WORDBREAK) ? rect_width : 0);
 
+    if (format & (MM_TEXT_VCENTER | MM_TEXT_BOTTOM))
+    {
+        i32 text_height = lines.size() * GetLineHeight();
+
+        if (format & MM_TEXT_VCENTER)
+            y += (rect_height - text_height) / 2;
+        else if (format & MM_TEXT_BOTTOM)
+            y += (rect_height - text_height);
+    }
+
     for (const auto& line : lines)
     {
         i32 line_x = x;
@@ -231,7 +269,7 @@ void mmFont::Draw(agiSurfaceDesc* surface, const char* text, mmRect rect, u32 co
 
         if (format & (MM_TEXT_CENTER | MM_TEXT_RIGHT))
         {
-            i32 text_width = (line.Right - line.Left + 63) >> 6;
+            i32 text_width = line.Right - line.Left;
 
             if (format & MM_TEXT_CENTER)
                 line_x += (rect_width - text_width) / 2;
@@ -239,52 +277,40 @@ void mmFont::Draw(agiSurfaceDesc* surface, const char* text, mmRect rect, u32 co
                 line_x += (rect_width - text_width);
         }
 
-        if (!(format & MM_TEXT_WORDBREAK))
-        {
-            if (format & (MM_TEXT_VCENTER | MM_TEXT_BOTTOM))
-            {
-                i32 text_height = GetLineHeight();
-
-                if (format & MM_TEXT_VCENTER)
-                    line_y += (rect_height - text_height) / 2;
-                else if (format & MM_TEXT_BOTTOM)
-                    line_y += (rect_height - text_height);
-            }
-        }
-
-        line_x <<= 6;
-        line_y <<= 6;
-
         line_x += line.Left;
-        line_y += face_->size->metrics.ascender;
+        line_y += ascender_;
 
         const char* str = line.Start;
         u32 codepoint = 0;
+        mmGlyph* prev_glyph = nullptr;
 
         while ((codepoint = DecodeUTF8(&str, line.End)) != 0)
         {
-            const mmGlyph& glyph = LoadChar(codepoint);
+            mmGlyph* glyph = LoadChar(codepoint);
 
-            for (u32 src_y = 0, src_y_off = 0; src_y < glyph.Rows; ++src_y, src_y_off += glyph.Pitch)
+            line_x += GetKerning(glyph, prev_glyph);
+
+            for (u32 src_y = 0, src_y_off = 0; src_y < glyph->Rows; ++src_y, src_y_off += glyph->Pitch)
             {
-                u32 dst_y = (line_y >> 6) + src_y - glyph.BitmapTop;
+                u32 dst_y = line_y + src_y - glyph->BitmapTop;
 
                 if (dst_y >= max_y)
                     continue;
 
-                for (u32 src_x = 0; src_x < glyph.Width; ++src_x)
+                for (u32 src_x = 0; src_x < glyph->Width; ++src_x)
                 {
-                    u32 dst_x = (line_x >> 6) + src_x + glyph.BitmapLeft;
+                    u32 dst_x = line_x + src_x + glyph->BitmapLeft;
 
                     if (dst_x >= max_x)
                         continue;
 
-                    if (glyph.Buffer[src_y_off + (src_x >> 3)] & (0x80 >> (src_x & 0x7)))
+                    if (glyph->Buffer[src_y_off + (src_x >> 3)] & (0x80 >> (src_x & 0x7)))
                         cmodel->SetPixel(surface, dst_x, dst_y, color);
                 }
             }
 
-            line_x += glyph.AdvanceX;
+            line_x += glyph->AdvanceX;
+            prev_glyph = glyph;
         }
     }
 }
@@ -340,14 +366,13 @@ static void mmFont_Shutdown()
 
 static FT_MemoryRec_ mmFont_MemoryRec {nullptr, mmFont_AllocFunc, mmFont_FreeFunc, mmFont_ReallocFunc};
 
-std::vector<mmFont::mmLineInfo> mmFont::GetLines(const char* text, i32 max_width)
+std::vector<mmLineInfo> mmFont::GetLines(const char* text, i32 max_width)
 {
     std::vector<mmLineInfo> lines;
 
-    FT_Pos word_break = max_width << 6;
-
     mmLineInfo curr_line {};
     mmLineInfo curr_word {};
+    mmGlyph* prev_glyph = nullptr;
 
     const auto new_line = [&](const char* here) {
         curr_line.Start = here;
@@ -355,6 +380,7 @@ std::vector<mmFont::mmLineInfo> mmFont::GetLines(const char* text, i32 max_width
         curr_line.Left = 0;
         curr_line.Right = 0;
         curr_word = curr_line;
+        prev_glyph = nullptr;
     };
 
     const auto flush_line = [&] {
@@ -380,11 +406,11 @@ std::vector<mmFont::mmLineInfo> mmFont::GetLines(const char* text, i32 max_width
         if ((codepoint == '\0') || IsSpace(codepoint))
         {
             // Word break
-            if (word_break && (curr_word.Right >= word_break))
+            if (max_width && (curr_word.Right >= max_width))
             {
                 // If the word spans exactly to the end, or it's the only word on this line,
                 // add it to the current line.
-                if ((curr_word.Right == word_break) || (curr_word.Start == curr_line.Start))
+                if ((curr_word.Right == max_width) || (curr_word.Start == curr_line.Start))
                 {
                     flush_word(here);
                 }
@@ -409,16 +435,18 @@ std::vector<mmFont::mmLineInfo> mmFont::GetLines(const char* text, i32 max_width
             }
         }
 
-        const mmGlyph& glyph = LoadChar(codepoint);
+        mmGlyph* glyph = LoadChar(codepoint);
 
-        if ((curr_word.Left == curr_word.Right) && (glyph.BitmapLeft < 0))
+        if (!prev_glyph && (glyph->BitmapLeft < 0))
         {
-            curr_word.Left -= glyph.BitmapLeft << 6;
+            curr_word.Left -= glyph->BitmapLeft;
             curr_word.Right = curr_word.Left;
         }
 
         curr_word.End = here;
-        curr_word.Right += glyph.AdvanceX;
+        curr_word.Right += GetKerning(glyph, prev_glyph);
+        curr_word.Right += glyph->AdvanceX;
+        prev_glyph = glyph;
     }
 }
 

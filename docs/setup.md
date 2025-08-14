@@ -1,7 +1,7 @@
 # Setup
 
 In most cases, Open1560 should run optimally straight away.
-For a minimal fresh installation, only the 3 original `.ar` files are required.
+For a minimal fresh installation, only the `audio.ar`, `core.ar`, and `ui.ar` are required from the original files.
 You do not need to install the XP patch, or use dgVoodoo.
 However, there are certain things you may wish to change:
 * If you have a laptop, ensure you are using the correct GPU.
@@ -12,11 +12,6 @@ However, there are certain things you may wish to change:
 * If using Wine:
     * If the hardware renderer is slow, try enabling threaded OpenGL with the environment variable `mesa_glthread=true` for Mesa, or `__GL_THREADED_OPTIMIZATIONS=1` for Nvidia.
 * If your cursor does not move properly, try `-mousemode 1` or `-mousemode 2`.
-
-# Common Issues
-
-* The application was unable to start correctly (0xc0000022)
-    * Activate DirectPlay
 
 # Command Line Arguments
 
