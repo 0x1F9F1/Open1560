@@ -67,7 +67,10 @@ struct PortalLink
 
 check_size(PortalLink, 0x8);
 
-#define PORTAL_CELL_FLAG_1 0x1 // Enable distance sorting?
+// Sort edges by distance before visiting them.
+// This is important for enclosed spaces with multiple edges to the same outer area.
+// Without sorting, you might pick the "wrong" entrance.
+#define PORTAL_CELL_EDGE_SORTING 0x1
 
 struct asPortalCell
 {
@@ -80,9 +83,9 @@ struct asPortalCell
     u16 Flags;
     PtlPath** PtlPaths;
 
-    bool HasFlag1() const
+    bool UseEdgeSorting() const
     {
-        return (Flags & PORTAL_CELL_FLAG_1) != 0;
+        return (Flags & PORTAL_CELL_EDGE_SORTING) != 0;
     }
 };
 
@@ -122,7 +125,7 @@ public:
     ARTS_IMPORT i32 BuildVisibilityList(Vector3& arg1, asPortalCell** arg2, i32 arg3, f32 arg4);
 
     // ?Stats@asPortalWeb@@QAEXXZ
-    ARTS_IMPORT void Stats();
+    void Stats();
 
     // ?AddWidgets@asPortalWeb@@UAEXPAVBank@@@Z
     void AddWidgets(Bank* bank) override;
@@ -168,10 +171,10 @@ public:
         Flags_Open = 1 << 1,
 
         // Reset MinX or MaxX clipping depending on cell visit direction
-        Flags_SemiOpen = 1 << 2,
+        Flags_HalfOpen = 1 << 2,
 
         // Hide if EyePos is infront/behind the plane, depending on cell visit direction
-        Flags_Flag8 = 1 << 3,
+        Flags_OneWay = 1 << 3,
 
         // These appear to be unused by the game, but are used by the PTL file.
         // They seem to be related to which sides of the portal are open/closed
@@ -210,14 +213,14 @@ public:
         return (Flags & Flags_Open) != 0;
     }
 
-    bool IsSemiOpenArea() const
+    bool IsHalfOpenArea() const
     {
-        return (Flags & Flags_SemiOpen) != 0;
+        return (Flags & Flags_HalfOpen) != 0;
     }
 
-    bool HasFlag8() const
+    bool IsOneWay() const
     {
-        return (Flags & Flags_Flag8) != 0;
+        return (Flags & Flags_OneWay) != 0;
     }
 
     f32 GetDistance(Vector3 pos) const

@@ -60,12 +60,12 @@ class agiViewParameters;
 #define MESH_DRAW_VARIANT(VARIANT) ((VARIANT) << 4)
 #define MESH_DRAW_GET_VARIANT(VARIANT) ((VARIANT) >> 4)
 
-#define MESH_CLIP_NX 0x01     // Clip -X
-#define MESH_CLIP_PX 0x02     // Clip +X
-#define MESH_CLIP_NY 0x04     // Clip -Y
-#define MESH_CLIP_PY 0x08     // Clip +Y
-#define MESH_CLIP_NZ 0x10     // Clip -Z
-#define MESH_CLIP_PZ 0x20     // Clip +Z
+#define MESH_CLIP_PX 0x01     // Clip +X
+#define MESH_CLIP_NX 0x02     // Clip -X
+#define MESH_CLIP_PY 0x04     // Clip +Y
+#define MESH_CLIP_NY 0x08     // Clip -Y
+#define MESH_CLIP_PZ 0x10     // Clip +Z
+#define MESH_CLIP_NZ 0x20     // Clip -Z
 #define MESH_CLIP_ANY 0x3F    // Clip *
 #define MESH_CLIP_SCREEN 0x40 // ToScreen
 

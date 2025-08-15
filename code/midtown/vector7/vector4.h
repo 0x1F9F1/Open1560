@@ -57,6 +57,11 @@ public:
         w = w_;
     }
 
+    constexpr inline Vector4 operator-(const Vector4& other) const
+    {
+        return {x - other.x, y - other.y, z - other.z, w - other.w};
+    }
+
     constexpr inline bool operator==(const Vector4& other) const noexcept
     {
         return (x == other.x) && (y == other.y) && (z == other.z) && (w == other.w);

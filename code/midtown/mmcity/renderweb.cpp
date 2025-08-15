@@ -38,24 +38,27 @@ define_dummy_symbol(mmcity_renderweb);
 #include "stream/stream.h"
 
 static mem::cmd_param PARAM_mirrordist {"mirrordist"};
+static mem::cmd_param PARAM_invlodfactor {"invlodfactor"};
 
-f32 asRenderWeb::InvLodFactor = 1.0f;
-
+f32 asRenderWeb::InvLodFactor = 0.65f;
 i32 asRenderWeb::PassMask = 0;
 
 // ?MirrorDist@@3MA
 ARTS_EXPORT f32 MirrorDist = 200.0f;
 
-hook_func(INIT_main, [] { MirrorDist = PARAM_mirrordist.get_or(200.0f); });
+hook_func(INIT_main, [] {
+    asRenderWeb::InvLodFactor = PARAM_invlodfactor.get_or(0.65f);
+    MirrorDist = PARAM_mirrordist.get_or(200.0f);
+});
 
 enum
 {
     CHICAGO_CELL_CONSTRUCTION = 60,
-    CHICAGO_CELL_WRIGLEY_24 = 24,
+    CHICAGO_CELL_WRIGLEY_OUTER = 24,
     CHICAGO_CELL_AQUARIUM = 31,
     CHICAGO_CELL_PLANETARIUM = 32,
     CHICAGO_CELL_MCCORMICK = 39,
-    CHICAGO_CELL_WRIGLEY_174 = 174,
+    CHICAGO_CELL_WRIGLEY_INNER = 174,
 
     CITY_MESH_START = 200,
 };
@@ -201,10 +204,11 @@ void asRenderWeb::LoadCells(const char* city_name, bool enable_lm)
         {
             switch (cell_index)
             {
-                case CHICAGO_CELL_WRIGLEY_24:
+                case CHICAGO_CELL_WRIGLEY_OUTER:
+                case CHICAGO_CELL_WRIGLEY_INNER:
                 case CHICAGO_CELL_AQUARIUM:
                 case CHICAGO_CELL_PLANETARIUM:
-                case CHICAGO_CELL_MCCORMICK: cell->Flags = 1; break;
+                case CHICAGO_CELL_MCCORMICK: cell->Flags = PORTAL_CELL_EDGE_SORTING; break;
             }
         }
     }
@@ -338,8 +342,8 @@ void asRenderWeb::LoadRoomBounds(const char* city_name, bool enable_lm)
             switch (i)
             {
                 case CHICAGO_CELL_CONSTRUCTION: mesh_name = "dl60_bnd"; break;
-                case CHICAGO_CELL_WRIGLEY_24:
-                case CHICAGO_CELL_WRIGLEY_174: mesh_name = "dl24_bnd"; break;
+                case CHICAGO_CELL_WRIGLEY_OUTER:
+                case CHICAGO_CELL_WRIGLEY_INNER: mesh_name = "dl24_bnd"; break;
             }
         }
 

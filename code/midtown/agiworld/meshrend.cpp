@@ -27,6 +27,7 @@ define_dummy_symbol(agiworld_meshrend);
 #include "agiworld/packnorm.h"
 #include "agiworld/quality.h"
 #include "agiworld/texsort.h"
+#include "core/podarray.h"
 #include "data7/b2f.h"
 #include "data7/utimer.h"
 #include "dyna7/gfx.h"
@@ -138,41 +139,347 @@ void SetClipMode(b32 mask_only_z)
     OnlyZClip = true;
 }
 
-// ?ClipNX@@YIXAAUCV@@0@Z
-ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipNX(CV& arg1, CV& arg2);
-
-// ?ClipNX@@YAHPAUCV@@0H@Z
-ARTS_IMPORT /*static*/ i32 ClipNX(CV* arg1, CV* arg2, i32 arg3);
-
-// ?ClipNY@@YIXAAUCV@@0@Z
-ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipNY(CV& arg1, CV& arg2);
-
-// ?ClipNY@@YAHPAUCV@@0H@Z
-ARTS_IMPORT /*static*/ i32 ClipNY(CV* arg1, CV* arg2, i32 arg3);
-
-// ?ClipNZ@@YIXAAUCV@@0@Z
-ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipNZ(CV& arg1, CV& arg2);
-
-// ?ClipNZ@@YAHPAUCV@@0H@Z
-ARTS_IMPORT /*static*/ i32 ClipNZ(CV* arg1, CV* arg2, i32 arg3);
-
 // ?ClipPX@@YIXAAUCV@@0@Z
-ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipPX(CV& arg1, CV& arg2);
+static void ARTS_FASTCALL ClipPX(CV& v0, CV& v1)
+{
+    f32 dx = v1.x - v0.x;
+    f32 dy = v1.y - v0.y;
+    f32 dz = v1.z - v0.z;
+    f32 dw = v1.w - v0.w;
 
-// ?ClipPX@@YAHPAUCV@@0H@Z
-ARTS_IMPORT /*static*/ i32 ClipPX(CV* arg1, CV* arg2, i32 arg3);
+    f32 dtu = v1.map[0] - v0.map[0];
+    f32 dtv = v1.map[1] - v0.map[1];
+    f32 dtw = v1.map[2] - v0.map[2];
+
+    f32 t = -(v0.w - v0.x) / (dw - dx);
+
+    v0.y += t * dy;
+    v0.z += t * dz;
+    v0.w += t * dw;
+    v0.x = v0.w;
+
+    v0.map[0] += t * dtu;
+    v0.map[1] += t * dtv;
+    v0.map[2] += t * dtw;
+
+    ++STATS.VertsClip;
+}
+
+// ?ClipNX@@YIXAAUCV@@0@Z
+static void ARTS_FASTCALL ClipNX(CV& v0, CV& v1)
+{
+    f32 dx = v1.x - v0.x;
+    f32 dy = v1.y - v0.y;
+    f32 dz = v1.z - v0.z;
+    f32 dw = v1.w - v0.w;
+
+    f32 dtu = v1.map[0] - v0.map[0];
+    f32 dtv = v1.map[1] - v0.map[1];
+    f32 dtw = v1.map[2] - v0.map[2];
+
+    f32 t = -(v0.w + v0.x) / (dw + dx);
+
+    v0.y += t * dy;
+    v0.z += t * dz;
+    v0.w += t * dw;
+    v0.x = -v0.w;
+
+    v0.map[0] += t * dtu;
+    v0.map[1] += t * dtv;
+    v0.map[2] += t * dtw;
+
+    ++STATS.VertsClip;
+}
 
 // ?ClipPY@@YIXAAUCV@@0@Z
-ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipPY(CV& arg1, CV& arg2);
+static void ARTS_FASTCALL ClipPY(CV& v0, CV& v1)
+{
+    f32 dx = v1.x - v0.x;
+    f32 dy = v1.y - v0.y;
+    f32 dz = v1.z - v0.z;
+    f32 dw = v1.w - v0.w;
 
-// ?ClipPY@@YAHPAUCV@@0H@Z
-ARTS_IMPORT /*static*/ i32 ClipPY(CV* arg1, CV* arg2, i32 arg3);
+    f32 dtu = v1.map[0] - v0.map[0];
+    f32 dtv = v1.map[1] - v0.map[1];
+    f32 dtw = v1.map[2] - v0.map[2];
+
+    f32 t = -(v0.w - v0.y) / (dw - dy);
+
+    v0.x += t * dx;
+    v0.z += t * dz;
+    v0.w += t * dw;
+    v0.y = v0.w;
+
+    v0.map[0] += t * dtu;
+    v0.map[1] += t * dtv;
+    v0.map[2] += t * dtw;
+
+    ++STATS.VertsClip;
+}
+
+// ?ClipNY@@YIXAAUCV@@0@Z
+static void ARTS_FASTCALL ClipNY(CV& v0, CV& v1)
+{
+    f32 dx = v1.x - v0.x;
+    f32 dy = v1.y - v0.y;
+    f32 dz = v1.z - v0.z;
+    f32 dw = v1.w - v0.w;
+
+    f32 dtu = v1.map[0] - v0.map[0];
+    f32 dtv = v1.map[1] - v0.map[1];
+    f32 dtw = v1.map[2] - v0.map[2];
+
+    f32 t = -(v0.w + v0.y) / (dw + dy);
+
+    v0.x += t * dx;
+    v0.z += t * dz;
+    v0.w += t * dw;
+    v0.y = -v0.w;
+
+    v0.map[0] += t * dtu;
+    v0.map[1] += t * dtv;
+    v0.map[2] += t * dtw;
+
+    ++STATS.VertsClip;
+}
 
 // ?ClipPZ@@YIXAAUCV@@0@Z
-ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipPZ(CV& arg1, CV& arg2);
+static void ARTS_FASTCALL ClipPZ(CV& v0, CV& v1)
+{
+    f32 dx = v1.x - v0.x;
+    f32 dy = v1.y - v0.y;
+    f32 dz = v1.z - v0.z;
+    f32 dw = v1.w - v0.w;
+
+    f32 dtu = v1.map[0] - v0.map[0];
+    f32 dtv = v1.map[1] - v0.map[1];
+    f32 dtw = v1.map[2] - v0.map[2];
+
+    f32 t = -(v0.w - v0.z) / (dw - dz);
+
+    v0.x += t * dx;
+    v0.y += t * dy;
+    v0.w += t * dw;
+    v0.z = v0.w;
+
+    v0.map[0] += t * dtu;
+    v0.map[1] += t * dtv;
+    v0.map[2] += t * dtw;
+
+    ++STATS.VertsClip;
+}
+
+// ?ClipNZ@@YIXAAUCV@@0@Z
+static void ARTS_FASTCALL ClipNZ(CV& v0, CV& v1)
+{
+    f32 dx = v1.x - v0.x;
+    f32 dy = v1.y - v0.y;
+    f32 dz = v1.z - v0.z;
+    f32 dw = v1.w - v0.w;
+
+    f32 dtu = v1.map[0] - v0.map[0];
+    f32 dtv = v1.map[1] - v0.map[1];
+    f32 dtw = v1.map[2] - v0.map[2];
+
+    f32 t = -(v0.w + v0.z) / (dw + dz);
+
+    v0.x += t * dx;
+    v0.y += t * dy;
+    v0.w += t * dw;
+    v0.z = -v0.w;
+
+    v0.map[0] += t * dtu;
+    v0.map[1] += t * dtv;
+    v0.map[2] += t * dtw;
+
+    ++STATS.VertsClip;
+}
+
+// ?ClipNX@@YAHPAUCV@@0H@Z
+static i32 ClipNX(CV* output, CV* input, i32 count)
+{
+    i32 done = 0;
+    i32 prev = count - 1;
+    bool prev_clipped = -input[prev].x > input[prev].w;
+
+    for (i32 i = 0; i < count; ++i)
+    {
+        bool clipped = -input[i].x > input[i].w;
+
+        if (clipped != prev_clipped)
+        {
+            output[done] = input[clipped ? i : prev];
+            ClipNX(output[done], input[clipped ? prev : i]);
+            ++done;
+        }
+
+        if (!clipped)
+        {
+            output[done] = input[i];
+            ++done;
+        }
+
+        prev_clipped = clipped;
+        prev = i;
+    }
+
+    return done;
+}
+
+// ?ClipPX@@YAHPAUCV@@0H@Z
+static i32 ClipPX(CV* output, CV* input, i32 count)
+{
+    i32 done = 0;
+    i32 prev = count - 1;
+    bool prev_clipped = input[prev].x > input[prev].w;
+
+    for (i32 i = 0; i < count; ++i)
+    {
+        bool clipped = input[i].x > input[i].w;
+
+        if (clipped != prev_clipped)
+        {
+            output[done] = input[clipped ? i : prev];
+            ClipPX(output[done], input[clipped ? prev : i]);
+            ++done;
+        }
+
+        if (!clipped)
+        {
+            output[done] = input[i];
+            ++done;
+        }
+
+        prev_clipped = clipped;
+        prev = i;
+    }
+
+    return done;
+}
+
+// ?ClipNY@@YAHPAUCV@@0H@Z
+static i32 ClipNY(CV* output, CV* input, i32 count)
+{
+    i32 done = 0;
+    i32 prev = count - 1;
+    bool prev_clipped = -input[prev].y > input[prev].w;
+
+    for (i32 i = 0; i < count; ++i)
+    {
+        bool clipped = -input[i].y > input[i].w;
+
+        if (clipped != prev_clipped)
+        {
+            output[done] = input[clipped ? i : prev];
+            ClipNY(output[done], input[clipped ? prev : i]);
+            ++done;
+        }
+
+        if (!clipped)
+        {
+            output[done] = input[i];
+            ++done;
+        }
+
+        prev_clipped = clipped;
+        prev = i;
+    }
+
+    return done;
+}
+
+// ?ClipPY@@YAHPAUCV@@0H@Z
+static i32 ClipPY(CV* output, CV* input, i32 count)
+{
+    i32 done = 0;
+    i32 prev = count - 1;
+    bool prev_clipped = input[prev].y > input[prev].w;
+
+    for (i32 i = 0; i < count; ++i)
+    {
+        bool clipped = input[i].y > input[i].w;
+
+        if (clipped != prev_clipped)
+        {
+            output[done] = input[clipped ? i : prev];
+            ClipPY(output[done], input[clipped ? prev : i]);
+            ++done;
+        }
+
+        if (!clipped)
+        {
+            output[done] = input[i];
+            ++done;
+        }
+
+        prev_clipped = clipped;
+        prev = i;
+    }
+
+    return done;
+}
+
+// ?ClipNZ@@YAHPAUCV@@0H@Z
+static i32 ClipNZ(CV* output, CV* input, i32 count)
+{
+    i32 done = 0;
+    i32 prev = count - 1;
+    bool prev_clipped = -input[prev].z > input[prev].w;
+
+    for (i32 i = 0; i < count; ++i)
+    {
+        bool clipped = -input[i].z > input[i].w;
+
+        if (clipped != prev_clipped)
+        {
+            output[done] = input[clipped ? i : prev];
+            ClipNZ(output[done], input[clipped ? prev : i]);
+            ++done;
+        }
+
+        if (!clipped)
+        {
+            output[done] = input[i];
+            ++done;
+        }
+
+        prev_clipped = clipped;
+        prev = i;
+    }
+
+    return done;
+}
 
 // ?ClipPZ@@YAHPAUCV@@0H@Z
-ARTS_IMPORT /*static*/ i32 ClipPZ(CV* arg1, CV* arg2, i32 arg3);
+static i32 ClipPZ(CV* output, CV* input, i32 count)
+{
+    i32 done = 0;
+    i32 prev = count - 1;
+    bool prev_clipped = input[prev].z > input[prev].w;
+
+    for (i32 i = 0; i < count; ++i)
+    {
+        bool clipped = input[i].z > input[i].w;
+
+        if (clipped != prev_clipped)
+        {
+            output[done] = input[clipped ? i : prev];
+            ClipPZ(output[done], input[clipped ? prev : i]);
+            ++done;
+        }
+
+        if (!clipped)
+        {
+            output[done] = input[i];
+            ++done;
+        }
+
+        prev_clipped = clipped;
+        prev = i;
+    }
+
+    return done;
+}
 
 // ?FullClip@@YAHPAUCV@@0H@Z
 static i32 FullClip(CV* ARTS_RESTRICT output, CV* ARTS_RESTRICT input, i32 count)
@@ -403,25 +710,6 @@ void agiMeshSet::SetFog(f32 fog, i32 /*arg2*/)
 {
     FogValue = fog ? (255.0f / fog) : 0.0f;
 }
-
-// A simple wrapper to avoid default constructing elements
-template <typename T, std::size_t N>
-struct PodArray
-{
-    static_assert(std::is_trivially_copy_assignable_v<T>);
-
-    alignas(T) unsigned char Data[N][sizeof(T)];
-
-    ARTS_FORCEINLINE operator T*()
-    {
-        return reinterpret_cast<T*>(Data);
-    }
-
-    ARTS_FORCEINLINE operator const T*() const
-    {
-        return reinterpret_cast<const T*>(Data);
-    }
-};
 
 // TODO: Process all clipped CV's at once, similar to ToScreen
 void agiMeshSet::ClipTri(i32 i1, i32 i2, i32 i3, i32 texture)
@@ -1120,8 +1408,8 @@ void agiMeshSet::DrawCard(Vector3& position, f32 scale, u32 rotation, u32 color,
         f32 vert_y = (scale * rotations[i].y + y) * view_params.ProjY + z * view_params.ProjYZ;
 
         i32 clip = 0;
-        clip |= (-w > vert_x) ? MESH_CLIP_PX : (vert_x > w) ? MESH_CLIP_NX : 0;
-        clip |= (-w > vert_y) ? MESH_CLIP_PY : (vert_y > w) ? MESH_CLIP_NY : 0;
+        clip |= (-w > vert_x) ? MESH_CLIP_NX : (vert_x > w) ? MESH_CLIP_PX : 0;
+        clip |= (-w > vert_y) ? MESH_CLIP_NY : (vert_y > w) ? MESH_CLIP_PY : 0;
 
         clip_any |= clip;
         clip_all &= clip;
