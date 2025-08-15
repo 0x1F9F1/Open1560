@@ -39,7 +39,7 @@ define_dummy_symbol(mmcity_renderweb);
 
 static mem::cmd_param PARAM_mirrordist {"mirrordist"};
 
-f32 asRenderWeb::InvLodFactor = 0.0f;
+f32 asRenderWeb::InvLodFactor = 1.0f;
 
 i32 asRenderWeb::PassMask = 0;
 
