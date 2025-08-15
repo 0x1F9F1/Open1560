@@ -56,7 +56,7 @@ ARTS_IMPORT extern u8 PopupCDFrame;
 
 mmPopup::~mmPopup() = default;
 
-void mmPopup::DisablePU(b32 resume_cd)
+void mmPopup::DisablePU([[maybe_unused]] b32 resume_cd)
 {
     if (MenuMgr()->IsPopupOpen())
     {
@@ -76,7 +76,7 @@ void mmPopup::DisablePU(b32 resume_cd)
     }
 
     // FIXME: Should this check resume_cd? Our old patch removed it.
-    if (resume_cd && MMSTATE.HasMidtownCD)
+    if (MMSTATE.HasMidtownCD)
     {
         AudMgr()->PlayCDTrack(PopupCDTrack, PopupCDMinute, PopupCDSecond, PopupCDFrame, true);
     }
