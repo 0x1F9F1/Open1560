@@ -186,6 +186,7 @@ void asPortalWeb::Cull(b32 front_to_back)
 #ifdef ARTS_DEV_BUILD
 void asPortalWeb::AddWidgets(Bank* bank)
 {
+    asNode::AddWidgets(bank);
     bank->AddToggle("Debug", &Debug);
     bank->AddSlider("DebugIdx", &PortalDebugIdx, 0, 100);
     bank->AddSlider("ShowIdx", &PortalShowIdx, 0, 300);

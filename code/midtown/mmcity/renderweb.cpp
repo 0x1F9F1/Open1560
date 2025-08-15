@@ -369,6 +369,7 @@ void asRenderWeb::DrawAllBounds()
 
 void asRenderWeb::AddWidgets(Bank* bank)
 {
+    asPortalWeb::AddWidgets(bank);
     bank->AddSlider("HitID", &HitID, 0, 10000, 0.0f); // Read-Only
     bank->AddSlider("ScreenClearY", &ScreenClearY, 0.0f, 10000.0f, 1.0f);
 }

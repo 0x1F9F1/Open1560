@@ -46,7 +46,6 @@ void TrackCamCS::AfterLoad()
             if (((MinAppXZPos == 1.0f) && (AppInc == 8.0f) && (AppDec == 5.0f)) ||
                 ((MinAppXZPos == 1.8f) && (AppInc == 15.0f) && (AppDec == 10.0f)))
             {
-                Displayf("Disabled PreApproach for %s", GetNodeName());
                 MinAppXZPos = 0.0f;
             }
         }
