@@ -741,6 +741,7 @@ static void (agiMeshSet::*const FirstPassFunctions[2][2][2][2])(u32* colors, Vec
     },
 };
 
+// ?DynTexFlag@@3HA
 ARTS_IMPORT extern i32 DynTexFlag; // mmCarModel::Draw, mmVehicleForm::Cull
 
 void agiMeshSet::FirstPass(u32* colors, Vector2* tex_coords, u32 color)
@@ -763,6 +764,7 @@ void agiMeshSet::FirstPass(u32* colors, Vector2* tex_coords, u32 color)
         colors, tex_coords, color);
 }
 
+// ?CurrentMeshSetVariant@@3HA
 ARTS_IMPORT extern i32 CurrentMeshSetVariant;
 
 template <typename T>
@@ -1088,6 +1090,7 @@ i32 agiMeshSet::ShadowGeometry(u32 flags, Vector3* verts, const Vector4& plane, 
     return clip_mask;
 }
 
+// ?CurrentMeshCard@@3UagiMeshCardInfo@@A
 ARTS_IMPORT extern agiMeshCardInfo CurrentMeshCard;
 
 void agiMeshSet::DrawCard(Vector3& position, f32 scale, u32 rotation, u32 color, u32 frame)

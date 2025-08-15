@@ -207,7 +207,7 @@ ARTS_IMPORT extern i32 MaxTexSize;
 ARTS_IMPORT extern i32 PackShift;
 
 // ?TEXCACHE@@3VDataCache@@A
-ARTS_EXPORT extern DataCache TEXCACHE;
+extern DataCache TEXCACHE;
 
 // ?TexBytesPaged@@3HA
 ARTS_IMPORT extern i32 TexBytesPaged;

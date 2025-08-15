@@ -27,7 +27,10 @@ define_dummy_symbol(mmui_graphics);
 // ?SetTexQualString@@YAXXZ
 ARTS_IMPORT /*static*/ void SetTexQualString();
 
+// ?MaxTextureQuality@@3HA
 ARTS_IMPORT extern i32 MaxTextureQuality;
+
+// ?LightQualityOption@@3MA
 ARTS_IMPORT extern f32 LightQualityOption;
 
 void AutoDetect(i32 renderer, i32 resolution)

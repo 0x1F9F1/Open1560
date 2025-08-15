@@ -29,7 +29,7 @@ define_dummy_symbol(agi_texdef);
 #include "stream/stream.h"
 #include "texlib.h"
 
-ARTS_EXPORT DataCache TEXCACHE;
+DataCache TEXCACHE;
 
 struct lutQentry
 {

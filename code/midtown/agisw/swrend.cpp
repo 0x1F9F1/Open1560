@@ -27,6 +27,7 @@ define_dummy_symbol(agisw_swrend);
 
 struct swEdge;
 
+// ?swFindColor@@3P6AII@ZA
 ARTS_IMPORT extern u32 (*swFindColor)(u32);
 
 void ARTS_FASTCALL __setupNone(swSurface* /*arg1*/)

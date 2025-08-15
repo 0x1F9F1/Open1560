@@ -28,7 +28,7 @@ class DataCache
 {
 public:
     // ??0DataCache@@QAE@XZ
-    ARTS_EXPORT DataCache();
+    DataCache();
 
     ~DataCache();
 

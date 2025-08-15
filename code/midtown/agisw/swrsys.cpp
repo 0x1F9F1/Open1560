@@ -23,6 +23,7 @@ define_dummy_symbol(agisw_swrsys);
 #include "agi/pipeline.h"
 #include "swrend.h"
 
+// ?swVtxBase@@3PAUagiScreenVtx@@A
 ARTS_IMPORT extern agiScreenVtx* swVtxBase;
 
 i32 agiSWRasterizer::BeginGfx()

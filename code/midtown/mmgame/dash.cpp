@@ -36,7 +36,10 @@ void mmExternalView::Reset()
 void mmExternalView::WideFOV(i32 /*arg1*/)
 {}
 
+// ?DashAlphaRef@@3HA
 ARTS_IMPORT extern i32 DashAlphaRef;
+
+// ?DashColorScale@@3MA
 ARTS_IMPORT extern f32 DashColorScale;
 
 // Gear variation (implement using tex-sheet siblings): N,1,2,3,4,5,6,7,8,R,P,D

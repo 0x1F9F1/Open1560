@@ -42,9 +42,16 @@ define_dummy_symbol(mmgame_popup);
 #include "mmui/pu_results.h"
 #include "mmui/pu_roster.h"
 
+// ?PopupCDTrack@@3EA
 ARTS_IMPORT extern u8 PopupCDTrack;
+
+// ?PopupCDMinute@@3EA
 ARTS_IMPORT extern u8 PopupCDMinute;
+
+// ?PopupCDSecond@@3EA
 ARTS_IMPORT extern u8 PopupCDSecond;
+
+// ?PopupCDFrame@@3EA
 ARTS_IMPORT extern u8 PopupCDFrame;
 
 mmPopup::~mmPopup() = default;

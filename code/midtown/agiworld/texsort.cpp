@@ -42,6 +42,7 @@ static const i32 EnvIdxSize = EnvVtxSize * 3;
 static i32 VtxSize = 0;
 static i32 IdxSize = 0;
 
+// ?BigPolySet@@3VagiPolySet@@A
 ARTS_IMPORT extern agiPolySet BigPolySet;
 
 static mem::cmd_param PARAM_max_verts_per_set {"maxverts"};
@@ -99,7 +100,10 @@ void agiTexSorter::AddWidgets(Bank* bank)
 }
 #endif
 
+// ?ColoredPolySet@@3PAVagiPolySet@@A
 ARTS_IMPORT extern agiPolySet* ColoredPolySet;
+
+// ?LastPolySet@@3PAVagiPolySet@@A
 ARTS_IMPORT extern agiPolySet* LastPolySet;
 
 static agiPolySet** ActivePolySet(agiTexDef* texture)
