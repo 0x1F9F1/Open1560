@@ -67,6 +67,8 @@ struct PortalLink
 
 check_size(PortalLink, 0x8);
 
+#define PORTAL_CELL_FLAG_1 0x1 // Enable distance sorting?
+
 struct asPortalCell
 {
     PortalLink* Edges;
@@ -77,6 +79,11 @@ struct asPortalCell
     u16 NumPtlPaths;
     u16 Flags;
     PtlPath** PtlPaths;
+
+    bool HasFlag1() const
+    {
+        return (Flags & PORTAL_CELL_FLAG_1) != 0;
+    }
 };
 
 check_size(asPortalCell, 0x18);
@@ -102,7 +109,7 @@ public:
     ARTS_IMPORT void BuildGroups();
 
     // ?Update@asPortalWeb@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
     // ?Cull@asPortalWeb@@QAEXH@Z
     ARTS_EXPORT void Cull(b32 front_to_back);
@@ -137,9 +144,12 @@ public:
 
     // 0 = Main
     // 1 = Mirror
-    u32 CurrentGroup {};
-    i32 NumSubPortals[2] {};
-    asPortalView Portals[2][256] {};
+    static const i32 NUM_PORTAL_PASSES = 2;
+    static const i32 MAX_ACTIVE_PORTALS = 256;
+
+    i32 CurrentPass {};
+    i32 NumSubPortals[NUM_PORTAL_PASSES] {};
+    asPortalView Portals[NUM_PORTAL_PASSES][MAX_ACTIVE_PORTALS] {};
 };
 
 check_size(asPortalWeb, 0x904C);
@@ -189,6 +199,31 @@ public:
     f32 PlaneDist;
 
     Vector3* Groups; // Vector3[4]
+
+    bool IsEnabled() const
+    {
+        return (Flags & Flags_Enabled) != 0;
+    }
+
+    bool IsOpenArea() const
+    {
+        return (Flags & Flags_Open) != 0;
+    }
+
+    bool IsSemiOpenArea() const
+    {
+        return (Flags & Flags_SemiOpen) != 0;
+    }
+
+    bool HasFlag8() const
+    {
+        return (Flags & Flags_Flag8) != 0;
+    }
+
+    f32 GetDistance(Vector3 pos) const
+    {
+        return Plane.x * pos.x + Plane.y * pos.y + Plane.z * pos.z + Plane.w;
+    }
 };
 
 check_size(asPortalEdge, 0x30);

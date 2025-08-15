@@ -353,9 +353,9 @@ void asRenderWeb::LoadRoomBounds(const char* city_name, bool enable_lm)
 #ifdef ARTS_DEV_BUILD
 void asRenderWeb::DrawAllBounds()
 {
-    asPortalView* portals = Portals[CurrentGroup];
+    asPortalView* portals = Portals[CurrentPass];
 
-    for (i32 i = 0, count = NumSubPortals[CurrentGroup]; i < count; ++i)
+    for (i32 i = 0, count = NumSubPortals[CurrentPass]; i < count; ++i)
     {
         asPortalCell* cell = portals[i].Cell;
 
