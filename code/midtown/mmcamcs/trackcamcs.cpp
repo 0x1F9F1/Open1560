@@ -21,6 +21,7 @@ define_dummy_symbol(mmcamcs_trackcamcs);
 #include "trackcamcs.h"
 
 #include "arts7/sim.h"
+#include "mmcar/car.h"
 
 static mem::cmd_param PARAM_preapproach {"preapproach", "Enable dynamic TrackCamCS AppXZPos calculations"};
 
@@ -40,10 +41,14 @@ void TrackCamCS::AfterLoad()
     {
         // preapproach is not specified, disable it for vanilla cameras (these values are the same for every MM1 TrackCamCS).
         // If you want to use these values, change AppXZPos to something slightly different.
-        if ((MinAppXZPos == 1.8f) && (MaxAppXZPos == 30.0f) && (MinSpeed == 5.0f) && (MaxSpeed == 35.0f) &&
-            (AppInc == 15.0f) && (AppDec == 10.0f) && (AppXZPos == 5.0f))
+        if ((MaxAppXZPos == 30.0f) && (MinSpeed == 5.0f) && (MaxSpeed == 35.0f) && (AppXZPos == 5.0f))
         {
-            MinAppXZPos = 0.0f;
+            if (((MinAppXZPos == 1.0f) && (AppInc == 8.0f) && (AppDec == 5.0f)) ||
+                ((MinAppXZPos == 1.8f) && (AppInc == 15.0f) && (AppDec == 10.0f)))
+            {
+                Displayf("Disabled PreApproach for %s", GetNodeName());
+                MinAppXZPos = 0.0f;
+            }
         }
     }
 }
@@ -61,28 +66,33 @@ void TrackCamCS::PreApproach()
         return;
     }
 
-    f32 target_xz = MaxAppXZPos;
-
-    if ((MinAppXZPos != 0.0f) && (MinSpeed != MaxSpeed))
+    // Don't touch AppXZPos at all, unless we have valid parameters.
+    if ((MinAppXZPos == 0.0f) || (MinSpeed == MaxSpeed))
     {
-        // As speed increases from MinSpeed to MaxSpeed, we interpolate from MaxAppXZPos to MinAppXZPos
+        return;
+    }
 
-        f32 speed_scale = 0.0f;
+    // As speed increases from MinSpeed to MaxSpeed, we interpolate from MaxAppXZPos to MinAppXZPos
+    f32 speed_scale = 0.0f;
 
-        if (CarVelocity <= MinSpeed)
-        {
-            speed_scale = 0.0f;
-        }
-        else if (CarVelocity >= MaxSpeed)
-        {
-            speed_scale = 1.0f;
-        }
-        else
-        {
-            speed_scale = (CarVelocity - MinSpeed) / (MaxSpeed - MinSpeed);
-        }
+    if (CarVelocity <= MinSpeed)
+    {
+        speed_scale = 0.0f;
+    }
+    else if (CarVelocity >= MaxSpeed)
+    {
+        speed_scale = 1.0f;
+    }
+    else
+    {
+        speed_scale = (CarVelocity - MinSpeed) / (MaxSpeed - MinSpeed);
+    }
 
-        target_xz = (MinAppXZPos - MaxAppXZPos) * speed_scale + MaxAppXZPos;
+    f32 target_xz = (MinAppXZPos - MaxAppXZPos) * speed_scale + MaxAppXZPos;
+
+    if (Car->Sim.Trans.IsReverse())
+    {
+        target_xz = 20.0f;
     }
 
     f32 seconds = Sim()->GetUpdateDelta();
