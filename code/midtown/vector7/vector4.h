@@ -20,6 +20,10 @@
 
 #include "data7/metatype.h"
 
+#ifdef ARTS_ENABLE_KNI
+#    include <xmmintrin.h>
+#endif
+
 class Vector4
 {
 public:
@@ -31,6 +35,12 @@ public:
         , z(z)
         , w(w)
     {}
+
+#ifdef ARTS_ENABLE_KNI
+    inline Vector4(__m128 xmm) noexcept
+        : Vector4(*(const Vector4*) &xmm)
+    {}
+#endif
 
     // ??7Vector4@@QBE?AV0@XZ
     ARTS_IMPORT Vector4 operator!() const;
@@ -57,7 +67,37 @@ public:
         w = w_;
     }
 
-    constexpr inline Vector4 operator-(const Vector4& other) const
+#ifdef ARTS_ENABLE_KNI
+    inline operator __m128() const
+    {
+        return _mm_loadu_ps(&x);
+    }
+#endif
+
+    inline Vector4 operator*(f32 value) const
+    {
+#ifdef ARTS_ENABLE_KNI
+        return _mm_mul_ps(*this, _mm_set_ps1(value));
+#else
+        return {x * value, y * value, z * value, w * value};
+#endif
+    }
+
+    inline void operator*=(f32 value)
+    {
+        *this = *this * value;
+    }
+
+    inline Vector4 operator+(const Vector4& other) const
+    {
+#ifdef ARTS_ENABLE_KNI
+        return _mm_add_ps(*this, other);
+#else
+        return {x + other.x, y + other.y, z + other.z, w + other.w};
+#endif
+    }
+
+    inline Vector4 operator-(const Vector4& other) const
     {
         return {x - other.x, y - other.y, z - other.z, w - other.w};
     }

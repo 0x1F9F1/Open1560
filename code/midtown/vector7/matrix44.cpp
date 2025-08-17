@@ -19,3 +19,8 @@
 define_dummy_symbol(vector7_matrix44);
 
 #include "matrix44.h"
+
+void Matrix44::Dot(const Matrix44& lhs, const Matrix44& rhs)
+{
+    *this = {lhs.m0 ^ rhs, lhs.m1 ^ rhs, lhs.m2 ^ rhs, lhs.m3 ^ rhs};
+}

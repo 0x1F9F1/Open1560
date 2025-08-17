@@ -48,7 +48,7 @@ public:
     ARTS_IMPORT f32 Determinant() const;
 
     // ?Dot@Matrix44@@QAEXABV1@0@Z
-    ARTS_IMPORT void Dot(const Matrix44& arg1, const Matrix44& arg2);
+    ARTS_EXPORT void Dot(const Matrix44& lhs, const Matrix44& rhs);
 
     // ?FromQuaternion@Matrix44@@QAEXABVQuaternion@@@Z
     ARTS_IMPORT void FromQuaternion(const Quaternion& arg1);
@@ -74,7 +74,10 @@ public:
 check_size(Matrix44, 0x40);
 
 // ??T@YA?AVVector4@@ABV0@ABVMatrix44@@@Z
-ARTS_IMPORT Vector4 operator^(const Vector4& arg1, const Matrix44& arg2);
+inline Vector4 operator^(const Vector4& lhs, const Matrix44& rhs)
+{
+    return (rhs.m0 * lhs.x) + (rhs.m1 * lhs.y) + (rhs.m2 * lhs.z) + (rhs.m3 * lhs.w);
+}
 
 // ?BezierBasis@@3VMatrix44@@A
 ARTS_IMPORT extern Matrix44 BezierBasis;
