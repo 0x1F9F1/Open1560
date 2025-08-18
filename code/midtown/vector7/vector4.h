@@ -38,7 +38,7 @@ public:
 
 #ifdef ARTS_ENABLE_KNI
     inline Vector4(__m128 xmm) noexcept
-        : Vector4(*(const Vector4*) &xmm)
+        : Vector4(mem::bit_cast<Vector4>(xmm))
     {}
 #endif
 
@@ -70,7 +70,7 @@ public:
 #ifdef ARTS_ENABLE_KNI
     inline operator __m128() const
     {
-        return _mm_loadu_ps(&x);
+        return mem::bit_cast<__m128>(*this);
     }
 #endif
 
@@ -99,7 +99,11 @@ public:
 
     inline Vector4 operator-(const Vector4& other) const
     {
+#ifdef ARTS_ENABLE_KNI
+        return _mm_sub_ps(*this, other);
+#else
         return {x - other.x, y - other.y, z - other.z, w - other.w};
+#endif
     }
 
     constexpr inline bool operator==(const Vector4& other) const noexcept

@@ -496,7 +496,7 @@ namespace mem
         static_assert(std::is_trivially_copyable<From>::value, "From is not trivially copyable");
         static_assert(std::is_trivially_copyable<To>::value, "To is not trivially copyable");
 
-        typename std::aligned_storage<sizeof(To), alignof(To)>::type dst;
+        alignas(To) char dst[sizeof(To)];
         std::memcpy(&dst, &src, sizeof(To));
         return reinterpret_cast<To&>(dst);
     }
