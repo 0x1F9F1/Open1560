@@ -36,7 +36,7 @@ define_dummy_symbol(mmcity_portal);
 #define EDGE_CLIP_PZ 0x10 // Clip +Z
 #define EDGE_CLIP_NZ 0x20 // Clip -Z
 
-static const usize MAX_ACTIVE_EDGES = 768;
+static const usize EDGE_CACHE_SIZE = 256;
 static const usize TRAVERSE_QUEUE_SIZE = 192;
 static const f32 PORTAL_FUDGE = 0.0001f;
 
@@ -55,8 +55,8 @@ static utimer_t PortalUpdateTimer[asPortalWeb::NUM_PORTAL_PASSES] {};
 static i32 CellTests[asPortalWeb::NUM_PORTAL_PASSES] {};
 static i32 CellEdgeTests[asPortalWeb::NUM_PORTAL_PASSES] {};
 static i32 BackfaceEdges[asPortalWeb::NUM_PORTAL_PASSES] {};
-static i32 UniqueEdges[asPortalWeb::NUM_PORTAL_PASSES] {};
 static i32 VertCacheHits[asPortalWeb::NUM_PORTAL_PASSES] {};
+static i32 VertCacheMisses[asPortalWeb::NUM_PORTAL_PASSES] {};
 static i32 TransformedVerts[asPortalWeb::NUM_PORTAL_PASSES] {};
 static i32 ClippedVerts[asPortalWeb::NUM_PORTAL_PASSES] {};
 
@@ -239,6 +239,15 @@ struct ClipBox
     }
 };
 
+static inline u32 HashPointer(const void* ptr)
+{
+    u32 hash = static_cast<u32>(reinterpret_cast<usize>(ptr));
+    hash ^= hash << 13;
+    hash ^= hash >> 17;
+    hash ^= hash << 5;
+    return static_cast<u32>((hash * 0x2545F4914F6CDD1D_u64) >> 32);
+};
+
 template <typename ValueType, size_t MaxValues, size_t NumBuckets>
 struct FixedHashMap
 {
@@ -258,7 +267,7 @@ struct FixedHashMap
     inline void Reset()
     {
         NumValues = 0;
-        Buckets = {};
+        std::memset(Buckets, 0, sizeof(Buckets));
     }
 
     inline usize Size() const
@@ -271,18 +280,9 @@ struct FixedHashMap
         return &Values[index].Value;
     }
 
-    static inline u32 HashKey(const void* ptr)
-    {
-        u32 hash = static_cast<u32>(reinterpret_cast<usize>(ptr));
-        hash ^= hash << 13;
-        hash ^= hash >> 17;
-        hash ^= hash << 5;
-        return static_cast<u32>((hash * 0x2545F4914F6CDD1D_u64) >> 32);
-    };
-
     bool Access(const void* key, ValueType*& result)
     {
-        usize bucket = HashKey(key) & (NumBuckets - 1);
+        usize bucket = HashPointer(key) & (NumBuckets - 1);
 
         for (Entry* entry = Buckets[bucket]; entry; entry = entry->Next)
         {
@@ -306,6 +306,80 @@ struct FixedHashMap
             result = nullptr;
         }
 
+        return false;
+    }
+};
+
+template <typename ValueType, size_t MaxValues, size_t NumBuckets>
+struct FixedFifoCache
+{
+    static_assert((MaxValues & (MaxValues - 1)) == 0, "MaxValues must be a power of two!");
+    static_assert((NumBuckets & (NumBuckets - 1)) == 0, "NumBuckets must be a power of two!");
+
+    struct Entry
+    {
+        const void* Key;
+        u16 Prev;
+        u16 Next;
+        ValueType Value;
+    };
+
+    usize NumValues;
+    PodArray<Entry, MaxValues> Values;
+    PodArray<u16, NumBuckets> Buckets;
+
+    inline void Reset()
+    {
+        NumValues = 0;
+        std::memset(Buckets, 0xFF, sizeof(Buckets));
+    }
+
+    bool Access(const void* key, ValueType*& result)
+    {
+        usize bucket = HashPointer(key) & (NumBuckets - 1);
+        Entry* entry = nullptr;
+
+        for (u16 here = Buckets[bucket]; here != UINT16_MAX; here = entry->Next)
+        {
+            entry = &Values[here];
+
+            if (entry->Key == key)
+            {
+                result = &entry->Value;
+                return true;
+            }
+        }
+
+        usize index = NumValues++;
+
+        if (index >= MaxValues)
+        {
+            index &= (MaxValues - 1);
+            entry = &Values[index];
+
+            if (entry->Next != UINT16_MAX)
+                Values[entry->Next].Prev = entry->Prev;
+
+            if (entry->Prev & 0x8000)
+                Buckets[entry->Prev & 0x7FFF] = entry->Next;
+            else
+                Values[entry->Prev].Next = entry->Next;
+        }
+        else
+        {
+            entry = &Values[index];
+        }
+
+        entry->Key = key;
+        entry->Prev = static_cast<u16>(bucket | 0x8000);
+        entry->Next = Buckets[bucket];
+
+        if (entry->Next != UINT16_MAX)
+            Values[entry->Next].Prev = static_cast<u16>(index);
+
+        Buckets[bucket] = static_cast<u16>(index);
+
+        result = &entry->Value;
         return false;
     }
 };
@@ -391,8 +465,8 @@ void asPortalWeb::Update()
         f32 MinZ;
     };
 
-    static FixedHashMap<VisitedCell, MAX_ACTIVE_PORTALS, 128> traverse_cells;
-    static FixedHashMap<VisitedEdge, MAX_ACTIVE_EDGES, 128> traverse_edges;
+    static FixedHashMap<VisitedCell, MAX_ACTIVE_PORTALS, MAX_ACTIVE_PORTALS * 2> traverse_cells;
+    static FixedFifoCache<VisitedEdge, EDGE_CACHE_SIZE, EDGE_CACHE_SIZE * 2> traverse_edges;
     static VisitedCell* traverse_queue[TRAVERSE_QUEUE_SIZE];
 
     Matrix44 proj = {
@@ -417,11 +491,8 @@ void asPortalWeb::Update()
             ++VertCacheHits[CurrentPass];
             return result;
         }
-        else if (!result)
-        {
-            Errorf("Context edge overflow in Traverse");
-            return result;
-        }
+
+        ++VertCacheMisses[CurrentPass];
 
         const Vector3* input = edge->Edges;
         i32 count = edge->NumEdges;
@@ -507,10 +578,7 @@ void asPortalWeb::Update()
         ArAssert(box.MinY >= -1.0f && box.MaxY <= 1.0f, "Invalid portal clipping");
 
         if (render_depth > MaxRenderDepth)
-        {
-            Errorf("Max render depth in Traverse");
             return;
-        }
 
         VisitedCell* visit = nullptr;
 
@@ -641,9 +709,6 @@ void asPortalWeb::Update()
 
             VisitedEdge* edge_clip = clip_edge(edge);
 
-            if (!edge_clip)
-                continue;
-
             ClipBox edge_box = visit->Box & edge_clip->Box;
 
             if (edge_box.IsEmpty(PORTAL_FUDGE))
@@ -676,7 +741,6 @@ void asPortalWeb::Update()
 
     i32 num_cells = static_cast<i32>(traverse_cells.Size());
     NumSubPortals[CurrentPass] = num_cells;
-    UniqueEdges[CurrentPass] = static_cast<i32>(traverse_edges.Size());
 
     const f32 vp_x = vp.X;
     const f32 vp_y = vp.Y;
@@ -882,17 +946,17 @@ void asPortalWeb::Stats()
     {
         if (i32 nump = NumSubPortals[i])
         {
-            Statsf("%d: %3d portals in %5.2f (%3d cells, %4d edges: %4d back, %4d cached, %4d unique, %4d verts)", i,
+            Statsf("%d: %3d portals in %5.2f (%3d cells, %4d edges: %4d back, %4d hits, %4d misses, %4d verts)", i,
                 nump, PortalUpdateTimer[i] * ut2float, CellTests[i], CellEdgeTests[i], BackfaceEdges[i],
-                VertCacheHits[i], UniqueEdges[i], TransformedVerts[i]);
+                VertCacheHits[i], VertCacheMisses[i], TransformedVerts[i]);
         }
 
         PortalUpdateTimer[i] = 0;
         CellTests[i] = 0;
         CellEdgeTests[i] = 0;
-        UniqueEdges[i] = 0;
         BackfaceEdges[i] = 0;
         VertCacheHits[i] = 0;
+        VertCacheMisses[i] = 0;
         TransformedVerts[i] = 0;
     }
 
