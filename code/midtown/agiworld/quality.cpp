@@ -19,3 +19,6 @@
 define_dummy_symbol(agiworld_quality);
 
 #include "quality.h"
+
+// ?MaxFarClip@@3MA
+ARTS_EXPORT f32 MaxFarClip = 1000.0f;

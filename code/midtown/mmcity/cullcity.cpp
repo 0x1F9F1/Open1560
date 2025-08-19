@@ -117,14 +117,16 @@ void mmCullCity::Cull()
         agiCurState.SetFogMode(UsePixelFog ? agiFogMode::Pixel : agiFogMode::Vertex);
         agiCurState.SetFogColor(SkyColor | swIsInterlaced);
 
+        f32 fog_end = FogEnd;
+
         if (!agiCurState.GetSoftwareRendering())
-            FogEnd = std::min(FogEnd, agiRQ.FarClip);
+            fog_end = std::min(fog_end, agiRQ.FarClip);
 
         if (UsePixelFog)
         {
             agiMeshSet::SetFog(0.0f, 0);
             agiCurState.SetFogStart(1.0f);
-            agiCurState.SetFogEnd(FogEnd);
+            agiCurState.SetFogEnd(fog_end);
         }
         else if (UseFogEnd2)
         {
@@ -132,7 +134,7 @@ void mmCullCity::Cull()
         }
         else
         {
-            agiMeshSet::SetFog(FogEnd, 0);
+            agiMeshSet::SetFog(fog_end, 0);
         }
     }
 }

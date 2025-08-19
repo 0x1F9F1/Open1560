@@ -36,8 +36,8 @@ define_dummy_symbol(mmcity_portal);
 #define EDGE_CLIP_PZ 0x10 // Clip +Z
 #define EDGE_CLIP_NZ 0x20 // Clip -Z
 
-static const usize MAX_ACTIVE_EDGES = 512;
-static const usize TRAVERSE_QUEUE_SIZE = 128;
+static const usize MAX_ACTIVE_EDGES = 768;
+static const usize TRAVERSE_QUEUE_SIZE = 192;
 static const f32 PORTAL_FUDGE = 0.0001f;
 
 u16 asPortalWeb::VisitTag = 0;
@@ -343,6 +343,8 @@ void asPortalWeb::Update()
 
     const agiViewParameters& vp = ViewParams();
     Vector3 eye_pos = vp.Camera.m3 + vp.Camera.m2 * -vp.Near;
+
+    // FIXME: Using StartCell as the default value can be incorrect if we run update for multiple cameras, i.e the mirror
     StartCell = GetStartCell(eye_pos, StartCell, 0);
 
     if (!StartCell)
@@ -505,7 +507,10 @@ void asPortalWeb::Update()
         ArAssert(box.MinY >= -1.0f && box.MaxY <= 1.0f, "Invalid portal clipping");
 
         if (render_depth > MaxRenderDepth)
+        {
+            Errorf("Max render depth in Traverse");
             return;
+        }
 
         VisitedCell* visit = nullptr;
 
@@ -635,6 +640,10 @@ void asPortalWeb::Update()
             edge->VisitTag = VisitTag;
 
             VisitedEdge* edge_clip = clip_edge(edge);
+
+            if (!edge_clip)
+                continue;
+
             ClipBox edge_box = visit->Box & edge_clip->Box;
 
             if (edge_box.IsEmpty(PORTAL_FUDGE))

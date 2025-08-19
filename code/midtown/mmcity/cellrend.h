@@ -69,10 +69,10 @@ ARTS_IMPORT extern i32 CellTriCount[3];
 ARTS_IMPORT extern i32 CellTypeCount[3];
 
 // ?EnableSlide@@3HA
-ARTS_IMPORT extern i32 EnableSlide;
+ARTS_IMPORT extern b32 EnableSlide;
 
 // ?ObjectMaxDist@@3MA
-ARTS_IMPORT extern f32 ObjectMaxDist;
+ARTS_EXPORT extern f32 ObjectMaxDist;
 
 // ?StaticTerrainLodTable@@3PAY01MA
 ARTS_EXPORT extern f32 StaticTerrainLodTable[4][2];
