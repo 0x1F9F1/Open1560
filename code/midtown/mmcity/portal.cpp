@@ -38,20 +38,23 @@ define_dummy_symbol(mmcity_portal);
 
 static const usize EDGE_CACHE_SIZE = 256;
 static const usize TRAVERSE_QUEUE_SIZE = 192;
-static const f32 PORTAL_FUDGE = 0.0001f;
+static const f32 CLIP_BOX_FUDGE = 0.0001f;
+static const f32 EDGE_PLANE_FUDGE = 1.0f;
 
 u16 asPortalWeb::VisitTag = 0;
 
 static b32 VisitOnce = false;
-static b32 BackPortals = false;
 static b32 EdgeClip = true;
+static b32 ForwardPlanes = true;
 static b32 ListPortals = false;
+static b32 DumpVisits = false;
 
 static i32 PortalCurrentIdx = 0;
 static i32 PortalShowIdx = 0;
 static i32 PortalDebugIdx = 0;
 
 static utimer_t PortalUpdateTimer[asPortalWeb::NUM_PORTAL_PASSES] {};
+static utimer_t PortalClipTimer[asPortalWeb::NUM_PORTAL_PASSES] {};
 static i32 CellTests[asPortalWeb::NUM_PORTAL_PASSES] {};
 static i32 CellEdgeTests[asPortalWeb::NUM_PORTAL_PASSES] {};
 static i32 BackfaceEdges[asPortalWeb::NUM_PORTAL_PASSES] {};
@@ -102,7 +105,8 @@ static inline i32 ClipNX(Vector4* output, const Vector4* input, i32 count)
         return v0;
     };
 
-    return Clipper(output, input, count, [](const Vector4& vert) { return -vert.x > vert.w; }, clip);
+    return Clipper(
+        output, input, count, [](const Vector4& vert) { return -vert.x > vert.w; }, clip);
 }
 
 static inline i32 ClipPX(Vector4* output, const Vector4* input, i32 count)
@@ -115,7 +119,8 @@ static inline i32 ClipPX(Vector4* output, const Vector4* input, i32 count)
         return v0;
     };
 
-    return Clipper(output, input, count, [](const Vector4& vert) { return vert.x > vert.w; }, clip);
+    return Clipper(
+        output, input, count, [](const Vector4& vert) { return vert.x > vert.w; }, clip);
 }
 
 static inline i32 ClipNY(Vector4* output, const Vector4* input, i32 count)
@@ -128,7 +133,8 @@ static inline i32 ClipNY(Vector4* output, const Vector4* input, i32 count)
         return v0;
     };
 
-    return Clipper(output, input, count, [](const Vector4& vert) { return -vert.y > vert.w; }, clip);
+    return Clipper(
+        output, input, count, [](const Vector4& vert) { return -vert.y > vert.w; }, clip);
 }
 
 static inline i32 ClipPY(Vector4* output, const Vector4* input, i32 count)
@@ -141,7 +147,8 @@ static inline i32 ClipPY(Vector4* output, const Vector4* input, i32 count)
         return v0;
     };
 
-    return Clipper(output, input, count, [](const Vector4& vert) { return vert.y > vert.w; }, clip);
+    return Clipper(
+        output, input, count, [](const Vector4& vert) { return vert.y > vert.w; }, clip);
 }
 
 static i32 XYClip(Vector4* verts, i32 count, i32 clip_any)
@@ -433,30 +440,9 @@ void asPortalWeb::Update()
         i32 RenderDepth;
         ClipBox Box;
         f32 MinZ;
-        asPortalEdge* Edges[4];
-        usize NumEdges;
+        asPortalEdge* Edge;
         bool Running;
         f32 SortKey;
-
-        void AddEdge(asPortalEdge* edge)
-        {
-            if (NumEdges == SIZE_MAX)
-                return;
-
-            for (usize i = 0; i < NumEdges; ++i)
-            {
-                if (Edges[i] == edge)
-                    return;
-            }
-
-            if (NumEdges == std::size(Edges))
-            {
-                NumEdges = SIZE_MAX;
-                return;
-            }
-
-            Edges[NumEdges++] = edge;
-        }
     };
 
     struct VisitedEdge
@@ -480,10 +466,14 @@ void asPortalWeb::Update()
     Matrix44 proj_view;
     proj_view.Dot(vp.View, proj);
 
+    const f32 far_clip = vp.Far;
+
     // Compute the screen-space bounding box of this edge.
     // Note, this is not quite the same as computing the bounding box using the current min/max frustum.
     // I.E a diagonal edge's bounding box could be inside the current frustum, even though the edge itself is not.
     const auto clip_edge = [&, proj_view](asPortalEdge* edge) -> VisitedEdge* {
+        ARTS_UTIMED(PortalClipTimer[CurrentPass]);
+
         VisitedEdge* result = nullptr;
 
         if (traverse_edges.Access(edge, result))
@@ -529,7 +519,7 @@ void asPortalWeb::Update()
         f32 maxX = -1.0f;
         f32 minY = 1.0f;
         f32 maxY = -1.0f;
-        f32 minZ = 1.0f;
+        f32 minZ = far_clip;
 
         for (i32 i = 0; i < count; ++i)
         {
@@ -548,7 +538,7 @@ void asPortalWeb::Update()
             f32 rhw = 1.0f / vert.w;
             f32 x = vert.x * rhw;
             f32 y = vert.y * rhw;
-            f32 z = vert.z * rhw;
+            f32 z = vert.z;
 
             minX = std::min(minX, x);
             maxX = std::max(maxX, x);
@@ -584,8 +574,11 @@ void asPortalWeb::Update()
 
         if (traverse_cells.Access(cell, visit))
         {
-            if (!box.Extends(visit->Box, PORTAL_FUDGE))
+            if (!box.Extends(visit->Box, CLIP_BOX_FUDGE))
                 return;
+
+            if (visit->Edge != edge)
+                visit->Edge = nullptr;
 
             visit->RenderDepth = std::min(visit->RenderDepth, render_depth);
             visit->Box = visit->Box | box;
@@ -597,8 +590,8 @@ void asPortalWeb::Update()
             visit->RenderDepth = render_depth;
             visit->Box = box;
             visit->MinZ = min_z;
+            visit->Edge = edge;
             visit->Running = false;
-            visit->NumEdges = 0;
             cell->VisitTag = VisitTag;
         }
         else
@@ -606,9 +599,6 @@ void asPortalWeb::Update()
             Errorf("Context stack overflow in Traverse");
             return;
         }
-
-        if (edge)
-            visit->AddEdge(edge);
 
         if (visit->Running)
             return;
@@ -625,7 +615,7 @@ void asPortalWeb::Update()
         visit->Running = true;
     };
 
-    traverse(StartCell, nullptr, 0, {-1.0f, 1.0f, -1.0f, 1.0f}, -999.0f);
+    traverse(StartCell, nullptr, 0, {-1.0f, 1.0f, -1.0f, 1.0f}, -9999.0f);
 
     while (traverse_size)
     {
@@ -636,6 +626,12 @@ void asPortalWeb::Update()
         asPortalCell* source_cell = visit->Cell;
         ++CellTests[CurrentPass];
 
+        if (DumpVisits)
+        {
+            Displayf("> cell %d: %5.3f/%5.3f, %5.3f/%5.3f, %5.3f", source_cell->CellIndex, visit->Box.MinX,
+                visit->Box.MaxX, visit->Box.MinY, visit->Box.MaxY, visit->MinZ);
+        }
+
         for (PortalLink* link = source_cell->Edges; link; link = link->Next)
         {
             asPortalEdge* edge = link->Edge;
@@ -643,14 +639,6 @@ void asPortalWeb::Update()
 
             if (!edge->IsEnabled())
                 continue;
-
-            f32 edge_dist = edge->GetDistance(eye_pos);
-
-            if (edge->IsOneWay())
-            {
-                if (((source_cell == edge->Cell1) ? -edge_dist : edge_dist) > 0.0f)
-                    continue;
-            }
 
             if (VisitOnce)
             {
@@ -664,54 +652,38 @@ void asPortalWeb::Update()
                 }
             }
 
+            edge->VisitTag = VisitTag;
+
+            if (DumpVisits)
+            {
+                Displayf("  | edge %4d -> %4d", source_cell->CellIndex, cell->CellIndex);
+            }
+
             ++CellEdgeTests[CurrentPass];
 
-            if (!BackPortals && (visit->NumEdges > 0 && visit->NumEdges <= std::size(visit->Edges)))
+            if (ForwardPlanes && edge->HasForwardPlane())
             {
-                f32 eye_dist = edge_dist;
-                f32 dist_sign = 1.0f;
-
-                if (eye_dist < 0.0f)
+                // We only want to visit portals moving "away" from the camera.
+                // If the edge plane has been marked as correctly orientated,
+                // such that negative points are in Cell1, and positive points are in Cell2,
+                // then we can skip the edge if our camera is not on the same side as the source cell.
+                // This helps to both reduce the number of edge tests, and hide more cells around open areas.
+                if (f32 plane_dist = edge->Plane.PlaneDist(eye_pos);
+                    ((source_cell == edge->Cell1) ? plane_dist : -plane_dist) > EDGE_PLANE_FUDGE)
                 {
-                    eye_dist = -eye_dist;
-                    dist_sign = -dist_sign;
-                }
-
-                if (eye_dist > 1.0f)
-                {
-                    bool backedge = true;
-
-                    for (usize i = 0; i < visit->NumEdges; ++i)
-                    {
-                        asPortalEdge* source_edge = visit->Edges[i];
-                        f32 dist_1 = edge->GetDistance(source_edge->Edges[0]) * dist_sign;
-                        f32 dist_2 = edge->GetDistance(source_edge->Edges[1]) * dist_sign;
-
-                        if (std::max(dist_1, dist_2) > PORTAL_FUDGE)
-                        {
-                            backedge = false;
-                            break;
-                        }
-                    }
-
-                    // We only want to visit portals moving "away" from the camera.
-                    // Skip this edge if the camera and all source edges are on the same side of its plane.
-                    // This helps to both reduce the number of edge tests, and hide more cells around open areas.
-                    if (backedge)
-                    {
-                        ++BackfaceEdges[CurrentPass];
-                        continue;
-                    }
+                    ++BackfaceEdges[CurrentPass];
+                    continue;
                 }
             }
 
-            edge->VisitTag = VisitTag;
-
             VisitedEdge* edge_clip = clip_edge(edge);
+
+            if (edge_clip->MinZ >= far_clip)
+                continue;
 
             ClipBox edge_box = visit->Box & edge_clip->Box;
 
-            if (edge_box.IsEmpty(PORTAL_FUDGE))
+            if (edge_box.IsEmpty(CLIP_BOX_FUDGE))
                 continue;
 
             if (VisitOnce)
@@ -731,7 +703,7 @@ void asPortalWeb::Update()
                     edge_box.MaxY = visit->Box.MaxY;
                 }
 
-                if (edge_box.IsEmpty(PORTAL_FUDGE))
+                if (edge_box.IsEmpty(CLIP_BOX_FUDGE))
                     continue;
             }
 
@@ -781,10 +753,12 @@ void asPortalWeb::Update()
         portal->ProjYZ = (portal->ProjTop + portal->ProjBottom) / portal->ProjHeight;
 
         portal->Cell = visit->Cell;
-        portal->Edge = (visit->NumEdges == 1) ? visit->Edges[0] : nullptr;
+        portal->Edge = visit->Edge;
         portal->Texture = nullptr;
         portal->RenderDepth = visit->RenderDepth;
     }
+
+    DumpVisits = false;
 }
 
 void asPortalWeb::Cull(b32 front_to_back)
@@ -946,12 +920,14 @@ void asPortalWeb::Stats()
     {
         if (i32 nump = NumSubPortals[i])
         {
-            Statsf("%d: %3d portals in %5.2f (%3d cells, %4d edges: %4d back, %4d hits, %4d misses, %4d verts)", i,
-                nump, PortalUpdateTimer[i] * ut2float, CellTests[i], CellEdgeTests[i], BackfaceEdges[i],
-                VertCacheHits[i], VertCacheMisses[i], TransformedVerts[i]);
+            Statsf("%d: %3d cells, %3d visits, %4d edges (%4d back) in %5.3f ms", i, nump, CellTests[i],
+                CellEdgeTests[i], BackfaceEdges[i], PortalUpdateTimer[i] * ut2float);
+            Statsf(" > edges: %4d hits, %4d misses, %4d verts in %5.3f ms", VertCacheHits[i], VertCacheMisses[i],
+                TransformedVerts[i], PortalClipTimer[i] * ut2float);
         }
 
         PortalUpdateTimer[i] = 0;
+        PortalClipTimer[i] = 0;
         CellTests[i] = 0;
         CellEdgeTests[i] = 0;
         BackfaceEdges[i] = 0;
@@ -1001,10 +977,11 @@ void asPortalWeb::AddWidgets(Bank* bank)
     bank->AddSlider("DebugIdx", &PortalDebugIdx, 0, MAX_ACTIVE_PORTALS);
     bank->AddSlider("ShowIdx", &PortalShowIdx, 0, 2000);
     bank->AddButton("Lock Target", [this] { PortalShowIdx = PortalCurrentIdx; });
+    bank->AddButton("Dump Visits", [] { DumpVisits = true; });
     bank->AddToggle("Visit Once", &VisitOnce);
-    bank->AddToggle("Back Portals", &BackPortals);
     bank->AddToggle("Edge Clip", &EdgeClip);
     bank->AddToggle("List Portals", &ListPortals);
+    bank->AddToggle("Forward Planes", &ForwardPlanes);
     bank->AddSlider("MaxRenderDepth", &MaxRenderDepth, 0, 64);
 }
 #endif

@@ -58,7 +58,8 @@ public:
     ARTS_EXPORT i32 GetCellNeighbors(i32 cell, asPortalCell** cells, i32 capacity);
 
     // ?GetStartCell@asRenderWeb@@UAEPAUasPortalCell@@AAVVector3@@PAU2@PAPAVmmPolygon@@@Z
-    ARTS_IMPORT asPortalCell* GetStartCell(Vector3& arg1, asPortalCell* arg2, mmPolygon** arg3) override;
+    ARTS_IMPORT asPortalCell* GetStartCell(
+        aconst Vector3& pos, asPortalCell* default_cell, mmPolygon** cached_poly) override;
 
     // ?Load@asRenderWeb@@QAEHPADH@Z
     b32 Load(aconst char* city_name, b32 enable_lm);
@@ -102,6 +103,8 @@ private:
     void LoadPortals(const char* city_name);
     void LoadHitId(const char* city_name);
     void LoadRoomBounds(const char* city_name, bool enable_lm);
+    void OptimizePortals();
+    void SavePortals();
 
 public:
     Ptr<asPortalCell*[]> CellArray {};

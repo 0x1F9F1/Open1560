@@ -52,8 +52,15 @@ public:
     ARTS_IMPORT void Bilinear(
         f32 arg1, f32 arg2, const Vector4& arg3, const Vector4& arg4, const Vector4& arg5, const Vector4& arg6);
 
+    // Returns a plane containing all 3 points.
+    // The resulting x,y,z is the normalized direction from the origin to the plane,
+    // and w is the negated distance to the plane, such that -w * normal is a point on the plane.
+    // Note, planes have a positive and negative direction.
+    // This direction depends on the order of the arguments.
+    // To reverse the direction of the plane, simply negate the entire vector.
+    // To get the distance from a point to the plane, see PlaneDist.
     // ?CalculatePlane@Vector4@@QAEXABVVector3@@00@Z
-    ARTS_EXPORT void CalculatePlane(const Vector3& arg1, const Vector3& arg2, const Vector3& arg3);
+    ARTS_EXPORT void CalculatePlane(const Vector3& point_1, const Vector3& point_2, const Vector3& point_3);
 
     // ?Lerp@Vector4@@QAEXMABV1@0@Z
     ARTS_IMPORT void Lerp(f32 arg1, const Vector4& arg2, const Vector4& arg3);
@@ -104,6 +111,23 @@ public:
 #else
         return {x - other.x, y - other.y, z - other.z, w - other.w};
 #endif
+    }
+
+    inline Vector4 operator-() const
+    {
+#ifdef ARTS_ENABLE_KNI
+        return _mm_sub_ps(_mm_setzero_ps(), *this);
+#else
+        return {-x, -y, -z, -w};
+#endif
+    }
+
+    // Returns the distance to the closest point on the plane.
+    // For more information, see CalculatePlane.
+    template <typename Point3>
+    inline f32 PlaneDist(const Point3& point) const
+    {
+        return x * point.x + y * point.y + z * point.z + w;
     }
 
     constexpr inline bool operator==(const Vector4& other) const noexcept

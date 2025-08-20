@@ -105,12 +105,6 @@ b32 asRenderWeb::Load(aconst char* city_name, b32 enable_lm)
     }
 
     {
-        ARTS_LOADER_TASK(MM_IDS_LOADING_PORTAL_INFO, 0.16f);
-        ARTS_MEM_STAT("asRenderWeb PORTALS");
-        LoadPortals(city_name);
-    }
-
-    {
         ARTS_LOADER_TASK(MM_IDS_LOADING_COLLISION_DATABASE, 0.16f);
 
         {
@@ -122,6 +116,12 @@ b32 asRenderWeb::Load(aconst char* city_name, b32 enable_lm)
             ARTS_MEM_STAT("asRenderWeb per-room bound");
             LoadRoomBounds(city_name, enable_lm);
         }
+    }
+
+    {
+        ARTS_LOADER_TASK(MM_IDS_LOADING_PORTAL_INFO, 0.16f);
+        ARTS_MEM_STAT("asRenderWeb PORTALS");
+        LoadPortals(city_name);
     }
 
     if (MakeTableStats)
@@ -248,6 +248,8 @@ void asRenderWeb::LoadPortals(const char* city_name)
 
         stream->Read(&ptl, sizeof(ptl));
 
+        ArAssert(ptl.EdgeCount >= 2 && ptl.EdgeCount <= 3, "Invalid edge count!");
+
         if (ptl.EdgeCount == 3)
             stream->Read(&extra_edge, sizeof(extra_edge));
 
@@ -277,14 +279,7 @@ void asRenderWeb::LoadPortals(const char* city_name)
 
         asPortalEdge* edge = AddEdge("PORTAL"_xconst, cell1, cell2, ptl.EdgeCount + 2);
 
-        if (ptl.EdgeCount == 2)
-        {
-            edge->Edges[0] = Vector3(ptl.Min.x, ptl.Min.y + ptl.Height, ptl.Min.z);
-            edge->Edges[1] = Vector3(ptl.Max.x, ptl.Max.y + ptl.Height, ptl.Max.z);
-            edge->Edges[2] = ptl.Max;
-            edge->Edges[3] = ptl.Min;
-        }
-        else
+        if (ptl.EdgeCount == 3)
         {
             edge->Edges[0] = Vector3(ptl.Min.x, ptl.Min.y + ptl.Height, ptl.Min.z);
             edge->Edges[1] = Vector3(ptl.Max.x, ptl.Max.y + ptl.Height, ptl.Max.z);
@@ -292,12 +287,175 @@ void asRenderWeb::LoadPortals(const char* city_name)
             edge->Edges[3] = extra_edge;
             edge->Edges[4] = ptl.Min;
         }
+        else
+        {
+            edge->Edges[0] = Vector3(ptl.Min.x, ptl.Min.y + ptl.Height, ptl.Min.z);
+            edge->Edges[1] = Vector3(ptl.Max.x, ptl.Max.y + ptl.Height, ptl.Max.z);
+            edge->Edges[2] = ptl.Max;
+            edge->Edges[3] = ptl.Min;
+        }
 
         edge->Plane.CalculatePlane(edge->Edges[0], edge->Edges[1], edge->Edges[2]);
         edge->Flags |= ptl.Flags;
     }
 
-    BuildGroups();
+    // We have already saved an optimized CHICAGO.PTL in 1560.ar
+    if (std::strcmp(city_name, "chicago"))
+    {
+        OptimizePortals();
+    }
+}
+
+void asRenderWeb::OptimizePortals()
+{
+    i32 optimized = 0;
+    i32 total = 0;
+
+    for (asPortalEdge* edge = Edges; edge; edge = edge->Next)
+    {
+        for (i32 j = 0; j < edge->NumEdges; ++j)
+        {
+            Vector3 vert = edge->Edges[j];
+            f32 dist = edge->Plane.PlaneDist(edge->Edges[j]);
+
+            if (std::abs(dist) > 0.1f)
+            {
+                Errorf("Edge %d/%d @ {%5.3f, %5.3f, %5.3f} is not planar!", edge->Cell1->CellIndex,
+                    edge->Cell2->CellIndex, vert.x, vert.y, vert.z);
+                edge->Flags &= ~asPortalEdge::Flags_Enabled;
+                break;
+            }
+        }
+
+        {
+            mmCellRenderer* rend_1 = static_cast<mmCellRenderer*>(edge->Cell1->CellRenderer);
+            mmCellRenderer* rend_2 = static_cast<mmCellRenderer*>(edge->Cell2->CellRenderer);
+
+            Vector3 center_1 = rend_1->CellCenter;
+            Vector3 center_2 = rend_2->CellCenter;
+            center_1.y = center_2.y;
+
+            f32 dist = rend_1->CellCenter.Dist(rend_2->CellCenter);
+            f32 max_dist = rend_1->CellMagnitude + rend_2->CellMagnitude + 5.0f;
+
+            if (dist > max_dist)
+            {
+                Vector3 vert = (edge->Edges[0] + edge->Edges[2]) * 0.5f;
+
+                Errorf("Edge %d/%d @ {%5.3f, %5.3f, %5.3f} is suspicious, dist=%3.0f, max=%3.0f",
+                    edge->Cell1->CellIndex, edge->Cell2->CellIndex, vert.x, vert.y, vert.z, dist, max_dist);
+            }
+        }
+
+        if (!edge->IsEnabled())
+            continue;
+
+        ++total;
+        edge->Flags &= ~asPortalEdge::Flags_ForwardPlane;
+
+        Vector3 edge_1 = edge->Edges[0];
+        Vector3 edge_2 = edge->Edges[2];
+        Vector3 center = (edge_1 + edge_2) * 0.5f;
+        Vector3 offset = Vector3(edge->Plane.x, edge->Plane.y, edge->Plane.z);
+        Vector3 point_1 = center - offset;
+        Vector3 point_2 = center + offset;
+
+        asPortalCell* cell_1 = nullptr;
+        asPortalCell* cell_2 = nullptr;
+
+        for (i32 i = 0; i < 5; ++i)
+        {
+            point_1.y -= 10.0f;
+            point_2.y -= 10.0f;
+
+            if (cell_1 != edge->Cell1)
+                cell_1 = GetStartCell(point_1, nullptr, nullptr);
+
+            if (cell_2 != edge->Cell2)
+                cell_2 = GetStartCell(point_2, nullptr, nullptr);
+        }
+
+        bool negate = false;
+
+        if ((cell_1 != edge->Cell1) && (cell_2 != edge->Cell2))
+        {
+            std::swap(cell_1, cell_2);
+            negate = true;
+        }
+
+        if (cell_1 == edge->Cell1)
+        {
+            if (!cell_2)
+                cell_2 = edge->Cell2;
+        }
+
+        if (cell_2 == edge->Cell2)
+        {
+            if (!cell_1)
+                cell_1 = edge->Cell1;
+        }
+
+        if ((cell_1 == edge->Cell1) && (cell_2 == edge->Cell2))
+        {
+            ++optimized;
+
+            edge->Flags |= asPortalEdge::Flags_ForwardPlane;
+
+            if (negate)
+            {
+                std::swap(edge->Edges[0], edge->Edges[1]);
+                std::swap(edge->Edges[2], edge->Edges[edge->NumEdges - 1]);
+                edge->Plane = -edge->Plane;
+            }
+        }
+    }
+
+    Displayf("Optimized %i/%i portal planes", optimized, total);
+}
+
+void asRenderWeb::SavePortals()
+{
+    i32 num_edges = 0;
+
+    for (asPortalEdge* edge = Edges; edge; edge = edge->Next)
+        ++num_edges;
+
+    Ptr<asPortalEdge*[]> edges = arnewa asPortalEdge * [num_edges] {};
+
+    {
+        i32 index = num_edges;
+
+        for (asPortalEdge* edge = Edges; edge; edge = edge->Next)
+            edges[--index] = edge;
+    }
+
+    Ptr<Stream> output {arts_fopen("city/optimized.ptl", "w")};
+
+    if (output)
+    {
+        i32 vec_count = 0;
+        output->Write(&vec_count, sizeof(vec_count));
+        output->Write(&num_edges, sizeof(num_edges));
+
+        for (i32 i = 0; i < num_edges; ++i)
+        {
+            asPortalEdge* edge = edges[i];
+            ArAssert(edge->NumEdges >= 4 && edge->NumEdges <= 5, "Invalid edge count");
+
+            PtlPortal ptl {};
+            ptl.Flags = edge->Flags & ~asPortalEdge::Flags_Enabled;
+            ptl.EdgeCount = edge->NumEdges - 2;
+            ptl.Cell1 = edge->Cell1->CellIndex;
+            ptl.Cell2 = edge->Cell2->CellIndex;
+            ptl.Height = edge->Edges[1].y - edge->Edges[2].y;
+            ptl.Min = edge->Edges[edge->NumEdges - 1];
+            ptl.Max = edge->Edges[2];
+            output->Write(&ptl, sizeof(ptl));
+
+            if (edge->NumEdges == 5)
+                output->Write(&edge->Edges[3], sizeof(edge->Edges[3]));
+        }
+    }
 }
 
 void asRenderWeb::LoadHitId(const char* city_name)
@@ -376,6 +534,8 @@ void asRenderWeb::AddWidgets(Bank* bank)
     asPortalWeb::AddWidgets(bank);
     bank->AddSlider("HitID", &HitID, 0, 10000, 0.0f); // Read-Only
     bank->AddSlider("ScreenClearY", &ScreenClearY, 0.0f, 10000.0f, 1.0f);
+    bank->AddButton("Optimize Portals", [this] { OptimizePortals(); });
+    bank->AddButton("Save Portals", [this] { SavePortals(); });
 }
 #endif
 

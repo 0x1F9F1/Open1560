@@ -100,7 +100,7 @@ public:
     // ??1asPortalWeb@@UAE@XZ
     ~asPortalWeb() override;
 
-    virtual asPortalCell* GetStartCell(Vector3& arg1, asPortalCell* arg2, mmPolygon** arg3) = 0;
+    virtual asPortalCell* GetStartCell(aconst Vector3& pos, asPortalCell* default_cell, mmPolygon** cached_poly) = 0;
 
     // ?AddCell@asPortalWeb@@QAEPAUasPortalCell@@PADPAVasPortalRenderable@@I@Z
     ARTS_IMPORT asPortalCell* AddCell(aconst char* name, asPortalRenderable* render, u32 index);
@@ -173,8 +173,8 @@ public:
         // Reset MinX or MaxX clipping depending on cell visit direction
         Flags_HalfOpen = 1 << 2,
 
-        // Hide if EyePos is infront/behind the plane, depending on cell visit direction
-        Flags_OneWay = 1 << 3,
+        // The plane is oriented so that Cell1 is behind it, and Cell2 is infront of it.
+        Flags_ForwardPlane = 1 << 3,
 
         // These appear to be unused by the game, but are used by the PTL file.
         // They seem to be related to which sides of the portal are open/closed
@@ -218,14 +218,9 @@ public:
         return (Flags & Flags_HalfOpen) != 0;
     }
 
-    bool IsOneWay() const
+    bool HasForwardPlane() const
     {
-        return (Flags & Flags_OneWay) != 0;
-    }
-
-    f32 GetDistance(Vector3 pos) const
-    {
-        return Plane.x * pos.x + Plane.y * pos.y + Plane.z * pos.z + Plane.w;
+        return (Flags & Flags_ForwardPlane) != 0;
     }
 };
 
