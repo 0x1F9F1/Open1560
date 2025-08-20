@@ -48,6 +48,8 @@ static b32 EdgeClip = true;
 static b32 ForwardPlanes = true;
 static b32 ListPortals = false;
 static b32 DumpVisits = false;
+static b32 DrawEdges = false;
+static b32 DrawPortals = true;
 
 static i32 PortalCurrentIdx = 0;
 static i32 PortalShowIdx = 0;
@@ -57,7 +59,6 @@ static utimer_t PortalUpdateTimer[asPortalWeb::NUM_PORTAL_PASSES] {};
 static utimer_t PortalClipTimer[asPortalWeb::NUM_PORTAL_PASSES] {};
 static i32 CellTests[asPortalWeb::NUM_PORTAL_PASSES] {};
 static i32 CellEdgeTests[asPortalWeb::NUM_PORTAL_PASSES] {};
-static i32 BackfaceEdges[asPortalWeb::NUM_PORTAL_PASSES] {};
 static i32 VertCacheHits[asPortalWeb::NUM_PORTAL_PASSES] {};
 static i32 VertCacheMisses[asPortalWeb::NUM_PORTAL_PASSES] {};
 static i32 TransformedVerts[asPortalWeb::NUM_PORTAL_PASSES] {};
@@ -652,14 +653,8 @@ void asPortalWeb::Update()
                 }
             }
 
+            bool first_visit = edge->VisitTag != VisitTag;
             edge->VisitTag = VisitTag;
-
-            if (DumpVisits)
-            {
-                Displayf("  | edge %4d -> %4d", source_cell->CellIndex, cell->CellIndex);
-            }
-
-            ++CellEdgeTests[CurrentPass];
 
             if (ForwardPlanes && edge->HasForwardPlane())
             {
@@ -668,13 +663,20 @@ void asPortalWeb::Update()
                 // such that negative points are in Cell1, and positive points are in Cell2,
                 // then we can skip the edge if our camera is not on the same side as the source cell.
                 // This helps to both reduce the number of edge tests, and hide more cells around open areas.
-                if (f32 plane_dist = edge->Plane.PlaneDist(eye_pos);
-                    ((source_cell == edge->Cell1) ? plane_dist : -plane_dist) > EDGE_PLANE_FUDGE)
-                {
-                    ++BackfaceEdges[CurrentPass];
+
+                if (first_visit)
+                    edge->PlaneDist = edge->Plane.PlaneDist(eye_pos);
+
+                if (((source_cell == edge->Cell1) ? edge->PlaneDist : -edge->PlaneDist) > EDGE_PLANE_FUDGE)
                     continue;
-                }
             }
+
+            if (DumpVisits)
+            {
+                Displayf("  | edge %4d -> %4d", source_cell->CellIndex, cell->CellIndex);
+            }
+
+            ++CellEdgeTests[CurrentPass];
 
             VisitedEdge* edge_clip = clip_edge(edge);
 
@@ -821,8 +823,9 @@ void asPortalWeb::Cull(b32 front_to_back)
 #ifdef ARTS_DEV_BUILD
         if (Debug && ((PortalDebugIdx == 0) || (PortalDebugIdx == idx)))
         {
-            asPortalEdge* edge = portal->Edge;
+            asPortalEdge* source_edge = portal->Edge;
 
+            if (DrawPortals)
             {
                 DrawBegin(vp.Camera);
                 DrawColor(ColYellow);
@@ -840,10 +843,10 @@ void asPortalWeb::Cull(b32 front_to_back)
 
                 i32 cell_idx = cell->CellIndex;
 
-                if (edge)
+                if (source_edge)
                 {
-                    i32 cell1_idx = edge->Cell1->CellIndex;
-                    i32 cell2_idx = edge->Cell2->CellIndex;
+                    i32 cell1_idx = source_edge->Cell1->CellIndex;
+                    i32 cell2_idx = source_edge->Cell2->CellIndex;
                     DrawLabelf(label_pos, "%d(%d)"_xconst, cell_idx, (cell_idx == cell1_idx) ? cell2_idx : cell1_idx);
                 }
                 else
@@ -854,8 +857,7 @@ void asPortalWeb::Cull(b32 front_to_back)
                 DrawEnd();
             }
 
-            if (edge)
-            {
+            const auto draw_edge = [&](asPortalEdge* edge) {
                 DrawBegin(xconst(IDENTITY));
 
                 Vector3 color = edge->IsOpenArea() ? ColBlue : edge->IsHalfOpenArea() ? ColOrange : ColRed;
@@ -867,24 +869,36 @@ void asPortalWeb::Cull(b32 front_to_back)
                     prev = i;
                 }
 
-                DrawEnd();
-            }
-
-            if (edge && edge->Groups)
-            {
-                DrawBegin(xconst(IDENTITY));
-                DrawColor(ColGreen);
-
-                for (i32 i = 0, prev = 3; i < 4; ++i)
+                if (edge->Groups)
                 {
-                    DrawLine(edge->Groups[prev], edge->Groups[i]);
-                    prev = i;
+                    DrawColor(ColGreen);
+
+                    for (i32 i = 0, prev = 3; i < 4; ++i)
+                    {
+                        DrawLine(edge->Groups[prev], edge->Groups[i]);
+                        prev = i;
+                    }
+
+                    DrawLine(portal->Edge->Groups[0], portal->Edge->Groups[2]);
+                    DrawLine(portal->Edge->Groups[1], portal->Edge->Groups[3]);
                 }
 
-                DrawLine(portal->Edge->Groups[0], portal->Edge->Groups[2]);
-                DrawLine(portal->Edge->Groups[1], portal->Edge->Groups[3]);
+                Vector3 label_pos = (edge->Edges[0] + edge->Edges[2]) * 0.5f;
+                i32 cell1_idx = edge->Cell1->CellIndex;
+                i32 cell2_idx = edge->Cell2->CellIndex;
+                DrawLabelf(label_pos, "%d/%d"_xconst, cell1_idx, cell2_idx);
 
                 DrawEnd();
+            };
+
+            if (DrawEdges)
+            {
+                for (PortalLink* edges = cell->Edges; edges; edges = edges->Next)
+                    draw_edge(edges->Edge);
+            }
+            else if (DrawPortals && source_edge)
+            {
+                draw_edge(source_edge);
             }
         }
 
@@ -920,8 +934,8 @@ void asPortalWeb::Stats()
     {
         if (i32 nump = NumSubPortals[i])
         {
-            Statsf("%d: %3d cells, %3d visits, %4d edges (%4d back) in %5.3f ms", i, nump, CellTests[i],
-                CellEdgeTests[i], BackfaceEdges[i], PortalUpdateTimer[i] * ut2float);
+            Statsf("%d: %3d cells, %3d visits, %4d edges in %5.3f ms", i, nump, CellTests[i], CellEdgeTests[i],
+                PortalUpdateTimer[i] * ut2float);
             Statsf(" > edges: %4d hits, %4d misses, %4d verts in %5.3f ms", VertCacheHits[i], VertCacheMisses[i],
                 TransformedVerts[i], PortalClipTimer[i] * ut2float);
         }
@@ -930,7 +944,6 @@ void asPortalWeb::Stats()
         PortalClipTimer[i] = 0;
         CellTests[i] = 0;
         CellEdgeTests[i] = 0;
-        BackfaceEdges[i] = 0;
         VertCacheHits[i] = 0;
         VertCacheMisses[i] = 0;
         TransformedVerts[i] = 0;
@@ -977,6 +990,8 @@ void asPortalWeb::AddWidgets(Bank* bank)
     bank->AddSlider("DebugIdx", &PortalDebugIdx, 0, MAX_ACTIVE_PORTALS);
     bank->AddSlider("ShowIdx", &PortalShowIdx, 0, 2000);
     bank->AddButton("Lock Target", [this] { PortalShowIdx = PortalCurrentIdx; });
+    bank->AddToggle("Draw Portals", &DrawPortals);
+    bank->AddToggle("Draw Edges", &DrawEdges);
     bank->AddButton("Dump Visits", [] { DumpVisits = true; });
     bank->AddToggle("Visit Once", &VisitOnce);
     bank->AddToggle("Edge Clip", &EdgeClip);
