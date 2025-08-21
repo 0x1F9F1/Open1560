@@ -42,27 +42,27 @@ void DLPTemplate::InitRemap(agiLib<agiMtlParameters, agiMtlDef>& mlib, agiLib<ag
     agiLib<agiPhysParameters, agiPhysDef>& plib)
 {
     MtlCount = mlib.Count();
-    MtlIds = arnewa u16[MtlCount] {};
+    MtlIds = arnewa u16[MtlCount + 1] {};
 
-    for (i32 i = 0; i < MtlCount; ++i)
+    for (i32 i = 1; i <= MtlCount; ++i)
     {
-        MtlIds[i] = static_cast<u16>(agiMtlLib.Add(mlib[i + 1]));
+        MtlIds[i] = static_cast<u16>(agiMtlLib.Add(mlib[i]));
     }
 
     TexCount = tlib.Count();
-    TexIds = arnewa u16[TexCount] {};
+    TexIds = arnewa u16[TexCount + 1] {};
 
-    for (i32 i = 0; i < TexCount; ++i)
+    for (i32 i = 1; i <= TexCount; ++i)
     {
-        TexIds[i] = static_cast<u16>(agiTexLib.Add(tlib[i + 1]));
+        TexIds[i] = static_cast<u16>(agiTexLib.Add(tlib[i]));
     }
 
     PhysCount = plib.Count();
-    PhysIds = arnewa u16[PhysCount] {};
+    PhysIds = arnewa u16[PhysCount + 1] {};
 
-    for (i32 i = 0; i < PhysCount; ++i)
+    for (i32 i = 1; i <= PhysCount; ++i)
     {
-        PhysIds[i] = static_cast<u16>(agiPhysLib.Add(plib[i + 1]));
+        PhysIds[i] = static_cast<u16>(agiPhysLib.Add(plib[i]));
     }
 }
 
