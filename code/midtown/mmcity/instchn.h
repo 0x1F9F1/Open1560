@@ -24,55 +24,58 @@ class mmInstChain
 {
 public:
     // ??0mmInstChain@@QAE@XZ
-    ARTS_IMPORT mmInstChain();
+    ARTS_EXPORT mmInstChain() = default;
 
     // ??1mmInstChain@@QAE@XZ
-    ARTS_IMPORT ~mmInstChain();
+    ARTS_EXPORT ~mmInstChain() = default;
+
+    // ?Draw@mmInstChain@@QAEXFFIHM@Z
+    ARTS_IMPORT void Draw(i16 arg1, i16 arg2, u32 arg3, i32 arg4, f32 arg5);
+
+    // ?Init@mmInstChain@@QAEXH@Z
+    void Init(i32 num_rooms);
+
+    // ?Parent@mmInstChain@@QAEXPAVmmInstance@@F@Z
+    ARTS_EXPORT void Parent(mmInstance* inst, i16 room);
+
+    // ?Reparent@mmInstChain@@QAEXPAVmmInstance@@F@Z
+    ARTS_EXPORT void Reparent(mmInstance* inst, i16 room);
+
+    // ?Unparent@mmInstChain@@QAEXPAVmmInstance@@@Z
+    ARTS_EXPORT void Unparent(mmInstance* inst);
+
+    // ?Relight@mmInstChain@@QAEXF@Z
+    void Relight(i16 room);
+
+    // ?RelightEverything@mmInstChain@@QAEXXZ
+    ARTS_EXPORT void RelightEverything();
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmInstChain@@QAEXPAVBank@@@Z
     ARTS_EXPORT void AddWidgets(Bank* arg1);
 #endif
 
-    // ?Draw@mmInstChain@@QAEXFFIHM@Z
-    ARTS_IMPORT void Draw(i16 arg1, i16 arg2, u32 arg3, i32 arg4, f32 arg5);
-
-    // ?Init@mmInstChain@@QAEXH@Z
-    ARTS_IMPORT void Init(i32 arg1);
-
-    // ?Parent@mmInstChain@@QAEXPAVmmInstance@@F@Z
-    ARTS_IMPORT void Parent(mmInstance* inst, i16 room);
-
-    // ?Relight@mmInstChain@@QAEXF@Z
-    ARTS_IMPORT void Relight(i16 arg1);
-
-    // ?RelightEverything@mmInstChain@@QAEXXZ
-    ARTS_IMPORT void RelightEverything();
-
-    // ?Reparent@mmInstChain@@QAEXPAVmmInstance@@F@Z
-    ARTS_IMPORT void Reparent(mmInstance* arg1, i16 arg2);
-
-    // ?Unparent@mmInstChain@@QAEXPAVmmInstance@@@Z
-    ARTS_IMPORT void Unparent(mmInstance* arg1);
-
-    mmInstance** Chains {};
-    i16* ChainCounts {};
-    i32 NumChain {};
+    Ptr<mmInstance*[]> Chains {};
+    Ptr<i16[]> ChainCounts {};
+    i32 NumChains {};
 };
 
 check_size(mmInstChain, 0xC);
 
+// Check if an instance's sphere is visible before any drawing.
+// Can end up hiding shadows if the object itself isn't visible.
+// Can also hide facade instances, since it doesn't check if the secondary meshes are visible (see the GRND sliver in room 682)
 // ?EnableSphereCull@@3HA
-ARTS_IMPORT extern i32 EnableSphereCull;
+ARTS_EXPORT extern b32 EnableSphereCull;
 
 // ?LabelInstances@@3HA
-ARTS_IMPORT extern i32 LabelInstances;
+ARTS_EXPORT extern b32 LabelInstances;
 
 // ?NormalsOnInstances@@3HA
-ARTS_IMPORT extern i32 NormalsOnInstances;
+ARTS_EXPORT extern b32 NormalsOnInstances;
 
 // ?WorstCount@@3HA
-ARTS_IMPORT extern i32 WorstCount;
+ARTS_EXPORT extern i32 WorstCount;
 
 // ?WorstRoom@@3HA
-ARTS_IMPORT extern i32 WorstRoom;
+ARTS_EXPORT extern i32 WorstRoom;

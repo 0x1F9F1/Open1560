@@ -52,6 +52,17 @@ f32 mmInstance::LodTable[3 /*Inst Type*/][4 /*Terrain Quality*/][3 /*Lod Dist*/]
     },
 };
 
+i32 mmInstance::LodTableIndex = 0;
+
+mmInstance::MeshSetTableEntry mmInstance::MeshSetTable[MaxMeshSetSets] {};
+char* mmInstance::MeshSetNames[MaxMeshSetSets] {};
+i32 mmInstance::MeshSetSetCount = 0;
+
+b32 mmInstance::ShowLights = false;
+void (*mmInstance::StaticLighter)(u8*, u32*, u32*, agiMeshSet*) = nullptr;
+
+mmHeap<i32> mmInstanceHeap {};
+
 mmPhysEntity* mmInstance::GetEntity()
 {
     return nullptr;

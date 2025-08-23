@@ -29,9 +29,6 @@ class agiMeshSet;
 class mmBoundTemplate;
 class mmPhysEntity;
 
-// ?mmInstanceHeap@@3V?$mmHeap@H@@A
-ARTS_IMPORT extern mmHeap<i32> mmInstanceHeap;
-
 // Flags for .bng files
 // INST_INIT_FLAG_FCD_* only apply to mmFacadeInstance (STATIC && !SHEAR && !BUILDING)
 #define INST_INIT_FLAG_STATIC 0x1     // Is static, part of BuildingChain, otherwise it is a mmUnhitBangerInstance
@@ -142,15 +139,7 @@ public:
     ARTS_EXPORT static f32 LodTable[3][4][3];
 
     // ?LodTableIndex@mmInstance@@2HA
-    ARTS_IMPORT static i32 LodTableIndex;
-
-    static constexpr i32 MaxMeshSetSets = 4096;
-
-    // ?MeshSetNames@mmInstance@@2PAPADA
-    ARTS_IMPORT static char* MeshSetNames[MaxMeshSetSets];
-
-    // ?MeshSetSetCount@mmInstance@@2HA
-    ARTS_IMPORT static i32 MeshSetSetCount;
+    ARTS_EXPORT static i32 LodTableIndex;
 
 #define INST_LOD_VLOW 0
 #define INST_LOD_LOW 1
@@ -163,14 +152,22 @@ public:
         mmBoundTemplate* Bound {};
     };
 
+    static constexpr i32 MaxMeshSetSets = 4096;
+
     // ?MeshSetTable@mmInstance@@2PAUMeshSetTableEntry@1@A
-    ARTS_IMPORT static MeshSetTableEntry MeshSetTable[MaxMeshSetSets];
+    ARTS_EXPORT static MeshSetTableEntry MeshSetTable[MaxMeshSetSets];
+
+    // ?MeshSetNames@mmInstance@@2PAPADA
+    ARTS_EXPORT static char* MeshSetNames[MaxMeshSetSets];
+
+    // ?MeshSetSetCount@mmInstance@@2HA
+    ARTS_EXPORT static i32 MeshSetSetCount;
 
     // ?ShowLights@mmInstance@@2HA
-    ARTS_IMPORT static i32 ShowLights;
+    ARTS_EXPORT static b32 ShowLights;
 
     // ?StaticLighter@mmInstance@@2P6AXPAEPAI1PAVagiMeshSet@@@ZA
-    ARTS_IMPORT static void (*StaticLighter)(u8*, u32*, u32*, agiMeshSet*);
+    ARTS_EXPORT static void (*StaticLighter)(u8*, u32*, u32*, agiMeshSet*);
 
     // TODO: When to use GetMeshSet vs GetResidentMeshSet?
 
@@ -546,3 +543,6 @@ public:
 };
 
 check_size(mmFacadeQuad, 0x18);
+
+// ?mmInstanceHeap@@3V?$mmHeap@H@@A
+ARTS_EXPORT extern mmHeap<i32> mmInstanceHeap;
