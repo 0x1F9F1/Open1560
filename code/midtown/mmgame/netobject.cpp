@@ -28,34 +28,8 @@ define_dummy_symbol(mmgame_netobject);
 
 #include "mmnetwork/network.h"
 
-mmNetObject::mmNetObject()
-    : asNetObject()
-    , field_28(0)
-    , Flags(0)
-    , Score(0)
-    , Time(0.0f)
-    , LocalData {}
-    , Car(nullptr)
-    , IsEnabled(false)
-    , Active(0)
-    , UpdateCount(0)
-    , MatrixChanged(false)
-    , ActivateTime(0.0f)
-    , Steering(0.0f)
-    , PrevSteering(0.0f)
-    , SteeringDelta(0.0f)
-    , Throttle(0.0f)
-    , PrevThrottle(0.0f)
-    , ThrottleDelta(0.0f)
-    , Brakes(0.0f)
-    , PrevBrakes(0.0f)
-    , BrakesDelta(0.0f)
-    , field_BC(0.0f)
-    , field_C0(0.0f)
-    , Matrix(IDENTITY)
-{
-    time_delta = 10.0f;
-}
+// ?time_delta@@3MA
+ARTS_EXPORT f32 time_delta = 10.0f;
 
 void mmNetObject::Activate()
 {
@@ -129,14 +103,14 @@ void mmNetObject::PositionUpdate(NETGAME_MSG* msg)
 {
     MatrixChanged = true;
 
-    if ((msg->LastUpdateIdx < 0) || (static_cast<u32>(msg->LastUpdateIdx) < UpdateCount))
+    if (msg->LastUpdateIdx < UpdateCount)
         return;
 
     UpdateCount = msg->LastUpdateIdx;
 
     Car->Sim.Steering = msg->Steering;
-    Car->Sim.Brakes = static_cast<u8>(msg->Brakes) / 255.0f;
-    Car->Sim.Engine.Throttle = static_cast<u8>(msg->Throttle) / 255.0f;
+    Car->Sim.Brakes = msg->Brakes / 255.0f;
+    Car->Sim.Engine.Throttle = msg->Throttle / 255.0f;
 
     Car->Sim.CurrentDamage = msg->Damage;
     ICS->LinearMomentum = msg->Velocity;
@@ -277,8 +251,8 @@ void mmNetObject::ReInit(mmCar* car, char* vehicle, i32 variant, ulong player_id
     field_C0 = 0.0f;
     Matrix.Identity();
     UpdateCount = 0;
-    MatrixChanged = 0;
-    IsEnabled = 0;
+    MatrixChanged = false;
+    IsEnabled = false;
     Flags = 0;
     Score = 0;
     ICS = car->GetICS();
@@ -342,14 +316,14 @@ void mmNetObject::Update()
 
     ActivateTime += ARTSPTR->GetUpdateDelta();
 
+    PHYS.DeclareMover(
+        &Car->Model, MOVER_TYPE_PERM, MOVER_FLAG_ACTIVE | MOVER_FLAG_COLLIDE_TERRAIN | MOVER_FLAG_COLLIDE_MOVERS);
+
     if (Car->Model.HasTrailer())
     {
         PHYS.DeclareMover(&Car->Trailer->Inst, MOVER_TYPE_10,
             MOVER_FLAG_ACTIVE | MOVER_FLAG_COLLIDE_TERRAIN | MOVER_FLAG_COLLIDE_MOVERS);
     }
-
-    PHYS.DeclareMover(
-        &Car->Model, MOVER_TYPE_PERM, MOVER_FLAG_ACTIVE | MOVER_FLAG_COLLIDE_TERRAIN | MOVER_FLAG_COLLIDE_MOVERS);
 
     asNetObject::Update();
 }

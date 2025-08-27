@@ -29,8 +29,8 @@ struct NETGAME_MSG
     i32 MessageId;
     i32 SenderId;
     f32 Steering;
-    char Throttle;
-    char Brakes;
+    u8 Throttle;
+    u8 Brakes;
     Vector3 Rotation;
     Vector3 Position;
     Vector3 Velocity;
@@ -38,7 +38,7 @@ struct NETGAME_MSG
     f32 Damage;
     u16 Score;
     u16 Flags;
-    i32 LastUpdateIdx;
+    u32 LastUpdateIdx;
     char StringValue[4];
 };
 
@@ -92,10 +92,10 @@ public:
     u32 Flags;
     i32 Score;
     f32 Time;
-    NETGAME_MSG LocalData;
+    NETGAME_MSG LocalData {};
     mmCar* Car;
     b32 IsEnabled;
-    u32 Active;
+    b32 Active;
     u32 UpdateCount;
     b32 MatrixChanged;
     f32 ActivateTime;
@@ -110,10 +110,7 @@ public:
     f32 BrakesDelta;
     f32 field_BC;
     f32 field_C0;
-    Matrix34 Matrix;
+    Matrix34 Matrix = IDENTITY;
 };
 
 check_size(mmNetObject, 0xF4);
-
-// ?time_delta@@3MA
-ARTS_IMPORT extern f32 time_delta;

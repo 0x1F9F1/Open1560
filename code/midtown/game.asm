@@ -517745,10 +517745,6 @@ PUBLIC ?mmGameMultiMetaClass@@3VMetaClass@@A
 ALIGN 4
 dword_6A77E0 dd ?
 
-ALIGN 8
-PUBLIC ?time_delta@@3MA
-?time_delta@@3MA dd ?
-
 ALIGN 4
 dword_6A77EC dd ?
 
