@@ -53,6 +53,7 @@ For a tutorial on how to use command line arguments, click [here](https://www.bl
 | heapsize   | 64    | The size in MB of the game heap |
 | legacygl   | false | Uses a legacy/compatibility OpenGL context |
 | maxfps     | 0     | Limits the max fps |
+| mirrordist | 200   | Sets the maximum draw distance in mirrors (higher values draw things further away) |
 | mousemode  | 0     | Mouse mode. 0 = Relative (Raw Input), 1 = Relative (Mouse Warping), 2 = Absolute |
 | msaa       | 0     | Sets the anti-aliasing level (does not work with legacy OpenGL) |
 | nativeres  | true  | Enables rendering internally at the native window resolution (enabled when using -msaa or -legacygl) |
