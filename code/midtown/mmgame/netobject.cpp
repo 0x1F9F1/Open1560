@@ -28,8 +28,7 @@ define_dummy_symbol(mmgame_netobject);
 
 #include "mmnetwork/network.h"
 
-// ?time_delta@@3MA
-ARTS_EXPORT f32 time_delta = 10.0f;
+f32 time_delta = 10.0f;
 
 void mmNetObject::Activate()
 {
@@ -56,9 +55,7 @@ void mmNetObject::Clear()
     Score = 0;
 
     if (Car)
-    {
         Car->RemoveVehicleAudio();
-    }
 
     SetCar(nullptr);
     PlayerID = 0;
@@ -277,7 +274,7 @@ void mmNetObject::SetLocalData()
         return;
 
     LocalData.SenderId = PlayerID;
-    LocalData.MessageId = 501;
+    LocalData.MessageId = PlayerUpdate;
 
     LocalData.Steering = Car->Sim.Steering;
     LocalData.Throttle = static_cast<u8>(Car->Sim.Engine.Throttle * 255.0f);

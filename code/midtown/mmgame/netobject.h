@@ -24,6 +24,17 @@
 
 class mmCar;
 
+#define NET_FLAG_HORN 0x2
+#define NET_FLAG_REVERSE 0x4
+#define NET_FLAG_SIREN 0x8
+
+enum NetgameMessageId
+{
+    PlayerUpdate = 501,
+    Chat = 504,
+    BootPlayer = 513,
+};
+
 struct NETGAME_MSG
 {
     i32 MessageId;
@@ -41,10 +52,6 @@ struct NETGAME_MSG
     u32 LastUpdateIdx;
     char StringValue[4];
 };
-
-#define NET_FLAG_HORN 0x2
-#define NET_FLAG_REVERSE 0x4
-#define NET_FLAG_SIREN 0x8
 
 class mmNetObject final : public asNetObject
 {
@@ -88,29 +95,32 @@ public:
     // ?Update@mmNetObject@@UAEXXZ
     ARTS_EXPORT void Update() override;
 
-    u32 field_28;
-    u32 Flags;
-    i32 Score;
-    f32 Time;
+    u32 field_28 {};
+    u32 Flags {};
+    i32 Score {};
+    f32 Time {};
     NETGAME_MSG LocalData {};
-    mmCar* Car;
-    b32 IsEnabled;
-    b32 Active;
-    u32 UpdateCount;
-    b32 MatrixChanged;
-    f32 ActivateTime;
-    f32 Steering;
-    f32 PrevSteering;
-    f32 SteeringDelta;
-    f32 Throttle;
-    f32 PrevThrottle;
-    f32 ThrottleDelta;
-    f32 Brakes;
-    f32 PrevBrakes;
-    f32 BrakesDelta;
-    f32 field_BC;
-    f32 field_C0;
+    mmCar* Car {};
+    b32 IsEnabled {};
+    b32 Active {};
+    u32 UpdateCount {};
+    b32 MatrixChanged {};
+    f32 ActivateTime {};
+    f32 Steering {};
+    f32 PrevSteering {};
+    f32 SteeringDelta {};
+    f32 Throttle {};
+    f32 PrevThrottle {};
+    f32 ThrottleDelta {};
+    f32 Brakes {};
+    f32 PrevBrakes {};
+    f32 BrakesDelta {};
+    f32 field_BC {};
+    f32 field_C0 {};
     Matrix34 Matrix = IDENTITY;
 };
 
 check_size(mmNetObject, 0xF4);
+
+// ?time_delta@@3MA
+ARTS_EXPORT extern f32 time_delta;
