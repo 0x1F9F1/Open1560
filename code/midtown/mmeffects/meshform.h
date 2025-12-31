@@ -53,7 +53,9 @@ public:
     // ?SphMapTex@asMeshSetForm@@2PAVagiTexDef@@A
     ARTS_IMPORT static agiTexDef* SphMapTex;
 
-    u8 gap20[0xC];
+    i32 Mesh;
+    i32 Color;
+    i32 Flags;
 };
 
 check_size(asMeshSetForm, 0x2C);

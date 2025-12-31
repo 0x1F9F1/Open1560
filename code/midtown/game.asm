@@ -2875,135 +2875,6 @@ ALIGN 16
 ?AddWidgets@mmHUD@@UAEXPAVBank@@@Z ENDP
 
 ALIGN 16
-??0mmArrow@@QAE@XZ PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    push -1
-    push offset ??0mmArrow@@QAE@XZ_SEH
-    mov eax, dword ptr fs:[0]
-    push eax
-    mov dword ptr fs:[0], esp
-    sub esp, 8
-    push ebx
-    push esi
-    mov esi, ecx
-    mov dword ptr [ebp-10h], esi
-    call ??0asNode@@QAE@XZ
-    xor ebx, ebx
-    push 88h
-    mov dword ptr [ebp-4], ebx
-    mov dword ptr [esi], offset ??_7mmArrow@@6B@
-    call ?arts_operator_new@@YAPAXI@Z
-    add esp, 4
-    mov dword ptr [ebp-14h], eax
-    cmp eax, ebx
-    mov byte ptr [ebp-4], 1
-    jz loc_406323
-    mov ecx, eax
-    call ??0asLinearCS@@QAE@XZ
-    jmp loc_406325
-
-loc_406323:
-    xor eax, eax
-
-loc_406325:
-    push 2Ch
-    mov byte ptr [ebp-4], bl
-    mov dword ptr [esi+20h], eax
-    call ?arts_operator_new@@YAPAXI@Z
-    add esp, 4
-    mov dword ptr [ebp-14h], eax
-    cmp eax, ebx
-    mov byte ptr [ebp-4], 2
-    jz loc_406349
-    mov ecx, eax
-    call ??0asMeshSetForm@@QAE@XZ
-    jmp loc_40634B
-
-loc_406349:
-    xor eax, eax
-
-loc_40634B:
-    push ebx
-    push offset asc_635248
-    push offset asc_635250
-    mov ecx, eax
-    mov byte ptr [ebp-4], bl
-    mov dword ptr [esi+28h], eax
-    call ?SetShape@asMeshSetForm@@QAEXPAD0PAVVector3@@@Z
-    mov dword ptr [?Lighter@asMeshSetForm@@2P6AXPAEPAI1PAVagiMeshSet@@@ZA], ebx
-    mov dword ptr [?SphMapTex@asMeshSetForm@@2PAVagiTexDef@@A], ebx
-    mov ecx, dword ptr [esi+28h]
-    push ebx
-    call ?SetZRead@asMeshSetForm@@QAEXH@Z
-    mov ecx, dword ptr [esi+28h]
-    push ebx
-    call ?SetZWrite@asMeshSetForm@@QAEXH@Z
-    mov eax, dword ptr [esi+28h]
-    push 2Ch
-    mov dword ptr [eax+24h], -7FFF0100h
-    call ?arts_operator_new@@YAPAXI@Z
-    add esp, 4
-    mov dword ptr [ebp-14h], eax
-    cmp eax, ebx
-    mov byte ptr [ebp-4], 3
-    jz loc_4063A9
-    mov ecx, eax
-    call ??0asMeshSetForm@@QAE@XZ
-    jmp loc_4063AB
-
-loc_4063A9:
-    xor eax, eax
-
-loc_4063AB:
-    push ebx
-    push offset asc_63525C
-    push offset asc_635264
-    mov ecx, eax
-    mov byte ptr [ebp-4], bl
-    mov dword ptr [esi+2Ch], eax
-    call ?SetShape@asMeshSetForm@@QAEXPAD0PAVVector3@@@Z
-    mov dword ptr [?Lighter@asMeshSetForm@@2P6AXPAEPAI1PAVagiMeshSet@@@ZA], ebx
-    mov dword ptr [?SphMapTex@asMeshSetForm@@2PAVagiTexDef@@A], ebx
-    mov ecx, dword ptr [esi+2Ch]
-    push ebx
-    call ?SetZRead@asMeshSetForm@@QAEXH@Z
-    mov ecx, dword ptr [esi+2Ch]
-    push ebx
-    call ?SetZWrite@asMeshSetForm@@QAEXH@Z
-    mov eax, dword ptr [esi+2Ch]
-    mov dword ptr [eax+24h], -7F000100h
-    mov eax, dword ptr [esi+20h]
-    add eax, 44h
-    mov dword ptr [eax], ebx
-    mov dword ptr [eax+4], 40000000h
-    mov dword ptr [eax+8], -3F3CCCCDh
-    mov eax, dword ptr [esi+28h]
-    mov ecx, dword ptr [esi+20h]
-    push eax
-    mov dword ptr [esi+24h], ebx
-    mov dword ptr [esi+34h], ebx
-    call ?AddChild@asNode@@QAEHPAV1@@Z
-    mov ecx, dword ptr [esi+2Ch]
-    push ecx
-    mov ecx, dword ptr [esi+20h]
-    call ?AddChild@asNode@@QAEHPAV1@@Z
-    mov edx, dword ptr [esi+20h]
-    mov ecx, esi
-    push edx
-    call ?AddChild@asNode@@QAEHPAV1@@Z
-    mov ecx, dword ptr [ebp-0Ch]
-    mov dword ptr [esi+30h], 2
-    mov eax, esi
-    pop esi
-    mov dword ptr fs:[0], ecx
-    pop ebx
-    mov esp, ebp
-    pop ebp
-    retn
-??0mmArrow@@QAE@XZ ENDP
-
-ALIGN 16
 ??1mmArrow@@UAE@XZ PROC PUBLIC
     push ebp
     mov ebp, esp
@@ -450220,36 +450091,6 @@ loc_60EEC8:
     jmp ___CxxFrameHandler
 ?Init@mmHUD@@QAEXPADPAVmmPlayer@@@Z_SEH ENDP
 
-loc_60EEDD:
-    mov ecx, dword ptr [ebp-10h]
-    jmp ??1asNode@@UAE@XZ
-
-loc_60EEE5:
-    mov eax, dword ptr [ebp-14h]
-    push eax
-    call ?arts_operator_delete@@YAXPAX@Z
-    pop ecx
-    retn
-
-loc_60EEF0:
-    mov eax, dword ptr [ebp-14h]
-    push eax
-    call ?arts_operator_delete@@YAXPAX@Z
-    pop ecx
-    retn
-
-loc_60EEFB:
-    mov eax, dword ptr [ebp-14h]
-    push eax
-    call ?arts_operator_delete@@YAXPAX@Z
-    pop ecx
-    retn
-
-??0mmArrow@@QAE@XZ_SEH PROC PRIVATE
-    mov eax, offset stru_627DB0
-    jmp ___CxxFrameHandler
-??0mmArrow@@QAE@XZ_SEH ENDP
-
 loc_60EF10:
     mov ecx, dword ptr [ebp-10h]
     jmp ??1asNode@@UAE@XZ
@@ -471917,25 +471758,6 @@ stru_627D88 dd 0FFFFFFFFh
     dd offset loc_60EEC8
 
 ALIGN 4
-stru_627DB0 dd 19930520h
-    dd 4
-    dd offset stru_627DD0
-    dd 0
-    dd 0
-    dd 0
-    dd 0
-
-ALIGN 4
-stru_627DD0 dd 0FFFFFFFFh
-    dd offset loc_60EEDD
-    dd 0
-    dd offset loc_60EEE5
-    dd 0
-    dd offset loc_60EEF0
-    dd 0
-    dd offset loc_60EEFB
-
-ALIGN 4
 stru_627DF0 dd 19930520h
     dd 1
     dd offset stru_627E10
@@ -481373,18 +481195,6 @@ asc_635228 db 'Pos #%d saved (%s)',0
 
 ALIGN 4
 asc_63523C db 'arrowrotY',0
-
-ALIGN 4
-asc_635248 db 'BOTTOM',0
-
-ALIGN 4
-asc_635250 db 'hudarrow1',0
-
-ALIGN 4
-asc_63525C db 'BOTTOM',0
-
-ALIGN 4
-asc_635264 db 'hudarrow2',0
 
 ALIGN 4
 sym_635270 dd 040400000r
@@ -513391,6 +513201,7 @@ EXTERN ??0asSimulation@@QAE@XZ:PROC
 EXTERN ??0eqEventQ@@QAE@HHH@Z:PROC
 EXTERN ??0initHaveMMX@@QAE@XZ:PROC
 EXTERN ??0mmAnimTrainCar@@QAE@XZ:PROC
+EXTERN ??0mmArrow@@QAE@XZ:PROC
 EXTERN ??0mmAxle@@QAE@XZ:PROC
 EXTERN ??0mmBangerActiveManager@@QAE@XZ:PROC
 EXTERN ??0mmBangerInstance@@QAE@XZ:PROC

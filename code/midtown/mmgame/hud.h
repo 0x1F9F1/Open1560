@@ -22,6 +22,7 @@
 
 #include "cd.h"
 #include "dash.h"
+#include "mmeffects/meshform.h"
 #include "mmeffects/mmnumber.h"
 #include "mmeffects/mmtext.h"
 #include "vector7/vector4.h"
@@ -73,7 +74,7 @@ class mmArrow final : public asNode
 {
 public:
     // ??0mmArrow@@QAE@XZ
-    ARTS_IMPORT mmArrow();
+    ARTS_EXPORT mmArrow();
 
     // ??1mmArrow@@UAE@XZ
     ARTS_IMPORT ~mmArrow() override;
@@ -94,7 +95,12 @@ private:
     // ?ReColorArrow@mmArrow@@AAEXH@Z
     ARTS_IMPORT void ReColorArrow(i32 arg1);
 
-    u8 gap20[0x18];
+    asLinearCS* LinearCS;
+    i32 Interest;
+    asMeshSetForm* GreenArrow;
+    asMeshSetForm* YellowArrow;
+    i32 Color;
+    i32 Transform;
 };
 
 check_size(mmArrow, 0x38);
