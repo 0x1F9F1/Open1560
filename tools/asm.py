@@ -237,6 +237,7 @@ with open(game_asm, 'w') as f:
     f.write(output)
 
 print('| Component  | Proc | Data | Total |')
+print('|------------|------|------|-------|')
 
 for folder, imps in sorted(dir_imports.items()):
     total_imps = len(imps)
@@ -246,7 +247,7 @@ for folder, imps in sorted(dir_imports.items()):
     num_data = total_imps - num_procs
     print(f'| {folder:10} | {num_procs:>4} | {num_data:>4} | {total_imps:>5} |')
 
-print(f'Total imported symbols: {len(import_syms)}')
+print(f'\nTotal imported symbols: {len(import_syms)}')
 
 unused_exports = export_syms - visited
 
