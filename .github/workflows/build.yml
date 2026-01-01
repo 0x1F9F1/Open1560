@@ -30,6 +30,9 @@ jobs:
     - name: Build
       run: msbuild /verbosity:minimal /nologo /m /p:Configuration="${{env.BUILD_CONFIGURATION}}" /p:Platform=Win32 "build/Open1560.sln"
 
+    - name: Generate Summary
+      run: python3 tools/asm.py >> $env:GITHUB_STEP_SUMMARY
+
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4.6.2
       with:
