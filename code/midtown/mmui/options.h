@@ -1,4 +1,4 @@
-/*
+﻿/*
     Open1560 - An Open Source Re-Implementation of Midtown Madness 1 Beta
     Copyright (C) 2020 Brick
 
@@ -20,22 +20,31 @@
 
 #include "mmwidget/menu.h"
 
+enum
+{
+    IDC_OPTIONS_MENU_AUDIO = 100,
+    IDC_OPTIONS_MENU_CONTROLS = 101,
+    IDC_OPTIONS_MENU_GRAPHICS = 102,
+    IDC_OPTIONS_MENU_CREDITS = 103,
+};
+
 class OptionsMenu final : public UIMenu
 {
 public:
     // ??0OptionsMenu@@QAE@H@Z
-    ARTS_IMPORT OptionsMenu(i32 arg1);
+    ARTS_EXPORT OptionsMenu(i32 menu_id);
 
     // ??1OptionsMenu@@UAE@XZ
-    ARTS_EXPORT ~OptionsMenu() override = default;
+    ARTS_EXPORT ~OptionsMenu() override;
 
     // ?PostSetup@OptionsMenu@@UAEXXZ
-    ARTS_IMPORT void PostSetup() override;
+    ARTS_EXPORT void PostSetup() override;
 
     // ?PreSetup@OptionsMenu@@UAEXXZ
-    ARTS_IMPORT void PreSetup() override;
+    ARTS_EXPORT void PreSetup() override;
 
-    u8 gap90[0x8];
+    f32 previous_x_;
+    f32 previous_y_;
 };
 
 check_size(OptionsMenu, 0x98);

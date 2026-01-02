@@ -204896,199 +204896,6 @@ loc_4A393A:
 ??_EControlSetup@@UAEPAXI@Z ENDP
 
 ALIGN 16
-??0OptionsMenu@@QAE@H@Z PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    push -1
-    push offset ??0OptionsMenu@@QAE@H@Z_SEH
-    mov eax, dword ptr fs:[0]
-    push eax
-    mov dword ptr fs:[0], esp
-    push ecx
-    mov eax, dword ptr [ebp+8]
-    push ebx
-    push esi
-    push edi
-    mov ebx, ecx
-    push eax
-    mov dword ptr [ebp-10h], ebx
-    call ??0UIMenu@@QAE@H@Z
-    push offset asc_640E78
-    mov ecx, ebx
-    mov dword ptr [ebp-4], 0
-    mov dword ptr [ebx], offset ??_7OptionsMenu@@6B@
-    call ?AssignName@UIMenu@@QAEXPAULocString@@@Z
-    sub esp, 14h
-    mov ecx, 5
-    mov edi, esp
-    mov esi, offset ?NullCallback@@3VCallback@@A
-    push 0
-    push -1
-    push 0
-    rep movsd
-    sub esp, 14h
-    mov ecx, 5
-    mov esi, offset ?NullCallback@@3VCallback@@A
-    mov edi, esp
-    rep movsd
-    mov ecx, dword ptr [?UI_LEFT_MARGIN@UIMenu@@2MA]
-    push 4
-    push 3E4CCCCDh
-    push ecx
-    push offset asc_640E8C
-    push 64h
-    mov ecx, ebx
-    call ?AddBMButton@UIMenu@@QAEPAVUIBMButton@@HPADMMHVCallback@@PAHHH1@Z
-    push -1
-    mov ecx, ebx
-    call ?SetFocusWidget@UIMenu@@QAEXH@Z
-    sub esp, 14h
-    mov edx, dword ptr [?UI_LEFT_MARGIN@UIMenu@@2MA]
-    mov edi, esp
-    mov ecx, 5
-    push 0
-    push -1
-    mov esi, offset ?NullCallback@@3VCallback@@A
-    push 0
-    rep movsd
-    sub esp, 14h
-    mov ecx, 5
-    mov edi, esp
-    mov esi, offset ?NullCallback@@3VCallback@@A
-    push 4
-    push 3ECCCCCDh
-    rep movsd
-    push edx
-    push offset asc_640E98
-    push 65h
-    mov ecx, ebx
-    call ?AddBMButton@UIMenu@@QAEPAVUIBMButton@@HPADMMHVCallback@@PAHHH1@Z
-    sub esp, 14h
-    mov eax, dword ptr [?UI_LEFT_MARGIN@UIMenu@@2MA]
-    mov edi, esp
-    mov ecx, 5
-    push 0
-    push -1
-    mov esi, offset ?NullCallback@@3VCallback@@A
-    push 0
-    rep movsd
-    sub esp, 14h
-    mov ecx, 5
-    mov edi, esp
-    mov esi, offset ?NullCallback@@3VCallback@@A
-    push 4
-    push 3F19999Ah
-    rep movsd
-    push eax
-    push offset asc_640EA4
-    push 66h
-    mov ecx, ebx
-    call ?AddBMButton@UIMenu@@QAEPAVUIBMButton@@HPADMMHVCallback@@PAHHH1@Z
-    sub esp, 14h
-    mov edi, esp
-    push 0
-    push -1
-    mov ecx, 5
-    mov esi, offset ?NullCallback@@3VCallback@@A
-    push 0
-    rep movsd
-    sub esp, 14h
-    mov ecx, 5
-    mov esi, offset ?NullCallback@@3VCallback@@A
-    mov edi, esp
-    rep movsd
-    mov ecx, dword ptr [?UI_LEFT_MARGIN@UIMenu@@2MA]
-    push 4
-    push 3F4CCCCDh
-    push ecx
-    push offset asc_640EB0
-    push 67h
-    mov ecx, ebx
-    call ?AddBMButton@UIMenu@@QAEPAVUIBMButton@@HPADMMHVCallback@@PAHHH1@Z
-    sub esp, 14h
-    mov ecx, 5
-    mov edi, esp
-    mov esi, offset ?NullCallback@@3VCallback@@A
-    push 0
-    push 0
-    push 3F666666h
-    push 3F666666h
-    rep movsd
-    push offset asc_640EBC
-    push -1
-    mov ecx, ebx
-    call ?AddHotSpot@UIMenu@@QAEPAVuiWidget@@HPADMMMMVCallback@@@Z
-    fld dword ptr [eax+58h]
-    fstp dword ptr [ebx+90h]
-    fld dword ptr [eax+5Ch]
-    fstp dword ptr [ebx+94h]
-    mov edx, dword ptr [eax]
-    mov ecx, eax
-    call dword ptr [edx+48h]
-    push 0
-    mov ecx, ebx
-    call ?SetBstate@UIMenu@@QAEXH@Z
-    mov ecx, dword ptr [ebp-0Ch]
-    pop edi
-    mov eax, ebx
-    pop esi
-    mov dword ptr fs:[0], ecx
-    pop ebx
-    mov esp, ebp
-    pop ebp
-    retn 4
-??0OptionsMenu@@QAE@H@Z ENDP
-
-ALIGN 16
-?PreSetup@OptionsMenu@@UAEXXZ PROC PUBLIC
-    mov al, byte ptr [?GraphicsChange@@3EA]
-    test al, al
-    jnz loc_4A3B31
-    mov eax, dword ptr [ecx+7Ch]
-    mov byte ptr [?GraphicsPreviousMenu@@3EA], al
-
-loc_4A3B31:
-    mov eax, dword ptr [ecx+94h]
-    mov ecx, dword ptr [ecx+90h]
-    mov edx, dword ptr [?Instance@MenuManager@@2PAV1@A]
-    push eax
-    push ecx
-    mov ecx, dword ptr [edx+34h]
-    call ?SetPrevPos@uiNavBar@@QAEXMM@Z
-    retn
-?PreSetup@OptionsMenu@@UAEXXZ ENDP
-
-ALIGN 16
-?PostSetup@OptionsMenu@@UAEXXZ PROC PUBLIC
-    mov eax, dword ptr [?Instance@MenuManager@@2PAV1@A]
-    push 0
-    push 0
-    mov ecx, dword ptr [eax+34h]
-    call ?SetPrevPos@uiNavBar@@QAEXMM@Z
-    retn
-?PostSetup@OptionsMenu@@UAEXXZ ENDP
-
-ALIGN 16
-??_EOptionsMenu@@UAEPAXI@Z PROC PRIVATE
-    push ebp
-    mov ebp, esp
-    push esi
-    mov esi, ecx
-    call ??1OptionsMenu@@UAE@XZ
-    test byte ptr [ebp+8], 1
-    jz loc_4A3B8A
-    push esi
-    call ?arts_operator_delete@@YAXPAX@Z
-    add esp, 4
-
-loc_4A3B8A:
-    mov eax, esi
-    pop esi
-    pop ebp
-    retn 4
-??_EOptionsMenu@@UAEPAXI@Z ENDP
-
-ALIGN 16
 ??0NetSelectMenu@@QAE@H@Z PROC PUBLIC
     push ebp
     mov ebp, esp
@@ -456226,15 +456033,6 @@ loc_6130E3:
     jmp ___CxxFrameHandler
 ??1ControlSetup@@UAE@XZ_SEH ENDP
 
-loc_613100:
-    mov ecx, dword ptr [ebp-10h]
-    jmp ??1UIMenu@@UAE@XZ
-
-??0OptionsMenu@@QAE@H@Z_SEH PROC PRIVATE
-    mov eax, offset stru_62C3B8
-    jmp ___CxxFrameHandler
-??0OptionsMenu@@QAE@H@Z_SEH ENDP
-
 loc_613120:
     mov ecx, dword ptr [ebp-1Ch]
     jmp ??1UIMenu@@UAE@XZ
@@ -465920,28 +465718,6 @@ ALIGN 4
     dd offset ?DoneAction@ControlSetup@@UAEXXZ
     dd offset ?ResetDefaultAction@ControlSetup@@UAEXXZ
     dd offset ?StoreCurrentSetup@ControlSetup@@UAEXXZ
-
-ALIGN 4
-??_7OptionsMenu@@6B@ dd offset ??_EOptionsMenu@@UAEPAXI@Z
-    dd offset ?GetClass@asNode@@UAEPAVMetaClass@@XZ
-    dd offset ?GetTypeNameV@Base@@UAEPBDXZ
-    dd offset ?BeforeSave@Base@@UAEXXZ
-    dd offset ?AfterLoad@Base@@UAEXXZ
-    dd offset ?Cull@asCullable@@UAEXXZ
-    dd offset ?Update@UIMenu@@UAEXXZ
-    dd offset ?Reset@asNode@@UAEXXZ
-    dd offset ?ResChange@asNode@@UAEXHH@Z
-    dd offset ?UpdatePaused@asNode@@UAEXXZ
-    dd offset ?Load@asNode@@UAEXXZ
-    dd offset ?Save@asNode@@UAEXXZ
-    dd offset ?AddWidgets@asNode@@UAEXPAVBank@@@Z
-    dd offset ?OpenWidgets@asNode@@UAEXPADPAVbkWindow@@@Z
-    dd offset ?CloseWidgets@asNode@@UAEXXZ
-    dd offset ?PreSetup@OptionsMenu@@UAEXXZ
-    dd offset ?PostSetup@OptionsMenu@@UAEXXZ
-    dd offset ?BackUp@UIMenu@@UAEXXZ
-    dd offset ?CheckInput@UIMenu@@UAEXXZ
-    dd offset ?IsAnOptionMenu@UIMenu@@UAEHXZ
 
 ALIGN 4
 flt_61DA50 dd 0BECCCCCDr
@@ -475691,19 +475467,6 @@ stru_62C390 dd 19930520h
 ALIGN 4
 stru_62C3B0 dd 0FFFFFFFFh
     dd offset loc_6130E3
-
-ALIGN 4
-stru_62C3B8 dd 19930520h
-    dd 1
-    dd offset stru_62C3D8
-    dd 0
-    dd 0
-    dd 0
-    dd 0
-
-ALIGN 4
-stru_62C3D8 dd 0FFFFFFFFh
-    dd offset loc_613100
 
 ALIGN 4
 stru_62C3E0 dd 19930520h
@@ -487942,24 +487705,6 @@ asc_640E44 db 'shell32.dll,Control_RunDLL joy.cpl',0
 
 ALIGN 4
 asc_640E68 db 'rundll32.exe',0
-
-ALIGN 4
-asc_640E78 db 'Main Options Menu',0
-
-ALIGN 4
-asc_640E8C db 'onav_aud',0
-
-ALIGN 4
-asc_640E98 db 'onav_cont',0
-
-ALIGN 4
-asc_640EA4 db 'onav_gra',0
-
-ALIGN 4
-asc_640EB0 db 'onav_credit',0
-
-ALIGN 4
-asc_640EBC db 'Previous',0
 
 ALIGN 4
 byte_640EC8 db 1
@@ -512185,6 +511930,7 @@ EXTERN ??0DLPTemplate@@QAE@PAD@Z:PROC
 EXTERN ??0MainMenu@@QAE@H@Z:PROC
 EXTERN ??0Matrix34@@QAE@XZ:PROC
 EXTERN ??0MetaClass@@QAE@PBDIP6APAXH@ZP6AXPAXH@ZP6AXXZPAV0@@Z:PROC
+EXTERN ??0OptionsMenu@@QAE@H@Z:PROC
 EXTERN ??0PUKey@@QAE@HMMMM@Z:PROC
 EXTERN ??0PUMain@@QAE@HMMMMPAD@Z:PROC
 EXTERN ??0PUMenuBase@@QAE@HMMMMPAD@Z:PROC
@@ -512273,7 +512019,6 @@ EXTERN ??1JointedStruct@@UAE@XZ:PROC
 EXTERN ??1List@@QAE@XZ:PROC
 EXTERN ??1MetaClass@@QAE@XZ:PROC
 EXTERN ??1MixerCTL@@UAE@XZ:PROC
-EXTERN ??1OptionsMenu@@UAE@XZ:PROC
 EXTERN ??1PUAudioOptions@@UAE@XZ:PROC
 EXTERN ??1PUChat@@UAE@XZ:PROC
 EXTERN ??1PUDebug@@UAE@XZ:PROC

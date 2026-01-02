@@ -1,4 +1,4 @@
-/*
+﻿/*
     Open1560 - An Open Source Re-Implementation of Midtown Madness 1 Beta
     Copyright (C) 2020 Brick
 
@@ -246,7 +246,11 @@ private:
     Ptr<asViewCS> menu_cs_;
     Ptr<asLamp[]> lamps_;
     Ptr<asLinearCS[]> lcss_;
-    Ptr<uiNavBar> nav_bar_;
+
+public:
+    Ptr<uiNavBar> NavBar;
+
+private:
     i32 field_38;
     i32 has_active_widget_;
     b32 is_3D_;
