@@ -1,8 +1,6 @@
 name: build
 
-on:
-  push:
-    branches: [ "master" ]
+on: [push, pull_request]
 
 env:
   PREMAKE_GENERATOR: vs2019
@@ -41,6 +39,7 @@ jobs:
         if-no-files-found: error
 
     - name: Update Release
+      if: github.repository_owner == '0x1F9F1' && github.ref == 'refs/heads/master'
       run: |
         7z a -tzip "artifacts/Open1560.zip" "${{github.workspace}}/build/output/*"
         gh release upload "build" "artifacts/Open1560.zip" --clobber
