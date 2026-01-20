@@ -19,3 +19,40 @@
 define_dummy_symbol(mmai_aiVehiclePolice);
 
 #include "aiVehiclePolice.h"
+
+#include "aiData.h"
+#include "aiGoalBackup.h"
+#include "aiGoalChase.h"
+#include "aiGoalRandomDrive.h"
+#include "aiGoalStop.h"
+
+#include "data7/str.h"
+#include "mmcityinfo/vehlist.h"
+
+static mem::cmd_param PARAM_maxcopcolors {"maxcopcolors"};
+
+void aiVehiclePolice::Init(i32 cop_id, aiRaceData* race_data)
+{
+    RaceData = race_data;
+
+    PoliceRaceData* cop = static_cast<PoliceRaceData*>(RaceData->Police.Access(cop_id + 1));
+
+    mmVehInfo* veh_info = VehList()->GetVehicleInfo(cop->Model);
+    i32 num_paint_jobs = string(veh_info->Colors).NumSubStrings();
+    i32 paint_job = (PARAM_maxcopcolors.value() != nullptr) ? (cop_id % num_paint_jobs) : 0;
+    Car.Init(cop->Model, CAR_TYPE_POLICE, paint_job);
+
+    aiVehicleSpline::Init(cop->Model, cop_id);
+
+    Matrix = &Car.Sim.ICS.Matrix;
+
+    Car.Sim.ICS.Gravity.y = -40.0f;
+    Car.Reset();
+
+    ChaseGoal = arnew aiGoalChase(this, &RailSet, &TargetCar, &StopId, &TargetPt, &BackupId);
+    BackupGoal = arnew aiGoalBackup(&RailSet, &Car, &BackupId);
+    StopGoal = arnew aiGoalStop(&Car, &StopId);
+    RandomDriveGoal = arnew aiGoalRandomDrive(&RailSet, this);
+
+    AudioIndexNumber = -1;
+}
