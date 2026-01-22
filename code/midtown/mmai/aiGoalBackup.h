@@ -27,7 +27,7 @@ class aiGoalBackup final : public aiGoal
 {
 public:
     // ??0aiGoalBackup@@QAE@PAVaiRailSet@@PAVmmCar@@PAF@Z
-    ARTS_EXPORT aiGoalBackup(aiRailSet* rail, mmCar* car, b16* backing_up);
+    aiGoalBackup(aiRailSet* rail, mmCar* car, b16* backing_up);
 
     // ??1aiGoalBackup@@QAE@XZ
     ARTS_EXPORT ~aiGoalBackup() = default;
