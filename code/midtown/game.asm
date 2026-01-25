@@ -160783,188 +160783,6 @@ loc_480BCB:
 ??_EVehGyro@@UAEPAXI@Z ENDP
 
 ALIGN 16
-??0mmForce@@QAE@XZ PROC PUBLIC
-    push esi
-    mov esi, ecx
-    call ??0asNode@@QAE@XZ
-    mov dword ptr [esi], offset ??_7mmForce@@6B@
-    mov dword ptr [esi+28h], 0
-    mov eax, esi
-    pop esi
-    retn
-??0mmForce@@QAE@XZ ENDP
-
-ALIGN 16
-?Update@mmForce@@UAEXXZ PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    sub esp, 28h
-    push esi
-    mov esi, ecx
-    mov dword ptr [ebp-10h], 0
-    mov dword ptr [ebp-0Ch], 0
-    mov ecx, dword ptr [esi+28h]
-    mov dword ptr [ebp-8], 0
-    mov eax, dword ptr [ecx+1830h]
-    mov dword ptr [ebp-4], eax
-    fld dword ptr [ebp-4]
-    fcomp qword ptr [dbl_61C898]
-    fld dword ptr [ebp-4]
-    fmul dword ptr [ebp-4]
-    fnstsw ax
-    test ah, 41h
-    jnz loc_480CB0
-    fld dword ptr [flt_61C8A0]
-    fdiv dword ptr [ebp-4]
-    fld dword ptr [esi+20h]
-    fmul st, st(2)
-    fld dword ptr [ecx+120h]
-    fld dword ptr [ecx+124h]
-    fld st(3)
-    fmul dword ptr [ecx+11Ch]
-    fxch st(3)
-    fchs
-    fxch st(2)
-    fmul st, st(4)
-    fxch st(1)
-    fmul st, st(4)
-    fxch st(2)
-    fst dword ptr [ebp-4]
-    fld dword ptr [ebp-4]
-    fld dword ptr [ebp-4]
-    fxch st(5)
-    fstp dword ptr [ebp-1Ch]
-    fxch st(1)
-    fmul dword ptr [ebp-1Ch]
-    fxch st(2)
-    fstp dword ptr [ebp-18h]
-    fmul dword ptr [ebp-18h]
-    fxch st(1)
-    fstp dword ptr [ebp-28h]
-    mov edx, dword ptr [ebp-28h]
-    fstp dword ptr [ebp-24h]
-    mov eax, dword ptr [ebp-24h]
-    mov dword ptr [ebp-10h], edx
-    fstp dword ptr [ebp-14h]
-    fmul dword ptr [ebp-14h]
-    mov dword ptr [ebp-0Ch], eax
-    fstp dword ptr [ebp-20h]
-    mov edx, dword ptr [ebp-20h]
-    fstp st
-    mov dword ptr [ebp-8], edx
-
-loc_480CB0:
-    fmul dword ptr [esi+24h]
-    fld dword ptr [ecx+7Ch]
-    fld dword ptr [ecx+80h]
-    fld dword ptr [ecx+84h]
-    fxch st(2)
-    fxch st(1)
-    fxch st(1)
-    fmul st, st(3)
-    lea eax, [ecx+7Ch]
-    lea edx, [ebp-10h]
-    fld dword ptr [ebp-10h]
-    fxch st(2)
-    fmul st, st(4)
-    fld dword ptr [ebp-0Ch]
-    fxch st(4)
-    fmul st, st(5)
-    fld dword ptr [ebp-8]
-    fxch st(3)
-    fstp dword ptr [ebp-28h]
-    fxch st(3)
-    fsub dword ptr [ebp-28h]
-    fxch st(1)
-    fstp dword ptr [ebp-24h]
-    fxch st(3)
-    fsub dword ptr [ebp-24h]
-    fxch st(3)
-    fstp dword ptr [ebp-10h]
-    fxch st(1)
-    fstp dword ptr [ebp-20h]
-    add ecx, 50h
-    push edx
-    fsub dword ptr [ebp-20h]
-    fxch st(1)
-    fstp dword ptr [ebp-0Ch]
-    fstp dword ptr [ebp-8]
-    fstp st
-    call ?ApplyForce@asInertialCS@@QAEXABVVector3@@@Z
-    mov eax, dword ptr [?ARTSPTR@@3PAVasSimulation@@A]
-    fld dword ptr [eax+13Ch]
-    mov eax, dword ptr [esi+28h]
-    fsubr qword ptr [dbl_61C8A8]
-    fmul dword ptr [eax+114h]
-    fstp dword ptr [eax+114h]
-    mov eax, dword ptr [?CHICAGO@@3HA]
-    test eax, eax
-    jz loc_480DF5
-    mov edx, dword ptr [esi+28h]
-    fld dword ptr [edx+98h]
-    fcomp dword ptr [?YDownForceMinHeight@@3MA]
-    fnstsw ax
-    test ah, 41h
-    jnz loc_480DF5
-    fld dword ptr [?YDownForceMaxHeight@@3MA]
-    fld dword ptr [edx+98h]
-    fsub dword ptr [?YDownForceMinHeight@@3MA]
-    fxch st(1)
-    fsub dword ptr [?YDownForceMinHeight@@3MA]
-    fld dword ptr [?YDownForceMax@@3MA]
-    fxch st(1)
-    fdivp st(2), st
-    lea eax, [ebp-28h]
-    lea ecx, [edx+50h]
-    push eax
-    fsub dword ptr [?YDownForceMin@@3MA]
-    fld dword ptr [?YAXIS@@3VVector3@@A+8]
-    fxch st(1)
-    fmulp st(2), st
-    fld dword ptr [?YAXIS@@3VVector3@@A+4]
-    fld dword ptr [?YAXIS@@3VVector3@@A]
-    fxch st(3)
-    fadd dword ptr [?YDownForceMin@@3MA]
-    fxch st(2)
-    fchs
-    fxch st(1)
-    fchs
-    fxch st(2)
-    fmul dword ptr [edx+0E4h]
-    fxch st(3)
-    fchs
-    fld st(1)
-    fxch st(3)
-    fst dword ptr [ebp-4]
-    fxch st(1)
-    fst dword ptr [ebp-28h]
-    fxch st(4)
-    fstp dword ptr [ebp-4]
-    fxch st(3)
-    fmul dword ptr [ebp-4]
-    fxch st(3)
-    fmul dword ptr [ebp-4]
-    fxch st(2)
-    fmul dword ptr [ebp-4]
-    fxch st(3)
-    fstp dword ptr [ebp-28h]
-    fxch st(1)
-    fstp dword ptr [ebp-24h]
-    fxch st(1)
-    fstp dword ptr [ebp-20h]
-    fstp st
-    call ?ApplyForce@asInertialCS@@QAEXABVVector3@@@Z
-
-loc_480DF5:
-    mov ecx, esi
-    call ?Update@asNode@@UAEXXZ
-    pop esi
-    mov esp, ebp
-    pop ebp
-    retn
-?Update@mmForce@@UAEXXZ ENDP
-
-ALIGN 16
 ?AddWidgets@mmForce@@UAEXPAVBank@@@Z PROC PUBLIC
     push ebp
     mov ebp, esp
@@ -161122,52 +160940,6 @@ ALIGN 16
     mov eax, offset ?mmForceMetaClass@@3VMetaClass@@A
     retn
 ?GetClass@mmForce@@UAEPAVMetaClass@@XZ ENDP
-
-ALIGN 16
-??_EmmForce@@UAEPAXI@Z PROC PRIVATE
-    push ebp
-    mov ebp, esp
-    push ebx
-    mov bl, byte ptr [ebp+8]
-    push esi
-    push edi
-    test bl, 2
-    mov esi, ecx
-    jz loc_480FC6
-    mov eax, dword ptr [esi-4]
-    lea edi, [esi-4]
-    push offset ??1mmForce@@UAE@XZ
-    push eax
-    push 2Ch
-    push esi
-    call ??_M@YGXPAXIHP6EX0@Z@Z
-    push edi
-    call ?arts_operator_delete@@YAXPAX@Z
-    add esp, 4
-    mov eax, esi
-    pop edi
-    pop esi
-    pop ebx
-    pop ebp
-    retn 4
-
-loc_480FC6:
-    mov ecx, esi
-    call ??1mmForce@@UAE@XZ
-    test bl, 1
-    jz loc_480FDB
-    push esi
-    call ?arts_operator_delete@@YAXPAX@Z
-    add esp, 4
-
-loc_480FDB:
-    mov eax, esi
-    pop edi
-    pop esi
-    pop ebx
-    pop ebp
-    retn 4
-??_EmmForce@@UAEPAXI@Z ENDP
 
 ALIGN 16
 ??0mmSplash@@QAE@XZ PROC PUBLIC
@@ -461462,33 +461234,6 @@ ALIGN 4
 flt_61C84C dd 000000000r
 
 ALIGN 4
-??_7mmForce@@6B@ dd offset ??_EmmForce@@UAEPAXI@Z
-    dd offset ?GetClass@mmForce@@UAEPAVMetaClass@@XZ
-    dd offset ?GetTypeNameV@Base@@UAEPBDXZ
-    dd offset ?BeforeSave@Base@@UAEXXZ
-    dd offset ?AfterLoad@Base@@UAEXXZ
-    dd offset ?Cull@asCullable@@UAEXXZ
-    dd offset ?Update@mmForce@@UAEXXZ
-    dd offset ?Reset@asNode@@UAEXXZ
-    dd offset ?ResChange@asNode@@UAEXHH@Z
-    dd offset ?UpdatePaused@asNode@@UAEXXZ
-    dd offset ?Load@asNode@@UAEXXZ
-    dd offset ?Save@asNode@@UAEXXZ
-    dd offset ?AddWidgets@mmForce@@UAEXPAVBank@@@Z
-    dd offset ?OpenWidgets@asNode@@UAEXPADPAVbkWindow@@@Z
-    dd offset ?CloseWidgets@asNode@@UAEXXZ
-    dd 3 dup (0)
-
-ALIGN 8
-dbl_61C898 dq 03F50624DD2F1A9FCr
-
-ALIGN 4
-flt_61C8A0 dd 03F800000r
-
-ALIGN 8
-dbl_61C8A8 dq 03FF0000000000000r
-
-ALIGN 4
 ??_7mmSplash@@6B@ dd offset ??_GmmSplash@@UAEPAXI@Z
     dd offset ?GetClass@asNode@@UAEPAVMetaClass@@XZ
     dd offset ?GetTypeNameV@Base@@UAEPBDXZ
@@ -508721,6 +508466,7 @@ EXTERN ??0mmCar@@QAE@XZ:PROC
 EXTERN ??0mmCarModel@@QAE@XZ:PROC
 EXTERN ??0mmCityList@@QAE@XZ:PROC
 EXTERN ??0mmDropDown@@QAE@XZ:PROC
+EXTERN ??0mmForce@@QAE@XZ:PROC
 EXTERN ??0mmGame@@QAE@XZ:PROC
 EXTERN ??0mmHitBangerInstance@@QAE@XZ:PROC
 EXTERN ??0mmIO@@QAE@XZ:PROC
