@@ -26,10 +26,10 @@ class mmForce final : public asNode
 {
 public:
     // ??0mmForce@@QAE@XZ
-    ARTS_EXPORT mmForce();
+    mmForce();
 
     // ??1mmForce@@UAE@XZ | inline
-    ARTS_EXPORT ~mmForce() override = default;
+    ~mmForce() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmForce@@UAEXPAVBank@@@Z
@@ -40,7 +40,7 @@ public:
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Update@mmForce@@UAEXXZ
-    ARTS_EXPORT void Update() override;
+    void Update() override;
 
     // ?DeclareFields@mmForce@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
