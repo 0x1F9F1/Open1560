@@ -242629,45 +242629,115 @@ loc_4C0E52:
 
 ALIGN 16
 ?GetHit@mmDropDown@@QAEHMM@Z PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    fld dword ptr [ecx+48h]
-    fcomp dword ptr [ebp+8]
-    or edx, -1
-    fnstsw ax
-    test ah, 41h
-    jz loc_4C0F19
-    fld dword ptr [ecx+4Ch]
-    fadd dword ptr [ecx+48h]
-    fcomp dword ptr [ebp+8]
-    fnstsw ax
-    test ah, 1
-    jnz loc_4C0F19
-    fld dword ptr [ecx+54h]
-    fcomp dword ptr [ebp+0Ch]
-    fnstsw ax
-    test ah, 41h
-    jz loc_4C0F19
-    fld dword ptr [ecx+50h]
-    fadd dword ptr [ecx+54h]
-    fcomp dword ptr [ebp+0Ch]
-    fnstsw ax
-    test ah, 1
-    jnz loc_4C0F19
-    fld dword ptr [ebp+0Ch]
-    fsub dword ptr [ecx+54h]
-    fild dword ptr [ecx+58h]
-    fxch st(1)
-    fdiv dword ptr [ecx+50h]
-    fxch st(1)
-    fmulp st(1), st
-    call __ftol
-    mov edx, eax
+    push    ebp
+    mov     ebp, esp
+    push    ebx
+    push    esi
+    push    edi
 
-loc_4C0F19:
-    mov eax, edx
-    pop ebp
-    retn 8
+    mov     edx, 0FFFFFFFFh
+
+    fld     dword ptr [ecx+48h]
+    fcomp   dword ptr [ebp+08h]
+    fnstsw  ax
+    test    ah, 41h
+    jz      loc_return
+
+    fld     dword ptr [ecx+4Ch]
+    fadd    dword ptr [ecx+48h]
+    fcomp   dword ptr [ebp+08h]
+    fnstsw  ax
+    test    ah, 01h
+    jnz     loc_return
+
+    fld     dword ptr [ecx+54h]
+    fcomp   dword ptr [ebp+0Ch]
+    fnstsw  ax
+    test    ah, 41h
+    jz      loc_return
+
+    fld     dword ptr [ecx+50h]
+    fadd    dword ptr [ecx+54h]
+    fcomp   dword ptr [ebp+0Ch]
+    fnstsw  ax
+    test    ah, 01h
+    jnz     loc_return
+
+    fld     dword ptr [ebp+0Ch]
+    fsub    dword ptr [ecx+54h]
+    fdiv    dword ptr [ecx+44h]
+    call    __ftol
+    mov     ebx, eax
+
+    fld     dword ptr [ecx+50h]
+    fdiv    dword ptr [ecx+44h]
+    call    __ftol
+    mov     esi, eax
+    test    esi, esi
+    jg      loc_vis_ok
+    mov     esi, 1
+loc_vis_ok:
+
+    mov     edi, dword ptr [ecx+58h]
+    sub     edi, esi
+    jg      loc_max_ok
+    xor     edi, edi
+loc_max_ok:
+
+    mov     eax, dword ptr [mmDropDown_ScrollCooldown]
+    test    eax, eax
+    jz      loc_cool_ok
+    dec     eax
+    mov     dword ptr [mmDropDown_ScrollCooldown], eax
+    jmp     loc_index_calc
+
+loc_cool_ok:
+
+    mov     eax, ebx
+    cmp     eax, 2                      ; ZONE: bigger number = starts scrolling earlier
+    jg      loc_check_down
+
+    mov     eax, dword ptr [ecx+2Ch]
+    test    eax, eax
+    jle     loc_index_calc
+    dec     eax
+    mov     dword ptr [ecx+2Ch], eax
+    mov     dword ptr [mmDropDown_ScrollCooldown], 3    ; SPEED: bigger number = slower
+    jmp     loc_index_calc
+
+loc_check_down:
+    mov     eax, esi
+    dec     eax
+    sub     eax, 2                      ; ZONE: match the number above
+    mov     edx, ebx
+    cmp     edx, eax
+    jl      loc_index_calc
+
+    mov     eax, dword ptr [ecx+2Ch]
+    cmp     eax, edi
+    jge     loc_index_calc
+    inc     eax
+    mov     dword ptr [ecx+2Ch], eax
+    mov     dword ptr [mmDropDown_ScrollCooldown], 3    ; SPEED: match the number above
+
+loc_index_calc:
+    mov     eax, ebx
+    add     eax, dword ptr [ecx+2Ch]
+
+    cmp     eax, dword ptr [ecx+58h]
+    jl      loc_ok
+    mov     eax, dword ptr [ecx+58h]
+    dec     eax
+loc_ok:
+    mov     edx, eax
+
+loc_return:
+    mov     eax, edx
+    pop     edi
+    pop     esi
+    pop     ebx
+    pop     ebp
+    retn    8
 ?GetHit@mmDropDown@@QAEHMM@Z ENDP
 
 ALIGN 16
@@ -476524,6 +476594,8 @@ stru_630DD0 dd 0FFFFFFFFh
     dd offset loc_616D36
 
 .DATA
+ALIGN 4
+mmDropDown_ScrollCooldown dd 0
 
 ALIGN 4
 ___xc_a dd 0
