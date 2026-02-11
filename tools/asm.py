@@ -81,8 +81,22 @@ def get_code_syms():
             dir_stats[dirname] = set()
         dir_imps = dir_stats[dirname]
 
-        with open(file, 'r', encoding='utf-8') as f:
-            data = f.read()
+        try:
+            with open(file, 'r', encoding='utf-8') as f:
+                data = f.read()
+        except UnicodeDecodeError:
+            with open(file, 'rb') as f:
+                raw = f.read()
+            for line_no, line in enumerate(raw.split(b'\n'), 1):
+                try:
+                    line.decode('utf-8')
+                except UnicodeDecodeError:
+                    bad_chars = {hex(b): bytes([b]).decode('latin-1') for b in line if b > 127}
+                    print('\nERROR:')
+                    print(f'Non-UTF-8 character in {file} on line {line_no}:')
+                    print(f'{line.decode("latin-1").strip()}')
+                    print(f'Bad bytes: {", ".join(f"{k} --> {v}" for k, v in sorted(bad_chars.items()))}\n')
+            raise SystemExit(1)
 
         for match in re.finditer(r'// (\S+).*\n.*ARTS_(IMPORT|EXPORT)', data):
             name = match[1]
@@ -250,7 +264,7 @@ exit_code = None
 
 unused_exports = export_syms - visited
 if unused_exports:
-    print('Unused exports:')
+    print('Unused exports (remove "ARTS_EXPORT" in the header file(s) for the functions below):')
     for sym in unused_exports:
         print(sym)
     exit_code = 1
