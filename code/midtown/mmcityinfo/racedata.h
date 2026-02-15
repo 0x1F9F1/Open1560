@@ -29,7 +29,7 @@ public:
     ARTS_EXPORT mmRaceData();
 
     // ??1mmRaceData@@QAE@XZ
-    ARTS_EXPORT ~mmRaceData() = default;
+    ARTS_EXPORT ~mmRaceData();
 
     // ?GetAmbientDensity@mmRaceData@@QAEMHW4mmSkillLevel@@@Z
     ARTS_EXPORT f32 GetAmbientDensity(i32 race_index, mmSkillLevel skill);

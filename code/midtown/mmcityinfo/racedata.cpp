@@ -27,8 +27,9 @@ define_dummy_symbol(mmcityinfo_racedata);
 #include "stream/fsystem.h"
 #include "stream/stream.h"
 
-mmRaceData::mmRaceData()
-{}
+mmRaceData::mmRaceData() = default;
+
+mmRaceData::~mmRaceData() = default;
 
 f32 mmRaceData::GetAmbientDensity(i32 race_index, mmSkillLevel skill)
 {
@@ -38,7 +39,6 @@ f32 mmRaceData::GetAmbientDensity(i32 race_index, mmSkillLevel skill)
         return AmateurAmbientDensity[race_index];
 }
 
-// unused
 i32 mmRaceData::GetCarType(i32 race_index, mmSkillLevel skill)
 {
     if (skill == mmSkillLevel::Professional)
@@ -123,7 +123,7 @@ i32 mmRaceData::GetWeather(i32 race_index, mmSkillLevel skill)
 
 i32 mmRaceData::Load(char* file)
 {
-    Ptr<Stream> stream {OpenFile(file, "race", ".csv", 0, nullptr, "race data")};
+    Ptr<Stream> stream {OpenFile(file, "race", ".csv", 0, "race data")};
 
     if (!stream)
     {
@@ -139,29 +139,31 @@ i32 mmRaceData::Load(char* file)
 
     while (stream->Gets(buffer, sizeof(buffer)))
     {
-        (void) std::strtok(buffer, ",");
+        char* ctx = nullptr;
 
-        AmateurCarTypes[NumRaces] = std::atoi(std::strtok(nullptr, ","));
-        AmateurTimeOfDay[NumRaces] = std::atoi(std::strtok(nullptr, ","));
-        AmateurWeather[NumRaces] = std::atoi(std::strtok(nullptr, ","));
-        AmateurNumOpps[NumRaces] = std::atoi(std::strtok(nullptr, ","));
-        AmateurNumCops[NumRaces] = std::atoi(std::strtok(nullptr, ","));
-        AmateurAmbientDensity[NumRaces] = std::strtof(std::strtok(nullptr, ","), nullptr);
-        AmateurPedDensity[NumRaces] = std::strtof(std::strtok(nullptr, ","), nullptr);
-        AmateurNumLaps[NumRaces] = std::atoi(std::strtok(nullptr, ","));
-        AmateurTimeLimit[NumRaces] = std::strtof(std::strtok(nullptr, ","), nullptr);
-        AmateurDifficulty[NumRaces] = std::strtof(std::strtok(nullptr, ","), nullptr);
+        (void) arts_strtok(buffer, ",", &ctx);
 
-        ProCarTypes[NumRaces] = std::atoi(std::strtok(nullptr, ","));
-        ProTimeOfDay[NumRaces] = std::atoi(std::strtok(nullptr, ","));
-        ProWeather[NumRaces] = std::atoi(std::strtok(nullptr, ","));
-        ProNumOpps[NumRaces] = std::atoi(std::strtok(nullptr, ","));
-        ProNumCops[NumRaces] = std::atoi(std::strtok(nullptr, ","));
-        ProAmbientDensity[NumRaces] = std::strtof(std::strtok(nullptr, ","), nullptr);
-        ProPedDensity[NumRaces] = std::strtof(std::strtok(nullptr, ","), nullptr);
-        ProNumLaps[NumRaces] = std::atoi(std::strtok(nullptr, ","));
-        ProTimeLimit[NumRaces] = std::strtof(std::strtok(nullptr, ","), nullptr);
-        ProDifficulty[NumRaces] = std::strtof(std::strtok(nullptr, "\r\n"), nullptr);
+        AmateurCarTypes[NumRaces] = std::atoi(arts_strtok(nullptr, ",", &ctx));
+        AmateurTimeOfDay[NumRaces] = std::atoi(arts_strtok(nullptr, ",", &ctx));
+        AmateurWeather[NumRaces] = std::atoi(arts_strtok(nullptr, ",", &ctx));
+        AmateurNumOpps[NumRaces] = std::atoi(arts_strtok(nullptr, ",", &ctx));
+        AmateurNumCops[NumRaces] = std::atoi(arts_strtok(nullptr, ",", &ctx));
+        AmateurAmbientDensity[NumRaces] = std::strtof(arts_strtok(nullptr, ",", &ctx), nullptr);
+        AmateurPedDensity[NumRaces] = std::strtof(arts_strtok(nullptr, ",", &ctx), nullptr);
+        AmateurNumLaps[NumRaces] = std::atoi(arts_strtok(nullptr, ",", &ctx));
+        AmateurTimeLimit[NumRaces] = std::strtof(arts_strtok(nullptr, ",", &ctx), nullptr);
+        AmateurDifficulty[NumRaces] = std::strtof(arts_strtok(nullptr, ",", &ctx), nullptr);
+
+        ProCarTypes[NumRaces] = std::atoi(arts_strtok(nullptr, ",", &ctx));
+        ProTimeOfDay[NumRaces] = std::atoi(arts_strtok(nullptr, ",", &ctx));
+        ProWeather[NumRaces] = std::atoi(arts_strtok(nullptr, ",", &ctx));
+        ProNumOpps[NumRaces] = std::atoi(arts_strtok(nullptr, ",", &ctx));
+        ProNumCops[NumRaces] = std::atoi(arts_strtok(nullptr, ",", &ctx));
+        ProAmbientDensity[NumRaces] = std::strtof(arts_strtok(nullptr, ",", &ctx), nullptr);
+        ProPedDensity[NumRaces] = std::strtof(arts_strtok(nullptr, ",", &ctx), nullptr);
+        ProNumLaps[NumRaces] = std::atoi(arts_strtok(nullptr, ",", &ctx));
+        ProTimeLimit[NumRaces] = std::strtof(arts_strtok(nullptr, ",", &ctx), nullptr);
+        ProDifficulty[NumRaces] = std::strtof(arts_strtok(nullptr, "\r\n", &ctx), nullptr);
 
         ++NumRaces;
     }

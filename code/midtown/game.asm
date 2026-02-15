@@ -263222,457 +263222,6 @@ loc_4D1BAE:
 ??_EmmRecord@@UAEPAXI@Z ENDP
 
 ALIGN 16
-??0mmRaceData@@QAE@XZ PROC PUBLIC
-    mov eax, ecx
-    mov dword ptr [eax], 0
-    retn
-??0mmRaceData@@QAE@XZ ENDP
-
-ALIGN 16
-?Load@mmRaceData@@QAEHPAD@Z PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    sub esp, 100h
-    push ebx
-    mov ebx, dword ptr [ebp+8]
-    push esi
-    push edi
-    push offset asc_64362C
-    push 0
-    push 0
-    push offset asc_643638
-    push offset asc_643640
-    mov esi, ecx
-    push ebx
-    call ?OpenFile@@YAPAVStream@@PBD00HPAD0@Z
-    mov edi, eax
-    add esp, 18h
-    test edi, edi
-    jz loc_4D1F3A
-    push edi
-    lea eax, [ebp-100h]
-    push 100h
-    push eax
-    mov dword ptr [esi], 0
-    call ?arts_fgets@@YAHPADHPAVStream@@@Z
-    add esp, 0Ch
-    lea ecx, [ebp-100h]
-    push offset asc_643648
-    push ecx
-    call _strtok
-    add esp, 8
-    lea edx, [ebp-100h]
-    push edi
-    push 100h
-    push edx
-    call ?arts_fgets@@YAHPADHPAVStream@@@Z
-    add esp, 0Ch
-    test eax, eax
-    jz loc_4D1F24
-
-loc_4D1C63:
-    lea eax, [ebp-100h]
-    push offset asc_64364C
-    push eax
-    call _strtok
-    add esp, 8
-    push offset asc_643650
-    push 0
-    call _strtok
-    add esp, 8
-    push eax
-    call _atoi
-    mov ecx, dword ptr [esi]
-    add esp, 4
-    push offset asc_643654
-    push 0
-    mov dword ptr [esi+ecx*4+4], eax
-    call _strtok
-    add esp, 8
-    push eax
-    call _atoi
-    mov edx, dword ptr [esi]
-    add esp, 4
-    push offset asc_643658
-    push 0
-    mov dword ptr [esi+edx*4+0F4h], eax
-    call _strtok
-    add esp, 8
-    push eax
-    call _atoi
-    mov ecx, dword ptr [esi]
-    add esp, 4
-    push offset asc_64365C
-    push 0
-    mov dword ptr [esi+ecx*4+130h], eax
-    call _strtok
-    add esp, 8
-    push eax
-    call _atoi
-    mov edx, dword ptr [esi]
-    add esp, 4
-    push offset asc_643660
-    push 0
-    mov dword ptr [esi+edx*4+7Ch], eax
-    call _strtok
-    add esp, 8
-    push eax
-    call _atoi
-    mov ecx, dword ptr [esi]
-    add esp, 4
-    push offset asc_643664
-    push 0
-    mov dword ptr [esi+ecx*4+0B8h], eax
-    call _strtok
-    add esp, 8
-    push eax
-    call _atof
-    mov edx, dword ptr [esi]
-    add esp, 4
-    fstp dword ptr [esi+edx*4+1A8h]
-    push offset asc_643668
-    push 0
-    call _strtok
-    add esp, 8
-    push eax
-    call _atof
-    mov eax, dword ptr [esi]
-    add esp, 4
-    fstp dword ptr [esi+eax*4+16Ch]
-    push offset asc_64366C
-    push 0
-    call _strtok
-    add esp, 8
-    push eax
-    call _atoi
-    mov ecx, dword ptr [esi]
-    add esp, 4
-    push offset asc_643670
-    push 0
-    mov dword ptr [esi+ecx*4+40h], eax
-    call _strtok
-    add esp, 8
-    push eax
-    call _atof
-    mov edx, dword ptr [esi]
-    add esp, 4
-    fstp dword ptr [esi+edx*4+1E4h]
-    push offset asc_643674
-    push 0
-    call _strtok
-    add esp, 8
-    push eax
-    call _atof
-    mov eax, dword ptr [esi]
-    add esp, 4
-    fstp dword ptr [esi+eax*4+220h]
-    push offset asc_643678
-    push 0
-    call _strtok
-    add esp, 8
-    push eax
-    call _atoi
-    mov ecx, dword ptr [esi]
-    add esp, 4
-    push offset asc_64367C
-    push 0
-    mov dword ptr [esi+ecx*4+25Ch], eax
-    call _strtok
-    add esp, 8
-    push eax
-    call _atoi
-    mov edx, dword ptr [esi]
-    add esp, 4
-    push offset asc_643680
-    push 0
-    mov dword ptr [esi+edx*4+34Ch], eax
-    call _strtok
-    add esp, 8
-    push eax
-    call _atoi
-    mov ecx, dword ptr [esi]
-    add esp, 4
-    push offset asc_643684
-    push 0
-    mov dword ptr [esi+ecx*4+388h], eax
-    call _strtok
-    add esp, 8
-    push eax
-    call _atoi
-    mov edx, dword ptr [esi]
-    add esp, 4
-    push offset asc_643688
-    push 0
-    mov dword ptr [esi+edx*4+2D4h], eax
-    call _strtok
-    add esp, 8
-    push eax
-    call _atoi
-    mov ecx, dword ptr [esi]
-    add esp, 4
-    push offset asc_64368C
-    push 0
-    mov dword ptr [esi+ecx*4+310h], eax
-    call _strtok
-    add esp, 8
-    push eax
-    call _atof
-    mov edx, dword ptr [esi]
-    add esp, 4
-    fstp dword ptr [esi+edx*4+400h]
-    push offset asc_643690
-    push 0
-    call _strtok
-    add esp, 8
-    push eax
-    call _atof
-    mov eax, dword ptr [esi]
-    add esp, 4
-    fstp dword ptr [esi+eax*4+3C4h]
-    push offset asc_643694
-    push 0
-    call _strtok
-    add esp, 8
-    push eax
-    call _atoi
-    mov ecx, dword ptr [esi]
-    add esp, 4
-    push offset asc_643698
-    push 0
-    mov dword ptr [esi+ecx*4+298h], eax
-    call _strtok
-    add esp, 8
-    push eax
-    call _atof
-    mov edx, dword ptr [esi]
-    add esp, 4
-    fstp dword ptr [esi+edx*4+43Ch]
-    push offset asc_64369C
-    push 0
-    call _strtok
-    add esp, 8
-    push eax
-    call _atof
-    mov eax, dword ptr [esi]
-    add esp, 4
-    lea ecx, [ebp-100h]
-    fstp dword ptr [esi+eax*4+478h]
-    mov edx, dword ptr [esi]
-    push edi
-    inc edx
-    push 100h
-    push ecx
-    mov dword ptr [esi], edx
-    call ?arts_fgets@@YAHPADHPAVStream@@@Z
-    add esp, 0Ch
-    test eax, eax
-    jnz loc_4D1C63
-
-loc_4D1F24:
-    mov edx, dword ptr [edi]
-    push 1
-    mov ecx, edi
-    call dword ptr [edx]
-    mov eax, 1
-    pop edi
-    pop esi
-    pop ebx
-    mov esp, ebp
-    pop ebp
-    retn 4
-
-loc_4D1F3A:
-    push ebx
-    push offset asc_6436A0
-    call ?Errorf@@YAXPBDZZ
-    add esp, 8
-    xor eax, eax
-    pop edi
-    pop esi
-    pop ebx
-    mov esp, ebp
-    pop ebp
-    retn 4
-?Load@mmRaceData@@QAEHPAD@Z ENDP
-
-ALIGN 16
-?GetNumRaces@mmRaceData@@QAEHXZ PROC PUBLIC
-    mov eax, dword ptr [ecx]
-    retn
-?GetNumRaces@mmRaceData@@QAEHXZ ENDP
-
-ALIGN 16
-?GetNumLaps@mmRaceData@@QAEHHW4mmSkillLevel@@@Z PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    mov eax, dword ptr [ebp+0Ch]
-    test eax, eax
-    jnz loc_4D1FC5
-    mov eax, dword ptr [ebp+8]
-    mov eax, dword ptr [ecx+eax*4+40h]
-    pop ebp
-    retn 8
-
-loc_4D1FC5:
-    mov edx, dword ptr [ebp+8]
-    mov eax, dword ptr [ecx+edx*4+298h]
-    pop ebp
-    retn 8
-?GetNumLaps@mmRaceData@@QAEHHW4mmSkillLevel@@@Z ENDP
-
-ALIGN 16
-?GetTimeLimit@mmRaceData@@QAEMHW4mmSkillLevel@@@Z PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    mov eax, dword ptr [ebp+0Ch]
-    test eax, eax
-    jnz loc_4D1FF8
-    mov eax, dword ptr [ebp+8]
-    fld dword ptr [ecx+eax*4+1E4h]
-    pop ebp
-    retn 8
-
-loc_4D1FF8:
-    mov edx, dword ptr [ebp+8]
-    fld dword ptr [ecx+edx*4+43Ch]
-    pop ebp
-    retn 8
-?GetTimeLimit@mmRaceData@@QAEMHW4mmSkillLevel@@@Z ENDP
-
-ALIGN 16
-?GetNumOpponents@mmRaceData@@QAEHHW4mmSkillLevel@@@Z PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    mov eax, dword ptr [ebp+0Ch]
-    test eax, eax
-    jnz loc_4D2025
-    mov eax, dword ptr [ebp+8]
-    mov eax, dword ptr [ecx+eax*4+7Ch]
-    pop ebp
-    retn 8
-
-loc_4D2025:
-    mov edx, dword ptr [ebp+8]
-    mov eax, dword ptr [ecx+edx*4+2D4h]
-    pop ebp
-    retn 8
-?GetNumOpponents@mmRaceData@@QAEHHW4mmSkillLevel@@@Z ENDP
-
-ALIGN 16
-?GetNumCops@mmRaceData@@QAEHHW4mmSkillLevel@@@Z PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    mov eax, dword ptr [ebp+0Ch]
-    test eax, eax
-    jnz loc_4D2058
-    mov eax, dword ptr [ebp+8]
-    mov eax, dword ptr [ecx+eax*4+0B8h]
-    pop ebp
-    retn 8
-
-loc_4D2058:
-    mov edx, dword ptr [ebp+8]
-    mov eax, dword ptr [ecx+edx*4+310h]
-    pop ebp
-    retn 8
-?GetNumCops@mmRaceData@@QAEHHW4mmSkillLevel@@@Z ENDP
-
-ALIGN 16
-?GetTimeOfDay@mmRaceData@@QAEHHW4mmSkillLevel@@@Z PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    mov eax, dword ptr [ebp+0Ch]
-    test eax, eax
-    jnz loc_4D2088
-    mov eax, dword ptr [ebp+8]
-    mov eax, dword ptr [ecx+eax*4+0F4h]
-    pop ebp
-    retn 8
-
-loc_4D2088:
-    mov edx, dword ptr [ebp+8]
-    mov eax, dword ptr [ecx+edx*4+34Ch]
-    pop ebp
-    retn 8
-?GetTimeOfDay@mmRaceData@@QAEHHW4mmSkillLevel@@@Z ENDP
-
-ALIGN 16
-?GetWeather@mmRaceData@@QAEHHW4mmSkillLevel@@@Z PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    mov eax, dword ptr [ebp+0Ch]
-    test eax, eax
-    jnz loc_4D20B8
-    mov eax, dword ptr [ebp+8]
-    mov eax, dword ptr [ecx+eax*4+130h]
-    pop ebp
-    retn 8
-
-loc_4D20B8:
-    mov edx, dword ptr [ebp+8]
-    mov eax, dword ptr [ecx+edx*4+388h]
-    pop ebp
-    retn 8
-?GetWeather@mmRaceData@@QAEHHW4mmSkillLevel@@@Z ENDP
-
-ALIGN 16
-?GetPedDensity@mmRaceData@@QAEMHW4mmSkillLevel@@@Z PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    mov eax, dword ptr [ebp+0Ch]
-    test eax, eax
-    jnz loc_4D20E8
-    mov eax, dword ptr [ebp+8]
-    fld dword ptr [ecx+eax*4+16Ch]
-    pop ebp
-    retn 8
-
-loc_4D20E8:
-    mov edx, dword ptr [ebp+8]
-    fld dword ptr [ecx+edx*4+3C4h]
-    pop ebp
-    retn 8
-?GetPedDensity@mmRaceData@@QAEMHW4mmSkillLevel@@@Z ENDP
-
-ALIGN 16
-?GetAmbientDensity@mmRaceData@@QAEMHW4mmSkillLevel@@@Z PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    mov eax, dword ptr [ebp+0Ch]
-    test eax, eax
-    jnz loc_4D2118
-    mov eax, dword ptr [ebp+8]
-    fld dword ptr [ecx+eax*4+1A8h]
-    pop ebp
-    retn 8
-
-loc_4D2118:
-    mov edx, dword ptr [ebp+8]
-    fld dword ptr [ecx+edx*4+400h]
-    pop ebp
-    retn 8
-?GetAmbientDensity@mmRaceData@@QAEMHW4mmSkillLevel@@@Z ENDP
-
-ALIGN 16
-?GetDifficulty@mmRaceData@@QAEMHW4mmSkillLevel@@@Z PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    mov eax, dword ptr [ebp+0Ch]
-    test eax, eax
-    jnz loc_4D2148
-    mov eax, dword ptr [ebp+8]
-    fld dword ptr [ecx+eax*4+220h]
-    pop ebp
-    retn 8
-
-loc_4D2148:
-    mov edx, dword ptr [ebp+8]
-    fld dword ptr [ecx+edx*4+478h]
-    pop ebp
-    retn 8
-?GetDifficulty@mmRaceData@@QAEMHW4mmSkillLevel@@@Z ENDP
-
-ALIGN 16
 ??0mmPropInfo@@QAE@XZ PROC PUBLIC
     push esi
     mov esi, ecx
@@ -486482,86 +486031,6 @@ ALIGN 4
 asc_643624 db 'Name',0
 
 ALIGN 4
-asc_64362C db 'race data',0
-
-ALIGN 4
-asc_643638 db '.csv',0
-
-ALIGN 4
-asc_643640 db 'race',0
-
-ALIGN 4
-asc_643648 db 0Dh,0Ah
-    db 0
-
-ALIGN 4
-asc_64364C db ',',0
-
-ALIGN 4
-asc_643650 db ',',0
-
-ALIGN 4
-asc_643654 db ',',0
-
-ALIGN 4
-asc_643658 db ',',0
-
-ALIGN 4
-asc_64365C db ',',0
-
-ALIGN 4
-asc_643660 db ',',0
-
-ALIGN 4
-asc_643664 db ',',0
-
-ALIGN 4
-asc_643668 db ',',0
-
-ALIGN 4
-asc_64366C db ',',0
-
-ALIGN 4
-asc_643670 db ',',0
-
-ALIGN 4
-asc_643674 db ',',0
-
-ALIGN 4
-asc_643678 db ',',0
-
-ALIGN 4
-asc_64367C db ',',0
-
-ALIGN 4
-asc_643680 db ',',0
-
-ALIGN 4
-asc_643684 db ',',0
-
-ALIGN 4
-asc_643688 db ',',0
-
-ALIGN 4
-asc_64368C db ',',0
-
-ALIGN 4
-asc_643690 db ',',0
-
-ALIGN 4
-asc_643694 db ',',0
-
-ALIGN 4
-asc_643698 db ',',0
-
-ALIGN 4
-asc_64369C db 0Dh,0Ah
-    db 0
-
-ALIGN 4
-asc_6436A0 db 'RaceData::Can',27h,'t open %s',0
-
-ALIGN 4
 asc_6436B8 db 'mmPropInfo',0
 
 ALIGN 4
@@ -508726,6 +508195,7 @@ EXTERN ??0mmMatrixInstance@@QAE@XZ:PROC
 EXTERN ??0mmNetObject@@QAE@XZ:PROC
 EXTERN ??0mmNumber@@QAE@XZ:PROC
 EXTERN ??0mmNumberFont@@QAE@XZ:PROC
+EXTERN ??0mmRaceData@@QAE@XZ:PROC
 EXTERN ??0mmShardManager@@QAE@XZ:PROC
 EXTERN ??0mmSingleCircuit@@QAE@XZ:PROC
 EXTERN ??0mmTextNode@@QAE@XZ:PROC
@@ -509178,6 +508648,7 @@ EXTERN ?Get@Stream@@QAEHPAEH@Z:PROC
 EXTERN ?Get@Stream@@QAEHPAGH@Z:PROC
 EXTERN ?Get@Stream@@QAEHPAIH@Z:PROC
 EXTERN ?GetActive@mmBangerActiveManager@@QAEPAVmmBangerActive@@PAVmmBangerInstance@@@Z:PROC
+EXTERN ?GetAmbientDensity@mmRaceData@@QAEMHW4mmSkillLevel@@@Z:PROC
 EXTERN ?GetAxis@mmJoystick@@QAEMH@Z:PROC
 EXTERN ?GetBanger@mmBangerManager@@QAEPAVmmHitBangerInstance@@XZ:PROC
 EXTERN ?GetBitmap@agiPipeline@@QAEPAVagiBitmap@@PBDMMH@Z:PROC
@@ -509201,6 +508672,7 @@ EXTERN ?GetData@mmBangerInstance@@QAEPAVmmBangerData@@XZ:PROC
 EXTERN ?GetDescription@mmIO@@QAEXPAD@Z:PROC
 EXTERN ?GetDescription@mmIODev@@QAEXPAD@Z:PROC
 EXTERN ?GetDeviceNames@DSGlobal@@QAEPAPADXZ:PROC
+EXTERN ?GetDifficulty@mmRaceData@@QAEMHW4mmSkillLevel@@@Z:PROC
 EXTERN ?GetDimensions@UIMenu@@QAEXAAM000@Z:PROC
 EXTERN ?GetEntity@mmBangerInstance@@UAEPAVmmPhysEntity@@XZ:PROC
 EXTERN ?GetEntity@mmInstance@@UAEPAVmmPhysEntity@@XZ:PROC
@@ -509215,9 +508687,14 @@ EXTERN ?GetMultipass@RDLP@@UAEPAVMultipassDLP@@H@Z:PROC
 EXTERN ?GetName@agiLight@@UAEPADXZ:PROC
 EXTERN ?GetName@agiRefreshable@@UAEPADXZ:PROC
 EXTERN ?GetNum3DHalBufs@AudManager@@QAEKXZ:PROC
+EXTERN ?GetNumCops@mmRaceData@@QAEHHW4mmSkillLevel@@@Z:PROC
+EXTERN ?GetNumLaps@mmRaceData@@QAEHHW4mmSkillLevel@@@Z:PROC
+EXTERN ?GetNumOpponents@mmRaceData@@QAEHHW4mmSkillLevel@@@Z:PROC
+EXTERN ?GetNumRaces@mmRaceData@@QAEHXZ:PROC
 EXTERN ?GetNumTracks@CDMan@@QAEFXZ:PROC
 EXTERN ?GetOneButton@mmJoyMan@@QAEHJ@Z:PROC
 EXTERN ?GetPackedTexture@@YAPAVagiTexDef@@PADH@Z:PROC
+EXTERN ?GetPedDensity@mmRaceData@@QAEMHW4mmSkillLevel@@@Z:PROC
 EXTERN ?GetPixel@agiColorModel8@@UAEIPAVagiSurfaceDesc@@HH@Z:PROC
 EXTERN ?GetPixel@agiColorModelABGR@@UAEIPAVagiSurfaceDesc@@HH@Z:PROC
 EXTERN ?GetPixel@agiColorModelARGB@@UAEIPAVagiSurfaceDesc@@HH@Z:PROC
@@ -509240,6 +508717,8 @@ EXTERN ?GetScale@mmInstance@@UAIMXZ:PROC
 EXTERN ?GetTextDimensions@mmTextNode@@QAEXPAXPAULocString@@AAM2@Z:PROC
 EXTERN ?GetTexture@agiPipeline@@QAEPAVagiTexDef@@HH@Z:PROC
 EXTERN ?GetTime@mmTimer@@QAEMXZ:PROC
+EXTERN ?GetTimeLimit@mmRaceData@@QAEMHW4mmSkillLevel@@@Z:PROC
+EXTERN ?GetTimeOfDay@mmRaceData@@QAEHHW4mmSkillLevel@@@Z:PROC
 EXTERN ?GetToken@Tokenizer@@QAEHPADH@Z:PROC
 EXTERN ?GetTypeNameV@Base@@UAEPBDXZ:PROC
 EXTERN ?GetVehicleID@mmVehList@@QAEHPAD@Z:PROC
@@ -509249,6 +508728,7 @@ EXTERN ?GetVelocity@mmBangerInstance@@UAE?AVVector3@@XZ:PROC
 EXTERN ?GetVelocity@mmInstance@@UAE?AVVector3@@XZ:PROC
 EXTERN ?GetWaypoints@mmGameEdit@@UAEPAVmmWaypoints@@XZ:PROC
 EXTERN ?GetWaypoints@mmMultiCR@@UAEPAVmmWaypoints@@XZ:PROC
+EXTERN ?GetWeather@mmRaceData@@QAEHHW4mmSkillLevel@@@Z:PROC
 EXTERN ?GetWidgetID@UIMenu@@QAEHXZ:PROC
 EXTERN ?GlobalDamageScale@@3MA:BYTE
 EXTERN ?GraphicsChange@@3EA:BYTE
@@ -509341,6 +508821,7 @@ EXTERN ?Load@Vector3Type@@UAEXPAVMiniParser@@PAX@Z:PROC
 EXTERN ?Load@asNode@@QAEHPBD@Z:PROC
 EXTERN ?Load@asNode@@UAEXXZ:PROC
 EXTERN ?Load@mmInfoBase@@QAEHPBD@Z:PROC
+EXTERN ?Load@mmRaceData@@QAEHPAD@Z:PROC
 EXTERN ?LoadAll@mmCityList@@QAEXXZ:PROC
 EXTERN ?LoadAll@mmVehList@@QAEXXZ:PROC
 EXTERN ?LoadFont@mmNumberFont@@QAEXPADHI@Z:PROC
