@@ -25,6 +25,8 @@ define_dummy_symbol(mmwidget_dropdown);
 
 #define MM_DROP_TEXT_EFFECTS (MM_TEXT_VCENTER | MM_TEXT_PADDING | MM_TEXT_REQUIRED)
 
+static constexpr i32 MAX_VISIBLE_ROWS = 15;
+
 mmDropDown::mmDropDown() = default;
 
 mmDropDown::~mmDropDown() = default;
@@ -35,18 +37,23 @@ void mmDropDown::InitString(string values)
     DropIndex = nullptr;
 
     NumValues = values.NumSubStrings();
-    ValueNodes = arnewa mmTextNode[NumValues] {};
-    DropIndex = arnewa u32[NumValues] {};
+    ScrollOffset = 0;
 
-    DropHeight = NumValues * Height;
+    const i32 visibleCount = (NumValues < MAX_VISIBLE_ROWS) ? NumValues : MAX_VISIBLE_ROWS;
+
+    ValueNodes = arnewa mmTextNode[visibleCount] {};
+    DropIndex = arnewa u32[visibleCount] {};
+
+    DropHeight = visibleCount * Height;
     Highlighted = -1;
 
     SetString(std::move(values));
 
-    for (i32 i = 0; i < NumValues; ++i)
+    for (i32 i = 0; i < visibleCount; ++i)
     {
         mmTextNode* node = &ValueNodes[i];
-        string value = ValuesString.SubString(i + 1);
+        const i32 realIndex = ScrollOffset + i;
+        string value = ValuesString.SubString(realIndex + 1);
 
         AddChild(node);
         node->Init(X, Bottom + (i * Height), Width, Height, 1, 0);
@@ -59,22 +66,82 @@ void mmDropDown::InitString(string values)
 
 void mmDropDown::SetHighlight(i32 index)
 {
-    if (Highlighted >= 0 && Highlighted < NumValues)
+    const i32 visibleCount = GetVisibleCount();
+
+    // Clamp index
+    if (index < -1)
+        index = -1;
+    if (index >= NumValues)
+        index = NumValues - 1;
+
+    // Auto scroll if needed
+    if (index >= 0)
     {
-        ValueNodes[Highlighted].SetEffects(0, MM_DROP_TEXT_EFFECTS);
+        if (index < ScrollOffset)
+            ScrollOffset = index;
+        else if (index >= ScrollOffset + visibleCount)
+            ScrollOffset = index - (visibleCount - 1);
     }
 
-    if (index >= 0 && index < NumValues)
+    // Clamp ScrollOffset
+    if (ScrollOffset < 0)
+        ScrollOffset = 0;
+
+    const i32 maxScroll = (NumValues > visibleCount) ? (NumValues - visibleCount) : 0;
+    if (ScrollOffset > maxScroll)
+        ScrollOffset = maxScroll;
+
+    // Refresh visible text to match scroll
+    RefreshVisible();
+
+    // Clear effects for all visible rows (prevents duplicate highlight)
+    for (i32 i = 0; i < visibleCount; ++i)
     {
+        ValueNodes[i].SetEffects(0, MM_DROP_TEXT_EFFECTS);
+    }
+
+    // Apply new highlight if it is visible
+    if (index >= ScrollOffset && index < ScrollOffset + visibleCount)
+    {
+        const i32 vis = index - ScrollOffset;
+
         i32 effects = MM_DROP_TEXT_EFFECTS | MM_TEXT_BORDER;
 
         if (!(DisabledMask & (1 << index)))
             effects |= MM_TEXT_HIGHLIGHT;
 
-        ValueNodes[index].SetEffects(0, effects);
+        ValueNodes[vis].SetEffects(0, effects);
     }
 
     Highlighted = index;
+}
+
+i32 mmDropDown::GetVisibleCount() const
+{
+    return (NumValues < MAX_VISIBLE_ROWS) ? NumValues : MAX_VISIBLE_ROWS;
+}
+
+void mmDropDown::RefreshVisible()
+{
+    const i32 visibleCount = GetVisibleCount();
+
+    // Clamp ScrollOffset
+    if (ScrollOffset < 0)
+        ScrollOffset = 0;
+
+    const i32 maxScroll = (NumValues > visibleCount) ? (NumValues - visibleCount) : 0;
+    if (ScrollOffset > maxScroll)
+        ScrollOffset = maxScroll;
+
+    for (i32 i = 0; i < visibleCount; ++i)
+    {
+        const i32 realIndex = ScrollOffset + i;
+
+        string value = ValuesString.SubString(realIndex + 1);
+
+        // Update existing line instead of adding a new one
+        ValueNodes[i].SetString(DropIndex[i], value.get_loc());
+    }
 }
 
 META_DEFINE_CHILD("mmDropDown", mmDropDown, asNode)
