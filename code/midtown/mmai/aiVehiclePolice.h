@@ -72,7 +72,7 @@ public:
     ARTS_IMPORT i32 InPersuit();
 
     // ?Init@aiVehiclePolice@@QAEXHPAVaiRaceData@@@Z
-    ARTS_IMPORT void Init(i32 arg1, aiRaceData* arg2);
+    ARTS_EXPORT void Init(i32 cop_id, aiRaceData* race_data);
 
     // ?PerpEscapes@aiVehiclePolice@@QAEXE@Z
     ARTS_IMPORT void PerpEscapes(u8 arg1);
@@ -113,10 +113,10 @@ public:
     mmCar Car;
     mmCar* TargetCar;
     aiRaceData* RaceData;
-    aiGoalChase* ChaseGoal;
-    aiGoalBackup* BackupGoal;
-    aiGoalStop* StopGoal;
-    aiGoalRandomDrive* RandomDriveGoal;
+    Ptr<aiGoalChase> ChaseGoal;
+    Ptr<aiGoalBackup> BackupGoal;
+    Ptr<aiGoalStop> StopGoal;
+    Ptr<aiGoalRandomDrive> RandomDriveGoal;
     mmPed* Ped;
     Vector3 TargetPt;
     i16 StopId;

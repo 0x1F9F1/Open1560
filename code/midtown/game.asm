@@ -81992,197 +81992,6 @@ loc_444887:
 ??1aiVehiclePolice@@QAE@XZ ENDP
 
 ALIGN 16
-?Init@aiVehiclePolice@@QAEXHPAVaiRaceData@@@Z PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    mov eax, dword ptr fs:[0]
-    push -1
-    push offset ?Init@aiVehiclePolice@@QAEXHPAVaiRaceData@@@Z_SEH
-    push eax
-    mov eax, dword ptr [ebp+0Ch]
-    mov dword ptr fs:[0], esp
-    push ebx
-    push esi
-    mov esi, ecx
-    push edi
-    mov ecx, dword ptr [ebp+8]
-    push ecx
-    mov dword ptr [esi+23E8h], eax
-    lea ebx, [ecx+1]
-    lea ecx, [eax+14h]
-    push ebx
-    call ?Access@List@@QAEPAXH@Z
-    push eax
-    mov ecx, esi
-    call ?Init@aiVehicleSpline@@QAEXPADH@Z
-    lea eax, [esi+198h]
-    push 0
-    mov dword ptr [esi+0B8h], eax
-    mov eax, dword ptr [esi+23E8h]
-    push 3
-    push ebx
-    lea ecx, [eax+14h]
-    lea edi, [esi+0D8h]
-    call ?Access@List@@QAEPAXH@Z
-    push eax
-    mov ecx, edi
-    call ?Init@mmCar@@QAEXPADHH@Z
-    mov edx, dword ptr [edi]
-    mov ecx, edi
-    mov dword ptr [esi+2D0h], -3DE00000h
-    call dword ptr [edx+1Ch]
-    push 1ACh
-    call ?arts_operator_new@@YAPAXI@Z
-    add esp, 4
-    mov dword ptr [ebp+0Ch], eax
-    test eax, eax
-    mov dword ptr [ebp-4], 0
-    jz loc_4449F1
-    lea ecx, [esi+240Eh]
-    lea edx, [esi+2400h]
-    push ecx
-    lea ecx, [esi+240Ch]
-    push edx
-    push ecx
-    lea edx, [esi+23E4h]
-    lea ecx, [esi+14h]
-    push edx
-    push ecx
-    push esi
-    mov ecx, eax
-    call ??0aiGoalChase@@QAE@PAVaiVehiclePolice@@PAVaiRailSet@@PAPAVmmCar@@PAFPAVVector3@@3@Z
-    jmp loc_4449F3
-
-loc_4449F1:
-    xor eax, eax
-
-loc_4449F3:
-    or ebx, -1
-    push 14h
-    mov dword ptr [ebp-4], ebx
-    mov dword ptr [esi+23ECh], eax
-    call ?arts_operator_new@@YAPAXI@Z
-    add esp, 4
-    mov dword ptr [ebp+0Ch], eax
-    test eax, eax
-    mov dword ptr [ebp-4], 1
-    jz loc_444A2C
-    lea edx, [esi+240Eh]
-    lea ecx, [esi+14h]
-    push edx
-    push edi
-    push ecx
-    mov ecx, eax
-    call ??0aiGoalBackup@@QAE@PAVaiRailSet@@PAVmmCar@@PAF@Z
-    jmp loc_444A2E
-
-loc_444A2C:
-    xor eax, eax
-
-loc_444A2E:
-    push 10h
-    mov dword ptr [ebp-4], ebx
-    mov dword ptr [esi+23F0h], eax
-    call ?arts_operator_new@@YAPAXI@Z
-    add esp, 4
-    mov dword ptr [ebp+0Ch], eax
-    test eax, eax
-    mov dword ptr [ebp-4], 2
-    jz loc_444A60
-    lea edx, [esi+240Ch]
-    mov ecx, eax
-    push edx
-    push edi
-    call ??0aiGoalStop@@QAE@PAVmmCar@@PAF@Z
-    jmp loc_444A62
-
-loc_444A60:
-    xor eax, eax
-
-loc_444A62:
-    push 14h
-    mov dword ptr [ebp-4], ebx
-    mov dword ptr [esi+23F4h], eax
-    call ?arts_operator_new@@YAPAXI@Z
-    add esp, 4
-    mov dword ptr [ebp+0Ch], eax
-    test eax, eax
-    mov dword ptr [ebp-4], 3
-    jz loc_444A91
-    lea ecx, [esi+14h]
-    push esi
-    push ecx
-    mov ecx, eax
-    call ??0aiGoalRandomDrive@@QAE@PAVaiRailSet@@PAVaiVehicleSpline@@@Z
-    jmp loc_444A93
-
-loc_444A91:
-    xor eax, eax
-
-loc_444A93:
-    movsx edx, word ptr [esi+10h]
-    mov dword ptr [esi+23F8h], eax
-    mov eax, dword ptr [esi+23E8h]
-    inc edx
-    mov dword ptr [ebp-4], ebx
-    push edx
-    lea ecx, [eax+14h]
-    call ?Access@List@@QAEPAXH@Z
-    cmp dword ptr [eax+30h], 1
-    jnz loc_444AF6
-    mov eax, dword ptr [?mmInstanceHeap@@3V?$mmHeap@H@@A+8]
-    mov ecx, dword ptr [?mmInstanceHeap@@3V?$mmHeap@H@@A+0Ch]
-    mov edi, eax
-    add eax, 34h
-    cmp eax, ecx
-    mov dword ptr [?mmInstanceHeap@@3V?$mmHeap@H@@A+8], eax
-    jbe loc_444AD4
-    call ?mmHeapError@@YAXXZ
-
-loc_444AD4:
-    mov dword ptr [ebp+0Ch], edi
-    test edi, edi
-    mov dword ptr [ebp-4], 4
-    jz loc_444AEB
-    mov ecx, edi
-    call ??0mmPed@@QAE@XZ
-    jmp loc_444AED
-
-loc_444AEB:
-    xor eax, eax
-
-loc_444AED:
-    mov dword ptr [ebp-4], ebx
-    mov dword ptr [esi+23FCh], eax
-
-loc_444AF6:
-    movsx ecx, word ptr [esi+10h]
-    mov eax, dword ptr [esi+23E8h]
-    inc ecx
-    push ecx
-    lea ecx, [eax+14h]
-    call ?Access@List@@QAEPAXH@Z
-    cmp dword ptr [eax+30h], 2
-    jnz loc_444B1B
-    mov word ptr [esi+2410h], 3
-    jmp loc_444B24
-
-loc_444B1B:
-    mov word ptr [esi+2410h], 1
-
-loc_444B24:
-    mov ecx, dword ptr [ebp-0Ch]
-    mov dword ptr [esi+2414h], ebx
-    pop edi
-    pop esi
-    mov dword ptr fs:[0], ecx
-    pop ebx
-    mov esp, ebp
-    pop ebp
-    retn 8
-?Init@aiVehiclePolice@@QAEXHPAVaiRaceData@@@Z ENDP
-
-ALIGN 16
 ?Reset@aiVehiclePolice@@UAEXXZ PROC PUBLIC
     push ebp
     mov ebp, esp
@@ -449270,46 +449079,6 @@ loc_610BBE:
     jmp ___CxxFrameHandler
 ??1aiVehiclePolice@@QAE@XZ_SEH ENDP
 
-loc_610BD6:
-    mov eax, dword ptr [ebp+0Ch]
-    push eax
-    call ?arts_operator_delete@@YAXPAX@Z
-    pop ecx
-    retn
-
-loc_610BE1:
-    mov eax, dword ptr [ebp+0Ch]
-    push eax
-    call ?arts_operator_delete@@YAXPAX@Z
-    pop ecx
-    retn
-
-loc_610BEC:
-    mov eax, dword ptr [ebp+0Ch]
-    push eax
-    call ?arts_operator_delete@@YAXPAX@Z
-    pop ecx
-    retn
-
-loc_610BF7:
-    mov eax, dword ptr [ebp+0Ch]
-    push eax
-    call ?arts_operator_delete@@YAXPAX@Z
-    pop ecx
-    retn
-
-loc_610C02:
-    mov eax, dword ptr [ebp+0Ch]
-    push eax
-    call ??3mmInstance@@SAXPAX@Z
-    pop ecx
-    retn
-
-?Init@aiVehiclePolice@@QAEXHPAVaiRaceData@@@Z_SEH PROC PRIVATE
-    mov eax, offset stru_629D60
-    jmp ___CxxFrameHandler
-?Init@aiVehiclePolice@@QAEXHPAVaiRaceData@@@Z_SEH ENDP
-
 loc_610C20:
     mov ecx, dword ptr [ebp-10h]
     add ecx, 8
@@ -469675,27 +469444,6 @@ stru_629D10 dd 0FFFFFFFFh
     dd offset loc_610BB0
     dd 8
     dd offset loc_610BBE
-
-ALIGN 4
-stru_629D60 dd 19930520h
-    dd 5
-    dd offset stru_629D80
-    dd 0
-    dd 0
-    dd 0
-    dd 0
-
-ALIGN 4
-stru_629D80 dd 0FFFFFFFFh
-    dd offset loc_610BD6
-    dd 0FFFFFFFFh
-    dd offset loc_610BE1
-    dd 0FFFFFFFFh
-    dd offset loc_610BEC
-    dd 0FFFFFFFFh
-    dd offset loc_610BF7
-    dd 0FFFFFFFFh
-    dd offset loc_610C02
 
 ALIGN 4
 stru_629DA8 dd 19930520h
@@ -508689,8 +508437,6 @@ EXTERN ??0agiRasterizer@@QAE@PAVagiPipeline@@@Z:PROC
 EXTERN ??0agiRefreshable@@QAE@PAVagiPipeline@@@Z:PROC
 EXTERN ??0agiTexParameters@@QAE@XZ:PROC
 EXTERN ??0agiTexSorter@@QAE@XZ:PROC
-EXTERN ??0aiGoalBackup@@QAE@PAVaiRailSet@@PAVmmCar@@PAF@Z:PROC
-EXTERN ??0aiGoalStop@@QAE@PAVmmCar@@PAF@Z:PROC
 EXTERN ??0aiPoliceForce@@QAE@XZ:PROC
 EXTERN ??0aiVehicle@@QAE@XZ:PROC
 EXTERN ??0aiVehicleManager@@QAE@XZ:PROC
@@ -509275,6 +509021,7 @@ EXTERN ?Init@agiBitmap@@QAEHPBDMMH@Z:PROC
 EXTERN ?Init@agiLight@@QAEHABVagiLightParameters@@@Z:PROC
 EXTERN ?Init@agiTexLut@@QAEHPBD@Z:PROC
 EXTERN ?Init@aiVehicleOpponent@@QAEXHPAVaiRaceData@@PAD@Z:PROC
+EXTERN ?Init@aiVehiclePolice@@QAEXHPAVaiRaceData@@@Z:PROC
 EXTERN ?Init@asParticles@@QAEXHHHHPAUagiMeshCardVertex@@@Z:PROC
 EXTERN ?Init@ipcMessageQueue@@QAEXHH@Z:PROC
 EXTERN ?Init@mmArrow@@QAEXPAVMatrix34@@@Z:PROC
