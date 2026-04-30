@@ -30,8 +30,8 @@
 #define MM_IDS_10 10
 #define MM_IDS_11 11
 #define MM_IDS_LOADING_CITY_LAYOUT 12
-#define MM_IDS_13 13
-#define MM_IDS_14 14
+#define MM_IDS_LOADING_BANGERS 13
+#define MM_IDS_LOADING_FACADES 14
 #define MM_IDS_15 15
 #define MM_IDS_16 16
 #define MM_IDS_17 17
