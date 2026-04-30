@@ -23,10 +23,13 @@ define_dummy_symbol(mmcity_inst);
 #include "agi/viewport.h"
 #include "agiworld/meshset.h"
 #include "agiworld/quality.h"
+#include "agiworld/texsort.h"
 #include "arts7/sim.h"
+#include "data7/metadefine.h"
 #include "heap.h"
 #include "mmcity/cullcity.h"
 #include "mmcity/renderweb.h"
+#include "stream/problems.h"
 
 f32 mmInstance::LodTable[3 /*Inst Type*/][4 /*Terrain Quality*/][3 /*Lod Dist*/] {
     {
@@ -254,4 +257,285 @@ void mmBuildingInstance::Draw(i32 lod)
         if (agiMeshSet* mesh = GetResidentMeshSet(std::max(lod, INST_LOD_LOW), MESH_FACADE))
             mesh->DrawLit(StaticLighter, MESH_DRAW_CLIP, nullptr);
     }
+}
+
+mmFacadeQuad::mmFacadeQuad(agiMeshSet* mesh, f32 min_y, f32 min_z)
+    : MinY(min_y)
+    , MinZ(min_z)
+{
+    u16* idx = mesh->VertexIndices;
+    Vector3* verts = mesh->Vertices;
+    Vector2* uvs = mesh->TexCoords;
+
+    Vector3* v0 = &verts[idx[0]];
+    Vector3* v1 = &verts[idx[1]];
+    Vector3* v2 = &verts[idx[2]];
+
+    // UV Jacobian: partial derivatives of U,V with respect to vertex Y and Z
+    f32 dy10 = v1->y - v0->y;
+    f32 dz10 = v1->z - v0->z;
+    f32 dy20 = v2->y - v0->y;
+    f32 dz20 = v2->z - v0->z;
+    f32 inv_det = 1.0f / (dy20 * dz10 - dz20 * dy10);
+
+    f32 du10 = uvs[1].x - uvs[0].x, dv10 = uvs[1].y - uvs[0].y;
+    f32 du20 = uvs[2].x - uvs[0].x, dv20 = uvs[2].y - uvs[0].y;
+
+    f32 dU_dY = (du10 * dy20 - du20 * dy10) * inv_det;
+    f32 dU_dZ = (du20 * dz10 - du10 * dz20) * inv_det;
+    f32 dV_dY = (dv10 * dy20 - dv20 * dy10) * inv_det;
+    f32 dV_dZ = (dv20 * dz10 - dv10 * dz20) * inv_det;
+
+    for (i32 i = 0; i < 4; ++i)
+    {
+        Vector3* vt = &verts[idx[i]];
+        f32 u = uvs[i].x;
+        f32 v = uvs[i].y;
+
+        if (min_y != 0.0f && vt->y < min_y)
+        {
+            f32 dy = min_y - vt->y;
+            u += dy * dU_dY;
+            v += dy * dV_dY;
+        }
+
+        if (min_z != 0.0f && vt->z < min_z)
+        {
+            f32 dz = min_z - vt->z;
+            u += dz * dU_dZ;
+            v += dz * dV_dZ;
+        }
+
+        Tex[i][0] = static_cast<i16>(static_cast<i32>(u * 256.0f));
+        Tex[i][1] = static_cast<i16>(static_cast<i32>(v * 256.0f));
+    }
+}
+
+void mmFacadeQuad::DrawLit(agiMeshLighter lighter, agiMeshSet* mesh)
+{
+    if (!mesh->LockIfResident())
+    {
+        mesh->PageIn();
+        return;
+    }
+
+    Vector3 verts[4];
+    Vector2 tex_coords[4];
+    u32 colors[4];
+
+    for (i32 i = 0; i < 4; ++i)
+    {
+        u16 vi = mesh->VertexIndices[i];
+        verts[i] = mesh->Vertices[vi];
+
+        if (MinY != 0.0f && verts[i].y < MinY)
+            verts[i].y = MinY;
+        if (MinZ != 0.0f && verts[i].z < MinZ)
+            verts[i].z = MinZ;
+
+        tex_coords[i].x = static_cast<f32>(Tex[i][0]) * 0.00390625f;
+        tex_coords[i].y = static_cast<f32>(Tex[i][1]) * 0.00390625f;
+    }
+
+    if (mesh->Geometry(MESH_DRAW_CLIP, verts, mesh->Planes) <= 255)
+    {
+        if (lighter)
+        {
+            lighter(nullptr, colors, mesh->Colors, mesh);
+            mesh->FirstPass(colors, tex_coords, 0);
+        }
+        else
+        {
+            mesh->FirstPass(mesh->Colors, tex_coords, 0xFFFFFFFF);
+        }
+    }
+
+    mesh->Unlock();
+}
+
+f32 mmFacadeQuad::DoubleArea(agiMeshSet* mesh)
+{
+    u16* idx = mesh->VertexIndices;
+    Vector3* v0 = &mesh->Vertices[idx[0]];
+    Vector3* v1 = &mesh->Vertices[idx[1]];
+    Vector3* v2 = &mesh->Vertices[idx[2]];
+
+    // X component of (v2-v0) x (v1-v0) = area in the YZ plane
+    return ((*v2 - *v0) % (*v1 - *v0)).x;
+}
+
+i32 mmFacadeQuad::Valid(agiMeshSet* mesh)
+{
+    return std::fabs(DoubleArea(mesh)) > 1.0f;
+}
+
+mmFacadeInstance::mmFacadeInstance() = default;
+
+mmFacadeInstance::~mmFacadeInstance()
+{
+    delete LeftSideQuad;
+    delete RightSideQuad;
+}
+
+void mmFacadeInstance::Draw(i32 lod)
+{
+    enum
+    {
+        MESH_FACADE = 0,
+        MESH_LEFT = 1,
+        MESH_RIGHT = 2,
+        MESH_GRND = 3,
+        MESH_TOP = 4,
+        MESH_BACK = 5,
+    };
+
+    if (Sim()->IsDebugDrawEnabled())
+        return;
+
+    Matrix34 world;
+    Viewport()->SetWorld(ToMatrix(world));
+
+#ifdef ARTS_DEV_BUILD
+    i32 tri_before = agiPolySet::TriCount;
+#endif
+
+    if (asRenderWeb::PassMask & RENDER_PASS_TERRAIN)
+    {
+        if (agiMeshSet* grnd = GetMeshSet(INST_LOD_HIGH, MESH_GRND))
+            grnd->DrawLitEnv(StaticLighter, CullCity()->ShadowMap, CullCity()->EnvMatrix, MESH_DRAW_CLIP);
+
+        if (SubType & INST_INIT_FLAG_FCD_TOP)
+        {
+            if (agiMeshSet* top = GetMeshSet(INST_LOD_HIGH, MESH_TOP))
+                top->DrawLitEnv(StaticLighter, CullCity()->ShadowMap, CullCity()->EnvMatrix, MESH_DRAW_CLIP);
+        }
+    }
+
+    if (asRenderWeb::PassMask & RENDER_PASS_BUILDINGS)
+    {
+        if (agiMeshSet* facade = GetResidentMeshSet(lod, MESH_FACADE))
+            facade->DrawLit(StaticLighter, MESH_DRAW_CLIP, nullptr);
+
+        if (SubType & INST_INIT_FLAG_FCD_LEFT)
+        {
+            if (agiMeshSet* left = GetMeshSet(INST_LOD_HIGH, MESH_LEFT))
+            {
+#ifdef ARTS_DEV_BUILD
+                if (LeftSideQuad && EnableFacadeSideClipping)
+                    LeftSideQuad->DrawLit(StaticLighter, left);
+                else
+#endif
+                    left->DrawLit(StaticLighter, MESH_DRAW_CLIP, nullptr);
+            }
+        }
+
+        if (SubType & INST_INIT_FLAG_FCD_RIGHT)
+        {
+            if (agiMeshSet* right = GetMeshSet(INST_LOD_HIGH, MESH_RIGHT))
+            {
+#ifdef ARTS_DEV_BUILD
+                if (RightSideQuad && EnableFacadeSideClipping)
+                    RightSideQuad->DrawLit(StaticLighter, right);
+                else
+#endif
+                    right->DrawLit(StaticLighter, MESH_DRAW_CLIP, nullptr);
+            }
+        }
+
+        // Owner & 4 checks INST_INIT_FLAG_FCD_BACK (0x400) stored in the high byte of flags
+        if (Owner & (INST_INIT_FLAG_FCD_BACK >> 8))
+        {
+            if (agiMeshSet* back = GetMeshSet(INST_LOD_HIGH, MESH_BACK))
+                back->DrawLit(StaticLighter, MESH_DRAW_CLIP, nullptr);
+        }
+    }
+
+#ifdef ARTS_DEV_BUILD
+    facadeTriCount += agiPolySet::TriCount - tri_before;
+#endif
+}
+
+f32 mmFacadeInstance::GetScale()
+{
+    return Scale;
+}
+
+b32 mmFacadeInstance::InitFacade(
+    char* name, Vector3& start, Vector3& end, f32 scale_param, i32 flags, const Vector3& sides)
+{
+    InitMeshes(name, MESH_SET_UV | MESH_SET_NORMAL | MESH_SET_CPV | MESH_SET_NO_BOUND, "FACADE"_xconst, nullptr);
+    if (!MeshIndex)
+    {
+        InitMeshes(name, MESH_SET_UV | MESH_SET_NORMAL | MESH_SET_CPV | MESH_SET_NO_BOUND, "BLDG"_xconst, nullptr);
+        if (!MeshIndex)
+        {
+            RegisterProblem("No FACADE or BLDG group in facade", name, nullptr);
+            return 0;
+        }
+    }
+
+    Matrix34 mat;
+    MatrixFromPoints(mat, start, end, scale_param);
+    FromMatrix(mat);
+
+    Scale = std::max({mat.m0.Mag(), mat.m1.Mag(), mat.m2.Mag()});
+
+    AddMeshes(name, MESH_SET_UV | MESH_SET_NORMAL | MESH_SET_CPV | MESH_SET_NO_BOUND, "LEFT"_xconst, nullptr);
+    AddMeshes(name, MESH_SET_UV | MESH_SET_NORMAL | MESH_SET_CPV | MESH_SET_NO_BOUND, "RIGHT"_xconst, nullptr);
+    AddMeshes(name, MESH_SET_UV | MESH_SET_NORMAL | MESH_SET_CPV | MESH_SET_NO_BOUND, "GRND"_xconst, nullptr);
+    AddMeshes(name, MESH_SET_UV | MESH_SET_NORMAL | MESH_SET_CPV | MESH_SET_NO_BOUND, "TOP"_xconst, nullptr);
+    AddMeshes(name, MESH_SET_UV | MESH_SET_NORMAL | MESH_SET_CPV | MESH_SET_NO_BOUND, "BACK"_xconst, nullptr);
+
+    SubType = static_cast<u8>(flags);
+    Owner = static_cast<u8>(flags >> 8);
+
+    // Left side quad (LEFT mesh at slot MeshIndex+0, LOD_HIGH)
+    LeftSideQuad = nullptr;
+    if (sides.x != 0.0f || sides.z != 0.0f)
+    {
+        if (agiMeshSet* left = MeshIndex ? MeshSetTable[MeshIndex].Meshes[INST_LOD_HIGH] : nullptr)
+        {
+            left->MakeResident();
+            if (left->VertexCount == 4 && left->SurfaceCount == 1 && mmFacadeQuad::Valid(left))
+                LeftSideQuad = new mmFacadeQuad(left, sides.x, sides.z);
+            else
+                RegisterProblem("Bad left-side quad", name, nullptr);
+            left->Unlock();
+        }
+        else
+        {
+            RegisterProblem("Missing left-side quad", name, nullptr);
+        }
+    }
+
+    // Right side quad (RIGHT mesh at slot MeshIndex+1, LOD_HIGH)
+    RightSideQuad = nullptr;
+    if (sides.y != 0.0f || sides.z != 0.0f)
+    {
+        if (agiMeshSet* right = MeshIndex ? MeshSetTable[MeshIndex + 1].Meshes[INST_LOD_HIGH] : nullptr)
+        {
+            right->MakeResident();
+            if (right->VertexCount == 4 && right->SurfaceCount == 1 && mmFacadeQuad::Valid(right))
+                RightSideQuad = new mmFacadeQuad(right, sides.y, sides.z);
+            else
+                RegisterProblem("Bad right-side quad", name, nullptr);
+            right->Unlock();
+        }
+        else
+        {
+            RegisterProblem("Missing right-side quad", name, nullptr);
+        }
+    }
+
+    return 1;
+}
+
+usize mmFacadeInstance::SizeOf()
+{
+    return sizeof(*this);
+}
+
+void mmFacadeInstance::DeclareFields()
+{
+    mmStaticInstance::DeclareFields();
 }

@@ -18,14 +18,13 @@
 
 #pragma once
 
+#include "agiworld/meshset.h"
 #include "data7/base.h"
 #include "vector7/matrix34.h"
 #include "vector7/vector2.h"
 #include "vector7/vector3.h"
 
 #include "heap.h"
-
-class agiMeshSet;
 class mmBoundTemplate;
 class mmPhysEntity;
 
@@ -492,34 +491,38 @@ public:
 
 check_size(mmStaticInstance, 0x38);
 
+struct mmFacadeQuad;
+
 class mmFacadeInstance final : public mmStaticInstance
 {
 public:
     // ??0mmFacadeInstance@@QAE@XZ
-    ARTS_IMPORT mmFacadeInstance();
+    ARTS_EXPORT mmFacadeInstance();
 
     // ??1mmFacadeInstance@@UAE@XZ
-    ARTS_EXPORT ~mmFacadeInstance() override = default;
+    ARTS_EXPORT ~mmFacadeInstance() override;
 
     // ?Draw@mmFacadeInstance@@UAIXH@Z
-    ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
+    void ARTS_FASTCALL Draw(i32 lod) override;
 
     // ?GetClass@mmFacadeInstance@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetScale@mmFacadeInstance@@UAIMXZ
-    ARTS_IMPORT f32 ARTS_FASTCALL GetScale() override;
+    f32 ARTS_FASTCALL GetScale() override;
 
     // ?InitFacade@mmFacadeInstance@@QAEHPADAAVVector3@@1MHABV2@@Z
-    ARTS_IMPORT i32 InitFacade(char* arg1, Vector3& arg2, Vector3& arg3, f32 arg4, i32 arg5, const Vector3& arg6);
+    b32 InitFacade(char* name, Vector3& start, Vector3& end, f32 scale, i32 flags, const Vector3& sides);
 
     // ?SizeOf@mmFacadeInstance@@UAEIXZ
-    ARTS_IMPORT usize SizeOf() override;
+    usize SizeOf() override;
 
     // ?DeclareFields@mmFacadeInstance@@SAXXZ
-    ARTS_IMPORT static void DeclareFields();
+    ARTS_EXPORT static void DeclareFields();
 
-    u8 gap38[0xC];
+    f32 Scale {};
+    mmFacadeQuad* LeftSideQuad {};
+    mmFacadeQuad* RightSideQuad {};
 };
 
 check_size(mmFacadeInstance, 0x44);
@@ -528,18 +531,20 @@ struct mmFacadeQuad
 {
 public:
     // ??0mmFacadeQuad@@QAE@PAVagiMeshSet@@MM@Z
-    ARTS_IMPORT mmFacadeQuad(agiMeshSet* arg1, f32 arg2, f32 arg3);
+    mmFacadeQuad(agiMeshSet* mesh, f32 min_y, f32 min_z);
 
     // ?DrawLit@mmFacadeQuad@@QAEXP6AXPAEPAI1PAVagiMeshSet@@@Z2@Z
-    ARTS_IMPORT void DrawLit(void (*arg1)(u8*, u32*, u32*, agiMeshSet*), agiMeshSet* arg2);
+    void DrawLit(agiMeshLighter lighter, agiMeshSet* mesh);
 
     // ?DoubleArea@mmFacadeQuad@@SAMPAVagiMeshSet@@@Z
-    ARTS_IMPORT static f32 DoubleArea(agiMeshSet* arg1);
+    static f32 DoubleArea(agiMeshSet* mesh);
 
     // ?Valid@mmFacadeQuad@@SAHPAVagiMeshSet@@@Z
-    ARTS_IMPORT static i32 Valid(agiMeshSet* arg1);
+    static i32 Valid(agiMeshSet* mesh);
 
-    u8 gap0[0x18];
+    i16 Tex[4][2];
+    f32 MinY {};
+    f32 MinZ {};
 };
 
 check_size(mmFacadeQuad, 0x18);

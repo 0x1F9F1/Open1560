@@ -38,6 +38,7 @@ define_dummy_symbol(mmcity_cullcity);
 #include "mmcityinfo/state.h"
 #include "mmdyna/bndtmpl.h"
 #include "mmphysics/phys.h"
+#include "stream/fsystem.h"
 #include "stream/problems.h"
 #include "stream/stream.h"
 
@@ -322,6 +323,126 @@ void mmCullCity::Reset()
 }
 
 static mem::cmd_param PARAM_conelighter {"conelighter", "Use agiConeLighter"};
+
+struct BinaryFacade
+{
+    u16 Room;
+    u16 Flags;
+    Vector3 Start;
+    Vector3 End;
+    Vector3 Sides;
+    f32 Scale;
+};
+
+check_size(BinaryFacade, 0x2C);
+
+void mmCullCity::LoadFacades(char* city_name)
+{
+    ARTS_MEM_STAT("mmCullCity facades");
+
+    Loader()->BeginTask(LOC_STRING(MM_IDS_LOADING_FACADES));
+
+    Ptr<Stream> stream = as_ptr OpenFile(city_name, "city", ".fcd", 0, nullptr, 0, "facade file");
+
+    if (!stream)
+    {
+        Displayf("No facade file for '%s'", city_name);
+        Loader()->EndTask(0.61f);
+        return;
+    }
+
+    i32 count = 0;
+    stream->Read(&count, sizeof(count));
+
+    BinaryFacade fcd {};
+    char facade_name[32];
+
+    for (i32 i = 0; i < count; ++i)
+    {
+        stream->Read(&fcd, sizeof(fcd));
+
+        char* p = facade_name;
+        i32 ch;
+
+        do
+        {
+            ch = stream->GetCh();
+            *p++ = static_cast<char>(ch);
+        } while (ch);
+
+        AddInstance(fcd.Room, facade_name, nullptr, fcd.Flags, &fcd.Start, &fcd.End, &fcd.Sides, fcd.Scale);
+    }
+
+    Loader()->EndTask(0.61f);
+}
+
+void mmCullCity::AddInstance(
+    i32 room, char* name, char* part, i32 flags, Vector3* start, Vector3* end, Vector3* sides, f32 scale)
+{
+    // Sailboats only exists in non-snowy weather
+    if (!strcmp(name, "tpsailboat") && MMSTATE.Weather == mmWeather::Snow)
+        return;
+
+    if (flags & INST_INIT_FLAG_STATIC)
+    {
+        mmInstance* inst = nullptr;
+        i32 is_valid = 0;
+
+        if (flags & INST_INIT_FLAG_SHEAR)
+        {
+            auto* shear = new mmShearInstance();
+            is_valid = shear->Init(name, *start, *end, scale, 0, nullptr);
+            inst = shear;
+        }
+        else if (flags & INST_INIT_FLAG_BUILDING)
+        {
+            auto* building = new mmBuildingInstance();
+            is_valid = building->Init(name, *start, *end, *sides);
+            inst = building;
+
+            if (flags & INST_INIT_FLAG_UPPER)
+            {
+                auto* upper = new mmUpperInstance();
+                Vector3 zero_offset {};
+                upper->Init(name, *start, *end, zero_offset, flags, "UPPER"_xconst);
+                Matrix34 mat;
+                upper->FromMatrix(inst->ToMatrix(mat));
+                ObjectsChain.Parent(upper, 200);
+            }
+        }
+        else
+        {
+            auto* facade = new mmFacadeInstance();
+            is_valid = facade->InitFacade(name, *start, *end, scale, flags, *sides);
+            inst = facade;
+        }
+
+        if (is_valid)
+        {
+            BuildingChain.Parent(inst, static_cast<i16>(room));
+        }
+        else
+        {
+            RegisterProblem("Missing STATIC instance", name, arts_formatf<32>("Group INST%02d", room));
+        }
+    }
+    else
+    {
+        // Non-static: banger object
+        mmBangerData* bng_data = BangerDataMgr()->GetBangerData(name, part);
+
+        // Bluelight is a special effect handled elsewhere
+        if (bng_data && strcmp(name, "bluelight"))
+        {
+            auto* banger = new mmUnhitBangerInstance();
+            banger->Init(name, *start, *end, flags, part);
+
+            // Trailer needs terrain collision
+            if (!strcmp(name, "tp_trailer"))
+                banger->Flags |= INST_FLAG_TERRAIN;
+        }
+    }
+}
 
 void fix_lighting()
 {

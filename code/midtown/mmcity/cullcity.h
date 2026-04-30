@@ -83,10 +83,10 @@ public:
     ARTS_IMPORT i32 IsPolyWater(mmPolygon* arg1);
 
     // ?LoadBangers@mmCullCity@@QAEXPAD@Z
-    ARTS_IMPORT void LoadBangers(char* arg1);
+    ARTS_IMPORT void LoadBangers(char* city_name);
 
     // ?LoadFacades@mmCullCity@@QAEXPAD@Z
-    ARTS_IMPORT void LoadFacades(char* arg1);
+    void LoadFacades(char* city_name);
 
     // ?RelightEverything@mmCullCity@@QAEXXZ
     ARTS_IMPORT void RelightEverything();
@@ -111,8 +111,8 @@ public:
 
 private:
     // ?AddInstance@mmCullCity@@AAEXHPAD0HPAVVector3@@11M@Z
-    ARTS_IMPORT void AddInstance(
-        i32 arg1, char* arg2, char* arg3, i32 arg4, Vector3* arg5, Vector3* arg6, Vector3* arg7, f32 arg8);
+    ARTS_EXPORT void AddInstance(
+        i32 room, char* name, char* part, i32 flags, Vector3* start, Vector3* end, Vector3* sides, f32 scale);
 
     // ?InitSnowTextures@mmCullCity@@AAEXXZ
     ARTS_IMPORT void InitSnowTextures();
@@ -182,7 +182,7 @@ class mmUpperInstance final : public mmMatrixInstance
 {
 public:
     // ??1mmUpperInstance@@UAE@XZ | inline
-    ARTS_EXPORT ~mmUpperInstance() override = default;
+    ~mmUpperInstance() override = default;
 
 private:
     // ?Draw@mmUpperInstance@@EAIXH@Z
