@@ -20,14 +20,16 @@
 
 #include "arts7/node.h"
 
+class mmCarSim;
+
 class mmForce final : public asNode
 {
 public:
     // ??0mmForce@@QAE@XZ
-    ARTS_IMPORT mmForce();
+    mmForce();
 
     // ??1mmForce@@UAE@XZ | inline
-    ARTS_EXPORT ~mmForce() override = default;
+    ~mmForce() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmForce@@UAEXPAVBank@@@Z
@@ -38,12 +40,14 @@ public:
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Update@mmForce@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    void Update() override;
 
     // ?DeclareFields@mmForce@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap20[0xC];
+    f32 Drag {};
+    f32 Downforce {};
+    mmCarSim* CarSim {};
 };
 
 check_size(mmForce, 0x2C);

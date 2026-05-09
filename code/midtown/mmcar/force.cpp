@@ -19,3 +19,65 @@
 define_dummy_symbol(mmcar_force);
 
 #include "force.h"
+
+#include "carsim.h"
+
+#include "arts7/sim.h"
+#include "mmcityinfo/state.h"
+
+static mem::cmd_param PARAM_disabledownforce {"disabledownforce"};
+
+mmForce::mmForce()
+{}
+
+void mmForce::Update()
+{
+    if (CarSim == nullptr)
+    {
+        asNode::Update();
+        return;
+    }
+
+    Vector3 total_force {0.0f, 0.0f, 0.0f};
+    f32 speed = CarSim->Speed;
+    f32 speed_sqr = speed * speed;
+
+    if (speed > 0.0f)
+    {
+        f32 inv_speed = 1.0f / speed;
+        Vector3 vel_dir = CarSim->ICS.LinearVelocity * inv_speed;
+        f32 drag_mag = -Drag * speed_sqr;
+        total_force = vel_dir * drag_mag;
+    }
+
+    f32 downforce_mag = speed_sqr * Downforce;
+    Vector3 downforce_vec = CarSim->ICS.Matrix.m1 * downforce_mag;
+    total_force = total_force - downforce_vec;
+
+    CarSim->ICS.ApplyForce(total_force);
+    CarSim->ICS.AngularMomentum.y *= (1.0f - ARTSPTR->GetUpdateDelta());
+
+    if (CHICAGO)
+    {
+        f32 car_height = CarSim->ICS.Matrix.m3.y;
+
+        if (car_height > YDownForceMinHeight)
+        {
+            if (PARAM_disabledownforce)
+            {
+                CHEATING = true;
+            }
+            else
+            {
+                f32 height_factor = (car_height - YDownForceMinHeight) / (YDownForceMaxHeight - YDownForceMinHeight);
+                f32 downforce_scale = height_factor * (YDownForceMax - YDownForceMin) + YDownForceMin;
+                f32 force_mag = downforce_scale * CarSim->ICS.Mass;
+                Vector3 force_vec = YAXIS * (-force_mag);
+
+                CarSim->ICS.ApplyForce(force_vec);
+            }
+        }
+    }
+
+    asNode::Update();
+}
